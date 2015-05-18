@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Feneko Calculator Feature feature.
+ */
+
+include_once 'feneko_calculator_feature.features.inc';
