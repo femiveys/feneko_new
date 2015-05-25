@@ -1,0 +1,104 @@
+.line-item-details label,
+.line-item-details dt {
+  display: inline-block;
+  margin-right: .5em;
+}
+
+.line-item-details label::after,
+.line-item-details dt::after {
+  content: ": ";
+}
+
+.line-item-details dd {
+  display: inline-block;
+  margin: 0;
+}
+
+.line-item-details dl {
+  margin: 0;
+}
+
+.line-item-details .field-label {
+  font-weight: normal;
+}
+
+/* Multi-Field settings */
+.line-item-details .field-cardinality-multi ul {
+  margin: 0 0 0 2em;
+  font-size: .8em;
+}
+
+.line-item-details dt,
+.line-item-details dd {
+  font-size: inherit;
+  margin: 0 .5em 0 0;
+  padding: 0;
+}
+
+.line-item-details .field-name-field-field-multi-hoek .field-label,
+.line-item-details .field-name-field-field-multi-breedte .field-label {
+  display: inline-block;
+}
+
+.line-item-details .field-name-field-field-multi-hoek ul,
+.line-item-details .field-name-field-field-multi-breedte ul {
+  margin: 0;
+  list-style: none;
+  display: inline-block;
+  font-size: inherit;
+}
+
+.line-item-details .field-name-field-field-multi-hoek li,
+.line-item-details .field-name-field-field-multi-breedte li {
+  display: inline-block;
+}
+
+.line-item-details .field-name-field-field-multi-hoek li:not(:last-child) dl::after,
+.line-item-details .field-name-field-field-multi-breedte li:not(:last-child) dl::after {
+  content: ', ';
+  padding-right: 5px;
+}
+
+.line-item-details .field-name-field-field-multi-hoek dt,
+.line-item-details .field-name-field-field-multi-breedte dt,
+.line-item-details .field-name-field-field-multi-hoek dd,
+.line-item-details .field-name-field-field-multi-breedte dd {
+  margin: 0;
+  padding: 0;
+}
+
+.line-item-details .field-name-field-field-multi-hoek dt::after,
+.line-item-details .field-name-field-field-multi-breedte dt::after {
+  content: '=';
+}
+
+.view-feneko-calculator-line-items table caption {
+  font-size: 1.5em;
+  text-align: left;
+}
+
+/*Styling for cart block*/
+.view-feneko-shopping-cart-block {
+  cursor: pointer;
+}
+
+.view-feneko-shopping-cart-block .detail {
+  display: none;
+  font-size: .7em;
+}
+
+.view-feneko-shopping-cart-block .views-field-type {
+  padding: 0;
+  width: 165px;
+}
+
+.view-feneko-shopping-cart-block .views-field-commerce-total {
+  padding-left: 2px
+}
+
+.entity-commerce-order .order-info {
+  border: 1px solid #bebfb9;
+  padding: 1em;
+  width: 500px;
+  margin-bottom: 1em;
+}
