@@ -1,0 +1,43 @@
+<?php
+/**
+ * @file
+ * Install hooks for Feneko Calculator
+ */
+
+/**
+ * Create the Renolit table.
+ */
+function feneko_calculator_update_7000() {
+  $varchar = array(
+    'type' => 'varchar',
+    'length' => 100,
+    'not null' => TRUE,
+  );
+
+  $table = 'renolit';
+
+  if (!db_table_exists($table)) {
+    db_create_table($table, array(
+      'description' => 'The Renolit code mapping table',
+      'fields' => array(
+        'kleur' => $varchar,
+        'ref' => $varchar,
+      ),
+    ));
+  }
+}
+
+/**
+ * Set minimum order amount
+ */
+function feneko_calculator_update_7001() {
+  variable_set('fc_minimum_order_amount', 87);
+}
+
+/**
+ * Increase prices with 3%
+ */
+function feneko_calculator_update_7002() {
+  db_query('UPDATE {field_data_commerce_price} SET commerce_price_amount=commerce_price_amount*1.03');
+  db_query('UPDATE {field_revision_commerce_price} SET commerce_price_amount=commerce_price_amount*1.03');
+}

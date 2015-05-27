@@ -1,0 +1,4 @@
+name = Disable Table Drag n drop
+description = Adds option #nodrag to fields so we can disable the drag 'n drop of multivalue fields
+core = 7.x
+package = Feneko

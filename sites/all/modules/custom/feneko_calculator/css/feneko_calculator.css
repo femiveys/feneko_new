@@ -1,0 +1,88 @@
+ form.commerce-add-to-cart .form-item-attributes-field-raamtablet-lengte
+,form.commerce-add-to-cart .form-item-attributes-field-sandwichpaneel-lengte
+/*,.node-plaatbewerking form.commerce-add-to-cart .field-name-field-breedte
+*/
+,form.commerce-add-to-cart .form-disabled
+,form.commerce-add-to-cart .form-item-attributes-field-standaardprofiel-afwerking
+,form.commerce-add-to-cart .form-item-attributes-field-plaatbewerking-afwerking
+,form.commerce-add-to-cart .form-item-attributes-field-sandwichpaneel-afwerking
+,form.commerce-add-to-cart .form-item-attributes-field-sandwichpaneel-afwerking-2
+,form.commerce-add-to-cart .form-item-attributes-field-raamtablet-afwerking
+{
+  display: none;
+  /*background: gray;*/
+}
+
+form.commerce-add-to-cart label,
+form.commerce-add-to-cart .label {
+  display: inline-block;
+  width: 260px;
+}
+
+
+form.commerce-add-to-cart table,
+form.commerce-add-to-cart tr,
+form.commerce-add-to-cart th,
+form.commerce-add-to-cart td:hover,
+form.commerce-add-to-cart td {
+  border: 0;
+  background: transparent;
+}
+
+form.commerce-add-to-cart td {
+  padding: 0;
+}
+
+form.commerce-add-to-cart table .form-item {
+  margin: 0;
+}
+
+form.commerce-add-to-cart input.form-text {
+  width: 3em;
+  text-align: right;
+}
+
+form.commerce-add-to-cart .field-name-field-bicolor-kleur input {
+  width: auto;
+  text-align: inherit;
+}
+
+form.commerce-add-to-cart .error {
+  color: red;
+  box-shadow: red 0 0 7px;
+}
+
+
+
+div.multi-val ul {
+  font-size: .7em;
+  margin-left: 2em;
+  margin-bottom: 0;
+}
+
+div.multi-val ul li {
+  list-style-type: hyphen;
+}
+
+form.commerce-add-to-cart img.right {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+form.commerce-add-to-cart {
+  position: relative;
+}
+
+form.commerce-add-to-cart .form-item.color .value {
+  display: inline-block;
+}
+
+form.commerce-add-to-cart .field-name-field-bicolor-kleur input {
+  width: 300px;
+}
+
+form.commerce-add-to-cart .form-item-quantity {
+  border-top: 1px solid #22689B;
+  padding-top: 10px;
+}
