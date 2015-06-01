@@ -35,7 +35,7 @@ function feneko_calculator_menu() {
     'type' => MENU_LOCAL_TASK,
     'page callback' => 'drupal_get_form',
     'page arguments' => array('fc_cart_init_form'),
-    'access arguments' => array('admin_manyforms'), // TODO set right permissions
+    'access arguments' => array('submit_manyforms'), // TODO set right permissions
   );
   $items['calculator/colors'] = array(
     'description' => 'colors autocomplete callback',
@@ -913,6 +913,8 @@ function fc_colors_search($string) {
 
   // Union
   $rs = $ral->union($renolit)->execute();
+
+  $result = array();
 
   foreach ($rs as $record) {
     $key = $record->kleur . ' (' . $record->ref . ')';

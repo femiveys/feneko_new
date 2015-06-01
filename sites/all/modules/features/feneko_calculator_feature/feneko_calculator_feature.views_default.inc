@@ -259,6 +259,7 @@ function feneko_calculator_feature_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
   $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing_1']['label'] = 'Debug';
+  $handler->display->display_options['fields']['nothing_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '[line_item_title]
 [field_base_price]';
   $handler->display->display_options['fields']['nothing_1']['alter']['nl2br'] = TRUE;
