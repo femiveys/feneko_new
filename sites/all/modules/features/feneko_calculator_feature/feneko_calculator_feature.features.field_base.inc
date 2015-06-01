@@ -1171,6 +1171,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         66 => 4000,
         67 => 4000,
         68 => 4000,
+        69 => 4000,
       ),
       'allowed_values_function' => '',
     ),

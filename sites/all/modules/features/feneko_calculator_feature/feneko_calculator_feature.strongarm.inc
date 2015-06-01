@@ -1395,6 +1395,13 @@ function feneko_calculator_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'language_content_type_dorpel_koppelstuk';
+  $strongarm->value = '2';
+  $export['language_content_type_dorpel_koppelstuk'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_muurkap';
   $strongarm->value = '2';
   $export['language_content_type_muurkap'] = $strongarm;
@@ -1465,6 +1472,13 @@ function feneko_calculator_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'menu_options_dorpel_koppelstuk';
+  $strongarm->value = array();
+  $export['menu_options_dorpel_koppelstuk'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_muurkap';
   $strongarm->value = array();
   $export['menu_options_muurkap'] = $strongarm;
@@ -1531,6 +1545,13 @@ function feneko_calculator_feature_strongarm() {
   $strongarm->name = 'menu_parent_dorpel_hoek';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_dorpel_hoek'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_parent_dorpel_koppelstuk';
+  $strongarm->value = 'main-menu:0';
+  $export['menu_parent_dorpel_koppelstuk'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1700,6 +1721,13 @@ function feneko_calculator_feature_strongarm() {
   $strongarm->name = 'node_preview_dorpel_hoek';
   $strongarm->value = '1';
   $export['node_preview_dorpel_hoek'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_preview_dorpel_koppelstuk';
+  $strongarm->value = '1';
+  $export['node_preview_dorpel_koppelstuk'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

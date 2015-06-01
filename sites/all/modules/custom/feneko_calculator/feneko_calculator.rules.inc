@@ -206,12 +206,11 @@ function _fc_add_minimum_invoice_amount_components($line_item_wrapper, $extra_pr
 
   // Add the extra discount component
   // TODO: make this dynamic and not language dependant
-  $korting = t('Korting: -30%');
   $line_item_wrapper->commerce_unit_price->data = commerce_price_component_add(
     $line_item_wrapper->commerce_unit_price->value(),
     // Comment 1st out to have the minimum invoice amount also include the discount part
     // Comment 2nd out to add the minimum invoice amount discount part to the global discount
-    "discount|$korting",
+    "discount|discount_global_discount_0_200",
     // 'minimum_invoice_amount',
     array(
       'amount' => -1 * 0.3 * $extra_price,
@@ -220,7 +219,7 @@ function _fc_add_minimum_invoice_amount_components($line_item_wrapper, $extra_pr
       // Comment 2nd out to add the minimum invoice amount discount part to the global discount
       'data' => array(
         'discount_name' =>  'discount_global_discount_0_200',
-        'discount_component_title' => $korting,
+        'discount_component_title' => t('Korting: -30%'),
       ),
       // 'data' => array(),
     ),
