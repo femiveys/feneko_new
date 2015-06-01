@@ -9,9 +9,12 @@ dependencies[] = commerce_discount
 ; Views handlers
 files[] = includes/views/handlers/commerce_discount_usage_handler_field_commerce_discount_analytics.inc
 
-; Information added by Drupal.org packaging script on 2014-12-23
-version = "7.x-1.0-alpha4+7-dev"
+; Simple tests
+files[] = commerce_discount_usage.test
+
+; Information added by Drupal.org packaging script on 2015-05-21
+version = "7.x-1.0-alpha4+61-dev"
 core = "7.x"
 project = "commerce_discount"
-datestamp = "1419293282"
+datestamp = "1432189082"
 
