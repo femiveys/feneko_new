@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the feneko nieuw feature.
+ */
+
+include_once 'feneko_nieuw.features.inc';
