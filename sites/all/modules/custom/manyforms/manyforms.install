@@ -1,0 +1,685 @@
+<?php
+/**
+ * @file
+ * Install hooks for Many Forms
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function manyforms_schema() {
+  /*
+  if(!class_exists('FenekoSpecificForm')) {
+    $folder = drupal_get_path('module', 'manyforms');
+    require_once("$folder/FenekoForm.php");
+    require_once("$folder/FenekoSpecificForm.php");
+  }
+
+  for($i=1; $i<=12; $i++) {
+    $id = sprintf('%02d', $i);
+    if(!db_table_exists("manyforms_$id")) {
+      $ff = new FenekoSpecificForm($id);
+      $schema["manyforms_$id"] = $ff->getSchema();
+    }
+  }
+  return $schema;
+  */
+}
+
+
+/**
+ * Pre populate the "soort bevestiging" options.
+ */
+function manyforms_update_7000() {
+  $text = "4\n5\n5extr\n7\n7extr\n10\n12\n15\n16\n17\n18\n19\n20\n22\n30\nhh\nsch";
+  variable_set('manyforms_soort_bevestiging_options', $text);
+}
+
+/**
+ * Create the RAL table.
+ */
+function manyforms_update_7001() {
+  $varchar = array(
+    'type' => 'varchar',
+    'length' => 100,
+    'not null' => TRUE,
+  );
+
+  $table = 'ral';
+
+  if (!db_table_exists($table)) {
+    db_create_table($table, array(
+      'description' => 'The RAL code mapping table',
+      'fields' => array(
+        'kleur' => $varchar,
+        'ref' => $varchar,
+      ),
+    ));
+  }
+}
+
+/**
+ * Insert the exported field into all manyforms tables.
+ */
+function manyforms_update_7010() {
+  $field = array(
+    'description' => 'Flag to store if the item has been exported before',
+    'type' => 'int',
+    'size' => 'tiny',
+    'not null' => TRUE,
+    'unsigned' => TRUE,
+    'default' => 0,
+  );
+
+  for ($i = 1; $i <= 12; $i++) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    $name  = 'exported';
+    if (!db_field_exists($table, $name)) {
+      db_add_field($table, $name, $field);
+    }
+  }
+}
+
+/**
+ * Set all the "dierendeur" fields to NULL accepted
+ */
+function manyforms_update_7011() {
+  $field_name = "dierendeur";
+
+  $field = array(
+    'description' => $field_name,
+    'type' => 'varchar',
+    'length' => 100,
+    'not null' => FALSE,
+  );
+
+  for ($i = 1; $i <= 12; $i++) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    if (db_field_exists($table, $field_name)) {
+      db_change_field($table, $field_name, $field_name, $field);
+    }
+  }
+}
+
+/**
+ * Set all the "dierendeur", "diepte", "diepte_borstel", "kader_breedte", "kader_hoogte"
+ * fields so they accept NULL values
+ */
+function manyforms_update_7012() {
+  $field_names = array(
+    "dierendeur",
+    "diepte",
+    "diepte_borstel",
+    "kader_breedte",
+    "kader_hoogte",
+  );
+
+  foreach ($field_names as $field_name) {
+    $varchar = array(
+      'description' => $field_name,
+      'type' => 'varchar',
+      'length' => 100,
+      'not null' => FALSE,
+    );
+
+    for ($i = 1; $i <= 12; $i++) {
+      $id = sprintf('%02d', $i);
+      $table = "manyforms_$id";
+      if (db_field_exists($table, $field_name)) {
+        db_change_field($table, $field_name, $field_name, $varchar);
+      }
+    }
+  }
+}
+
+/**
+ * Remove manyforms_submitter_email_text variable
+ */
+function manyforms_update_7013() {
+  variable_del('manyforms_submitter_email_text');
+}
+
+/**
+ * Add the field gaas_kleur
+ */
+function manyforms_update_7014() {
+  $field_name = "gaas_kleur";
+
+  $field = array(
+    'description' => $field_name,
+    'type' => 'varchar',
+    'length' => 100,
+    'not null' => FALSE,
+  );
+
+  for ($i = 1; $i <= 12; $i++) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    if (db_field_exists($table, 'type_gaas')) {
+      db_add_field($table, $field_name, $field);
+    }
+  }
+}
+
+/**
+ * Bevestiging should be optional
+ */
+function manyforms_update_7015() {
+  $field_name = "bevestiging";
+
+  $field = array(
+    'description' => $field_name,
+    'type' => 'varchar',
+    'length' => 100,
+    'not null' => FALSE,
+  );
+
+  $table = "manyforms_03";
+  if (db_field_exists($table, $field_name)) {
+    db_change_field($table, $field_name, $field_name, $field);
+  }
+}
+
+/**
+ * Soort bevestiging should be optional
+ */
+function manyforms_update_7016() {
+  $field_name = "soort_bevestiging";
+
+  $field = array(
+    'description' => $field_name,
+    'type' => 'varchar',
+    'length' => 100,
+    'not null' => FALSE,
+  );
+
+  for ($i = 1; $i <= 12; $i++) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    if (db_field_exists($table, $field_name)) {
+      db_change_field($table, $field_name, $field_name, $field);
+    }
+  }
+}
+
+/**
+ * Remove the datum field
+ */
+function manyforms_update_7020() {
+  $field_name = "datum";
+
+  for ($i = 1; $i <= 12; $i++) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    if (db_field_exists($table, $field_name)) {
+      db_drop_field($table, $field_name);
+    }
+  }
+}
+
+/**
+ * Remove the kader_hoogte and kader_breedte field
+ */
+function manyforms_update_7021() {
+  $fields = array(
+    'kader_hoogte',
+    'kader_breedte',
+  );
+
+  foreach ($fields as $field_name) {
+    for ($i = 1; $i <= 12; $i++) {
+      $id = sprintf('%02d', $i);
+      $table = "manyforms_$id";
+      if (db_field_exists($table, $field_name)) {
+        db_drop_field($table, $field_name);
+      }
+    }
+  }
+}
+
+/**
+ * Change andoise in anodise
+ */
+function manyforms_update_7022() {
+  $field_name = "kleur";
+
+  for ($i = 1; $i <= 12; $i++) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    if (db_field_exists($table, $field_name)) {
+      $num_updated = db_update($table)
+                       ->fields(array($field_name => 'anodise'))
+                       ->condition($field_name, 'andoise')
+                       ->execute();
+    }
+  }
+}
+
+/**
+ * Insert the opmerking field to all rows of the table.
+ */
+function manyforms_update_7023() {
+  $field = array(
+    'type' => 'varchar',
+    'length' => 100,
+  );
+
+  for ($i = 1; $i <= 12; $i++) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    for($j = 1; $j <= 9; $j++) {
+      $name  = "opmerking$j";
+      if (!db_field_exists($table, $name)) {
+        db_add_field($table, $name, $field);
+      }
+    }
+  }
+}
+
+/**
+ * Create the utilo table.
+ */
+function manyforms_update_7024() {
+  $varchar = array(
+    'type' => 'varchar',
+    'length' => 100,
+    'not null' => TRUE,
+  );
+
+  $table = 'utilo';
+
+  if (!db_table_exists($table)) {
+    db_create_table($table, array(
+      'description' => 'The Utilo code mapping table',
+      'fields' => array(
+        'ref' => $varchar,
+        'descr' => $varchar,
+        'lang' => $varchar,
+      ),
+    ));
+  }
+}
+
+/**
+ * Kader should be optional
+ */
+function manyforms_update_7025() {
+  $field_name = "kader";
+
+  $field = array(
+    'description' => $field_name,
+    'type' => 'varchar',
+    'length' => 100,
+    'not null' => FALSE,
+  );
+
+
+  for ($i = 1; $i <= 12; $i++) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    if (db_field_exists($table, $field_name)) {
+      db_change_field($table, $field_name, $field_name, $field);
+    }
+  }
+}
+
+/**
+ * Fix tnids for missing nodes
+ */
+function manyforms_update_7026() {
+  // Some nodes have tnids that don't exist anymore. The weight module sets
+  // the weight to 0 for these nodes. As such it is impossible to set the correct weight
+  // Here we set the tnid to the value of the nid if the nid of the tnid doesn't exist
+  $result = db_select('node', 'n')->fields('n', array('nid', 'tnid'))->execute();
+
+  foreach ($result as $item) {
+    if($item->tnid != 0) {
+      $t_node = node_load($item->tnid);
+      if($t_node === FALSE) {
+        $node = node_load($item->nid);
+        $node->tnid = 0;
+        node_save($node);
+      }
+    }
+  }
+}
+
+/**
+ * Hoekverbinding should be optional
+ */
+function manyforms_update_7027() {
+  $field_name = "Hoekverbinding";
+
+  $field = array(
+    'description' => $field_name,
+    'type' => 'varchar',
+    'length' => 100,
+    'not null' => FALSE,
+  );
+
+
+  for ($i = 1; $i <= 12; $i++) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    if (db_field_exists($table, $field_name)) {
+      db_change_field($table, $field_name, $field_name, $field);
+    }
+  }
+}
+
+/**
+ * Pomp and scharnierkant should be optional
+ */
+function manyforms_update_7028() {
+  $field_names = array('pomp', 'scharnierkant');
+
+  $field = array(
+    'description' => $field_name,
+    'type' => 'varchar',
+    'length' => 100,
+    'not null' => FALSE,
+  );
+
+
+  for ($i = 1; $i <= 12; $i++) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    foreach ($field_names as $field_name) {
+      if (db_field_exists($table, $field_name)) {
+        db_change_field($table, $field_name, $field_name, $field);
+      }
+    }
+  }
+}
+
+/**
+ * Hoekverbinding should be lower case (fix bug in 7027)
+ */
+function manyforms_update_7029() {
+  $old_name = "Hoekverbinding";
+  $new_name = "hoekverbinding";
+
+  $field = array(
+    'description' => $new_name,
+    'type' => 'varchar',
+    'length' => 100,
+    'not null' => FALSE,
+  );
+
+
+  for ($i = 1; $i <= 12; $i++) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    if (db_field_exists($table, $old_name)) {
+      // For some reason, we need an intermediate field
+      db_change_field($table, $old_name, 'tttt', $field);
+      db_change_field($table, 'tttt', $new_name, $field);
+    }
+  }
+}
+
+/**
+ * Add the opties field to some forms.
+ */
+function manyforms_update_7030() {
+  $field = array(
+    'description' => 'opties',
+    'type' => 'varchar',
+    'length' => 100,
+    'default' => 'nvt',
+    'not null' => FALSE,
+  );
+
+  foreach (array(1, 5, 6) as $i) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    $name  = 'opties';
+    if (!db_field_exists($table, $name)) {
+      db_add_field($table, $name, $field);
+    }
+  }
+}
+
+/**
+ * Add the file field to some forms.
+ */
+function manyforms_update_7031() {
+  $field = array(
+    'description' => 'fid of related file',
+    'type' => 'int',
+    'unsigned' => TRUE,
+    'default' => 0,
+  );
+
+  foreach (array(1, 5) as $i) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    $name  = 'file';
+    if (!db_field_exists($table, $name)) {
+      db_add_field($table, $name, $field);
+    }
+  }
+}
+
+/**
+ * Remove the bijkomende field
+ */
+function manyforms_update_7032() {
+  $field_name = "bijkomende";
+
+  for ($i = 1; $i <= 12; $i++) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    if (db_field_exists($table, $field_name)) {
+      db_drop_field($table, $field_name);
+    }
+  }
+}
+
+/**
+ * Set the default value for field_geblokkeerd for user
+ */
+function manyforms_update_7033() {
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'user');
+    // ->entityCondition('bundle', 'article')
+  $result = $query->execute();
+
+  if (isset($result['user'])) {
+    $uids = array_keys($result['user']);
+    $users = entity_load('user', $uids);
+  }
+
+  foreach ($users as $user) {
+    if($user->uid > 0) {
+      if(!isset($user->field_geblokkeerd['und'][0]['value'])) {
+        $user->field_geblokkeerd['und'] = array(array('value' => '0'));
+        entity_save('user', $user);
+      }
+    }
+  }
+}
+
+/**
+ * Rename bevestiging to soort_bevestiging
+ */
+function manyforms_update_7034() {
+  $old_name = "bevestiging";
+  $new_name = "soort_bevestiging";
+
+  $field = array(
+    'description' => $new_name,
+    'type' => 'varchar',
+    'length' => 100,
+    'not null' => FALSE,
+  );
+
+
+  $table = "manyforms_03";
+  if (db_field_exists($table, $old_name)) {
+    db_change_field($table, $old_name, $new_name, $field);
+  }
+}
+
+/**
+ * Add the pvc field to some forms.
+ */
+function manyforms_update_7035() {
+  $field = array(
+    'description' => 'kleuren toebehoren pvc',
+    'type' => 'varchar',
+    'length' => 100,
+    'default' => 'nvt',
+    'not null' => TRUE,
+  );
+
+  $name = 'pvc';
+
+  foreach (array(2, 3, 4, 5, 7, 8) as $i) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    if (!db_field_exists($table, $name)) {
+      db_add_field($table, $name, $field);
+    }
+  }
+}
+
+/**
+ * Add the borstel_profiel field to some forms.
+ */
+function manyforms_update_7036() {
+  $field = array(
+    'description' => 'borstel profiel',
+    'type' => 'varchar',
+    'length' => 16,
+    'default' => 'nvt',
+    'not null' => FALSE,
+  );
+
+  $name = 'borstel_profiel';
+
+  foreach (array(1, 2) as $i) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    if (!db_field_exists($table, $name)) {
+      db_add_field($table, $name, $field);
+    }
+  }
+}
+
+/**
+ * Add the borstel field to some forms.
+ */
+function manyforms_update_7037() {
+  $field = array(
+    'description' => 'borstel',
+    'type' => 'varchar',
+    'length' => 16,
+    'default' => 'nvt',
+    'not null' => FALSE,
+  );
+
+  $name = 'borstel';
+
+  foreach (array(1, 2) as $i) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    if (!db_field_exists($table, $name)) {
+      db_add_field($table, $name, $field);
+    }
+  }
+}
+
+/**
+ * Add type field to ral.
+ */
+function manyforms_update_7038() {
+  $field = array(
+    'description' => 'Type kleur',
+    'type' => 'varchar',
+    'length' => 16,
+    'default' => 'nvt',
+    'not null' => FALSE,
+  );
+
+  $table = 'ral';
+  $name = 'type';
+
+  if (!db_field_exists($table, $name)) {
+    db_add_field($table, $name, $field);
+  }
+}
+
+/**
+ * Add the afdekdoppen field to Vliegendeur “Classic”.
+ */
+function manyforms_update_7039() {
+  $field = array(
+    'description' => 'afdekdoppen',
+    'type' => 'varchar',
+    'length' => 16,
+    'not null' => TRUE,
+  );
+
+  $name = 'afdekdoppen';
+
+  foreach (array(5) as $i) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    if (!db_field_exists($table, $name)) {
+      db_add_field($table, $name, $field);
+    }
+  }
+}
+
+/**
+ * Add speling field to Inzetvliegenramen
+ */
+function manyforms_update_7040() {
+  $field = array(
+    'description' => 'speling voorzien',
+    'type' => 'varchar',
+    'length' => 16,
+    'not null' => TRUE,
+  );
+
+  $name = 'speling';
+
+  foreach (array(3) as $i) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    if (!db_field_exists($table, $name)) {
+      db_add_field($table, $name, $field);
+    }
+  }
+}
+
+/**
+ * Create elegance+ table
+ */
+function manyforms_update_7041() {
+  $id = '13';
+  $table = "manyforms_$id";
+
+  if(!db_table_exists($table)) {
+    $ff = new FenekoSpecificForm($id);
+    $schema = $ff->getSchema();
+
+    db_create_table($table, $schema);
+  }
+}
+
+/**
+ * Remove the uitvoering field for elegance+
+ */
+function manyforms_update_7042() {
+  $field_name = "uitvoering";
+
+  $id = 13;
+  $table = "manyforms_$id";
+  if (db_field_exists($table, $field_name)) {
+    db_drop_field($table, $field_name);
+  }
+}

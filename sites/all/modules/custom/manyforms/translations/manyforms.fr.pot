@@ -1,0 +1,574 @@
+# $Id$
+#
+# French translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  manyforms_export.inc: n/a
+#  manyforms_setting.inc: n/a
+#  manyforms.module: n/a
+#  manyforms.install: n/a
+#  forms/FenekoForm.php: n/a
+#  manyforms.info: n/a
+#  forms/FenekoSpecificForm.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2013-12-13 00:55+0100\n"
+"PO-Revision-Date: 2013-12-13 00:55+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: French <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n>1);\n"
+
+#: manyforms_export.inc:16
+msgid "Form to export"
+msgstr ""
+
+#: manyforms_export.inc:27
+msgid "Only export submissions that have not been exported before"
+msgstr ""
+
+#: manyforms_export.inc:32
+msgid "Export"
+msgstr ""
+
+#: manyforms_setting.inc:10
+msgid "e-mail"
+msgstr ""
+
+#: manyforms_setting.inc:15
+msgid "Email address where all submission notifications will be sent"
+msgstr ""
+
+#: manyforms_setting.inc:19
+msgid "Client e-mail text"
+msgstr ""
+
+#: manyforms_setting.inc:22
+msgid "Text of the email that will be sent to user who has submitted the form. You can use\n    tokens {link} and {name} to provide link to PDF file and username of the submitter."
+msgstr ""
+
+#: manyforms_setting.inc:27
+msgid "Admin e-mail text"
+msgstr ""
+
+#: manyforms_setting.inc:30
+msgid "Text of the email that will be sent to the email provided above. You can use\n            tokens {link} and {name} to provide link to PDF file and username of the submitter."
+msgstr ""
+
+#: manyforms_setting.inc:35
+msgid "After submit message"
+msgstr ""
+
+#: manyforms_setting.inc:38
+msgid "Text that will be shown to the user after successfull form submission"
+msgstr ""
+
+#: manyforms_setting.inc:42
+msgid "The values for the <b>soort bevestiging</b> field"
+msgstr ""
+
+#: manyforms_setting.inc:45
+msgid "The options for the <b>soort bevestiging</b> field. Every line should hold an option and should have key, Dutch value and French value separated by a pipe.<br />Example: 4|4groot|4grand<br />In this example <em>4</em> will be stored in the DB. <em>4groot</em> will be the value shown for Dutch. <em>4grand</em> will be the value for French.<br />If no French value is given, the Dutch one is assumed.<br />If also no Dutch value is given, the Dutch and French value will be the same as the key."
+msgstr ""
+
+#: manyforms_setting.inc:54
+msgid "%name must be valid e-mail address."
+msgstr ""
+
+#: manyforms.module:118
+msgid "settings"
+msgstr ""
+
+#: manyforms.module:209
+msgid "Importeer RAL codes"
+msgstr ""
+
+#: manyforms.module:211
+msgid "Upload een bestand in CSV formaat. 2 Velden gescheiden door een ; dus. Veld 1 is de kleur, veld 2 de referentie."
+msgstr ""
+
+#: manyforms.module:216
+msgid "Importeer"
+msgstr ""
+
+#: manyforms.module:246
+msgid "The RAL codes were succesfully imported into the database"
+msgstr ""
+
+#: manyforms.module:21
+msgid "12 Forms Overview"
+msgstr ""
+
+#: manyforms.module:28;37
+msgid "12 Forms settings"
+msgstr ""
+
+#: manyforms.module:46
+msgid "12 Forms export"
+msgstr ""
+
+#: manyforms.module:55
+msgid "Import"
+msgstr ""
+
+#: manyforms.module:63
+msgid "PDF"
+msgstr ""
+
+#: manyforms.module:64
+msgid "PDF generator"
+msgstr ""
+
+#: manyforms.module:71
+msgid "autocomplete callback"
+msgstr ""
+
+#: manyforms.module:78
+msgid "Test"
+msgstr ""
+
+#: manyforms.install:66 forms/FenekoForm.php:411
+msgid "Flag to store if the item has been exported before"
+msgstr ""
+
+#: manyforms.info:0
+msgid "12 Forms custom module"
+msgstr ""
+
+#: manyforms.info:0
+msgid "Wrapper for 12 forms"
+msgstr ""
+
+#: manyforms.info:0
+msgid "custom module"
+msgstr ""
+
+#: forms/FenekoForm.php:118
+msgid "No results were found to be exported"
+msgstr ""
+
+#: forms/FenekoForm.php:384
+msgid "bijkomende"
+msgstr ""
+
+#: forms/FenekoForm.php:391
+msgid "submission date"
+msgstr ""
+
+#: forms/FenekoForm.php:401
+msgid "form date"
+msgstr ""
+
+#: forms/FenekoForm.php:421
+msgid "Top checkbox of kader"
+msgstr ""
+
+#: forms/FenekoForm.php:422
+msgid "Left checkbox of kader"
+msgstr ""
+
+#: forms/FenekoForm.php:423
+msgid "Right checkbox of kader"
+msgstr ""
+
+#: forms/FenekoForm.php:424
+msgid "Bottom checkbox of kader"
+msgstr ""
+
+#: forms/FenekoForm.php:425
+msgid "Hoogte measure of kader"
+msgstr ""
+
+#: forms/FenekoForm.php:426
+msgid "Breedte measure of kader"
+msgstr ""
+
+#: forms/FenekoForm.php:431
+msgid "The primary identifier"
+msgstr ""
+
+#: forms/FenekoForm.php:447
+msgid "user identifier"
+msgstr ""
+
+#: forms/FenekoForm.php:527
+msgid "aantal"
+msgstr ""
+
+#: forms/FenekoForm.php:528;825
+msgid "breedte"
+msgstr ""
+
+#: forms/FenekoForm.php:529;829
+msgid "hoogte"
+msgstr ""
+
+#: forms/FenekoForm.php:538
+msgid "lengte<br/>rails"
+msgstr ""
+
+#: forms/FenekoForm.php:631;751;937
+msgid "geen"
+msgstr ""
+
+#: forms/FenekoForm.php:638
+msgid "ja"
+msgstr ""
+
+#: forms/FenekoForm.php:639
+msgid "nee"
+msgstr ""
+
+#: forms/FenekoForm.php:645
+msgid "bevestiging"
+msgstr ""
+
+#: forms/FenekoForm.php:650
+msgid "geen bevestiging"
+msgstr ""
+
+#: forms/FenekoForm.php:651
+msgid "los"
+msgstr ""
+
+#: forms/FenekoForm.php:652
+msgid "op vliegenraam"
+msgstr ""
+
+#: forms/FenekoForm.php:656
+msgid "bijkomende opmerkingen"
+msgstr ""
+
+#: forms/FenekoForm.php:661
+msgid "borstel"
+msgstr ""
+
+#: forms/FenekoForm.php:666
+msgid "kopse kant"
+msgstr ""
+
+#: forms/FenekoForm.php:667
+msgid "zijkant"
+msgstr ""
+
+#: forms/FenekoForm.php:671
+msgid "borstel kopse kant"
+msgstr ""
+
+#: forms/FenekoForm.php:678
+msgid "borstel links"
+msgstr ""
+
+#: forms/FenekoForm.php:685
+msgid "borstel rechts"
+msgstr ""
+
+#: forms/FenekoForm.php:692
+msgid "bovengeleider"
+msgstr ""
+
+#: forms/FenekoForm.php:705
+msgid "datum"
+msgstr ""
+
+#: forms/FenekoForm.php:711;728
+msgid "diepte"
+msgstr ""
+
+#: forms/FenekoForm.php:747
+msgid "dierendeur"
+msgstr ""
+
+#: forms/FenekoForm.php:752
+msgid "hond groot"
+msgstr ""
+
+#: forms/FenekoForm.php:753
+msgid "hond klein"
+msgstr ""
+
+#: forms/FenekoForm.php:754
+msgid "kat"
+msgstr ""
+
+#: forms/FenekoForm.php:763;993
+msgid "links"
+msgstr ""
+
+#: forms/FenekoForm.php:764
+msgid "midden"
+msgstr ""
+
+#: forms/FenekoForm.php:765;994
+msgid "rechts"
+msgstr ""
+
+#: forms/FenekoForm.php:780
+msgid "eindstoppen"
+msgstr ""
+
+#: forms/FenekoForm.php:787;793;845 forms/FenekoSpecificForm.php:565
+msgid "kader"
+msgstr ""
+
+#: forms/FenekoForm.php:802
+msgid "Duid aan waar u een kader wenst"
+msgstr ""
+
+#: forms/FenekoForm.php:835
+msgid "hoekverbinding"
+msgstr ""
+
+#: forms/FenekoForm.php:840
+msgid "gevezen"
+msgstr ""
+
+#: forms/FenekoForm.php:841
+msgid "geperst"
+msgstr ""
+
+#: forms/FenekoForm.php:850;1047
+msgid "standaard"
+msgstr ""
+
+#: forms/FenekoForm.php:851
+msgid "smal"
+msgstr ""
+
+#: forms/FenekoForm.php:855
+msgid "kies een optie"
+msgstr ""
+
+#: forms/FenekoForm.php:860
+msgid "offerte"
+msgstr ""
+
+#: forms/FenekoForm.php:861
+msgid "bestelling"
+msgstr ""
+
+#: forms/FenekoForm.php:866
+msgid "klant"
+msgstr ""
+
+#: forms/FenekoForm.php:878
+msgid "kleur"
+msgstr ""
+
+#: forms/FenekoForm.php:882
+msgid "wit"
+msgstr ""
+
+#: forms/FenekoForm.php:884
+msgid "bruin"
+msgstr ""
+
+#: forms/FenekoForm.php:886
+msgid "anodise"
+msgstr ""
+
+#: forms/FenekoForm.php:887
+msgid "ral"
+msgstr ""
+
+#: forms/FenekoForm.php:897
+msgid "Zoek de RAL code"
+msgstr ""
+
+#: forms/FenekoForm.php:908
+msgid "kleur pees"
+msgstr ""
+
+#: forms/FenekoForm.php:913
+msgid "zwart"
+msgstr ""
+
+#: forms/FenekoForm.php:914
+msgid "grijs"
+msgstr ""
+
+#: forms/FenekoForm.php:918
+msgid "ondergeleider"
+msgstr ""
+
+#: forms/FenekoForm.php:933
+msgid "plint"
+msgstr ""
+
+#: forms/FenekoForm.php:939
+msgid "tot tussenstijl"
+msgstr ""
+
+#: forms/FenekoForm.php:940
+msgid "andere"
+msgstr ""
+
+#: forms/FenekoForm.php:949
+msgid "Geef hier andere maten in..."
+msgstr ""
+
+#: forms/FenekoForm.php:960
+msgid "pomp"
+msgstr ""
+
+#: forms/FenekoForm.php:967
+msgid "profiel"
+msgstr ""
+
+#: forms/FenekoForm.php:979
+msgid "referentie"
+msgstr ""
+
+#: forms/FenekoForm.php:988
+msgid "scharnierkant"
+msgstr ""
+
+#: forms/FenekoForm.php:1001
+msgid "soort bevestiging"
+msgstr ""
+
+#: forms/FenekoForm.php:1005
+msgid "Op maat"
+msgstr ""
+
+#: forms/FenekoForm.php:1012
+msgid "Geef zelf de gewenste maat op"
+msgstr ""
+
+#: forms/FenekoForm.php:1024
+msgid "stootrubber"
+msgstr ""
+
+#: forms/FenekoForm.php:1033
+msgid "Submit"
+msgstr ""
+
+#: forms/FenekoForm.php:1043
+msgid "type gaas"
+msgstr ""
+
+#: forms/FenekoForm.php:1048
+msgid "petscreen"
+msgstr ""
+
+#: forms/FenekoForm.php:1049
+msgid "clearview"
+msgstr ""
+
+#: forms/FenekoForm.php:1058
+msgid "onderaan"
+msgstr ""
+
+#: forms/FenekoForm.php:1059
+msgid "volledig"
+msgstr ""
+
+#: forms/FenekoForm.php:1073
+msgid "uitvoering"
+msgstr ""
+
+#: forms/FenekoForm.php:1078
+msgid "enkel"
+msgstr ""
+
+#: forms/FenekoForm.php:1079
+msgid "dubbel"
+msgstr ""
+
+#: forms/FenekoForm.php:1083
+msgid "verbreding"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:173
+msgid "via website"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:216
+msgid "vliegenramen & plaatbewerking"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:218
+msgid "Bestelbonnen"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:240
+msgid "Vliegenramen Classic"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:247
+msgid "Vliegenramen Basic"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:253
+msgid "Inzetvliegenramen"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:260
+msgid "Vliegendeuren Basic"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:268
+msgid "Vliegendeuren Classic"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:278
+msgid "Vliegendeuren Elegance"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:289
+msgid "Schuifvliegendeuren Basic"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:302
+msgid "Schuifvliegendeuren Classic"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:316
+msgid "Schuifvliegendeuren Elegance"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:331
+msgid "Schuifvliegendeuren smal"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:345
+msgid "Deurplisse"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:359
+msgid "Raamplisse"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:384
+msgid "spie & klemveer"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:385
+msgid "hoge & lage nok"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:400
+msgid "met kader (enkel)"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:401
+msgid "met kader (dubbel)"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:402
+msgid "zonder kader"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:418
+msgid "plat"
+msgstr ""
+
+#: forms/FenekoSpecificForm.php:426
+msgid "rondom"
+msgstr ""
+

@@ -1,0 +1,12 @@
+name = 12 Forms custom module
+description = Wrapper for 12 forms
+core = 7.x
+package = custom module
+
+files[] = forms/FenekoForm.php
+files[] = forms/FenekoSpecificForm.php
+
+scripts[] = 'js/manyforms.js'
+
+stylesheets[all][] = css/style.css
+

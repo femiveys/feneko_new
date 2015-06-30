@@ -1,0 +1,399 @@
+# $Id$
+#
+# French translation of Feneko Many Forms
+# Copyright 2013 IT Simply Works <info@itsimplyworks.be>
+# Generated from files:
+#  forms/FenekoForm.php: n/a
+#  forms/FenekoSpecificForm.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2013-12-12 23:11+0100\n"
+"PO-Revision-Date: 2013-12-12 23:11+0100\n"
+"Last-Translator: Femi Veys <info@itsimplyworks.be>\n"
+"Language-Team: French <jeremie@feneko.be>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n>1);\n"
+
+#: forms/FenekoSpecificForm.php:176
+msgid "De opgegeven maten zijn de doorkijmaten"
+msgstr "Les mesures sont les mesures d'ouverture"
+
+#: forms/FenekoForm.php:527
+msgid "aantal"
+msgstr "nombre"
+
+#: forms/FenekoForm.php:528
+msgid "breedte"
+msgstr "largeur"
+
+#: forms/FenekoForm.php:529
+msgid "hoogte"
+msgstr "hauteur"
+
+#: forms/FenekoForm.php:538
+msgid "lengte<br/>rails"
+msgstr "longeur<br/>rail"
+
+#: forms/FenekoForm.php:631;751;937
+msgid "geen"
+msgstr "non"
+
+#: forms/FenekoForm.php:638
+msgid "ja"
+msgstr "oui"
+
+#: forms/FenekoForm.php:639
+msgid "nee"
+msgstr "non"
+
+#: forms/FenekoForm.php:645
+msgid "bevestiging"
+msgstr "fixation"
+
+#: forms/FenekoForm.php:650
+msgid "geen bevestiging"
+msgstr "pas de fixation"
+
+#: forms/FenekoForm.php:651
+msgid "los"
+msgstr "apart"
+
+#: forms/FenekoForm.php:652
+msgid "op vliegenraam"
+msgstr "sur moustiquaire"
+
+#: forms/FenekoForm.php:656
+msgid "bijkomende opmerkingen"
+msgstr "remarques supplémentaires"
+
+#: forms/FenekoForm.php:661
+msgid "borstel"
+msgstr "brosse"
+
+#: forms/FenekoForm.php:666
+msgid "kopse kant"
+msgstr "côté court"
+
+#: forms/FenekoForm.php:667
+msgid "zijkant"
+msgstr "côté intérieur"
+
+#: forms/FenekoForm.php:671
+msgid "borstel kopse kant"
+msgstr "brosse côté court"
+
+#: forms/FenekoForm.php:678
+msgid "borstel links"
+msgstr "brosse gauche"
+
+#: forms/FenekoForm.php:685
+msgid "borstel rechts"
+msgstr "brosse droite"
+
+#: forms/FenekoForm.php:692
+msgid "bovengeleider"
+msgstr "rail supérieur"
+
+#: forms/FenekoForm.php:705
+msgid "datum"
+msgstr "date"
+
+#: forms/FenekoForm.php:711;728
+msgid "diepte"
+msgstr "profondeur"
+
+#: forms/FenekoForm.php:747
+msgid "dierendeur"
+msgstr "porte animaux"
+
+#: forms/FenekoForm.php:752
+msgid "hond groot"
+msgstr "grand chien"
+
+#: forms/FenekoForm.php:753
+msgid "hond klein"
+msgstr "petit chien"
+
+#: forms/FenekoForm.php:754
+msgid "kat"
+msgstr "chat"
+
+#: forms/FenekoForm.php:763;993
+msgid "links"
+msgstr "gauche"
+
+#: forms/FenekoForm.php:764
+msgid "midden"
+msgstr "milieu"
+
+#: forms/FenekoForm.php:765;994
+msgid "rechts"
+msgstr "droite"
+
+#: forms/FenekoForm.php:780
+msgid "eindstoppen"
+msgstr "arrêt porte coulissante"
+
+#: forms/FenekoForm.php:787;845 forms/FenekoSpecificForm.php:565
+msgid "kader"
+msgstr "dormant"
+
+#: forms/FenekoForm.php:802
+msgid "Duid aan waar u een kader wenst"
+msgstr "Veuillez indiquer où vous voulez un dormant"
+
+#: forms/FenekoForm.php:835
+msgid "hoekverbinding"
+msgstr "finition coin"
+
+#: forms/FenekoForm.php:840
+msgid "gevezen"
+msgstr "vis"
+
+#: forms/FenekoForm.php:841
+msgid "geperst"
+msgstr "pressé"
+
+#: forms/FenekoForm.php:850;1047
+msgid "standaard"
+msgstr "standard"
+
+#: forms/FenekoForm.php:851
+msgid "smal"
+msgstr "étroit"
+
+#: forms/FenekoForm.php:855
+msgid "kies een optie"
+msgstr "choisissez une option"
+
+#: forms/FenekoForm.php:860
+msgid "offerte"
+msgstr "offerte"
+
+#: forms/FenekoForm.php:861
+msgid "bestelling"
+msgstr "commande"
+
+#: forms/FenekoForm.php:866
+msgid "klant"
+msgstr "client"
+
+#: forms/FenekoForm.php:878
+msgid "kleur"
+msgstr "couleur"
+
+#: forms/FenekoForm.php:882
+msgid "wit"
+msgstr "blanc"
+
+#: forms/FenekoForm.php:884
+msgid "bruin"
+msgstr "brun"
+
+#: forms/FenekoForm.php:886
+msgid "anodise"
+msgstr "anodise"
+
+#: forms/FenekoForm.php:887
+msgid "ral"
+msgstr "ral"
+
+#: forms/FenekoForm.php:897
+msgid "Zoek de RAL code"
+msgstr "Cherchez un code RAL"
+
+#: forms/FenekoForm.php:908
+msgid "kleur pees"
+msgstr "couleur joint"
+
+#: forms/FenekoForm.php:913
+msgid "zwart"
+msgstr "noir"
+
+#: forms/FenekoForm.php:914
+msgid "grijs"
+msgstr "gris"
+
+#: forms/FenekoForm.php:918
+msgid "ondergeleider"
+msgstr "rail inférieur"
+
+#: forms/FenekoForm.php:933
+msgid "plint"
+msgstr "plinthe"
+
+#: forms/FenekoForm.php:939
+msgid "tot tussenstijl"
+msgstr "jusqu'au travers"
+
+#: forms/FenekoForm.php:940
+msgid "andere"
+msgstr "autre"
+
+#: forms/FenekoForm.php:949
+msgid "Geef hier andere maten in..."
+msgstr "Mettez ici d'autres mesures..."
+
+#: forms/FenekoForm.php:960
+msgid "pomp"
+msgstr "pompe"
+
+#: forms/FenekoForm.php:967
+msgid "profiel"
+msgstr "profil"
+
+#: forms/FenekoForm.php:979
+msgid "referentie"
+msgstr "référence"
+
+#: forms/FenekoForm.php:988
+msgid "scharnierkant"
+msgstr "côté charnières"
+
+#: forms/FenekoForm.php:1001
+msgid "soort bevestiging"
+msgstr "type de fixation"
+
+#: forms/FenekoForm.php:1005
+msgid "Op maat"
+msgstr "Sur mesure"
+
+#: forms/FenekoForm.php:1012
+msgid "Geef zelf de gewenste maat op"
+msgstr "Mettez la mesure souhaitée"
+
+#: forms/FenekoForm.php:1024
+msgid "stootrubber"
+msgstr "join de protection"
+
+#: forms/FenekoForm.php:1043
+msgid "type gaas"
+msgstr "toile"
+
+#: forms/FenekoForm.php:1048
+msgid "petscreen"
+msgstr "petscreen"
+
+#: forms/FenekoForm.php:1049
+msgid "clearview"
+msgstr "clearview"
+
+#: forms/FenekoForm.php:1058
+msgid "onderaan"
+msgstr "en dessous"
+
+#: forms/FenekoForm.php:1059
+msgid "volledig"
+msgstr "complet"
+
+#: forms/FenekoForm.php:1073
+msgid "uitvoering"
+msgstr "réalisation"
+
+#: forms/FenekoForm.php:1078
+msgid "enkel"
+msgstr "simple"
+
+#: forms/FenekoForm.php:1079
+msgid "dubbel"
+msgstr "double"
+
+#: forms/FenekoForm.php:1083
+msgid "verbreding"
+msgstr "profil de finition"
+
+
+
+
+#: forms/FenekoSpecificForm.php:173
+msgid "via website"
+msgstr "par site web"
+
+#: forms/FenekoSpecificForm.php:216
+msgid "vliegenramen & plaatbewerking"
+msgstr "moustiqaire & façonnage"
+
+#: forms/FenekoSpecificForm.php:218
+msgid "Bestelbonnen"
+msgstr "Bons de commande"
+
+#: forms/FenekoSpecificForm.php:240
+msgid "Vliegenramen Classic"
+msgstr "Moustiquaire Classic"
+
+#: forms/FenekoSpecificForm.php:247
+msgid "Vliegenramen Basic"
+msgstr "Moustiquaire Basic"
+
+#: forms/FenekoSpecificForm.php:253
+msgid "Inzetvliegenramen"
+msgstr "Moustiquaire encastrée"
+
+#: forms/FenekoSpecificForm.php:260
+msgid "Vliegendeuren Basic"
+msgstr "Porte Moustiquaire Basic"
+
+#: forms/FenekoSpecificForm.php:268
+msgid "Vliegendeuren Classic"
+msgstr "Porte Moustiquaire Classic"
+
+#: forms/FenekoSpecificForm.php:278
+msgid "Vliegendeuren Elegance"
+msgstr "Porte Moustiquaire Élégance"
+
+#: forms/FenekoSpecificForm.php:289
+msgid "Schuifvliegendeuren Basic"
+msgstr "Porte Moustiquaire coulissante Basic"
+
+#: forms/FenekoSpecificForm.php:302
+msgid "Schuifvliegendeuren Classic"
+msgstr "Porte Moustiquaire coulissante Classic"
+
+#: forms/FenekoSpecificForm.php:316
+msgid "Schuifvliegendeuren Elegance"
+msgstr "Porte Moustiquaire coulissante Élégance"
+
+#: forms/FenekoSpecificForm.php:331
+msgid "Schuifvliegendeuren smal"
+msgstr "Porte Moustiquaire coulissante Étroite"
+
+#: forms/FenekoSpecificForm.php:345
+msgid "Deurplisse"
+msgstr "Porte pliante"
+
+#: forms/FenekoSpecificForm.php:359
+msgid "Raamplisse"
+msgstr "Moustiquaire pliante"
+
+#: forms/FenekoSpecificForm.php:384
+msgid "spie & klemveer"
+msgstr "coin & ressort"
+
+#: forms/FenekoSpecificForm.php:385
+msgid "hoge & lage nok"
+msgstr "support haut & bas"
+
+#: forms/FenekoSpecificForm.php:400
+msgid "met kader (enkel)"
+msgstr "avec dormant (simple)"
+
+#: forms/FenekoSpecificForm.php:401
+msgid "met kader (dubbel)"
+msgstr "avec dormant (double)"
+
+#: forms/FenekoSpecificForm.php:402
+msgid "zonder kader"
+msgstr "sans dormant"
+
+#: forms/FenekoSpecificForm.php:418
+msgid "plat"
+msgstr "plat"
+
+#: forms/FenekoSpecificForm.php:426
+msgid "rondom"
+msgstr "tout autour"

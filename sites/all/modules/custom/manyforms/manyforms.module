@@ -1,0 +1,382 @@
+<?php
+/**
+ * @file
+ * Feneko 12 Forms
+ */
+define('FENEKO_SCREENS_NUM', 13);
+
+function manyforms_menu() {
+  $items = array();
+
+  for ($i = 1; $i <= FENEKO_SCREENS_NUM; $i++) {
+    $id = sprintf('%02d', $i);
+    $items["forms/form$id"] = array(
+      'page callback' => 'manyforms_form_callback',
+      'page arguments' => array($id),
+      'type' => MENU_CALLBACK,
+      'access arguments' => array('submit_manyforms'),
+    );
+  }
+
+  $items['forms/utilo/search'] = array(
+    'title' => 'Zoek profielen',
+    'type' => MENU_CALLBACK,
+    'page callback' => 'manyforms_utilo_search_page',
+    'access arguments' => array('submit_manyforms'),
+  );
+
+  $items['admin/feneko_screens'] = array(
+    'title' => 'Screens Forms settings',
+    'type' => MENU_NORMAL_ITEM,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('manyforms_setting_form'),
+    'file' => 'manyforms_setting.inc',
+    'access arguments' => array('admin_manyforms'),
+  );
+
+  $items['admin/feneko_screens/overview'] = array(
+    'title' => 'Overview',
+    'type' => MENU_LOCAL_TASK,
+    'page callback' => 'manyforms_overview',
+    'access arguments' => array('admin_manyforms'),
+  );
+
+  $items['admin/feneko_screens/admin'] = array(
+    'title' => 'Settings',
+    'type' => MENU_LOCAL_TASK,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('manyforms_setting_form'),
+    'file' => 'manyforms_setting.inc',
+    'access arguments' => array('admin_manyforms'),
+  );
+
+  $items['admin/feneko_screens/export'] = array(
+    'title' => 'Exporteer',
+    'type' => MENU_LOCAL_TASK,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('manyforms_export_form', FALSE),
+    'file' => 'manyforms_export.inc',
+    'access arguments' => array('admin_manyforms'),
+  );
+
+  $items['admin/feneko_screens/archive'] = array(
+    'title' => 'Archief',
+    'type' => MENU_LOCAL_TASK,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('manyforms_export_form', TRUE),
+    'file' => 'manyforms_export.inc',
+    'access arguments' => array('admin_manyforms'),
+  );
+
+  $items['forms/pdf_generator'] = array(
+    'title' => 'PDF',
+    'description' => 'PDF generator',
+    'page callback' => 'manyforms_generate_pdf',
+    'access arguments' => array('admin_manyforms'),
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  $items['manyforms/autocomplete'] = array(
+    'description' => 'autocomplete callback',
+    'page callback' => 'manyforms_autocomplete',
+    'access arguments' => array('submit_manyforms'),
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  $items['manyforms/autocomplete2'] = array(
+    'description' => 'autocomplete callback',
+    'page callback' => 'manyforms_autocomplete',
+    'page arguments' => array(2, TRUE),
+    'access arguments' => array('submit_manyforms'),
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  $items['forms/test'] = array(
+    'description' => 'Test',
+    'page callback' => 'manyforms_test',
+    'access arguments' => array('admin_manyforms'),
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['forms/export'] = array(
+    'description' => 'Export single item',
+    'page callback' => 'manyforms_export_single',
+    'access arguments' => array('admin_manyforms'),
+    'type' => MENU_CALLBACK,
+    'file' => 'manyforms_export.inc',
+  );
+
+  $items['forms/aliases'] = array(
+    'description' => 'Set aliases for forms',
+    'page callback' => 'manyforms_aliases',
+    'access arguments' => array('admin_manyforms'),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+
+// CALLBACKS //
+function manyforms_generate_pdf($id, $db_id) {
+  $ff = new FenekoSpecificForm($id);
+  $ff->generatePDF($db_id);
+}
+
+function manyforms_form_callback($id) {
+  $ff = new FenekoSpecificForm($id);
+  return drupal_get_form("manyforms_form", $ff);
+}
+
+function manyforms_autocomplete($string, $exception = FALSE) {
+  $exception = $exception ? '7039-70D*' : FALSE;
+  $result = manyforms_ral_search($string, $exception);
+  echo json_encode($result);
+}
+
+function manyforms_ral_search($string, $exception = FALSE) {
+  $result = array();
+  $rs = db_select('ral', 'r')->fields('r')
+                             ->condition('kleur', "%$string%", 'LIKE')
+                             ->execute();
+  foreach ($rs as $record) {
+    if($record->kleur !== $exception) {
+      $key = $record->kleur . ' (' . $record->ref . ')';
+      $result[$key] = $key;
+    }
+  }
+
+  return $result;
+}
+
+function manyforms_ral_validate($name, $value) {
+  // Get the RAL code out of the value
+  preg_match("/(.*)\ \((.*)\)/", $value, $matches);
+  $ral_code = $matches[1];
+  // $ral_ref = $matches[2];
+
+  $results = manyforms_ral_search($ral_code);
+  $match = reset($results);
+
+  if($value !== $match) {
+    form_set_error($name, t('De RAL code is niet uit de lijst gekozen.'));
+  }
+}
+
+function manyforms_utilo_search_page($search) {
+  $search = check_plain($search);
+  $ra = array(
+    'form' => drupal_get_form('manyforms_utilo_search_form', $search),
+    'table' => manyforms_utilo_search_table($search),
+  );
+  return $ra;
+}
+
+function manyforms_utilo_search_form_submit($form, &$form_state) {
+  $search = $form_state['values']['search'];
+  $form_state["redirect"] = "forms/utilo/search/$search";
+}
+
+function manyforms_utilo_search_table($search = '') {
+  $ra = array();
+  global $language;
+
+  // The header defines the order of the columns
+  $header = array(
+    'ref' => array(
+      'data' => t('Referentie'),
+      'field' => 'ref',
+    ),
+    'descr' => array(
+      'data' => t('Beschrijving'),
+      'field' => 'descr',
+    ),
+  );
+
+  $rows = db_select("utilo", 'u')
+            ->condition(db_or()
+              ->condition('ref', "%$search%", 'LIKE')
+              ->condition('descr', "%$search%", 'LIKE')
+            )
+            ->condition('lang', $language->language)
+            ->fields('u', array('ref', 'descr'))
+            ->extend('TableSort')->orderByHeader($header)
+            ->execute()->fetchAllAssoc('ref', PDO::FETCH_ASSOC);
+
+  $ra = array(
+    '#theme' => 'table',
+    '#header' => $header,
+    '#rows' => $rows,
+    '#empty' => t('Er zijn geen Utilo profielen gevonden die voldoen aan de zoekcriteria.'),
+  );
+
+  return $ra;
+}
+
+
+function manyforms_utilo_search_form($form, &$form_state, $search) {
+  return array(
+    '#type' => 'fieldset',
+    '#attributes' => array('class' => array('container-inline')),
+    'search' => array(
+      '#type' => 'textfield',
+      '#attributes' => array(
+        'placeholder' => t('Geef een zoekterm in'),
+      ),
+    ),
+    'submit' => array(
+      '#type' => 'submit',
+      '#value' => 'Zoek',
+    ),
+  );
+}
+
+
+
+function manyforms_aliases() {
+  for ($i = 1; $i <= FENEKO_SCREENS_NUM; $i++) {
+    $id = sprintf('%02d', $i);
+    $ff = new FenekoSpecificForm($id);
+
+    foreach (array('nl' ,'fr') as $lang) {
+      $suffix = $lang === 'nl' ? '/bestel' : '/commandez';
+      $path = array(
+        'alias' => $ff->url[$lang] . $suffix,
+        'source' => "forms/form$id",
+        'language' => $lang,
+      );
+
+
+      // dpm(drupal_lookup_path('source', $path['alias'], $lang));
+
+      // Only add the Alias if it doesn't exist yet
+      if(drupal_lookup_path('source', $path['alias'], $lang) === FALSE) {
+        path_save($path);
+        dpm($path);
+      }
+      else {
+        dpm('exists');
+      }
+    }
+  }
+  return array();
+}
+
+
+function manyforms_overview() {
+  for ($i = 1; $i <= FENEKO_SCREENS_NUM; $i++) {
+    $id = sprintf('%02d', $i);
+    $ff = new FenekoSpecificForm($id);
+
+    $page["form$i"] = array(
+      '#type' => 'container',
+      '#attributes' => array(),
+      '#theme' => 'link',
+      '#text' => "$id: " . $ff->title,
+      '#path' => "forms/form$id",
+      '#options' => array(
+        'attributes' => array(),
+        'html' => FALSE,
+      ),
+    );
+  }
+
+  return $page;
+}
+
+function manyforms_test() {
+  // $ff = new FenekoSpecificForm('01');
+  // $ff->mailing(1);
+
+  // return array();
+}
+
+// DEFINE PERMISSIONS.
+function manyforms_permission() {
+  return array(
+    'admin_manyforms' => array(
+      'title' => 'Admin manyforms module',
+      'restrict access' => TRUE,
+    ),
+    'submit_manyforms' => array(
+      'title' => 'Submit form',
+      'restrict access' => TRUE,
+    ),
+  );
+}
+
+
+/**
+ * Implements hook_mail().
+ */
+function manyforms_mail($key, &$message, $params) {
+  $message['subject'] = $params['subject'];
+  $message['body'][] = $params['body'];
+}
+
+/**
+ * Implements hook_theme().
+ */
+function manyforms_theme() {
+  $themes = array(
+    'tablearea_theme' => array(
+      'render element' => 'form',
+    ),
+  );
+  return $themes;
+}
+
+
+// FORMS.
+function manyforms_form($form, &$form_state) {
+  $ff = $form_state['build_info']['args'][0];
+  /*
+  if(db_table_exists('manyforms_' . $ff->getId()) === FALSE) {
+    drupal_install_schema('manyforms');
+  }
+  */
+  drupal_set_title($ff->title);
+
+  return $ff->form;
+}
+
+function manyforms_form_validate($form, &$form_state) {
+  $ff = $form_state['build_info']['args'][0];
+  $ff->validate($form_state['values']);
+}
+
+function manyforms_form_submit($form, &$form_state) {
+  $ff = $form_state['build_info']['args'][0];
+  $ff->submit($form_state['values']);
+}
+
+
+function manyforms_opties_callback($form, &$form_state) {
+  $ff = $form_state['build_info']['args'][0];
+  $ff->form['opties']['#options'] = $ff->getOpties($form_state['input']['uitvoering']);
+  $ff->form['opties']['#name'] = 'opties';
+  return $ff->form['opties'];
+}
+
+
+function manyforms_variable_info($options) {
+  $variable = array(
+    'manyforms_order_email_text' => array(
+      'type' => 'string',
+      'title' => t('Manyforms: Client e-mail text for an order', array(), $options),
+      'description' => t('Text of the email that will be sent to user who has submitted an order'),
+    ),
+    'manyforms_offer_email_text' => array(
+      'type' => 'string',
+      'title' => t('Manyforms: Client e-mail text for an offer', array(), $options),
+      'description' => t('Text of the email that will be sent to user who has submitted an offer'),
+    ),
+    'manyforms_submiting_text' => array(
+      'type' => 'string',
+      'title' => t('Manyforms: After submit message', array(), $options),
+      'description' => t('Text that will be shown to the user after successfull form submission'),
+    ),
+  );
+
+  return $variable;
+}

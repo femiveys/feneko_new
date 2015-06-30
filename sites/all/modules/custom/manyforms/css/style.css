@@ -1,0 +1,7 @@
+.visible-when-double {
+  display: none;
+}
+
+.double .visible-when-double {
+  display: block;
+}
