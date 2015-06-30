@@ -1,0 +1,191 @@
+// calendar
+#block-views-kalender-block-1 {
+  clear: both;
+  .clearfix {
+    &:after {
+      display: none;
+    }
+  }
+}
+
+.view-display-id-block_2,
+#block-views-kalender-block-1,
+#block-views-nieuws-block-2 {
+  .views-row,
+  li {
+    margin-bottom: $padding;
+    padding: $padding/2;
+    color: $grey;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    a {
+      color: $grey;
+      padding-left: $padding*2;
+    }
+    &:nth-child(1n+0) {
+      border: 1px solid $blue;
+      &:hover {
+        background-color: darken($blue, 5%);
+        color: $white;
+        a {
+          color: $white;
+        }
+      }
+    }
+    &:nth-child(2n+2) {
+      border: 1px solid $red;
+      &:hover {
+        background-color: darken($red, 5%);
+        color: $white;
+        a {
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+#block-views-nieuws-block-2 {
+  li a {
+    padding-left: 0;
+    text-decoration: none;
+  }
+}
+
+
+.view-kalender {
+  .date-nav-wrapper {
+    .date-nav {
+      background-color: $grey;
+      color: $white;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      height: 0;
+      border: 1px solid $grey;
+      a {
+        color: $darkblue;
+      }
+    }
+    .date-prev,
+    .date-next {
+      background-color: transparent;
+      border-radius: 0;
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+  .calendar-calendar {
+    border: 1px solid $grey;
+    background-color: $grey;
+    .mini {
+      font-size: 11px;
+      font-weight: bold;
+      text-align: center;
+      background-color: lighten($grey, 55%);
+
+      &:hover {
+        background-color: lighten($grey, 30%);
+      }
+      &.past {
+        color: lighten($grey, 45%);
+        a {
+          color: lighten($grey, 30%);
+        }
+      }
+      &.today {
+        background-image: none;
+        background-color: $darkblue;
+        color: $white;
+        a,
+        a:hover {
+          color: $white;
+        }
+      }
+    }
+    table {
+      margin-bottom: $padding*2;
+    }
+    thead {
+      border-bottom: 1px solid darken($lightgrey, 15%);
+    }
+    th.days {
+      border: none;
+      color: $black;
+    }
+    table.mini td.empty {
+      background: $lightgrey;
+    }
+    td {
+      color: $darkblue;
+      padding: 5px;
+      &.has-events {
+        padding: 0;
+      }
+    }
+    a {
+      color: $white;
+      font-weight: bold;
+      width: 100%;
+      display: block;
+      background-color: $black;
+      text-decoration: none;
+      padding: 5px;
+
+    }
+  }
+  .month-view,
+  .week-view,
+  .day-view {
+    .full {
+      td.single-day {
+        div.monthview,
+        div.weekview,
+        div.dayview {
+          background: $red;
+          color: $white;
+          border-radius: 0;
+          -webkit-transition: all 0.5s;
+          -moz-transition: all 0.5s;
+          transition: all 0.5s;
+          &:hover {
+            background-color: darken($red, 15%);
+          }
+          a {
+            color: $white;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+        &.empty,
+        .calendar-empty {
+          background-color: $white;
+        }
+      }
+      td.date-box {
+        &.empty {
+          background-color: $white;
+        }
+      }
+    }
+  }
+}
+
+
+
+.date-heading {
+  h3 {
+    color: $white;
+    font-size: 18px!important;
+  }
+}
+
+
+
+.calendar-calendar .month-view .full td.single-day .calendar-empty, 
+.calendar-calendar .month-view .full td.date-box.empty {
+  background: white;
+}

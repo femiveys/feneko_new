@@ -1,0 +1,122 @@
+*,
+*:after,
+*:before {
+  @include box-sizing(border-box);
+}
+
+html {
+  overflow-x: hidden;
+}
+
+
+body {
+  @include crisp;
+}
+
+.totop {
+	cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  a {
+    text-decoration: none;
+  }
+}
+
+p {
+  margin-top: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  &.menu {
+    padding: 0;
+    li {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
+nav.tabs {
+  overflow: hidden;
+}
+
+ul.tabs {
+  margin-bottom: $padding*3;
+  li {
+    margin-right: $padding/2;
+    a {
+      margin-bottom: $padding*2;
+    }
+    &.active {
+      a {
+      }
+    }
+  }
+  &.primary {
+    border-bottom: none;
+    margin-top: 15px;
+    padding: 0;
+    margin-left: 0;
+    li {
+      float: left;
+    }
+  }
+}
+
+.field-type-file .field-item {
+  margin: $padding*2 0;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  &:before {
+    content: "\f016";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    float: left;
+    font-size: 36px;
+    clear: both;
+    padding: $padding;
+  }
+
+}
+
+.file {
+  height: 58px;
+  img {
+    display: none;
+  }
+  p {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+  a {
+    text-decoration: none;
+    text-transform: lowercase;
+    height: 58px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.teaser-rij {
+  //clear: both;
+}

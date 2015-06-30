@@ -1,0 +1,99 @@
+.inner-wrapper {
+  margin: auto;
+  @include gridle_state (max-mobile) {
+    max-width: 90%;
+  }
+  @include gridle_state (only-tablet) {
+    max-width: 90%;
+  }
+  @include gridle_state (only-desk) {
+    max-width: 80%;
+  }
+  @include gridle_state (min-full) {
+    max-width: 80%;
+  }
+}
+
+.logo {
+  @include gridle (6, min-desk);
+  @include gridle_no_gutter();
+}
+
+#header {
+  @include gridle (12, max-tablet);
+  @include gridle (4, min-desk);
+  @include gridle_push(2, min-desk);
+  @include gridle_no_gutter();
+}
+
+.small-block {
+  @include gridle (3, max-tablet);
+  @include gridle_no_gutter();
+  @include gridle_state (min-desk) {
+    display: none;
+  }
+}
+
+.not-logged-in {
+  #cart-small {
+    display: none;
+  }
+}
+
+.logged-in {
+  #user-small {
+    display: none;
+  }
+}
+
+#main_menu {
+  .logged-in & {
+    @include gridle (8, min-desk);
+    @include gridle_no_gutter();
+    @include gridle_state (max-tablet) {
+      display: none;
+    }
+  }
+  .not-logged-in & {
+    @include gridle (12, min-desk);
+    @include gridle_no_gutter();
+    @include gridle_state (max-tablet) {
+      display: none;
+    }
+  }
+  @include gridle_state (max-tablet) {
+    top: $padding*5;
+    left: 0;
+    width: 100%;
+  }
+  //@include gridle_no_gutter();
+}
+
+.nieuws-rij {
+  @include gridle (12, max-tablet);
+  @include gridle (4, min-desk);
+  @include gridle_no_gutter(left right, max-tablet);
+  &.views-row-first {
+    @include gridle (12, min-desk);
+    @include gridle_no_gutter();
+  }
+  &:nth-child(3n+2) {
+    @include gridle_no_gutter(left, min-desk);
+  }
+  &:nth-child(3n+4) {
+    @include gridle_no_gutter(right, min-desk);
+  }
+}
+
+.view-feneko-shopping-cart-block {
+  .view-total {
+    @include gridle (6, min-desk);
+    @include gridle_push (6, min-desk);
+    @include gridle_no_gutter;
+    clear: both;
+    float: right;
+  }
+  .node-header {
+    padding-right: $padding;
+  }
+}

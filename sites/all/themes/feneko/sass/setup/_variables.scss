@@ -1,0 +1,35 @@
+$black: #323232;
+$white: #ffffff;
+
+
+$whitetrans: rgba(254, 254, 254, 0.8);
+$blacktrans: rgba(0,0,0,0.7);
+$grey: #c7c7c7;
+$darkgrey: darken($grey, 30%);
+$lightgrey: #e6e6e6;
+$blue: #295D8F;
+$lightblue: #9BD4DF;
+$darkblue: #2c62c7;
+$bluetrans: rgba(41, 93, 143, 0.8);
+$green: green;
+$red: #DC5126;
+$lightred: lighten($red, 15%);
+$yellow: #FFC400;
+
+
+
+$primary-color: $blue;
+$primary-trans: $bluetrans;
+$accent-color: $red;
+
+$textcolor: $black;
+
+$padding: 10px;
+
+$main-font: "open sans", verdana, sans-serif;
+//$main-font-light: verdana, Arial, sans-serif;
+//$main-font-bold: verdana, Arial, sans-serif;
+
+$titel-font: "Times New Roman", Times, serif;
+
+$main-font-size: 16px;

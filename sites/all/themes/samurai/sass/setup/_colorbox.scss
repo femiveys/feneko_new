@@ -1,0 +1,141 @@
+/* COLORBOX
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
+
+
+$colorbox-background-color: black;
+$colorbox-box-background-color: white;
+$colorbox-text-color: black;
+$padding: 10px;
+$prev-next-color: white;
+$close-bacground-color: red;
+
+#cboxOverlay,
+#cboxWrapper {
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  outline: none;
+  color: $colorbox-text-color;
+}
+
+#colorbox {
+  overflow: visible!important;
+  z-index: 9999;
+  outline: none;
+  button {
+    border: none;
+    background-color: transparent;
+    &:focus {
+     outline: none;
+    }
+  }
+  img {
+    padding: $padding*2;
+    background-color: $colorbox-box-background-color;
+  }
+}
+
+#cboxOverlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: $colorbox-background-color;
+}
+
+#cboxWrapper {
+  position: absolute;
+  border-radius: 0;
+  overflow: visible!important;
+}
+
+#cboxTitle {
+  background-color: $colorbox-box-background-color;
+  position: absolute;
+  left: 0;
+  bottom: -$padding*2;
+  width: 100%;
+  height: $padding*4;
+  padding: $padding $padding*2;
+}
+
+#cboxPrevious,
+#cboxNext,
+#cboxClose {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+  font-size: 0;
+}
+
+#cboxPrevious,
+#cboxNext {
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  top: 0;
+  display: inline-block!important;
+  color: $prev-next-color;
+  &:before {
+    font-size: 20px;
+    display: none;
+    position: absolute;
+    top: 50%;
+
+  }
+  &.over  {
+    &:before {
+      display: block!important;
+    }
+  }
+}
+
+#cboxPrevious {
+
+  &:before {
+    content: "\f053";
+    left: $padding*4;
+  }
+}
+
+#cboxNext {
+
+  &:before {
+    content: "\f054";
+    right: $padding*4;
+  }
+}
+
+#cboxPrevious {
+  left: 0;
+}
+
+#cboxNext {
+  right: 0;
+  left: auto;
+}
+
+#cboxCurrent {
+  position: absolute;
+  right: $padding*2;
+  bottom: -$padding;
+}
+
+#cboxClose {
+  position: absolute;
+  top: -$padding*2;
+  right: -$padding*2;
+  &:before {
+    content: "\f00d";
+    border-radius: 50%;
+    font-size: $padding*3;
+    color: $prev-next-color;
+    background-color: $close-bacground-color;
+    width: $padding*4;
+    height: $padding*4;
+    line-height: $padding*3.8;
+    display: block;
+  }
+}

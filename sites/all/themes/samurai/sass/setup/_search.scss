@@ -1,0 +1,38 @@
+/* SEARCH
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
+
+
+#search-block-form,
+#block-search-form,
+.search-form {
+  position: relative;
+  input[type="submit"] {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: $padding*3;
+    padding: 0 $padding;
+    margin-right: 0;
+  }
+}
+
+.search-form {
+  .form-wrapper {
+    position: relative;
+  }
+  input[type=text] {
+    margin-top: $padding*2;
+  }
+}
+
+.page-search .search-form {
+  input[type="submit"] {
+    bottom: 0;
+    top: auto;
+  }
+}
+
+ul.search-results {
+  margin-top: $padding*3;
+  padding-left: 0;
+}

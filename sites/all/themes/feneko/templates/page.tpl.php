@@ -1,0 +1,187 @@
+<div id="mobile-header">
+
+<div id="menu-small" class="small-block first">
+  <div class="inner-wrapper">
+    <i class="fa fa-bars menu-icon"></i>
+      menu
+  </div>
+</div><!--menu-small-->
+
+<div id="logo-small" class="small-block">
+  <div class="inner-wrapper">
+    <a class="logo-small" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
+    <img src="/sites/all/themes/feneko/img/fo.png" alt="feneko home">
+  </a>
+  </div>
+</div><!--logo-small-->
+
+<div id="user-small" class="small-block">
+  <div class="inner-wrapper">
+    <a href="user">
+      login
+    <i class="fa fa-user"></i>
+  </a>
+  </div>
+</div><!--menu-small-->
+
+<div id="cart-small" class="small-block">
+  <div class="inner-wrapper">
+      Shopping cart
+    <i class="fa fa-shopping-cart"></i>
+  </div>
+</div><!--menu-small-->
+
+<div id="search-small" class="small-block last">
+  <div class="inner-wrapper">
+    <i class="fa fa-search"></i>
+      search
+  </div>
+</div><!--menu-small-->
+
+</div>
+
+
+
+<?php if ($page['user_menu']): ?>
+  <div id="usermenu-wrapper" class="wrapper">
+    <div class="inner-wrapper">
+
+      <div id="user-menu">
+        <?php print render($page['user_menu']); ?>
+      </div>
+
+    </div> <!-- .inner-wrapper -->
+  </div> <!-- #usermenu-wrapper -->
+<?php endif; ?>
+
+<div id="header-wrapper" class="wrapper">
+  <div class="inner-wrapper">
+    <?php if ($logo): ?>
+    <a class="logo" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
+      <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+    </a>
+    <?php endif; ?>
+
+    <?php if ($site_name): ?>
+    <h1 id="site-name">
+      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+    </h1>
+    <?php endif; ?>
+
+    <?php if ($page['header']): ?>
+      <?php print render($page['header']); ?>
+    <?php endif; ?>
+  </div> <!-- .inner-wrapper -->
+</div> <!-- #header-wrapper -->
+
+
+
+<?php if ($page['main_menu']): ?>
+  <div id="mainmenu-wrapper" class="wrapper">
+    <div class="inner-wrapper">
+      <?php print render($page['main_menu']); ?>
+    </div> <!-- .inner-wrapper -->
+  </div> <!-- #mainmenu-wrapper -->
+<?php endif; ?>
+
+<?php if ($page['shopping_cart']): ?>
+  <div id="shoppingcart" class="wrapperr">
+    <div class="inner-wrapper">
+      <?php print render($page['shopping_cart']); ?>
+    </div>
+  </div> <!-- #cover-wrapper -->
+<?php endif; ?>
+
+<?php if ($page['breadcrumb']): ?>
+  <div id="breadcrumb-wrapper" class="wrapper">
+    <div class="inner-wrapper">
+      <?php print render($page['breadcrumb']); ?>
+    </div> <!-- .inner-wrapper -->
+  </div> <!-- #breadcrumb-wrapper -->
+<?php endif; ?>
+
+
+<?php if ($page['cover']): ?>
+  <div id="cover-wrapper" class="wrapper">
+      <?php print render($page['cover']); ?>
+  </div> <!-- #cover-wrapper -->
+<?php endif; ?>
+
+
+
+  <?php if ($action_links): ?>
+      <ul class="action-links"><?php print render($action_links); ?></ul>
+    <?php endif; ?>
+
+
+
+<div id="main-wrapper" class="wrapper">
+  <div class="inner-wrapper">
+
+    <?php if ($page['sidebar_first']): ?>
+      <?php print render($page['sidebar_first']); ?>
+    <?php endif; ?>
+
+    <section id="main-content">
+      <?php if ($messages) : ?>
+        <?php print $messages; ?>
+      <?php endif; ?>
+      <?php if ($tabs): ?>
+        <div class="tabs">
+          <?php print render($tabs); ?>
+        </div>
+      <?php endif; ?>
+
+      <?php print render($page['content']); ?>
+    </section>
+
+    <?php if ($page['sidebar_second']): ?>
+      <?php print render($page['sidebar_second']); ?>
+    <?php endif; ?>
+
+  </div> <!-- .inner-wrapper -->
+</div> <!-- #main-wrapper -->
+
+
+<?php if ($page['front_block']): ?>
+  <div id="frontblock-wrapper" class="wrapper">
+    <div class="inner-wrapper">
+      <?php print render($page['front_block']); ?>
+    </div> <!-- .inner-wrapper -->
+  </div> <!-- #frontblock-wrapper -->
+<?php endif; ?>
+
+<?php if ($page['catalogus']): ?>
+  <div id="catalogus-wrapper" class="wrapper">
+    <div class="inner-wrapper">
+      <?php print render($page['catalogus']); ?>
+    </div> <!-- .inner-wrapper -->
+  </div> <!-- #catalogus-wrapper -->
+<?php endif; ?>
+
+<?php if ($page['bottom_block']): ?>
+  <div id="bottomblock-wrapper" class="wrapper">
+    <div class="inner-wrapper">
+      <?php print render($page['bottom_block']); ?>
+    </div> <!-- .inner-wrapper -->
+  </div> <!-- #bottomblock-wrapper -->
+<?php endif; ?>
+
+
+
+<?php if ($page['footer']): ?>
+  <footer id="footer-footer" class="footer wrapper">
+    <div class="inner-wrapper">
+      <?php print render($page['footer']); ?>
+    </div> <!-- .inner-wrapper -->
+  </footer>
+<?php endif; ?>
+
+
+
+
+<?php if(isset($closure)){print $closure;} ?>
+
+
+
+<div class="totop"><i class="fa fa-arrow-up"></i></div>

@@ -1,0 +1,73 @@
+@import "gridle/gridle";
+
+$settings : (
+    context : 12,             // number of columns in your grid
+    gutter-width : 40px,        // size of the gutters
+    direction : ltr,             // direction
+);
+
+@include gridle_setup($settings);
+
+// BREAKPOINTS
+
+/*
+
+mobile: 0 - 599
+tablet: 600 - 850
+desk: 851 - 991
+full: 992 - 1279
+retina: 1280 - +
+
+*/
+
+
+@include gridle_register_state( max-mobile , (
+    max-width : 599px
+) );
+
+@include gridle_register_state( max-tablet , (
+    max-width : 850px
+) );
+
+@include gridle_register_state( max-desk , (
+    max-width : 991px
+) );
+
+@include gridle_register_state( max-full , (
+    max-width : 1279px
+) );
+
+
+
+@include gridle_register_state( min-tablet , (
+    min-width : 600px
+) );
+
+@include gridle_register_state( min-desk , (
+    min-width : 851px
+) );
+
+@include gridle_register_state( min-full , (
+    min-width : 992px
+) );
+
+@include gridle_register_state( min-retina , (
+    min-width : 1280px,
+) );
+
+
+@include gridle_register_state( only-tablet , (
+    min-width : 600px,
+    max-width: 850px
+) );
+
+@include gridle_register_state( only-desk , (
+    min-width : 851px,
+    max-width: 991px
+) );
+
+@include gridle_register_state( only-full , (
+    min-width : 992px,
+    max-width: 1279px
+) );
+

@@ -1,0 +1,116 @@
+/* CALENDAR
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
+
+.view-kalender {
+  clear: both;
+  .views-row,
+  li {
+    margin-bottom: $padding;
+    padding: $padding/2;
+    cursor: pointer;
+  }
+  .item-list {
+    ul {
+      li {
+        margin: 0;
+      }
+    }
+  }
+  .date-nav-wrapper {
+    margin-top: 0;
+    .date-heading {
+      h3 {
+        font-size: 18px;
+        line-height: normal;
+      }
+    }
+    .date-nav {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      height: 0;
+      min-height: 25px;
+    }
+    .date-prev,
+    .date-next {
+      border-radius: 0;
+      a {
+        margin: 0;
+        padding: 0 5px;
+      }
+    }
+  }
+  .calendar-calendar {
+    .mini {
+      font-size: 11px;
+      font-weight: bold;
+      text-align: center;
+
+      &.today {
+        background-image: none;
+      }
+    }
+    table {
+      margin-bottom: $padding*2;
+    }
+    th {
+      &.days {
+        border: none;
+        padding: 5px;
+      }
+    }
+    td {
+      padding: 5px;
+      &.past {
+        color: lightgrey;
+      }
+      &.has-events {
+        padding: 0;
+        a {
+          padding: 5px;
+          color: white;
+          background-color: grey;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    a {
+      font-weight: bold;
+      width: 100%;
+      display: block;
+      text-decoration: none;
+      padding: 5px;
+
+    }
+  }
+  .month-view,
+  .week-view,
+  .day-view {
+    .full {
+      td.single-day {
+        div.monthview,
+        div.weekview,
+        div.dayview {
+
+          border-radius: 0;
+
+
+          a {
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+// use .blocklink on clickable blocks that take over the link inside. Will take last link.
+
+.blocklink {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block!important;
+}

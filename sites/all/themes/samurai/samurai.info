@@ -1,0 +1,21 @@
+name = samurai
+core = 7.x
+description = A simple theme with three column layout.
+
+regions[main_menu] = 'Main menu'
+regions[header] = 'Header'
+regions[cover] = 'Cover'
+regions[breadcrumb] = 'Breadcrumb'
+regions[content_one] = 'Content first'
+regions[content] = 'Content'
+regions[sidebar_first] = 'Sidebar first'
+regions[sidebar_second] = 'Sidebar second'
+regions[full_size] = 'Full size'
+regions[triple] = 'Triple'
+regions[pre_footer] = 'Pre Footer'
+regions[footer] = 'Footer' 
+
+stylesheets[all][] = css/styles.css 
+#scripts[] = js/cookies-master/lib/jaaulde-cookies.js
+scripts[] = js/scripts.js
+

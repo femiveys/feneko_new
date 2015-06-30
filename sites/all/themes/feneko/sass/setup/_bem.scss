@@ -1,0 +1,76 @@
+.text--bold {
+  font-weight: bold;
+}
+
+.text--green,
+.text--green a,
+.text--green a:visited {
+  color: $green;
+}
+
+.text--grey,
+.text--grey a,
+.text--grey a:visited {
+  color: $grey;
+}
+
+.text--black,
+.text--black a,
+.text--black a:hover {
+  color: $black;
+}
+
+.text--white,
+.text--white a,
+.text--white a:visited {
+  color: $white;
+}
+
+.text--red,
+.text--red a,
+.text--red a:visited {
+  color: $red;
+}
+
+.text--blue,
+.text--blue a,
+.text--blue a:hover {
+  color: $blue;
+}
+
+.text--14px {
+  font-size: 14px;
+}
+
+.text--16px {
+  font-size: 16px;
+}
+
+.text--18px {
+  font-size: 18px;
+}
+
+.text--20px,
+.text--20px a {
+  font-size: 20px;
+}
+
+.text--22px {
+  font-size: 22px;
+}
+
+.text--24px {
+  font-size: 24px;
+}
+
+.text--28px {
+  font-size: 28px;
+}
+
+.text--uppercase {
+  text-transform: uppercase;
+}
+
+.text--center {
+  text-align: center;
+}

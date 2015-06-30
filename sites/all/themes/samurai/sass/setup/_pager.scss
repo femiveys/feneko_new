@@ -1,0 +1,72 @@
+/* PAGER
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
+
+
+.item-list .pager {
+  margin: $padding*2 0;
+  padding: 0;
+  li {
+    display: inline-block;
+    padding: $padding/2;
+    margin-bottom: $padding;
+
+    a,
+    a:visited {
+      text-decoration: none;
+    }
+  }
+  .pager-next,
+  .pager-prev,
+  .pager-previous,
+  .pager-first,
+  .pager-last {
+
+  }
+  li.pager-prev,
+  li.pager-previous,
+  li.pager-first {
+    a {
+    }
+  }
+  li.pager-next,
+  li.pager-last {
+    a {
+    }
+  }
+  li.pager-next,
+  li.pager-prev,
+  li.pager-previous {
+    a {
+    }
+  }
+  li.pager-first,
+  li.pager-last {
+    a {
+    }
+  }
+  li.pager-next {
+    a {
+    }
+  }
+  li.pager-prev {
+    a {
+    }
+  }
+  li.pager-previous {
+    a {
+    }
+  }
+  li.pager-first {
+    a {
+    }
+  }
+  li.pager-last {
+    a {
+    }
+  }
+  .pager-ellipsis {
+
+  }
+  li.pager-current {
+  }
+}

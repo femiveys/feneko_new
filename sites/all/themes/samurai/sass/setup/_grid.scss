@@ -1,0 +1,132 @@
+#wrapper {
+	@include gridle_container ( );
+	@include gridle_state (min-tablet) {
+		max-width : 90%;
+	}
+
+	margin : 0 auto;
+	@include gridle_no_gutter (max-mobile);
+}
+
+#main-header {
+	@include gridle ( 12 );
+	@include gridle_parent ( );
+
+}
+
+#header {
+	@include gridle ( 12 );
+
+}
+
+.logo {
+	@include gridle ( 12, max-tablet );
+	@include gridle ( 6, min-tablet );
+
+}
+
+#site-name {
+	@include gridle ( 12, max-tablet );
+	@include gridle ( 6, min-tablet );
+
+}
+
+#main_menu {
+	@include gridle ( 12 );
+	.fixed & {
+		position: fixed;
+		left: 0;
+		z-index: 99;
+		background-color: white;
+		.menu {
+			margin: 0 auto;
+			width: 90%;
+			z-index: 99999;
+		}
+
+	}
+}
+
+#breadcrumb {
+	@include gridle ( 12 );
+
+}
+
+#full_size {
+	@include full-size (red)
+}
+
+#triple {
+	@include gridle ( 12 );
+	@include gridle_parent ( );
+	.block {
+		@include gridle ( 12, max-mobile);
+		@include gridle ( 6, only-tablet );
+		@include gridle ( 4, min-desk );
+		//@include gridle_no_gutter();
+	}
+
+}
+
+#main-content {
+	@include gridle ( 12, max-mobile);
+	.one-sidebar & {
+		@include gridle ( 8, only-desk);
+		@include gridle (9, min-full);
+	}
+	.one-sidebar.sidebar-first & {
+		@include gridle_pull (4, only-desk);
+		@include gridle_pull (3, min-full);
+	}
+	.two-sidebars & {
+		@include gridle ( 6, min-desk );
+	}
+	.no-sidebars & {
+		@include gridle ( 12 );
+	}
+
+	#content {
+		clear: both;
+	}
+
+}
+
+aside.sidebar {
+	@include gridle ( 12, max-mobile);
+	.one-sidebar &,
+	.two-sidebars & {
+		@include gridle ( 3, min-full );
+	}
+	.one-sidebar & {
+		@include gridle ( 12, max-tablet);
+		@include gridle ( 4, only-desk);
+		@include gridle ( 3, min-full);
+	}
+	.one-sidebar.sidebar-first & {
+		@include gridle_push (8, only-desk);
+		@include gridle_push (9, min-full);
+	}
+	.two-sidebars & {
+		@include gridle ( 6, only-tablet only-desk );
+	}
+
+
+}
+
+aside#sidebar_first {}
+
+aside#sidebar_second {}
+
+.footer {
+	@include gridle ( 12 );
+
+}
+
+#pre-footer {}
+
+#footer {}
+
+.totop {
+	@include gridle ( 12 );
+
+}

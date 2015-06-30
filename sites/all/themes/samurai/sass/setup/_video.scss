@@ -1,0 +1,7 @@
+.player {
+  @extend %flex-youtube;
+}
+
+.media-youtube-player {
+  @extend %youtube-player;
+}

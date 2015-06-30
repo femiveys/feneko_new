@@ -1,0 +1,14 @@
+ul.menu {
+	list-style-type: none;
+	li {
+		&.leaf,
+		&.expanded,
+		&.collapsed {
+			list-style-image: none;
+			list-style-type: none;
+		}
+	}
+	a {
+		text-decoration: none;
+	}
+}

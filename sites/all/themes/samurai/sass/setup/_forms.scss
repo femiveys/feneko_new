@@ -1,0 +1,219 @@
+/* FORMS
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
+
+form {
+  clear: both;
+}
+
+.form-item {
+  margin-top: $padding;
+  margin-bottom: $padding;
+  input,
+  select,
+  textarea {
+    &.error {
+      border:1px solid red;
+    }
+  }
+}
+
+label {
+  margin-bottom: $padding;
+  display: block;
+}
+
+fieldset {
+  margin-bottom: $padding*2
+}
+
+.fieldset-legend {
+  a {
+    text-decoration: none;
+  }
+}
+
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+textarea,
+select,
+.select {
+  border: 1px, solid, black;
+  display: block;
+  width: 100%;
+  padding: $padding/2;
+  &:focus {
+    outline: none;
+    -webkit-appearance: none;
+  }
+}
+
+option {
+  width: 100%;
+  padding: $padding/2 $padding/4;
+}
+
+label.option {
+  padding-left: $padding/2;
+  display: inline;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+select,
+.select {
+  height: $padding*1,5;
+  border: 1px solid darkgrey;
+  background-color: white;
+}
+
+textarea {
+  max-width: 100%;
+}
+
+select,
+.select {
+  //-webkit-appearance: none !important;
+  -webkit-border-radius: 0;
+  //cursor: pointer;
+  width: 100%;
+  //background-image: url(../img/arrow-select.png);
+  //background-repeat: no-repeat;
+  //background-position: 100% 50%;
+  &:focus {
+    outline: none;
+    -webkit-appearance: none;
+  }
+}
+
+select {
+  //opacity: 0;
+}
+
+.select {
+  margin-top: -$padding*3;
+  opacity: 1;
+}
+
+.form-item-date {
+  .form-item {
+    display: inline-block;
+  }
+  select,
+  .select {
+    width: $padding*8;
+  }
+  div.select {
+    display: block;
+  }
+}
+
+.form-required {
+  color: red;
+  font-size: 1.5em;
+}
+
+input[type=checkbox] {}
+
+input[type=radio] {}
+
+.password-indicator {
+  height: $padding;
+  background-color: lightgreen;
+}
+
+input[type="submit"],
+#edit-cancel {
+  -webkit-appearance: none;
+  height: $padding*3;
+  margin-right: $padding/2;
+  &:hover {
+  }
+  &:focus {
+    outline: none;
+    -webkit-appearance: none;
+  }
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+input[type="file"]::before {
+  display: inline-block;
+  @include linear-gradient(lightgrey, darken(lightgrey, 10%));
+  border: 1px solid darkgrey;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px white;
+  font-weight: 700;
+  font-size: 10pt;
+}
+
+.en input[type="file"]::before {
+  content: 'Select files';
+}
+
+.nl input[type="file"]::before {
+  content: 'Kies bestand';
+}
+
+input[type="file"]:hover::before {
+  border-color: darken(darkgrey, 15%);
+  @include linear-gradient(darken(lightgrey, 10%), lightgrey);
+}
+
+input[type="file"]:active::before {
+  @include linear-gradient(darken(lightgrey, 20%), lightgrey);
+}
+
+input[type="file"]:focus {
+  outline: none;
+}
+
+
+
+
+
+html.js input.form-autocomplete {
+  background-position: 100% 9px;
+}
+
+html.js input.throbbing {
+  background-position: 100% 25px;
+}
+
+
+
+.views-exposed-form {
+  margin-bottom: $padding*4;
+  .views-exposed-widget {
+    width: 250px;
+  }
+}

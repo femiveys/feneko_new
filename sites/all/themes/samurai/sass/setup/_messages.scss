@@ -1,0 +1,62 @@
+/* MESSAGES
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
+
+
+$status-color: green;
+$warning-color: orange;
+$error-color: red;
+
+
+%message {
+  border-width: 2px;
+  padding: $padding ;
+  background-position: $padding/2 50%;
+  clear: both;
+  margin: $padding*2 0;
+  color: white;
+    &:before {
+      content: "\f05d";
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      padding-right: $padding;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+    }
+}
+
+
+
+div.messages {
+  @extend %message;
+  &.status {
+    border-color: darken($status-color, 15%);
+    background-color: $status-color;
+    background-image: none;
+    &:before {
+      content: "\f05d";
+    }
+  }
+  &.warning {
+    border-color: darken($warning-color, 15%);
+    background-color: $warning-color;
+    background-image: none;
+    &:before {
+      content: "\f071";
+    }
+  }
+  &.error {
+    border-color: darken($error-color, 15%);
+    background-color: $error-color;
+    background-image: none;
+    &:before {
+      content: "\f057";
+    }
+  }
+  .krumo-root {
+    width: 100%;
+    margin: 0;
+  }
+}

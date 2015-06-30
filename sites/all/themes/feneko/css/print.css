@@ -1,0 +1,75 @@
+body, #content {
+	width: 100%;
+	margin: 0;
+	float: none;
+	background: #fff url(none);
+	font-size: 14px;
+	color: black;
+}
+
+* {
+	background-color: white!important;
+}
+
+.logo {
+	width: 30%;
+}
+
+.menu-container,
+.sidebar,
+#block-views-social-presence-block,
+img,
+.view-slide,
+.wrap-head,
+.pager,
+.totop {
+	display: none!important;
+}
+
+h1,
+h2,
+h3 {
+	color: black;
+	width: 100%;
+	max-width: 100%;
+	display: block;
+}
+
+h1 a {
+	max-width: 100%!important;
+}
+
+h1 {
+	font-size: 36px;
+}
+
+h2 {
+	font-size: 28px;
+}
+
+h3 {
+	font-size: 18px;
+}
+
+.afbeelding {
+	border: none!important;
+}
+
+.datum {
+	font-size: 36px;
+  float: left;
+  position: relative!important;
+  border: none;
+}
+
+.datum br {
+	display: none;
+}
+
+.view-id-speellijst .speellijst-item {
+  border-bottom: none;
+}
+
+.page-agenda #content .view-content {
+  border: none;
+}
