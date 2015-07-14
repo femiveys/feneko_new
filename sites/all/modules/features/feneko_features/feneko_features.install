@@ -1,0 +1,31 @@
+<?php
+/**
+ * Disable and uninstall modules
+ */
+function feneko_features_update_7000() {
+  $uninstall = array('rdf');
+
+  foreach($uninstall as $module) {
+    if (module_exists($module)) {
+      module_disable(array($module));
+      drupal_uninstall_modules(array($module));
+    }
+  }
+}
+
+/**
+ * Enable modules
+ */
+function feneko_features_update_7001() {
+  $install = array('views_ui', 'diff', 'module_filter', 'admin_menu');
+  module_enable($install);
+}
+
+/**
+ * Set themes
+ */
+function feneko_features_update_7003() {
+  theme_disable(array('bartik'));
+  theme_enable(array('feneko'));
+  variable_set('theme_default', 'feneko');
+}
