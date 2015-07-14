@@ -78,6 +78,11 @@ function feneko_calculator_order_to_xml(stdClass $order) {
     }
   }
 
+  $totals = _fc_totals_order($order_wrapper);
+  $xml .= "<SubTotal><Raw>" . $totals['raw']['subtotal'] . "</Raw>";
+  $xml .= "<Formatted>" . $totals['formatted']['subtotal'] . "</Formatted></SubTotal>";
+  $xml .= "<Total><Raw>" . $totals['raw']['total'] . "</Raw>";
+  $xml .= "<Formatted>" . $totals['formatted']['total'] . "</Formatted></Total>";
   $xml .= "</Order>";
 
   // Pretty print the XML

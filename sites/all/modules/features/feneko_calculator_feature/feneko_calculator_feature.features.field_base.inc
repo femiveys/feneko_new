@@ -384,6 +384,34 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
+  // Exported field_base: 'field_gaatjes_rug'
+  $field_bases['field_gaatjes_rug'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_gaatjes_rug',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => 'Nee',
+        1 => 'Ja',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_integer',
+  );
+
   // Exported field_base: 'field_hoek_type'
   $field_bases['field_hoek_type'] = array(
     'active' => 1,
@@ -1386,11 +1414,37 @@ function feneko_calculator_feature_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        'E' => 'Haakjes Breedte (E)',
-        'D' => 'Haakjes Lengte (D)',
-        'B' => 'Gaatjes Breedte (B)',
-        'H' => 'Gaatjes Lengte (H)',
-        'G' => 'Lasbouten (G)',
+        'haakjes' => 'Haakjes',
+        'gaatjes' => 'Gaatjes',
+        'lasbouten' => 'Lasbouten',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_order_type'
+  $field_bases['field_order_type'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_order_type',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'order' => 'Bestelling',
+        'offer' => 'Offerte',
       ),
       'allowed_values_function' => '',
     ),

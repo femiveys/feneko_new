@@ -41,3 +41,27 @@ function feneko_calculator_update_7002() {
   db_query('UPDATE {field_data_commerce_price} SET commerce_price_amount=commerce_price_amount*1.03');
   db_query('UPDATE {field_revision_commerce_price} SET commerce_price_amount=commerce_price_amount*1.03');
 }
+
+/**
+ * Replace ophanging codes to text
+ */
+function feneko_calculator_update_7003() {
+  db_query("UPDATE {field_data_field_ophanging} SET field_ophanging_value='haakjes'
+            WHERE field_ophanging_value='E' or field_ophanging_value='D'");
+  db_query("UPDATE {field_data_field_ophanging} SET field_ophanging_value='gaatjes'
+            WHERE field_ophanging_value='B' or field_ophanging_value='H'");
+  db_query("UPDATE {field_data_field_ophanging} SET field_ophanging_value='lasbouten'
+            WHERE field_ophanging_value='G'");
+
+  db_query("UPDATE {field_revision_field_ophanging} SET field_ophanging_value='haakjes'
+            WHERE field_ophanging_value='E' or field_ophanging_value='D'");
+  db_query("UPDATE {field_revision_field_ophanging} SET field_ophanging_value='gaatjes'
+            WHERE field_ophanging_value='B' or field_ophanging_value='H'");
+  db_query("UPDATE {field_revision_field_ophanging} SET field_ophanging_value='lasbouten'
+            WHERE field_ophanging_value='G'");
+}
+
+
+// haakjes|Haakjes
+// gaatjes|Gaatjes
+// lasbouten|Lasbouten

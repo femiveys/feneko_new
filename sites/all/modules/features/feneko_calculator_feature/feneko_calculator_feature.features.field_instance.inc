@@ -1083,7 +1083,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Breedte',
     'required' => 1,
     'settings' => array(
-      'max' => '',
+      'max' => 4000,
       'min' => '',
       'prefix' => '',
       'suffix' => 'mm',
@@ -1236,7 +1236,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
     'default_value' => array(
       0 => array(
-        'value' => 0,
+        'value' => 90,
       ),
     ),
     'deleted' => 0,
@@ -1260,8 +1260,8 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Hoeken',
     'required' => 1,
     'settings' => array(
-      'max' => 360,
-      'min' => 0,
+      'max' => '',
+      'min' => '',
       'prefix' => '',
       'suffix' => 'graden',
       'user_register_form' => FALSE,
@@ -1697,7 +1697,7 @@ function feneko_calculator_feature_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 13,
+      'weight' => 14,
     ),
   );
 
@@ -1732,7 +1732,7 @@ function feneko_calculator_feature_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 12,
+      'weight' => 13,
     ),
   );
 
@@ -1817,6 +1817,44 @@ function feneko_calculator_feature_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'commerce_line_item-raamtablet-field_gaatjes_rug'
+  $field_instances['commerce_line_item-raamtablet-field_gaatjes_rug'] = array(
+    'bundle' => 'raamtablet',
+    'commerce_cart_settings' => array(
+      'field_access' => 1,
+    ),
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 12,
+      ),
+    ),
+    'entity_type' => 'commerce_line_item',
+    'field_name' => 'field_gaatjes_rug',
+    'label' => 'Gaatjes in rug',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
       'weight' => 9,
     ),
   );
@@ -1864,7 +1902,7 @@ function feneko_calculator_feature_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -1912,7 +1950,7 @@ function feneko_calculator_feature_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
@@ -3256,7 +3294,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 4,
+        'weight' => 9,
       ),
     ),
     'entity_type' => 'commerce_order',
@@ -3294,7 +3332,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 6,
+        'weight' => 11,
       ),
     ),
     'entity_type' => 'commerce_order',
@@ -3336,7 +3374,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 5,
+        'weight' => 10,
       ),
     ),
     'entity_type' => 'commerce_order',
@@ -3357,6 +3395,41 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'commerce_order-commerce_order-field_order_type'
+  $field_instances['commerce_order-commerce_order-field_order_type'] = array(
+    'bundle' => 'commerce_order',
+    'default_value' => array(
+      0 => array(
+        'value' => 'order',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Geef hier aan of u gewoon een offerte wil, of een bestelling wilt plaatsen',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'commerce_order',
+    'field_name' => 'field_order_type',
+    'label' => 'Type',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 3,
+    ),
+  );
+
   // Exported field_instance: 'commerce_order-commerce_order-field_reference'
   $field_instances['commerce_order-commerce_order-field_reference'] = array(
     'bundle' => 'commerce_order',
@@ -3369,7 +3442,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'commerce_order',
@@ -7664,7 +7737,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'user',
@@ -7818,6 +7891,8 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Display path');
   t('Eenheidsprijs');
   t('Eindstukken');
+  t('Gaatjes in rug');
+  t('Geef hier aan of u gewoon een offerte wil, of een bestelling wilt plaatsen');
   t('Hoek type');
   t('Hoeken');
   t('Isolatie Dikte');

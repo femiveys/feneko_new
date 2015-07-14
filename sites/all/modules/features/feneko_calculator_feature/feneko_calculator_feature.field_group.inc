@@ -55,9 +55,10 @@ function feneko_calculator_feature_field_group_info() {
     'weight' => '9',
     'children' => array(
       0 => 'field_color',
-      1 => 'field_reference',
-      2 => 'field_comment',
+      1 => 'field_comment',
+      2 => 'field_reference',
       3 => 'field_maritime',
+      4 => 'field_order_type',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -86,8 +87,9 @@ function feneko_calculator_feature_field_group_info() {
     'label' => 'Order specific information',
     'weight' => '0',
     'children' => array(
-      0 => 'field_reference',
-      1 => 'field_comment',
+      0 => 'field_comment',
+      1 => 'field_reference',
+      2 => 'field_order_type',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(

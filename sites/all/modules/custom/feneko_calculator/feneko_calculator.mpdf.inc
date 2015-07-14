@@ -8,8 +8,6 @@
  *   PDF as a string to attach to a mail
  */
 function fc_get_attachment($order_id, $outputAsString = TRUE) {
-  global $fc_currency_settings;
-
   module_load_include('php', 'manyforms', 'mpdf/mpdf');
   module_load_include('inc', 'feneko_calculator', 'extra_fields');
 
@@ -68,7 +66,7 @@ function fc_get_attachment($order_id, $outputAsString = TRUE) {
     }
 
     table.total {
-      width: 40%;
+      width: 50%;
     }
 
     td {
@@ -192,33 +190,23 @@ function fc_get_attachment($order_id, $outputAsString = TRUE) {
       $line_items .= nl2br(fc_line_item_details($line->value(), 'text'));
       $line_items .= '</td>';
       $line_items .= '<td class="price">';
-      $line_items .= commerce_price_decimals_formatter_currency_format(
-        $price['amount'], $price['currency_code'], $fc_currency_settings);
+      $line_items .= _fc_format_amount($price['amount']);
       $line_items .= '</td>';
       $line_items .= '<td class="amount">';
       $line_items .= intval($line->quantity->value());
       $line_items .= '</td>';
       $line_items .= '<td class="total">';
-      $line_items .= commerce_price_decimals_formatter_currency_format(
-        $total['amount'], $total['currency_code'], $fc_currency_settings);
+      $line_items .= _fc_format_amount($total['amount']);
       $line_items .= '</td>';
       $line_items .= '</tr>';
     }
   }
 
-  $total_price = $order_wrapper->commerce_order_total->value();
-  $sub_total  = '<tr class="subtotal">';
-  $sub_total .= '<td colspan="4">' . t('Subtotal') . '</td><td>';
-  $sub_total .= $subtotal_footer = commerce_price_decimals_formatter_currency_format(
-                  $total_price['data']['components'][0]['price']['amount'],
-                  $total_price['currency_code'], $fc_currency_settings);
-  $sub_total .= '</td></tr>';
-
-  $total  = '<tr class="total">';
-  $total .= '<td colspan="4">' . t('Total') . '</td><td><strong>';
-  $total .= $total_footer = commerce_price_decimals_formatter_currency_format(
-    $total_price['amount'], $total_price['currency_code'], $fc_currency_settings);
-  $total .= '</strong></td></tr>';
+  $totals = _fc_totals_order($order_wrapper);
+  $sub_total  = '<tr class="subtotal"><td colspan="4">' . t('Subtotal') . '</td>';
+  $sub_total .= '<td>' . $totals['formatted']['subtotal'] . '</td></tr>';
+  $total  = '<tr class="total"><td colspan="4">' . t('Total') . '</td>';
+  $total .= '<td><strong>' . $totals['formatted']['total'] . '</strong></td></tr>';
 
   $discounts = '';
   foreach ($order_wrapper->commerce_line_items as $line) {
@@ -245,10 +233,15 @@ function fc_get_attachment($order_id, $outputAsString = TRUE) {
   $comment = field_view_field('commerce_order', $order, 'field_comment');
   $color = field_view_field('commerce_order', $order, 'field_color');
 
+  $order_type = $order_wrapper->field_order_type->label();
+  if(empty($order_type)) {
+    $order_type = t('Bestelling');
+  }
+
   // Compile the HTML
   $html .= '<body>';
   $html .= drupal_render($client_data);
-  $html .= '<h1>' . t('Bestelling') . '</h1>';
+  $html .= "<h1>$order_type $order_id</h1>";
   $html .= drupal_render($reference);
   $html .= drupal_render($color);
   $html .= $maritime;
@@ -271,8 +264,10 @@ function fc_get_attachment($order_id, $outputAsString = TRUE) {
 // dpm($html);
 
   $footer = '<div class="prices">';
-  $footer.= '<div class="subtotal">' . t('Subtotal') . ': ' . $subtotal_footer . '</div>';
-  $footer.= '<div class="total">' . t('Total') . ': ' . $total_footer . '</div>';
+  $footer.= '<div class="subtotal">' . t('Subtotal') . ': ';
+  $footer.= $totals['formatted']['subtotal'] . '</div>';
+  $footer.= '<div class="total">' . t('Total') . ': ';
+  $footer.= $totals['formatted']['total'] . '</div>';
   $footer.= '</div>';
   $footer.= '<div class="top-line"></div>';
   $footer.= '<div class="pagenum">{PAGENO}/{nbpg}</div>';
@@ -316,7 +311,6 @@ function _fc_get_pdf_image($line_item_wrapper) {
 }
 
 function _fc_get_discount_sections($data) {
-  global $fc_currency_settings;
   $mapping = commerce_price_component_titles();
 
   foreach ($data['components'] as $component) {
@@ -336,9 +330,7 @@ function _fc_get_discount_sections($data) {
 
   // Set the price in a readible way
   foreach ($sections as &$section) {
-    $section['price'] = commerce_price_decimals_formatter_currency_format(
-      $section['price'], 'EUR', $fc_currency_settings
-    );
+    $section['price'] = _fc_format_amount($section['price']);
   }
 
   // Sort the array

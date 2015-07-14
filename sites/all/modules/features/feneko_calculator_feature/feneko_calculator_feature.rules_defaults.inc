@@ -37,13 +37,88 @@ function feneko_calculator_feature_default_rules_configuration() {
       "TAGS" : [ "calculator" ],
       "REQUIRES" : [ "rules", "commerce_checkout" ],
       "ON" : { "commerce_checkout_complete" : [] },
+      "IF" : [
+        { "entity_has_field" : { "entity" : [ "commerce-order" ], "field" : "field_order_type" } },
+        { "data_is" : { "data" : [ "commerce-order:field-order-type" ], "value" : "order" } }
+      ],
       "DO" : [
         { "mail" : {
             "to" : "Feneko \\u003Cjeremie@feneko.be\\u003E",
             "subject" : "Order [commerce-order:order-number] at [site:name]",
-            "message" : "[commerce-order:owner:name] van [commerce-order:owner:field-naam-bedrijf] ([commerce-order:owner:field-klanten nummer])  heeft net een bestellling geplaatst.\\r\\n\\r\\nIn de bijlage vind je een overzicht van de bestelling.\\r\\n\\r\\nJe kan ook inloggen op de site om de bestelling te bekijken: [commerce-order:url]\\r\\n\\r\\nmvg,\\r\\n\\r\\nFenekO",
+            "message" : "[commerce-order:owner:name] van [commerce-order:owner:field-naam-bedrijf] ([commerce-order:owner:field-klantennummer])  heeft net een bestellling geplaatst.\\r\\n\\r\\nIn de bijlage vind je een overzicht van de bestelling.\\r\\n\\r\\nJe kan ook inloggen op de site om de bestelling te bekijken: [commerce-order:url]\\r\\n\\r\\nmvg,\\r\\n\\r\\nFenekO",
             "from" : "Feneko \\u003Cjeremie@feneko.be\\u003E",
             "language" : "nl"
+          }
+        }
+      ]
+    }
+  }');
+  $items['feneko_calculator_feature_plaatbewerking_add_lasbtn_price'] = entity_import('rules_config', '{ "feneko_calculator_feature_plaatbewerking_add_lasbtn_price" : {
+      "LABEL" : "Plaatbewerking Add Lasbouten price",
+      "PLUGIN" : "reaction rule",
+      "WEIGHT" : "5",
+      "OWNER" : "rules",
+      "TAGS" : [ "calculator" ],
+      "REQUIRES" : [ "rules", "commerce_line_item", "commerce_product_reference" ],
+      "ON" : { "commerce_product_calculate_sell_price" : [] },
+      "IF" : [
+        { "entity_is_of_bundle" : {
+            "entity" : [ "commerce-line-item" ],
+            "type" : "commerce_line_item",
+            "bundle" : { "value" : { "plaatbewerking" : "plaatbewerking" } }
+          }
+        },
+        { "entity_has_field" : { "entity" : [ "commerce-line-item" ], "field" : "field_ophanging" } },
+        { "data_is" : { "data" : [ "commerce-line-item:field-ophanging" ], "value" : "G" } }
+      ],
+      "DO" : [
+        { "variable_add" : {
+            "USING" : { "type" : "text", "value" : "EH-lasbout" },
+            "PROVIDE" : { "variable_added" : { "lasbout_sku" : "Lasbout SKU" } }
+          }
+        },
+        { "entity_query" : {
+            "USING" : {
+              "type" : "commerce_product",
+              "property" : "sku",
+              "value" : [ "lasbout-sku" ],
+              "limit" : "1"
+            },
+            "PROVIDE" : { "entity_fetched" : { "lasbout" : "Lasbout" } }
+          }
+        },
+        { "data_calc" : {
+            "USING" : {
+              "input_1" : [ "commerce-line-item:field-lengte" ],
+              "op" : "\\/",
+              "input_2" : "700"
+            },
+            "PROVIDE" : { "result" : { "roundup_float" : "Roundup (floating)" } }
+          }
+        },
+        { "data_convert" : {
+            "USING" : {
+              "type" : "integer",
+              "value" : [ "roundup-float" ],
+              "rounding_behavior" : "up"
+            },
+            "PROVIDE" : { "conversion_result" : { "roundup" : "Roundup" } }
+          }
+        },
+        { "data_calc" : {
+            "USING" : {
+              "input_1" : [ "roundup" ],
+              "op" : "*",
+              "input_2" : [ "lasbout:0:commerce-price:amount" ]
+            },
+            "PROVIDE" : { "result" : { "lasbouten_price" : "Lasbouten price" } }
+          }
+        },
+        { "commerce_line_item_unit_price_add" : {
+            "commerce_line_item" : [ "commerce_line_item" ],
+            "amount" : [ "lasbouten-price" ],
+            "component_name" : "base_price",
+            "round_mode" : "0"
           }
         }
       ]
@@ -165,6 +240,11 @@ function feneko_calculator_feature_default_rules_configuration() {
         { "data_is" : {
             "data" : [ "commerce-line-item:commerce-product:field-stockprofiel" ],
             "value" : "1"
+          }
+        },
+        { "NOT data_is" : {
+            "data" : [ "commerce-line-item:field-standaardprofiel-lengte" ],
+            "value" : "6000"
           }
         }
       ],
@@ -535,16 +615,13 @@ function feneko_calculator_feature_default_rules_configuration() {
       "REQUIRES" : [ "rules", "commerce_line_item", "commerce_product_reference" ],
       "ON" : { "commerce_product_calculate_sell_price" : [] },
       "IF" : [
-        { "AND" : [
-            { "entity_is_of_bundle" : {
-                "entity" : [ "commerce-line-item" ],
-                "type" : "commerce_line_item",
-                "bundle" : { "value" : { "plaatbewerking" : "plaatbewerking" } }
-              }
-            },
-            { "entity_has_field" : { "entity" : [ "commerce-line-item" ], "field" : "field_plooien" } }
-          ]
-        }
+        { "entity_is_of_bundle" : {
+            "entity" : [ "commerce-line-item" ],
+            "type" : "commerce_line_item",
+            "bundle" : { "value" : { "plaatbewerking" : "plaatbewerking" } }
+          }
+        },
+        { "entity_has_field" : { "entity" : [ "commerce-line-item" ], "field" : "field_plooien" } }
       ],
       "DO" : [
         { "variable_add" : {
@@ -1102,6 +1179,16 @@ function feneko_calculator_feature_default_rules_configuration() {
       "DO" : [
         { "commerce_rules_extra_change_page" : { "page_id" : "checkout", "submit_value" : "Plaats bestelling" } }
       ]
+    }
+  }');
+  $items['rules_staffelkorting'] = entity_import('rules_config', '{ "rules_staffelkorting" : {
+      "LABEL" : "Staffelkorting",
+      "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
+      "TAGS" : [ "calculator" ],
+      "REQUIRES" : [ "feneko_calculator", "commerce_discount" ],
+      "ON" : { "commerce_discount_order" : [] },
+      "DO" : [ { "fc_apply_staffel_korting" : { "order" : [ "commerce-order" ] } } ]
     }
   }');
   $items['rules_standaarprofiel'] = entity_import('rules_config', '{ "rules_standaarprofiel" : {
