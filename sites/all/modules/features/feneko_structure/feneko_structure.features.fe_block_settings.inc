@@ -92,6 +92,26 @@ function feneko_structure_default_fe_block_settings() {
     'visibility' => 0,
   );
 
+  $export['system-navigation'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => 'navigation',
+    'module' => 'system',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'feneko' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'feneko',
+        'weight' => -11,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
   $export['system-powered-by'] = array(
     'cache' => -1,
     'custom' => 0,

@@ -30,6 +30,7 @@ features[fe_block_settings][] = locale-language
 features[fe_block_settings][] = menu-menu-waarom-feneko
 features[fe_block_settings][] = search-form
 features[fe_block_settings][] = system-main-menu
+features[fe_block_settings][] = system-navigation
 features[fe_block_settings][] = system-powered-by
 features[fe_block_settings][] = system-user-menu
 features[fe_block_settings][] = user-login
