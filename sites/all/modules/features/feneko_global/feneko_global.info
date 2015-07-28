@@ -21,4 +21,5 @@ features[variable][] = date_default_timezone
 features[variable][] = date_first_day
 features[variable][] = features_default_export_path
 features[variable][] = language_default
+features[variable][] = site_name
 project path = sites/all/modules/features
