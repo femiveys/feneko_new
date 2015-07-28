@@ -7,3 +7,4 @@ sites/*/private
 *.DS_Store
 .gitignore
 *.sass-cache*
+sites/all/translations*
