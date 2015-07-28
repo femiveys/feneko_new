@@ -1,0 +1,23 @@
+<?php
+/**
+ * Uninstall unnecessary modules
+ */
+
+function feneko_global_update_7000() {
+  $module_list = array('comment', 'rdf', 'shortcut', 'toolbar');
+  module_disable($module_list);
+}
+
+/**
+ * Enable & disable themes
+ */
+
+function feneko_global_update_7001() {
+  $theme_list = array('feneko');
+  theme_enable($theme_list);
+
+  $theme_list = array('seven', 'bartik');
+  theme_disable($theme_list);
+
+  variable_set('theme_default', 'feneko');
+}
