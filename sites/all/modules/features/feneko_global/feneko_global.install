@@ -4,7 +4,7 @@
  */
 
 function feneko_global_update_7000() {
-  $module_list = array('comment', 'rdf', 'shortcut', 'toolbar');
+  $module_list = array('comment', 'rdf', 'shortcut');
   module_disable($module_list);
 }
 
