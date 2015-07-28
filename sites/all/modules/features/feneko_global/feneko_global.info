@@ -26,4 +26,5 @@ features[variable][] = date_first_day
 features[variable][] = features_default_export_path
 features[variable][] = language_default
 features[variable][] = site_name
+features[variable][] = theme_feneko_settings
 project path = sites/all/modules/features
