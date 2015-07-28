@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Feneko Structure feature.
+ */
+
+include_once 'feneko_structure.features.inc';

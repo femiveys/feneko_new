@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Feneko Global feature.
+ */
+
+include_once 'feneko_global.features.inc';

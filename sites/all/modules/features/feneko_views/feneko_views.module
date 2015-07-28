@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Feneko Views feature.
+ */
+
+include_once 'feneko_views.features.inc';
