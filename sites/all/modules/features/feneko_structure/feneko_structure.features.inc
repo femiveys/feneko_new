@@ -34,6 +34,36 @@ function feneko_structure_image_default_styles() {
     ),
   );
 
+  // Exported image style: square_medium.
+  $styles['square_medium'] = array(
+    'label' => 'Square medium',
+    'effects' => array(
+      2 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 220,
+          'height' => 220,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  // Exported image style: square_thumbnail.
+  $styles['square_thumbnail'] = array(
+    'label' => 'square thumbnail',
+    'effects' => array(
+      1 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 150,
+          'height' => 150,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   return $styles;
 }
 
