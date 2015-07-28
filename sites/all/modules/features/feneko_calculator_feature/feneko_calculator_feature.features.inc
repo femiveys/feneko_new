@@ -38,7 +38,7 @@ function feneko_calculator_feature_commerce_features_default_checkout_panes() {
     'pane_id' => 'checkout_completion_message',
     'collapsible' => 0,
     'collapsed' => 0,
-    'weight' => 0,
+    'weight' => -19,
     'enabled' => 1,
     'review' => 1,
   );
@@ -62,28 +62,6 @@ function feneko_calculator_feature_commerce_features_default_checkout_panes() {
     'collapsible' => 0,
     'collapsed' => 0,
     'weight' => -20,
-    'review' => 1,
-  );
-
-  $panes['commerce_payment'] = array(
-    'page' => 'disabled',
-    'weight' => -19,
-    'pane_id' => 'commerce_payment',
-    'fieldset' => 1,
-    'collapsible' => 0,
-    'collapsed' => 0,
-    'enabled' => 0,
-    'review' => 1,
-  );
-
-  $panes['commerce_payment_redirect'] = array(
-    'page' => 'payment',
-    'pane_id' => 'commerce_payment_redirect',
-    'fieldset' => 1,
-    'collapsible' => 0,
-    'collapsed' => 0,
-    'weight' => -20,
-    'enabled' => 1,
     'review' => 1,
   );
 
@@ -631,22 +609,5 @@ function feneko_calculator_feature_node_info() {
     ),
   );
   drupal_alter('node_info', $items);
-  return $items;
-}
-
-/**
- * Implements hook_default_payment_method().
- */
-function feneko_calculator_feature_default_payment_method() {
-  $items = array();
-  $items['no_payment_required'] = entity_import('payment_method', '{
-    "controller_data" : [],
-    "enabled" : true,
-    "name" : "no_payment_required",
-    "title_specific" : "No payment required",
-    "title_generic" : "No payment required",
-    "uid" : 1,
-    "controller_class_name" : "PaymentMethodControllerUnavailable"
-  }');
   return $items;
 }
