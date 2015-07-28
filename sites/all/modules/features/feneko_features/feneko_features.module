@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Feneko Features feature.
- */
-
-include_once 'feneko_features.features.inc';
