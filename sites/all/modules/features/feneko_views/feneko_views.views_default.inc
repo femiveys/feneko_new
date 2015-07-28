@@ -34,7 +34,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
-  /* Field: Content: Big image */
+  /* Veld: Content: Big image */
   $handler->display->display_options['fields']['field_big_image']['id'] = 'field_big_image';
   $handler->display->display_options['fields']['field_big_image']['table'] = 'field_data_field_big_image';
   $handler->display->display_options['fields']['field_big_image']['field'] = 'field_big_image';
@@ -47,7 +47,7 @@ function feneko_views_views_default_views() {
     'image_style' => 'front_image',
     'image_link' => '',
   );
-  /* Field: Content: Tekst big image */
+  /* Veld: Content: Tekst big image */
   $handler->display->display_options['fields']['field_tekst_big_image']['id'] = 'field_tekst_big_image';
   $handler->display->display_options['fields']['field_tekst_big_image']['table'] = 'field_data_field_tekst_big_image';
   $handler->display->display_options['fields']['field_tekst_big_image']['field'] = 'field_tekst_big_image';
@@ -58,7 +58,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['field_tekst_big_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_tekst_big_image']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_tekst_big_image']['hide_empty'] = TRUE;
-  /* Field: Global: Custom text */
+  /* Veld: Global: Custom text */
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
   $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
   $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
@@ -68,19 +68,19 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['element_class'] = 'inner-wrapper';
   $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing_1']['element_default_classes'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Sorteercriterium: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filtercriterium: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filtercriterium: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -129,7 +129,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
-  /* Field: Content: Title */
+  /* Veld: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -142,7 +142,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['hide_empty'] = TRUE;
-  /* Field: Content: Solliciteren tot */
+  /* Veld: Content: Solliciteren tot */
   $handler->display->display_options['fields']['field_ultimate_date']['id'] = 'field_ultimate_date';
   $handler->display->display_options['fields']['field_ultimate_date']['table'] = 'field_data_field_ultimate_date';
   $handler->display->display_options['fields']['field_ultimate_date']['field'] = 'field_ultimate_date';
@@ -159,7 +159,7 @@ function feneko_views_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Content: Body */
+  /* Veld: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -174,7 +174,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '400',
   );
-  /* Field: Content: Link */
+  /* Veld: Content: Link */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
@@ -187,26 +187,26 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['view_node']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['view_node']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['view_node']['text'] = 'Lees verder';
-  /* Sort criterion: Content: Solliciteren tot (field_ultimate_date) */
+  /* Sorteercriterium: Content: Solliciteren tot (field_ultimate_date) */
   $handler->display->display_options['sorts']['field_ultimate_date_value']['id'] = 'field_ultimate_date_value';
   $handler->display->display_options['sorts']['field_ultimate_date_value']['table'] = 'field_data_field_ultimate_date';
   $handler->display->display_options['sorts']['field_ultimate_date_value']['field'] = 'field_ultimate_date_value';
   $handler->display->display_options['sorts']['field_ultimate_date_value']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filtercriterium: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filtercriterium: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'vacature' => 'vacature',
   );
-  /* Filter criterion: Content: Solliciteren tot (field_ultimate_date) */
+  /* Filtercriterium: Content: Solliciteren tot (field_ultimate_date) */
   $handler->display->display_options['filters']['field_ultimate_date_value']['id'] = 'field_ultimate_date_value';
   $handler->display->display_options['filters']['field_ultimate_date_value']['table'] = 'field_data_field_ultimate_date';
   $handler->display->display_options['filters']['field_ultimate_date_value']['field'] = 'field_ultimate_date_value';
@@ -234,7 +234,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '3';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Title */
+  /* Veld: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -296,7 +296,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
-  /* Field: Content: Afbeelding */
+  /* Veld: Content: Afbeelding */
   $handler->display->display_options['fields']['field_afbeelding']['id'] = 'field_afbeelding';
   $handler->display->display_options['fields']['field_afbeelding']['table'] = 'field_data_field_afbeelding';
   $handler->display->display_options['fields']['field_afbeelding']['field'] = 'field_afbeelding';
@@ -309,7 +309,7 @@ function feneko_views_views_default_views() {
     'image_style' => 'square_thumbnail',
     'image_link' => 'content',
   );
-  /* Field: Content: Title */
+  /* Veld: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -322,7 +322,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['hide_empty'] = TRUE;
-  /* Field: Content: Body */
+  /* Veld: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -337,19 +337,19 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '400',
   );
-  /* Sort criterion: Content: Post date */
+  /* Sorteercriterium: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filtercriterium: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filtercriterium: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -415,16 +415,16 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
-  /* Relationship: Taxonomy term: Parent term */
+  /* Relatie: Taxonomy term: Parent term */
   $handler->display->display_options['relationships']['parent']['id'] = 'parent';
   $handler->display->display_options['relationships']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['relationships']['parent']['field'] = 'parent';
   $handler->display->display_options['relationships']['parent']['label'] = 'Bovenliggend';
-  /* Relationship: Taxonomy term: Content using product categorie */
+  /* Relatie: Taxonomy term: Content using product categorie */
   $handler->display->display_options['relationships']['reverse_field_productcategorie_node']['id'] = 'reverse_field_productcategorie_node';
   $handler->display->display_options['relationships']['reverse_field_productcategorie_node']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['relationships']['reverse_field_productcategorie_node']['field'] = 'reverse_field_productcategorie_node';
-  /* Field: Taxonomy term: product category Image */
+  /* Veld: Taxonomy term: product category Image */
   $handler->display->display_options['fields']['field_product_category_image']['id'] = 'field_product_category_image';
   $handler->display->display_options['fields']['field_product_category_image']['table'] = 'field_data_field_product_category_image';
   $handler->display->display_options['fields']['field_product_category_image']['field'] = 'field_product_category_image';
@@ -438,7 +438,7 @@ function feneko_views_views_default_views() {
     'image_style' => 'square_thumbnail',
     'image_link' => 'content',
   );
-  /* Field: Taxonomy term: Name */
+  /* Veld: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -453,7 +453,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['name']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
-  /* Field: Taxonomy term: Name */
+  /* Veld: Taxonomy term: Name */
   $handler->display->display_options['fields']['name_1']['id'] = 'name_1';
   $handler->display->display_options['fields']['name_1']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name_1']['field'] = 'name';
@@ -463,7 +463,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['name_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name_1']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['name_1']['hide_empty'] = TRUE;
-  /* Field: Content: Title */
+  /* Veld: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -472,20 +472,20 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['hide_empty'] = TRUE;
-  /* Sort criterion: Taxonomy term: Name */
+  /* Sorteercriterium: Taxonomy term: Name */
   $handler->display->display_options['sorts']['name']['id'] = 'name';
   $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['name']['field'] = 'name';
   $handler->display->display_options['sorts']['name']['relationship'] = 'parent';
   $handler->display->display_options['sorts']['name']['order'] = 'DESC';
-  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  /* Filtercriterium: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'product_category' => 'product_category',
   );
-  /* Filter criterion: Taxonomy term: Parent term */
+  /* Filtercriterium: Taxonomy term: Parent term */
   $handler->display->display_options['filters']['parent']['id'] = 'parent';
   $handler->display->display_options['filters']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['filters']['parent']['field'] = 'parent';
@@ -501,20 +501,20 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  /* Filtercriterium: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'product_category' => 'product_category',
   );
-  /* Filter criterion: Taxonomy term: Parent term */
+  /* Filtercriterium: Taxonomy term: Parent term */
   $handler->display->display_options['filters']['parent']['id'] = 'parent';
   $handler->display->display_options['filters']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['filters']['parent']['field'] = 'parent';
   $handler->display->display_options['filters']['parent']['relationship'] = 'parent';
   $handler->display->display_options['filters']['parent']['value']['value'] = '0';
-  /* Filter criterion: Taxonomy term: Parent term */
+  /* Filtercriterium: Taxonomy term: Parent term */
   $handler->display->display_options['filters']['parent_1']['id'] = 'parent_1';
   $handler->display->display_options['filters']['parent_1']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['filters']['parent_1']['field'] = 'parent';
@@ -532,20 +532,20 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  /* Filtercriterium: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'product_category' => 'product_category',
   );
-  /* Filter criterion: Taxonomy term: Parent term */
+  /* Filtercriterium: Taxonomy term: Parent term */
   $handler->display->display_options['filters']['parent']['id'] = 'parent';
   $handler->display->display_options['filters']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['filters']['parent']['field'] = 'parent';
   $handler->display->display_options['filters']['parent']['relationship'] = 'parent';
   $handler->display->display_options['filters']['parent']['value']['value'] = '0';
-  /* Filter criterion: Taxonomy term: Parent term */
+  /* Filtercriterium: Taxonomy term: Parent term */
   $handler->display->display_options['filters']['parent_1']['id'] = 'parent_1';
   $handler->display->display_options['filters']['parent_1']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['filters']['parent_1']['field'] = 'parent';
@@ -588,7 +588,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Taxonomy term: product category Image */
+  /* Veld: Taxonomy term: product category Image */
   $handler->display->display_options['fields']['field_product_category_image']['id'] = 'field_product_category_image';
   $handler->display->display_options['fields']['field_product_category_image']['table'] = 'field_data_field_product_category_image';
   $handler->display->display_options['fields']['field_product_category_image']['field'] = 'field_product_category_image';
@@ -602,7 +602,7 @@ function feneko_views_views_default_views() {
     'image_style' => 'medium',
     'image_link' => 'content',
   );
-  /* Field: Taxonomy term: Name */
+  /* Veld: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -617,7 +617,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['name']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
-  /* Field: Taxonomy term: Name */
+  /* Veld: Taxonomy term: Name */
   $handler->display->display_options['fields']['name_1']['id'] = 'name_1';
   $handler->display->display_options['fields']['name_1']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name_1']['field'] = 'name';
@@ -625,7 +625,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['name_1']['label'] = '';
   $handler->display->display_options['fields']['name_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name_1']['element_label_colon'] = FALSE;
-  /* Field: Global: Custom text */
+  /* Veld: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -633,14 +633,14 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  /* Filtercriterium: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'product_category' => 'product_category',
   );
-  /* Filter criterion: Taxonomy term: Parent term */
+  /* Filtercriterium: Taxonomy term: Parent term */
   $handler->display->display_options['filters']['parent']['id'] = 'parent';
   $handler->display->display_options['filters']['parent']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['filters']['parent']['field'] = 'parent';
@@ -692,7 +692,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
-  /* Field: Content: Title */
+  /* Veld: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -705,7 +705,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['hide_empty'] = TRUE;
-  /* Field: Content: Post date */
+  /* Veld: Content: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -720,7 +720,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'd F Y';
   $handler->display->display_options['fields']['created']['second_date_format'] = 'long';
-  /* Field: Content: Image */
+  /* Veld: Content: Image */
   $handler->display->display_options['fields']['field_image']['id'] = 'field_image';
   $handler->display->display_options['fields']['field_image']['table'] = 'field_data_field_image';
   $handler->display->display_options['fields']['field_image']['field'] = 'field_image';
@@ -733,7 +733,7 @@ function feneko_views_views_default_views() {
     'image_style' => 'medium',
     'image_link' => 'content',
   );
-  /* Field: Content: Body */
+  /* Veld: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -747,7 +747,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '400',
   );
-  /* Field: Content: Link */
+  /* Veld: Content: Link */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
@@ -757,19 +757,19 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['view_node']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['view_node']['text'] = 'Read more';
-  /* Sort criterion: Content: Post date */
+  /* Sorteercriterium: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filter criterion: Content: Published */
+  /* Filtercriterium: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filtercriterium: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
