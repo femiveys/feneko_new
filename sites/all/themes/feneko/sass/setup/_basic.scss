@@ -29,7 +29,6 @@ a {
   }
   &:hover {
     background: $lightblue;
-
   }
 }
 
@@ -84,7 +83,11 @@ h1 a,
 .view-grouping-header,
 #block-menu-menu-waarom-feneko h2 {
   font-size: 36px;
-  margin-bottom: 18px;
+  margin-bottom: 48px;
+}
+
+.view-grouping-header {
+  margin-bottom: 60px;
 }
 
 .view-grouping-content .view-grouping-header {
@@ -117,9 +120,16 @@ h3 a,
   background-color: $grey;
   overflow: hidden;
   clear: both;
-  padding: $padding*2 0;
+  padding: $padding*2.5 0;
   @include gridle_state (max-tablet) {
+    -webkit-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
     display: none;
+    position: fixed;
+    top: 60px;
+    width: 100%;
+    z-index: 9;
   }
 }
 
@@ -151,6 +161,27 @@ h3 a,
   &.wrapper {
     @include gridle_state (max-tablet) {
       padding-top: $padding*8;
+    }
+  }
+  .field-name-body {
+    margin-bottom: $padding*6;
+  }
+  ul.links.inline {
+    display: inherit;
+  }
+  .node-readmore {
+    a {
+      color: $blue;
+      font-weight: 700;
+      border: 2px solid $blue;
+      background-color: $white;
+      padding: 10px 20px;
+      display: inherit;
+      margin-top: $padding*2;
+      &:hover {
+        background-color: $lightblue;
+        color: $white;
+      }
     }
   }
 }
@@ -197,32 +228,86 @@ h3 a,
 #cover-wrapper {
   position: relative;
   clear: both;
+  @include gridle_state (max-tablet) {
+    top: 60px;
+  }
   img {
     width: 100%;
+    display: block;
   }
   .inner-wrapper {
     position: absolute;
-
-    left: 10%;
+    @include gridle_state (max-mobile) {
+      background-color: $bluetrans;
+      max-width: none;
+      top: 0;
+    }
+    @include gridle_state (max-tablet) {
+      //max-width: none;
+    }
     @include gridle_state (max-tablet) {
       bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    @include gridle_state (only-tablet) {
+      top: 25%;
     }
     @include gridle_state (min-desk) {
       bottom: 20%;
+      left: 10%;
+    }
+  }
+  .big-image-caption {
+    @include gridle_state (max-mobile) {
+      margin: 0;
+      text-align: center;
+    }
+    @include gridle_state (only-mobile-land) {
+      max-width: 85%;
+      margin: 8% auto 0;
+    }
+    @include gridle_state (only-tablet) {
+      margin-bottom: 50px;
+    }
+  }
+  .node-readmore {
+    @include gridle_state (max-mobile) {
+      text-align: center;
+      margin-top: $padding;
+      position: absolute;
+      bottom: $padding;
+      left: 0;
+      right: 0;
+      margin: 0 auto $padding*2;
+    }
+    @include gridle_state (only-mobile-land) {
+      margin-bottom: $padding*3;
+    }
+  }
+  .node-readmore a {
+    @include gridle_state (max-mobile) {
+      background-color: transparent;
+      border: 1px solid $white;
+      text-align: center;
+      display: inline;
+    }
+    @include gridle_state (min-tablet) {
+      display: initial;
     }
   }
   .big-image-caption,
   .node-readmore a {
-    display: inline-block;
     color: $white;
     padding: $padding $padding*2;
-    background-color: $bluetrans;
     font-weight: 700;
-    max-width: 80%;
-    height: 100%;
-    border: 1px solid $black;
-    @include gridle_state (max-tablet) {
+    @include gridle_state (only-tablet) {
       font-size: 16px;
+    }
+    @include gridle_state (min-tablet) {
+      max-width: 80%;
+      background-color: $bluetrans;
+      border: 1px solid $black;
     }
     @include gridle_state (min-desk) {
       font-size: 24px;
@@ -234,6 +319,15 @@ h3 a,
         background-color: $lightblue;
       }
     }
+  }
+}
+
+#footer-footer {
+  background-color: $darkgrey;
+  color: $white;
+  padding: $padding*3 0 $padding*6;
+  a {
+    color: $white;
   }
 }
 
@@ -253,6 +347,11 @@ h3 a,
 #mainmenu-wrapper {
   position: relative;
   @include linear-gradient(rgba(28,64,99,1), rgba(41,93,143,1));
+  @include gridle_state (max-tablet) {
+    -webkit-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
+  }
   &.wrapper {
     clear: both;
     @include gridle_state (max-tablet) {
@@ -261,6 +360,11 @@ h3 a,
       width: 100%;
       z-index: 99;
     }
+  }
+  &.cloned {
+    -webkit-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
   }
   li {
     @include gridle_state (min-desk){
@@ -342,22 +446,46 @@ h3 a,
   }
 }
 
+
+// TOTOP
+
+.totop {
+  padding: $padding;
+  background-color: $black;
+  color: $white;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
 // small blocks
 
 #mobile-header {
   position: fixed;
   width: 100%;
   z-index: 99;
+  -webkit-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
 }
 
 .small-block {
-  display: inline-block;
+  display: table;
   width: 25%;
   cursor: pointer;
   height: 60px;
   @include linear-gradient(rgba(41,93,143,1), rgba(28,64,99,1));
   border-right: 1px solid $white;
   color: $white;
+  @include gridle_state (max-mobile) {
+    font-size: 0;
+    .fa {
+      font-size: 20px;
+    }
+  }
+  @include gridle_state (min-desk) {
+    display: none;
+  }
   &.last {
     border-right: none;
   }
@@ -365,12 +493,21 @@ h3 a,
     color: $white;
     text-decoration: none;
   }
-  @include gridle_state (min-desk) {
-    display: none;
+  .inner-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+  img {
+    @include gridle_state (max-mobile) {
+      max-width: 70%;
+      width: 50px;
+    }
+    @include gridle_state (only-tablet) {
+      max-width: 30%;
+    }
   }
 }
-
-
 
 // search
 
@@ -403,6 +540,23 @@ h3 a,
   input[type="text"] {
     background-color: $grey;
     border: 2px solid $darkgrey;
+  }
+}
+
+// language switcher
+
+.language-switcher-locale-url {
+  margin: 0;
+  padding: 0;
+  li {
+    display: inline-block;
+    padding: 0 $padding;
+    a:hover {
+      color: $darkblue;
+    }
+    .active {
+      opacity: 0.7;
+    }
   }
 }
 
@@ -475,8 +629,6 @@ h3 a,
   }
 }
 
-
-
 #block-views-main-categories-block-1 {
   .view-content {
     text-align: center;
@@ -494,7 +646,7 @@ h3 a,
       border-radius: 50%;
       display: block;
       overflow: hidden;
-      margin: auto;
+      margin: auto auto $padding*4 auto;
       -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
     }
   }

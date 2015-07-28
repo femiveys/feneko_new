@@ -56,6 +56,12 @@ retina: 1280 - +
 ) );
 
 
+@include gridle_register_state( only-mobile-land , (
+    min-width : 400px,
+    max-width: 599px
+) );
+
+
 @include gridle_register_state( only-tablet , (
     min-width : 600px,
     max-width: 850px
