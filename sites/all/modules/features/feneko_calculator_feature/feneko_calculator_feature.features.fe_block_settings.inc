@@ -41,12 +41,6 @@ function feneko_calculator_feature_default_fe_block_settings() {
         'theme' => 'feneko',
         'weight' => 0,
       ),
-      'seven' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'seven',
-        'weight' => 0,
-      ),
     ),
     'title' => '',
     'visibility' => 0,
