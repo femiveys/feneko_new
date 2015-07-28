@@ -9,6 +9,16 @@
  */
 function feneko_structure_taxonomy_default_vocabularies() {
   return array(
+    'product_category' => array(
+      'name' => 'Product category',
+      'machine_name' => 'product_category',
+      'description' => '',
+      'hierarchy' => 1,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'language' => 'und',
+      'i18n_mode' => 4,
+    ),
     'tags' => array(
       'name' => 'Tags',
       'machine_name' => 'tags',

@@ -104,6 +104,14 @@ function feneko_structure_node_info() {
       'title_label' => t('Titel'),
       'help' => '',
     ),
+    'product' => array(
+      'name' => t('Product'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Naam'),
+      'help' => '',
+    ),
     'vacature' => array(
       'name' => t('Vacature'),
       'base' => 'node_content',
