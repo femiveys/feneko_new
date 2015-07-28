@@ -44,7 +44,7 @@ function feneko_structure_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -44,
+    'weight' => 7,
     'customized' => 1,
   );
   // Exported menu link: main-menu_over-feneko:node/123
