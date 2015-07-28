@@ -7,7 +7,7 @@
   </div>
 </div><!--menu-small-->
 
-<div id="logo-small" class="small-block">
+<div id="logo-small" class="small-block blocklink">
   <div class="inner-wrapper">
     <a class="logo-small" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
     <img src="/sites/all/themes/feneko/img/fo.png" alt="feneko home">
@@ -15,9 +15,9 @@
   </div>
 </div><!--logo-small-->
 
-<div id="user-small" class="small-block">
+<div id="user-small" class="small-block blocklink">
   <div class="inner-wrapper">
-    <a href="user">
+    <a href="/user">
       login
     <i class="fa fa-user"></i>
   </a>
