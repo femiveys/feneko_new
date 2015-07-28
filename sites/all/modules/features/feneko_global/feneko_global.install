@@ -16,8 +16,8 @@ function feneko_global_update_7001() {
   $theme_list = array('feneko');
   theme_enable($theme_list);
 
+  variable_set('theme_default', 'feneko');
+
   $theme_list = array('seven', 'bartik');
   theme_disable($theme_list);
-
-  variable_set('theme_default', 'feneko');
 }
