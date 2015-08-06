@@ -9,9 +9,7 @@
 
 <div id="logo-small" class="small-block blocklink">
   <div class="inner-wrapper">
-    <a class="logo-small" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
-    <img src="/sites/all/themes/feneko/img/fo.png" alt="feneko home">
-  </a>
+    <a href="/nl"><div class="feneko_logo"><span class="feneko_fenek">F</span><span class="feneko_o">O</span></div></a>
   </div>
 </div><!--logo-small-->
 
@@ -57,10 +55,12 @@
 <div id="header-wrapper" class="wrapper">
   <div class="inner-wrapper">
     <?php if ($logo): ?>
-    <a class="logo" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
+   <!-- <a class="logo" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
       <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-    </a>
+    </a> -->
     <?php endif; ?>
+
+    <h2 class="logo"><a href="/nl"><div class="feneko_logo"><span class="feneko_fenek">Fenek</span><span class="feneko_o">O</span></div></a></h2>
 
     <?php if ($site_name): ?>
     <h1 id="site-name">

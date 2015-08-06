@@ -48,7 +48,7 @@
 
 #main_menu {
   .logged-in & {
-    @include gridle (8, min-desk);
+    @include gridle (12, min-desk);
     @include gridle_no_gutter();
     @include gridle_state (max-tablet) {
       display: none;
@@ -96,4 +96,16 @@
   .node-header {
     padding-right: $padding;
   }
+}
+
+
+// PROD
+
+.first-col {
+  @include gridle (2, min-desk);
+  @include gridle_no_gutter(left, min-desk);
+}
+
+.second-col {
+  @include gridle (6, min-desk);
 }

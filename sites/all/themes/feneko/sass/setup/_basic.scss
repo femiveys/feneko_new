@@ -7,11 +7,12 @@ body {
 a {
   color: $blue;
   &:hover {
-    color: $darkblue;
+    color: $darkgrey;
   }
 }
 
 // node-readmore
+
 %button {
   background: $blue;
   transition: background-color 0.2s ease;
@@ -19,7 +20,6 @@ a {
   text-decoration: none;
   display: inline-block;
   padding: $padding/2 $padding;
-  height: $padding*3;
   margin-right: $padding/2;
   color: $white;
   @include crisp;
@@ -28,7 +28,7 @@ a {
     color: $white;
   }
   &:hover {
-    background: $lightblue;
+    background: $blue;
   }
 }
 
@@ -74,7 +74,6 @@ h2 a,
 .view-grouping-header {
   color: $blue;
   font-weight: normal;
-  //font-family: $titel-font;
   font-weight: bold;
 }
 
@@ -145,7 +144,24 @@ h3 a,
   @include gridle_state (max-tablet) {
     display: none;
   }
+
 }
+
+.feneko_fenek,
+.feneko_o {
+  font-family: georgia, serif;
+  font-size: 40px;
+}
+
+.feneko_fenek {
+  color: $black;
+}
+
+.feneko_o {
+  color: $blue;
+}
+
+
 
 // front regions
 
@@ -179,7 +195,7 @@ h3 a,
       display: inherit;
       margin-top: $padding*2;
       &:hover {
-        background-color: $lightblue;
+        background-color: $blue;
         color: $white;
       }
     }
@@ -214,12 +230,14 @@ h3 a,
         background-repeat: no-repeat;
         background-size: 205px 205px;
         display: block;
+        font-size: 20px;
+        font-weight: 700;
       }
     }
-    .first a{
+    .first a {
       background-image: url(../img/fabriek.png);
     }
-    .last a{
+    .last a {
       background-image: url(../img/doos.png);
     }
   }
@@ -371,15 +389,20 @@ h3 a,
       display: inline-block;
     }
   }
+  #main_menu {
+    margin: $padding*2 0;
+  }
   .menu {
     color: $white;
-    margin: $padding*2 0;
+    margin: 0;
     @include gridle_state (max-tablet) {
-        width: 100%;
-      }
+      width: 100%;
+    }
+    @include gridle_state (min-tablet) {
+      float: left;
+    }
     a {
       color: $white;
-
       &:hover {
         color: $lightblue;
       }
@@ -397,7 +420,7 @@ h3 a,
       &:after {
         @include gridle_state (min-desk) {
           content: "\007C";
-          padding-left: $padding/2;
+          padding-left: $padding;
           color: $white;
         }
       }
@@ -407,27 +430,15 @@ h3 a,
         display: block;
         width: 100%;
       }
-      &.last, {
-        @include gridle_state (max-tablet) {
-          display: none;
-        }
-        .logged-in & {
-          display: none;
-        }
-        a {
-          &:after {
-            content: "";
-          }
-        }
-      }
-      &:nth-last-child(2) {
-        a {
-          .logged-in & {
-            &:after {
-              content: "";
-            }
-          }
-        }
+    }
+  }
+}
+
+#block-system-user-menu {
+  .menu {
+    li.last {
+      a:after {
+        content: "";
       }
     }
   }
@@ -634,7 +645,7 @@ h3 a,
     text-align: center;
   }
   .view-grouping .view-grouping {
-    width: 220px;
+    width: 250px;
     display: inline-block;
     text-align: center;
     clear: none;
@@ -648,7 +659,36 @@ h3 a,
       overflow: hidden;
       margin: auto auto $padding*4 auto;
       -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+      border: 2px solid $lightblue;
     }
+    h3 {
+      clear: both;
+      text-align: center;
+      margin-bottom: 16px;
+      a {
+        display: block;
+        border: 2px solid $white;
+        width: 85%;
+        padding: $padding;
+        font-size: 16px;
+        margin: auto;
+      }
+    }
+    &:hover {
+      h3 {
+        a {
+          background-color: $white;
+        color: $blue;
+        }
+
+      }
+      img {
+        -webkit-transform:scale(1.15);
+      transform:scale(1.15);
+      opacity:0.7;
+      }
+
+        }
   }
   img {
     width: 190px;
@@ -656,21 +696,54 @@ h3 a,
     padding: 0;
     -webkit-transition: opacity 0.35s,-webkit-transform 0.35s;
     transition: opacity 0.35s,transform 0.35s;
+
     &:hover{
-      -webkit-transform:scale(1.15);
-      transform:scale(1.15);
-      opacity:0.7;
+
     }
   }
-  h3 {
-    clear: both;
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 16px;
+
+}
+
+// NODE TYPES
+
+.node-type-product {
+  .field-name-field-images {
+    .field-item {
+      width: 50%;
+      float: left;
+      margin-bottom: $padding*2;
+      img {
+        width: 85%;
+        border: 2px solid $blue;
+      }
+      &.even {
+        img {
+          float: right;
+        }
+      }
+      &.odd {
+        img {
+          float: left;
+        }
+      }
+      &:nth-child(1) {
+        width: 100%;
+        img {
+          width: 100%;
+        }
+      }
+    }
   }
 }
 
-
+.field-name-field-orderable-products {
+  a {
+    @extend %button;
+    &:hover {
+      background-color: $lightblue;
+    }
+  }
+}
 
 // SHOPPING CART
 
@@ -714,7 +787,6 @@ h3 a,
       font-size: 36px;
       clear: both;
       margin-top: 4px;
-      //padding: $padding;
     }
   }
   .node-header {
@@ -748,7 +820,7 @@ h3 a,
     font-family: $main-font;
     font-weight: normal;
     margin: $padding*2 0;
-    margin-top: -45px;
+    margin-top: -40px;
     &:after {
       font-size: 16px;
       padding-left: $padding;
@@ -836,6 +908,16 @@ h3 a,
     font-size: 0.8em;
     padding-top: $padding*1.5;
     line-height: 150%;
+  }
+}
+
+// colorbox
+
+#cboxPrevious,
+#cboxNext {
+  &:before {
+    text-shadow: 0px 0px 4px $blue;
+    font-size: 32px;
   }
 }
 
