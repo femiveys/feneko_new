@@ -85,7 +85,7 @@ function feneko_structure_default_fe_block_settings() {
         'region' => 'main_menu',
         'status' => 1,
         'theme' => 'feneko',
-        'weight' => -14,
+        'weight' => -15,
       ),
     ),
     'title' => '',
@@ -142,10 +142,10 @@ function feneko_structure_default_fe_block_settings() {
     'roles' => array(),
     'themes' => array(
       'feneko' => array(
-        'region' => 'user_menu',
+        'region' => 'main_menu',
         'status' => 1,
         'theme' => 'feneko',
-        'weight' => -12,
+        'weight' => -14,
       ),
     ),
     'title' => '<none>',

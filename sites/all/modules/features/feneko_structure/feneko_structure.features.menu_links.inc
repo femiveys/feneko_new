@@ -27,26 +27,6 @@ function feneko_structure_menu_default_menu_links() {
     'weight' => -50,
     'customized' => 1,
   );
-  // Exported menu link: main-menu_login:user
-  $menu_links['main-menu_login:user'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'user',
-    'router_path' => 'user',
-    'link_title' => 'Login',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'main-menu_login:user',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 7,
-    'customized' => 1,
-  );
   // Exported menu link: main-menu_over-feneko:node/123
   $menu_links['main-menu_over-feneko:node/123'] = array(
     'menu_name' => 'main-menu',
@@ -78,7 +58,7 @@ function feneko_structure_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => 10,
+    'weight' => -49,
     'customized' => 1,
   );
 
@@ -86,7 +66,6 @@ function feneko_structure_menu_default_menu_links() {
   // Included for use with string extractors like potx.
   t('Home');
   t('Log out');
-  t('Login');
   t('Over FenekO');
 
   return $menu_links;

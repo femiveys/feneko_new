@@ -44,10 +44,13 @@ function feneko_structure_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '-5',
+          'weight' => '0',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '5',
+        ),
+        'language' => array(
+          'weight' => '1',
         ),
       ),
       'display' => array(
@@ -152,10 +155,10 @@ function feneko_structure_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'language' => array(
-          'weight' => '0',
+          'weight' => '1',
         ),
         'title' => array(
-          'weight' => '1',
+          'weight' => '0',
         ),
         'path' => array(
           'weight' => '4',
@@ -211,6 +214,9 @@ function feneko_structure_strongarm() {
         ),
         'path' => array(
           'weight' => '3',
+        ),
+        'language' => array(
+          'weight' => '0',
         ),
       ),
       'display' => array(
@@ -278,7 +284,7 @@ function feneko_structure_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '1',
+          'weight' => '0',
         ),
         'xmlsitemap' => array(
           'weight' => '2',
@@ -290,13 +296,13 @@ function feneko_structure_strongarm() {
           'weight' => '40',
         ),
         'language' => array(
-          'weight' => '0',
+          'weight' => '1',
         ),
       ),
       'display' => array(
         'language' => array(
           'default' => array(
-            'weight' => '8',
+            'weight' => '5',
             'visible' => FALSE,
           ),
           'teaser' => array(
@@ -343,10 +349,13 @@ function feneko_structure_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'language' => array(
-          'weight' => '0',
+          'weight' => '1',
         ),
         'title' => array(
-          'weight' => '1',
+          'weight' => '0',
+        ),
+        'path' => array(
+          'weight' => '6',
         ),
       ),
       'display' => array(
