@@ -143,6 +143,8 @@ function stickIt() {
   }
 }
 
+$('.field-name-field-orderable-products a').prepend('bestel ');
+
 
 var topLink = $('.totop');
 var showTopLink = 500;
