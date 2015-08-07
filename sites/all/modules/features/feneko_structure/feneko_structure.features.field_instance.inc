@@ -1664,7 +1664,7 @@ function feneko_structure_field_default_field_instances() {
           'colorbox_node_style_first' => '',
         ),
         'type' => 'colorbox',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'full' => array(
         'label' => 'hidden',

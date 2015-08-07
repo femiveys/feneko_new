@@ -40,6 +40,7 @@ features[fe_block_settings][] = views-front_image-block
 features[fe_block_settings][] = views-jobs-block_1
 features[fe_block_settings][] = views-main_categories-block_1
 features[fe_block_settings][] = views-nieuws-block_1
+features[fe_block_settings][] = views-related-block
 features[features_api][] = api:2
 features[field_base][] = body
 features[field_base][] = field_adres

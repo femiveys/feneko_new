@@ -252,5 +252,25 @@ function feneko_structure_default_fe_block_settings() {
     'visibility' => 1,
   );
 
+  $export['views-related-block'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => 'related-block',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'feneko' => array(
+        'region' => 'sidebar_second',
+        'status' => 1,
+        'theme' => 'feneko',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '<none>',
+    'visibility' => 0,
+  );
+
   return $export;
 }

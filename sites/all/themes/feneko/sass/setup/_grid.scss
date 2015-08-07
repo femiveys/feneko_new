@@ -114,3 +114,10 @@
 .second-col {
   @include gridle (6, min-desk);
 }
+
+// SEARCH
+
+#search-form {
+  @include gridle(6, min-desk);
+  @include gridle_no_gutter;
+}

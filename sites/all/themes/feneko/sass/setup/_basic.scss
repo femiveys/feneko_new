@@ -85,6 +85,12 @@ h1 a,
   margin-bottom: 48px;
 }
 
+#sidebar_second {
+  h1 {
+    font-size: 20px;
+  }
+}
+
 .view-grouping-header {
   margin-bottom: 60px;
 }
@@ -552,6 +558,10 @@ h3 a,
     background-color: $grey;
     border: 2px solid $darkgrey;
   }
+}
+
+.search-results {
+  clear: both;
 }
 
 // language switcher

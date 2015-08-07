@@ -13,7 +13,7 @@ function feneko_structure_taxonomy_default_vocabularies() {
       'name' => 'Product category',
       'machine_name' => 'product_category',
       'description' => '',
-      'hierarchy' => 1,
+      'hierarchy' => 0,
       'module' => 'taxonomy',
       'weight' => 0,
       'language' => 'und',
