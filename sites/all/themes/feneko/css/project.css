@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.logo, #header, .small-block, .logged-in #main_menu, .not-logged-in #main_menu, .nieuws-rij, .nieuws-rij.views-row-first, .view-feneko-shopping-cart-block .view-total, .first-col, .second-col {
+.logo, #header, .small-block, .logged-in #main_menu, .not-logged-in #main_menu, #sidebar_second, .nieuws-rij, .nieuws-rij.views-row-first, .view-feneko-shopping-cart-block .view-total, .first-col, .second-col {
   display: inline-block;
   min-height: 1px;
   -webkit-box-sizing: border-box;
@@ -274,6 +274,18 @@ retina: 1280 - +
   }
 }
 
+#sidebar_second {
+  float: left;
+  direction: ltr;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media screen and (min-width: 851px) {
+  #sidebar_second {
+    width: 33.33333%;
+  }
+}
+
 .nieuws-rij {
   float: left;
   direction: ltr;
@@ -498,6 +510,12 @@ retina: 1280 - +
     top: 50px;
     left: 0;
     width: 100%;
+  }
+}
+
+@media screen and (min-width: 851px) {
+  #sidebar_second {
+    width: 33.33333%;
   }
 }
 

@@ -83,6 +83,7 @@
  */
 ?>
 
+
 <?php print render($title_prefix); ?>
   <header class="node-header">
     <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>

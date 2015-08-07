@@ -69,6 +69,10 @@
   //@include gridle_no_gutter();
 }
 
+#sidebar_second {
+  @include gridle (4, min-desk);
+}
+
 .nieuws-rij {
   @include gridle (12, max-tablet);
   @include gridle (4, min-desk);
