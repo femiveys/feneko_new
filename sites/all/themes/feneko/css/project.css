@@ -1571,15 +1571,23 @@ h3 a,
 
 .view-main-categories .view-grouping {
   clear: both;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   overflow: hidden;
 }
 .view-main-categories img {
   float: left;
   padding-right: 10px;
 }
+.view-main-categories .view-grouping-header a {
+  display: block;
+}
 .view-main-categories .view-grouping-content div {
   font-size: 14px;
+}
+.view-main-categories .view-grouping-content .views-row-odd,
+.view-main-categories .view-grouping-content .views-row-even {
+  font-weight: 700;
+  margin-bottom: 5px;
 }
 
 .categorie-rij h3 {
@@ -1659,8 +1667,50 @@ h3 a,
   width: 100%;
 }
 
+.field-name-field-orderable-products a {
+  text-transform: lowercase;
+}
+.field-name-field-orderable-products a:first-letter {
+  text-transform: uppercase;
+}
 .field-name-field-orderable-products a:hover {
   background-color: #9BD4DF;
+}
+
+.field-name-body a {
+  font-weight: 700;
+}
+
+.field-group-htabs-wrapper .selected {
+  margin-bottom: -1px !important;
+}
+.field-group-htabs-wrapper .selected:hover {
+  border-bottom: none !important;
+}
+.field-group-htabs-wrapper .selected a:hover {
+  background-color: #ffffff !important;
+  border: none !important;
+}
+
+.horizontal-tabs ul.horizontal-tabs-list {
+  background-color: #ffffff;
+  border-right: none;
+  display: flex;
+}
+
+.horizontal-tab-button {
+  border-left: 1px solid #c7c7c7;
+  border-top: 1px solid #c7c7c7;
+  border-right: 1px solid #c7c7c7;
+}
+
+div.horizontal-tabs {
+  border: none;
+}
+
+.horizontal-tabs-panes {
+  border: 1px solid #c7c7c7;
+  padding: 10px;
 }
 
 .view-feneko-shopping-cart-block table,

@@ -620,16 +620,26 @@ h3 a,
 .view-main-categories {
   .view-grouping {
     clear: both;
-    margin-bottom: $padding*2;
+    margin-bottom: $padding*3;
     overflow: hidden;
   }
   img {
     float: left;
     padding-right: $padding;
   }
+  .view-grouping-header {
+    a {
+      display: block;
+    }
+  }
   .view-grouping-content {
     div {
       font-size: 14px;
+    }
+    .views-row-odd,
+    .views-row-even {
+      font-weight: 700;
+      margin-bottom: $padding/2;
     }
   }
 }
@@ -739,11 +749,63 @@ h3 a,
 .field-name-field-orderable-products {
   a {
     @extend %button;
+    text-transform: lowercase;
+    //first-letter: uppercase;
+    &:first-letter {
+      text-transform: uppercase;
+    }
     &:hover {
       background-color: $lightblue;
     }
   }
 }
+
+.field-name-body {
+  a {
+    font-weight: 700;
+  }
+}
+
+// HTABS
+
+.field-group-htabs-wrapper {
+    .selected {
+      margin-bottom: -1px!important;
+      &:hover {
+          border-bottom: none!important;
+        }
+      a {
+        &:hover {
+          background-color: $white!important;
+          border: none!important;
+        }
+      }
+    }
+}
+
+.horizontal-tabs ul.horizontal-tabs-list {
+  background-color: $white;
+  border-right: none;
+  display: flex;
+}
+
+.horizontal-tab-button {
+  border-left: 1px solid $grey;
+  border-top: 1px solid $grey;
+  border-right: 1px solid $grey;
+
+}
+
+div.horizontal-tabs {
+  border: none;
+}
+
+.horizontal-tabs-panes {
+  border: 1px solid $grey;
+  padding: $padding;
+}
+
+
 
 // SHOPPING CART
 

@@ -83,28 +83,44 @@
  */
 ?>
 
+<?php print render($title_prefix); ?>
+  <header class="node-header">
+    <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
+  </header>
+<?php print render($title_suffix); ?>
 
-  <?php print render($title_prefix); ?>
+<div class="content">
+  <?php if($page) { ?>
+    <div class="first-col">
+  <?php } ?>
 
-    <header class="node-header">
-      <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
-    </header>
-  <?php print render($title_suffix); ?>
+  <?php print render($content['field_images']); ?>
 
-  <div class="content">
-    <?php if($page) { ?>
-      <div class="first-col">
+  <?php if($page) { ?>
+    </div>
+  <?php } ?>
+
+  <?php if($page) { ?>
+    <div class="second-col">
     <?php } ?>
 
-      <?php print render($content['field_images']); ?>
-    <?php if($page) { ?>
-      </div>
-    <?php } ?>
-    <?php if($page) { ?>
-      <div class="second-col">
-    <?php } ?>
-      <?php print render($content);?>
-    <?php if($page) { ?>
-      </div>
-    <?php } ?>
-  </div>
+    <?php print render($content['body']);?>
+
+    <?php print render($content['group_wrapper']);?>
+
+    <?php print render($content['field_attach_secured']);?>
+
+    <?php if($logged_in) { ?>
+
+    <div class="field-name-field-orderable-products">
+
+      <?php print render($content['field_orderable_products']); ?>
+
+    </div>
+
+  <?php } ?>
+
+  <?php if($page) { ?>
+    </div>
+  <?php } ?>
+</div>
