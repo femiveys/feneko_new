@@ -719,23 +719,32 @@ h3 a,
 .node-type-product {
   .field-name-field-images {
     .field-item {
-      width: 50%;
+      @include gridle_state(max-tablet) {
+        width: 25%;
+      }
+      @include gridle_state (min-desk) {
+        width: 50%;
+      }
+
       float: left;
       margin-bottom: $padding*2;
       img {
         width: 85%;
         border: 2px solid $blue;
       }
-      &.even {
-        img {
-          float: right;
+      @include gridle_state(min-desk) {
+        &.even {
+          img {
+            float: right;
+          }
+        }
+        &.odd {
+          img {
+            float: left;
+          }
         }
       }
-      &.odd {
-        img {
-          float: left;
-        }
-      }
+
       &:nth-child(1) {
         width: 100%;
         img {
@@ -748,9 +757,9 @@ h3 a,
 
 .field-name-field-orderable-products {
   a {
+    margin-bottom: $padding;
     @extend %button;
     text-transform: lowercase;
-    //first-letter: uppercase;
     &:first-letter {
       text-transform: uppercase;
     }
