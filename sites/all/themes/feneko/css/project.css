@@ -1,4 +1,4 @@
-#header, .view-feneko-shopping-cart-block .view-total {
+#header, #sidebar_second, .view-feneko-shopping-cart-block .view-total {
   position: relative;
 }
 
@@ -279,10 +279,17 @@ retina: 1280 - +
   direction: ltr;
   padding-left: 20px;
   padding-right: 20px;
+  padding-left: 0;
+  padding-right: 0;
 }
 @media screen and (min-width: 851px) {
   #sidebar_second {
-    width: 33.33333%;
+    width: 25%;
+  }
+}
+@media screen and (min-width: 851px) {
+  #sidebar_second {
+    left: 8.33333%;
   }
 }
 
@@ -362,6 +369,16 @@ retina: 1280 - +
   padding-left: 20px;
   padding-right: 20px;
 }
+@media screen and (max-width: 599px) {
+  .first-col {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 850px) {
+  .first-col {
+    width: 50%;
+  }
+}
 @media screen and (min-width: 851px) {
   .first-col {
     width: 16.66667%;
@@ -378,6 +395,16 @@ retina: 1280 - +
   direction: ltr;
   padding-left: 20px;
   padding-right: 20px;
+}
+@media screen and (max-width: 599px) {
+  .second-col {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 850px) {
+  .second-col {
+    width: 50%;
+  }
 }
 @media screen and (min-width: 851px) {
   .second-col {
@@ -527,9 +554,18 @@ retina: 1280 - +
   }
 }
 
+#sidebar_second {
+  padding-left: 0;
+  padding-right: 0;
+}
 @media screen and (min-width: 851px) {
   #sidebar_second {
-    width: 33.33333%;
+    width: 25%;
+  }
+}
+@media screen and (min-width: 851px) {
+  #sidebar_second {
+    left: 8.33333%;
   }
 }
 
@@ -589,6 +625,16 @@ retina: 1280 - +
   padding-right: 10px;
 }
 
+@media screen and (max-width: 599px) {
+  .first-col {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 850px) {
+  .first-col {
+    width: 50%;
+  }
+}
 @media screen and (min-width: 851px) {
   .first-col {
     width: 16.66667%;
@@ -600,6 +646,16 @@ retina: 1280 - +
   }
 }
 
+@media screen and (max-width: 599px) {
+  .second-col {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 850px) {
+  .second-col {
+    width: 50%;
+  }
+}
 @media screen and (min-width: 851px) {
   .second-col {
     width: 50%;
@@ -1759,11 +1815,21 @@ h3 a,
   border-right: none;
   display: flex;
 }
+@media screen and (max-width: 850px) {
+  .horizontal-tabs ul.horizontal-tabs-list {
+    display: block;
+  }
+}
 
 .horizontal-tab-button {
   border-left: 1px solid #c7c7c7;
   border-top: 1px solid #c7c7c7;
   border-right: 1px solid #c7c7c7;
+}
+@media screen and (max-width: 850px) {
+  .horizontal-tab-button {
+    width: 100%;
+  }
 }
 
 div.horizontal-tabs {
@@ -1773,6 +1839,13 @@ div.horizontal-tabs {
 .horizontal-tabs-panes {
   border: 1px solid #c7c7c7;
   padding: 10px;
+}
+
+#block-views-related-block {
+  text-align: center;
+}
+#block-views-related-block .views-field-title {
+  font-weight: 700;
 }
 
 .view-feneko-shopping-cart-block table,

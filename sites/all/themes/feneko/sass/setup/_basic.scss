@@ -167,8 +167,6 @@ h3 a,
   color: $blue;
 }
 
-
-
 // front regions
 
 #frontblock-wrapper,
@@ -806,13 +804,22 @@ h3 a,
   background-color: $white;
   border-right: none;
   display: flex;
+  @include gridle_state(max-tablet) {
+    display: block;
+  }
+}
+
+.horizontal-tabs-list {
+
 }
 
 .horizontal-tab-button {
   border-left: 1px solid $grey;
   border-top: 1px solid $grey;
   border-right: 1px solid $grey;
-
+  @include gridle_state (max-tablet) {
+    width: 100%;
+  }
 }
 
 div.horizontal-tabs {
@@ -824,7 +831,12 @@ div.horizontal-tabs {
   padding: $padding;
 }
 
-
+#block-views-related-block {
+  text-align: center;
+  .views-field-title {
+    font-weight: 700;
+  }
+}
 
 // SHOPPING CART
 

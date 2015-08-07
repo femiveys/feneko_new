@@ -70,7 +70,9 @@
 }
 
 #sidebar_second {
-  @include gridle (4, min-desk);
+  @include gridle (3, min-desk);
+  @include gridle_no_gutter();
+  @include gridle_push(1, min-desk);
 }
 
 .nieuws-rij {
@@ -107,11 +109,15 @@
 
 
 .first-col {
+  @include gridle (12, max-mobile);
+  @include gridle (6, only-tablet);
   @include gridle (2, min-desk);
   @include gridle_no_gutter(left, min-desk);
 }
 
 .second-col {
+  @include gridle (12, max-mobile);
+  @include gridle (6, only-tablet);
   @include gridle (6, min-desk);
 }
 
