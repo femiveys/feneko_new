@@ -11,3 +11,4 @@ features[views_view][] = jobs
 features[views_view][] = machines
 features[views_view][] = main_categories
 features[views_view][] = nieuws
+features[views_view][] = related
