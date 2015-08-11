@@ -10,6 +10,26 @@
 function feneko_structure_menu_default_menu_links() {
   $menu_links = array();
 
+  // Exported menu link: main-menu_colors:colors
+  $menu_links['main-menu_colors:colors'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'colors',
+    'router_path' => 'colors',
+    'link_title' => 'Colors',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'main-menu_colors:colors',
+    ),
+    'module' => 'system',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 3,
+    'customized' => 1,
+  );
   // Exported menu link: main-menu_home:<front>
   $menu_links['main-menu_home:<front>'] = array(
     'menu_name' => 'main-menu',
@@ -27,6 +47,40 @@ function feneko_structure_menu_default_menu_links() {
     'weight' => -50,
     'customized' => 1,
   );
+  // Exported menu link: main-menu_jobs:jobs
+  $menu_links['main-menu_jobs:jobs'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'jobs',
+    'router_path' => 'jobs',
+    'link_title' => 'Jobs',
+    'options' => array(
+      'identifier' => 'main-menu_jobs:jobs',
+    ),
+    'module' => 'system',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 6,
+    'customized' => 0,
+  );
+  // Exported menu link: main-menu_nieuws:nieuws
+  $menu_links['main-menu_nieuws:nieuws'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'nieuws',
+    'router_path' => 'nieuws',
+    'link_title' => 'Nieuws',
+    'options' => array(
+      'identifier' => 'main-menu_nieuws:nieuws',
+    ),
+    'module' => 'system',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 5,
+    'customized' => 0,
+  );
   // Exported menu link: main-menu_over-feneko:node/123
   $menu_links['main-menu_over-feneko:node/123'] = array(
     'menu_name' => 'main-menu',
@@ -42,6 +96,66 @@ function feneko_structure_menu_default_menu_links() {
     'has_children' => 0,
     'expanded' => 0,
     'weight' => -49,
+    'customized' => 1,
+  );
+  // Exported menu link: main-menu_screens:screens
+  $menu_links['main-menu_screens:screens'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'screens',
+    'router_path' => 'screens',
+    'link_title' => 'Screens',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'main-menu_screens:screens',
+    ),
+    'module' => 'system',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 4,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-waarom-feneko_onze-machines:machines
+  $menu_links['menu-waarom-feneko_onze-machines:machines'] = array(
+    'menu_name' => 'menu-waarom-feneko',
+    'link_path' => 'machines',
+    'router_path' => 'machines',
+    'link_title' => 'Onze machines',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-waarom-feneko_onze-machines:machines',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+  );
+  // Exported menu link: menu-waarom-feneko_onze-producten:onze-producten
+  $menu_links['menu-waarom-feneko_onze-producten:onze-producten'] = array(
+    'menu_name' => 'menu-waarom-feneko',
+    'link_path' => 'onze-producten',
+    'router_path' => 'onze-producten',
+    'link_title' => 'Onze producten',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-waarom-feneko_onze-producten:onze-producten',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
     'customized' => 1,
   );
   // Exported menu link: user-menu_log-out:user/logout
@@ -61,12 +175,58 @@ function feneko_structure_menu_default_menu_links() {
     'weight' => -49,
     'customized' => 1,
   );
+  // Exported menu link: user-menu_login:user/login
+  $menu_links['user-menu_login:user/login'] = array(
+    'menu_name' => 'user-menu',
+    'link_path' => 'user/login',
+    'router_path' => 'user/login',
+    'link_title' => 'Login',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'user-menu_login:user/login',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -48,
+    'customized' => 1,
+  );
+  // Exported menu link: user-menu_user-account:user
+  $menu_links['user-menu_user-account:user'] = array(
+    'menu_name' => 'user-menu',
+    'link_path' => 'user',
+    'router_path' => 'user',
+    'link_title' => 'User account',
+    'options' => array(
+      'alter' => TRUE,
+      'identifier' => 'user-menu_user-account:user',
+    ),
+    'module' => 'system',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 1,
+  );
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Colors');
   t('Home');
+  t('Jobs');
   t('Log out');
+  t('Login');
+  t('Nieuws');
+  t('Onze machines');
+  t('Onze producten');
   t('Over FenekO');
+  t('Screens');
+  t('User account');
 
   return $menu_links;
 }
