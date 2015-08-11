@@ -21,6 +21,7 @@ dependencies[] = media
 dependencies[] = menu
 dependencies[] = node
 dependencies[] = options
+dependencies[] = pathauto
 dependencies[] = search
 dependencies[] = strongarm
 dependencies[] = taxonomy
