@@ -115,7 +115,7 @@ function feneko_structure_strongarm() {
             'visible' => FALSE,
           ),
           'teaser' => array(
-            'weight' => '0',
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),
@@ -612,6 +612,7 @@ function feneko_structure_strongarm() {
   $strongarm->name = 'node_options_info_pagina';
   $strongarm->value = array(
     0 => 'status',
+    1 => 'promote',
   );
   $export['node_options_info_pagina'] = $strongarm;
 
