@@ -70,9 +70,9 @@
 }
 
 #sidebar_second {
-  @include gridle (3, min-desk);
+  @include gridle (2, min-desk);
   @include gridle_no_gutter();
-  @include gridle_push(1, min-desk);
+  @include gridle_push(1.5, min-desk);
 }
 
 .nieuws-rij {
@@ -110,15 +110,16 @@
 
 .first-col {
   @include gridle (12, max-mobile);
-  @include gridle (6, only-tablet);
+  @include gridle (4, only-tablet);
   @include gridle (2, min-desk);
   @include gridle_no_gutter(left, min-desk);
 }
 
 .second-col {
   @include gridle (12, max-mobile);
-  @include gridle (6, only-tablet);
-  @include gridle (6, min-desk);
+  @include gridle (8, only-tablet);
+  @include gridle (6.5, min-desk);
+  @include gridle_push (0.5, min-desk);
 }
 
 // SEARCH

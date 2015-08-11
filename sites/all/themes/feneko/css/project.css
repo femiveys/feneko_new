@@ -1,4 +1,4 @@
-#header, #sidebar_second, .view-feneko-shopping-cart-block .view-total {
+#header, #sidebar_second, .view-feneko-shopping-cart-block .view-total, .second-col {
   position: relative;
 }
 
@@ -284,12 +284,12 @@ retina: 1280 - +
 }
 @media screen and (min-width: 851px) {
   #sidebar_second {
-    width: 25%;
+    width: 16.66667%;
   }
 }
 @media screen and (min-width: 851px) {
   #sidebar_second {
-    left: 8.33333%;
+    left: 12.5%;
   }
 }
 
@@ -376,7 +376,7 @@ retina: 1280 - +
 }
 @media screen and (min-width: 600px) and (max-width: 850px) {
   .first-col {
-    width: 50%;
+    width: 33.33333%;
   }
 }
 @media screen and (min-width: 851px) {
@@ -403,12 +403,17 @@ retina: 1280 - +
 }
 @media screen and (min-width: 600px) and (max-width: 850px) {
   .second-col {
-    width: 50%;
+    width: 66.66667%;
   }
 }
 @media screen and (min-width: 851px) {
   .second-col {
-    width: 50%;
+    width: 54.16667%;
+  }
+}
+@media screen and (min-width: 851px) {
+  .second-col {
+    left: 4.16667%;
   }
 }
 
@@ -560,12 +565,12 @@ retina: 1280 - +
 }
 @media screen and (min-width: 851px) {
   #sidebar_second {
-    width: 25%;
+    width: 16.66667%;
   }
 }
 @media screen and (min-width: 851px) {
   #sidebar_second {
-    left: 8.33333%;
+    left: 12.5%;
   }
 }
 
@@ -632,7 +637,7 @@ retina: 1280 - +
 }
 @media screen and (min-width: 600px) and (max-width: 850px) {
   .first-col {
-    width: 50%;
+    width: 33.33333%;
   }
 }
 @media screen and (min-width: 851px) {
@@ -653,12 +658,17 @@ retina: 1280 - +
 }
 @media screen and (min-width: 600px) and (max-width: 850px) {
   .second-col {
-    width: 50%;
+    width: 66.66667%;
   }
 }
 @media screen and (min-width: 851px) {
   .second-col {
-    width: 50%;
+    width: 54.16667%;
+  }
+}
+@media screen and (min-width: 851px) {
+  .second-col {
+    left: 4.16667%;
   }
 }
 
@@ -1629,10 +1639,15 @@ h3 a,
 }
 .language-switcher-locale-url li {
   display: inline-block;
-  padding: 0 10px;
+}
+.language-switcher-locale-url li a {
+  padding: 5px 10px;
+  background-color: #295D8F;
+  border-radius: 10px;
+  font-weight: 700;
 }
 .language-switcher-locale-url li a:hover {
-  color: #2c62c7;
+  background-color: #e6e6e6;
 }
 .language-switcher-locale-url li .active {
   opacity: 0.7;
@@ -1846,6 +1861,7 @@ div.horizontal-tabs {
 }
 #block-views-related-block .views-field-title {
   font-weight: 700;
+  margin-top: 10px;
 }
 
 .view-feneko-shopping-cart-block table,
@@ -2015,4 +2031,11 @@ div.horizontal-tabs {
 
 .commerce-quantity-plusminus-link a.button {
   padding: 6px 7px;
+}
+
+.submitted {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  clear: both;
 }

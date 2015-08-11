@@ -82,61 +82,31 @@
  * @link http://api.drupal.org/api/drupal/modules--node--node.tpl.php/7
  */
 ?>
+<?php
+if ($classes) :
+  $classes = ' class="' . $classes . '"';
+endif;
+?>
+<article <?php print $classes .  $attributes; ?> role="article">
+  <?php print render($title_prefix); ?>
 
-
-
-
-<?php print render($title_prefix); ?>
-  <header class="node-header">
-
+    <header>
+      <?php if (!$page) : ?>
+      <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>" rel="bookmark"><?php print $title; ?></a></h2>
+    <?php endif; ?>
     <?php if ($page) : ?>
-    <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
+      <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
     <?php endif; ?>
 
-    <?php if ($teaser) : ?>
-    <h2<?php print $title_attributes; ?>><?php print $title; ?></h2>
-    <?php endif; ?>
-
-  </header>
-<?php print render($title_suffix); ?>
-
-<div class="content">
-
-  <?php if ($page) : ?>
-    <div class="first-col">
-  <?php endif; ?>
-
-  <?php print render($content['field_images']); ?>
-
-  <?php if ($page) : ?>
+    <?php if ($display_submitted): ?>
+    <div class="submitted">
+      <i class="fa fa-calendar"></i> <?php print $submitted; ?>
     </div>
   <?php endif; ?>
+    </header>
+  <?php print render($title_suffix); ?>
 
-  <?php if ($page) : ?>
-    <div class="second-col">
-
-  <?php endif; ?>
-      <?php print render($content['body']);?>
-
-
-      <?php print render($content['links']);?>
-
-
-      <?php print render($content['group_wrapper']);?>
-
-      <?php print render($content['field_attach_secured']);?>
-
-       <?php if($logged_in) { ?>
-
-    <div class="field-name-field-orderable-products">
-
-      <?php print render($content['field_orderable_products']); ?>
-
-    </div>
-
-  <?php } ?>
-
-  <?php if($page) : ?>
-    </div>
-  <?php endif; ?>
-</div>
+  <section class="content">
+    <?php print render($content);?>
+  </section>
+</article>
