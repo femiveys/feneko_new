@@ -53,9 +53,9 @@
   <header class="node-header">
     <h2<?php print $title_attributes; ?>><?php print $block->subject ?></h2>
   </header>
-  <?php print render($title_suffix); ?>
-<?php endif;?>
 
-  
+<?php endif;?>
+<?php print render($title_suffix); ?>
+
     <?php print $content ?>
 </article>
