@@ -541,7 +541,7 @@ class FenekoForm {
         break;
 
       case 3:
-        $fields['bevestiging'] = 'los';
+        $fields['bevestiging'] = 'nvt';
         $fields['uitvoering'] = 'enkel';
         break;
 
@@ -1212,7 +1212,7 @@ class FenekoForm {
     );
 
     if(!$only_exported or !$single) {
-      module_load_include('php', 'manyforms', 'zipstream/zipstream');
+      libraries_load('zipstream');
       $zip = new ZipStream('fiches.zip');
     }
 
@@ -2169,6 +2169,7 @@ class FenekoForm {
         'op'   => 1,
         'los'  => 2,
         'geen' => 3,
+        'nvt'  => 4,
       ),
       'plint' => array(
         '#code' => 31,

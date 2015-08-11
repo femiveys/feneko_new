@@ -10,3 +10,4 @@ scripts[] = 'js/manyforms.js'
 
 stylesheets[all][] = css/style.css
 
+dependencies[] = feneko_libraries

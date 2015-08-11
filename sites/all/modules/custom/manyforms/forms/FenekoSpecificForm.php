@@ -10,7 +10,7 @@ class FenekoSpecificForm extends FenekoForm {
   }
 
   public function generatePDF($dbId, $outputAsString = FALSE) {
-    module_load_include('php', 'manyforms', 'mpdf/mpdf');
+    libraries_load('mpdf');
 
     $record = $this->getRecord($dbId);
 
@@ -228,7 +228,7 @@ class FenekoSpecificForm extends FenekoForm {
     $html .= "</body></html>";
 
     $user = user_load($record->uid);
-    $uri = $user->picture->uri;
+    $uri = isset($user->picture->uri) ? $user->picture->uri : false;
 
     $footer = '';
     if(file_exists($uri)) {
@@ -746,7 +746,9 @@ class FenekoSpecificForm extends FenekoForm {
     $border = "1px solid black";
 
     // Most of the times this is the value we need to parse
-    $val = $record->$name;
+    if(isset($record->$name)) {
+      $val = $record->$name;
+    }
 
     switch ($name) {
       case 'datesubmit':
@@ -915,7 +917,7 @@ class FenekoSpecificForm extends FenekoForm {
       'hoogte',
     );
 
-    $html .= '<table class="maintable">';
+    $html  = '<table class="maintable">';
     $html .= '<tr style="text-align: center;"><th>' . t('AANTAL') . '</th>';
     $html .= '<th>' . t('BREEDTE') . '<br>(mm)</th><th>' . t('HOOGTE') . '<br>(mm)</th>';
 
