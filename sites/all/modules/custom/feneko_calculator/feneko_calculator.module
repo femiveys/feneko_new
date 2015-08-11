@@ -1399,7 +1399,7 @@ function _fc_format_amount($amount) {
 function fc_export_orders_submit($form, $form_state) {
   // Make sure we only react on a click on the export button
   if($form_state['clicked_button']['#value'] === $form['export']['#value']) {
-    module_load_include('php', 'manyforms', 'zipstream/zipstream');
+    libraries_load('zipstream');
     module_load_include('inc', 'feneko_calculator', 'feneko_calculator.admin');
     module_load_include('inc', 'feneko_calculator', 'feneko_calculator.mpdf');
 

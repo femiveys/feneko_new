@@ -109,6 +109,6 @@ function _feneko_calculator_add_xml_field(EntityMetadataWrapper $wrapper, $name,
                                                          $tag_override = NULL) {
   $tag = isset($tag_override) ? $tag_override : camelCase(str_replace('field_', '', $name));
   if(!empty($wrapper->$name->value())) {
-    return "<$tag>" . $wrapper->$name->value() . "</$tag>";
+    return "<$tag>" . htmlspecialchars($wrapper->$name->value()) . "</$tag>";
   }
 }

@@ -8,7 +8,7 @@
  *   PDF as a string to attach to a mail
  */
 function fc_get_attachment($order_id, $outputAsString = TRUE) {
-  module_load_include('php', 'manyforms', 'mpdf/mpdf');
+  libraries_load('mpdf');
   module_load_include('inc', 'feneko_calculator', 'extra_fields');
 
   $order = commerce_order_load($order_id);

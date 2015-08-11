@@ -60,8 +60,3 @@ function feneko_calculator_update_7003() {
   db_query("UPDATE {field_revision_field_ophanging} SET field_ophanging_value='lasbouten'
             WHERE field_ophanging_value='G'");
 }
-
-
-// haakjes|Haakjes
-// gaatjes|Gaatjes
-// lasbouten|Lasbouten
