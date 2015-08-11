@@ -30,6 +30,7 @@ function feneko_structure_field_default_field_instances() {
     'label' => 'Uitleg',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -64,6 +65,7 @@ function feneko_structure_field_default_field_instances() {
     'label' => 'Label',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -98,6 +100,7 @@ function feneko_structure_field_default_field_instances() {
     'label' => 'Tel',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -142,6 +145,7 @@ function feneko_structure_field_default_field_instances() {
     'required' => FALSE,
     'settings' => array(
       'display_summary' => TRUE,
+      'entity_translation_sync' => FALSE,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -190,6 +194,7 @@ function feneko_structure_field_default_field_instances() {
     'settings' => array(
       'alt_field' => TRUE,
       'default_image' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => 'field/image',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
@@ -243,6 +248,7 @@ function feneko_structure_field_default_field_instances() {
     'label' => 'Tags',
     'required' => FALSE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -287,6 +293,7 @@ function feneko_structure_field_default_field_instances() {
     'label' => 'Adres',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -343,6 +350,7 @@ function feneko_structure_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
@@ -401,6 +409,7 @@ function feneko_structure_field_default_field_instances() {
     'label' => 'E-mail',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -440,6 +449,7 @@ function feneko_structure_field_default_field_instances() {
     'label' => 'Fax',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -480,6 +490,7 @@ function feneko_structure_field_default_field_instances() {
     'label' => 'Openingsuren',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -520,6 +531,7 @@ function feneko_structure_field_default_field_instances() {
     'label' => 'Tekst big image',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -566,6 +578,7 @@ function feneko_structure_field_default_field_instances() {
     'label' => 'Tel',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -607,6 +620,7 @@ function feneko_structure_field_default_field_instances() {
     'required' => FALSE,
     'settings' => array(
       'display_summary' => TRUE,
+      'entity_translation_sync' => FALSE,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -651,6 +665,7 @@ function feneko_structure_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
@@ -710,6 +725,7 @@ function feneko_structure_field_default_field_instances() {
     'required' => FALSE,
     'settings' => array(
       'display_summary' => TRUE,
+      'entity_translation_sync' => FALSE,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -754,6 +770,7 @@ function feneko_structure_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
@@ -844,6 +861,7 @@ function feneko_structure_field_default_field_instances() {
     'required' => FALSE,
     'settings' => array(
       'display_summary' => TRUE,
+      'entity_translation_sync' => FALSE,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -884,6 +902,7 @@ function feneko_structure_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => 'attachments',
       'file_extensions' => 'doc docx xls xlsx pdf rtf',
       'max_filesize' => '',
@@ -949,6 +968,7 @@ function feneko_structure_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => 'products',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
@@ -1029,6 +1049,7 @@ function feneko_structure_field_default_field_instances() {
     'label' => 'Bestelbare producten',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1055,7 +1076,7 @@ function feneko_structure_field_default_field_instances() {
     'bundle' => 'product',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Geef ook de parent (screens of colors) aan in de selectie.',
+    'description' => 'Duid enkel de bovenliggende categorie aan (dus niet \'screens\' of \'colors\')',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -1099,6 +1120,7 @@ function feneko_structure_field_default_field_instances() {
     'label' => 'product categorie',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1136,6 +1158,7 @@ function feneko_structure_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => 'techdocs',
       'file_extensions' => 'txt pdf doc docx',
       'max_filesize' => '',
@@ -1195,6 +1218,7 @@ function feneko_structure_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => 'techdocs',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
@@ -1253,6 +1277,7 @@ function feneko_structure_field_default_field_instances() {
     'label' => 'Technische informatie',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -1297,6 +1322,7 @@ function feneko_structure_field_default_field_instances() {
     'required' => 1,
     'settings' => array(
       'display_summary' => 1,
+      'entity_translation_sync' => FALSE,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -1339,6 +1365,7 @@ function feneko_structure_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'display_summary' => 0,
+      'entity_translation_sync' => FALSE,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -1389,6 +1416,7 @@ function feneko_structure_field_default_field_instances() {
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1434,6 +1462,7 @@ function feneko_structure_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'display_summary' => 0,
+      'entity_translation_sync' => FALSE,
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -1490,6 +1519,7 @@ function feneko_structure_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => '',
       'file_extensions' => 'doc docx xls xlsx pdf rtf',
       'max_filesize' => '',
@@ -1555,6 +1585,7 @@ function feneko_structure_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => '',
       'file_extensions' => 'doc docx xls xlsx pdf rtf',
       'max_filesize' => '',
@@ -1619,6 +1650,7 @@ function feneko_structure_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => '',
       'file_extensions' => 'doc docx xls xlsx pdf rtf',
       'max_filesize' => '',
@@ -1664,7 +1696,7 @@ function feneko_structure_field_default_field_instances() {
           'colorbox_node_style_first' => '',
         ),
         'type' => 'colorbox',
-        'weight' => 1,
+        'weight' => 0,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -1716,6 +1748,7 @@ function feneko_structure_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
@@ -1759,6 +1792,7 @@ function feneko_structure_field_default_field_instances() {
   t('Big image');
   t('Bijlage');
   t('Body');
+  t('Duid enkel de bovenliggende categorie aan (dus niet \'screens\' of \'colors\')');
   t('E-mail');
   t('Enter a comma-separated list of words to describe your content.');
   t('Fax');
@@ -1774,7 +1808,6 @@ function feneko_structure_field_default_field_instances() {
   t('Geef hier uw faxnummer in');
   t('Geef hier uw openingsuren in');
   t('Geef hier uw telefoonnummers in.');
-  t('Geef ook de parent (screens of colors) aan in de selectie.');
   t('Image');
   t('Intro');
   t('Label');
