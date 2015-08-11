@@ -16,6 +16,12 @@ function feneko_structure_menu_default_menu_custom() {
     'title' => 'Main menu',
     'description' => 'The <em>Main</em> menu is used on many sites to show the major sections of the site, often in a top navigation bar.',
   );
+  // Exported menu: menu-footer-menu.
+  $menus['menu-footer-menu'] = array(
+    'menu_name' => 'menu-footer-menu',
+    'title' => 'Footer menu',
+    'description' => '',
+  );
   // Exported menu: menu-waarom-feneko.
   $menus['menu-waarom-feneko'] = array(
     'menu_name' => 'menu-waarom-feneko',
@@ -30,6 +36,7 @@ function feneko_structure_menu_default_menu_custom() {
   );
   // Translatables
   // Included for use with string extractors like potx.
+  t('Footer menu');
   t('Main menu');
   t('The <em>Main</em> menu is used on many sites to show the major sections of the site, often in a top navigation bar.');
   t('The <em>User</em> menu contains links related to the user\'s account, as well as the \'Log out\' link.');

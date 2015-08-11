@@ -25,7 +25,27 @@ function feneko_structure_default_fe_block_settings() {
         'region' => 'footer',
         'status' => 1,
         'theme' => 'feneko',
-        'weight' => -8,
+        'weight' => -15,
+      ),
+    ),
+    'title' => '<none>',
+    'visibility' => 0,
+  );
+
+  $export['menu-menu-footer-menu'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => 'menu-footer-menu',
+    'module' => 'menu',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'feneko' => array(
+        'region' => 'footer',
+        'status' => 1,
+        'theme' => 'feneko',
+        'weight' => -17,
       ),
     ),
     'title' => '<none>',
@@ -166,6 +186,26 @@ function feneko_structure_default_fe_block_settings() {
         'status' => 0,
         'theme' => 'feneko',
         'weight' => -13,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
+  $export['views-footer_info-block'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => 'footer_info-block',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'feneko' => array(
+        'region' => 'footer',
+        'status' => 1,
+        'theme' => 'feneko',
+        'weight' => -16,
       ),
     ),
     'title' => '',

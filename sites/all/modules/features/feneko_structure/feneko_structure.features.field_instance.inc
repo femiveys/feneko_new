@@ -302,7 +302,7 @@ function feneko_structure_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -360,7 +360,7 @@ function feneko_structure_field_default_field_instances() {
         ),
       ),
       'type' => 'addressfield_standard',
-      'weight' => 6,
+      'weight' => 5,
     ),
   );
 
@@ -423,7 +423,7 @@ function feneko_structure_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -487,6 +487,47 @@ function feneko_structure_field_default_field_instances() {
       ),
       'type' => 'media_generic',
       'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'node-info_pagina-field_disclaimer'
+  $field_instances['node-info_pagina-field_disclaimer'] = array(
+    'bundle' => 'info_pagina',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 12,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_disclaimer',
+    'label' => 'Disclaimer',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 14,
     ),
   );
 
@@ -571,6 +612,88 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-info_pagina-field_klant_worden'
+  $field_instances['node-info_pagina-field_klant_worden'] = array(
+    'bundle' => 'info_pagina',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Hoe klant worden bij FenekO?',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 11,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_klant_worden',
+    'label' => 'klant worden',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance: 'node-info_pagina-field_levertijden'
+  $field_instances['node-info_pagina-field_levertijden'] = array(
+    'bundle' => 'info_pagina',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 14,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_levertijden',
+    'label' => 'levertijden',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 13,
+    ),
+  );
+
   // Exported field_instance: 'node-info_pagina-field_openingsuren'
   $field_instances['node-info_pagina-field_openingsuren'] = array(
     'bundle' => 'info_pagina',
@@ -598,7 +721,7 @@ function feneko_structure_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'text_processing' => 0,
+      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -694,6 +817,47 @@ function feneko_structure_field_default_field_instances() {
       'settings' => array(),
       'type' => 'field_collection_embed',
       'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'node-info_pagina-field_verkoopsvoorwaarden'
+  $field_instances['node-info_pagina-field_verkoopsvoorwaarden'] = array(
+    'bundle' => 'info_pagina',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 13,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_verkoopsvoorwaarden',
+    'label' => 'Verkoopsvoorwaarden',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 12,
     ),
   );
 
@@ -1900,6 +2064,7 @@ function feneko_structure_field_default_field_instances() {
   t('Big image');
   t('Bijlage');
   t('Body');
+  t('Disclaimer');
   t('Duid enkel de bovenliggende categorie aan (dus niet \'screens\' of \'colors\')');
   t('E-mail');
   t('Enter a comma-separated list of words to describe your content.');
@@ -1917,6 +2082,7 @@ function feneko_structure_field_default_field_instances() {
   t('Geef hier uw faxnummer in');
   t('Geef hier uw openingsuren in');
   t('Geef hier uw telefoonnummers in.');
+  t('Hoe klant worden bij FenekO?');
   t('Image');
   t('Intro');
   t('Label');
@@ -1930,10 +2096,13 @@ function feneko_structure_field_default_field_instances() {
   t('Tel');
   t('Uitleg');
   t('Upload an image to go with this article.');
+  t('Verkoopsvoorwaarden');
   t('Wij bieden');
   t('Wij zoeken');
   t('bestelbonnen');
+  t('klant worden');
   t('korte prijslijst');
+  t('levertijden');
   t('product categorie');
   t('product category Image');
   t('uitgebreide prijslijst');

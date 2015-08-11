@@ -212,6 +212,27 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text_long',
   );
 
+  // Exported field_base: 'field_disclaimer'
+  $field_bases['field_disclaimer'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_disclaimer',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 1,
+    'type' => 'text_long',
+  );
+
   // Exported field_base: 'field_e_mail'
   $field_bases['field_e_mail'] = array(
     'active' => 1,
@@ -307,6 +328,27 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'image',
   );
 
+  // Exported field_base: 'field_klant_worden'
+  $field_bases['field_klant_worden'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_klant_worden',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 1,
+    'type' => 'text_long',
+  );
+
   // Exported field_base: 'field_korte_prijslijst'
   $field_bases['field_korte_prijslijst'] = array(
     'active' => 1,
@@ -359,6 +401,27 @@ function feneko_structure_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'text',
+  );
+
+  // Exported field_base: 'field_levertijden'
+  $field_bases['field_levertijden'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_levertijden',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 1,
+    'type' => 'text_long',
   );
 
   // Exported field_base: 'field_offering'
@@ -744,6 +807,27 @@ function feneko_structure_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'datetime',
+  );
+
+  // Exported field_base: 'field_verkoopsvoorwaarden'
+  $field_bases['field_verkoopsvoorwaarden'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_verkoopsvoorwaarden',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 1,
+    'type' => 'text_long',
   );
 
   // Exported field_base: 'field_wanted'

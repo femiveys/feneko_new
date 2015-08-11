@@ -71,13 +71,97 @@ function feneko_views_views_default_views() {
     'info_pagina' => 'info_pagina',
   );
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
+  /* Display: Page about */
+  $handler = $view->new_display('page', 'Page about', 'page');
   $handler->display->display_options['path'] = 'about';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Over FenekO';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Page lever */
+  $handler = $view->new_display('page', 'Page lever', 'page_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Levertijden';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: levertijden */
+  $handler->display->display_options['fields']['field_levertijden']['id'] = 'field_levertijden';
+  $handler->display->display_options['fields']['field_levertijden']['table'] = 'field_data_field_levertijden';
+  $handler->display->display_options['fields']['field_levertijden']['field'] = 'field_levertijden';
+  $handler->display->display_options['fields']['field_levertijden']['label'] = '';
+  $handler->display->display_options['fields']['field_levertijden']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_levertijden']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_levertijden']['hide_empty'] = TRUE;
+  $handler->display->display_options['path'] = 'levertijden';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Levertijden';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'menu-footer-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Page klant */
+  $handler = $view->new_display('page', 'Page klant', 'page_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Klant worden';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: klant worden */
+  $handler->display->display_options['fields']['field_klant_worden']['id'] = 'field_klant_worden';
+  $handler->display->display_options['fields']['field_klant_worden']['table'] = 'field_data_field_klant_worden';
+  $handler->display->display_options['fields']['field_klant_worden']['field'] = 'field_klant_worden';
+  $handler->display->display_options['fields']['field_klant_worden']['label'] = '';
+  $handler->display->display_options['fields']['field_klant_worden']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_klant_worden']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_klant_worden']['hide_empty'] = TRUE;
+  $handler->display->display_options['path'] = 'klant-worden';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Klant worden';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'menu-footer-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Page verkoop */
+  $handler = $view->new_display('page', 'Page verkoop', 'page_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Verkoopsvoorwaarden';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Verkoopsvoorwaarden */
+  $handler->display->display_options['fields']['field_verkoopsvoorwaarden']['id'] = 'field_verkoopsvoorwaarden';
+  $handler->display->display_options['fields']['field_verkoopsvoorwaarden']['table'] = 'field_data_field_verkoopsvoorwaarden';
+  $handler->display->display_options['fields']['field_verkoopsvoorwaarden']['field'] = 'field_verkoopsvoorwaarden';
+  $handler->display->display_options['fields']['field_verkoopsvoorwaarden']['label'] = '';
+  $handler->display->display_options['fields']['field_verkoopsvoorwaarden']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_verkoopsvoorwaarden']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_verkoopsvoorwaarden']['hide_empty'] = TRUE;
+  $handler->display->display_options['path'] = 'verkoopsvoorwaarden';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Verkoopsvoorwaarden';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'menu-footer-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Page disclaimer */
+  $handler = $view->new_display('page', 'Page disclaimer', 'page_4');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Disclaimer';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Disclaimer */
+  $handler->display->display_options['fields']['field_disclaimer']['id'] = 'field_disclaimer';
+  $handler->display->display_options['fields']['field_disclaimer']['table'] = 'field_data_field_disclaimer';
+  $handler->display->display_options['fields']['field_disclaimer']['field'] = 'field_disclaimer';
+  $handler->display->display_options['fields']['field_disclaimer']['label'] = '';
+  $handler->display->display_options['fields']['field_disclaimer']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_disclaimer']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_disclaimer']['hide_empty'] = TRUE;
+  $handler->display->display_options['path'] = 'disclaimer';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Disclaimer';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'menu-footer-menu';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
   $translatables['about'] = array(
@@ -89,9 +173,99 @@ function feneko_views_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Page'),
+    t('Page about'),
+    t('Page lever'),
+    t('Levertijden'),
+    t('Page klant'),
+    t('Klant worden'),
+    t('Page verkoop'),
+    t('Verkoopsvoorwaarden'),
+    t('Page disclaimer'),
+    t('Disclaimer'),
   );
   $export['about'] = $view;
+
+  $view = new view();
+  $view->name = 'footer_info';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Footer info';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'footer-block';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  /* Field: Content: Adres */
+  $handler->display->display_options['fields']['field_adres']['id'] = 'field_adres';
+  $handler->display->display_options['fields']['field_adres']['table'] = 'field_data_field_adres';
+  $handler->display->display_options['fields']['field_adres']['field'] = 'field_adres';
+  $handler->display->display_options['fields']['field_adres']['label'] = '';
+  $handler->display->display_options['fields']['field_adres']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_adres']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_adres']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_adres']['click_sort_column'] = 'country';
+  $handler->display->display_options['fields']['field_adres']['settings'] = array(
+    'use_widget_handlers' => 0,
+    'format_handlers' => array(
+      'address' => 'address',
+      'address-hide-country' => 'address-hide-country',
+    ),
+  );
+  /* Field: Content: Openingsuren */
+  $handler->display->display_options['fields']['field_openingsuren']['id'] = 'field_openingsuren';
+  $handler->display->display_options['fields']['field_openingsuren']['table'] = 'field_data_field_openingsuren';
+  $handler->display->display_options['fields']['field_openingsuren']['field'] = 'field_openingsuren';
+  $handler->display->display_options['fields']['field_openingsuren']['label'] = '';
+  $handler->display->display_options['fields']['field_openingsuren']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_openingsuren']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_openingsuren']['hide_empty'] = TRUE;
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'info_pagina' => 'info_pagina',
+  );
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block');
+  $translatables['footer_info'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Block'),
+  );
+  $export['footer_info'] = $view;
 
   $view = new view();
   $view->name = 'front_image';

@@ -47,6 +47,40 @@ function feneko_structure_menu_default_menu_links() {
     'weight' => -50,
     'customized' => 1,
   );
+  // Exported menu link: main-menu_jobs:jobs
+  $menu_links['main-menu_jobs:jobs'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'jobs',
+    'router_path' => 'jobs',
+    'link_title' => 'Jobs',
+    'options' => array(
+      'identifier' => 'main-menu_jobs:jobs',
+    ),
+    'module' => 'system',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 6,
+    'customized' => 0,
+  );
+  // Exported menu link: main-menu_nieuws:nieuws
+  $menu_links['main-menu_nieuws:nieuws'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'nieuws',
+    'router_path' => 'nieuws',
+    'link_title' => 'Nieuws',
+    'options' => array(
+      'identifier' => 'main-menu_nieuws:nieuws',
+    ),
+    'module' => 'system',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 5,
+    'customized' => 0,
+  );
   // Exported menu link: main-menu_over-feneko:about
   $menu_links['main-menu_over-feneko:about'] = array(
     'menu_name' => 'main-menu',
@@ -187,8 +221,10 @@ function feneko_structure_menu_default_menu_links() {
   // Included for use with string extractors like potx.
   t('Colors');
   t('Home');
+  t('Jobs');
   t('Log out');
   t('Login');
+  t('Nieuws');
   t('Onze machines');
   t('Onze producten');
   t('Over FenekO');
