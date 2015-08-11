@@ -81,21 +81,24 @@ function feneko_structure_menu_default_menu_links() {
     'weight' => 5,
     'customized' => 0,
   );
-  // Exported menu link: main-menu_over-feneko:node/123
-  $menu_links['main-menu_over-feneko:node/123'] = array(
+  // Exported menu link: main-menu_over-feneko:about
+  $menu_links['main-menu_over-feneko:about'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'node/123',
-    'router_path' => 'node/%',
+    'link_path' => 'about',
+    'router_path' => 'about',
     'link_title' => 'Over FenekO',
     'options' => array(
-      'identifier' => 'main-menu_over-feneko:node/123',
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'main-menu_over-feneko:about',
     ),
-    'module' => 'menu',
+    'module' => 'system',
     'hidden' => 0,
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -49,
+    'weight' => 1,
     'customized' => 1,
   );
   // Exported menu link: main-menu_screens:screens

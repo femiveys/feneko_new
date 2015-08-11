@@ -11,6 +11,89 @@ function feneko_views_views_default_views() {
   $export = array();
 
   $view = new view();
+  $view->name = 'about';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'About';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'About FenekO';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Afbeelding */
+  $handler->display->display_options['fields']['field_afbeelding']['id'] = 'field_afbeelding';
+  $handler->display->display_options['fields']['field_afbeelding']['table'] = 'field_data_field_afbeelding';
+  $handler->display->display_options['fields']['field_afbeelding']['field'] = 'field_afbeelding';
+  $handler->display->display_options['fields']['field_afbeelding']['label'] = '';
+  $handler->display->display_options['fields']['field_afbeelding']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_afbeelding']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_afbeelding']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_afbeelding']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_afbeelding']['settings'] = array(
+    'image_style' => 'large',
+    'image_link' => '',
+  );
+  /* Field: Content: About */
+  $handler->display->display_options['fields']['field_about']['id'] = 'field_about';
+  $handler->display->display_options['fields']['field_about']['table'] = 'field_data_field_about';
+  $handler->display->display_options['fields']['field_about']['field'] = 'field_about';
+  $handler->display->display_options['fields']['field_about']['label'] = '';
+  $handler->display->display_options['fields']['field_about']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_about']['element_default_classes'] = FALSE;
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'info_pagina' => 'info_pagina',
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'about';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Over FenekO';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+  $translatables['about'] = array(
+    t('Master'),
+    t('About FenekO'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Page'),
+  );
+  $export['about'] = $view;
+
+  $view = new view();
   $view->name = 'front_image';
   $view->description = '';
   $view->tag = 'default';

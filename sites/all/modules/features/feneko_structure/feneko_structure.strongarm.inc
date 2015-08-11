@@ -102,6 +102,9 @@ function feneko_structure_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
+          'weight' => '11',
+        ),
+        'language' => array(
           'weight' => '1',
         ),
       ),

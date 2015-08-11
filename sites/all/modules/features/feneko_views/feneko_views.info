@@ -6,6 +6,7 @@ dependencies[] = ctools
 dependencies[] = views
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
+features[views_view][] = about
 features[views_view][] = front_image
 features[views_view][] = jobs
 features[views_view][] = machines
