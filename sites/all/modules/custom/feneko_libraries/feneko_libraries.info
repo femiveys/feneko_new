@@ -1,0 +1,4 @@
+name = Libraries for Feneko
+description = Exposes all libraries needed by Feneko code using Drupal libraries
+core = 7.x
+package = Feneko
