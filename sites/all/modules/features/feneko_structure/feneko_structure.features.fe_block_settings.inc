@@ -48,7 +48,7 @@ function feneko_structure_default_fe_block_settings() {
         'weight' => -17,
       ),
     ),
-    'title' => '<none>',
+    'title' => 'tt',
     'visibility' => 0,
   );
 
