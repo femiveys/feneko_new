@@ -206,4 +206,5 @@ features[variable][] = node_submitted_machine
 features[variable][] = node_submitted_page
 features[variable][] = node_submitted_product
 features[variable][] = node_submitted_vacature
+features[variable][] = pathauto_taxonomy_term_pattern
 features[variable][] = pathauto_taxonomy_term_product_category_pattern
