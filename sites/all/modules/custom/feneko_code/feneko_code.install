@@ -1,0 +1,10 @@
+<?php
+/**
+ * delete stupid meta fields
+ */
+function feneko_code_update_7002(){
+  field_delete_field('meta_abstract');
+  field_delete_field('meta_canonical');
+  field_delete_field('meta_description');
+  field_delete_field('meta_keywords');
+}
