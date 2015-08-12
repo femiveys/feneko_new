@@ -1266,6 +1266,11 @@ h3 a,
 #bottomblock-wrapper .menu li {
   display: inline-block;
 }
+@media screen and (max-width: 599px) {
+  #bottomblock-wrapper .menu li {
+    margin-bottom: 50px;
+  }
+}
 #bottomblock-wrapper .menu .first a,
 #bottomblock-wrapper .menu .last a {
   width: 205px;
@@ -1280,8 +1285,18 @@ h3 a,
 #bottomblock-wrapper .menu .first a {
   background-image: url(../img/fabriek.png);
 }
+@media screen and (min-width: 600px) {
+  #bottomblock-wrapper .menu .first a {
+    margin-right: 20px;
+  }
+}
 #bottomblock-wrapper .menu .last a {
   background-image: url(../img/doos.png);
+}
+@media screen and (min-width: 600px) {
+  #bottomblock-wrapper .menu .last a {
+    margin-left: 20px;
+  }
 }
 
 #cover-wrapper {
@@ -1713,11 +1728,6 @@ h3 a,
 @media screen and (min-width: 851px) {
   .nieuws-rij img {
     width: 30%;
-  }
-}
-@media screen and (min-width: 851px) {
-  .nieuws-rij .nieuws-body {
-    padding-bottom: 20px;
   }
 }
 .nieuws-rij.views-row-first h2 {

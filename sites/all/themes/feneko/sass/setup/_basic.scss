@@ -223,6 +223,9 @@ h3 a,
     text-align: center;
     li {
       display: inline-block;
+      @include gridle_state (max-mobile) {
+        margin-bottom: $padding*5;
+      }
     }
     .first,
     .last {
@@ -239,9 +242,15 @@ h3 a,
     }
     .first a {
       background-image: url(../img/fabriek.png);
+      @include gridle_state (min-tablet) {
+        margin-right: $padding*2;
+      }
     }
     .last a {
       background-image: url(../img/doos.png);
+      @include gridle_state (min-tablet) {
+        margin-left: $padding*2;
+      }
     }
   }
 }
@@ -641,11 +650,6 @@ h3 a,
     }
     @include gridle_state (min-desk) {
       width: 30%;
-    }
-  }
-  .nieuws-body {
-    @include gridle_state(min-desk) {
-      padding-bottom: $padding*2;
     }
   }
   &.views-row-first {
