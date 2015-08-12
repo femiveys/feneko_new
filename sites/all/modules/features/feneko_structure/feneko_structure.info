@@ -9,6 +9,7 @@ dependencies[] = date
 dependencies[] = date_popup
 dependencies[] = email
 dependencies[] = entity_translation
+dependencies[] = entity_translation_i18n_menu
 dependencies[] = entityreference
 dependencies[] = fe_block
 dependencies[] = features
