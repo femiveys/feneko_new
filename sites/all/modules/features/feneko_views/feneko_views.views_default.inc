@@ -767,11 +767,6 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'product_category' => 'product_category',
   );
-  /* Filter criterion: Taxonomy term: Parent term */
-  $handler->display->display_options['filters']['parent_1']['id'] = 'parent_1';
-  $handler->display->display_options['filters']['parent_1']['table'] = 'taxonomy_term_hierarchy';
-  $handler->display->display_options['filters']['parent_1']['field'] = 'parent';
-  $handler->display->display_options['filters']['parent_1']['value']['value'] = '1';
   /* Filter criterion: Taxonomy term: Name */
   $handler->display->display_options['filters']['name']['id'] = 'name';
   $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
@@ -798,11 +793,6 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'product_category' => 'product_category',
   );
-  /* Filter criterion: Taxonomy term: Parent term */
-  $handler->display->display_options['filters']['parent_1']['id'] = 'parent_1';
-  $handler->display->display_options['filters']['parent_1']['table'] = 'taxonomy_term_hierarchy';
-  $handler->display->display_options['filters']['parent_1']['field'] = 'parent';
-  $handler->display->display_options['filters']['parent_1']['value']['value'] = '2';
   /* Filter criterion: Taxonomy term: Name */
   $handler->display->display_options['filters']['name']['id'] = 'name';
   $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
