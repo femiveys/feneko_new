@@ -2157,6 +2157,9 @@ div.horizontal-tabs {
     padding-top: 230px;
   }
 }
+form.commerce-add-to-cart label {
+  width: 235px;
+}
 @media screen and (min-width: 851px) {
   form.commerce-add-to-cart select {
     width: 65%;

@@ -1099,6 +1099,9 @@ form.commerce-add-to-cart {
   @include gridle_state(max-tablet) {
     padding-top: 230px;
   }
+  label {
+    width: 235px;
+  }
   select {
     @include gridle_state(min-desk) {
       width: 65%;
