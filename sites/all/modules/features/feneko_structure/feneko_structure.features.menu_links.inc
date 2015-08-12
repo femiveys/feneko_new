@@ -29,6 +29,8 @@ function feneko_structure_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 3,
     'customized' => 1,
+    'language' => 'und',
+    'menu_links_customized' => 1,
   );
   // Exported menu link: main-menu_home:<front>
   $menu_links['main-menu_home:<front>'] = array(
@@ -46,6 +48,8 @@ function feneko_structure_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -50,
     'customized' => 1,
+    'language' => 'und',
+    'menu_links_customized' => 1,
   );
   // Exported menu link: main-menu_over-feneko:about
   $menu_links['main-menu_over-feneko:about'] = array(
@@ -66,6 +70,8 @@ function feneko_structure_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 1,
     'customized' => 1,
+    'language' => 'und',
+    'menu_links_customized' => 1,
   );
   // Exported menu link: main-menu_screens:screens
   $menu_links['main-menu_screens:screens'] = array(
@@ -86,6 +92,8 @@ function feneko_structure_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 4,
     'customized' => 1,
+    'language' => 'und',
+    'menu_links_customized' => 1,
   );
   // Exported menu link: menu-waarom-feneko_onze-machines:machines
   $menu_links['menu-waarom-feneko_onze-machines:machines'] = array(
@@ -98,6 +106,7 @@ function feneko_structure_menu_default_menu_links() {
         'title' => '',
       ),
       'identifier' => 'menu-waarom-feneko_onze-machines:machines',
+      'alter' => TRUE,
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -106,6 +115,8 @@ function feneko_structure_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 1,
+    'language' => 'und',
+    'menu_links_customized' => 1,
   );
   // Exported menu link: menu-waarom-feneko_onze-producten:onze-producten
   $menu_links['menu-waarom-feneko_onze-producten:onze-producten'] = array(
@@ -118,6 +129,7 @@ function feneko_structure_menu_default_menu_links() {
         'title' => '',
       ),
       'identifier' => 'menu-waarom-feneko_onze-producten:onze-producten',
+      'alter' => TRUE,
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -126,6 +138,8 @@ function feneko_structure_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 1,
+    'language' => 'und',
+    'menu_links_customized' => 1,
   );
   // Exported menu link: user-menu_log-out:user/logout
   $menu_links['user-menu_log-out:user/logout'] = array(
@@ -143,6 +157,8 @@ function feneko_structure_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -49,
     'customized' => 1,
+    'language' => 'und',
+    'menu_links_customized' => 1,
   );
   // Exported menu link: user-menu_login:user/login
   $menu_links['user-menu_login:user/login'] = array(
@@ -163,6 +179,8 @@ function feneko_structure_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -48,
     'customized' => 1,
+    'language' => 'und',
+    'menu_links_customized' => 1,
   );
   // Exported menu link: user-menu_user-account:user
   $menu_links['user-menu_user-account:user'] = array(
@@ -181,6 +199,8 @@ function feneko_structure_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -50,
     'customized' => 1,
+    'language' => 'und',
+    'menu_links_customized' => 1,
   );
 
   // Translatables
