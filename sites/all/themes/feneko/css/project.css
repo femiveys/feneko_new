@@ -1652,6 +1652,12 @@ h3 a,
   opacity: 0.7;
 }
 
+.page-node.not-front #content img {
+  float: left;
+  padding-right: 20px;
+  padding-bottom: 10px;
+}
+
 .teaser-rij {
   overflow: hidden;
   margin-bottom: 10px;
@@ -1705,6 +1711,7 @@ h3 a,
 }
 .nieuws-rij.views-row-first h2 {
   float: left;
+  font-size: 26px;
 }
 @media screen and (min-width: 851px) {
   .nieuws-rij.views-row-first img {
@@ -2071,8 +2078,8 @@ div.horizontal-tabs {
 }
 
 .submitted {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 16px;
   margin-bottom: 20px;
   clear: both;
+  color: #7b7b7b;
 }

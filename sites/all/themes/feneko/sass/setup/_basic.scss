@@ -583,6 +583,16 @@ h3 a,
   }
 }
 
+.page-node.not-front {
+  #content {
+    img {
+      float: left;
+      padding-right: $padding*2;
+      padding-bottom: $padding;
+    }
+  }
+}
+
 // rijen
 
 .teaser-rij {
@@ -632,6 +642,7 @@ h3 a,
   &.views-row-first {
     h2 {
       float: left;
+      font-size: 26px;
     }
     img {
       @include gridle_state (min-desk) {
@@ -1054,8 +1065,9 @@ div.horizontal-tabs {
 
 
 .submitted {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 16px;
+  //font-weight: 700;
   margin-bottom: $padding*2;
   clear: both;
+  color: $darkgrey;
 }
