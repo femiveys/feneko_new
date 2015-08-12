@@ -768,16 +768,16 @@ function feneko_views_views_default_views() {
     'product_category' => 'product_category',
   );
   /* Filter criterion: Taxonomy term: Parent term */
-  $handler->display->display_options['filters']['parent']['id'] = 'parent';
-  $handler->display->display_options['filters']['parent']['table'] = 'taxonomy_term_hierarchy';
-  $handler->display->display_options['filters']['parent']['field'] = 'parent';
-  $handler->display->display_options['filters']['parent']['relationship'] = 'parent';
-  $handler->display->display_options['filters']['parent']['value']['value'] = '0';
-  /* Filter criterion: Taxonomy term: Parent term */
   $handler->display->display_options['filters']['parent_1']['id'] = 'parent_1';
   $handler->display->display_options['filters']['parent_1']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['filters']['parent_1']['field'] = 'parent';
   $handler->display->display_options['filters']['parent_1']['value']['value'] = '1';
+  /* Filter criterion: Taxonomy term: Name */
+  $handler->display->display_options['filters']['name']['id'] = 'name';
+  $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['name']['field'] = 'name';
+  $handler->display->display_options['filters']['name']['relationship'] = 'parent';
+  $handler->display->display_options['filters']['name']['value'] = 'colors';
   $handler->display->display_options['path'] = 'colors';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'colors';
@@ -799,16 +799,16 @@ function feneko_views_views_default_views() {
     'product_category' => 'product_category',
   );
   /* Filter criterion: Taxonomy term: Parent term */
-  $handler->display->display_options['filters']['parent']['id'] = 'parent';
-  $handler->display->display_options['filters']['parent']['table'] = 'taxonomy_term_hierarchy';
-  $handler->display->display_options['filters']['parent']['field'] = 'parent';
-  $handler->display->display_options['filters']['parent']['relationship'] = 'parent';
-  $handler->display->display_options['filters']['parent']['value']['value'] = '0';
-  /* Filter criterion: Taxonomy term: Parent term */
   $handler->display->display_options['filters']['parent_1']['id'] = 'parent_1';
   $handler->display->display_options['filters']['parent_1']['table'] = 'taxonomy_term_hierarchy';
   $handler->display->display_options['filters']['parent_1']['field'] = 'parent';
   $handler->display->display_options['filters']['parent_1']['value']['value'] = '2';
+  /* Filter criterion: Taxonomy term: Name */
+  $handler->display->display_options['filters']['name']['id'] = 'name';
+  $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['name']['field'] = 'name';
+  $handler->display->display_options['filters']['name']['relationship'] = 'parent';
+  $handler->display->display_options['filters']['name']['value'] = 'screens';
   $handler->display->display_options['path'] = 'screens';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'screens';
