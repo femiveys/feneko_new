@@ -1110,7 +1110,7 @@ a:hover {
 #block-views-slide-block-4 .field-collection-item-field-tekst .content .field-name-field-slide-link a, input[type="submit"],
 #edit-cancel,
 .button,
-.node-readmore a, ul.tabs.primary a, .field-name-field-orderable-products a {
+.node-readmore a, ul.tabs.primary a, .field-name-field-orderable-products a, .ck-knop {
   background: #295D8F;
   transition: background-color 0.2s ease;
   border: none;
@@ -1129,7 +1129,7 @@ a:hover {
 #block-views-slide-block-4 .field-collection-item-field-tekst .content .field-name-field-slide-link a a, input[type="submit"] a,
 #edit-cancel a,
 .button a,
-.node-readmore a a, ul.tabs.primary a a, .field-name-field-orderable-products a a {
+.node-readmore a a, ul.tabs.primary a a, .field-name-field-orderable-products a a, .ck-knop a {
   text-decoration: none;
   color: #ffffff;
 }
@@ -1138,7 +1138,7 @@ a:hover {
 #block-views-slide-block-4 .field-collection-item-field-tekst .content .field-name-field-slide-link a:hover, input[type="submit"]:hover,
 #edit-cancel:hover,
 .button:hover,
-.node-readmore a:hover, ul.tabs.primary a:hover, .field-name-field-orderable-products a:hover {
+.node-readmore a:hover, ul.tabs.primary a:hover, .field-name-field-orderable-products a:hover, .ck-knop:hover {
   background: #295D8F;
 }
 
@@ -2147,4 +2147,23 @@ div.horizontal-tabs {
   margin-bottom: 20px;
   clear: both;
   color: #7b7b7b;
+}
+
+.ck-check {
+  margin-bottom: 5px;
+}
+.ck-check:before {
+  content: "\f00c";
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+  float: left;
+  font-size: 16px;
+  clear: both;
+  padding-right: 10px;
+  color: green;
 }

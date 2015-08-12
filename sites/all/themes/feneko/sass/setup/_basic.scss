@@ -1087,8 +1087,33 @@ div.horizontal-tabs {
 
 .submitted {
   font-size: 16px;
-  //font-weight: 700;
   margin-bottom: $padding*2;
   clear: both;
   color: $darkgrey;
+}
+
+
+// CK editor styles
+
+.ck-knop {
+  @extend %button;
+}
+
+.ck-check {
+  margin-bottom: $padding/2;
+  &:before {
+    content: "\f00c";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    float: left;
+    font-size: 16px;
+    clear: both;
+    padding-right: $padding;
+    color: $green;
+  }
 }
