@@ -2152,11 +2152,15 @@ div.horizontal-tabs {
   color: #7b7b7b;
 }
 
-form.commerce-add-to-cart {
-  padding-top: 230px;
+@media screen and (max-width: 850px) {
+  form.commerce-add-to-cart {
+    padding-top: 230px;
+  }
 }
-form.commerce-add-to-cart select {
-  width: 65%;
+@media screen and (min-width: 851px) {
+  form.commerce-add-to-cart select {
+    width: 65%;
+  }
 }
 @media screen and (max-width: 850px) {
   form.commerce-add-to-cart img.right {
