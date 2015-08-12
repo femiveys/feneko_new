@@ -824,12 +824,15 @@ h3 a,
   a {
     margin-bottom: $padding;
     @extend %button;
+    background-color: darken($orange, 5%);
+    border-radius: 5px;
+    padding: $padding;
     text-transform: lowercase;
     &:first-letter {
       text-transform: uppercase;
     }
     &:hover {
-      background-color: $lightblue;
+      background-color: lighten($orange, 15%);
     }
   }
 }
@@ -1090,6 +1093,18 @@ div.horizontal-tabs {
   margin-bottom: $padding*2;
   clear: both;
   color: $darkgrey;
+}
+
+form.commerce-add-to-cart {
+  padding-top: 230px;
+  select {
+    width: 65%;
+  }
+  img.right {
+    @include gridle_state(max-tablet) {
+      left: 0;
+    }
+  }
 }
 
 // file

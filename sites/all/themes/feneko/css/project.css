@@ -1910,13 +1910,16 @@ h3 a,
 
 .field-name-field-orderable-products a {
   margin-bottom: 10px;
+  background-color: #e69500;
+  border-radius: 5px;
+  padding: 10px;
   text-transform: lowercase;
 }
 .field-name-field-orderable-products a:first-letter {
   text-transform: uppercase;
 }
 .field-name-field-orderable-products a:hover {
-  background-color: #9BD4DF;
+  background-color: #ffc04d;
 }
 
 .field-name-body a {
@@ -2147,6 +2150,18 @@ div.horizontal-tabs {
   margin-bottom: 20px;
   clear: both;
   color: #7b7b7b;
+}
+
+form.commerce-add-to-cart {
+  padding-top: 230px;
+}
+form.commerce-add-to-cart select {
+  width: 65%;
+}
+@media screen and (max-width: 850px) {
+  form.commerce-add-to-cart img.right {
+    left: 0;
+  }
 }
 
 .field-type-file .field-item {

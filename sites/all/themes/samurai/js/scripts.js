@@ -7,25 +7,6 @@
 
   $(document).ready(function(){
 
-  function fancySelect () {
-    var selection = $('select');
-    selection.each(function() {
-      var $this = $(this);
-      var selectedValue = $this.parent().find('select option:selected').text();
-      var newSelect = $('<div class="select">'+selectedValue+'</div>');
-      newSelect.insertAfter($this);
-      $this.change(function(){
-        var str = "";
-        str += $this.parent().find('select option:selected').text() + " ";
-        $( newSelect ).text( str );
-      });
-    });
-  }
-/*
-$('#colorbox').mouseover(function() {
-  $(this).addClass('over');
-});
-*/
 
 $('#cboxNext, #cboxPrevious').mouseleave(function() {
   $(this).removeClass('over');
@@ -157,8 +138,6 @@ topLink.click( function(e) {
   //scrollTop($('.totop'));
   blocklink($('.blocklink'));
   blocklink($('.field-type-file .field-item'));
-  //fancySelect();
-
 
   });
 })(jQuery);
