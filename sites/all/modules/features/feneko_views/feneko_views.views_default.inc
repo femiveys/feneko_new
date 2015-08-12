@@ -208,7 +208,6 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   /* Field: Content: Adres */
   $handler->display->display_options['fields']['field_adres']['id'] = 'field_adres';
   $handler->display->display_options['fields']['field_adres']['table'] = 'field_data_field_adres';
