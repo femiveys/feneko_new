@@ -1317,7 +1317,6 @@ h3 a,
 }
 @media screen and (max-width: 599px) {
   #cover-wrapper .inner-wrapper {
-    background-color: rgba(41, 93, 143, 0.8);
     max-width: none;
     top: 0;
   }
@@ -1391,6 +1390,8 @@ h3 a,
   color: #ffffff;
   padding: 10px 20px;
   font-weight: 700;
+  background-color: rgba(41, 93, 143, 0.8);
+  border: 1px solid #323232;
 }
 @media screen and (min-width: 600px) and (max-width: 850px) {
   #cover-wrapper .big-image-caption,
@@ -1402,8 +1403,6 @@ h3 a,
   #cover-wrapper .big-image-caption,
   #cover-wrapper .node-readmore a {
     max-width: 80%;
-    background-color: rgba(41, 93, 143, 0.8);
-    border: 1px solid #323232;
   }
 }
 @media screen and (min-width: 851px) {
