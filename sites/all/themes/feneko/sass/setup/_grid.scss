@@ -104,6 +104,19 @@
   }
 }
 
+#footer-footer {
+  #block-menu-menu-footer-menu,
+  .footer-block > div {
+    @include gridle (4, min-desk);
+  }
+  #block-menu-menu-footer-menu {
+    @include gridle_no_gutter (left, min-desk);
+  }
+  .menu {
+    margin: 0;
+  }
+}
+
 
 // PROD
 

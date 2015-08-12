@@ -359,6 +359,9 @@ h3 a,
   padding: $padding*3 0 $padding*6;
   a {
     color: $white;
+    &:hover {
+      color: $lightblue;
+    }
   }
 }
 
@@ -572,6 +575,10 @@ h3 a,
 }
 
 // language switcher
+
+#block-locale-language {
+  clear: both;
+}
 
 .language-switcher-locale-url {
   margin: 0;
