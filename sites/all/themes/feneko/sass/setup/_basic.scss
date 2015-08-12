@@ -1092,6 +1092,22 @@ div.horizontal-tabs {
   color: $darkgrey;
 }
 
+// file
+
+.field-type-file .field-item {
+  margin: $padding 0;
+  &:before {
+    font-size: 20px;
+  }
+}
+
+.file {
+  a {
+    height: 40px;
+  }
+}
+
+
 
 // CK editor styles
 

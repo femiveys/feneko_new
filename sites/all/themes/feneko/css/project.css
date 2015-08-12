@@ -2149,6 +2149,17 @@ div.horizontal-tabs {
   color: #7b7b7b;
 }
 
+.field-type-file .field-item {
+  margin: 10px 0;
+}
+.field-type-file .field-item:before {
+  font-size: 20px;
+}
+
+.file a {
+  height: 40px;
+}
+
 .ck-check {
   margin-bottom: 5px;
 }
