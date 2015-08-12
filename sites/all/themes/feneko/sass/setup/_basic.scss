@@ -19,7 +19,7 @@ a {
   border: none;
   text-decoration: none;
   display: inline-block;
-  padding: $padding/2 $padding;
+  padding: $padding/4 $padding;
   margin-right: $padding/2;
   color: $white;
   @include crisp;
@@ -195,9 +195,8 @@ h3 a,
       font-weight: 700;
       border: 2px solid $blue;
       background-color: $white;
-      padding: 10px 20px;
+      padding: 5px 20px;
       display: inherit;
-      margin-top: $padding*2;
       &:hover {
         background-color: $blue;
         color: $white;
@@ -591,7 +590,8 @@ h3 a,
   margin-bottom: $padding;
   img {
     float: left;
-    padding-right: $padding;
+    padding-right: $padding*2;
+    padding-bottom: $padding;
   }
 }
 
@@ -610,19 +610,46 @@ h3 a,
 }
 
 .nieuws-rij {
+  margin-bottom: $padding*3;
+  .node-readmore {
+    float: right;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  img {
+    clear: both;
+    @include gridle_state(max-mobile) {
+      width: 30%;
+    }
+    @include gridle_state (only-tablet) {
+      width: 20%;
+    }
+    @include gridle_state (min-desk) {
+      width: 30%;
+    }
+  }
   &.views-row-first {
     h2 {
       float: left;
     }
+    img {
+      @include gridle_state (min-desk) {
+        width: auto;
+      }
+    }
     .datum {
-      float: right;
+      @include gridle_state(max-tablet) {
+        float: left;
+        clear: both;
+      }
+      @include gridle_state(min-desk) {
+        float: right;
+      }
       + * {
         clear: both;
         display: block;
       }
-    }
-    .node-readmore {
-      float: right;
     }
   }
 }
@@ -707,11 +734,10 @@ h3 a,
       }
       img {
         -webkit-transform:scale(1.15);
-      transform:scale(1.15);
-      opacity:0.7;
+        transform:scale(1.15);
+        opacity:0.7;
       }
-
-        }
+    }
   }
   img {
     width: 190px;
@@ -719,12 +745,7 @@ h3 a,
     padding: 0;
     -webkit-transition: opacity 0.35s,-webkit-transform 0.35s;
     transition: opacity 0.35s,transform 0.35s;
-
-    &:hover{
-
-    }
   }
-
 }
 
 // NODE TYPES
@@ -757,7 +778,6 @@ h3 a,
           }
         }
       }
-
       &:nth-child(1) {
         width: 100%;
         img {

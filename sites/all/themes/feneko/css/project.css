@@ -1078,7 +1078,7 @@ a:hover {
   border: none;
   text-decoration: none;
   display: inline-block;
-  padding: 5px 10px;
+  padding: 2.5px 10px;
   margin-right: 5px;
   color: #ffffff;
   font-smooth: always;
@@ -1237,9 +1237,8 @@ h3 a,
   font-weight: 700;
   border: 2px solid #295D8F;
   background-color: #ffffff;
-  padding: 10px 20px;
+  padding: 5px 20px;
   display: inherit;
-  margin-top: 20px;
 }
 #main-wrapper .node-readmore a:hover {
   background-color: #295D8F;
@@ -1659,7 +1658,8 @@ h3 a,
 }
 .teaser-rij img {
   float: left;
-  padding-right: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
 }
 
 .machine-rij {
@@ -1676,18 +1676,55 @@ h3 a,
   clear: both;
 }
 
+.nieuws-rij {
+  margin-bottom: 30px;
+}
+.nieuws-rij .node-readmore {
+  float: right;
+}
+.nieuws-rij h2 {
+  font-size: 20px;
+}
+.nieuws-rij img {
+  clear: both;
+}
+@media screen and (max-width: 599px) {
+  .nieuws-rij img {
+    width: 30%;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 850px) {
+  .nieuws-rij img {
+    width: 20%;
+  }
+}
+@media screen and (min-width: 851px) {
+  .nieuws-rij img {
+    width: 30%;
+  }
+}
 .nieuws-rij.views-row-first h2 {
   float: left;
 }
-.nieuws-rij.views-row-first .datum {
-  float: right;
+@media screen and (min-width: 851px) {
+  .nieuws-rij.views-row-first img {
+    width: auto;
+  }
+}
+@media screen and (max-width: 850px) {
+  .nieuws-rij.views-row-first .datum {
+    float: left;
+    clear: both;
+  }
+}
+@media screen and (min-width: 851px) {
+  .nieuws-rij.views-row-first .datum {
+    float: right;
+  }
 }
 .nieuws-rij.views-row-first .datum + * {
   clear: both;
   display: block;
-}
-.nieuws-rij.views-row-first .node-readmore {
-  float: right;
 }
 
 .view-main-categories .view-grouping {

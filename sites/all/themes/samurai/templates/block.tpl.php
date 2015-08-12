@@ -53,7 +53,6 @@
   <header class="node-header">
     <h2<?php print $title_attributes; ?>><?php print $block->subject ?></h2>
   </header>
-
 <?php endif;?>
 <?php print render($title_suffix); ?>
 

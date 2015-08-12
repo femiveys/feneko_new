@@ -1,4 +1,4 @@
-  <div id="wrapper">
+  <div id="wrapper" class="page <?php print $classes; ?>">
     <?php if ($logo): ?>
     <a class="logo" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
       <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
