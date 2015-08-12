@@ -1604,7 +1604,7 @@ function feneko_structure_field_default_field_instances() {
       'description_field' => 0,
       'entity_translation_sync' => FALSE,
       'file_directory' => 'techdocs',
-      'file_extensions' => 'txt pdf doc docx',
+      'file_extensions' => 'txt pdf doc docx xls',
       'max_filesize' => '',
       'user_register_form' => FALSE,
     ),

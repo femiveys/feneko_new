@@ -1711,7 +1711,7 @@ h3 a,
   opacity: 0.7;
 }
 
-.page-node.not-front #content img {
+.node-type-article #content img {
   float: left;
   padding-right: 20px;
   padding-bottom: 10px;
