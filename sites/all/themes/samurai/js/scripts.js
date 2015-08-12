@@ -54,26 +54,19 @@ $('#cart-small').click(function() {
     });
   }
 
-/*
-$('#main-menu > ul ').each(function(){
+if ( $(window).width() >= 850) {
+  $('.view-id-nieuws').each(function(){
         var highestBox = 0;
-        $('> li', this).each(function(){
+        $('.nieuws-body', this).each(function(){
 
             if($(this).height() > highestBox)
                highestBox = $(this).height();
         });
 
-        $('> li',this).height(highestBox);
+        $('.nieuws-body',this).height(highestBox);
 
-});
-*/
-
-/*
-function parallax(selector) {
-  ypos = window.pageYOffset;
-  selector.css('top', ypos*.4 + 'px');
+  });
 }
-*/
 
 $('.view-feneko-shopping-cart-block tr').click(function() {
   $(this).toggleClass('open');

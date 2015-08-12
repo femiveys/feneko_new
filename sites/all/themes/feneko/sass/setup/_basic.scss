@@ -626,6 +626,10 @@ h3 a,
   }
   h2 {
     font-size: 20px;
+    @include gridle_state(min-desk) {
+      margin-bottom: $padding*3;
+      height: 50px;
+    }
   }
   img {
     clear: both;
@@ -637,6 +641,11 @@ h3 a,
     }
     @include gridle_state (min-desk) {
       width: 30%;
+    }
+  }
+  .nieuws-body {
+    @include gridle_state(min-desk) {
+      padding-bottom: $padding*2;
     }
   }
   &.views-row-first {

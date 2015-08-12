@@ -1691,6 +1691,12 @@ h3 a,
 .nieuws-rij h2 {
   font-size: 20px;
 }
+@media screen and (min-width: 851px) {
+  .nieuws-rij h2 {
+    margin-bottom: 30px;
+    height: 50px;
+  }
+}
 .nieuws-rij img {
   clear: both;
 }
@@ -1707,6 +1713,11 @@ h3 a,
 @media screen and (min-width: 851px) {
   .nieuws-rij img {
     width: 30%;
+  }
+}
+@media screen and (min-width: 851px) {
+  .nieuws-rij .nieuws-body {
+    padding-bottom: 20px;
   }
 }
 .nieuws-rij.views-row-first h2 {
