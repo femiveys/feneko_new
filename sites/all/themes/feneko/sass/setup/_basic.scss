@@ -1077,7 +1077,7 @@ div.horizontal-tabs {
     .links.inline {
       @include gridle_state (min-tablet) {
         float: left;
-        margin: 10px 0;
+        margin: 10px 20px 50px 0;
       }
     }
     .field-name-field-orderable-products {
@@ -1086,7 +1086,7 @@ div.horizontal-tabs {
       }
       .field-item {
         float: left;
-        padding-left: $padding*2;
+        padding-right: $padding*2;
       }
     }
   }
@@ -1169,6 +1169,7 @@ form.commerce-add-to-cart {
 
 .ck-check {
   margin-bottom: $padding/2;
+  display: table;
   &:before {
     content: "\f00c";
     display: inline-block;

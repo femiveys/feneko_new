@@ -2142,7 +2142,7 @@ div.horizontal-tabs {
 @media screen and (min-width: 600px) {
   .page-taxonomy #content .links.inline {
     float: left;
-    margin: 10px 0;
+    margin: 10px 20px 50px 0;
   }
 }
 @media screen and (min-width: 600px) {
@@ -2152,7 +2152,7 @@ div.horizontal-tabs {
 }
 .page-taxonomy #content .field-name-field-orderable-products .field-item {
   float: left;
-  padding-left: 20px;
+  padding-right: 20px;
 }
 .page-taxonomy #main-wrapper .field-name-body {
   margin-bottom: 20px;
@@ -2211,6 +2211,7 @@ form.commerce-add-to-cart label {
 
 .ck-check {
   margin-bottom: 5px;
+  display: table;
 }
 .ck-check:before {
   content: "\f00c";
