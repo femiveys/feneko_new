@@ -2131,6 +2131,33 @@ div.horizontal-tabs {
   line-height: 150%;
 }
 
+.page-taxonomy #content .field-name-field-product-category-image {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.page-taxonomy #content .node-header {
+  clear: both;
+}
+@media screen and (min-width: 600px) {
+  .page-taxonomy #content .links.inline {
+    float: left;
+    margin: 10px 0;
+  }
+}
+@media screen and (min-width: 600px) {
+  .page-taxonomy #content .field-name-field-orderable-products {
+    margin-left: 10px;
+  }
+}
+.page-taxonomy #content .field-name-field-orderable-products .field-item {
+  float: left;
+  padding-left: 20px;
+}
+.page-taxonomy #main-wrapper .field-name-body {
+  margin-bottom: 20px;
+}
+
 #cboxPrevious:before,
 #cboxNext:before {
   text-shadow: 0px 0px 4px #295D8F;

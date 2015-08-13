@@ -946,9 +946,6 @@ div.horizontal-tabs {
   .node-header {
     cursor: pointer;
   }
-  .line-item-total {
-    //padding: $padding*2 0;
-  }
   input[type="submit"] {
     &#edit-submit {
       background: transparent;
@@ -1062,6 +1059,39 @@ div.horizontal-tabs {
     font-size: 0.8em;
     padding-top: $padding*1.5;
     line-height: 150%;
+  }
+}
+
+// taxonomy
+
+.page-taxonomy {
+  #content {
+    .field-name-field-product-category-image {
+      float: left;
+      margin-right: $padding*2;
+      margin-bottom: $padding*2;
+    }
+    .node-header {
+      clear: both;
+    }
+    .links.inline {
+      @include gridle_state (min-tablet) {
+        float: left;
+        margin: 10px 0;
+      }
+    }
+    .field-name-field-orderable-products {
+      @include gridle_state (min-tablet) {
+        margin-left: $padding;
+      }
+      .field-item {
+        float: left;
+        padding-left: $padding*2;
+      }
+    }
+  }
+  #main-wrapper .field-name-body {
+    margin-bottom: $padding*2;
   }
 }
 

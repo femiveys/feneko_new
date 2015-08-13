@@ -46,6 +46,14 @@
     <h1><a href="<?php print $term_url; ?>"><?php print $term_name; ?></a></h1>
   <div class="content">
     <?php print render($content); ?>
+    <?php $current = taxonomy_term_load(arg(2)); ?>
+    <?php if ($current): ?>
+    <div class="taxonomy-description">
+        <?php echo $current->description; ?>
+    </div>
+    <?php endif; ?>
   </div>
+
+
 
 </div>
