@@ -34,19 +34,31 @@ function feneko_global_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_string_allowed_formats';
+  $strongarm->value = array(
+    'filtered_html' => 'filtered_html',
+    'full_html' => 'full_html',
+    'plain_text' => 'plain_text',
+    'php_code' => 0,
+  );
+  $export['i18n_string_allowed_formats'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'language_default';
   $strongarm->value = (object) array(
     'language' => 'nl',
     'name' => 'Dutch',
     'native' => 'NL',
     'direction' => '0',
-    'enabled' => 1,
+    'enabled' => '1',
     'plurals' => '2',
     'formula' => '($n!=1)',
     'domain' => '',
     'prefix' => 'nl',
     'weight' => '-10',
-    'javascript' => 'Zr__OgYDyyoduQS1sQJbK4cQKgnUzD0B5yKfRx0kFB4',
+    'javascript' => 'TkuVvdnTfDGd3I48MmJLCUTNldXgN1u_FbTgx3LbEVo',
   );
   $export['language_default'] = $strongarm;
 
@@ -143,6 +155,20 @@ function feneko_global_strongarm() {
     'jquery_update_jquery_version' => '',
   );
   $export['theme_feneko_settings'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'variable_realm_list_language';
+  $strongarm->value = array(
+    0 => 'manyforms_order_email_text',
+    1 => 'manyforms_offer_email_text',
+    2 => 'manyforms_submiting_text',
+    3 => 'site_name',
+    4 => 'site_slogan',
+    5 => 'maintenance_mode_message',
+  );
+  $export['variable_realm_list_language'] = $strongarm;
 
   return $export;
 }
