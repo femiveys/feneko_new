@@ -116,17 +116,8 @@
     <div class="second-col">
 
   <?php endif; ?>
-      <?php print render($content['body']);?>
 
-
-      <?php print render($content['links']);?>
-
-
-      <?php print render($content['group_wrapper']);?>
-
-      <?php print render($content['field_attach_secured']);?>
-
-       <?php if($logged_in) { ?>
+  <?php if($logged_in) : ?>
 
     <div class="field-name-field-orderable-products">
 
@@ -134,7 +125,25 @@
 
     </div>
 
-  <?php } ?>
+  <?php endif; ?>
+
+      <?php print render($content['body']);?>
+
+      <?php print render($content['links']);?>
+
+      <?php print render($content['group_wrapper']);?>
+
+      <?php print render($content['field_attach_secured']);?>
+
+       <?php if($logged_in) : ?>
+
+    <div class="field-name-field-orderable-products">
+
+      <?php print render($content['field_orderable_products']); ?>
+
+    </div>
+
+  <?php endif; ?>
 
   <?php if($page) : ?>
     </div>
