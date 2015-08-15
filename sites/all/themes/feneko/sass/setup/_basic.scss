@@ -224,6 +224,7 @@ h3 a,
     text-align: center;
     li {
       display: inline-block;
+      vertical-align: top;
       @include gridle_state (max-mobile) {
         margin-bottom: $padding*5;
       }
@@ -232,8 +233,8 @@ h3 a,
     .last {
       a {
         width: 205px;
-        height: 245px;
-        background-position: 0 40px;
+        height: 275px;
+        background-position: 0 70px;
         background-repeat: no-repeat;
         background-size: 205px 205px;
         display: block;
