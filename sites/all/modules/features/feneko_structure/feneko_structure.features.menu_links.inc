@@ -18,13 +18,16 @@ function feneko_structure_menu_default_menu_links() {
     'link_title' => 'Home',
     'options' => array(
       'identifier' => 'main-menu_home:<front>',
+      'attributes' => array(
+        'title' => '',
+      ),
     ),
     'module' => 'menu',
     'hidden' => 0,
     'external' => 1,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -50,
+    'weight' => 0,
     'customized' => 1,
     'language' => 'und',
     'menu_links_customized' => 1,
@@ -37,13 +40,16 @@ function feneko_structure_menu_default_menu_links() {
     'link_title' => 'Jobs',
     'options' => array(
       'identifier' => 'main-menu_jobs:jobs',
+      'attributes' => array(
+        'title' => '',
+      ),
     ),
     'module' => 'system',
     'hidden' => 0,
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -44,
+    'weight' => 4,
     'customized' => 1,
     'language' => 'und',
     'menu_links_customized' => 1,
@@ -56,13 +62,16 @@ function feneko_structure_menu_default_menu_links() {
     'link_title' => 'Nieuws',
     'options' => array(
       'identifier' => 'main-menu_nieuws:nieuws',
+      'attributes' => array(
+        'title' => '',
+      ),
     ),
     'module' => 'system',
     'hidden' => 0,
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -45,
+    'weight' => 3,
     'customized' => 1,
     'language' => 'und',
     'menu_links_customized' => 1,
@@ -84,7 +93,7 @@ function feneko_structure_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -49,
+    'weight' => 1,
     'customized' => 1,
     'language' => 'und',
     'menu_links_customized' => 1,
@@ -94,8 +103,11 @@ function feneko_structure_menu_default_menu_links() {
     'menu_name' => 'main-menu',
     'link_path' => 'onze-producten',
     'router_path' => 'onze-producten',
-    'link_title' => 'producten',
+    'link_title' => 'Producten',
     'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
       'identifier' => 'main-menu_producten:onze-producten',
     ),
     'module' => 'system',
@@ -103,7 +115,7 @@ function feneko_structure_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -48,
+    'weight' => 2,
     'customized' => 1,
     'language' => 'und',
     'menu_links_customized' => 1,
@@ -226,8 +238,8 @@ function feneko_structure_menu_default_menu_links() {
   t('Onze machines');
   t('Onze producten');
   t('Over FenekO');
+  t('Producten');
   t('User account');
-  t('producten');
 
   return $menu_links;
 }

@@ -755,7 +755,7 @@ function feneko_views_views_default_views() {
   $handler = $view->new_display('page', 'Page: onze producten', 'page');
   $handler->display->display_options['path'] = 'onze-producten';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'producten';
+  $handler->display->display_options['menu']['title'] = 'Producten';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
