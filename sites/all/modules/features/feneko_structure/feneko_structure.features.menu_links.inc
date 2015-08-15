@@ -140,30 +140,7 @@ function feneko_structure_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 1,
-    'language' => 'und',
-    'menu_links_customized' => 1,
-  );
-  // Exported menu link: menu-waarom-feneko_onze-producten:onze-producten
-  $menu_links['menu-waarom-feneko_onze-producten:onze-producten'] = array(
-    'menu_name' => 'menu-waarom-feneko',
-    'link_path' => 'onze-producten',
-    'router_path' => 'onze-producten',
-    'link_title' => 'Onze producten',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'menu-waarom-feneko_onze-producten:onze-producten',
-      'alter' => TRUE,
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 1,
-    'language' => 'und',
+    'language' => 'nl',
     'menu_links_customized' => 1,
   );
   // Exported menu link: user-menu_log-out:user/logout
@@ -236,7 +213,6 @@ function feneko_structure_menu_default_menu_links() {
   t('Login');
   t('Nieuws');
   t('Onze machines');
-  t('Onze producten');
   t('Over FenekO');
   t('Producten');
   t('User account');
