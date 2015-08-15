@@ -754,6 +754,12 @@ function feneko_views_views_default_views() {
   /* Display: Page: onze producten */
   $handler = $view->new_display('page', 'Page: onze producten', 'page');
   $handler->display->display_options['path'] = 'onze-producten';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'producten';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
 
   /* Display: Page colors */
   $handler = $view->new_display('page', 'Page colors', 'page_1');
@@ -774,7 +780,6 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['name']['relationship'] = 'parent';
   $handler->display->display_options['filters']['name']['value'] = 'colors';
   $handler->display->display_options['path'] = 'colors';
-  $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'colors';
   $handler->display->display_options['menu']['weight'] = '3';
   $handler->display->display_options['menu']['name'] = 'main-menu';
@@ -800,7 +805,6 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['name']['relationship'] = 'parent';
   $handler->display->display_options['filters']['name']['value'] = 'screens';
   $handler->display->display_options['path'] = 'screens';
-  $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'screens';
   $handler->display->display_options['menu']['weight'] = '4';
   $handler->display->display_options['menu']['name'] = 'main-menu';
