@@ -454,6 +454,11 @@ h3 a,
 
 #block-system-user-menu {
   .menu {
+    li.first {
+      a {
+        padding-left: 5px;
+      }
+    }
     li.last {
       a:after {
         content: "";

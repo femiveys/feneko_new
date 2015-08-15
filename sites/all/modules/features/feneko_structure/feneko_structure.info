@@ -140,6 +140,7 @@ features[field_instance][] = taxonomy_term-product_category-field_korte_prijslij
 features[field_instance][] = taxonomy_term-product_category-field_prijslijst
 features[field_instance][] = taxonomy_term-product_category-field_product_category_image
 features[field_instance][] = taxonomy_term-product_category-name_field
+features[image][] = force_square_medium
 features[image][] = front_image
 features[image][] = square_medium
 features[image][] = square_thumbnail
