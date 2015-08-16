@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.logo, #header, .small-block, .logged-in #main_menu, .not-logged-in #main_menu, #sidebar_second, .nieuws-rij, .nieuws-rij.views-row-first, .view-feneko-shopping-cart-block .view-total, #footer-footer #block-menu-menu-footer-menu,
+.logo, #header, .small-block, .logged-in #main_menu, .not-logged-in #main_menu, #main-content, .one-sidebar #main-content, .no-sidebars #main-content, #sidebar_second, .nieuws-rij, .nieuws-rij.views-row-first, .view-feneko-shopping-cart-block .view-total, #footer-footer #block-menu-menu-footer-menu,
 #footer-footer .footer-block > div, .first-col, .second-col, #search-form {
   display: inline-block;
   min-height: 1px;
@@ -275,6 +275,39 @@ retina: 1280 - +
   }
 }
 
+#main-content {
+  float: left;
+  direction: ltr;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media screen and (max-width: 599px) {
+  #main-content {
+    width: 100%;
+  }
+}
+.one-sidebar #main-content {
+  float: left;
+  direction: ltr;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-left: 0;
+}
+@media screen and (min-width: 851px) {
+  .one-sidebar #main-content {
+    width: 62.5%;
+  }
+}
+.no-sidebars #main-content {
+  float: left;
+  direction: ltr;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 #sidebar_second {
   float: left;
   direction: ltr;
@@ -285,12 +318,12 @@ retina: 1280 - +
 }
 @media screen and (min-width: 851px) {
   #sidebar_second {
-    width: 16.66667%;
+    width: 29.16667%;
   }
 }
 @media screen and (min-width: 851px) {
   #sidebar_second {
-    left: 12.5%;
+    left: 8.33333%;
   }
 }
 
@@ -582,18 +615,37 @@ retina: 1280 - +
   }
 }
 
+@media screen and (max-width: 599px) {
+  #main-content {
+    width: 100%;
+  }
+}
+.one-sidebar #main-content {
+  padding-left: 0;
+}
+@media screen and (min-width: 851px) {
+  .one-sidebar #main-content {
+    width: 62.5%;
+  }
+}
+.no-sidebars #main-content {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 #sidebar_second {
   padding-left: 0;
   padding-right: 0;
 }
 @media screen and (min-width: 851px) {
   #sidebar_second {
-    width: 16.66667%;
+    width: 29.16667%;
   }
 }
 @media screen and (min-width: 851px) {
   #sidebar_second {
-    left: 12.5%;
+    left: 8.33333%;
   }
 }
 
@@ -2212,6 +2264,44 @@ form.commerce-add-to-cart label {
 
 .file a {
   height: 40px;
+}
+
+.view-id-contact #map_canvas {
+  height: 300px !important;
+}
+@media screen and (max-width: 599px) {
+  .view-id-contact #map_canvas {
+    width: 100% !important;
+  }
+}
+@media screen and (min-width: 600px) {
+  .view-id-contact #map_canvas {
+    width: 50% !important;
+    float: left;
+  }
+}
+@media screen and (max-width: 599px) {
+  .view-id-contact .adres {
+    margin: 20px 0;
+  }
+}
+@media screen and (min-width: 600px) {
+  .view-id-contact .adres {
+    width: 50%;
+    float: right;
+  }
+}
+
+.adres {
+  border: 1px solid #323232;
+  padding: 10px;
+}
+.adres .fa {
+  float: left;
+}
+.adres .street-block,
+.adres .addressfield-container-inline {
+  margin-left: 20px;
 }
 
 .ck-check {

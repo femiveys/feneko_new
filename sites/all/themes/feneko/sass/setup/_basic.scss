@@ -1165,6 +1165,41 @@ form.commerce-add-to-cart {
   }
 }
 
+// CONTACT
+
+.view-id-contact {
+  #map_canvas {
+    height: 300px!important;
+    @include gridle_state (max-mobile) {
+      width: 100%!important;
+    }
+    @include gridle_state (min-tablet) {
+      width: 50%!important;
+      float: left;
+    }
+  }
+  .adres {
+    @include gridle_state(max-mobile) {
+      margin: $padding*2 0;
+    }
+    @include gridle_state(min-tablet) {
+      width: 50%;
+      float: right;
+    }
+  }
+}
+
+.adres {
+  border: 1px solid $black;
+  padding: $padding;
+  .fa {
+    float: left;
+  }
+  .street-block,
+  .addressfield-container-inline {
+    margin-left: $padding*2;
+  }
+}
 
 
 // CK editor styles
