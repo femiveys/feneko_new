@@ -30,6 +30,7 @@ function feneko_structure_field_group_info() {
       4 => 'field_openingsuren',
       5 => 'field_about',
       6 => 'field_afbeelding',
+      7 => 'field_route',
     ),
     'format_type' => 'htab',
     'format_settings' => array(

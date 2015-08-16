@@ -26,7 +26,7 @@ function feneko_structure_image_default_styles() {
   $styles['force_square_medium'] = array(
     'label' => 'force square medium',
     'effects' => array(
-      4 => array(
+      5 => array(
         'name' => 'image_scale',
         'data' => array(
           'width' => 220,
@@ -35,23 +35,6 @@ function feneko_structure_image_default_styles() {
         ),
         'weight' => -10,
       ),
-      5 => array(
-        'name' => 'image_scale',
-        'data' => array(
-          'width' => '',
-          'height' => 220,
-          'upscale' => 1,
-        ),
-        'weight' => -9,
-      ),
-      7 => array(
-        'name' => 'image_resize',
-        'data' => array(
-          'width' => 220,
-          'height' => 220,
-        ),
-        'weight' => -8,
-      ),
       6 => array(
         'name' => 'image_crop',
         'data' => array(
@@ -59,7 +42,16 @@ function feneko_structure_image_default_styles() {
           'height' => 220,
           'anchor' => 'center-center',
         ),
-        'weight' => -7,
+        'weight' => -8,
+      ),
+      8 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => '',
+          'height' => 220,
+          'upscale' => 1,
+        ),
+        'weight' => 3,
       ),
     ),
   );

@@ -18,7 +18,7 @@ function feneko_structure_field_default_field_instances() {
     'description' => 'Geef hier meer uitleg in indien nodig.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -53,7 +53,7 @@ function feneko_structure_field_default_field_instances() {
     'description' => 'Geef hier het label in (bv \'algemeen\', \'screens\', ...)',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -88,7 +88,7 @@ function feneko_structure_field_default_field_instances() {
     'description' => 'Geef hier het telefoonnummer in.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -775,6 +775,47 @@ function feneko_structure_field_default_field_instances() {
       ),
       'type' => 'text_textarea',
       'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'node-info_pagina-field_route'
+  $field_instances['node-info_pagina-field_route'] = array(
+    'bundle' => 'info_pagina',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 16,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_route',
+    'label' => 'Route',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 6,
     ),
   );
 
@@ -2227,6 +2268,7 @@ function feneko_structure_field_default_field_instances() {
   t('Label');
   t('Naam');
   t('Openingsuren');
+  t('Route');
   t('Solliciteren tot');
   t('Tags');
   t('Technische documenten');
