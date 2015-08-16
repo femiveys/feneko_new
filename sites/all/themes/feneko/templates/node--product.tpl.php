@@ -117,7 +117,7 @@
 
   <?php endif; ?>
 
-  <?php if($logged_in) : ?>
+  <?php if($logged_in && $page) : ?>
 
     <div class="field-name-field-orderable-products">
 

@@ -702,7 +702,9 @@ system/ajax/*';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'i18n_node_options_product';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    0 => 'required',
+  );
   $export['i18n_node_options_product'] = $strongarm;
 
   $strongarm = new stdClass();

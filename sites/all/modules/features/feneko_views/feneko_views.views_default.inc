@@ -227,6 +227,10 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['field_adres']['table'] = 'field_data_field_adres';
   $handler->display->display_options['fields']['field_adres']['field'] = 'field_adres';
   $handler->display->display_options['fields']['field_adres']['label'] = '';
+  $handler->display->display_options['fields']['field_adres']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_adres']['alter']['text'] = '<i class="fa fa-home"></i>[field_adres]';
+  $handler->display->display_options['fields']['field_adres']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_adres']['element_class'] = 'adres';
   $handler->display->display_options['fields']['field_adres']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_adres']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_adres']['hide_empty'] = TRUE;
@@ -241,7 +245,11 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['field_e_mail']['id'] = 'field_e_mail';
   $handler->display->display_options['fields']['field_e_mail']['table'] = 'field_data_field_e_mail';
   $handler->display->display_options['fields']['field_e_mail']['field'] = 'field_e_mail';
-  $handler->display->display_options['fields']['field_e_mail']['label'] = 'E';
+  $handler->display->display_options['fields']['field_e_mail']['label'] = '';
+  $handler->display->display_options['fields']['field_e_mail']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_e_mail']['alter']['text'] = '<i class="fa fa-envelope"></i> [field_e_mail]';
+  $handler->display->display_options['fields']['field_e_mail']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_e_mail']['element_class'] = 'mail';
   $handler->display->display_options['fields']['field_e_mail']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_e_mail']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_e_mail']['hide_empty'] = TRUE;
@@ -249,8 +257,10 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['field_tel']['id'] = 'field_tel';
   $handler->display->display_options['fields']['field_tel']['table'] = 'field_data_field_tel';
   $handler->display->display_options['fields']['field_tel']['field'] = 'field_tel';
-  $handler->display->display_options['fields']['field_tel']['label'] = '';
+  $handler->display->display_options['fields']['field_tel']['label'] = 'Telefoon';
   $handler->display->display_options['fields']['field_tel']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_tel']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_tel']['element_wrapper_class'] = 'tel';
   $handler->display->display_options['fields']['field_tel']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_tel']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_tel']['settings'] = array(
@@ -266,17 +276,13 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['field_fax']['id'] = 'field_fax';
   $handler->display->display_options['fields']['field_fax']['table'] = 'field_data_field_fax';
   $handler->display->display_options['fields']['field_fax']['field'] = 'field_fax';
-  $handler->display->display_options['fields']['field_fax']['label'] = 'F';
+  $handler->display->display_options['fields']['field_fax']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_fax']['alter']['text'] = '<i class="fa fa-fax"></i> [field_fax]';
   $handler->display->display_options['fields']['field_fax']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_fax']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_fax']['element_wrapper_class'] = 'fax';
   $handler->display->display_options['fields']['field_fax']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_fax']['hide_empty'] = TRUE;
-  /* Field: Content: Route */
-  $handler->display->display_options['fields']['field_route']['id'] = 'field_route';
-  $handler->display->display_options['fields']['field_route']['table'] = 'field_data_field_route';
-  $handler->display->display_options['fields']['field_route']['field'] = 'field_route';
-  $handler->display->display_options['fields']['field_route']['label'] = 'Routebeschrijving';
-  $handler->display->display_options['fields']['field_route']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_route']['hide_empty'] = TRUE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -303,6 +309,10 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Contact';
   $handler->display->display_options['menu']['name'] = 'main-menu';
+
+  /* Display: Blok */
+  $handler = $view->new_display('block', 'Blok', 'block_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
   $translatables['contact'] = array(
     t('Master'),
     t('contact'),
@@ -312,10 +322,13 @@ function feneko_views_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('E'),
-    t('F'),
-    t('Routebeschrijving'),
+    t('<i class="fa fa-home"></i>[field_adres]'),
+    t('<i class="fa fa-envelope"></i> [field_e_mail]'),
+    t('Telefoon'),
+    t('Fax'),
+    t('<i class="fa fa-fax"></i> [field_fax]'),
     t('Page'),
+    t('Blok'),
   );
   $export['contact'] = $view;
 
@@ -342,6 +355,16 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Openingsuren */
+  $handler->display->display_options['fields']['field_openingsuren']['id'] = 'field_openingsuren';
+  $handler->display->display_options['fields']['field_openingsuren']['table'] = 'field_data_field_openingsuren';
+  $handler->display->display_options['fields']['field_openingsuren']['field'] = 'field_openingsuren';
+  $handler->display->display_options['fields']['field_openingsuren']['label'] = '';
+  $handler->display->display_options['fields']['field_openingsuren']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_openingsuren']['element_class'] = 'opening';
+  $handler->display->display_options['fields']['field_openingsuren']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_openingsuren']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_openingsuren']['hide_empty'] = TRUE;
   /* Field: Content: Adres */
   $handler->display->display_options['fields']['field_adres']['id'] = 'field_adres';
   $handler->display->display_options['fields']['field_adres']['table'] = 'field_data_field_adres';
@@ -358,14 +381,6 @@ function feneko_views_views_default_views() {
       'address-hide-country' => 'address-hide-country',
     ),
   );
-  /* Field: Content: Openingsuren */
-  $handler->display->display_options['fields']['field_openingsuren']['id'] = 'field_openingsuren';
-  $handler->display->display_options['fields']['field_openingsuren']['table'] = 'field_data_field_openingsuren';
-  $handler->display->display_options['fields']['field_openingsuren']['field'] = 'field_openingsuren';
-  $handler->display->display_options['fields']['field_openingsuren']['label'] = '';
-  $handler->display->display_options['fields']['field_openingsuren']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_openingsuren']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_openingsuren']['hide_empty'] = TRUE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -887,6 +902,57 @@ function feneko_views_views_default_views() {
 
   /* Display: Page: onze producten */
   $handler = $view->new_display('page', 'Page: onze producten', 'page');
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: product category Image */
+  $handler->display->display_options['fields']['field_product_category_image']['id'] = 'field_product_category_image';
+  $handler->display->display_options['fields']['field_product_category_image']['table'] = 'field_data_field_product_category_image';
+  $handler->display->display_options['fields']['field_product_category_image']['field'] = 'field_product_category_image';
+  $handler->display->display_options['fields']['field_product_category_image']['label'] = '';
+  $handler->display->display_options['fields']['field_product_category_image']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_product_category_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_product_category_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_product_category_image']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_product_category_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_product_category_image']['settings'] = array(
+    'image_style' => 'square_thumbnail',
+    'image_link' => 'content',
+  );
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['text'] = '[name]  &raquo;';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['preserve_tags'] = 'h3';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['name']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name_1']['id'] = 'name_1';
+  $handler->display->display_options['fields']['name_1']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name_1']['field'] = 'name';
+  $handler->display->display_options['fields']['name_1']['relationship'] = 'parent';
+  $handler->display->display_options['fields']['name_1']['label'] = '';
+  $handler->display->display_options['fields']['name_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name_1']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['name_1']['alter']['path'] = '[name_1]';
+  $handler->display->display_options['fields']['name_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name_1']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['name_1']['hide_empty'] = TRUE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'reverse_field_productcategorie_node';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['title']['hide_empty'] = TRUE;
   $handler->display->display_options['path'] = 'onze-producten';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Producten';

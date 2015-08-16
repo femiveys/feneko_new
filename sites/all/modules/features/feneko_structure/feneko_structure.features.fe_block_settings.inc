@@ -298,7 +298,7 @@ function feneko_structure_default_fe_block_settings() {
     'delta' => 'related-block',
     'module' => 'views',
     'node_types' => array(),
-    'pages' => 'contact',
+    'pages' => '',
     'roles' => array(),
     'themes' => array(
       'feneko' => array(
@@ -309,7 +309,7 @@ function feneko_structure_default_fe_block_settings() {
       ),
     ),
     'title' => '<none>',
-    'visibility' => 1,
+    'visibility' => 0,
   );
 
   return $export;
