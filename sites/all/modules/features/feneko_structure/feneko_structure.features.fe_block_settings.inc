@@ -192,6 +192,26 @@ function feneko_structure_default_fe_block_settings() {
     'visibility' => 0,
   );
 
+  $export['views-contact-block_1'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => 'contact-block_1',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => 'about',
+    'roles' => array(),
+    'themes' => array(
+      'feneko' => array(
+        'region' => 'sidebar_second',
+        'status' => 1,
+        'theme' => 'feneko',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 1,
+  );
+
   $export['views-footer_info-block'] = array(
     'cache' => -1,
     'custom' => 0,

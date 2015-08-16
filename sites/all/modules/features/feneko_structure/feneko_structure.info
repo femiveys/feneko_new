@@ -43,6 +43,7 @@ features[fe_block_settings][] = system-navigation
 features[fe_block_settings][] = system-powered-by
 features[fe_block_settings][] = system-user-menu
 features[fe_block_settings][] = user-login
+features[fe_block_settings][] = views-contact-block_1
 features[fe_block_settings][] = views-footer_info-block
 features[fe_block_settings][] = views-front_image-block
 features[fe_block_settings][] = views-jobs-block_1
