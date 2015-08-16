@@ -188,6 +188,29 @@ function feneko_structure_menu_default_menu_links() {
     'language' => 'nl',
     'menu_links_customized' => 1,
   );
+  // Exported menu link: user-menu_klantenzone:user
+  $menu_links['user-menu_klantenzone:user'] = array(
+    'menu_name' => 'user-menu',
+    'link_path' => 'user',
+    'router_path' => 'user',
+    'link_title' => 'Klantenzone',
+    'options' => array(
+      'alter' => TRUE,
+      'identifier' => 'user-menu_klantenzone:user',
+      'attributes' => array(
+        'title' => '',
+      ),
+    ),
+    'module' => 'system',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 1,
+    'language' => 'und',
+    'menu_links_customized' => 1,
+  );
   // Exported menu link: user-menu_log-out:user/logout
   $menu_links['user-menu_log-out:user/logout'] = array(
     'menu_name' => 'user-menu',
@@ -196,6 +219,7 @@ function feneko_structure_menu_default_menu_links() {
     'link_title' => 'Log out',
     'options' => array(
       'identifier' => 'user-menu_log-out:user/logout',
+      'alter' => TRUE,
     ),
     'module' => 'system',
     'hidden' => 0,
@@ -218,6 +242,7 @@ function feneko_structure_menu_default_menu_links() {
         'title' => '',
       ),
       'identifier' => 'user-menu_login:user/login',
+      'alter' => TRUE,
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -235,6 +260,7 @@ function feneko_structure_menu_default_menu_links() {
   t('Contact');
   t('Home');
   t('Jobs');
+  t('Klantenzone');
   t('Log out');
   t('Login');
   t('Nieuws');
