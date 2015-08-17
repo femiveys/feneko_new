@@ -55,6 +55,10 @@ retina: 1280 - +
     min-width : 1280px,
 ) );
 
+@include gridle_register_state( only-mobile-port , (
+    max-width: 399px
+) );
+
 
 @include gridle_register_state( only-mobile-land , (
     min-width : 400px,

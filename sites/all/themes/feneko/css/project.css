@@ -2301,27 +2301,42 @@ form.commerce-add-to-cart label {
 .view-id-contact #map_canvas {
   height: 300px !important;
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 399px) {
   .view-id-contact #map_canvas {
     width: 100% !important;
   }
 }
+@media screen and (min-width: 400px) and (max-width: 599px) {
+  #main-content .view-id-contact #map_canvas {
+    width: 48% !important;
+    float: left;
+  }
+}
 @media screen and (min-width: 600px) {
   #main-content .view-id-contact #map_canvas {
-    width: 50% !important;
+    width: 48% !important;
     float: left;
   }
 }
 #sidebar_second .view-id-contact #map_canvas {
   width: 100% !important;
 }
-@media screen and (max-width: 599px) {
-  .view-id-contact .adres {
+@media screen and (max-width: 399px) {
+  .view-id-contact .adres,
+  .view-id-contact .mail {
     margin: 20px 0;
   }
 }
+@media screen and (min-width: 400px) and (max-width: 599px) {
+  #main-content .view-id-contact .adres, #main-content
+  .view-id-contact .mail {
+    width: 50%;
+    float: right;
+  }
+}
 @media screen and (min-width: 600px) {
-  #main-content .view-id-contact .adres {
+  #main-content .view-id-contact .adres, #main-content
+  .view-id-contact .mail {
     width: 50%;
     float: right;
   }
@@ -2368,10 +2383,12 @@ form.commerce-add-to-cart label {
 }
 
 .tel span,
-.fax span {
+.fax span,
+.route span {
   font-weight: 700;
   font-size: 20px;
   margin-bottom: 10px;
+  padding-top: 20px;
   display: block;
 }
 

@@ -1202,12 +1202,12 @@ form.commerce-add-to-cart {
 .view-id-contact {
   #map_canvas {
     height: 300px!important;
-    @include gridle_state (max-mobile) {
+    @include gridle_state (only-mobile-port) {
       width: 100%!important;
     }
     #main-content & {
-      @include gridle_state (min-tablet) {
-        width: 50%!important;
+      @include gridle_state (only-mobile-land min-tablet) {
+        width: 48%!important;
         float: left;
       }
     }
@@ -1215,12 +1215,13 @@ form.commerce-add-to-cart {
       width: 100%!important;
     }
   }
-  .adres {
-    @include gridle_state(max-mobile) {
+  .adres,
+  .mail {
+    @include gridle_state(only-mobile-port) {
       margin: $padding*2 0;
     }
     #main-content & {
-      @include gridle_state(min-tablet) {
+      @include gridle_state(only-mobile-land min-tablet) {
         width: 50%;
         float: right;
       }
@@ -1269,11 +1270,13 @@ form.commerce-add-to-cart {
 }
 
 .tel,
-.fax {
+.fax,
+.route {
   span {
     font-weight: 700;
     font-size: 20px;
     margin-bottom: $padding;
+    padding-top: $padding*2;
     display: block;
   }
 }
