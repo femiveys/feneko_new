@@ -248,6 +248,7 @@ features[variable][] = language_content_type_machine
 features[variable][] = language_content_type_page
 features[variable][] = language_content_type_product
 features[variable][] = language_content_type_vacature
+features[variable][] = locale_field_language_fallback
 features[variable][] = menu_options_article
 features[variable][] = menu_options_info_pagina
 features[variable][] = menu_options_machine

@@ -21,6 +21,7 @@ function feneko_structure_menu_default_menu_links() {
         'title' => '',
       ),
       'identifier' => 'main-menu_contact:contact',
+      'alter' => TRUE,
     ),
     'module' => 'system',
     'hidden' => 0,
@@ -43,6 +44,7 @@ function feneko_structure_menu_default_menu_links() {
       'attributes' => array(
         'title' => '',
       ),
+      'alter' => TRUE,
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -65,6 +67,7 @@ function feneko_structure_menu_default_menu_links() {
       'attributes' => array(
         'title' => '',
       ),
+      'alter' => TRUE,
     ),
     'module' => 'system',
     'hidden' => 0,
@@ -87,6 +90,7 @@ function feneko_structure_menu_default_menu_links() {
       'attributes' => array(
         'title' => '',
       ),
+      'alter' => TRUE,
     ),
     'module' => 'system',
     'hidden' => 0,
@@ -109,6 +113,7 @@ function feneko_structure_menu_default_menu_links() {
         'title' => '',
       ),
       'identifier' => 'main-menu_over-feneko:about',
+      'alter' => TRUE,
     ),
     'module' => 'system',
     'hidden' => 0,
@@ -131,6 +136,7 @@ function feneko_structure_menu_default_menu_links() {
         'title' => '',
       ),
       'identifier' => 'main-menu_producten:onze-producten',
+      'alter' => TRUE,
     ),
     'module' => 'system',
     'hidden' => 0,
