@@ -142,6 +142,52 @@ function feneko_structure_menu_default_menu_links() {
     'language' => 'und',
     'menu_links_customized' => 1,
   );
+  // Exported menu link: menu-waarom-feneko_nos-machines:machines
+  $menu_links['menu-waarom-feneko_nos-machines:machines'] = array(
+    'menu_name' => 'menu-waarom-feneko',
+    'link_path' => 'machines',
+    'router_path' => 'machines',
+    'link_title' => 'nos machines',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-waarom-feneko_nos-machines:machines',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+    'language' => 'fr',
+    'menu_links_customized' => 1,
+  );
+  // Exported menu link: menu-waarom-feneko_nos-produits-colors--screens:onze-producten
+  $menu_links['menu-waarom-feneko_nos-produits-colors--screens:onze-producten'] = array(
+    'menu_name' => 'menu-waarom-feneko',
+    'link_path' => 'onze-producten',
+    'router_path' => 'onze-producten',
+    'link_title' => 'Nos produits: Colors & Screens',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'menu-waarom-feneko_nos-produits-colors--screens:onze-producten',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+    'language' => 'fr',
+    'menu_links_customized' => 1,
+  );
   // Exported menu link: menu-waarom-feneko_onze-machines:machines
   $menu_links['menu-waarom-feneko_onze-machines:machines'] = array(
     'menu_name' => 'menu-waarom-feneko',
@@ -267,10 +313,12 @@ function feneko_structure_menu_default_menu_links() {
   t('Log out');
   t('Mijn FenekO');
   t('Nieuws');
+  t('Nos produits: Colors & Screens');
   t('Onze machines');
   t('Onze producten: Colors & Screens');
   t('Over FenekO');
   t('Producten');
+  t('nos machines');
 
   return $menu_links;
 }
