@@ -36,6 +36,7 @@ dependencies[] = token
 dependencies[] = views
 features[ctools][] = field_group:field_group:1
 features[ctools][] = strongarm:strongarm:1
+features[fe_block_settings][] = entityform_block-contact
 features[fe_block_settings][] = locale-language
 features[fe_block_settings][] = menu-menu-footer-menu
 features[fe_block_settings][] = menu-menu-waarom-feneko
