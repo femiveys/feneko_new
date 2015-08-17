@@ -305,6 +305,94 @@ function feneko_views_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Adres */
+  $handler->display->display_options['fields']['field_adres_1']['id'] = 'field_adres_1';
+  $handler->display->display_options['fields']['field_adres_1']['table'] = 'field_data_field_adres';
+  $handler->display->display_options['fields']['field_adres_1']['field'] = 'field_adres';
+  $handler->display->display_options['fields']['field_adres_1']['label'] = '';
+  $handler->display->display_options['fields']['field_adres_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_adres_1']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_adres_1']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_adres_1']['click_sort_column'] = 'country';
+  $handler->display->display_options['fields']['field_adres_1']['type'] = 'addressfield_staticmap';
+  $handler->display->display_options['fields']['field_adres_1']['settings'] = array(
+    'zoom_level' => '14',
+    'map_size' => '400x400',
+    'map_style' => 'roadmap',
+    'advanced_settings_index' => '0',
+  );
+  /* Field: Content: Adres */
+  $handler->display->display_options['fields']['field_adres']['id'] = 'field_adres';
+  $handler->display->display_options['fields']['field_adres']['table'] = 'field_data_field_adres';
+  $handler->display->display_options['fields']['field_adres']['field'] = 'field_adres';
+  $handler->display->display_options['fields']['field_adres']['label'] = '';
+  $handler->display->display_options['fields']['field_adres']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_adres']['alter']['text'] = '<i class="fa fa-home"></i>[field_adres]';
+  $handler->display->display_options['fields']['field_adres']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_adres']['element_class'] = 'adres';
+  $handler->display->display_options['fields']['field_adres']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_adres']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_adres']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_adres']['click_sort_column'] = 'country';
+  $handler->display->display_options['fields']['field_adres']['settings'] = array(
+    'use_widget_handlers' => 1,
+    'format_handlers' => array(
+      'address' => 'address',
+    ),
+  );
+  /* Field: Content: E-mail */
+  $handler->display->display_options['fields']['field_e_mail']['id'] = 'field_e_mail';
+  $handler->display->display_options['fields']['field_e_mail']['table'] = 'field_data_field_e_mail';
+  $handler->display->display_options['fields']['field_e_mail']['field'] = 'field_e_mail';
+  $handler->display->display_options['fields']['field_e_mail']['label'] = '';
+  $handler->display->display_options['fields']['field_e_mail']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_e_mail']['alter']['text'] = '<i class="fa fa-envelope"></i> [field_e_mail]';
+  $handler->display->display_options['fields']['field_e_mail']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_e_mail']['element_class'] = 'mail';
+  $handler->display->display_options['fields']['field_e_mail']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_e_mail']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_e_mail']['hide_empty'] = TRUE;
+  /* Field: Content: Tel */
+  $handler->display->display_options['fields']['field_tel']['id'] = 'field_tel';
+  $handler->display->display_options['fields']['field_tel']['table'] = 'field_data_field_tel';
+  $handler->display->display_options['fields']['field_tel']['field'] = 'field_tel';
+  $handler->display->display_options['fields']['field_tel']['label'] = 'Telefoon';
+  $handler->display->display_options['fields']['field_tel']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_tel']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_tel']['element_wrapper_class'] = 'tel';
+  $handler->display->display_options['fields']['field_tel']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_tel']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_tel']['settings'] = array(
+    'edit' => '',
+    'delete' => '',
+    'add' => '',
+    'description' => 0,
+    'view_mode' => 'full',
+  );
+  $handler->display->display_options['fields']['field_tel']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_tel']['multi_type'] = 'ul';
+  /* Field: Content: Fax */
+  $handler->display->display_options['fields']['field_fax']['id'] = 'field_fax';
+  $handler->display->display_options['fields']['field_fax']['table'] = 'field_data_field_fax';
+  $handler->display->display_options['fields']['field_fax']['field'] = 'field_fax';
+  $handler->display->display_options['fields']['field_fax']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_fax']['alter']['text'] = '<i class="fa fa-fax"></i> [field_fax]';
+  $handler->display->display_options['fields']['field_fax']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_fax']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_fax']['element_wrapper_class'] = 'fax';
+  $handler->display->display_options['fields']['field_fax']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_fax']['hide_empty'] = TRUE;
+  /* Field: Content: Route */
+  $handler->display->display_options['fields']['field_route']['id'] = 'field_route';
+  $handler->display->display_options['fields']['field_route']['table'] = 'field_data_field_route';
+  $handler->display->display_options['fields']['field_route']['field'] = 'field_route';
+  $handler->display->display_options['fields']['field_route']['label'] = 'Routebeschrijving';
+  $handler->display->display_options['fields']['field_route']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_route']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_route']['element_wrapper_class'] = 'route';
+  $handler->display->display_options['fields']['field_route']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_route']['hide_empty'] = TRUE;
   $handler->display->display_options['path'] = 'contact';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Contact';
@@ -328,6 +416,7 @@ function feneko_views_views_default_views() {
     t('Fax'),
     t('<i class="fa fa-fax"></i> [field_fax]'),
     t('Page'),
+    t('Routebeschrijving'),
     t('Blok'),
   );
   $export['contact'] = $view;
