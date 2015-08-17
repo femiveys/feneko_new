@@ -70,6 +70,13 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'info_pagina' => 'info_pagina',
   );
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
 
   /* Display: Page about */
   $handler = $view->new_display('page', 'Page about', 'page');
@@ -164,25 +171,6 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['menu']['name'] = 'menu-footer-menu';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
-  $translatables['about'] = array(
-    t('Master'),
-    t('About FenekO'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Page about'),
-    t('Page lever'),
-    t('Levertijden'),
-    t('Page klant'),
-    t('Klant worden'),
-    t('Page verkoop'),
-    t('Verkoopsvoorwaarden'),
-    t('Page disclaimer'),
-    t('Disclaimer'),
-  );
   $export['about'] = $view;
 
   $view = new view();
@@ -302,6 +290,13 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'info_pagina' => 'info_pagina',
   );
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -401,24 +396,6 @@ function feneko_views_views_default_views() {
   /* Display: Blok */
   $handler = $view->new_display('block', 'Blok', 'block_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $translatables['contact'] = array(
-    t('Master'),
-    t('contact'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('<i class="fa fa-home"></i>[field_adres]'),
-    t('<i class="fa fa-envelope"></i> [field_e_mail]'),
-    t('Telefoon'),
-    t('Fax'),
-    t('<i class="fa fa-fax"></i> [field_fax]'),
-    t('Page'),
-    t('Routebeschrijving'),
-    t('Blok'),
-  );
   $export['contact'] = $view;
 
   $view = new view();
@@ -503,19 +480,16 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'info_pagina' => 'info_pagina',
   );
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
-  $translatables['footer_info'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Block'),
-  );
   $export['footer_info'] = $view;
 
   $view = new view();
@@ -595,20 +569,16 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'info_pagina' => 'info_pagina',
   );
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
-  $translatables['front_image'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('<p class="big-image-caption">[field_tekst_big_image]</p><p class="node-readmore"><a href="/onze-producten">Ontdek ons aanbod&nbsp;&raquo;</a></p>'),
-    t('Block'),
-  );
   $export['front_image'] = $view;
 
   $view = new view();
@@ -720,6 +690,13 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['field_ultimate_date_value']['field'] = 'field_ultimate_date_value';
   $handler->display->display_options['filters']['field_ultimate_date_value']['operator'] = '>=';
   $handler->display->display_options['filters']['field_ultimate_date_value']['default_date'] = 'today';
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -758,28 +735,6 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['hide_empty'] = TRUE;
-  $translatables['jobs'] = array(
-    t('Master'),
-    t('jobs'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('Solliciteren tot'),
-    t('Lees verder'),
-    t('Page'),
-    t('Blok'),
-    t('All jobs'),
-  );
   $export['jobs'] = $view;
 
   $view = new view();
@@ -867,21 +822,17 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'machine' => 'machine',
   );
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'machines';
-  $translatables['machines'] = array(
-    t('Master'),
-    t('Machines'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Page'),
-  );
   $export['machines'] = $view;
 
   $view = new view();
@@ -1002,6 +953,14 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['parent']['field'] = 'parent';
   $handler->display->display_options['filters']['parent']['relationship'] = 'parent';
   $handler->display->display_options['filters']['parent']['value']['value'] = '0';
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['relationship'] = 'reverse_field_productcategorie_node';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
 
   /* Display: Page: onze producten */
   $handler = $view->new_display('page', 'Page: onze producten', 'page');
@@ -1202,23 +1161,6 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['parent']['field'] = 'parent';
   $handler->display->display_options['filters']['parent']['relationship'] = 'parent';
   $handler->display->display_options['filters']['parent']['value']['value'] = '0';
-  $translatables['main_categories'] = array(
-    t('Master'),
-    t('Onze producten'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Bovenliggend'),
-    t('field_productcategorie'),
-    t('[name]  &raquo;'),
-    t('Page: onze producten'),
-    t('Page colors'),
-    t('Page screens'),
-    t('Blok colors en screens'),
-  );
   $export['main_categories'] = $view;
 
   $view = new view();
@@ -1335,6 +1277,13 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'article' => 'article',
   );
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -1359,30 +1308,6 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '2';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $translatables['nieuws'] = array(
-    t('Master'),
-    t('nieuws'),
-    t('Alle nieuwsberichten'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('<div class="submitted">
-<i class="fa fa-calendar"></i> [created] 
-</div>'),
-    t('Read more'),
-    t('Page'),
-    t('more'),
-    t('Blok'),
-  );
   $export['nieuws'] = $view;
 
   $view = new view();
@@ -1474,21 +1399,16 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'product' => 'product',
   );
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
-  $translatables['related'] = array(
-    t('Master'),
-    t('related products'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Alle'),
-    t('Block'),
-  );
   $export['related'] = $view;
 
   return $export;

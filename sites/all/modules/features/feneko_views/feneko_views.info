@@ -4,6 +4,7 @@ package = Feneko
 version = 7.x-1.0
 dependencies[] = ctools
 dependencies[] = features
+dependencies[] = i18nviews
 dependencies[] = menu
 dependencies[] = views
 features[ctools][] = field_group:field_group:1
