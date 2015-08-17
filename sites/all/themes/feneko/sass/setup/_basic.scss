@@ -90,6 +90,9 @@ h1 a,
     font-size: 20px;
     margin-bottom: 20px;
   }
+  @include gridle_state (min-desk) {
+    padding-top: 70px;
+  }
 }
 
 .view-grouping-header {
@@ -885,18 +888,18 @@ h3 a,
 // HTABS
 
 .field-group-htabs-wrapper {
-    .selected {
-      margin-bottom: -1px!important;
+  .selected {
+    margin-bottom: -1px!important;
+    &:hover {
+      border-bottom: none!important;
+    }
+    a {
       &:hover {
-          border-bottom: none!important;
-        }
-      a {
-        &:hover {
-          background-color: $white!important;
-          border: none!important;
-        }
+        background-color: $white!important;
+        border: none!important;
       }
     }
+  }
 }
 
 .horizontal-tabs ul.horizontal-tabs-list {
@@ -1199,34 +1202,44 @@ form.commerce-add-to-cart {
 
 // CONTACT
 
+.c-l,
+.c-r {
+  span,
+  .field-name-field-label {
+    font-weight: 700;
+    padding-top: $padding*2;
+  }
+  .fa {
+    clear: both;
+  }
+  .cl {
+    clear: both;
+    margin-bottom: $padding;
+  }
+}
+
+.c-l {
+  @include gridle_state (min-tablet) {
+    float: left;
+    width: 52%;
+  }
+}
+
+.c-r {
+  @include gridle_state (min-tablet) {
+    float: right;
+    width: 42%;
+  }
+}
+
+#map_canvas {
+  height: 300px!important;
+  width: 100%!important;
+  margin-bottom: $padding*2;
+}
+
 .view-id-contact {
-  #map_canvas {
-    height: 300px!important;
-    @include gridle_state (only-mobile-port) {
-      width: 100%!important;
-    }
-    #main-content & {
-      @include gridle_state (only-mobile-land min-tablet) {
-        width: 48%!important;
-        float: left;
-      }
-    }
-    #sidebar_second & {
-      width: 100%!important;
-    }
-  }
-  .adres,
-  .mail {
-    @include gridle_state(only-mobile-port) {
-      margin: $padding*2 0;
-    }
-    #main-content & {
-      @include gridle_state(only-mobile-land min-tablet) {
-        width: 50%;
-        float: right;
-      }
-    }
-  }
+
 }
 
 .adres {
@@ -1246,17 +1259,9 @@ form.commerce-add-to-cart {
     margin: $padding*2 0;
     width: 100%;
   }
-  #main-content & {
-    margin-bottom: $padding*2;
-  }
-}
-
-.mail {
-  margin: $padding*2 0;
 }
 
 .tel {
-  clear: both;
   ul {
     list-style-type: none;
     li {
@@ -1264,22 +1269,9 @@ form.commerce-add-to-cart {
       margin-bottom: $padding;
     }
   }
-  .field-name-field-label {
-    font-weight: 700;
-  }
 }
 
-.tel,
-.fax,
-.route {
-  span {
-    font-weight: 700;
-    font-size: 20px;
-    margin-bottom: $padding;
-    padding-top: $padding*2;
-    display: block;
-  }
-}
+
 
 // social follow
 

@@ -1226,6 +1226,11 @@ h1 a,
   font-size: 20px;
   margin-bottom: 20px;
 }
+@media screen and (min-width: 851px) {
+  #sidebar_second {
+    padding-top: 70px;
+  }
+}
 
 .view-grouping-header {
   margin-bottom: 60px;
@@ -2298,48 +2303,41 @@ form.commerce-add-to-cart label {
   height: 40px;
 }
 
-.view-id-contact #map_canvas {
+.c-l span,
+.c-l .field-name-field-label,
+.c-r span,
+.c-r .field-name-field-label {
+  font-weight: 700;
+  padding-top: 20px;
+}
+.c-l .fa,
+.c-r .fa {
+  clear: both;
+}
+.c-l .cl,
+.c-r .cl {
+  clear: both;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 600px) {
+  .c-l {
+    float: left;
+    width: 52%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .c-r {
+    float: right;
+    width: 42%;
+  }
+}
+
+#map_canvas {
   height: 300px !important;
-}
-@media screen and (max-width: 399px) {
-  .view-id-contact #map_canvas {
-    width: 100% !important;
-  }
-}
-@media screen and (min-width: 400px) and (max-width: 599px) {
-  #main-content .view-id-contact #map_canvas {
-    width: 48% !important;
-    float: left;
-  }
-}
-@media screen and (min-width: 600px) {
-  #main-content .view-id-contact #map_canvas {
-    width: 48% !important;
-    float: left;
-  }
-}
-#sidebar_second .view-id-contact #map_canvas {
   width: 100% !important;
-}
-@media screen and (max-width: 399px) {
-  .view-id-contact .adres,
-  .view-id-contact .mail {
-    margin: 20px 0;
-  }
-}
-@media screen and (min-width: 400px) and (max-width: 599px) {
-  #main-content .view-id-contact .adres, #main-content
-  .view-id-contact .mail {
-    width: 50%;
-    float: right;
-  }
-}
-@media screen and (min-width: 600px) {
-  #main-content .view-id-contact .adres, #main-content
-  .view-id-contact .mail {
-    width: 50%;
-    float: right;
-  }
+  margin-bottom: 20px;
 }
 
 .adres {
@@ -2360,36 +2358,13 @@ form.commerce-add-to-cart label {
   margin: 20px 0;
   width: 100%;
 }
-#main-content .adres {
-  margin-bottom: 20px;
-}
 
-.mail {
-  margin: 20px 0;
-}
-
-.tel {
-  clear: both;
-}
 .tel ul {
   list-style-type: none;
 }
 .tel ul li {
   margin-left: 0;
   margin-bottom: 10px;
-}
-.tel .field-name-field-label {
-  font-weight: 700;
-}
-
-.tel span,
-.fax span,
-.route span {
-  font-weight: 700;
-  font-size: 20px;
-  margin-bottom: 10px;
-  padding-top: 20px;
-  display: block;
 }
 
 .view-social-follow,
