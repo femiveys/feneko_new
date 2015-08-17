@@ -253,6 +253,45 @@ system/ajax/*';
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'entityform_type_defaults';
+  $strongarm->value = array(
+    'data' => array(
+      'form_status' => 'ENTITYFORM_OPEN',
+      'roles' => array(
+        1 => '1',
+        2 => '2',
+        3 => '3',
+      ),
+      'resubmit_action' => 'new',
+      'submission_page_title' => 'Dank u.',
+      'submission_text' => array(
+        'value' => '',
+        'format' => 'filtered_html',
+      ),
+      'submissions_view' => 'entityforms',
+      'user_submissions_view' => 'user_entityforms',
+      'draft_redirect_path' => '',
+      'draft_button_text' => 'Conceptversie opslaan',
+      'draft_save_text' => array(
+        'value' => '',
+        'format' => 'filtered_html',
+      ),
+      'submit_button_text' => 'Indienen',
+      'submit_confirm_msg' => 'Uw inzending is opgeslagen.',
+      'your_submissions' => 'Uw inzendingen: [entityform_type:label]',
+      'disallow_resubmit_msg' => 'U heeft dit formulier al ingezonden',
+      'delete_confirm_msg' => 'Are you sure you want to delete this Submission for [entityform_type:label]?',
+      'page_title_view' => 'Form Submission: [entityform_type:label]',
+      'draftable' => 0,
+      'preview_page' => 0,
+      'submission_show_submitted' => 0,
+    ),
+  );
+  $export['entityform_type_defaults'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__article';
   $strongarm->value = array(
     'view_modes' => array(
