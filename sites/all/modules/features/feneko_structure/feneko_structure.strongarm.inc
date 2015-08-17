@@ -253,6 +253,15 @@ system/ajax/*';
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'entityform_block_types';
+  $strongarm->value = array(
+    0 => 'contact',
+  );
+  $export['entityform_block_types'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'entityform_type_defaults';
   $strongarm->value = array(
     'data' => array(
