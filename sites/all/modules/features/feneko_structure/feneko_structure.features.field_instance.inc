@@ -114,6 +114,165 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'field_collection_item-field_social_follow-field_contact'
+  $field_instances['field_collection_item-field_social_follow-field_contact'] = array(
+    'bundle' => 'field_social_follow',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_contact',
+    'label' => 'Contact',
+    'required' => 0,
+    'settings' => array(
+      'absolute_url' => 1,
+      'attributes' => array(
+        'class' => 'contactlink',
+        'configurable_class' => 0,
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => '_top',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'entity_translation_sync' => FALSE,
+      'rel_remove' => 'default',
+      'title' => 'none',
+      'title_label_use_field_label' => 0,
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'advanced_link',
+      'settings' => array(),
+      'type' => 'advanced_link',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_social_follow-field_facebook'
+  $field_instances['field_collection_item-field_social_follow-field_facebook'] = array(
+    'bundle' => 'field_social_follow',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_facebook',
+    'label' => 'Facebook',
+    'required' => 0,
+    'settings' => array(
+      'absolute_url' => 1,
+      'attributes' => array(
+        'class' => 'facebook',
+        'configurable_class' => 0,
+        'configurable_title' => 0,
+        'rel' => 'nofollow',
+        'target' => '_blank',
+        'title' => 'FenekO Facebook',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'entity_translation_sync' => FALSE,
+      'rel_remove' => 'default',
+      'title' => 'none',
+      'title_label_use_field_label' => 0,
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_social_follow-field_twitter'
+  $field_instances['field_collection_item-field_social_follow-field_twitter'] = array(
+    'bundle' => 'field_social_follow',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_twitter',
+    'label' => 'Twitter',
+    'required' => 0,
+    'settings' => array(
+      'absolute_url' => 1,
+      'attributes' => array(
+        'class' => 'twitter',
+        'configurable_class' => 0,
+        'configurable_title' => 0,
+        'rel' => 'nofollow',
+        'target' => '_blank',
+        'title' => 'FenekO Twitter',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'entity_translation_sync' => FALSE,
+      'rel_remove' => 'default',
+      'title' => 'none',
+      'title_label_use_field_label' => 0,
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 2,
+    ),
+  );
+
   // Exported field_instance: 'field_collection_item-field_tel-field_caption'
   $field_instances['field_collection_item-field_tel-field_caption'] = array(
     'bundle' => 'field_tel',
@@ -920,6 +1079,50 @@ function feneko_structure_field_default_field_instances() {
       ),
       'type' => 'text_textarea',
       'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'node-info_pagina-field_social_follow'
+  $field_instances['node-info_pagina-field_social_follow'] = array(
+    'bundle' => 'info_pagina',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Toevoegen',
+          'delete' => 'Verwijderen',
+          'description' => TRUE,
+          'edit' => 'Bewerken',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 17,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_social_follow',
+    'label' => 'Social follow',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 11,
     ),
   );
 
@@ -2349,10 +2552,12 @@ function feneko_structure_field_default_field_instances() {
   t('Big image');
   t('Bijlage');
   t('Body');
+  t('Contact');
   t('Disclaimer');
   t('Duid enkel de bovenliggende categorie aan (dus niet \'screens\' of \'colors\')');
   t('E-mail');
   t('Enter a comma-separated list of words to describe your content.');
+  t('Facebook');
   t('Fax');
   t('Geef de uiterste sollicitatiedatum in. In het overzicht worden de vacatures gefilterd volgens dit veld.');
   t('Geef hier algemene tekst in. Deze tekst wordt weergegeven op het vacatureoverzicht');
@@ -2374,6 +2579,7 @@ function feneko_structure_field_default_field_instances() {
   t('Naam');
   t('Openingsuren');
   t('Route');
+  t('Social follow');
   t('Solliciteren tot');
   t('Tags');
   t('Technische documenten');
@@ -2382,6 +2588,7 @@ function feneko_structure_field_default_field_instances() {
   t('Tekst big image');
   t('Tel');
   t('Titel');
+  t('Twitter');
   t('Uitleg');
   t('Upload an image to go with this article.');
   t('Uw vraag');

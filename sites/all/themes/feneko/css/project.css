@@ -2392,6 +2392,96 @@ form.commerce-add-to-cart label {
   display: block;
 }
 
+.view-social-follow,
+.views-field-field-social-follow {
+  margin-bottom: 20px;
+}
+.view-social-follow li,
+.views-field-field-social-follow li {
+  list-style-type: none;
+}
+.view-social-follow a,
+.views-field-field-social-follow a {
+  font-size: 0;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  border-radius: 50%;
+  -webkit-transition: background-color 400ms linear;
+  -moz-transition: background-color 400ms linear;
+  -o-transition: background-color 400ms linear;
+  -ms-transition: background-color 400ms linear;
+  transition: background-color 400ms linear;
+}
+.view-social-follow a:before,
+.views-field-field-social-follow a:before {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 50px;
+  font-size-adjust: none;
+  font-stretch: normal;
+  font-feature-settings: normal;
+  font-language-override: normal;
+  font-kerning: auto;
+  font-synthesis: weight style;
+  font-variant: normal;
+  font-size: inherit;
+  text-rendering: auto;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0px, 0px);
+  font-size: 20px;
+  text-align: center;
+  width: 50px;
+  vertical-align: middle;
+  width: 100%;
+}
+.view-social-follow a.facebook,
+.views-field-field-social-follow a.facebook {
+  background-color: #3b5998;
+}
+.view-social-follow a.facebook:before,
+.views-field-field-social-follow a.facebook:before {
+  content: "\f09a";
+  color: white;
+}
+.view-social-follow a.facebook:hover,
+.views-field-field-social-follow a.facebook:hover {
+  background-color: #4c70ba;
+}
+.view-social-follow a.twitter,
+.views-field-field-social-follow a.twitter {
+  background-color: #55acee;
+}
+.view-social-follow a.twitter:before,
+.views-field-field-social-follow a.twitter:before {
+  content: "\f099";
+  color: white;
+}
+.view-social-follow a.twitter:hover,
+.views-field-field-social-follow a.twitter:hover {
+  background-color: #83c3f3;
+}
+.view-social-follow a.contactlink,
+.views-field-field-social-follow a.contactlink {
+  background-color: #f7941d;
+}
+.view-social-follow a.contactlink:before,
+.views-field-field-social-follow a.contactlink:before {
+  content: "\f003";
+  color: white;
+}
+.view-social-follow a.contactlink:hover,
+.views-field-field-social-follow a.contactlink:hover {
+  background-color: #f9ab4e;
+}
+.view-social-follow .field,
+.views-field-field-social-follow .field {
+  float: left;
+  margin: 0 5px;
+}
+
 .ck-check {
   margin-bottom: 5px;
   display: table;

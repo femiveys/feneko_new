@@ -454,6 +454,20 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['field_openingsuren']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_openingsuren']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_openingsuren']['hide_empty'] = TRUE;
+  /* Field: Content: Social follow */
+  $handler->display->display_options['fields']['field_social_follow']['id'] = 'field_social_follow';
+  $handler->display->display_options['fields']['field_social_follow']['table'] = 'field_data_field_social_follow';
+  $handler->display->display_options['fields']['field_social_follow']['field'] = 'field_social_follow';
+  $handler->display->display_options['fields']['field_social_follow']['label'] = '';
+  $handler->display->display_options['fields']['field_social_follow']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_social_follow']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_social_follow']['settings'] = array(
+    'edit' => '',
+    'delete' => '',
+    'add' => '',
+    'description' => 0,
+    'view_mode' => 'full',
+  );
   /* Field: Content: Adres */
   $handler->display->display_options['fields']['field_adres']['id'] = 'field_adres';
   $handler->display->display_options['fields']['field_adres']['table'] = 'field_data_field_adres';
