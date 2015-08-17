@@ -422,6 +422,103 @@ function feneko_views_views_default_views() {
   $export['contact'] = $view;
 
   $view = new view();
+  $view->name = 'footer_info';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Footer info';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'footer-block';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Openingsuren */
+  $handler->display->display_options['fields']['field_openingsuren']['id'] = 'field_openingsuren';
+  $handler->display->display_options['fields']['field_openingsuren']['table'] = 'field_data_field_openingsuren';
+  $handler->display->display_options['fields']['field_openingsuren']['field'] = 'field_openingsuren';
+  $handler->display->display_options['fields']['field_openingsuren']['label'] = '';
+  $handler->display->display_options['fields']['field_openingsuren']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_openingsuren']['element_class'] = 'opening';
+  $handler->display->display_options['fields']['field_openingsuren']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_openingsuren']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_openingsuren']['hide_empty'] = TRUE;
+  /* Field: Content: Social follow */
+  $handler->display->display_options['fields']['field_social_follow']['id'] = 'field_social_follow';
+  $handler->display->display_options['fields']['field_social_follow']['table'] = 'field_data_field_social_follow';
+  $handler->display->display_options['fields']['field_social_follow']['field'] = 'field_social_follow';
+  $handler->display->display_options['fields']['field_social_follow']['label'] = '';
+  $handler->display->display_options['fields']['field_social_follow']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_social_follow']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_social_follow']['settings'] = array(
+    'edit' => '',
+    'delete' => '',
+    'add' => '',
+    'description' => 0,
+    'view_mode' => 'full',
+  );
+  /* Field: Content: Adres */
+  $handler->display->display_options['fields']['field_adres']['id'] = 'field_adres';
+  $handler->display->display_options['fields']['field_adres']['table'] = 'field_data_field_adres';
+  $handler->display->display_options['fields']['field_adres']['field'] = 'field_adres';
+  $handler->display->display_options['fields']['field_adres']['label'] = '';
+  $handler->display->display_options['fields']['field_adres']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_adres']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_adres']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_adres']['click_sort_column'] = 'country';
+  $handler->display->display_options['fields']['field_adres']['settings'] = array(
+    'use_widget_handlers' => 0,
+    'format_handlers' => array(
+      'address' => 'address',
+      'address-hide-country' => 'address-hide-country',
+    ),
+  );
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'info_pagina' => 'info_pagina',
+  );
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block');
+  $translatables['footer_info'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Block'),
+  );
+  $export['footer_info'] = $view;
+
+  $view = new view();
   $view->name = 'front_image';
   $view->description = '';
   $view->tag = 'default';
