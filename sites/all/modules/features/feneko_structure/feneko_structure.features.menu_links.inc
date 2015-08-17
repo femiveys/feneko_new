@@ -171,29 +171,6 @@ function feneko_structure_menu_default_menu_links() {
     'language' => 'fr',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: menu-waarom-feneko_nos-produits-colors--screens:onze-producten
-  $menu_links['menu-waarom-feneko_nos-produits-colors--screens:onze-producten'] = array(
-    'menu_name' => 'menu-waarom-feneko',
-    'link_path' => 'onze-producten',
-    'router_path' => 'onze-producten',
-    'link_title' => 'Nos produits: Colors & Screens',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'alter' => TRUE,
-      'identifier' => 'menu-waarom-feneko_nos-produits-colors--screens:onze-producten',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 0,
-    'customized' => 1,
-    'language' => 'fr',
-    'menu_links_customized' => 1,
-  );
   // Exported menu link: menu-waarom-feneko_onze-machines:machines
   $menu_links['menu-waarom-feneko_onze-machines:machines'] = array(
     'menu_name' => 'menu-waarom-feneko',
@@ -213,29 +190,6 @@ function feneko_structure_menu_default_menu_links() {
     'has_children' => 0,
     'expanded' => 0,
     'weight' => 0,
-    'customized' => 1,
-    'language' => 'nl',
-    'menu_links_customized' => 1,
-  );
-  // Exported menu link: menu-waarom-feneko_onze-producten-colors--screens:onze-producten
-  $menu_links['menu-waarom-feneko_onze-producten-colors--screens:onze-producten'] = array(
-    'menu_name' => 'menu-waarom-feneko',
-    'link_path' => 'onze-producten',
-    'router_path' => 'onze-producten',
-    'link_title' => 'Onze producten: Colors & Screens',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'menu-waarom-feneko_onze-producten-colors--screens:onze-producten',
-      'alter' => TRUE,
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 1,
     'customized' => 1,
     'language' => 'nl',
     'menu_links_customized' => 1,
@@ -319,9 +273,7 @@ function feneko_structure_menu_default_menu_links() {
   t('Log out');
   t('Mijn FenekO');
   t('Nieuws');
-  t('Nos produits: Colors & Screens');
   t('Onze machines');
-  t('Onze producten: Colors & Screens');
   t('Over FenekO');
   t('Producten');
   t('nos machines');
