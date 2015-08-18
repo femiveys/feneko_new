@@ -406,7 +406,14 @@ function feneko_calculator_feature_strongarm() {
       ),
     ),
     'extra_fields' => array(
-      'form' => array(),
+      'form' => array(
+        'language' => array(
+          'weight' => '0',
+        ),
+        'path' => array(
+          'weight' => '30',
+        ),
+      ),
       'display' => array(
         'product:sku' => array(
           'default' => array(
@@ -494,6 +501,9 @@ function feneko_calculator_feature_strongarm() {
         'path' => array(
           'weight' => '30',
         ),
+        'language' => array(
+          'weight' => '0',
+        ),
       ),
       'display' => array(
         'product:sku' => array(
@@ -578,7 +588,14 @@ function feneko_calculator_feature_strongarm() {
       ),
     ),
     'extra_fields' => array(
-      'form' => array(),
+      'form' => array(
+        'language' => array(
+          'weight' => '0',
+        ),
+        'path' => array(
+          'weight' => '30',
+        ),
+      ),
       'display' => array(
         'product:sku' => array(
           'default' => array(
@@ -659,7 +676,14 @@ function feneko_calculator_feature_strongarm() {
       ),
     ),
     'extra_fields' => array(
-      'form' => array(),
+      'form' => array(
+        'language' => array(
+          'weight' => '0',
+        ),
+        'path' => array(
+          'weight' => '30',
+        ),
+      ),
       'display' => array(
         'product:sku' => array(
           'default' => array(
@@ -731,7 +755,14 @@ function feneko_calculator_feature_strongarm() {
       ),
     ),
     'extra_fields' => array(
-      'form' => array(),
+      'form' => array(
+        'language' => array(
+          'weight' => '0',
+        ),
+        'path' => array(
+          'weight' => '30',
+        ),
+      ),
       'display' => array(
         'product:sku' => array(
           'default' => array(
@@ -827,7 +858,14 @@ function feneko_calculator_feature_strongarm() {
       ),
     ),
     'extra_fields' => array(
-      'form' => array(),
+      'form' => array(
+        'language' => array(
+          'weight' => '0',
+        ),
+        'path' => array(
+          'weight' => '30',
+        ),
+      ),
       'display' => array(
         'product:sku' => array(
           'default' => array(
@@ -917,7 +955,14 @@ function feneko_calculator_feature_strongarm() {
       ),
     ),
     'extra_fields' => array(
-      'form' => array(),
+      'form' => array(
+        'language' => array(
+          'weight' => '0',
+        ),
+        'path' => array(
+          'weight' => '30',
+        ),
+      ),
       'display' => array(
         'product:sku' => array(
           'default' => array(
@@ -1007,7 +1052,14 @@ function feneko_calculator_feature_strongarm() {
       ),
     ),
     'extra_fields' => array(
-      'form' => array(),
+      'form' => array(
+        'language' => array(
+          'weight' => '0',
+        ),
+        'path' => array(
+          'weight' => '30',
+        ),
+      ),
       'display' => array(
         'product:sku' => array(
           'default' => array(
@@ -1219,6 +1271,9 @@ function feneko_calculator_feature_strongarm() {
         'path' => array(
           'weight' => '30',
         ),
+        'language' => array(
+          'weight' => '0',
+        ),
       ),
       'display' => array(
         'product:sku' => array(
@@ -1327,7 +1382,14 @@ function feneko_calculator_feature_strongarm() {
       ),
     ),
     'extra_fields' => array(
-      'form' => array(),
+      'form' => array(
+        'language' => array(
+          'weight' => '0',
+        ),
+        'path' => array(
+          'weight' => '30',
+        ),
+      ),
       'display' => array(
         'product:sku' => array(
           'default' => array(

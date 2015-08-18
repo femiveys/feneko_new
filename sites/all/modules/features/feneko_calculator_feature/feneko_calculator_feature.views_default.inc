@@ -374,39 +374,6 @@ function feneko_calculator_feature_views_default_views() {
       ),
     ),
   );
-  $translatables['commerce_cart_form_feneko'] = array(
-    t('Defaults'),
-    t('Winkelwagen'),
-    t('meer'),
-    t('Toepassen'),
-    t('Opnieuw instellen'),
-    t('Sorteren op'),
-    t('Oplopend'),
-    t('Aflopend'),
-    t('Ongefilterde tekst'),
-    t('<h3>[field_color] [field_maritime]</h3>'),
-    t('Line Items'),
-    t('Product'),
-    t('Qualité Maritime'),
-    t('Kleur'),
-    t('Configuratie'),
-    t('Verwijderen'),
-    t('Prijs'),
-    t('Hoeveelheid'),
-    t('Total'),
-    t('Base Price'),
-    t('Title'),
-    t('Debug'),
-    t('[line_item_title]
-[field_base_price]'),
-    t('Alle'),
-    t('Overview'),
-    t('more'),
-    t('Totaal'),
-    t('Quantity'),
-    t('.'),
-    t(','),
-  );
   $export['commerce_cart_form_feneko'] = $view;
 
   $view = new view();
@@ -568,24 +535,6 @@ function feneko_calculator_feature_views_default_views() {
   $handler->display->display_options['filters']['product_line_item_type']['table'] = 'commerce_line_item';
   $handler->display->display_options['filters']['product_line_item_type']['field'] = 'product_line_item_type';
   $handler->display->display_options['filters']['product_line_item_type']['value'] = '1';
-  $translatables['feneko_calculator_line_items'] = array(
-    t('Defaults'),
-    t('meer'),
-    t('Toepassen'),
-    t('Opnieuw instellen'),
-    t('Sorteren op'),
-    t('Oplopend'),
-    t('Aflopend'),
-    t('Empty line item text.'),
-    t('Geen factuurregels gevonden.'),
-    t('Configuratie'),
-    t('Prijs'),
-    t('Quantity'),
-    t('.'),
-    t(','),
-    t('Total'),
-    t('Alle'),
-  );
   $export['feneko_calculator_line_items'] = $view;
 
   $view = new view();
@@ -904,37 +853,6 @@ function feneko_calculator_feature_views_default_views() {
   $handler->display->display_options['tab_options']['description'] = 'Manage orders in the store.';
   $handler->display->display_options['tab_options']['weight'] = '';
   $handler->display->display_options['tab_options']['name'] = 'management';
-  $translatables['feneko_orders'] = array(
-    t('Master'),
-    t('Bestellingen'),
-    t('meer'),
-    t('Toepassen'),
-    t('Opnieuw instellen'),
-    t('Sorteren op'),
-    t('Oplopend'),
-    t('Aflopend'),
-    t('Items per pagina'),
-    t('- Alle -'),
-    t('Startpunt'),
-    t('« eerste'),
-    t('‹ vorige'),
-    t('volgende ›'),
-    t('laatste »'),
-    t('Order owner'),
-    t('- Choose an operation -'),
-    t('Delete order'),
-    t('ID'),
-    t('Aangemaakt'),
-    t('Name/Email'),
-    t('E-mail'),
-    t('Totaal'),
-    t('Status'),
-    t('Bewerkingen'),
-    t('Alle'),
-    t('Filteren op'),
-    t('Admin page'),
-    t('more'),
-  );
   $export['feneko_orders'] = $view;
 
   $view = new view();
@@ -1100,28 +1018,6 @@ function feneko_calculator_feature_views_default_views() {
 
   /* Display: Blok */
   $handler = $view->new_display('block', 'Blok', 'block_1');
-  $translatables['feneko_shopping_cart_block'] = array(
-    t('Defaults'),
-    t('winkelwagen'),
-    t('meer'),
-    t('Toepassen'),
-    t('Opnieuw instellen'),
-    t('Sorteren op'),
-    t('Oplopend'),
-    t('Aflopend'),
-    t('Line Items'),
-    t('Product'),
-    t('.'),
-    t(','),
-    t(' × '),
-    t('<div>
-  <div class="title" title="click to toggle details">[type_1]</div>
-  <div class="detail">[detail]</div>
-</div>'),
-    t('Alle'),
-    t('Blok'),
-    t('more'),
-  );
   $export['feneko_shopping_cart_block'] = $view;
 
   return $export;
