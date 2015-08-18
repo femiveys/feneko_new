@@ -768,42 +768,42 @@ system/ajax/*';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_article';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_article'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_info_pagina';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_info_pagina'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_machine';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_machine'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_page';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_page'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_product';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_product'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_vacature';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_vacature'] = $strongarm;
 
   $strongarm = new stdClass();

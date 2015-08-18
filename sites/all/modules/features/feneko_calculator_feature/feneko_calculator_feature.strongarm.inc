@@ -1437,77 +1437,77 @@ function feneko_calculator_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_dorpel_anti_dreunstrook';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_dorpel_anti_dreunstrook'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_dorpel_eindstuk';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_dorpel_eindstuk'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_dorpel_hoek';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_dorpel_hoek'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_dorpel_koppelstuk';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_dorpel_koppelstuk'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_muurkap';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_muurkap'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_plaatbewerking';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_plaatbewerking'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_raamtablet';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_raamtablet'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_sandwichpaneel';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_sandwichpaneel'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_standaardprofiel';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_standaardprofiel'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_stuk';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_stuk'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_unit';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_unit'] = $strongarm;
 
   $strongarm = new stdClass();
