@@ -296,6 +296,7 @@ features[field_instance][] = node-raamtablet-title_field
 features[field_instance][] = node-sandwichpaneel-field_product
 features[field_instance][] = node-sandwichpaneel-title_field
 features[field_instance][] = node-standaardprofiel-field_product
+features[field_instance][] = node-standaardprofiel-title_field
 features[field_instance][] = node-stuk-field_product
 features[field_instance][] = node-stuk-title_field
 features[field_instance][] = node-unit-field_product
