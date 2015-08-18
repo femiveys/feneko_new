@@ -2319,6 +2319,10 @@ form.commerce-add-to-cart label {
   clear: both;
   margin-bottom: 10px;
 }
+.c-l .tel,
+.c-r .tel {
+  margin-bottom: 20px;
+}
 
 @media screen and (min-width: 600px) {
   .c-l {
