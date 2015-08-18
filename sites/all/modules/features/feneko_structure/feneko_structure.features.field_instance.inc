@@ -1694,7 +1694,7 @@ function feneko_structure_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
-      'entity_translation_sync' => 0,
+      'entity_translation_sync' => 1,
       'file_directory' => 'attachments',
       'file_extensions' => 'doc docx xls xlsx pdf rtf',
       'max_filesize' => '',
@@ -1705,6 +1705,7 @@ function feneko_structure_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
+          'private' => 0,
           'public' => 'public',
         ),
         'allowed_types' => array(
@@ -1949,7 +1950,7 @@ function feneko_structure_field_default_field_instances() {
     'label' => 'Technische documenten',
     'required' => 0,
     'settings' => array(
-      'description_field' => 0,
+      'description_field' => 1,
       'entity_translation_sync' => FALSE,
       'file_directory' => 'techdocs',
       'file_extensions' => 'txt pdf doc docx xls',
@@ -1961,6 +1962,7 @@ function feneko_structure_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
+          'private' => 0,
           'public' => 'public',
         ),
         'allowed_types' => array(
