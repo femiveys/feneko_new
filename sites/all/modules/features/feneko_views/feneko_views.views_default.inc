@@ -70,13 +70,6 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'info_pagina' => 'info_pagina',
   );
-  /* Filter criterion: Content: Language */
-  $handler->display->display_options['filters']['language']['id'] = 'language';
-  $handler->display->display_options['filters']['language']['table'] = 'node';
-  $handler->display->display_options['filters']['language']['field'] = 'language';
-  $handler->display->display_options['filters']['language']['value'] = array(
-    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
-  );
 
   /* Display: Page about */
   $handler = $view->new_display('page', 'Page about', 'page');
