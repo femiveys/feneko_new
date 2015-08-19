@@ -1351,7 +1351,7 @@ function feneko_structure_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'large',
+          'image_style' => 'medium',
         ),
         'type' => 'image',
         'weight' => 0,

@@ -119,6 +119,17 @@ h3 a,
   text-decoration: none;
 }
 
+// IMG
+
+.node-type-machine {
+  #main-content {
+    img {
+      float: left;
+      padding-right: $padding;
+    }
+  }
+}
+
 // regions
 
 .wrapper {
@@ -154,7 +165,6 @@ h3 a,
   @include gridle_state (max-tablet) {
     display: none;
   }
-
 }
 
 .feneko_fenek,
@@ -658,7 +668,7 @@ h3 a,
   }
 }
 
-.machine-rij {
+#main-content .machine-rij {
   width: 48%;
   background-color: $lightgrey;
   padding: $padding;

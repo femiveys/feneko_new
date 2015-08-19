@@ -1256,6 +1256,11 @@ h3 a,
   text-decoration: none;
 }
 
+.node-type-machine #main-content img {
+  float: left;
+  padding-right: 10px;
+}
+
 .wrapper {
   overflow: hidden;
 }
@@ -1815,16 +1820,16 @@ h3 a,
   padding-bottom: 10px;
 }
 
-.machine-rij {
+#main-content .machine-rij {
   width: 48%;
   background-color: #e6e6e6;
   padding: 10px;
 }
-.machine-rij:nth-child(2n + 0) {
+#main-content .machine-rij:nth-child(2n + 0) {
   float: right;
   clear: none;
 }
-.machine-rij:nth-child(2n+1) {
+#main-content .machine-rij:nth-child(2n+1) {
   float: left;
   clear: both;
 }
