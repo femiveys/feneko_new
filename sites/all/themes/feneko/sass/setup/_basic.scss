@@ -130,6 +130,7 @@ h3 a,
   }
 }
 
+
 // regions
 
 .wrapper {
@@ -868,6 +869,18 @@ h3 a,
           width: 100%;
         }
       }
+    }
+  }
+}
+
+.product-teaser {
+  margin: $padding*3 0;
+  overflow: hidden;
+  .field-type-image  {
+    float: left;
+    margin-right: $padding;
+    img {
+      border: 2px solid $blue;
     }
   }
 }

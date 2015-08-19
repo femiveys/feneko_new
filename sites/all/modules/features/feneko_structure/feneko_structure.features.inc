@@ -94,6 +94,40 @@ function feneko_structure_image_default_styles() {
     ),
   );
 
+  // Exported image style: force_square_small.
+  $styles['force_square_small'] = array(
+    'label' => 'Force square small',
+    'effects' => array(
+      9 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 200,
+          'height' => '',
+          'upscale' => 1,
+        ),
+        'weight' => 1,
+      ),
+      10 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => '',
+          'height' => 200,
+          'upscale' => 1,
+        ),
+        'weight' => 2,
+      ),
+      11 => array(
+        'name' => 'image_crop',
+        'data' => array(
+          'width' => 150,
+          'height' => 150,
+          'anchor' => 'center-center',
+        ),
+        'weight' => 3,
+      ),
+    ),
+  );
+
   // Exported image style: front_image.
   $styles['front_image'] = array(
     'label' => 'front image',

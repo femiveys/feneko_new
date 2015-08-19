@@ -100,7 +100,7 @@
   </header>
 <?php print render($title_suffix); ?>
 
-<div class="content">
+<div class="content <?php if ($teaser) : print('product-teaser'); endif; ?>">
 
   <?php if ($page) : ?>
     <div class="first-col">

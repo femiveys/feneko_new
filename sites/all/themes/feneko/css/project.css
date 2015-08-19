@@ -2007,6 +2007,18 @@ h3 a,
   width: 100%;
 }
 
+.product-teaser {
+  margin: 30px 0;
+  overflow: hidden;
+}
+.product-teaser .field-type-image {
+  float: left;
+  margin-right: 10px;
+}
+.product-teaser .field-type-image img {
+  border: 2px solid #295D8F;
+}
+
 .field-name-field-orderable-products a {
   margin-bottom: 10px;
   background-color: #e69500;

@@ -1752,7 +1752,7 @@ function feneko_structure_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => 'content',
-          'image_style' => 'force_square_medium',
+          'image_style' => 'force_square_small',
         ),
         'type' => 'image',
         'weight' => 0,
