@@ -245,7 +245,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['field_tel']['id'] = 'field_tel';
   $handler->display->display_options['fields']['field_tel']['table'] = 'field_data_field_tel';
   $handler->display->display_options['fields']['field_tel']['field'] = 'field_tel';
-  $handler->display->display_options['fields']['field_tel']['label'] = 'Telefoon';
+  $handler->display->display_options['fields']['field_tel']['label'] = '';
   $handler->display->display_options['fields']['field_tel']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_tel']['element_wrapper_type'] = 'div';
   $handler->display->display_options['fields']['field_tel']['element_wrapper_class'] = 'tel';
@@ -484,6 +484,25 @@ function feneko_views_views_default_views() {
       'address-hide-country' => 'address-hide-country',
     ),
   );
+  /* Field: Content: Tel */
+  $handler->display->display_options['fields']['field_tel']['id'] = 'field_tel';
+  $handler->display->display_options['fields']['field_tel']['table'] = 'field_data_field_tel';
+  $handler->display->display_options['fields']['field_tel']['field'] = 'field_tel';
+  $handler->display->display_options['fields']['field_tel']['label'] = '';
+  $handler->display->display_options['fields']['field_tel']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_tel']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_tel']['element_wrapper_class'] = 'tel';
+  $handler->display->display_options['fields']['field_tel']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_tel']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_tel']['settings'] = array(
+    'edit' => '',
+    'delete' => '',
+    'add' => '',
+    'description' => 0,
+    'view_mode' => 'full',
+  );
+  $handler->display->display_options['fields']['field_tel']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_tel']['delta_offset'] = '0';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -630,6 +649,13 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'Er zijn op dit ogenblik gaan openstaande video\'s.';
+  $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -1237,6 +1263,13 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'Er zijn op dit ogenblik gaan nieuwsberichten.';
+  $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -1369,7 +1402,7 @@ function feneko_views_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'related products';
+  $handler->display->display_options['title'] = 'gerelateerde producten';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';

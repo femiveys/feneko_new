@@ -2306,21 +2306,26 @@ form.commerce-add-to-cart label {
 .c-l span,
 .c-l .field-name-field-label,
 .c-r span,
-.c-r .field-name-field-label {
+.c-r .field-name-field-label,
+.view-id-contact span,
+.view-id-contact .field-name-field-label {
   font-weight: 700;
   padding-top: 20px;
 }
 .c-l .fa,
-.c-r .fa {
+.c-r .fa,
+.view-id-contact .fa {
   clear: both;
 }
 .c-l .cl,
-.c-r .cl {
+.c-r .cl,
+.view-id-contact .cl {
   clear: both;
   margin-bottom: 10px;
 }
 .c-l .tel,
-.c-r .tel {
+.c-r .tel,
+.view-id-contact .tel {
   margin-bottom: 20px;
 }
 
