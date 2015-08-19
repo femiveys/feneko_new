@@ -292,6 +292,28 @@ function feneko_structure_default_fe_block_settings() {
     'visibility' => 1,
   );
 
+  $export['views-machines-block_1'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => 'machines-block_1',
+    'module' => 'views',
+    'node_types' => array(
+      0 => 'machine',
+    ),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'feneko' => array(
+        'region' => 'sidebar_second',
+        'status' => 1,
+        'theme' => 'feneko',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
   $export['views-main_categories-block_1'] = array(
     'cache' => -1,
     'custom' => 0,

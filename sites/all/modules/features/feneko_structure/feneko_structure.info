@@ -54,6 +54,7 @@ features[fe_block_settings][] = views-contact-block_1
 features[fe_block_settings][] = views-footer_info-block
 features[fe_block_settings][] = views-front_image-block
 features[fe_block_settings][] = views-jobs-block_1
+features[fe_block_settings][] = views-machines-block_1
 features[fe_block_settings][] = views-main_categories-block_1
 features[fe_block_settings][] = views-nieuws-block_1
 features[fe_block_settings][] = views-related-block
