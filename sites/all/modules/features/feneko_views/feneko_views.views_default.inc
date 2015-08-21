@@ -957,6 +957,15 @@ function feneko_views_views_default_views() {
     'image_style' => 'square_thumbnail',
     'image_link' => 'content',
   );
+  /* Field: Entity translation: Naam: translated */
+  $handler->display->display_options['fields']['name_field_et']['id'] = 'name_field_et';
+  $handler->display->display_options['fields']['name_field_et']['table'] = 'field_data_name_field';
+  $handler->display->display_options['fields']['name_field_et']['field'] = 'name_field_et';
+  $handler->display->display_options['fields']['name_field_et']['label'] = '';
+  $handler->display->display_options['fields']['name_field_et']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name_field_et']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name_field_et']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['name_field_et']['hide_empty'] = TRUE;
   /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
@@ -964,7 +973,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['name']['alter']['text'] = '[name]  &raquo;';
+  $handler->display->display_options['fields']['name']['alter']['text'] = '[name_field_et]  &raquo;';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['preserve_tags'] = 'h3';
@@ -1010,6 +1019,14 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['parent']['field'] = 'parent';
   $handler->display->display_options['filters']['parent']['relationship'] = 'parent';
   $handler->display->display_options['filters']['parent']['value']['value'] = '0';
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['relationship'] = 'reverse_field_productcategorie_node';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
 
   /* Display: Page: onze producten */
   $handler = $view->new_display('page', 'Page: onze producten', 'page');
@@ -1028,6 +1045,15 @@ function feneko_views_views_default_views() {
     'image_style' => 'square_thumbnail',
     'image_link' => 'content',
   );
+  /* Field: Entity translation: Naam: translated */
+  $handler->display->display_options['fields']['name_field_et']['id'] = 'name_field_et';
+  $handler->display->display_options['fields']['name_field_et']['table'] = 'field_data_name_field';
+  $handler->display->display_options['fields']['name_field_et']['field'] = 'name_field_et';
+  $handler->display->display_options['fields']['name_field_et']['label'] = '';
+  $handler->display->display_options['fields']['name_field_et']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name_field_et']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name_field_et']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['name_field_et']['hide_empty'] = TRUE;
   /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
@@ -1035,7 +1061,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['name']['alter']['text'] = '[name]  &raquo;';
+  $handler->display->display_options['fields']['name']['alter']['text'] = '[name_field_et]  &raquo;';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['preserve_tags'] = 'h3';
@@ -1090,6 +1116,14 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['name']['field'] = 'name';
   $handler->display->display_options['filters']['name']['relationship'] = 'parent';
   $handler->display->display_options['filters']['name']['value'] = 'colors';
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['relationship'] = 'reverse_field_productcategorie_node';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
   $handler->display->display_options['path'] = 'colors';
   $handler->display->display_options['menu']['title'] = 'colors';
   $handler->display->display_options['menu']['weight'] = '3';
@@ -1115,6 +1149,14 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['name']['field'] = 'name';
   $handler->display->display_options['filters']['name']['relationship'] = 'parent';
   $handler->display->display_options['filters']['name']['value'] = 'screens';
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['relationship'] = 'reverse_field_productcategorie_node';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
   $handler->display->display_options['path'] = 'screens';
   $handler->display->display_options['menu']['title'] = 'screens';
   $handler->display->display_options['menu']['weight'] = '4';
@@ -1166,12 +1208,23 @@ function feneko_views_views_default_views() {
     'image_style' => 'medium',
     'image_link' => 'content',
   );
+  /* Field: Entity translation: Naam: translated */
+  $handler->display->display_options['fields']['name_field_et']['id'] = 'name_field_et';
+  $handler->display->display_options['fields']['name_field_et']['table'] = 'field_data_name_field';
+  $handler->display->display_options['fields']['name_field_et']['field'] = 'name_field_et';
+  $handler->display->display_options['fields']['name_field_et']['label'] = '';
+  $handler->display->display_options['fields']['name_field_et']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name_field_et']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name_field_et']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['name_field_et']['hide_empty'] = TRUE;
   /* Field: Taxonomy term: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['text'] = '[name_field_et]';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['strip_tags'] = TRUE;
@@ -1210,6 +1263,14 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['parent']['field'] = 'parent';
   $handler->display->display_options['filters']['parent']['relationship'] = 'parent';
   $handler->display->display_options['filters']['parent']['value']['value'] = '0';
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['relationship'] = 'reverse_field_productcategorie_node';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
   $export['main_categories'] = $view;
 
   $view = new view();
