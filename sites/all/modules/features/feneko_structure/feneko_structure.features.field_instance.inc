@@ -1693,7 +1693,7 @@ function feneko_structure_field_default_field_instances() {
     'label' => 'Bijlage',
     'required' => 0,
     'settings' => array(
-      'description_field' => 0,
+      'description_field' => 1,
       'entity_translation_sync' => 1,
       'file_directory' => 'attachments',
       'file_extensions' => 'doc docx xls xlsx pdf rtf',
@@ -2398,7 +2398,7 @@ function feneko_structure_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -2506,7 +2506,7 @@ function feneko_structure_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
