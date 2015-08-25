@@ -1108,7 +1108,7 @@ system/ajax/*';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'locale_field_language_fallback';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['locale_field_language_fallback'] = $strongarm;
 
   $strongarm = new stdClass();
