@@ -1472,13 +1472,18 @@ function feneko_views_views_default_views() {
   );
   $handler->display->display_options['fields']['field_images']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_images']['delta_offset'] = '0';
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Entity translation: Titel: translated */
+  $handler->display->display_options['fields']['title_field_et']['id'] = 'title_field_et';
+  $handler->display->display_options['fields']['title_field_et']['table'] = 'field_data_title_field';
+  $handler->display->display_options['fields']['title_field_et']['field'] = 'title_field_et';
+  $handler->display->display_options['fields']['title_field_et']['label'] = '';
+  $handler->display->display_options['fields']['title_field_et']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title_field_et']['type'] = 'title_linked';
+  $handler->display->display_options['fields']['title_field_et']['settings'] = array(
+    'title_style' => 'h3',
+    'title_link' => 'content',
+    'title_class' => '',
+  );
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -1524,13 +1529,6 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'product' => 'product',
-  );
-  /* Filter criterion: Content: Language */
-  $handler->display->display_options['filters']['language']['id'] = 'language';
-  $handler->display->display_options['filters']['language']['table'] = 'node';
-  $handler->display->display_options['filters']['language']['field'] = 'language';
-  $handler->display->display_options['filters']['language']['value'] = array(
-    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
 
   /* Display: Block */
