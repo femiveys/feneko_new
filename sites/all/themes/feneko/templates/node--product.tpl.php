@@ -148,7 +148,7 @@
       <?php print render($content['field_orderable_products']); ?>
 
       <?php
-      if($product_grandparent == (strtolower('screens'))) :
+      if(strtolower($product_grandparent) == 'screens') :
         print('<a href="'.$node_url.'/bestel'.'">bestel '.$title.'</a>');
       endif;
       ?>
