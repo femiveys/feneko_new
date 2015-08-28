@@ -2307,7 +2307,7 @@ div.horizontal-tabs {
 .page-taxonomy #content .links.inline {
   clear: both;
   float: left;
-  margin: 30px 20px 50px 0;
+  margin: 30px 20px 10px 0;
 }
 @media screen and (min-width: 600px) {
   .page-taxonomy #content .field-name-field-orderable-products {

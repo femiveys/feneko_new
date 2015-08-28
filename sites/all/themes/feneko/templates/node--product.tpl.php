@@ -143,7 +143,7 @@
 
        <?php if($logged_in) : ?>
 
-    <div class="field-name-field-orderable-products">
+    <div class="field-name-field-orderable-products">P
 
       <?php print render($content['field_orderable_products']); ?>
 
