@@ -2070,6 +2070,7 @@ h3 a,
 
 .field-name-field-orderable-products a {
   margin-bottom: 10px;
+  margin-top: 20px;
   background-color: #e69500;
   border-radius: 5px;
   padding: 10px;
@@ -2291,6 +2292,10 @@ div.horizontal-tabs {
   line-height: 150%;
 }
 
+.page-taxonomy #content .term-listing-heading {
+  overflow: hidden;
+  margin-bottom: 50px;
+}
 .page-taxonomy #content .field-name-field-product-category-image {
   float: left;
   margin-right: 20px;
@@ -2299,11 +2304,10 @@ div.horizontal-tabs {
 .page-taxonomy #content .node-header {
   clear: both;
 }
-@media screen and (min-width: 600px) {
-  .page-taxonomy #content .links.inline {
-    float: left;
-    margin: 10px 20px 50px 0;
-  }
+.page-taxonomy #content .links.inline {
+  clear: both;
+  float: left;
+  margin: 30px 20px 50px 0;
 }
 @media screen and (min-width: 600px) {
   .page-taxonomy #content .field-name-field-orderable-products {

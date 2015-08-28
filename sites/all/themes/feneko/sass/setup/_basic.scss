@@ -941,6 +941,7 @@ h3 a,
 .field-name-field-orderable-products {
   a {
     margin-bottom: $padding;
+    margin-top: 20px;
     @extend %button;
     background-color: darken($orange, 5%);
     border-radius: 5px;
@@ -1183,6 +1184,10 @@ div.horizontal-tabs {
 
 .page-taxonomy {
   #content {
+    .term-listing-heading {
+      overflow: hidden;
+      margin-bottom: 50px;
+    }
     .field-name-field-product-category-image {
       float: left;
       margin-right: $padding*2;
@@ -1192,10 +1197,9 @@ div.horizontal-tabs {
       clear: both;
     }
     .links.inline {
-      @include gridle_state (min-tablet) {
+      clear: both;
         float: left;
-        margin: 10px 20px 50px 0;
-      }
+        margin: 30px 20px 50px 0;
     }
     .field-name-field-orderable-products {
       @include gridle_state (min-tablet) {
