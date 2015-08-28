@@ -37,10 +37,8 @@ function feneko_preprocess_node(&$variables) {
     $term = array_pop($parents);
     $name = $term->name;
 
-    $variables['product_grandparent'] = $name;
+    $variables['product_grandparent'] = strtolower($name);
 
-    dpm($parents);
-    dpm($term);
     dpm($name);
   }
 
