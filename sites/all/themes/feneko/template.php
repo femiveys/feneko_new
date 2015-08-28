@@ -28,7 +28,7 @@ function feneko_preprocess_pager(&$variables, $hook) {
 function feneko_preprocess_node(&$variables) {
   $variables['submitted'] = format_date($variables['node']->created, 'custom', 'd F Y');
 
-dpm($variables);
+
 
   if(($variables['type']='product') && $variables['is_front']!='true') {
 
@@ -38,6 +38,10 @@ dpm($variables);
     $name = $term->name;
 
     $variables['product_grandparent'] = $name;
+
+    dpm($parents);
+    dpm($term);
+    dpm($name);
   }
 
 
