@@ -2068,6 +2068,22 @@ h3 a,
   float: left;
   margin-bottom: 20px;
 }
+.node-type-product .field-name-field-images .field-item a {
+  width: 85%;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border: 2px solid #295D8F;
+}
+.node-type-product .field-name-field-images .field-item a:hover:after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url(../img/plus.png) center center no-repeat rgba(255, 165, 0, 0.5);
+}
 @media screen and (max-width: 850px) {
   .node-type-product .field-name-field-images .field-item {
     width: 25%;
@@ -2079,18 +2095,20 @@ h3 a,
   }
 }
 .node-type-product .field-name-field-images .field-item img {
-  width: 85%;
-  border: 2px solid #295D8F;
+  display: block;
 }
 @media screen and (min-width: 851px) {
-  .node-type-product .field-name-field-images .field-item.even img {
+  .node-type-product .field-name-field-images .field-item.even a {
     float: right;
   }
-  .node-type-product .field-name-field-images .field-item.odd img {
+  .node-type-product .field-name-field-images .field-item.odd a {
     float: left;
   }
 }
 .node-type-product .field-name-field-images .field-item:nth-child(1) {
+  width: 100%;
+}
+.node-type-product .field-name-field-images .field-item:nth-child(1) a {
   width: 100%;
 }
 .node-type-product .field-name-field-images .field-item:nth-child(1) img {
@@ -2176,6 +2194,21 @@ div.horizontal-tabs {
 #block-views-related-block .views-field-title {
   font-weight: 700;
   margin-top: 10px;
+}
+#block-views-related-block .rel-img-link a {
+  border: 2px solid #295D8F;
+  display: inline-block;
+  overflow: hidden;
+}
+#block-views-related-block img {
+  display: block;
+  -webkit-transition: opacity 0.35s,-webkit-transform 0.35s;
+  transition: opacity 0.35s,transform 0.35s;
+}
+#block-views-related-block:hover img {
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
+  opacity: 0.7;
 }
 
 .view-feneko-shopping-cart-block table,

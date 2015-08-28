@@ -891,9 +891,8 @@ h3 a,
       h3 {
         a {
           background-color: $white;
-        color: $blue;
+          color: $blue;
         }
-
       }
       img {
         -webkit-transform:scale(1.15);
@@ -916,33 +915,50 @@ h3 a,
 .node-type-product {
   .field-name-field-images {
     .field-item {
+      a {
+        width: 85%;
+        position: relative;
+        display: block;
+        overflow: hidden;
+        border: 2px solid $blue;
+        &:hover:after {
+          content:'';
+          position:absolute;
+          top:-1px;
+          bottom:0;
+          left:0;
+          right:0;
+          background:url(../img/plus.png) center center no-repeat $orangetrans;
+        }
+      }
       @include gridle_state(max-tablet) {
         width: 25%;
       }
       @include gridle_state (min-desk) {
         width: 50%;
       }
-
       float: left;
       margin-bottom: $padding*2;
       img {
-        width: 85%;
-        border: 2px solid $blue;
+        display: block;
       }
       @include gridle_state(min-desk) {
         &.even {
-          img {
+          a {
             float: right;
           }
         }
         &.odd {
-          img {
+          a {
             float: left;
           }
         }
       }
       &:nth-child(1) {
         width: 100%;
+        a {
+          width: 100%;
+        }
         img {
           width: 100%;
         }
@@ -1040,6 +1056,23 @@ div.horizontal-tabs {
   .views-field-title {
     font-weight: 700;
     margin-top: $padding;
+  }
+  .rel-img-link a {
+    border: 2px solid $blue;
+    display: inline-block;
+    overflow: hidden;
+  }
+  img {
+    display: block;
+    -webkit-transition: opacity 0.35s,-webkit-transform 0.35s;
+    transition: opacity 0.35s,transform 0.35s;
+  }
+  &:hover {
+    img {
+      -webkit-transform:scale(1.15);
+      transform:scale(1.15);
+      opacity:0.7;
+    }
   }
 }
 
@@ -1250,6 +1283,9 @@ div.horizontal-tabs {
     font-size: 32px;
   }
 }
+
+
+
 
 // form items
 
