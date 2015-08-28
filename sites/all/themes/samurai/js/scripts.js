@@ -135,6 +135,17 @@ function stickIt() {
   }
 }
 
+
+$('.view-grouping-content h3').each(function() {
+  $(this).after('<div class="new"></div>');
+});
+
+$('.new').each(function() {
+  $(this).siblings('.rij-product-naam').appendTo($(this));
+});
+
+
+
 var topLink = $('.totop');
 var showTopLink = 500;
 topLink.hide();

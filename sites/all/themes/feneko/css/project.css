@@ -1939,14 +1939,20 @@ h3 a,
 }
 @media screen and (max-width: 399px) {
   .not-front .view-main-categories .view-grouping-content .view-grouping-header {
-    width: 50%;
+    width: 47%;
     float: left;
   }
 }
 @media screen and (min-width: 400px) and (max-width: 599px) {
   .not-front .view-main-categories .view-grouping-content .view-grouping-header {
-    width: 40%;
-    float: right;
+    width: 37%;
+    float: left;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 850px) {
+  .not-front .view-main-categories .view-grouping-content .view-grouping-header {
+    width: 25%;
+    float: left;
   }
 }
 @media screen and (max-width: 399px) {
@@ -1957,14 +1963,49 @@ h3 a,
 }
 @media screen and (min-width: 400px) and (max-width: 599px) {
   .not-front .view-main-categories .view-grouping-content .view-grouping-content {
-    width: 60%;
+    width: 63%;
     float: right;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 850px) {
+  .not-front .view-main-categories .view-grouping-content .view-grouping-content {
+    width: 72%;
+    float: right;
+  }
+}
+@media screen and (min-width: 851px) {
+  .not-front .view-main-categories .view-grouping-content .new {
+    -webkit-columns: 2;
+    /* Chrome, Safari, Opera */
+    -moz-columns: 2;
+    /* Firefox */
+    columns: 2;
+  }
+}
+@media screen and (min-width: 992px) {
+  .not-front .view-main-categories .view-grouping-content .new {
+    -webkit-columns: 3;
+    /* Chrome, Safari, Opera */
+    -moz-columns: 3;
+    /* Firefox */
+    columns: 3;
   }
 }
 .not-front .view-main-categories .view-grouping-content .views-row-odd,
 .not-front .view-main-categories .view-grouping-content .views-row-even {
   font-weight: 700;
-  margin-bottom: 20px;
+}
+@media screen and (max-width: 599px) {
+  .not-front .view-main-categories .view-grouping-content .views-row-odd,
+  .not-front .view-main-categories .view-grouping-content .views-row-even {
+    margin-bottom: 10px;
+  }
+}
+@media screen and (min-width: 600px) {
+  .not-front .view-main-categories .view-grouping-content .views-row-odd,
+  .not-front .view-main-categories .view-grouping-content .views-row-even {
+    margin-bottom: 15px;
+  }
 }
 
 .categorie-rij h3 {

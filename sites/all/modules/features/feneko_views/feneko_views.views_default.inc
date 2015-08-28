@@ -957,7 +957,7 @@ function feneko_views_views_default_views() {
       'rendered_strip' => 0,
     ),
   );
-  $handler->display->display_options['style_options']['row_class'] = 'text--uppercase';
+  $handler->display->display_options['style_options']['row_class'] = 'rij-product-naam';
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
@@ -1000,7 +1000,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['name']['alter']['text'] = '[name_field_et]  &raquo;';
+  $handler->display->display_options['fields']['name']['alter']['text'] = '[name_field_et]&nbsp;&raquo;';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['preserve_tags'] = 'h3';
@@ -1084,7 +1084,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['name']['alter']['text'] = '[name_field_et]  &raquo;';
+  $handler->display->display_options['fields']['name']['alter']['text'] = '[name_field_et]&nbsp;&raquo;';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['preserve_tags'] = 'h3';
@@ -1467,7 +1467,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['field_images']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_images']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_images']['settings'] = array(
-    'image_style' => 'square_medium',
+    'image_style' => 'force_square_small',
     'image_link' => '',
   );
   $handler->display->display_options['fields']['field_images']['delta_limit'] = '1';

@@ -795,12 +795,16 @@ h3 a,
     }
     .view-grouping-header {
       @include gridle_state (only-mobile-port) {
-        width: 50%;
+        width: 47%;
         float: left;
       }
       @include gridle_state (only-mobile-land) {
-        width: 40%;
-        float: right;
+        width: 37%;
+        float: left;
+      }
+      @include gridle_state (only-tablet) {
+        width: 25%;
+        float: left;
       }
     }
     .view-grouping-content {
@@ -809,14 +813,35 @@ h3 a,
         float: right;
       }
       @include gridle_state (only-mobile-land) {
-        width: 60%;
+        width: 63%;
         float: right;
+      }
+      @include gridle_state (only-tablet) {
+        width: 72%;
+        float: right;
+      }
+    }
+    .new {
+      @include gridle_state (min-desk) {
+        -webkit-columns: 2; /* Chrome, Safari, Opera */
+        -moz-columns: 2; /* Firefox */
+        columns: 2;
+      }
+      @include gridle_state (min-full) {
+        -webkit-columns: 3; /* Chrome, Safari, Opera */
+        -moz-columns: 3; /* Firefox */
+        columns: 3;
       }
     }
     .views-row-odd,
     .views-row-even {
       font-weight: 700;
-      margin-bottom: $padding*2;
+      @include gridle_state (max-mobile) {
+        margin-bottom: $padding;
+      }
+      @include gridle_state (min-tablet) {
+        margin-bottom: $padding*1.5;
+      }
     }
   }
 }
@@ -1438,6 +1463,10 @@ $contact: #f7941d;
   }
 }
 
+// manyform table
+
+
+
 // CK editor styles
 
 .ck-knop {
@@ -1463,3 +1492,6 @@ $contact: #f7941d;
     color: $green;
   }
 }
+
+
+
