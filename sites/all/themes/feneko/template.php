@@ -30,7 +30,7 @@ function feneko_preprocess_node(&$variables) {
 
 
 
-  if(($variables['type']='product') && $variables['is_front']!='true') {
+  if(($variables['type']='product') && ($variables['is_front']!='true')) {
 
     $tid = $variables['field_productcategorie']['und'][0]['tid'];
     $parents = taxonomy_get_parents($tid);
