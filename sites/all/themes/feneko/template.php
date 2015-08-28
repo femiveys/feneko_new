@@ -39,7 +39,6 @@ function feneko_preprocess_node(&$variables) {
 
     $variables['product_grandparent'] = strtolower($name);
 
-    dpm($name);
   }
 
 
