@@ -119,6 +119,12 @@ h3 a,
   text-decoration: none;
 }
 
+.node-info-pagina {
+  h2 {
+    font-size: 36px;
+  }
+}
+
 // IMG
 
 .node-type-machine {
@@ -220,6 +226,18 @@ h3 a,
   }
 }
 
+.view-front-image {
+  img {
+      width: 100%;
+  display: block;
+  position: relative;
+  z-index: -1;
+  transition: 0.5s ease;
+  transform: translate3d(0, 0, 0);
+  transition-property: background-position;
+  }
+}
+
 .front #main-wrapper,
 #bottomblock-wrapper {
   text-align: center;
@@ -230,6 +248,10 @@ h3 a,
   * {
     color: $white;
   }
+}
+
+.field-name-field-about {
+  padding-bottom: 20px;
 }
 
 #bottomblock-wrapper {
@@ -616,6 +638,14 @@ h3 a,
   }
 }
 
+.page-search {
+  #block-system-main {
+    p {
+      clear: both;
+    }
+  }
+}
+
 .search-results {
   clear: both;
 }
@@ -736,7 +766,7 @@ h3 a,
 
 //view
 
-.view-main-categories {
+.not-front .view-main-categories {
   .view-grouping {
     clear: both;
     margin-bottom: $padding*3;
@@ -747,7 +777,9 @@ h3 a,
   }
   img {
     float: left;
-    padding-right: $padding;
+    margin-right: $padding;
+    border: 2px solid $blue;
+    display: block;
   }
   h3 {
     margin-bottom: $padding*2;
@@ -760,6 +792,26 @@ h3 a,
   .view-grouping-content {
     div {
       font-size: 16px;
+    }
+    .view-grouping-header {
+      @include gridle_state (only-mobile-port) {
+        width: 50%;
+        float: left;
+      }
+      @include gridle_state (only-mobile-land) {
+        width: 40%;
+        float: right;
+      }
+    }
+    .view-grouping-content {
+      @include gridle_state (only-mobile-port) {
+        width: 50%;
+        float: right;
+      }
+      @include gridle_state (only-mobile-land) {
+        width: 60%;
+        float: right;
+      }
     }
     .views-row-odd,
     .views-row-even {
@@ -785,6 +837,7 @@ h3 a,
     text-align: center;
     clear: none;
     vertical-align: top;
+    margin-bottom: $padding*5;
     .view-grouping-header {
       overflow: hidden;
       width: 190px;

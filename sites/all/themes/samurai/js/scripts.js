@@ -26,6 +26,24 @@ $('#cart-small').click(function() {
 
 // add pseudo last - of - type class to class
 
+
+// paralax
+
+function parallax(selector) {
+  ypos = window.pageYOffset;
+  selector.css('top', '-' + ypos*.2 + 'px');
+}
+
+function parallax2(selector) {
+  ypos = window.pageYOffset;
+  selector.css('padding-bottom', ypos*0.05 + 'px');
+}
+
+$(window).scroll( function () {
+  parallax($('.view-front-image img'));
+  parallax2($('.node-info-pagina h2'));
+});
+
 // function maken
 
   // blok link

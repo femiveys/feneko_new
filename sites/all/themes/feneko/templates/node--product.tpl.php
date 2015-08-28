@@ -121,6 +121,12 @@
 
     <div class="field-name-field-orderable-products">
 
+      <?php
+      if($product_grandparent == 'screens') :
+        print('<a href="'.$node_url.'/bestel'.'">bestel '.$title.'</a>');
+      endif;
+      ?>
+
       <?php print render($content['field_orderable_products']); ?>
 
     </div>
@@ -140,6 +146,12 @@
     <div class="field-name-field-orderable-products">
 
       <?php print render($content['field_orderable_products']); ?>
+
+      <?php
+      if($product_grandparent == 'screens') :
+        print('<a href="'.$node_url.'/bestel'.'">bestel '.$title.'</a>');
+      endif;
+      ?>
 
     </div>
 
