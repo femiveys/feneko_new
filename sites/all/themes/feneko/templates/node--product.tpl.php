@@ -138,7 +138,11 @@
 
       <?php print render($content['field_attach_secured']);?>
 
-      <div class="lev"><i class="fa fa-truck"></i> <?php print t('Al onze leveringen gebeuren tussen de 8 en 12 werkdagen.'); ?>
+      <?php if ($page) : ?>
+
+      <div class="lev"><i class="fa fa-truck"></i><p> <?php print t('Al onze leveringen gebeuren tussen de 8 en 12 werkdagen.'); ?></p>
+
+       <?php endif; ?>
 
        <?php if($logged_in) : ?>
 

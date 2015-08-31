@@ -828,7 +828,7 @@ div.messages {
         float: right;
       }
       @include gridle_state (only-mobile-land) {
-        width: 63%;
+        width: 61%;
         float: right;
       }
       @include gridle_state (only-tablet) {
@@ -982,6 +982,12 @@ div.messages {
   }
   .fa-truck {
     font-size: 36px;
+    float: left;
+  }
+  .lev {
+    p {
+      float: left;
+    }
   }
 }
 
@@ -1023,33 +1029,90 @@ div.messages {
 
 // HTABS
 
-.field-group-htabs-wrapper {
-  .selected {
-    margin-bottom: -1px!important;
-    &:hover {
-      border-bottom: none!important;
+.horizontal-tabs {
+  fieldset {
+    margin-bottom: 0;
+    &.horizontal-tabs-pane {
+      padding: $padding/2;
     }
-    a {
+  }
+  ul.horizontal-tabs-list {
+    background-color: $white;
+    border-right: none;
+    display: flex;
+    @include gridle_state (max-mobile) {
+      overflow: hidden;
+    }
+
+    li {
+      a {
+        background-color: $white;
+        color: $lightgrey;
+        &:hover {
+          background-color: $blue;
+        }
+      }
+
       &:hover {
-        background-color: $white!important;
-        border: none!important;
+        background-color: $white;
+      }
+      &.selected {
+        background-color: $blue;
+        margin-bottom: -1px;
+        &:hover {
+          border-bottom: none;
+        }
+        strong {
+          color: $orange;
+        }
+        a {
+          background-color: $blue;
+          &:hover {
+            background-color: $blue;
+            border: none;
+          }
+        }
       }
     }
+    @include gridle_state(max-tablet) {
+      display: block;
+    }
+  }
+  .field-type-file .field-item {
+    margin: 0;
+    a {
+      text-decoration: underline;
+    }
   }
 }
 
-.horizontal-tabs ul.horizontal-tabs-list {
-  background-color: $white;
-  border-right: none;
-  display: flex;
-  @include gridle_state(max-tablet) {
-    display: block;
+.field-name-field-tech-image {
+  .field-item {
+    width: 30%;
+    float: left;
+    margin-right: 5%;
+    margin-bottom: $padding;
+    &:nth-child(3n+3) {
+      margin-right: 0;
+    }
+    a {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        border: 1px solid $grey;
+        &:hover:after {
+          content:'';
+          position:absolute;
+          top:-1px;
+          bottom:0;
+          left:0;
+          right:0;
+          background:url(../img/plus.png) center center no-repeat $orangetrans;
+        }
+      }
   }
 }
 
-.horizontal-tabs-list {
-
-}
 
 .horizontal-tab-button {
   border-left: 1px solid $grey;
@@ -1068,6 +1131,8 @@ div.horizontal-tabs {
   border: 1px solid $grey;
   padding: $padding;
 }
+
+// RELATED
 
 #block-views-related-block {
   text-align: center;

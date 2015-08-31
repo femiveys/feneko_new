@@ -139,6 +139,7 @@
   @include gridle (4, only-tablet);
   @include gridle (4, min-desk);
   @include gridle_no_gutter(left, min-desk);
+  @include gridle_no_gutter(left right, max-tablet);
 }
 
 .second-col {
@@ -146,6 +147,7 @@
   @include gridle (8, only-tablet);
   @include gridle (8, min-desk);
   @include gridle_no_gutter (right);
+  @include gridle_no_gutter(left right, max-mobile);
   // @include gridle_push (0.5, min-desk);
 }
 
