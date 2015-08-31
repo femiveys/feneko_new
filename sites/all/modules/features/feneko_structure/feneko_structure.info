@@ -179,7 +179,6 @@ features[menu_links][] = menu-waarom-feneko_onze-machines:machines
 features[menu_links][] = menu-waarom-feneko_onze-producten-colors--screens:onze-producten
 features[menu_links][] = user-menu_klantenzone:user/login
 features[menu_links][] = user-menu_log-out:user/logout
-features[menu_links][] = user-menu_mijn-feneko:user
 features[node][] = article
 features[node][] = info_pagina
 features[node][] = machine
