@@ -43,6 +43,10 @@ li.node-readmore {
   padding: 0!important;
 }
 
+div.node-readmore {
+  display: inline-block;
+}
+
 ul.tabs {
   &.primary {
     a {
@@ -133,6 +137,17 @@ h3 a,
       float: left;
       padding-right: $padding;
     }
+  }
+}
+
+//messages
+
+div.messages {
+  border-radius: 5px;
+  border: 2px solid $lightgrey!important;
+  &.status {
+    background-color: $green;
+    color: $lightgreen;
   }
 }
 
@@ -964,6 +979,9 @@ h3 a,
         }
       }
     }
+  }
+  .fa-truck {
+    font-size: 36px;
   }
 }
 

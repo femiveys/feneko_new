@@ -89,7 +89,7 @@ if ($teaser) {
 print('  <h1>'.$title.'</h1>');
 
 print render($content['field_about']);
-print('<a href="/about">LEES MEER</a>');
+print('<div class="node-readmore"><a href="about">Lees meer</a></div>');
   // node is being displayed as a teaser
   // Anything here will show up when the teaser of the post is viewed in your taxonomies or front page
 } else {

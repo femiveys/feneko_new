@@ -83,9 +83,6 @@
  */
 ?>
 
-
-<?php dpm($variables); ?>
-
 <?php print render($title_prefix); ?>
   <header class="node-header">
 
@@ -140,6 +137,8 @@
       <?php print render($content['group_wrapper']);?>
 
       <?php print render($content['field_attach_secured']);?>
+
+      <div class="lev"><i class="fa fa-truck"></i> <?php print t('Al onze leveringen gebeuren tussen de 8 en 12 werkdagen.'); ?>
 
        <?php if($logged_in) : ?>
 
