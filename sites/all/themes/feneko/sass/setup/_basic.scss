@@ -1053,6 +1053,9 @@ div.horizontal-tabs {
 
 #block-views-related-block {
   text-align: center;
+  .views-row {
+    margin-bottom: $padding*5;
+  }
   .views-field-title {
     font-weight: 700;
     margin-top: $padding;
@@ -1066,9 +1069,7 @@ div.horizontal-tabs {
     display: block;
     -webkit-transition: opacity 0.35s,-webkit-transform 0.35s;
     transition: opacity 0.35s,transform 0.35s;
-  }
-  &:hover {
-    img {
+    &:hover {
       -webkit-transform:scale(1.15);
       transform:scale(1.15);
       opacity:0.7;
@@ -1501,6 +1502,84 @@ $contact: #f7941d;
 
 // manyform table
 
+#manyforms-form {
+  .help {
+    &:before {
+      content: "\f059";
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+      font-size: 36px;
+      clear: both;
+      color: $black;
+      cursor: pointer;
+    }
+    &:hover:before {
+        color: $grey;
+      }
+  }
+  caption {
+    text-align: left;
+    //display: block;
+    .text {
+      display: none;
+      border: 2px solid $blue;
+      padding: $padding;
+      margin-bottom: $padding*4;
+    }
+  }
+  tr {
+    &.odd {
+      background-color: $lightblue;
+    }
+    &.even {
+      background-color: $lightgrey;
+    }
+  }
+  @include gridle_state (max-mobile) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+      position: absolute;
+      top: -9999px!important;
+      left: -9999px!important;
+    }
+
+    caption {
+      display: block;
+    }
+
+    tr { border: 1px solid #ccc; }
+
+    td {
+      /* Behave  like a "row" */
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 50%;
+    }
+
+    td:before {
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 15px;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      content: attr(data-before);
+      font-weight: 700;
+    }
+  }
+}
 
 
 // CK editor styles

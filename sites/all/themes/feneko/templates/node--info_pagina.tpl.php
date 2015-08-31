@@ -84,80 +84,18 @@
 ?>
 
 
-<?php dpm($variables); ?>
+<?php
+if ($teaser) {
+print('  <h1>'.$title.'</h1>');
 
-<?php print render($title_prefix); ?>
-  <header class="node-header">
+print render($content['field_about']);
+print('<a href="/about">LEES MEER</a>');
+  // node is being displayed as a teaser
+  // Anything here will show up when the teaser of the post is viewed in your taxonomies or front page
+} else {
+  //all other cases
+  //Anything here will show up when viewing your post at any other time, e.g. previews
+}
+?>
 
-    <?php if ($page) : ?>
-    <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
-    <?php endif; ?>
 
-    <?php if ($teaser) : ?>
-    <h2<?php print $title_attributes; ?>><?php print $title; ?></h2>
-    <?php endif; ?>
-
-  </header>
-<?php print render($title_suffix); ?>
-
-<div class="content <?php if ($teaser) : print('product-teaser'); endif; ?>">
-
-  <?php if ($page) : ?>
-    <div class="first-col">
-  <?php endif; ?>
-
-  <?php print render($content['field_images']); ?>
-
-  <?php if ($page) : ?>
-    </div>
-  <?php endif; ?>
-
-  <?php if ($page) : ?>
-    <div class="second-col">
-
-  <?php endif; ?>
-
-  <?php if($logged_in && $page) : ?>
-
-    <div class="field-name-field-orderable-products">
-
-      <?php
-      if($product_grandparent == 'screens') :
-        print('<a href="'.$node_url.'/bestel'.'">bestel '.$title.'</a>');
-      endif;
-      ?>
-
-      <?php print render($content['field_orderable_products']); ?>
-
-    </div>
-
-  <?php endif; ?>
-
-      <?php print render($content['body']);?>
-
-      <?php print render($content['links']);?>
-
-      <?php print render($content['group_wrapper']);?>
-
-      <?php print render($content['field_attach_secured']);?>
-
-       <?php if($logged_in) : ?>
-
-    <div class="field-name-field-orderable-products">
-
-      <?php print render($content['field_orderable_products']); ?>
-
-      <?php
-      if($product_grandparent == 'screens') :
-        print('<a href="'.$node_url.'/bestel'.'">bestel '.$title.'</a>');
-      endif;
-      ?>
-
-    </div>
-
-  <?php endif; ?>
-
-  <?php if($page) : ?>
-    </div>
-  <?php endif; ?>
-</div>

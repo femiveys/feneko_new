@@ -8,96 +8,108 @@
   $(document).ready(function(){
 
 
-$('#cboxNext, #cboxPrevious').mouseleave(function() {
-  $(this).removeClass('over');
-});
-
-$('#cboxNext, #cboxPrevious').mouseover(function() {
-  $(this).addClass('over');
-});
-
-$('.view-feneko-shopping-cart-block .node-header').click(function(){
-  $(this).siblings().toggleClass('show');
-});
-
-$('#cart-small').click(function() {
-  $('.view-feneko-shopping-cart-block .view-content, .view-feneko-shopping-cart-block .view-footer').toggleClass('show');
-});
-
-// add pseudo last - of - type class to class
-
-
-// paralax
-
-function parallax(selector) {
-  ypos = window.pageYOffset;
-  selector.css('top', '-' + ypos*.2 + 'px');
-}
-
-function parallax2(selector) {
-  ypos = window.pageYOffset;
-  selector.css('padding-bottom', ypos*0.05 + 'px');
-}
-
-$(window).scroll( function () {
-  parallax($('.view-front-image img'));
-  parallax2($('.node-info-pagina h2'));
-});
-
-// function maken
-
-  // blok link
-  function blocklink (selector) {
-    selector.click(function () {
-      window.location = $(this).find('a').eq(0).attr('href');
+    $('#cboxNext, #cboxPrevious').mouseleave(function() {
+      $(this).removeClass('over');
     });
-  }
 
-if ( $(window).width() >= 850) {
-  $('.view-id-nieuws').each(function(){
-        var highestBox = 0;
-        $('.nieuws-body', this).each(function(){
+    $('#cboxNext, #cboxPrevious').mouseover(function() {
+      $(this).addClass('over');
+    });
 
-            if($(this).height() > highestBox)
-               highestBox = $(this).height();
-        });
+    $('.view-feneko-shopping-cart-block .node-header').click(function(){
+      $(this).siblings().toggleClass('show');
+    });
 
-        $('.nieuws-body',this).height(highestBox);
-
-  });
-}
-
-$('.view-feneko-shopping-cart-block tr').click(function() {
-  $(this).toggleClass('open');
-});
+    $('#cart-small').click(function() {
+      $('.view-feneko-shopping-cart-block .view-content, .view-feneko-shopping-cart-block .view-footer').toggleClass('show');
+    });
 
 
-$('#menu-small').click(function() {
-  $('#main_menu').toggleClass('show');
-  $('#header-wrapper.show').removeClass('show');
-});
+    // paralax
 
-$('#search-small').click(function() {
-  $('#header-wrapper').toggleClass('show');
-  $('#main_menu.show').removeClass('show');
-});
-
-
-
- function widthDependent () {
-  if ( $(window).width() >= 850) {
-    $('body').addClass('big').removeClass('small');
-
-    } else {
-      $('body').removeClass('big').addClass('small');
+    function parallax(selector) {
+      ypos = window.pageYOffset;
+      selector.css('top', '-' + ypos*.2 + 'px');
     }
-  }
 
-widthDependent();
-  // listen resize :
-  $(window).resize(function(e) {
+    function parallax2(selector) {
+      ypos = window.pageYOffset;
+      selector.css('padding-bottom', ypos*0.05 + 'px');
+    }
+
+    $(window).scroll( function () {
+      parallax($('.view-front-image img'));
+      parallax2($('.node-info-pagina h2'));
+    });
+
+
+    // blok link
+    function blocklink (selector) {
+      selector.click(function () {
+        window.location = $(this).find('a').eq(0).attr('href');
+      });
+    }
+
+    if ( $(window).width() >= 850) {
+      $('.view-id-nieuws').each(function(){
+            var highestBox = 0;
+            $('.nieuws-body', this).each(function(){
+
+                if($(this).height() > highestBox)
+                   highestBox = $(this).height();
+            });
+
+            $('.nieuws-body',this).height(highestBox);
+
+      });
+    }
+
+    $('.view-feneko-shopping-cart-block tr').click(function() {
+      $(this).toggleClass('open');
+    });
+
+
+    $('#menu-small').click(function() {
+      $('#main_menu').toggleClass('show');
+      $('#header-wrapper.show').removeClass('show');
+    });
+
+    $('#search-small').click(function() {
+      $('#header-wrapper').toggleClass('show');
+      $('#main_menu.show').removeClass('show');
+    });
+
+
+    // responsive table
+
+    var order = [];
+
+    $('#manyforms-form th').each(function(index, value) {
+      order[index] = $(this).text();
+    });
+
+    //console.log(order);
+
+    $('#manyforms-form tr td').each(function() {
+      $(this).attr('data-before',(order[$(this).index()]));
+    });
+
+
+
+    function widthDependent () {
+      if ( $(window).width() >= 850) {
+        $('body').addClass('big').removeClass('small');
+
+        } else {
+          $('body').removeClass('big').addClass('small');
+        }
+      }
+
     widthDependent();
-  });
+    // listen resize :
+    $(window).resize(function(e) {
+      widthDependent();
+    });
 
 // Create a clone of the menu, right next to original.
 $('#mainmenu-wrapper').addClass('original')

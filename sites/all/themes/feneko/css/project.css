@@ -2191,6 +2191,9 @@ div.horizontal-tabs {
 #block-views-related-block {
   text-align: center;
 }
+#block-views-related-block .views-row {
+  margin-bottom: 50px;
+}
 #block-views-related-block .views-field-title {
   font-weight: 700;
   margin-top: 10px;
@@ -2205,7 +2208,7 @@ div.horizontal-tabs {
   -webkit-transition: opacity 0.35s,-webkit-transform 0.35s;
   transition: opacity 0.35s,transform 0.35s;
 }
-#block-views-related-block:hover img {
+#block-views-related-block img:hover {
   -webkit-transform: scale(1.15);
   transform: scale(1.15);
   opacity: 0.7;
@@ -2608,6 +2611,77 @@ form.commerce-add-to-cart label {
 .views-field-field-social-follow .field {
   float: left;
   margin: 0 5px;
+}
+
+#manyforms-form .help:before {
+  content: "\f059";
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+  font-size: 36px;
+  clear: both;
+  color: #323232;
+  cursor: pointer;
+}
+#manyforms-form .help:hover:before {
+  color: #c7c7c7;
+}
+#manyforms-form caption {
+  text-align: left;
+}
+#manyforms-form caption .text {
+  display: none;
+  border: 2px solid #295D8F;
+  padding: 10px;
+  margin-bottom: 40px;
+}
+#manyforms-form tr.odd {
+  background-color: #9BD4DF;
+}
+#manyforms-form tr.even {
+  background-color: #e6e6e6;
+}
+@media screen and (max-width: 599px) {
+  #manyforms-form {
+    /* Hide table headers (but not display: none;, for accessibility) */
+  }
+  #manyforms-form table, #manyforms-form thead, #manyforms-form tbody, #manyforms-form th, #manyforms-form td, #manyforms-form tr {
+    display: block;
+  }
+  #manyforms-form thead tr {
+    position: absolute;
+    top: -9999px !important;
+    left: -9999px !important;
+  }
+  #manyforms-form caption {
+    display: block;
+  }
+  #manyforms-form tr {
+    border: 1px solid #ccc;
+  }
+  #manyforms-form td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+  #manyforms-form td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 15px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    content: attr(data-before);
+    font-weight: 700;
+  }
 }
 
 .ck-check {
