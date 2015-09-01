@@ -76,6 +76,10 @@
     @include gridle ( 7.5, min-desk);
     @include gridle_no_gutter ();
   }
+  .node-type-product & {
+    @include gridle ( 9, min-desk);
+    @include gridle_no_gutter ();
+  }
   .no-sidebars & {
     @include gridle ( 12 );
     @include gridle_no_gutter ();
@@ -86,6 +90,9 @@
   @include gridle (4, min-desk);
   @include gridle_no_gutter();
   @include gridle_push(0.5, min-desk);
+  .node-type-product & {
+    @include gridle ( 3, min-desk);
+  }
 }
 
 .nieuws-rij {

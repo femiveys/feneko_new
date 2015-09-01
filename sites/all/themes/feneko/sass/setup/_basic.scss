@@ -946,6 +946,9 @@ div.messages {
           background:url(../img/plus.png) center center no-repeat $orangetrans;
         }
       }
+      @include gridle_state (only-mobile-land) {
+        margin-bottom: 3px;
+      }
       @include gridle_state(max-tablet) {
         width: 25%;
       }
@@ -971,6 +974,10 @@ div.messages {
       }
       &:nth-child(1) {
         width: 100%;
+        @include gridle_state(only-mobile-land) {
+          width: 65%;
+          margin-right: 2%;
+        }
         a {
           width: 100%;
         }
@@ -1033,7 +1040,7 @@ div.messages {
   fieldset {
     margin-bottom: 0;
     &.horizontal-tabs-pane {
-      padding: $padding/2;
+      padding: $padding*4 $padding/2 $padding/2 $padding/2;
     }
   }
   ul.horizontal-tabs-list {
