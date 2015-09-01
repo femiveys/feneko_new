@@ -2190,7 +2190,7 @@ div.messages.status {
 }
 @media screen and (min-width: 400px) and (max-width: 599px) {
   .node-type-product .field-name-field-images .field-item:nth-child(1) {
-    width: 65%;
+    width: 73%;
     margin-right: 2%;
   }
 }
