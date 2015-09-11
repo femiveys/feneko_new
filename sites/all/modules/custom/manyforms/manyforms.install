@@ -22,8 +22,11 @@ function manyforms_schema() {
       $schema["manyforms_$id"] = $ff->getSchema();
     }
   }
-  return $schema;
-  */
+*/
+
+  // $schema = array();
+
+  // return $schema;
 }
 
 
@@ -681,5 +684,51 @@ function manyforms_update_7042() {
   $table = "manyforms_$id";
   if (db_field_exists($table, $field_name)) {
     db_drop_field($table, $field_name);
+  }
+}
+
+/**
+ * Install screens_order_statuses schema
+ */
+function manyforms_update_7043() {
+  // //Check if table exists, if not install the schema.
+  // if(!db_table_exists(FENEKO_SCREENS_ORDER_STATUSES_TABLE)) {
+  //   drupal_install_schema('manyforms');
+  // }
+}
+
+/**
+ * Remove screens_order_statuses schema
+ */
+function manyforms_update_7044() {
+  $table = 'screens_order_statuses';
+  if(db_table_exists($table)) {
+    db_drop_table($table);
+  }
+}
+
+/**
+ * Fix wrong clients
+ */
+function manyforms_update_7045() {
+  for ($i = 1; $i <= 13; $i++) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+
+    $rows = db_select($table, 't')
+            ->where('t.uid = t.klant')
+            ->fields('t')
+            ->execute()
+    ;
+
+    foreach ($rows as $key => $row) {
+      $user = entity_metadata_wrapper('user', $row->uid);
+      $fields = array(
+        'klant' => $user->field_klantennummer->value(),
+        'exported' => 0,
+      );
+
+      db_update($table)->condition('id', $row->id)->fields($fields)->execute();
+    }
   }
 }

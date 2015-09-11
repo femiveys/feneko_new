@@ -147,6 +147,11 @@ function fc_get_attachment($order_id, $outputAsString = TRUE) {
     $logo = '';
   }
 
+  $order4 = empty($order->field_order4)
+    ? field_view_field('user', $client, 'field_klantennummer')
+    : field_view_field('commerce_order', $order, 'field_order4')
+  ;
+
   $client_data = array(
     '#type' => 'container',
     '#attributes' => array('class' => array('client')),
@@ -155,7 +160,7 @@ function fc_get_attachment($order_id, $outputAsString = TRUE) {
       '#attributes' => array('class' => array('left')),
       'tel'  => field_view_field('user', $client, 'field_telefoon'),
       'tva'  => field_view_field('user', $client, 'field_btw_nummer'),
-      'num'  => field_view_field('user', $client, 'field_klantennummer'),
+      'num'  => $order4,
       'name' => field_view_field('user', $client, 'field_naam_bedrijf'),
     ),
     'right' => array(

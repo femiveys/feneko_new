@@ -514,7 +514,7 @@ class FenekoSpecificForm extends FenekoForm {
       'wrapper' => 'opties-replace',
     );
 
-    $caption2 = t('Het midden van de tussenstijl (VP1005) komt op 912mm.<br />
+    $caption2 = t('Het midden van de tussenstijl (VP1005) komt op 917mm.<br />
                    Indien u de hoogte zelf wenst te kiezen vult u T1 in.<br />
                    Indien u meerdere tussenstijlen wenst vult u T1,T2, T3 in.');
 

@@ -44,6 +44,9 @@ function feneko_calculator_order_to_xml(stdClass $order) {
   $xml = "<Order>";
 
   $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'order_id');
+  $xml .= empty($order->field_order4)
+          ? _feneko_calculator_add_xml_field($order_wrapper->owner, 'field_klantennummer')
+          : _feneko_calculator_add_xml_field($order_wrapper, 'field_order4', "Klantennummer");
   $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'status');
   $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'created');
   $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'changed');
@@ -59,7 +62,6 @@ function feneko_calculator_order_to_xml(stdClass $order) {
   $xml .= _feneko_calculator_add_xml_field($order_wrapper->owner, 'language');
   $xml .= _feneko_calculator_add_xml_field($order_wrapper->owner, 'field_naam_bedrijf');
   $xml .= _feneko_calculator_add_xml_field($order_wrapper->owner, 'field_btw_nummer');
-  $xml .= _feneko_calculator_add_xml_field($order_wrapper->owner, 'field_klantennummer');
   $xml .= _feneko_calculator_add_xml_field($order_wrapper->owner, 'field_telefoon');
   $xml .= _feneko_calculator_add_xml_field($order_wrapper->owner, 'field_geblokkeerd');
   $xml .= "</Owner>";
@@ -97,6 +99,8 @@ function feneko_calculator_order_to_xml(stdClass $order) {
 /**
  * Helper function to add a field to an XML string
  *
+ * If it is a multivaluefield, the first value is taken.
+ *
  * @param EntityMetadataWrapper $wrapper The wrapper holding the field to
  *                                       transform into a tag
  * @param string $name The name of the field. Field names starting with
@@ -109,6 +113,10 @@ function _feneko_calculator_add_xml_field(EntityMetadataWrapper $wrapper, $name,
                                                          $tag_override = NULL) {
   $tag = isset($tag_override) ? $tag_override : camelCase(str_replace('field_', '', $name));
   if(!empty($wrapper->$name->value())) {
-    return "<$tag>" . htmlspecialchars($wrapper->$name->value()) . "</$tag>";
+    $value = $wrapper->$name->value();
+    if(is_array($value)) {
+      $value = $value[0];
+    }
+    return "<$tag>" . htmlspecialchars($value) . "</$tag>";
   }
 }

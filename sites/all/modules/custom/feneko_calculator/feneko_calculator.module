@@ -209,6 +209,9 @@ function feneko_calculator_form_alter(&$form, &$form_state, $form_id) {
       '#markup' => t('Stap !stap', array('!stap' => "2/2")),
       '#weight' => -100,
     );
+
+    $form['commerce_fieldgroup_pane__group_order_info']
+         ['field_order4']['und']['#options'] = feneko_code_get_order4_options();
   }
 
   if (strpos($form_id, 'views_form_commerce_cart_form_') === 0) {
@@ -389,7 +392,6 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
   // Add a validator to prepare some values
   $form['#validate'][] = 'fc_validate_add_to_cart_form';
 
-
   // START PRODUCT SPECIFIC STUFF
   $product = commerce_product_load($form['product_id']['#value']);
   $ajax = array(
@@ -501,6 +503,13 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
           unset($form['line_item_fields']['field_lakzijde']['und']['#options']['_none']);
           break;
 
+      }
+
+      // ophanging wordt ALTIJD ingevuld als de kleur <> Brut/Kleur <> Anodise/ Kleur <> renolit
+      if( $color['type']  !== 'brut'
+      and $color['type']  !== 'reno'
+      and $color['kleur'] !== "ANODISE") {
+        unset($form['line_item_fields']['field_ophanging']['und']['#options']['_none']);
       }
 
       break;

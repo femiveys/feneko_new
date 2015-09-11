@@ -1,3 +1,7 @@
-name = Feneko
+name = Feneko code
 description = Feneko specific code
 core = 7.x
+package = Feneko
+
+stylesheets[all][] = css/feneko_code.css
+scripts[] = js/feneko_code.js

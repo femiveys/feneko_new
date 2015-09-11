@@ -1,10 +1,78 @@
 <?php
 /**
+ * Implements hook_schema().
+ */
+function feneko_code_schema() {
+  $schema = array();
+
+  $schema[FENEKO_CODE_ORDER_STATUSES_TABLE] = array(
+    'description' => 'Holds the statuses of the screens orders',
+    'fields' => array(
+      'klant'         => array('type' => 'int'    , 'not null' => TRUE, 'default' => 0 , 'unsigned' => TRUE),
+      'orderbon'      => array('type' => 'varchar', 'not null' => TRUE, 'default' => '', 'length' => 10,),
+      'ref'           => array('type' => 'varchar', 'not null' => FALSE,'default' => '', 'length' => 255),
+      'omschrijving'  => array('type' => 'varchar', 'not null' => FALSE,'default' => '', 'length' => 255),
+      'kleur'         => array('type' => 'varchar', 'not null' => TRUE, 'default' => '', 'length' => 255),
+      'order_datum'   => array('type' => 'int'    , 'not null' => TRUE, 'default' => 0 , 'unsigned' => TRUE),
+      'lever_datum'   => array('type' => 'int'    , 'not null' => TRUE, 'default' => 0 , 'unsigned' => TRUE),
+      'fase'          => array('type' => 'varchar', 'not null' => TRUE, 'default' => '', 'length' => 32),
+      'aantal'        => array('type' => 'int'    , 'not null' => TRUE, 'default' => 1 , 'unsigned' => TRUE),
+      'bedrag'        => array('type' => 'float'  , 'not null' => TRUE, 'default' => 0),
+      'leverconditie' => array('type' => 'varchar', 'not null' => TRUE, 'default' => '', 'length' => 16),
+    ),
+    'indexes' => array(
+      FENEKO_CODE_ORDER_STATUSES_TABLE . '_klant'        => array('klant'),
+      FENEKO_CODE_ORDER_STATUSES_TABLE . '_fase'         => array('fase'),
+      FENEKO_CODE_ORDER_STATUSES_TABLE . '_kleur'        => array('kleur'),
+      FENEKO_CODE_ORDER_STATUSES_TABLE . '_order_datum'  => array('order_datum'),
+      FENEKO_CODE_ORDER_STATUSES_TABLE . '_lever_datum'  => array('lever_datum'),
+      FENEKO_CODE_ORDER_STATUSES_TABLE . '_ref'          => array('ref'),
+    ),
+    'primary key' => array('orderbon'),
+  );
+
+  return $schema;
+}
+
+/**
  * delete stupid meta fields
  */
-function feneko_code_update_7002(){
+function feneko_code_update_7002() {
   field_delete_field('meta_abstract');
   field_delete_field('meta_canonical');
   field_delete_field('meta_description');
   field_delete_field('meta_keywords');
 }
+
+/**
+ * Create schema for order_statuses
+ */
+function feneko_code_update_7003() {
+  //Check if table exists, if not install the schema.
+  if(!db_table_exists(FENEKO_CODE_ORDER_STATUSES_TABLE)) {
+    drupal_install_schema('feneko_code');
+  }
+}
+
+/**
+ * Add index for referentie
+ */
+function feneko_code_update_7004() {
+  $table = FENEKO_CODE_ORDER_STATUSES_TABLE;
+  db_add_index($table, $table . '_ref', array('ref'));
+}
+
+/**
+ * Allow negative amounts for order status import
+ */
+function feneko_code_update_7005() {
+  $table = FENEKO_CODE_ORDER_STATUSES_TABLE;
+  $oldname = 'bedrag';
+  $name = $oldname;
+
+  $schema = feneko_code_schema();
+  $conf = $schema[FENEKO_CODE_ORDER_STATUSES_TABLE]['fields'][$name];
+
+  db_change_field($table, $oldname, $name, $conf);
+}
+

@@ -1,7 +1,7 @@
-name = 12 Forms custom module
-description = Wrapper for 12 forms
+name = Screens forms
+description = All functionality related to the screens forms
 core = 7.x
-package = custom module
+package = Feneko
 
 files[] = forms/FenekoForm.php
 files[] = forms/FenekoSpecificForm.php
@@ -11,3 +11,4 @@ scripts[] = 'js/manyforms.js'
 stylesheets[all][] = css/style.css
 
 dependencies[] = feneko_libraries
+dependencies[] = i18n_variable

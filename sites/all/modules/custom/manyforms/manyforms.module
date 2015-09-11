@@ -65,7 +65,7 @@ function manyforms_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('manyforms_export_form', TRUE),
     'file' => 'manyforms_export.inc',
-    'access arguments' => array('admin_manyforms'),
+    'access arguments' => array('archive_manyforms'),
   );
 
   $items['forms/pdf_generator'] = array(
@@ -79,17 +79,18 @@ function manyforms_menu() {
   $items['manyforms/autocomplete'] = array(
     'description' => 'autocomplete callback',
     'page callback' => 'manyforms_autocomplete',
+    'page arguments' => array(2, 3),
     'access arguments' => array('submit_manyforms'),
     'type' => MENU_LOCAL_TASK,
   );
 
-  $items['manyforms/autocomplete2'] = array(
-    'description' => 'autocomplete callback',
-    'page callback' => 'manyforms_autocomplete',
-    'page arguments' => array(2, TRUE),
-    'access arguments' => array('submit_manyforms'),
-    'type' => MENU_LOCAL_TASK,
-  );
+  // $items['manyforms/autocomplete2'] = array(
+  //   'description' => 'autocomplete callback',
+  //   'page callback' => 'manyforms_autocomplete',
+  //   'page arguments' => array(2, TRUE),
+  //   'access arguments' => array('submit_manyforms'),
+  //   'type' => MENU_LOCAL_TASK,
+  // );
 
   $items['forms/test'] = array(
     'description' => 'Test',
@@ -128,34 +129,46 @@ function manyforms_form_callback($id) {
   return drupal_get_form("manyforms_form", $ff);
 }
 
-function manyforms_autocomplete($string, $exception = FALSE) {
-  $exception = $exception ? '7039-70D*' : FALSE;
-  $result = manyforms_ral_search($string, $exception);
+function manyforms_autocomplete($id, $string) {
+  $result = manyforms_ral_search($id, check_plain($string));
   echo json_encode($result);
 }
 
-function manyforms_ral_search($string, $exception = FALSE) {
+// Arguments change for autocomplete2
+// function manyforms_autocomplete($string, $exception = FALSE) {
+//   $exception = $exception ? '7039-70D*' : FALSE;
+//   $result = manyforms_ral_search($string, $exception);
+//   echo json_encode($result);
+// }
+
+function manyforms_ral_search($id, $string) {
   $result = array();
-  $rs = db_select('ral', 'r')->fields('r')
-                             ->condition('kleur', "%$string%", 'LIKE')
-                             ->execute();
+  $query = db_select('ral', 'r')->fields('r')
+                                ->condition('kleur', "%$string%", 'LIKE')
+                                ;
+  $exceptions = array(2, 4, 7);
+  if(in_array($id, $exceptions)) {
+    $query->condition('kleur', 'ANODISE', '<>');
+  }
+
+  $rs = $query->execute();
   foreach ($rs as $record) {
-    if($record->kleur !== $exception) {
+    // if($record->kleur !== $exception) {
       $key = $record->kleur . ' (' . $record->ref . ')';
       $result[$key] = $key;
-    }
+    // }
   }
 
   return $result;
 }
 
-function manyforms_ral_validate($name, $value) {
+function manyforms_ral_validate($id, $name, $value) {
   // Get the RAL code out of the value
   preg_match("/(.*)\ \((.*)\)/", $value, $matches);
   $ral_code = $matches[1];
   // $ral_ref = $matches[2];
 
-  $results = manyforms_ral_search($ral_code);
+  $results = manyforms_ral_search($id, $ral_code);
   $match = reset($results);
 
   if($value !== $match) {
@@ -302,6 +315,10 @@ function manyforms_permission() {
       'title' => 'Submit form',
       'restrict access' => TRUE,
     ),
+    'archive_manyforms' => array(
+      'title' => 'Access archive screen forms',
+      'restrict access' => TRUE,
+    ),
   );
 }
 
@@ -380,3 +397,4 @@ function manyforms_variable_info($options) {
 
   return $variable;
 }
+

@@ -6,7 +6,7 @@
 
 function manyforms_export_form($form, &$form_state) {
   $options = array();
-  $page_size = 20;
+  $page_size = 200;
 
   $filters = array('type', 'user', 'client', 'ref');
 
@@ -65,12 +65,14 @@ function manyforms_export_form($form, &$form_state) {
   }
   $total = $union->execute()->rowCount();
 
-  // Get the current page
-  $page = pager_find_page();
+  if($only_exported) {
+    // Get the current page
+    $page = pager_find_page();
 
-  // Initialize the pager
-  pager_default_initialize($total, $page_size);
-  $pager = theme('pager');
+    // Initialize the pager
+    pager_default_initialize($total, $page_size);
+    $pager = theme('pager');
+  }
 
   // Construct a UNION select query for all forms
   for ($i = 1; $i <= FENEKO_SCREENS_NUM; $i++) {
@@ -105,7 +107,9 @@ function manyforms_export_form($form, &$form_state) {
 
       case FENEKO_SCREENS_NUM:
         $query->orderByHeader($header);                // hack: should not work
-        $query->range($page * $page_size, $page_size); // hack: should not work
+        if($only_exported) {
+          $query->range($page * $page_size, $page_size); // hack: should not work
+        }
 
       default:
         $union->union($query);
@@ -230,7 +234,9 @@ function manyforms_export_form($form, &$form_state) {
   );
 
   // Add the pager
-  $form['pager'] = array('#markup' => $pager);
+  if($only_exported) {
+    $form['pager'] = array('#markup' => $pager);
+  }
 
   if( !isset( $form_state['storage']['confirm'] ) ) {
     return $form;
@@ -255,7 +261,6 @@ function manyforms_export_form_filters($filters, $form_state, $header, $query) {
       $query->condition($field, $value, 'LIKE');
     }
   }
-
 }
 
 function manyforms_export_form_submit($form, &$form_state) {

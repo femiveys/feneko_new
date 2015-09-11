@@ -1,0 +1,88 @@
+form#feneko-code-import-form .manual {
+  padding: 5px 10px;
+  background-color: #bbb;
+}
+
+.page-user-feneko-orders .help {
+  display: inline-block;
+  width: 20px !important;
+  height: 20px !important;
+  vertical-align: middle;
+  margin-left: 5px !important;
+}
+
+.page-user-feneko-orders .help-text {
+  display: none;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  overflow: hidden;
+  padding: 5px 10px;
+  color: #6A6A6A;
+}
+
+.page-user-feneko-orders .help-text div {
+  display: inline-block;
+  width: 49%;
+}
+
+.page-user-feneko-orders .help-text .label {
+  font-weight: bold;
+}
+
+.page-user-feneko-orders fieldset.filters {
+  border: 1px solid #ccc !important;
+  padding: 1% 1%;
+  min-height: 20px;
+}
+
+.page-user-feneko-orders .filters legend {
+  position: absolute;
+  overflow: hidden;
+}
+
+.page-user-feneko-orders .filters .date-padding {
+  padding: 0;
+}
+
+.page-user-feneko-orders .filters .date-padding label {
+  display: none;
+}
+
+.page-user-feneko-orders .filters label {
+  margin-right: 10px;
+}
+
+.page-user-feneko-orders .filters .fieldset-wrapper {
+  padding-top: 20px;
+}
+
+.page-user-feneko-orders .form-type-date-popup > div > div:nth-child(1) input {
+  width: 125px;
+}
+
+.page-user-feneko-orders .form-type-date-popup > div > div:nth-child(2) input {
+  width: 125px;
+}
+
+.page-user-feneko-orders .filters .fieldset-wrapper > div {
+  float: left;
+  clear: none;
+}
+
+.page-user-feneko-orders .filters .fieldset-wrapper > div:nth-child(1) {
+  padding-right: 1%;
+}
+
+.page-user-feneko-orders .filters .fieldset-wrapper > div:nth-child(2) {
+  padding-left: 1%;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.page-user-feneko-orders .filters .fieldset-wrapper > div:nth-child(3) {
+  padding-left: 1%;
+}
+
+.page-user-feneko-orders .filters .form-type-textfield {
+  margin: 0;
+}
