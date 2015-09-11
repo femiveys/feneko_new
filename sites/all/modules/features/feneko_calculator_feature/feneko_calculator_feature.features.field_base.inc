@@ -27,6 +27,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'locked' => 1,
     'module' => 'text',
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max_length' => 255,
     ),
     'translatable' => 0,
@@ -49,7 +50,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     ),
     'locked' => 1,
     'module' => 'commerce_line_item',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'commerce_line_item_reference',
   );
@@ -71,7 +74,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     ),
     'locked' => 1,
     'module' => 'commerce_price',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'commerce_price',
   );
@@ -93,7 +98,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     ),
     'locked' => 1,
     'module' => 'commerce_price',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'commerce_price',
   );
@@ -115,6 +122,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'locked' => 1,
     'module' => 'commerce_product_reference',
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'options_list_limit' => NULL,
     ),
     'translatable' => 0,
@@ -138,7 +146,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     ),
     'locked' => 1,
     'module' => 'commerce_price',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'commerce_price',
   );
@@ -160,7 +170,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     ),
     'locked' => 1,
     'module' => 'commerce_price',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'commerce_price',
   );
@@ -178,7 +190,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'number_integer',
   );
@@ -211,6 +225,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         'VA9057' => '500mm',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -234,7 +249,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     ),
     'locked' => 0,
     'module' => 'commerce_price',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'commerce_price',
   );
@@ -252,7 +269,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'number_integer',
   );
@@ -275,6 +294,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'locked' => 0,
     'module' => 'text',
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max_length' => 255,
     ),
     'translatable' => 0,
@@ -294,7 +314,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'number_integer',
   );
@@ -317,6 +339,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'locked' => 0,
     'module' => 'text',
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max_length' => 255,
     ),
     'translatable' => 0,
@@ -340,7 +363,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     ),
     'locked' => 0,
     'module' => 'text',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'text_long',
   );
@@ -358,7 +383,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'number_integer',
   );
@@ -386,6 +413,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         1 => 'Ja',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_integer',
@@ -414,6 +442,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         'buiten' => 'Buitenhoek',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -432,7 +461,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'number_integer',
   );
@@ -465,6 +496,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         50 => '50mm',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_integer',
@@ -493,6 +525,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         'right' => 'Rechts',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -511,7 +544,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'number_integer',
   );
@@ -529,7 +564,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'number_integer',
   );
@@ -558,6 +595,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         'r' => 'Beide kanten',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -576,7 +614,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'number_integer',
   );
@@ -1157,6 +1197,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         69 => 4000,
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -1185,6 +1226,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         1 => '',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
@@ -1219,6 +1261,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         'beugel' => 'Beugel',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -1237,7 +1280,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'number_integer',
   );
@@ -1255,7 +1300,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'number_integer',
   );
@@ -1292,6 +1339,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         750 => '750mm',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_integer',
@@ -1321,6 +1369,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         3 => 'Type 3',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_integer',
@@ -1350,6 +1399,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         'lasbouten' => 'Lasbouten',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -1375,6 +1425,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -1403,6 +1454,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         'offer' => 'Offerte',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -1435,6 +1487,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         'reno' => 'Renolit',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -1464,6 +1517,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         '3mm' => '3mm',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -1482,7 +1536,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
-    'settings' => array(),
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'number_integer',
   );
@@ -1505,6 +1561,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'locked' => 0,
     'module' => 'commerce_product_reference',
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'options_list_limit' => '',
     ),
     'translatable' => 0,
@@ -1530,6 +1587,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     'module' => 'image',
     'settings' => array(
       'default_image' => 0,
+      'entity_translation_sync' => array(
+        0 => 'fid',
+      ),
       'uri_scheme' => 'public',
     ),
     'translatable' => 0,
@@ -1561,6 +1621,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         'reno' => 'Renolith',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -1603,6 +1664,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         350 => '350mm',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_integer',
@@ -1631,6 +1693,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         2 => 'Type 2',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_integer',
@@ -1661,6 +1724,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         4000 => '4000mm',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_integer',
@@ -1684,6 +1748,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'locked' => 0,
     'module' => 'text',
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max_length' => 255,
     ),
     'translatable' => 0,
@@ -1714,6 +1779,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         25 => '25mm',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_integer',
@@ -1745,6 +1811,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         'reno' => 'Renolith',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -1775,6 +1842,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         'reno' => 'Renolith',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -1811,6 +1879,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         4000 => 4000,
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_integer',
@@ -1840,6 +1909,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         'str' => 'Structuur, Métalique, Anodisé',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -1870,6 +1940,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         6000 => 6000,
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_integer',
@@ -1906,6 +1977,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         'Z' => 'Z-profiel',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -1934,6 +2006,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         1 => '',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
@@ -1959,6 +2032,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     'settings' => array(
       'display_default' => 0,
       'display_field' => 0,
+      'entity_translation_sync' => array(
+        0 => 'fid',
+      ),
       'uri_scheme' => 'private',
     ),
     'translatable' => 0,
@@ -1993,6 +2069,7 @@ function feneko_calculator_feature_field_default_field_bases() {
         'special' => 'Speciaal',
       ),
       'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',

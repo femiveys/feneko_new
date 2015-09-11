@@ -38,6 +38,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Display path',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -90,6 +91,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Product',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'field_injection' => TRUE,
       'referenceable_types' => array(),
       'user_register_form' => FALSE,
@@ -155,6 +157,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Totaal',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -217,6 +220,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Eenheidsprijs',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -257,6 +261,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Diepte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -295,6 +300,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Rug',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -333,6 +339,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Display path',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -385,6 +392,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Product',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'field_injection' => TRUE,
       'referenceable_types' => array(),
       'user_register_form' => FALSE,
@@ -450,6 +458,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Totaal',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -511,6 +520,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Unit price',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -548,6 +558,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Base Price',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -593,6 +604,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Aantal beugels',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max' => '',
       'min' => 0,
       'prefix' => '',
@@ -636,6 +648,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Eindstukken',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max' => '',
       'min' => 0,
       'prefix' => '',
@@ -683,6 +696,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Hoeken',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max' => '',
       'min' => 0,
       'prefix' => '',
@@ -730,6 +744,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Aantal koppelstukken',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max' => '',
       'min' => 0,
       'prefix' => '',
@@ -777,6 +792,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Lengte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max' => 4000,
       'min' => 0,
       'prefix' => '',
@@ -820,6 +836,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Display path',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -873,6 +890,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Product',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'field_injection' => TRUE,
       'referenceable_types' => array(),
       'user_register_form' => FALSE,
@@ -938,6 +956,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Totaal',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1000,6 +1019,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Unit price',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1038,6 +1058,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Base Price',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1083,6 +1104,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Breedte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max' => 4000,
       'min' => '',
       'prefix' => '',
@@ -1121,6 +1143,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Lakzijde',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1164,6 +1187,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Lengte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max' => '',
       'min' => '',
       'prefix' => '',
@@ -1212,6 +1236,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Breedte delen',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max' => '',
       'min' => '',
       'prefix' => '',
@@ -1260,6 +1285,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Hoeken',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max' => '',
       'min' => '',
       'prefix' => '',
@@ -1299,6 +1325,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Ophanging',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1342,6 +1369,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Plooien',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max' => '',
       'min' => 0,
       'prefix' => '',
@@ -1380,6 +1408,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => 'calculator/drawings',
       'file_extensions' => 'pdf jpg jpeg png dwg dxf',
       'max_filesize' => '',
@@ -1424,6 +1453,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Type',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1463,6 +1493,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Display path',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -1515,6 +1546,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Product',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'field_injection' => TRUE,
       'referenceable_types' => array(),
       'user_register_form' => FALSE,
@@ -1580,6 +1612,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Totaal',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1642,6 +1675,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Unit price',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1686,6 +1720,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Aantal Anti-Dreunstroken',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max' => '',
       'min' => 0,
       'prefix' => '',
@@ -1725,6 +1760,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Anti-Dreunstrook',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1761,6 +1797,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Base Price',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1806,6 +1843,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Eindstukken',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max' => '',
       'min' => 0,
       'prefix' => '',
@@ -1848,6 +1886,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Gaatjes in rug',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1891,6 +1930,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Hoeken',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max' => '',
       'min' => 0,
       'prefix' => '',
@@ -1939,6 +1979,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Koppelstukken',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max' => '',
       'min' => 0,
       'prefix' => '',
@@ -1986,6 +2027,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Lengte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max' => 4000,
       'min' => 0,
       'prefix' => '',
@@ -2028,6 +2070,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Rug',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -2067,6 +2110,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Display path',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -2120,6 +2164,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Product',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'field_injection' => TRUE,
       'referenceable_types' => array(),
       'user_register_form' => FALSE,
@@ -2186,6 +2231,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Totaal',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -2248,6 +2294,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Eenheidsprijs',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -2288,6 +2335,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Kant',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -2327,6 +2375,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Diepte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -2366,6 +2415,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Display path',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -2419,6 +2469,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Product',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'field_injection' => TRUE,
       'referenceable_types' => array(),
       'user_register_form' => FALSE,
@@ -2484,6 +2535,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Total',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -2546,6 +2598,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Unit price',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -2581,6 +2634,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Base Price',
     'required' => FALSE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -2617,6 +2671,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Kleur plaat 2',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'linkit' => array(
         'enable' => 0,
         'insert_plugin' => '',
@@ -2667,6 +2722,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Breedte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max' => '',
       'min' => '',
       'prefix' => '',
@@ -2710,6 +2766,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Isolatie Dikte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -2753,6 +2810,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Lengte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max' => '',
       'min' => '',
       'prefix' => '',
@@ -2796,6 +2854,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Display path',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -2849,6 +2908,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Product',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'field_injection' => TRUE,
       'referenceable_types' => array(),
       'user_register_form' => FALSE,
@@ -2915,6 +2975,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Total',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -2977,6 +3038,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Unit price',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -3015,6 +3077,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Base Price',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -3057,6 +3120,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Knippen',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max' => '',
       'min' => '',
       'prefix' => '',
@@ -3104,6 +3168,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Lengte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'max' => 6000,
       'min' => '',
       'prefix' => '',
@@ -3143,6 +3208,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Standaardprofiel Lengte',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -3194,6 +3260,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Line items',
     'required' => FALSE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -3270,6 +3337,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Order total',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -3302,6 +3370,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Kleur',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'linkit' => array(
         'enable' => 0,
         'insert_plugin' => '',
@@ -3340,6 +3409,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Opmerking',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'linkit' => array(
         'enable' => 0,
         'insert_plugin' => '',
@@ -3382,6 +3452,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Qualité Maritime',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -3415,6 +3486,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Klantennummer',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -3450,6 +3522,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Type',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -3481,6 +3554,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Referentie',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'linkit' => array(
         'enable' => 0,
         'insert_plugin' => '',
@@ -3639,6 +3713,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Prijs',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -3693,6 +3768,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Breedte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -3843,6 +3919,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Prijs',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -3893,6 +3970,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Raamtablet Afwerking',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -3946,6 +4024,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Type',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -4096,6 +4175,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Prijs',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -4149,6 +4229,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Hoek type',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -4198,6 +4279,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Raamtablet Afwerking',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -4349,6 +4431,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Prijs',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -4399,6 +4482,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Raamtablet Afwerking',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -4549,6 +4633,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Price',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -4598,6 +4683,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Muurkap Diepte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -4646,6 +4732,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Muurkap Type',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -4694,6 +4781,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Muurkap Lengte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -4743,6 +4831,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Muurkap Afwerking',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -4893,6 +4982,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Price',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -4942,6 +5032,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Stuk Type',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -4991,6 +5082,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Muurkap Diepte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -5040,6 +5132,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Muurkap Type',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -5089,6 +5182,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Muurkap Afwerking',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -5239,6 +5333,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Price',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -5289,6 +5384,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Plaatbewerking Afwerking',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -5396,6 +5492,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Sandwichpaneel Lengte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -5546,6 +5643,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Price',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -5596,6 +5694,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Raamtablet Afwerking',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -5649,6 +5748,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Raamtablet Diepte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -5698,6 +5798,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Raamtablet Lengte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -5849,6 +5950,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Price',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -5899,6 +6001,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Raamtablet Afwerking',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -6049,6 +6152,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Price',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -6099,6 +6203,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Sandwichpaneel Afwerking',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -6148,6 +6253,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Sandwichpaneel Afwerking 2',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -6197,6 +6303,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Sandwichpaneel Lengte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -6348,6 +6455,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Price',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -6402,6 +6510,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Isolatie Dikte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -6451,6 +6560,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Sandwichpaneel Lengte',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -6601,6 +6711,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Price',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -6650,6 +6761,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Maat',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -6698,6 +6810,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
+      'entity_translation_sync' => FALSE,
       'file_directory' => 'calculator',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
@@ -6769,6 +6882,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Standaardprofiel Afwerking',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -6818,6 +6932,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Standaardprofiel Type',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -6871,6 +6986,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Stockprofiel',
     'required' => 0,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -7023,6 +7139,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Price',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -7080,6 +7197,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Product variations',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'field_injection' => 1,
       'referenceable_types' => array(
         'dorpel_anti_dreunstrook' => 'dorpel_anti_dreunstrook',
@@ -7101,6 +7219,49 @@ function feneko_calculator_feature_field_default_field_instances() {
       ),
       'type' => 'options_select',
       'weight' => 41,
+    ),
+  );
+
+  // Exported field_instance: 'node-dorpel_anti_dreunstrook-title_field'
+  $field_instances['node-dorpel_anti_dreunstrook-title_field'] = array(
+    'bundle' => 'dorpel_anti_dreunstrook',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'title_field',
+    'label' => 'Titel',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'hide_label' => array(
+        'entity' => FALSE,
+        'page' => FALSE,
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -5,
     ),
   );
 
@@ -7136,6 +7297,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Product variations',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'field_injection' => 1,
       'referenceable_types' => array(
         'dorpel_anti_dreunstrook' => 0,
@@ -7161,6 +7323,49 @@ function feneko_calculator_feature_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_select',
       'weight' => 42,
+    ),
+  );
+
+  // Exported field_instance: 'node-dorpel_eindstuk-title_field'
+  $field_instances['node-dorpel_eindstuk-title_field'] = array(
+    'bundle' => 'dorpel_eindstuk',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'title_field',
+    'label' => 'Titel',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'hide_label' => array(
+        'entity' => FALSE,
+        'page' => FALSE,
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -5,
     ),
   );
 
@@ -7209,6 +7414,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Product variations',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'field_injection' => 1,
       'referenceable_types' => array(
         'dorpel_hoek' => 'dorpel_hoek',
@@ -7230,6 +7436,49 @@ function feneko_calculator_feature_field_default_field_instances() {
       ),
       'type' => 'options_select',
       'weight' => 41,
+    ),
+  );
+
+  // Exported field_instance: 'node-dorpel_hoek-title_field'
+  $field_instances['node-dorpel_hoek-title_field'] = array(
+    'bundle' => 'dorpel_hoek',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'title_field',
+    'label' => 'Titel',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'hide_label' => array(
+        'entity' => FALSE,
+        'page' => FALSE,
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -5,
     ),
   );
 
@@ -7278,6 +7527,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Product variations',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'field_injection' => 1,
       'referenceable_types' => array(
         'dorpel_koppelstuk' => 'dorpel_koppelstuk',
@@ -7299,6 +7549,49 @@ function feneko_calculator_feature_field_default_field_instances() {
       ),
       'type' => 'options_select',
       'weight' => 41,
+    ),
+  );
+
+  // Exported field_instance: 'node-dorpel_koppelstuk-title_field'
+  $field_instances['node-dorpel_koppelstuk-title_field'] = array(
+    'bundle' => 'dorpel_koppelstuk',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'title_field',
+    'label' => 'Titel',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'hide_label' => array(
+        'entity' => FALSE,
+        'page' => FALSE,
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -5,
     ),
   );
 
@@ -7347,6 +7640,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Product variations',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'field_injection' => 1,
       'referenceable_types' => array(
         'muurkap' => 'muurkap',
@@ -7368,6 +7662,49 @@ function feneko_calculator_feature_field_default_field_instances() {
       ),
       'type' => 'options_select',
       'weight' => 41,
+    ),
+  );
+
+  // Exported field_instance: 'node-muurkap-title_field'
+  $field_instances['node-muurkap-title_field'] = array(
+    'bundle' => 'muurkap',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'title_field',
+    'label' => 'Titel',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'hide_label' => array(
+        'entity' => FALSE,
+        'page' => FALSE,
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -5,
     ),
   );
 
@@ -7416,6 +7753,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Product variations',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'field_injection' => 1,
       'referenceable_types' => array(
         'plaatbewerking' => 'plaatbewerking',
@@ -7437,6 +7775,49 @@ function feneko_calculator_feature_field_default_field_instances() {
       ),
       'type' => 'options_select',
       'weight' => 41,
+    ),
+  );
+
+  // Exported field_instance: 'node-plaatbewerking-title_field'
+  $field_instances['node-plaatbewerking-title_field'] = array(
+    'bundle' => 'plaatbewerking',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'title_field',
+    'label' => 'Titel',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'hide_label' => array(
+        'entity' => FALSE,
+        'page' => FALSE,
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -5,
     ),
   );
 
@@ -7485,6 +7866,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Product variations',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'field_injection' => 1,
       'referenceable_types' => array(
         'raamtablet' => 'raamtablet',
@@ -7506,6 +7888,49 @@ function feneko_calculator_feature_field_default_field_instances() {
       ),
       'type' => 'options_select',
       'weight' => 41,
+    ),
+  );
+
+  // Exported field_instance: 'node-raamtablet-title_field'
+  $field_instances['node-raamtablet-title_field'] = array(
+    'bundle' => 'raamtablet',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'title_field',
+    'label' => 'Titel',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'hide_label' => array(
+        'entity' => FALSE,
+        'page' => FALSE,
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -5,
     ),
   );
 
@@ -7554,6 +7979,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Product variations',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'field_injection' => 1,
       'referenceable_types' => array(
         'sandwichpaneel' => 'sandwichpaneel',
@@ -7575,6 +8001,49 @@ function feneko_calculator_feature_field_default_field_instances() {
       ),
       'type' => 'options_select',
       'weight' => 41,
+    ),
+  );
+
+  // Exported field_instance: 'node-sandwichpaneel-title_field'
+  $field_instances['node-sandwichpaneel-title_field'] = array(
+    'bundle' => 'sandwichpaneel',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'title_field',
+    'label' => 'Titel',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'hide_label' => array(
+        'entity' => FALSE,
+        'page' => FALSE,
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -5,
     ),
   );
 
@@ -7610,6 +8079,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Product variations',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'field_injection' => 1,
       'referenceable_types' => array(
         'eind_koppel' => 0,
@@ -7628,6 +8098,49 @@ function feneko_calculator_feature_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_select',
       'weight' => 42,
+    ),
+  );
+
+  // Exported field_instance: 'node-standaardprofiel-title_field'
+  $field_instances['node-standaardprofiel-title_field'] = array(
+    'bundle' => 'standaardprofiel',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'title_field',
+    'label' => 'Titel',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'hide_label' => array(
+        'entity' => FALSE,
+        'page' => FALSE,
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -5,
     ),
   );
 
@@ -7663,6 +8176,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Product variations',
     'required' => 1,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'field_injection' => 1,
       'referenceable_types' => array(
         'muurkap' => 0,
@@ -7684,6 +8198,49 @@ function feneko_calculator_feature_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_select',
       'weight' => 42,
+    ),
+  );
+
+  // Exported field_instance: 'node-stuk-title_field'
+  $field_instances['node-stuk-title_field'] = array(
+    'bundle' => 'stuk',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'title_field',
+    'label' => 'Titel',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'hide_label' => array(
+        'entity' => FALSE,
+        'page' => FALSE,
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -5,
     ),
   );
 
@@ -7732,6 +8289,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Product variations',
     'required' => TRUE,
     'settings' => array(
+      'entity_translation_sync' => FALSE,
       'field_injection' => 1,
       'referenceable_types' => array(
         'unit' => 'unit',
@@ -7753,6 +8311,49 @@ function feneko_calculator_feature_field_default_field_instances() {
       ),
       'type' => 'options_select',
       'weight' => 41,
+    ),
+  );
+
+  // Exported field_instance: 'node-unit-title_field'
+  $field_instances['node-unit-title_field'] = array(
+    'bundle' => 'unit',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'title_field',
+    'label' => 'Titel',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'hide_label' => array(
+        'entity' => FALSE,
+        'page' => FALSE,
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -5,
     ),
   );
 
@@ -7815,6 +8416,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Stockprofiel');
   t('Stuk Type');
   t('Tekening');
+  t('Titel');
   t('Totaal');
   t('Total');
   t('Type');
