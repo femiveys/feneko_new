@@ -16,6 +16,8 @@ function feneko_calculator_feature_default_fe_block_settings() {
     'cache' => -1,
     'custom' => 0,
     'delta' => '98643495f0710babea3fc27079ddaf6f',
+    'i18n_block_language' => array(),
+    'i18n_mode' => 0,
     'module' => 'views',
     'node_types' => array(
       0 => 'dorpel_anti_dreunstrook',
@@ -34,13 +36,13 @@ function feneko_calculator_feature_default_fe_block_settings() {
     'roles' => array(),
     'themes' => array(
       'feneko' => array(
-        'region' => 'shopping_cart',
+        'region' => 'sidebar_second',
         'status' => 1,
         'theme' => 'feneko',
-        'weight' => -15,
+        'weight' => 0,
       ),
     ),
-    'title' => '<none>',
+    'title' => '',
     'visibility' => 0,
   );
 

@@ -1,0 +1,14 @@
+name = Feneko Calculator Views Feature
+description = All calculator views
+core = 7.x
+package = Feneko
+version = 7.x-1.0
+project = feneko_calculator_feature
+dependencies[] = views
+dependencies[] = views_megarow
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = commerce_cart_form_feneko
+features[views_view][] = feneko_calculator_line_items
+features[views_view][] = feneko_orders
+features[views_view][] = feneko_shopping_cart_block

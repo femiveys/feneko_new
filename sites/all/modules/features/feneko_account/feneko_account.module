@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Feneko Account feature.
+ */
+
+include_once 'feneko_account.features.inc';
