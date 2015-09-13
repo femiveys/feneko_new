@@ -271,6 +271,7 @@ features[variable][] = entity_translation_settings_taxonomy_term__product_catego
 features[variable][] = entity_translation_shared_labels
 features[variable][] = entityform_block_types
 features[variable][] = entityform_type_defaults
+features[variable][] = field_bundle_settings_file__image
 features[variable][] = field_bundle_settings_node__article
 features[variable][] = field_bundle_settings_node__info_pagina
 features[variable][] = field_bundle_settings_node__machine
