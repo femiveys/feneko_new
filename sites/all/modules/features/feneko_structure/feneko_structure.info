@@ -205,6 +205,7 @@ features[user_permission][] = search content
 features[variable][] = addressfield_staticmap_api_0
 features[variable][] = addressfield_staticmap_gmap_size_0
 features[variable][] = addressfield_staticmap_gmap_type_0
+features[variable][] = admin_theme
 features[variable][] = colorbox_caption_trim
 features[variable][] = colorbox_caption_trim_length
 features[variable][] = colorbox_compression_type
