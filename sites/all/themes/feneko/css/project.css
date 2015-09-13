@@ -1314,6 +1314,9 @@ h2 {
   font-size: 26px;
   margin-bottom: 14px;
 }
+.node-type-product h2 {
+  color: #FFA500;
+}
 
 h3,
 h3 a,
@@ -2216,8 +2219,12 @@ div.messages.status {
   float: left;
   padding-right: 20px;
 }
+.node-type-product .lev {
+  margin-top: 30px;
+}
 .node-type-product .lev p {
   float: left;
+  padding-top: 10px;
 }
 
 .product-teaser {

@@ -54,7 +54,8 @@ $close-bacground-color: red;
   left: 0;
   bottom: -$padding*2;
   width: 100%;
-  height: $padding*4;
+  //height: $padding*4;
+  min-height: $padding*4;
   padding: $padding $padding*2;
 }
 

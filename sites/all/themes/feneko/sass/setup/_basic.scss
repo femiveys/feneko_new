@@ -112,6 +112,9 @@ h1 a,
 h2 {
   font-size: 26px;
   margin-bottom: 14px;
+  .node-type-product & {
+    color: $orange;
+  }
 }
 
 h3,
@@ -1006,8 +1009,10 @@ div.messages {
     padding-right: $padding*2;
   }
   .lev {
+    margin-top: $padding*3;
     p {
       float: left;
+      padding-top: $padding;
     }
   }
 }
