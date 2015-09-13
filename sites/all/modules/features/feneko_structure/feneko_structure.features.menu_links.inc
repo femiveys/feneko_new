@@ -10,29 +10,6 @@
 function feneko_structure_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: main-menu_contact:contact
-  $menu_links['main-menu_contact:contact'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'contact',
-    'router_path' => 'contact',
-    'link_title' => 'Contact',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'main-menu_contact:contact',
-      'alter' => TRUE,
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 5,
-    'customized' => 1,
-    'language' => 'und',
-    'menu_links_customized' => 1,
-  );
   // Exported menu link: main-menu_home:<front>
   $menu_links['main-menu_home:<front>'] = array(
     'menu_name' => 'main-menu',
@@ -98,29 +75,6 @@ function feneko_structure_menu_default_menu_links() {
     'has_children' => 0,
     'expanded' => 0,
     'weight' => 3,
-    'customized' => 1,
-    'language' => 'und',
-    'menu_links_customized' => 1,
-  );
-  // Exported menu link: main-menu_over-feneko:about
-  $menu_links['main-menu_over-feneko:about'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'about',
-    'router_path' => 'about',
-    'link_title' => 'Over FenekO',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'main-menu_over-feneko:about',
-      'alter' => TRUE,
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 1,
     'customized' => 1,
     'language' => 'und',
     'menu_links_customized' => 1,
@@ -243,7 +197,6 @@ function feneko_structure_menu_default_menu_links() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Contact');
   t('Home');
   t('Jobs');
   t('Klantenzone');
@@ -251,7 +204,6 @@ function feneko_structure_menu_default_menu_links() {
   t('Nieuws');
   t('Onze machines');
   t('Onze producten: Colors & Screens');
-  t('Over FenekO');
   t('Producten');
 
   return $menu_links;
