@@ -1955,7 +1955,7 @@ function feneko_structure_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
-      'entity_translation_sync' => FALSE,
+      'entity_translation_sync' => 0,
       'file_directory' => 'products',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
@@ -1969,6 +1969,7 @@ function feneko_structure_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
+          'private' => 0,
           'public' => 'public',
         ),
         'allowed_types' => array(
