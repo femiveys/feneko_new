@@ -1315,7 +1315,8 @@ h2 {
   margin-bottom: 14px;
 }
 .node-type-product h2 {
-  color: #FFA500;
+  font-weight: 400;
+  font-size: 22px;
 }
 
 h3,

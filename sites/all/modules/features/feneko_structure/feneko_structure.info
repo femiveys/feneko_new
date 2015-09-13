@@ -285,6 +285,7 @@ features[variable][] = i18n_node_options_machine
 features[variable][] = i18n_node_options_page
 features[variable][] = i18n_node_options_product
 features[variable][] = i18n_node_options_vacature
+features[variable][] = jquery_update_jquery_version
 features[variable][] = language_content_type_article
 features[variable][] = language_content_type_info_pagina
 features[variable][] = language_content_type_machine
