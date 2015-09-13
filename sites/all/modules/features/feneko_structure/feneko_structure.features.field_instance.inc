@@ -2146,7 +2146,7 @@ function feneko_structure_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 1,
-      'entity_translation_sync' => FALSE,
+      'entity_translation_sync' => 0,
       'file_directory' => 'techdocs',
       'file_extensions' => 'txt pdf doc docx xls',
       'max_filesize' => '',
@@ -2214,7 +2214,7 @@ function feneko_structure_field_default_field_instances() {
       'alt_field' => 0,
       'default_image' => 0,
       'entity_translation_sync' => 0,
-      'file_directory' => 'techdocs',
+      'file_directory' => 'techdraw',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
@@ -2227,6 +2227,7 @@ function feneko_structure_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
+          'private' => 0,
           'public' => 'public',
         ),
         'allowed_types' => array(
@@ -2736,7 +2737,7 @@ function feneko_structure_field_default_field_instances() {
       'alt_field' => 0,
       'default_image' => 0,
       'entity_translation_sync' => FALSE,
-      'file_directory' => '',
+      'file_directory' => 'product-category',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
@@ -2763,7 +2764,6 @@ function feneko_structure_field_default_field_instances() {
           'media_default--media_browser_my_files' => 0,
           'upload' => 0,
         ),
-        'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
       'weight' => 3,
