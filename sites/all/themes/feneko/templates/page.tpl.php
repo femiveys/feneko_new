@@ -9,7 +9,7 @@
 
 <div id="logo-small" class="small-block blocklink">
   <div class="inner-wrapper">
-    <a href="/nl"><div class="feneko_logo"><span class="feneko_fenek">F</span><span class="feneko_o">O</span></div></a>
+    <a href="<?php print $front_page; ?>"><div class="feneko_logo"><span class="feneko_fenek">F</span><span class="feneko_o">O</span></div></a>
   </div>
 </div><!--logo-small-->
 
@@ -60,7 +60,7 @@
     </a> -->
     <?php endif; ?>
 
-    <h2 class="logo"><a href="/nl"><div class="feneko_logo"><span class="feneko_fenek">Fenek</span><span class="feneko_o">O</span></div></a></h2>
+    <h2 class="logo"><a href="<?php print $front_page; ?>"><div class="feneko_logo"><span class="feneko_fenek">Fenek</span><span class="feneko_o">O</span></div></a></h2>
 
     <?php if ($site_name): ?>
     <h1 id="site-name">

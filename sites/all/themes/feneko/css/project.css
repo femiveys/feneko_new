@@ -1220,7 +1220,8 @@ a:hover {
 #block-views-slide-block-4 .field-collection-item-field-tekst .content .field-name-field-slide-link a, input[type="submit"],
 #edit-cancel,
 .button,
-.node-readmore a, ul.tabs.primary a, .field-name-field-orderable-products a, .ck-knop {
+.node-readmore a,
+.node-type-vacature a.node-readmore, ul.tabs.primary a, .field-name-field-orderable-products a, .ck-knop {
   background: #295D8F;
   transition: background-color 0.2s ease;
   border: none;
@@ -1239,7 +1240,8 @@ a:hover {
 #block-views-slide-block-4 .field-collection-item-field-tekst .content .field-name-field-slide-link a a, input[type="submit"] a,
 #edit-cancel a,
 .button a,
-.node-readmore a a, ul.tabs.primary a a, .field-name-field-orderable-products a a, .ck-knop a {
+.node-readmore a a,
+.node-type-vacature a.node-readmore a, ul.tabs.primary a a, .field-name-field-orderable-products a a, .ck-knop a {
   text-decoration: none;
   color: #ffffff;
 }
@@ -1248,14 +1250,16 @@ a:hover {
 #block-views-slide-block-4 .field-collection-item-field-tekst .content .field-name-field-slide-link a:hover, input[type="submit"]:hover,
 #edit-cancel:hover,
 .button:hover,
-.node-readmore a:hover, ul.tabs.primary a:hover, .field-name-field-orderable-products a:hover, .ck-knop:hover {
-  background: #295D8F;
+.node-readmore a:hover,
+.node-type-vacature a.node-readmore:hover, ul.tabs.primary a:hover, .field-name-field-orderable-products a:hover, .ck-knop:hover {
+  background: #9BD4DF;
 }
 
 li.node-readmore {
   padding: 0 !important;
 }
 
+p.node-readmore,
 div.node-readmore {
   display: inline-block;
 }
@@ -1285,7 +1289,7 @@ h1 a,
 .view-grouping-header,
 #block-menu-menu-waarom-feneko h2 {
   font-size: 36px;
-  margin-bottom: 48px;
+  margin-bottom: 36px;
 }
 
 #sidebar_second h1 {
@@ -1329,6 +1333,10 @@ h3 a,
 .node-type-machine #main-content img {
   float: left;
   padding-right: 10px;
+}
+
+.page-about #main-content img {
+  margin-bottom: 40px;
 }
 
 div.messages {
@@ -1404,6 +1412,9 @@ div.messages.status {
 }
 #main-wrapper .field-name-body {
   margin-bottom: 60px;
+}
+.node-type-vacature #main-wrapper .field-name-body {
+  margin-bottom: 30px;
 }
 #main-wrapper ul.links.inline {
   display: inherit;
@@ -2203,6 +2214,7 @@ div.messages.status {
 .node-type-product .fa-truck {
   font-size: 36px;
   float: left;
+  padding-right: 20px;
 }
 .node-type-product .lev p {
   float: left;
@@ -2237,6 +2249,19 @@ div.messages.status {
 
 .field-name-body a {
   font-weight: 700;
+}
+
+.field-name-field-ultimate-date,
+.view-jobs .datum {
+  margin-bottom: 20px;
+}
+
+.node-type-vacature .field-name-field-wanted .field-label,
+.node-type-vacature .field-name-field-offering .field-label {
+  color: #FFA500;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 10px;
 }
 
 .horizontal-tabs fieldset {
@@ -2411,14 +2436,16 @@ div.horizontal-tabs {
 .view-commerce-cart-form-feneko .node-header {
   cursor: pointer;
 }
-.view-feneko-shopping-cart-block input[type="submit"]#edit-submit,
-.view-commerce-cart-form-feneko input[type="submit"]#edit-submit {
+.view-feneko-shopping-cart-block input[type="submit"]#edit-submit, .view-feneko-shopping-cart-block input[type="submit"]#edit-submit--2,
+.view-commerce-cart-form-feneko input[type="submit"]#edit-submit,
+.view-commerce-cart-form-feneko input[type="submit"]#edit-submit--2 {
   background: transparent;
   text-decoration: underline;
   color: #295D8F;
 }
-.view-feneko-shopping-cart-block input[type="submit"]#edit-submit:hover,
-.view-commerce-cart-form-feneko input[type="submit"]#edit-submit:hover {
+.view-feneko-shopping-cart-block input[type="submit"]#edit-submit:hover, .view-feneko-shopping-cart-block input[type="submit"]#edit-submit--2:hover,
+.view-commerce-cart-form-feneko input[type="submit"]#edit-submit:hover,
+.view-commerce-cart-form-feneko input[type="submit"]#edit-submit--2:hover {
   color: #9BD4DF;
 }
 

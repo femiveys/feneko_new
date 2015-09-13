@@ -28,14 +28,15 @@ a {
     color: $white;
   }
   &:hover {
-    background: $blue;
+    background: $lightblue;
   }
 }
 
 input[type="submit"],
 #edit-cancel,
 .button,
-.node-readmore a {
+.node-readmore a,
+.node-type-vacature a.node-readmore {
   @extend %button;
 }
 
@@ -43,6 +44,7 @@ li.node-readmore {
   padding: 0!important;
 }
 
+p.node-readmore,
 div.node-readmore {
   display: inline-block;
 }
@@ -86,7 +88,7 @@ h1 a,
 .view-grouping-header,
 #block-menu-menu-waarom-feneko h2 {
   font-size: 36px;
-  margin-bottom: 48px;
+  margin-bottom: 36px;
 }
 
 #sidebar_second {
@@ -136,6 +138,14 @@ h3 a,
     img {
       float: left;
       padding-right: $padding;
+    }
+  }
+}
+
+.page-about {
+  #main-content {
+    img {
+      margin-bottom: $padding*4;
     }
   }
 }
@@ -221,6 +231,9 @@ div.messages {
   }
   .field-name-body {
     margin-bottom: $padding*6;
+    .node-type-vacature & {
+      margin-bottom: $padding*3;
+    }
   }
   ul.links.inline {
     display: inherit;
@@ -990,6 +1003,7 @@ div.messages {
   .fa-truck {
     font-size: 36px;
     float: left;
+    padding-right: $padding*2;
   }
   .lev {
     p {
@@ -1031,6 +1045,24 @@ div.messages {
 .field-name-body {
   a {
     font-weight: 700;
+  }
+}
+
+
+.field-name-field-ultimate-date,
+.view-jobs .datum {
+  margin-bottom: $padding*2;
+}
+
+.node-type-vacature {
+  .field-name-field-wanted,
+  .field-name-field-offering {
+    .field-label {
+      color: $orange;
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: $padding;
+    }
   }
 }
 
@@ -1215,7 +1247,8 @@ div.horizontal-tabs {
     cursor: pointer;
   }
   input[type="submit"] {
-    &#edit-submit {
+    &#edit-submit,
+    &#edit-submit--2 {
       background: transparent;
       text-decoration: underline;
       color: $blue;

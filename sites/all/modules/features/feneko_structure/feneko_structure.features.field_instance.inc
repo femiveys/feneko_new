@@ -114,6 +114,217 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'entityform-solliciteer-field_c_v_'
+  $field_instances['entityform-solliciteer-field_c_v_'] = array(
+    'bundle' => 'solliciteer',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 6,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_c_v_',
+    'label' => 'C.V.',
+    'required' => 1,
+    'settings' => array(
+      'description_field' => 0,
+      'entity_translation_sync' => FALSE,
+      'file_directory' => 'cv',
+      'file_extensions' => 'txt pdf doc docx',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-solliciteer-field_e_mail_contact'
+  $field_instances['entityform-solliciteer-field_e_mail_contact'] = array(
+    'bundle' => 'solliciteer',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'email',
+        'settings' => array(),
+        'type' => 'email_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_e_mail_contact',
+    'label' => 'E-mail',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'email',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'email_textfield',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-solliciteer-field_gewenste_functie'
+  $field_instances['entityform-solliciteer-field_gewenste_functie'] = array(
+    'bundle' => 'solliciteer',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_gewenste_functie',
+    'label' => 'Gewenste functie',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-solliciteer-field_motivatie'
+  $field_instances['entityform-solliciteer-field_motivatie'] = array(
+    'bundle' => 'solliciteer',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 5,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_motivatie',
+    'label' => 'Motivatie',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-solliciteer-field_naam'
+  $field_instances['entityform-solliciteer-field_naam'] = array(
+    'bundle' => 'solliciteer',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_naam',
+    'label' => 'Naam',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'entityform-solliciteer-field_uw_tel'
+  $field_instances['entityform-solliciteer-field_uw_tel'] = array(
+    'bundle' => 'solliciteer',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'entityform',
+    'field_name' => 'field_uw_tel',
+    'label' => 'Tel',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 3,
+    ),
+  );
+
   // Exported field_instance:
   // 'field_collection_item-field_social_follow-field_contact'
   $field_instances['field_collection_item-field_social_follow-field_contact'] = array(
@@ -2207,6 +2418,68 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-vacature-field_solliciteer'
+  $field_instances['node-vacature-field_solliciteer'] = array(
+    'bundle' => 'vacature',
+    'default_value' => array(
+      0 => array(
+        'url' => '/solliciteer',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_solliciteer',
+    'label' => 'Solliciteer',
+    'required' => 0,
+    'settings' => array(
+      'absolute_url' => 1,
+      'attributes' => array(
+        'class' => 'node-readmore',
+        'configurable_class' => 0,
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => 'default',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 0,
+      'entity_translation_sync' => FALSE,
+      'rel_remove' => 'default',
+      'title' => 'value',
+      'title_label_use_field_label' => 0,
+      'title_maxlength' => 128,
+      'title_value' => 'solliciteer',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 7,
+    ),
+  );
+
   // Exported field_instance: 'node-vacature-field_ultimate_date'
   $field_instances['node-vacature-field_ultimate_date'] = array(
     'bundle' => 'vacature',
@@ -2217,11 +2490,12 @@ function feneko_structure_field_default_field_instances() {
         'label' => 'above',
         'module' => 'date',
         'settings' => array(
-          'format_type' => 'medium',
+          'format_type' => 'long',
           'fromto' => 'both',
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => 0,
         ),
         'type' => 'date_default',
         'weight' => 0,
@@ -2543,6 +2817,7 @@ function feneko_structure_field_default_field_instances() {
   t('Big image');
   t('Bijlage');
   t('Body');
+  t('C.V.');
   t('Contact');
   t('Disclaimer');
   t('Duid enkel de bovenliggende categorie aan (dus niet \'screens\' of \'colors\')');
@@ -2563,14 +2838,17 @@ function feneko_structure_field_default_field_instances() {
   t('Geef hier uw faxnummer in');
   t('Geef hier uw openingsuren in');
   t('Geef hier uw telefoonnummers in.');
+  t('Gewenste functie');
   t('Hoe klant worden bij FenekO?');
   t('Image');
   t('Intro');
   t('Label');
+  t('Motivatie');
   t('Naam');
   t('Openingsuren');
   t('Route');
   t('Social follow');
+  t('Solliciteer');
   t('Solliciteren tot');
   t('Tags');
   t('Technische documenten');

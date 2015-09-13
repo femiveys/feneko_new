@@ -51,6 +51,37 @@ function feneko_structure_default_entityform_type() {
     "weight" : "0",
     "paths" : []
   }');
+  $items['solliciteer'] = entity_import('entityform_type', '{
+    "type" : "solliciteer",
+    "label" : "Solliciteer",
+    "data" : {
+      "draftable" : 0,
+      "draft_redirect_path" : "",
+      "draft_button_text" : "",
+      "draft_save_text" : { "value" : "", "format" : "filtered_html" },
+      "submit_button_text" : "",
+      "submit_confirm_msg" : "",
+      "your_submissions" : "",
+      "disallow_resubmit_msg" : "",
+      "delete_confirm_msg" : "",
+      "page_title_view" : "",
+      "preview_page" : 0,
+      "submission_page_title" : "",
+      "submission_text" : { "value" : "", "format" : "filtered_html" },
+      "submission_show_submitted" : 0,
+      "submissions_view" : "default",
+      "user_submissions_view" : "default",
+      "form_status" : "ENTITYFORM_OPEN",
+      "roles" : { "1" : "1", "2" : "2", "3" : "3", "5" : 0, "4" : 0 },
+      "resubmit_action" : "new",
+      "redirect_path" : "",
+      "instruction_pre" : { "value" : "", "format" : "filtered_html" },
+      "current_type" : "solliciteer",
+      "enable_block" : 1
+    },
+    "weight" : "0",
+    "paths" : []
+  }');
   return $items;
 }
 

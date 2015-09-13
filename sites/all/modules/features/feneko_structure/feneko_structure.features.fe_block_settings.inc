@@ -32,6 +32,26 @@ function feneko_structure_default_fe_block_settings() {
     'visibility' => 1,
   );
 
+  $export['entityform_block-solliciteer'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => 'solliciteer',
+    'module' => 'entityform_block',
+    'node_types' => array(),
+    'pages' => 'solliciteer',
+    'roles' => array(),
+    'themes' => array(
+      'feneko' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'feneko',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '<none>',
+    'visibility' => 1,
+  );
+
   $export['locale-language'] = array(
     'cache' => -1,
     'custom' => 0,
