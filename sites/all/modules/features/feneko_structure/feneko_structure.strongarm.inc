@@ -34,13 +34,6 @@ function feneko_structure_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'admin_theme';
-  $strongarm->value = 'seven';
-  $export['admin_theme'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'colorbox_caption_trim';
   $strongarm->value = '0';
   $export['colorbox_caption_trim'] = $strongarm;
@@ -1492,6 +1485,30 @@ system/ajax/*';
   $strongarm->name = 'pathauto_taxonomy_term_product_category_pattern';
   $strongarm->value = '[term:parents]/[term:name]';
   $export['pathauto_taxonomy_term_product_category_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'theme_seven_settings';
+  $strongarm->value = array(
+    'toggle_logo' => 1,
+    'toggle_name' => 1,
+    'toggle_slogan' => 1,
+    'toggle_node_user_picture' => 1,
+    'toggle_comment_user_picture' => 1,
+    'toggle_comment_user_verification' => 1,
+    'toggle_favicon' => 1,
+    'toggle_main_menu' => 1,
+    'toggle_secondary_menu' => 1,
+    'default_logo' => 1,
+    'logo_path' => '',
+    'logo_upload' => '',
+    'default_favicon' => 1,
+    'favicon_path' => '',
+    'favicon_upload' => '',
+    'jquery_update_jquery_version' => '1.5',
+  );
+  $export['theme_seven_settings'] = $strongarm;
 
   return $export;
 }
