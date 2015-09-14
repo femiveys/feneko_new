@@ -655,6 +655,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['field_ultimate_date']['field'] = 'field_ultimate_date';
   $handler->display->display_options['fields']['field_ultimate_date']['alter']['strip_tags'] = TRUE;
   $handler->display->display_options['fields']['field_ultimate_date']['alter']['preserve_tags'] = 'div label';
+  $handler->display->display_options['fields']['field_ultimate_date']['element_label_type'] = 'strong';
   $handler->display->display_options['fields']['field_ultimate_date']['element_wrapper_type'] = 'div';
   $handler->display->display_options['fields']['field_ultimate_date']['element_wrapper_class'] = 'datum';
   $handler->display->display_options['fields']['field_ultimate_date']['element_default_classes'] = FALSE;
@@ -665,6 +666,7 @@ function feneko_views_views_default_views() {
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
+    'show_remaining_days' => 0,
   );
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
@@ -693,7 +695,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['view_node']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['view_node']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['view_node']['text'] = 'Lees verder';
+  $handler->display->display_options['fields']['view_node']['text'] = 'Read more';
   /* Sort criterion: Content: Solliciteren tot (field_ultimate_date) */
   $handler->display->display_options['sorts']['field_ultimate_date_value']['id'] = 'field_ultimate_date_value';
   $handler->display->display_options['sorts']['field_ultimate_date_value']['table'] = 'field_data_field_ultimate_date';
@@ -751,6 +753,13 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '3';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -892,19 +901,15 @@ function feneko_views_views_default_views() {
   $handler = $view->new_display('block', 'Blok', 'block_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['strip_tags'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['preserve_tags'] = 'h2';
-  $handler->display->display_options['fields']['title']['element_type'] = 'h3';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['title']['hide_empty'] = TRUE;
+  /* Field: Entity translation: Titel: translated */
+  $handler->display->display_options['fields']['title_field_et']['id'] = 'title_field_et';
+  $handler->display->display_options['fields']['title_field_et']['table'] = 'field_data_title_field';
+  $handler->display->display_options['fields']['title_field_et']['field'] = 'title_field_et';
+  $handler->display->display_options['fields']['title_field_et']['label'] = '';
+  $handler->display->display_options['fields']['title_field_et']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['title_field_et']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title_field_et']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['title_field_et']['hide_empty'] = TRUE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
