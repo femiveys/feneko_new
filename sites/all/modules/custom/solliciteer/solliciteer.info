@@ -1,0 +1,4 @@
+name = Solliciteer
+description = Solliciteer voor deze functie
+core = 7.x
+package = Feneko
