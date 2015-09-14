@@ -5,8 +5,7 @@ dpm('ghghgh');
     if(!empty($_GET['nid'])) {
       global $language;
       $lang = $language->language;
-
-dpm($l$lang = 'nl';
+      $lang = 'nl';
       $form['field_gewenste_functie'][$lang][0]['value']['#default_value'] = $node->title;
     }
   }
