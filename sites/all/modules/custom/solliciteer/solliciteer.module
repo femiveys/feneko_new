@@ -1,13 +1,9 @@
 <?php
-function solliciteer_form_solliciteer_entityform_edit_form_alter(&$form, &$form_state, $form_id) {
-  if(!empty($_POST['nid'])) {
-  	$nid = $_POST['nid'];
-  	$node = node_load($nid);
-  	$form['submitted']['field_gewenste_functie']['#default_value'] = $node->title;
+function solliciteer_form_alter(&$form, &$form_state, $form_id) {
+  if($form_id === "solliciteer_entityform_edit_form") {
+    if(!empty($_GET['nid'])) {
+      $node = node_load($_GET['nid']);
+      $form['submitted']['field_gewenste_functie']['#default_value'] = $node->title;
+    }
   }
 }
-
-function solliciteer_form_alter(&$form, &$form_state, $form_id) {
-  $form['revision_information']['#access'] = FALSE;
-}
-?>
