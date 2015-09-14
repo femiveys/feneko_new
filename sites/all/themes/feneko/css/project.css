@@ -2382,10 +2382,8 @@ div.horizontal-tabs {
   padding: 10px;
 }
 
-@media screen and (min-width: 851px) {
-  #block-views-related-block {
-    text-align: center;
-  }
+#block-views-related-block {
+  text-align: center;
 }
 @media screen and (max-width: 850px) {
   #block-views-related-block h1 {
@@ -2394,6 +2392,12 @@ div.horizontal-tabs {
 }
 #block-views-related-block .views-row {
   margin-bottom: 50px;
+}
+@media screen and (min-width: 600px) and (max-width: 850px) {
+  #block-views-related-block .views-row {
+    width: 50%;
+    float: left;
+  }
 }
 #block-views-related-block .views-field-title {
   font-weight: 700;

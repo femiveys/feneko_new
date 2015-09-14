@@ -1190,9 +1190,7 @@ div.horizontal-tabs {
 // RELATED
 
 #block-views-related-block {
-  @include gridle_state (min-desk) {
-    text-align: center;
-  }
+  text-align: center;
   h1 {
     @include gridle_state (max-tablet) {
       font-size: 24px;
@@ -1200,6 +1198,10 @@ div.horizontal-tabs {
   }
   .views-row {
     margin-bottom: $padding*5;
+    @include gridle_state (only-tablet) {
+      width: 50%;
+      float: left;
+    }
   }
   .views-field-title {
     font-weight: 700;
