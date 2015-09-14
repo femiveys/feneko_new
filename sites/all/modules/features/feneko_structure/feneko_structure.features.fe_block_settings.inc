@@ -38,7 +38,8 @@ function feneko_structure_default_fe_block_settings() {
     'delta' => 'solliciteer',
     'module' => 'entityform_block',
     'node_types' => array(),
-    'pages' => 'solliciteer',
+    'pages' => 'solliciteer
+sollicitez',
     'roles' => array(),
     'themes' => array(
       'feneko' => array(
