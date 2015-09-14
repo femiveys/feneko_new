@@ -2,8 +2,10 @@
 function solliciteer_form_alter(&$form, &$form_state, $form_id) {
   if($form_id === "solliciteer_entityform_edit_form") {
     if(!empty($_GET['nid'])) {
+      global $language;
+      $lang = $language->language;
       $node = node_load($_GET['nid']);
-      $form['submitted']['field_gewenste_functie']['#default_value'] = $node->title;
+      $form['field_gewenste_functie'][$lang][0]['value']['#default_value'] = $node->title;
     }
   }
 }
