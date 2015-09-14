@@ -2154,6 +2154,12 @@ div.messages.status {
   transition: opacity 0.35s,transform 0.35s;
 }
 
+@media screen and (max-width: 850px) {
+  .node-type-product #sidebar_second {
+    margin-top: 40px;
+    width: 100%;
+  }
+}
 .node-type-product .field-name-field-images .field-item {
   float: left;
   margin-bottom: 20px;
@@ -2222,6 +2228,10 @@ div.messages.status {
 }
 .node-type-product .lev {
   margin-top: 30px;
+  overflow: hidden;
+  border: 1px solid #323232;
+  border-radius: 5px;
+  padding: 10px;
 }
 .node-type-product .lev p {
   float: left;
@@ -2372,8 +2382,15 @@ div.horizontal-tabs {
   padding: 10px;
 }
 
-#block-views-related-block {
-  text-align: center;
+@media screen and (min-width: 851px) {
+  #block-views-related-block {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 850px) {
+  #block-views-related-block h1 {
+    font-size: 24px;
+  }
 }
 #block-views-related-block .views-row {
   margin-bottom: 50px;

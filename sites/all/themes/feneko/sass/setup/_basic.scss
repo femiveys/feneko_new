@@ -945,6 +945,12 @@ div.messages {
 // NODE TYPES
 
 .node-type-product {
+  #sidebar_second {
+    @include gridle_state (max-tablet) {
+      margin-top: 40px;
+      width: 100%;
+    }
+  }
   .field-name-field-images {
     .field-item {
       a {
@@ -1011,6 +1017,10 @@ div.messages {
   }
   .lev {
     margin-top: $padding*3;
+    overflow: hidden;
+    border: 1px solid $black;
+    border-radius: $padding/2;
+    padding: $padding;
     p {
       float: left;
       padding-top: $padding;
@@ -1180,7 +1190,14 @@ div.horizontal-tabs {
 // RELATED
 
 #block-views-related-block {
-  text-align: center;
+  @include gridle_state (min-desk) {
+    text-align: center;
+  }
+  h1 {
+    @include gridle_state (max-tablet) {
+      font-size: 24px;
+    }
+  }
   .views-row {
     margin-bottom: $padding*5;
   }
