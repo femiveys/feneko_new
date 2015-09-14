@@ -1,6 +1,5 @@
 <?php
 function solliciteer_form_alter(&$form, &$form_state, $form_id) {
-dpm('ghghgh');
   if($form_id === "solliciteer_entityform_edit_form") {
     if(!empty($_GET['nid'])) {
       global $language;
