@@ -9,4 +9,5 @@ features[translations_fr][] = fr:default
 features[translations_fr][] = fr:field
 features[translations_fr][] = fr:node
 features[translations_fr][] = fr:taxonomy
+features[translations_fr][] = fr:views
 features[translations_nl][] = nl:default

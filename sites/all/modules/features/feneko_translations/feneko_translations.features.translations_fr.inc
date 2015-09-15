@@ -28,6 +28,15 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Solliciteren tot', array(), array('context' => ''));
+  $translations['fr:default']['255259401ffd7c45547fc30a4ba29072'] = array(
+    'source' => 'Verkoopsvoorwaarden',
+    'context' => '',
+    'location' => '/nl/admin/structure/views/ajax/add-item/about/page_3/field',
+    'translation' => 'Conditions de vente',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Verkoopsvoorwaarden', array(), array('context' => ''));
   $translations['fr:default']['2da091108abf54b72117e0b07776002c'] = array(
     'source' => 'Onze producten',
     'context' => '',
@@ -46,6 +55,15 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Klant worden', array(), array('context' => ''));
+  $translations['fr:default']['4a5e958b96161cfb039c482bf8923172'] = array(
+    'source' => 'Motivatie',
+    'context' => '',
+    'location' => '/nl/admin/structure/features',
+    'translation' => 'Motivation',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Motivatie', array(), array('context' => ''));
   $translations['fr:default']['4da26939619ccf77cae38bebef10e168'] = array(
     'source' => 'Al onze leveringen gebeuren tussen de 8 en 12 werkdagen.',
     'context' => '',
@@ -91,6 +109,15 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Andere jobs', array(), array('context' => ''));
+  $translations['fr:default']['9b7ad10324fd47a162b262a78d285f1a'] = array(
+    'source' => 'Er zijn op dit ogenblik gaan nieuwsberichten.',
+    'context' => '',
+    'location' => '/nl/admin/structure/features/feneko_views',
+    'translation' => 'Il n\'y a pas de nouvelles maintenant.',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Er zijn op dit ogenblik gaan nieuwsberichten.', array(), array('context' => ''));
   $translations['fr:default']['dd8ace8df7e819fa3a8be48135c50107'] = array(
     'source' => 'Levertijden',
     'context' => '',
@@ -118,6 +145,15 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Naam', array(), array('context' => ''));
+  $translations['fr:default']['fede12f3430e83eb76f5176e64edf810'] = array(
+    'source' => 'Gewenste functie',
+    'context' => '',
+    'location' => '/nl/admin/structure/features',
+    'translation' => 'Fonction désirée',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Gewenste functie', array(), array('context' => ''));
   $translations['fr:field']['1c54a6a124fad27d45e37ae53801218a'] = array(
     'source' => 'Naam',
     'context' => 'field_naam:contact:label',
@@ -145,6 +181,15 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Uw vraag', array(), array('context' => 'field_uw_vraag:contact:label'));
+  $translations['fr:field']['61fd7f6c15ea2d8ad3298259ad90d226'] = array(
+    'source' => 'Verkoopsvoorwaarden',
+    'context' => 'field_verkoopsvoorwaarden:info_pagina:label',
+    'location' => 'field:field_verkoopsvoorwaarden:info_pagina:label',
+    'translation' => 'Conditions de vente',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Verkoopsvoorwaarden', array(), array('context' => 'field_verkoopsvoorwaarden:info_pagina:label'));
   $translations['fr:field']['6d1dbe4b85ebf9588816fdd06fa2eb84'] = array(
     'source' => 'Wij zoeken',
     'context' => 'field_wanted:vacature:label',
@@ -172,6 +217,24 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Naam', array(), array('context' => 'field_naam:solliciteer:label'));
+  $translations['fr:field']['ba7257ef766f897aafbd4a7ae0901112'] = array(
+    'source' => 'Gewenste functie',
+    'context' => 'field_gewenste_functie:solliciteer:label',
+    'location' => 'field:field_gewenste_functie:solliciteer:label',
+    'translation' => 'Fonction désirée',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Gewenste functie', array(), array('context' => 'field_gewenste_functie:solliciteer:label'));
+  $translations['fr:field']['e5d842ed6aee41e86c9ed8ffcdfd4553'] = array(
+    'source' => 'Motivatie',
+    'context' => 'field_motivatie:solliciteer:label',
+    'location' => 'field:field_motivatie:solliciteer:label',
+    'translation' => 'Motivation',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Motivatie', array(), array('context' => 'field_motivatie:solliciteer:label'));
   $translations['fr:node']['fb7dd62d2d4e3577bcd83d120a54581b'] = array(
     'source' => 'Naam',
     'context' => 'type:product:title_label',
@@ -181,5 +244,95 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Naam', array(), array('context' => 'type:product:title_label'));
+  $translations['fr:views']['1ea22b368209f831ec13e75bbbd3ffca'] = array(
+    'source' => 'Solliciteren tot',
+    'context' => 'jobs:default:field:field_data_field_ultimate_date:field_ultimate_date:label',
+    'location' => 'views:jobs:default:field:field_data_field_ultimate_date:field_ultimate_date:label',
+    'translation' => 'Solliciter jusqu\'au',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Solliciteren tot', array(), array('context' => 'jobs:default:field:field_data_field_ultimate_date:field_ultimate_date:label'));
+  $translations['fr:views']['43504b2d151f64c579850b3076c32555'] = array(
+    'source' => 'Verkoopsvoorwaarden',
+    'context' => 'about:page_3:title',
+    'location' => 'views:about:page_3:title',
+    'translation' => 'Conditions de vente',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Verkoopsvoorwaarden', array(), array('context' => 'about:page_3:title'));
+  $translations['fr:views']['4ce94f61c3ed56dfd9262f83dcfb246b'] = array(
+    'source' => 'Meer lezen',
+    'context' => 'nieuws:default:field:views_entity_node:view_node:text',
+    'location' => 'views:nieuws:default:field:views_entity_node:view_node:text',
+    'translation' => 'Lire la suite',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Meer lezen', array(), array('context' => 'nieuws:default:field:views_entity_node:view_node:text'));
+  $translations['fr:views']['51708dcec6cc3b605d77ca276f39824b'] = array(
+    'source' => 'Meer lezen',
+    'context' => 'jobs:default:field:views_entity_node:view_node:text',
+    'location' => 'views:jobs:default:field:views_entity_node:view_node:text',
+    'translation' => 'Lire la suite',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Meer lezen', array(), array('context' => 'jobs:default:field:views_entity_node:view_node:text'));
+  $translations['fr:views']['637531ffc5b7a9c4f23d98e80f48cf30'] = array(
+    'source' => 'Onze producten',
+    'context' => 'main_categories:default:title',
+    'location' => 'views:main_categories:default:title',
+    'translation' => 'Nos produits',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Onze producten', array(), array('context' => 'main_categories:default:title'));
+  $translations['fr:views']['89aed2265d57cd92921c62dff7bfe607'] = array(
+    'source' => 'Er zijn op dit ogenblik gaan nieuwsberichten.',
+    'context' => 'nieuws:default:empty:views:area:content',
+    'location' => 'views:nieuws:default:empty:views:area:content',
+    'translation' => 'Il n\'y a pas de nouvelles maintenant.',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Er zijn op dit ogenblik gaan nieuwsberichten.', array(), array('context' => 'nieuws:default:empty:views:area:content'));
+  $translations['fr:views']['a461cc755107ba2c96b6b636c3ec8116'] = array(
+    'source' => 'Klant worden',
+    'context' => 'about:page_2:title',
+    'location' => 'views:about:page_2:title',
+    'translation' => 'Devenir client',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Klant worden', array(), array('context' => 'about:page_2:title'));
+  $translations['fr:views']['b98b6800cf191eea3f76cee072c94d47'] = array(
+    'source' => 'Naam',
+    'context' => 'commerce_orders:default:field:field_data_commerce_customer_address:commerce_customer_address:label',
+    'location' => 'views:commerce_orders:default:field:field_data_commerce_customer_address:commerce_customer_address:label',
+    'translation' => 'Nom',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Naam', array(), array('context' => 'commerce_orders:default:field:field_data_commerce_customer_address:commerce_customer_address:label'));
+  $translations['fr:views']['ddfa5e952149a2889dc5f008c5da9dcb'] = array(
+    'source' => 'Levertijden',
+    'context' => 'about:page_1:title',
+    'location' => 'views:about:page_1:title',
+    'translation' => 'Délai de livraison',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Levertijden', array(), array('context' => 'about:page_1:title'));
+  $translations['fr:views']['e4936909ce1eba923c58fdd892a0b1dd'] = array(
+    'source' => 'Andere jobs',
+    'context' => 'jobs:block_1:title',
+    'location' => 'views:jobs:block_1:title',
+    'translation' => 'Autres jobs',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Andere jobs', array(), array('context' => 'jobs:block_1:title'));
   return $translations;
 }
