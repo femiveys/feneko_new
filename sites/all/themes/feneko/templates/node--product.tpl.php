@@ -120,11 +120,7 @@
 
       <?php
       if($product_grandparent == 'screens') :
-        print('<a href="'.$node_url.'/'); ?>
-        <?php print t('bestel'); ?>
-        <?php print ('">'); ?>
-        <?php print t('bestel'); ?>
-        <?php print (' '.$title.'</a>');
+        print('<a href="'.$node_url.'/'.t('bestel').'">'.t('bestel').' '.$title.'</a>');
       endif;
       ?>
 
@@ -158,11 +154,7 @@
       if($product_grandparent == 'screens') : ?>
       <div class="field-items"><div class="field-item even">
       <?php
-        print('<a href="'.$node_url.'/'); ?>
-        <?php print t('bestel'); ?>
-        <?php print ('">'); ?>
-        <?php print t('bestel'); ?>
-        <?php print (' '.$title.'</a>');
+        print('<a href="'.$node_url.'/'.t('bestel').'">'.t('bestel').' '.$title.'</a>');
       ?>
       </div></div>
       <?php
