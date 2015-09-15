@@ -1129,6 +1129,47 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-info_pagina-field_btw_nummer'
+  $field_instances['node-info_pagina-field_btw_nummer'] = array(
+    'bundle' => 'info_pagina',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 17,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_btw_nummer',
+    'label' => 'BTW nummer',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 16,
+    ),
+  );
+
   // Exported field_instance: 'node-info_pagina-field_disclaimer'
   $field_instances['node-info_pagina-field_disclaimer'] = array(
     'bundle' => 'info_pagina',
@@ -1165,7 +1206,7 @@ function feneko_structure_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 14,
+      'weight' => 22,
     ),
   );
 
@@ -1250,6 +1291,53 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-info_pagina-field_handelsregister_brussel'
+  $field_instances['node-info_pagina-field_handelsregister_brussel'] = array(
+    'bundle' => 'info_pagina',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 18,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_handelsregister_brussel',
+    'label' => 'Handelsregister Brussel',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 17,
+    ),
+  );
+
   // Exported field_instance: 'node-info_pagina-field_klant_worden'
   $field_instances['node-info_pagina-field_klant_worden'] = array(
     'bundle' => 'info_pagina',
@@ -1286,7 +1374,7 @@ function feneko_structure_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 11,
+      'weight' => 19,
     ),
   );
 
@@ -1326,7 +1414,7 @@ function feneko_structure_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 13,
+      'weight' => 21,
     ),
   );
 
@@ -1425,7 +1513,7 @@ function feneko_structure_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 10,
+      'weight' => 18,
     ),
   );
 
@@ -1626,7 +1714,7 @@ function feneko_structure_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 12,
+      'weight' => 20,
     ),
   );
 
@@ -3003,6 +3091,7 @@ function feneko_structure_field_default_field_instances() {
   t('Afbeeldingen');
   t('Alt Text');
   t('Alternative text is used by screen readers, search engines, and when the image cannot be loaded. By adding alt text you improve accessibility and search engine optimization.');
+  t('BTW nummer');
   t('Beschrijving');
   t('Bestelbare producten');
   t('Big image');
@@ -3030,6 +3119,7 @@ function feneko_structure_field_default_field_instances() {
   t('Geef hier uw openingsuren in');
   t('Geef hier uw telefoonnummers in.');
   t('Gewenste functie');
+  t('Handelsregister Brussel');
   t('Hoe klant worden bij FenekO?');
   t('Image');
   t('Intro');

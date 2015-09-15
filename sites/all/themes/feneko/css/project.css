@@ -1657,6 +1657,9 @@ div.messages {
     margin-bottom: 20px;
   }
 }
+#footer-footer .field-collection-item-field-tel {
+  margin-top: 30px;
+}
 
 #mainmenu-wrapper {
   position: relative;
@@ -2685,8 +2688,17 @@ form.commerce-add-to-cart label {
   margin-bottom: 10px;
 }
 .c-l .tel,
+.c-l .fax,
+.c-l .btw,
+.c-l .hrb,
 .c-r .tel,
-.view-id-contact .tel {
+.c-r .fax,
+.c-r .btw,
+.c-r .hrb,
+.view-id-contact .tel,
+.view-id-contact .fax,
+.view-id-contact .btw,
+.view-id-contact .hrb {
   margin-bottom: 20px;
 }
 
@@ -2929,16 +2941,17 @@ form.commerce-add-to-cart label {
     display: inline-block;
   }
   #manyforms-form th br {
-    display: none;
-    padding-right: 10px;
+    content: "&nbsp;";
+    width: 5px;
+    display: inline-block;
   }
   #manyforms-form td {
     padding: 5px;
   }
-  #manyforms-form td[data-before="aantal"], #manyforms-form td[data-before="T1"], #manyforms-form td[data-before="T2"], #manyforms-form td[data-before="T3"], #manyforms-form td[data-before="standaard T"] {
+  #manyforms-form td[data-before="aantal"], #manyforms-form td[data-before="standaard T"], #manyforms-form td[data-before="T standard"], #manyforms-form td[data-before="nombre"] {
     width: 40px;
   }
-  #manyforms-form td[data-before="breedte(mm)"], #manyforms-form td[data-before="hoogte(mm)"] {
+  #manyforms-form td[data-before="breedte(mm)"], #manyforms-form td[data-before="hoogte(mm)"], #manyforms-form td[data-before="largeur(mm)"], #manyforms-form td[data-before="hauteur(mm)"], #manyforms-form td[data-before="T1"], #manyforms-form td[data-before="T2"], #manyforms-form td[data-before="T3"], #manyforms-form td[data-before="lengterails"], #manyforms-form td[data-before="lgrails"] {
     width: 60px;
   }
   #manyforms-form #edit-dierendeur-dep {

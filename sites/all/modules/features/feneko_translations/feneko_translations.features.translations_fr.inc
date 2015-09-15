@@ -109,6 +109,24 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Andere jobs', array(), array('context' => ''));
+  $translations['fr:default']['8abd91ae2854199b2c9be6794ef20b47'] = array(
+    'source' => 'opmerking',
+    'context' => '',
+    'location' => '/forms/aliases',
+    'translation' => 'remarque',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('opmerking', array(), array('context' => ''));
+  $translations['fr:default']['8c15478bbc2b63d85e1bea08d0b98942'] = array(
+    'source' => 'standaard T',
+    'context' => '',
+    'location' => '/forms/aliases',
+    'translation' => 'T standard',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('standaard T', array(), array('context' => ''));
   $translations['fr:default']['9b7ad10324fd47a162b262a78d285f1a'] = array(
     'source' => 'Er zijn op dit ogenblik gaan nieuwsberichten.',
     'context' => '',
@@ -118,6 +136,15 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Er zijn op dit ogenblik gaan nieuwsberichten.', array(), array('context' => ''));
+  $translations['fr:default']['c7c45e4d869a1a2dc18052a7555b6044'] = array(
+    'source' => 'bestel',
+    'context' => '',
+    'location' => '/nl/schuif-vliegendeuren/vliegendeur-basic',
+    'translation' => 'commandez',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('bestel', array(), array('context' => ''));
   $translations['fr:default']['dd8ace8df7e819fa3a8be48135c50107'] = array(
     'source' => 'Levertijden',
     'context' => '',

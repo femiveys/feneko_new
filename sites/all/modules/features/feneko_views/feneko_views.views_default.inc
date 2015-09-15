@@ -264,6 +264,29 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['field_fax']['element_wrapper_class'] = 'fax';
   $handler->display->display_options['fields']['field_fax']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_fax']['hide_empty'] = TRUE;
+  /* Field: Field: BTW nummer */
+  $handler->display->display_options['fields']['field_btw_nummer']['id'] = 'field_btw_nummer';
+  $handler->display->display_options['fields']['field_btw_nummer']['table'] = 'field_data_field_btw_nummer';
+  $handler->display->display_options['fields']['field_btw_nummer']['field'] = 'field_btw_nummer';
+  $handler->display->display_options['fields']['field_btw_nummer']['label'] = 'BTW';
+  $handler->display->display_options['fields']['field_btw_nummer']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_btw_nummer']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_btw_nummer']['element_wrapper_class'] = 'btw';
+  $handler->display->display_options['fields']['field_btw_nummer']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_btw_nummer']['hide_empty'] = TRUE;
+  /* Field: Content: Handelsregister Brussel */
+  $handler->display->display_options['fields']['field_handelsregister_brussel']['id'] = 'field_handelsregister_brussel';
+  $handler->display->display_options['fields']['field_handelsregister_brussel']['table'] = 'field_data_field_handelsregister_brussel';
+  $handler->display->display_options['fields']['field_handelsregister_brussel']['field'] = 'field_handelsregister_brussel';
+  $handler->display->display_options['fields']['field_handelsregister_brussel']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_handelsregister_brussel']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_handelsregister_brussel']['element_wrapper_class'] = 'hrb';
+  $handler->display->display_options['fields']['field_handelsregister_brussel']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_handelsregister_brussel']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_handelsregister_brussel']['settings'] = array(
+    'thousand_separator' => ' ',
+    'prefix_suffix' => 0,
+  );
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';

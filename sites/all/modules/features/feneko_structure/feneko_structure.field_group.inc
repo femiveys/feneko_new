@@ -204,6 +204,8 @@ function feneko_structure_field_group_info() {
       2 => 'field_disclaimer',
       3 => 'field_verkoopsvoorwaarden',
       4 => 'field_levertijden',
+      5 => 'field_btw_nummer',
+      6 => 'field_handelsregister_brussel',
     ),
     'format_type' => 'htab',
     'format_settings' => array(

@@ -970,6 +970,7 @@ div.messages:before {
 
 div.messages.status {
   border-color: #003400;
+  background-color: #b3ffb3;
   color: green;
   background-image: none;
 }

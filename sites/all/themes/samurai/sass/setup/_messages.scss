@@ -33,7 +33,7 @@ div.messages {
   @extend %message;
   &.status {
     border-color: darken($status-color, 15%);
-    //background-color: $status-color;
+    background-color: lighten($status-color, 60%);
     color: $status-color;
     background-image: none;
     &:before {

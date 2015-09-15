@@ -453,6 +453,9 @@ div.messages {
       margin-bottom: $padding*2;
     }
   }
+  .field-collection-item-field-tel {
+    margin-top: $padding*3;
+  }
 }
 
 // MENU
@@ -1515,7 +1518,10 @@ form.commerce-add-to-cart {
     clear: both;
     margin-bottom: $padding;
   }
-  .tel {
+  .tel,
+  .fax,
+  .btw,
+  .hrb {
     margin-bottom: $padding*2;
   }
 }
@@ -1771,22 +1777,30 @@ $contact: #f7941d;
         display: inline-block;
       }
       br {
-        display: none;
-        padding-right: $padding;
+        content: "&nbsp;";
+        width: 5px;
+        display: inline-block;
+        //display: none;
       }
     }
 
     td {
       padding: $padding/2;
       &[data-before="aantal"],
-      &[data-before="T1"],
-      &[data-before="T2"],
-      &[data-before="T3"],
-      &[data-before="standaard T"] {
+      &[data-before="standaard T"],
+      &[data-before="T standard"],
+      &[data-before="nombre"] {
         width: 40px;
       }
       &[data-before="breedte(mm)"],
-      &[data-before="hoogte(mm)"] {
+      &[data-before="hoogte(mm)"],
+      &[data-before="largeur(mm)"],
+      &[data-before="hauteur(mm)"],
+      &[data-before="T1"],
+      &[data-before="T2"],
+      &[data-before="T3"],
+      &[data-before="lengterails"],
+      &[data-before="lgrails"] {
         width: 60px;
       }
     }
