@@ -33,7 +33,8 @@ div.messages {
   @extend %message;
   &.status {
     border-color: darken($status-color, 15%);
-    background-color: $status-color;
+    //background-color: $status-color;
+    color: $status-color;
     background-image: none;
     &:before {
       content: "\f05d";
@@ -41,7 +42,8 @@ div.messages {
   }
   &.warning {
     border-color: darken($warning-color, 15%);
-    background-color: $warning-color;
+    //background-color: $warning-color;
+    color: $warning-color;
     background-image: none;
     &:before {
       content: "\f071";
@@ -49,7 +51,8 @@ div.messages {
   }
   &.error {
     border-color: darken($error-color, 15%);
-    background-color: $error-color;
+    //background-color: $error-color;
+    color: $error-color;
     background-image: none;
     &:before {
       content: "\f057";

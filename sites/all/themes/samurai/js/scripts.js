@@ -86,6 +86,7 @@
 
     $('#manyforms-form th').each(function(index, value) {
       order[index] = $(this).text();
+      $(this).wrapInner('<div><span>');
     });
 
     //console.log(order);

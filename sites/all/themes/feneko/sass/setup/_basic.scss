@@ -338,7 +338,6 @@ div.messages {
   .inner-wrapper {
     position: absolute;
     @include gridle_state (max-mobile) {
-      //background-color: $bluetrans;
       max-width: none;
       top: 0;
     }
@@ -382,7 +381,7 @@ div.messages {
       margin: 0 auto $padding*2;
     }
     @include gridle_state (only-mobile-land) {
-      margin-bottom: $padding*3;
+      margin-bottom: 25px;
     }
   }
   .node-readmore a {
@@ -694,17 +693,20 @@ div.messages {
   padding: 0;
   li {
     display: inline-block;
+    opacity: 0.5;
     a {
       padding: $padding/2 $padding;
-      background-color: $blue;
+      //background-color: $blue;
       border-radius: $padding;
+      border: 1px solid $white;
       font-weight: 700;
+      margin-right: $padding;
       &:hover {
         background-color: $lightgrey;
       }
     }
-    .active {
-      opacity: 0.7;
+    &.active {
+      opacity: 1;
     }
   }
 }
@@ -1203,6 +1205,11 @@ div.horizontal-tabs {
       float: left;
     }
   }
+  .views-row-odd {
+    @include gridle_state (only-tablet) {
+      clear: both;
+    }
+  }
   .views-field-title {
     font-weight: 700;
     margin-top: $padding;
@@ -1667,12 +1674,11 @@ $contact: #f7941d;
       cursor: pointer;
     }
     &:hover:before {
-        color: $grey;
-      }
+      color: $grey;
+    }
   }
   caption {
     text-align: left;
-    //display: block;
     .text {
       display: none;
       border: 2px solid $blue;
@@ -1688,7 +1694,26 @@ $contact: #f7941d;
       background-color: $lightgrey;
     }
   }
-  @include gridle_state (max-mobile) {
+
+  .form-type-radio {
+      float: left;
+      margin-right: $padding;
+    }
+    label {
+      padding-top: 20px;
+      clear: both;
+    }
+    .description {
+      clear: both;
+      padding-top: 10px;
+    }
+    input[type=submit] {
+      clear: both;
+      display: block;
+    }
+
+
+  @include gridle_state (max-tablet) {
     table, thead, tbody, th, td, tr {
       display: block;
     }
@@ -1703,21 +1728,21 @@ $contact: #f7941d;
     caption {
       display: block;
     }
-
-    tr { border: 1px solid #ccc; }
-
+    tr {
+      border: 1px solid #ccc;
+    }
     td {
-      /* Behave  like a "row" */
       border: none;
       border-bottom: 1px solid #eee;
       position: relative;
       padding-left: 50%;
+      &[data-before="opmerking"] {
+        border: none;
+      }
     }
 
     td:before {
-      /* Now like a table header */
       position: absolute;
-      /* Top/left values mimic padding */
       top: 15px;
       left: 6px;
       width: 45%;
@@ -1725,6 +1750,47 @@ $contact: #f7941d;
       white-space: nowrap;
       content: attr(data-before);
       font-weight: 700;
+    }
+  }
+  @include gridle_state (min-desk) {
+
+    th {
+      height: 100px;
+      white-space: nowrap;
+      div {
+        transform:
+        translate(7px, 51px)
+        rotate(315deg);
+        width: 30px;
+      }
+      span {
+        padding: 5px 10px 5px 40px;
+        border-top: 1px solid #ccc;
+        width: 140px;
+        display: inline-block;
+      }
+      br {
+        display: none;
+        padding-right: $padding;
+      }
+    }
+
+    td {
+      padding: $padding/2;
+      &[data-before="aantal"],
+      &[data-before="T1"],
+      &[data-before="T2"],
+      &[data-before="T3"],
+      &[data-before="standaard T"] {
+        width: 40px;
+      }
+      &[data-before="breedte(mm)"],
+      &[data-before="hoogte(mm)"] {
+        width: 60px;
+      }
+    }
+    #edit-dierendeur-dep {
+      clear: both;
     }
   }
 }

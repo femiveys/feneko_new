@@ -140,7 +140,7 @@
 
       <?php if ($page) : ?>
 
-      <div class="lev"><i class="fa fa-truck"></i><p> <?php print t('Al onze leveringen gebeuren tussen de 8 en 12 werkdagen.'); ?></p>
+      <div class="lev"><i class="fa fa-truck"></i><p> <?php print t('Al onze leveringen gebeuren tussen de 8 en 12 werkdagen.'); ?></p></div>
 
        <?php endif; ?>
 

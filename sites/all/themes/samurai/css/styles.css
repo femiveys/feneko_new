@@ -580,7 +580,7 @@ input[type="week"],
 textarea,
 select,
 .select {
-  border: 1px, solid, black;
+  border: 1px solid black;
   display: block;
   width: 100%;
   padding: 5px;
@@ -632,7 +632,7 @@ input[type="time"],
 input[type="week"],
 select,
 .select {
-  height: 10px, 5;
+  height: 30px;
   border: 1px solid darkgrey;
   background-color: white;
 }
@@ -970,7 +970,7 @@ div.messages:before {
 
 div.messages.status {
   border-color: #003400;
-  background-color: green;
+  color: green;
   background-image: none;
 }
 div.messages.status:before {
@@ -978,7 +978,7 @@ div.messages.status:before {
 }
 div.messages.warning {
   border-color: #b37300;
-  background-color: orange;
+  color: orange;
   background-image: none;
 }
 div.messages.warning:before {
@@ -986,7 +986,7 @@ div.messages.warning:before {
 }
 div.messages.error {
   border-color: #b30000;
-  background-color: red;
+  color: red;
   background-image: none;
 }
 div.messages.error:before {

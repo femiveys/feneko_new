@@ -1575,7 +1575,7 @@ div.messages.status {
 }
 @media screen and (min-width: 400px) and (max-width: 599px) {
   #cover-wrapper .node-readmore {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
   }
 }
 @media screen and (max-width: 599px) {
@@ -1902,18 +1902,20 @@ div.messages.status {
 }
 .language-switcher-locale-url li {
   display: inline-block;
+  opacity: 0.5;
 }
 .language-switcher-locale-url li a {
   padding: 5px 10px;
-  background-color: #295D8F;
   border-radius: 10px;
+  border: 1px solid #ffffff;
   font-weight: 700;
+  margin-right: 10px;
 }
 .language-switcher-locale-url li a:hover {
   background-color: #e6e6e6;
 }
-.language-switcher-locale-url li .active {
-  opacity: 0.7;
+.language-switcher-locale-url li.active {
+  opacity: 1;
 }
 
 .node-type-article #content img {
@@ -2399,6 +2401,11 @@ div.horizontal-tabs {
     float: left;
   }
 }
+@media screen and (min-width: 600px) and (max-width: 850px) {
+  #block-views-related-block .views-row-odd {
+    clear: both;
+  }
+}
 #block-views-related-block .views-field-title {
   font-weight: 700;
   margin-top: 10px;
@@ -2852,7 +2859,23 @@ form.commerce-add-to-cart label {
 #manyforms-form tr.even {
   background-color: #e6e6e6;
 }
-@media screen and (max-width: 599px) {
+#manyforms-form .form-type-radio {
+  float: left;
+  margin-right: 10px;
+}
+#manyforms-form label {
+  padding-top: 20px;
+  clear: both;
+}
+#manyforms-form .description {
+  clear: both;
+  padding-top: 10px;
+}
+#manyforms-form input[type=submit] {
+  clear: both;
+  display: block;
+}
+@media screen and (max-width: 850px) {
   #manyforms-form {
     /* Hide table headers (but not display: none;, for accessibility) */
   }
@@ -2871,16 +2894,16 @@ form.commerce-add-to-cart label {
     border: 1px solid #ccc;
   }
   #manyforms-form td {
-    /* Behave  like a "row" */
     border: none;
     border-bottom: 1px solid #eee;
     position: relative;
     padding-left: 50%;
   }
+  #manyforms-form td[data-before="opmerking"] {
+    border: none;
+  }
   #manyforms-form td:before {
-    /* Now like a table header */
     position: absolute;
-    /* Top/left values mimic padding */
     top: 15px;
     left: 6px;
     width: 45%;
@@ -2888,6 +2911,38 @@ form.commerce-add-to-cart label {
     white-space: nowrap;
     content: attr(data-before);
     font-weight: 700;
+  }
+}
+@media screen and (min-width: 851px) {
+  #manyforms-form th {
+    height: 100px;
+    white-space: nowrap;
+  }
+  #manyforms-form th div {
+    transform: translate(7px, 51px) rotate(315deg);
+    width: 30px;
+  }
+  #manyforms-form th span {
+    padding: 5px 10px 5px 40px;
+    border-top: 1px solid #ccc;
+    width: 140px;
+    display: inline-block;
+  }
+  #manyforms-form th br {
+    display: none;
+    padding-right: 10px;
+  }
+  #manyforms-form td {
+    padding: 5px;
+  }
+  #manyforms-form td[data-before="aantal"], #manyforms-form td[data-before="T1"], #manyforms-form td[data-before="T2"], #manyforms-form td[data-before="T3"], #manyforms-form td[data-before="standaard T"] {
+    width: 40px;
+  }
+  #manyforms-form td[data-before="breedte(mm)"], #manyforms-form td[data-before="hoogte(mm)"] {
+    width: 60px;
+  }
+  #manyforms-form #edit-dierendeur-dep {
+    clear: both;
   }
 }
 
