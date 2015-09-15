@@ -1411,7 +1411,7 @@ system/ajax/*';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_ignore_words';
-  $strongarm->value = 'a, an, as, at, before, but, by, for, from, is, in, into, like, of, off, on, onto, per, since, than, the, this, that, to, up, via, with, de, het, een, van, voor, met, door';
+  $strongarm->value = 'a, an, as, at, before, but, by, for, from, is, in, into, like, of, off, on, onto, per, since, than, the, this, that, to, up, via, with, de, het, een, van, voor, met, door, un, une, le, la, des, pour, avec, par';
   $export['pathauto_ignore_words'] = $strongarm;
 
   $strongarm = new stdClass();

@@ -116,6 +116,7 @@ function feneko_structure_field_group_info() {
     'children' => array(
       0 => 'field_big_image',
       1 => 'field_tekst_big_image',
+      2 => 'field_linktekst_afbeelding',
     ),
     'format_type' => 'htab',
     'format_settings' => array(

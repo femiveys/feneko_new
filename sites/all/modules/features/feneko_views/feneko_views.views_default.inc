@@ -575,11 +575,22 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
   $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing_1']['label'] = '';
+  $handler->display->display_options['fields']['nothing_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nothing_1']['alter']['text'] = '<p class="big-image-caption">[field_tekst_big_image]</p><p class="node-readmore"><a href="/onze-producten">Ontdek ons aanbod&nbsp;&raquo;</a></p>';
   $handler->display->display_options['fields']['nothing_1']['element_type'] = 'div';
   $handler->display->display_options['fields']['nothing_1']['element_class'] = 'inner-wrapper';
   $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing_1']['element_default_classes'] = FALSE;
+  /* Field: Content: Linktekst afbeelding */
+  $handler->display->display_options['fields']['field_linktekst_afbeelding']['id'] = 'field_linktekst_afbeelding';
+  $handler->display->display_options['fields']['field_linktekst_afbeelding']['table'] = 'field_data_field_linktekst_afbeelding';
+  $handler->display->display_options['fields']['field_linktekst_afbeelding']['field'] = 'field_linktekst_afbeelding';
+  $handler->display->display_options['fields']['field_linktekst_afbeelding']['label'] = '';
+  $handler->display->display_options['fields']['field_linktekst_afbeelding']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_linktekst_afbeelding']['alter']['text'] = '<div class="inner-wrapper"><p class="big-image-caption">[field_tekst_big_image]</p><p class="node-readmore">[field_linktekst_afbeelding]</p></div>';
+  $handler->display->display_options['fields']['field_linktekst_afbeelding']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_linktekst_afbeelding']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_linktekst_afbeelding']['click_sort_column'] = 'url';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -616,7 +627,7 @@ function feneko_views_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'jobs';
+  $handler->display->display_options['title'] = 'Jobs';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -704,7 +715,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['view_node']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['view_node']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['view_node']['text'] = 'Read more';
+  $handler->display->display_options['fields']['view_node']['text'] = 'Meer lezen';
   /* Sort criterion: Content: Solliciteren tot (field_ultimate_date) */
   $handler->display->display_options['sorts']['field_ultimate_date_value']['id'] = 'field_ultimate_date_value';
   $handler->display->display_options['sorts']['field_ultimate_date_value']['table'] = 'field_data_field_ultimate_date';
@@ -752,7 +763,7 @@ function feneko_views_views_default_views() {
   /* Display: Blok */
   $handler = $view->new_display('block', 'Blok', 'block_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'meer jobs';
+  $handler->display->display_options['title'] = 'Andere jobs';
   $handler->display->display_options['defaults']['use_more'] = FALSE;
   $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['defaults']['use_more_always'] = FALSE;
@@ -1309,7 +1320,7 @@ function feneko_views_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'nieuws';
+  $handler->display->display_options['title'] = 'Nieuws';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'Alle nieuwsberichten';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -1403,7 +1414,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['view_node']['element_class'] = 'node-readmore';
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['view_node']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['view_node']['text'] = 'Read more';
+  $handler->display->display_options['fields']['view_node']['text'] = 'Meer lezen';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
