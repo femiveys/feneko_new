@@ -956,11 +956,14 @@ div.messages {
   .field-name-field-images {
     .field-item {
       a {
-        width: 85%;
+        //width: 85%;
         position: relative;
         display: block;
         overflow: hidden;
         border: 2px solid $blue;
+        @include gridle_state (min-tablet) {
+          width: 85%;
+        }
         &:hover:after {
           content:'';
           position:absolute;
@@ -974,10 +977,15 @@ div.messages {
       @include gridle_state (only-mobile-land) {
         margin-bottom: 3px;
       }
-      @include gridle_state(max-tablet) {
-        width: 25%;
+      @include gridle_state(max-mobile) {
+        width: 22%;
+        margin-right: 4%;
+        margin-bottom: $padding;
+        &:nth-child(4n+1) {
+          margin-right: 0;
+        }
       }
-      @include gridle_state (min-desk) {
+      @include gridle_state (min-tablet) {
         width: 50%;
       }
       float: left;
@@ -985,7 +993,7 @@ div.messages {
       img {
         display: block;
       }
-      @include gridle_state(min-desk) {
+      @include gridle_state(min-tablet) {
         &.even {
           a {
             float: right;
@@ -999,10 +1007,7 @@ div.messages {
       }
       &:nth-child(1) {
         width: 100%;
-        @include gridle_state(only-mobile-land) {
-          width: 73%;
-          margin-right: 2%;
-        }
+        margin-bottom: $padding*2;
         a {
           width: 100%;
         }

@@ -2167,11 +2167,15 @@ div.messages.status {
   margin-bottom: 20px;
 }
 .node-type-product .field-name-field-images .field-item a {
-  width: 85%;
   position: relative;
   display: block;
   overflow: hidden;
   border: 2px solid #295D8F;
+}
+@media screen and (min-width: 600px) {
+  .node-type-product .field-name-field-images .field-item a {
+    width: 85%;
+  }
 }
 .node-type-product .field-name-field-images .field-item a:hover:after {
   content: '';
@@ -2187,12 +2191,17 @@ div.messages.status {
     margin-bottom: 3px;
   }
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 599px) {
   .node-type-product .field-name-field-images .field-item {
-    width: 25%;
+    width: 22%;
+    margin-right: 4%;
+    margin-bottom: 10px;
+  }
+  .node-type-product .field-name-field-images .field-item:nth-child(4n+1) {
+    margin-right: 0;
   }
 }
-@media screen and (min-width: 851px) {
+@media screen and (min-width: 600px) {
   .node-type-product .field-name-field-images .field-item {
     width: 50%;
   }
@@ -2200,7 +2209,7 @@ div.messages.status {
 .node-type-product .field-name-field-images .field-item img {
   display: block;
 }
-@media screen and (min-width: 851px) {
+@media screen and (min-width: 600px) {
   .node-type-product .field-name-field-images .field-item.even a {
     float: right;
   }
@@ -2210,12 +2219,7 @@ div.messages.status {
 }
 .node-type-product .field-name-field-images .field-item:nth-child(1) {
   width: 100%;
-}
-@media screen and (min-width: 400px) and (max-width: 599px) {
-  .node-type-product .field-name-field-images .field-item:nth-child(1) {
-    width: 73%;
-    margin-right: 2%;
-  }
+  margin-bottom: 20px;
 }
 .node-type-product .field-name-field-images .field-item:nth-child(1) a {
   width: 100%;
