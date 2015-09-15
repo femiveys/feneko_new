@@ -1347,10 +1347,6 @@ div.messages {
   border-radius: 5px;
   border: 2px solid #e6e6e6 !important;
 }
-div.messages.status {
-  background-color: #488214;
-  color: #BCED91;
-}
 
 .wrapper {
   overflow: hidden;
