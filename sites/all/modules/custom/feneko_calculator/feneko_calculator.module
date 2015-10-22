@@ -370,11 +370,14 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
   // Prepare the destination for links
   $url_options = array('query' => drupal_get_destination());
 
-  // Load the cart and create one of needed
+  // Load the cart and create one if needed
   global $user;
+
+  if(!$user) return;
 
   if(!$cart = commerce_cart_order_load($user->uid)) {
     $cart = commerce_cart_order_new($user->uid);
+    watchdog('feneko_calculator', 'No cart found for current user. We just created one.');
   }
 
   $cart_wrapper = entity_metadata_wrapper('commerce_order', $cart);
@@ -869,6 +872,7 @@ function fc_validate_add_to_cart_form($form, &$form_state) {
     if(isset($line_item['field_multi_breedte'])) {
       $typeBewerking = $line_item['field_type_bewerking']['und'][0]['value'];
       $number = fc_get_parts($typeBewerking);
+      $max = 1500;
 
       $total = 0;
       for ($i=0; $i < $number; $i++) {
@@ -880,8 +884,8 @@ function fc_validate_add_to_cart_form($form, &$form_state) {
           $form_state['rebuild'] = true;
         }
       }
-      if($total > 4000) {
-        $msg = t('De som van de breedte stukken mag maximaal 4000 zijn.');
+      if($total > $max) {
+        $msg = t('De som van de breedte stukken mag maximaal :max mm zijn.', array(':max' => $max));
         form_set_error("line_item_fields][field_multi_breedte", $msg);
         $form_state['rebuild'] = true;
       }
@@ -908,6 +912,24 @@ function fc_validate_add_to_cart_form($form, &$form_state) {
         $msg = t('De breedte moet groter zijn dan 0.');
         form_set_error('line_item_fields][field_breedte', $msg);
         $form_state['rebuild'] = true;
+      }
+    }
+
+    // Lengte
+    if(isset($line_item['field_lengte'])) {
+      $product = commerce_product_load($form['product_id']['#value']);
+      switch ($product->type) {
+        case 'plaatbewerking':
+        case 'raamtablet':
+        case 'muurkap':
+        case 'sandwichpaneel':
+          $max = 4000;
+          if($line_item['field_lengte']['und'][0]['value'] > $max) {
+            $msg = t('De lengte mag maximaal :max mm zijn.', array(':max' => $max));
+            form_set_error('line_item_fields][field_lengte', $msg);
+            $form_state['rebuild'] = true;
+          }
+          break;
       }
     }
 

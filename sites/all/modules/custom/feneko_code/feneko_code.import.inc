@@ -223,6 +223,10 @@ function _feneko_code_csv_import($filename, $values) {
         break;
 
       case FENEKO_CODE_ORDER_STATUSES_TABLE:
+        if(!isset($data[1])) {
+          continue;
+        }
+
         $fields = array(
           'klant'         => trim(drupal_convert_to_utf8($data[0], 'Windows-1252')),
           'orderbon'      => trim(drupal_convert_to_utf8($data[1], 'Windows-1252')),
@@ -334,12 +338,21 @@ function _feneko_code_check_length(&$fields, $schema) {
 function _feneko_order_statuses_service($file) {
   $data = base64_decode($file);
   $filename = drupal_tempnam("private://", "order_statuses");
-  file_put_contents($filename, $data);
+  if(file_put_contents($filename, $data)) {
+    watchdog("feneko_api", ":filename created", array(':filename' => $filename), WATCHDOG_INFO);
+  } else {
+    watchdog("feneko_api", "Could not write :filename", array(':filename' => $filename), WATCHDOG_ERROR);
+  }
 
   $arg = array(
     'type' => FENEKO_CODE_ORDER_STATUSES_TABLE,
     'header' => false,
   );
-
   _feneko_code_csv_import($filename, $arg);
+
+  if(unlink($filename)) {
+    watchdog("feneko_api", ":filename deleted", array(':filename' => $filename), WATCHDOG_INFO);
+  } else {
+    watchdog("feneko_api", "Could not delete :filename", array(':filename' => $filename), WATCHDOG_ERROR);
+  }
 }

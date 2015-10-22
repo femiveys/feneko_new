@@ -144,7 +144,7 @@ function feneko_code_inform_admin($form, &$form_state) {
     His language is  ' . $values['language'] . '
     The user name is ' . $values['name'] . '
     The BTW nummer is ' . $values['field_btw_nummer']['und'][0]['value'] . '
-    The Company is ' . $values['field_bedrijf']['und'][0]['value'] . '
+    The Company is ' . $values['field_naam_bedrijf']['und'][0]['value'] . '
     The telefoon is ' . $values['field_telefoon']['und'][0]['value'] . '
     Administrate the users here: http://feneko.be/admin/people .
     ';

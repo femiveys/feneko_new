@@ -4,6 +4,7 @@ core = 7.x
 package = Feneko
 version = 7.x-1.0
 project = feneko_calculator_feature
+dependencies[] = ctools
 dependencies[] = views
 dependencies[] = views_megarow
 features[ctools][] = views:views_default:3.0

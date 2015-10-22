@@ -119,8 +119,8 @@ function feneko_code_orders_form($form, &$form_state) {
     ),
     'GEREED GEMELD'           => array(
       'label' => array(
-        'nl' => 'GEREED GEMELD',
-        'fr' => 'PRÊT',
+        'nl' => 'PRODUCTIE',
+        'fr' => 'PRODUCTION',
       ),
       'description' => array(
         'nl' => 'Orders is klaar voor levering',
@@ -325,27 +325,30 @@ function feneko_code_orders_form($form, &$form_state) {
 }
 
 function feneko_code_orders_filters($form_state, $header, $query) {
-  $form_item = $form_state['input']['filter'];
+  if(isset($form_state['input']['filter'])) {
+    $form_item = $form_state['input']['filter'];
 
-  // Ref
-  $filter = 'ref';
-  if(!empty($form_item[$filter])) {
-    $value = '%' . db_like($form_item[$filter]) . '%';
-    $query->condition('ref', $value, 'LIKE');
-  }
+    // Ref
+    $filter = 'ref';
+    if(!empty($form_item[$filter])) {
+      $value = '%' . db_like($form_item[$filter]) . '%';
+      $query->condition('ref', $value, 'LIKE');
+    }
 
-  // Leverdatum from
-  $filter = 'lever_from';
-  if(!empty($form_item[$filter]['date'])) {
-    $timestamp = _feneko_code_get_timestamp($filter, $form_item);
-    $query->condition('lever_datum', $timestamp, '>=');
-  }
+    // Leverdatum from
+    $filter = 'lever_from';
+    if(!empty($form_item[$filter]['date'])) {
+      $timestamp = _feneko_code_get_timestamp($filter, $form_item);
+      $query->condition('lever_datum', $timestamp, '>=');
+    }
 
-  // Leverdatum to
-  $filter = 'lever_to';
-  if(!empty($form_item[$filter]['date'])) {
-    $timestamp = _feneko_code_get_timestamp($filter, $form_item);
-    $query->condition('lever_datum', $timestamp, '<=');
+    // Leverdatum to
+    $filter = 'lever_to';
+    if(!empty($form_item[$filter]['date'])) {
+      $timestamp = _feneko_code_get_timestamp($filter, $form_item);
+      $query->condition('lever_datum', $timestamp, '<=');
+    }
+
   }
 }
 

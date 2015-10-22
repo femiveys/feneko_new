@@ -21,7 +21,7 @@ function feneko_calculator_feature_default_rules_configuration() {
         { "mail" : {
             "to" : [ "commerce-order:mail" ],
             "subject" : "Order [commerce-order:order-number] at [site:name]",
-            "message" : "[commerce-order:owner:name],\\r\\n\\r\\nBedankt voor je bestelling.\\r\\nIn de bijlage vind je een overzicht van je bestelling.\\r\\n\\r\\nJe kan ook inloggen op onze site om je bestelling te bekijken: [commerce-order:customer-url]\\r\\n\\r\\nmvg,\\r\\n\\r\\nFenekO",
+            "message" : "[commerce-order:owner:name],\\r\\n\\r\\nBedankt voor je [commerce-order:field-order-type].\\r\\nIn de bijlage vind je een overzicht van je aanvraag.\\r\\n\\r\\nmvg,\\r\\n\\r\\nFenekO",
             "from" : "Feneko \\u003Cjeremie@feneko.be\\u003E",
             "language" : [ "commerce-order:owner:language" ]
           }
@@ -45,7 +45,7 @@ function feneko_calculator_feature_default_rules_configuration() {
         { "mail" : {
             "to" : "Feneko \\u003Cjeremie@feneko.be\\u003E",
             "subject" : "Order [commerce-order:order-number] at [site:name]",
-            "message" : "[commerce-order:owner:name] van [commerce-order:owner:field-naam-bedrijf] ([commerce-order:owner:field-klantennummer])  heeft net een bestellling geplaatst.\\r\\n\\r\\nIn de bijlage vind je een overzicht van de bestelling.\\r\\n\\r\\nJe kan ook inloggen op de site om de bestelling te bekijken: [commerce-order:url]\\r\\n\\r\\nmvg,\\r\\n\\r\\nFenekO",
+            "message" : "[commerce-order:owner:name] van [commerce-order:owner:field-naam-bedrijf] ([commerce-order:field_order4])  heeft net een bestellling geplaatst.\\r\\n\\r\\nIn de bijlage vind je een overzicht van de bestelling.\\r\\n\\r\\nmvg,\\r\\n\\r\\nFenekO",
             "from" : "Feneko \\u003Cjeremie@feneko.be\\u003E",
             "language" : "nl"
           }

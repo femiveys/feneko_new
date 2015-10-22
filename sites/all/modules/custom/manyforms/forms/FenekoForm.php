@@ -2432,6 +2432,8 @@ class FenekoForm {
       'nee' => t('nee'),
     );
 
+    $order4options = feneko_code_get_order4_options();
+
     $fields = array(
       'afdekdoppen' => array(
         '#title' => t('afdekdoppen op vleugel en kader'),
@@ -2693,8 +2695,8 @@ class FenekoForm {
         '#title' => t('Klantnummer'),
         '#type' => 'radios',
         '#weight' => $weight,
-        '#options' => feneko_code_get_order4_options(),
-        '#default_value' => array_shift(feneko_code_get_order4_options()),
+        '#options' => $order4options,
+        '#default_value' => array_shift($order4options),
       ),
       'kleur' => array(
         '#type' => 'container',

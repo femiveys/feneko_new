@@ -57,7 +57,7 @@ function feneko_account_default_services_endpoint() {
       ),
     ),
   );
-  $endpoint->debug = 1;
+  $endpoint->debug = 0;
   $export['order_statuses'] = $endpoint;
 
   return $export;

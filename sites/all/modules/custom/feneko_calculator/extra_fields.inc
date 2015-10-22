@@ -207,7 +207,7 @@ function _fc_field_output($field_name, $entity, $entity_type, $format) {
   return $ra;
 }
 
-function camelCase($str, array $noStrip = []) {
+function camelCase($str, array $noStrip = array()) {
   // non-alpha and non-numeric characters become spaces
   $str = preg_replace('/[^a-z0-9' . implode("", $noStrip) . ']+/i', ' ', $str);
   $str = trim($str);

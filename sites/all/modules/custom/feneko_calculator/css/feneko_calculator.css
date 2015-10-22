@@ -40,6 +40,7 @@ form.commerce-add-to-cart table .form-item {
 form.commerce-add-to-cart input.form-text {
   width: 3em;
   text-align: right;
+  display: inline-block;
 }
 
 form.commerce-add-to-cart .field-name-field-bicolor-kleur input {
@@ -85,6 +86,10 @@ form.commerce-add-to-cart .field-name-field-bicolor-kleur input {
 form.commerce-add-to-cart .form-item-quantity {
   border-top: 1px solid #22689B;
   padding-top: 10px;
+}
+
+form.commerce-add-to-cart .form-submit {
+  margin: 2em 0;
 }
 
 #commerce-checkout-form-checkout .checkout-buttons {
