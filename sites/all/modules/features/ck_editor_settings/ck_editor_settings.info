@@ -1,14 +1,13 @@
 name = ck editor settings
 description = ck editor settings
 core = 7.x
-package = Features
+package = Feneko
 version = 7.x-1.0
 project = ck_editor_settings
 dependencies[] = ckeditor
 dependencies[] = ckeditor_link
 dependencies[] = features
 dependencies[] = filter
-dependencies[] = jquery_update
 features[ckeditor_profile][] = Advanced
 features[ckeditor_profile][] = CKEditor Global Profile
 features[ckeditor_profile][] = Full

@@ -5,3 +5,7 @@
 .double .visible-when-double {
   display: block;
 }
+
+#manyforms-form .form-submit {
+	margin: 2em 0;
+}

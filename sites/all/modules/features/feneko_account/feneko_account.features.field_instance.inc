@@ -10,7 +10,7 @@
 function feneko_account_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'user-user-field_btw_nummer'
+  // Exported field_instance: 'user-user-field_btw_nummer'.
   $field_instances['user-user-field_btw_nummer'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -48,7 +48,7 @@ function feneko_account_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-field_geblokkeerd'
+  // Exported field_instance: 'user-user-field_geblokkeerd'.
   $field_instances['user-user-field_geblokkeerd'] = array(
     'bundle' => 'user',
     'default_value' => array(
@@ -82,7 +82,7 @@ function feneko_account_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-field_klantennummer'
+  // Exported field_instance: 'user-user-field_klantennummer'.
   $field_instances['user-user-field_klantennummer'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -121,7 +121,7 @@ Het eerste nummer wordt als standaard beschouwd.',
     ),
   );
 
-  // Exported field_instance: 'user-user-field_naam_bedrijf'
+  // Exported field_instance: 'user-user-field_naam_bedrijf'.
   $field_instances['user-user-field_naam_bedrijf'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -159,7 +159,7 @@ Het eerste nummer wordt als standaard beschouwd.',
     ),
   );
 
-  // Exported field_instance: 'user-user-field_staffelkorting'
+  // Exported field_instance: 'user-user-field_staffelkorting'.
   $field_instances['user-user-field_staffelkorting'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
@@ -189,7 +189,7 @@ Het eerste nummer wordt als standaard beschouwd.',
     ),
   );
 
-  // Exported field_instance: 'user-user-field_telefoon'
+  // Exported field_instance: 'user-user-field_telefoon'.
   $field_instances['user-user-field_telefoon'] = array(
     'bundle' => 'user',
     'default_value' => NULL,

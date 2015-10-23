@@ -10,7 +10,7 @@
 function feneko_account_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_btw_nummer'
+  // Exported field_base: 'field_btw_nummer'.
   $field_bases['field_btw_nummer'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -31,7 +31,7 @@ function feneko_account_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_geblokkeerd'
+  // Exported field_base: 'field_geblokkeerd'.
   $field_bases['field_geblokkeerd'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -59,7 +59,7 @@ function feneko_account_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_klantennummer'
+  // Exported field_base: 'field_klantennummer'.
   $field_bases['field_klantennummer'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -83,7 +83,7 @@ function feneko_account_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_naam_bedrijf'
+  // Exported field_base: 'field_naam_bedrijf'.
   $field_bases['field_naam_bedrijf'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -107,7 +107,7 @@ function feneko_account_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_staffelkorting'
+  // Exported field_base: 'field_staffelkorting'.
   $field_bases['field_staffelkorting'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -132,7 +132,7 @@ function feneko_account_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_telefoon'
+  // Exported field_base: 'field_telefoon'.
   $field_bases['field_telefoon'] = array(
     'active' => 1,
     'cardinality' => 1,

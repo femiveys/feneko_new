@@ -1,0 +1,28 @@
+# French translation of Commerce features (7.x-1.1)
+# Copyright (c) 2015 by the French translation team
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Commerce features (7.x-1.1)\n"
+"POT-Creation-Date: 2015-07-24 07:01+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Language-Team: French\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n>1);\n"
+
+msgid "Edit"
+msgstr "Modifier"
+msgid "Features"
+msgstr "Fonctionnalités"
+msgid "Edit a tax rate."
+msgstr "Modifier un taux de taxe."
+msgid "Could not load default product types."
+msgstr "Impossible de charger les types de produits par défaut."
+msgid "Commerce product types"
+msgstr "Types de produits Commerce"
+msgid "Commerce Features"
+msgstr "Fonctionnalités Commerce"
+msgid "Features integration for Drupal Commerce module"
+msgstr "Intégration des fonctionnalités pour le module Drupal Commerce"

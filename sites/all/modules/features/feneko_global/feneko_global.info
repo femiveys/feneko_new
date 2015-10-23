@@ -13,7 +13,6 @@ dependencies[] = i18n_field
 dependencies[] = i18n_node
 dependencies[] = i18n_taxonomy
 dependencies[] = i18n_variable
-dependencies[] = jquery_update
 dependencies[] = l10n_update
 dependencies[] = locale
 dependencies[] = module_filter
