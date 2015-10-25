@@ -42,9 +42,14 @@
       $('body, html').animate( {scrollTop : 0}, 'slow' );
     });
 
-    $('div.tabs .fa').click(function() {
-      $('ul.tabs').toggle();
-      $(this).toggleClass('open');
+    $('div.tabs .fa').click(function(e) {
+      e.preventDefault();
+//      $('ul.tabs', '.edit').toggle();
+      $(this).parents().find('ul.tabs, .edit').toggle();
+      //$(this).siblings().toggle();
+      //$(this).parent().siblings($('.edit')).toggle();
+      //$(this).toggle();
+      //$(this).toggleClass('open');
     });
 
 

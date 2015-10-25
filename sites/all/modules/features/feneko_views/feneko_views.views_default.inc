@@ -51,6 +51,28 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['field_about']['label'] = '';
   $handler->display->display_options['fields']['field_about']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_about']['element_default_classes'] = FALSE;
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['element_default_classes'] = FALSE;
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node_1']['id'] = 'edit_node_1';
+  $handler->display->display_options['fields']['edit_node_1']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node_1']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node_1']['label'] = '';
+  $handler->display->display_options['fields']['edit_node_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['edit_node_1']['alter']['text'] = '<i class="fa fa-cog"></i>
+<div class="edit">
+[edit_node]
+</div>';
+  $handler->display->display_options['fields']['edit_node_1']['element_type'] = 'div';
+  $handler->display->display_options['fields']['edit_node_1']['element_class'] = 'tabs';
+  $handler->display->display_options['fields']['edit_node_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node_1']['element_default_classes'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -85,15 +107,6 @@ function feneko_views_views_default_views() {
   $handler = $view->new_display('page', 'Page lever', 'page_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Levertijden';
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: levertijden */
-  $handler->display->display_options['fields']['field_levertijden']['id'] = 'field_levertijden';
-  $handler->display->display_options['fields']['field_levertijden']['table'] = 'field_data_field_levertijden';
-  $handler->display->display_options['fields']['field_levertijden']['field'] = 'field_levertijden';
-  $handler->display->display_options['fields']['field_levertijden']['label'] = '';
-  $handler->display->display_options['fields']['field_levertijden']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_levertijden']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_levertijden']['hide_empty'] = TRUE;
   $handler->display->display_options['path'] = 'levertijden';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Levertijden';
@@ -115,6 +128,28 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['field_klant_worden']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_klant_worden']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_klant_worden']['hide_empty'] = TRUE;
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['element_default_classes'] = FALSE;
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node_1']['id'] = 'edit_node_1';
+  $handler->display->display_options['fields']['edit_node_1']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node_1']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node_1']['label'] = '';
+  $handler->display->display_options['fields']['edit_node_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['edit_node_1']['alter']['text'] = '<i class="fa fa-cog"></i>
+<div class="edit">
+[edit_node]
+</div>';
+  $handler->display->display_options['fields']['edit_node_1']['element_type'] = 'div';
+  $handler->display->display_options['fields']['edit_node_1']['element_class'] = 'tabs';
+  $handler->display->display_options['fields']['edit_node_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node_1']['element_default_classes'] = FALSE;
   $handler->display->display_options['path'] = 'klant-worden';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Klant worden';
@@ -136,6 +171,28 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['field_verkoopsvoorwaarden']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_verkoopsvoorwaarden']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_verkoopsvoorwaarden']['hide_empty'] = TRUE;
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['element_default_classes'] = FALSE;
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node_1']['id'] = 'edit_node_1';
+  $handler->display->display_options['fields']['edit_node_1']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node_1']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node_1']['label'] = '';
+  $handler->display->display_options['fields']['edit_node_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['edit_node_1']['alter']['text'] = '<i class="fa fa-cog"></i>
+<div class="edit">
+[edit_node]
+</div>';
+  $handler->display->display_options['fields']['edit_node_1']['element_type'] = 'div';
+  $handler->display->display_options['fields']['edit_node_1']['element_class'] = 'tabs';
+  $handler->display->display_options['fields']['edit_node_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node_1']['element_default_classes'] = FALSE;
   $handler->display->display_options['path'] = 'verkoopsvoorwaarden';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Verkoopsvoorwaarden';
@@ -157,6 +214,25 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['field_disclaimer']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_disclaimer']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_disclaimer']['hide_empty'] = TRUE;
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['element_default_classes'] = FALSE;
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node_1']['id'] = 'edit_node_1';
+  $handler->display->display_options['fields']['edit_node_1']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node_1']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node_1']['label'] = '';
+  $handler->display->display_options['fields']['edit_node_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['edit_node_1']['alter']['text'] = '<i class="fa fa-cog"></i>
+<div class="edit">
+[edit_node]
+</div>';
+  $handler->display->display_options['fields']['edit_node_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['path'] = 'disclaimer';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Disclaimer';
@@ -1445,16 +1521,25 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = '';
-  $handler->display->display_options['fields']['edit_node']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['edit_node']['alter']['text'] = '<div class="edit-link">
-          <i class="fa fa-cog"></i>
-          <ul class="tabs primary">
-           <li>[edit_node] </li>
-</ul>        </div>';
+  $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
   $handler->display->display_options['fields']['edit_node']['element_type'] = 'div';
   $handler->display->display_options['fields']['edit_node']['element_class'] = 'edit-link';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['element_default_classes'] = FALSE;
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node_1']['id'] = 'edit_node_1';
+  $handler->display->display_options['fields']['edit_node_1']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node_1']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node_1']['label'] = '';
+  $handler->display->display_options['fields']['edit_node_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['edit_node_1']['alter']['text'] = '<i class="fa fa-cog"></i>
+<div class="edit">
+[edit_node]
+</div>';
+  $handler->display->display_options['fields']['edit_node_1']['element_type'] = 'div';
+  $handler->display->display_options['fields']['edit_node_1']['element_class'] = 'tabs';
+  $handler->display->display_options['fields']['edit_node_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node_1']['element_default_classes'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';

@@ -55,22 +55,41 @@ div.tabs {
   position: absolute;
   top: 0;
   right: 0;
+  a {
+    text-decoration: none;
+    display: block;
+    &:nth-child(2) {
+      display: inline-block;
+      background-color: white;
+      border: 1px solid black;
+      padding: 5px;
+    }
+  }
+  .edit {
+    display: none;
+  }
   .fa {
     position: relative;
     right: 0;
     display: none;
+    float: right;
+    color: grey!important;
     .page-node.not-front.logged-in &,
     .page-taxonomy.logged-in &,
-    .page-user.logged-in & {
+    .page-user.logged-in &,
+    .view-nieuws &,
+    .view-about & {
       display: block;
     }
-
     &.open {
       position: absolute;
     }
     &:before {
       font-size: 40px;
       cursor: pointer;
+      display: block;
+      right: 0;
+      position: relative;
     }
     &:hover {
       -webkit-animation-name: spin;
@@ -90,6 +109,18 @@ div.tabs {
       animation-iteration-count: 1;
       animation-timing-function: linear;
     }
+  }
+}
+
+div.edit-link {
+  .fa {
+    display: block;
+  }
+}
+
+.view-about {
+  div.tabs {
+    right: 50px;
   }
 }
 
