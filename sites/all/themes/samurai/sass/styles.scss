@@ -2,20 +2,17 @@
 
 @import "setup/normalize";
 
-//@import "grid/gridsettings";
+@import "grid/gridsettings";
 
 @import "setup/variables";
 
+@import "setup/grid";
+
 @import "mixins/customix";
-
-//@import "setup/grid";
-
-
 
 @import "setup/basic";
 
 @import "setup/forms";
-@import "setup/social";
 @import "setup/messages";
 @import "setup/search";
 @import "setup/pager";
@@ -23,5 +20,5 @@
 @import "setup/video";
 @import "setup/calendar";
 @import "setup/helper";
-@import "setup/table";
-@import "setup/colorbox";
+
+//@import "setup/test";

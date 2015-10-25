@@ -1,0 +1,97 @@
+body, #content {
+	width: 100%;
+	margin: 0;
+	float: none;
+	background: #fff url(none);
+	font-size: 14px;
+	color: black;
+	font-family: Arial, sans-serif;
+}
+
+* {
+	background-color: transparent!important;
+}
+
+.logo {
+	width: 30%;
+}
+
+.menu-container,
+#breadcrumb,
+.sidebar,
+#block-views-social-presence-block,
+img,
+.logo,
+#main_menu,
+.pager,
+.totop,
+.view-filters,
+#footer-footer,
+#toolbar,
+.fa,
+h1#site-name {
+	display: none!important;
+}
+
+#content {
+	margin-top: 10px;
+}
+
+h1,
+h2,
+h3 {
+	color: black;
+	width: 100%;
+	max-width: 100%;
+	display: block;
+	font-family: Arial, sans-serif;
+	font-weight: 600;
+}
+
+h1 a {
+	max-width: 100%!important;
+}
+
+h1 {
+	font-size: 24px;
+}
+
+h2 {
+	font-size: 20px;
+}
+
+h3 {
+	font-size: 18px;
+}
+
+a {
+	color: black;
+}
+
+table {
+	width: 100%;
+	border: 1px solid black;
+}
+
+thead {
+	color: black;
+}
+
+tfoot {
+	border-top: 2px solid black;
+}
+
+td,
+th {
+	border-right: 1px solid black;
+	padding: 5px;
+}
+
+th {
+	font-size: 14px;
+}
+
+tr.summary {
+	font-weight: bold;
+}
+

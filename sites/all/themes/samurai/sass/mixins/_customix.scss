@@ -46,13 +46,11 @@
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
 }
 
-@mixin full-size($backgroundColor) {
+%full {
   @include gridle ( 12 );
   position: relative;
-  background-color: $backgroundColor;
   &:before,
   &:after {
-    background-color: $backgroundColor;
     content: "";
     display: block;
     position: absolute;
@@ -71,7 +69,18 @@
   }
 }
 
-
+%button {
+  transition: background-color 0.5s ease;
+  border: 1px solid grey;
+  text-decoration: none;
+  display: inline-block;
+  padding: $padding/2 $padding;
+  height: $padding*3;
+  @include crisp;
+  a {
+    text-decoration: none;
+  }
+}
 
 %flex-youtube {
   height: 0;

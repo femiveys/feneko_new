@@ -86,9 +86,7 @@
 <?php print render($title_prefix); ?>
   <header class="node-header">
 
-    <?php if ($page) : ?>
-    <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
-    <?php endif; ?>
+
 
     <?php if ($teaser) : ?>
     <h2<?php print $title_attributes; ?>><?php print $title; ?></h2>

@@ -1,13 +1,11 @@
-/* COLORBOX
-><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
+/* UPDATE STATUS: updated for new samurai */
 
-
-$colorbox-background-color: black;
-$colorbox-box-background-color: white;
-$colorbox-text-color: black;
+$colorbox-background-color: $black;
+$colorbox-box-background-color: $white;
+$colorbox-text-color: $grey;
 $padding: 10px;
-$prev-next-color: white;
-$close-bacground-color: red;
+$prev-next-color: $white;
+$close-bacground-color: $red;
 
 #cboxOverlay,
 #cboxWrapper {
@@ -25,6 +23,7 @@ $close-bacground-color: red;
   button {
     border: none;
     background-color: transparent;
+    background-image: none;
     &:focus {
      outline: none;
     }
@@ -120,23 +119,31 @@ $close-bacground-color: red;
 
 #cboxCurrent {
   position: absolute;
-  right: $padding*2;
-  bottom: -$padding;
+  right: 20px;
+  bottom: -10px;
 }
 
 #cboxClose {
   position: absolute;
-  top: -$padding*2;
-  right: -$padding*2;
+  top: -20px;
+  right: -20px;
   &:before {
     content: "\f00d";
     border-radius: 50%;
-    font-size: $padding*3;
+    font-size: 30px;
     color: $prev-next-color;
     background-color: $close-bacground-color;
     width: $padding*4;
     height: $padding*4;
     line-height: $padding*3.8;
     display: block;
+  }
+}
+
+#cboxPrevious,
+#cboxNext {
+  &:before {
+    text-shadow: 0px 0px 4px $blue;
+    font-size: 32px;
   }
 }

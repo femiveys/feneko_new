@@ -1,11 +1,12 @@
-@import "setup/variables";
+
 @import "grid/gridsettings";
 @import "setup/grid";
-
+@import "setup/web-fonts";
+@import "setup/variables";
 @import "mixins/customix";
 @import "setup/grid";
-@import "setup/slideshow3";
+@import "setup/colorbox";
+//@import "setup/slideshow3";
 @import "setup/bem";
 
 @import "setup/basic";
-

@@ -1,21 +1,10 @@
-/* MESSAGES
-><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
-
-
-$status-color: green;
-$warning-color: orange;
-$error-color: red;
-
 
 %message {
-  border-width: 2px;
   padding: $padding ;
   background-position: $padding/2 50%;
   clear: both;
   margin: $padding*2 0;
-  color: white;
     &:before {
-      content: "\f05d";
       display: inline-block;
       font: normal normal normal 14px/1 FontAwesome;
       padding-right: $padding;
@@ -27,33 +16,33 @@ $error-color: red;
     }
 }
 
-
-
 div.messages {
+  overflow: hidden;
+  ul {
+    display: inline-table;
+  }
   @extend %message;
   &.status {
-    border-color: darken($status-color, 15%);
-    background-color: lighten($status-color, 60%);
-    color: $status-color;
+    border-color: darken(green, 15%);
+    background-color: green;
     background-image: none;
     &:before {
       content: "\f05d";
     }
   }
   &.warning {
-    border-color: darken($warning-color, 15%);
-    //background-color: $warning-color;
-    color: $warning-color;
+    border-color: darken(orange, 15%);
+    background-color: orange;
     background-image: none;
     &:before {
       content: "\f071";
     }
   }
   &.error {
-    border-color: darken($error-color, 15%);
-    //background-color: $error-color;
-    color: $error-color;
+    border-color: darken(red, 15%);
+    background-color: red;
     background-image: none;
+    color: white;
     &:before {
       content: "\f057";
     }

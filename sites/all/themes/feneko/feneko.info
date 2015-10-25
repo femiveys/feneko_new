@@ -23,4 +23,6 @@ regions[footer] = 'Footer'
 stylesheets[all][] = css/project.css
 stylesheets[print][] = css/print.css
 
-#scripts[] = js/scripts.js
+scripts[] = js/theme.js
+
+settings[shortcut_module_link] = 0

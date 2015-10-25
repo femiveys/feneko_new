@@ -94,9 +94,7 @@ endif;
       <?php if (!$page) : ?>
       <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>" rel="bookmark"><?php print $title; ?></a></h2>
     <?php endif; ?>
-    <?php if ($page) : ?>
-      <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
-    <?php endif; ?>
+
 
     <?php if ($display_submitted): ?>
     <div class="submitted">

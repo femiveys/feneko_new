@@ -32,6 +32,6 @@
  *
  */
 ?>
-<div id="<?php print $region; ?>" class="region">
+<section id="region-<?php print $region; ?>" class="region">
 <?php print $content; ?>
-</div>
+</section>

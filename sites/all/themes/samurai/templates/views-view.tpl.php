@@ -28,22 +28,7 @@
  */
 ?>
 <div class="<?php print $classes; ?>">
-  <?php print render($title_prefix); ?>
-  <?php if ( empty($title) ): ?>
-    <?php $title = $view->get_title(); ?>
-  <?php endif; ?>
-  <?php if ($title): ?>
-  <header class="node-header">
-    <h1 class="views-title"><?php print t($title)?></h1>
- </header>
-  <?php endif; ?>
-  <?php print render($title_suffix); ?>
 
-  <?php if ($header): ?>
-    <div class="view-header">
-      <?php print $header; ?>
-    </div>
-  <?php endif; ?>
 
   <?php if ($exposed): ?>
     <div class="view-filters">

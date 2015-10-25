@@ -1,7 +1,7 @@
 body {
   color: $black;
-  font-family: $main-font;
-  font-size: $main-font-size;
+  font-family: $textfont;
+  font-size: 16px;
 }
 
 a {
@@ -81,6 +81,7 @@ h2 a,
   color: $blue;
   font-weight: normal;
   font-weight: bold;
+  font-family: $titlefont;
 }
 
 h1,
@@ -102,7 +103,7 @@ h1 a,
 }
 
 .view-grouping-header {
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 
 .view-grouping-content .view-grouping-header {
@@ -256,13 +257,13 @@ div.messages {
 
 .view-front-image {
   img {
-      width: 100%;
-  display: block;
-  position: relative;
-  z-index: -1;
-  transition: 0.5s ease;
-  transform: translate3d(0, 0, 0);
-  transition-property: background-position;
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: -1;
+    transition: 0.5s ease;
+    transform: translate3d(0, 0, 0);
+    transition-property: background-position;
   }
 }
 
@@ -449,7 +450,6 @@ div.messages {
       margin: 40px auto;
     }
   }
-
   #block-menu-menu-footer-menu,
   .footer-block > div {
     display: block;
@@ -527,6 +527,21 @@ div.messages {
   }
 }
 
+.field-name-field-tel-field {
+  .field-item {
+    &:before {
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+      content: "\f095";
+      padding-right: 5px;
+    }
+  }
+}
 
 #block-menu-menu-footer-menu {
   @include gridle_state (max-tablet) {
@@ -586,11 +601,20 @@ div.messages {
       width: 100%;
       z-index: 99;
     }
+    .admin-menu & {
+      @include gridle_state (max-tablet) {
+        top: 100px;
+      }
+    }
+
   }
   &.cloned {
     -webkit-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
     box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
+    .admin-menu & {
+      padding-top: 30px;
+    }
   }
   li {
     @include gridle_state (min-desk){
@@ -599,6 +623,9 @@ div.messages {
   }
   #main_menu {
     margin: $padding*2 0;
+    @include gridle_state (max-tablet) {
+      display: none;
+    }
   }
   .menu {
     color: $white;
@@ -640,6 +667,10 @@ div.messages {
       }
     }
   }
+}
+
+#mainmenu-wrapper.show #main_menu {
+  display: block;
 }
 
 #block-system-user-menu {
@@ -691,6 +722,9 @@ div.messages {
   -webkit-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
   box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
+  .admin-menu.small & {
+    padding-top: 20px;
+  }
 }
 
 .small-block {
@@ -701,6 +735,7 @@ div.messages {
   @include linear-gradient(rgba(255,255,255,1), rgba(203,217,216,1));
   border-right: 1px solid $grey;
   color: $black;
+  float: left;
   @include gridle_state (max-mobile) {
     font-size: 0;
     .fa {
@@ -847,13 +882,18 @@ div.messages {
 
 .nieuws-rij {
   margin-bottom: $padding*3;
+  position: relative;
+  .edit-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
   .node-readmore {
     float: right;
   }
   h2 {
     font-size: 20px;
     @include gridle_state(min-desk) {
-      margin-bottom: $padding*3;
       height: 50px;
     }
   }
@@ -954,10 +994,12 @@ div.messages {
       }
     }
     .new {
+      vertical-align: top;
       @include gridle_state (min-desk) {
         -webkit-columns: 2; /* Chrome, Safari, Opera */
         -moz-columns: 2; /* Firefox */
         columns: 2;
+
       }
       @include gridle_state (min-full) {
         -webkit-columns: 3; /* Chrome, Safari, Opera */
@@ -975,6 +1017,7 @@ div.messages {
         margin-bottom: $padding*1.5;
       }
     }
+
   }
 }
 
@@ -1044,17 +1087,18 @@ div.messages {
 
 // NODE TYPES
 
-.node-type-product {
+.node-type-product,
+.page-taxonomy {
   #sidebar_second {
     @include gridle_state (max-tablet) {
       margin-top: 40px;
       width: 100%;
     }
   }
-  .field-name-field-images {
+  .first-col .field-name-field-images,
+  .term-listing-heading .field-name-field-product-category-image {
     .field-item {
       a {
-        //width: 85%;
         position: relative;
         display: block;
         overflow: hidden;
@@ -1124,11 +1168,12 @@ div.messages {
     margin-top: $padding*3;
     overflow: hidden;
     border: 1px solid $black;
-    border-radius: $padding/2;
+    border-radius: 3px;
     padding: $padding;
     p {
-      float: left;
-      padding-top: $padding;
+      display: table-cell;
+vertical-align: middle;
+width: 100%;
     }
   }
 }
@@ -1151,7 +1196,7 @@ div.messages {
     margin-top: 20px;
     @extend %button;
     background-color: darken($orange, 5%);
-    border-radius: 5px;
+    border-radius: 3px;
     padding: $padding;
     text-transform: lowercase;
     &:first-letter {
@@ -1206,10 +1251,10 @@ div.messages {
 
     li {
       a {
-        background-color: $white;
-        color: $lightgrey;
+        background-color: $lightgrey;
+        color: $white;
         &:hover {
-          background-color: $blue;
+          background-color: $grey;
         }
       }
 
@@ -1223,7 +1268,7 @@ div.messages {
           border-bottom: none;
         }
         strong {
-          color: $orange;
+          color: $white;
         }
         a {
           background-color: $blue;
@@ -1340,7 +1385,9 @@ div.horizontal-tabs {
 
 
 .view-feneko-shopping-cart-block,
-.view-commerce-cart-form-feneko {
+.view-commerce-cart-form-feneko,
+#commerce-checkout-form-checkout,
+.page-checkout {
   table {
     width: 100%;
     border-collapse: separate;
@@ -1352,12 +1399,24 @@ div.horizontal-tabs {
       background-color: $lightgrey;
       border: none;
       color: $black;
+      &.pane-title {
+        background-color: transparent;
+        font-size: 24px;
+        color: $orange;
+      }
+      &.pane-title td {
+        padding-left: 0;
+        padding-top: 20px;
+        padding-bottom: 10px;
+      }
+      &.pane-data td {
+        padding: 10px;
+      }
     }
 
   }
   td {
     font-weight: bold;
-    cursor: pointer;
   }
   .node-header h1,
   .line-item-summary-view-cart  {
@@ -1376,6 +1435,7 @@ div.horizontal-tabs {
       font-size: 36px;
       clear: both;
       margin-top: 4px;
+      padding: 15px;
     }
   }
   .node-header {
@@ -1383,7 +1443,8 @@ div.horizontal-tabs {
   }
   input[type="submit"] {
     &#edit-submit,
-    &#edit-submit--2 {
+    &#edit-submit--2,
+    &.checkout-cancel {
       background: transparent;
       text-decoration: underline;
       color: $blue;
@@ -1402,15 +1463,15 @@ div.horizontal-tabs {
   }
   .node-header h1 {
     color: $white;
-    font-size: $main-font-size;
+    font-size: 16px;
     float: right;
-    font-family: $main-font;
+    font-family: $textfont;
     font-weight: normal;
     margin: 0;
     margin-top: -40px;
     &:after {
       font-size: 16px;
-      padding-left: $padding;
+      padding: 0 0 0 15px;
     }
     &:hover {
       color: $lightblue;
@@ -1495,6 +1556,84 @@ div.horizontal-tabs {
     padding-top: $padding*1.5;
     line-height: 150%;
   }
+}
+
+.view-commerce-cart-form-feneko {
+  table {
+    border-collapse: separate;
+    border-spacing: 0 2.5em;
+  }
+    tbody {
+      tr {
+        position: relative;
+        &:before {
+          content: attr(data-before);
+          position:absolute;
+          margin-top: -25px;
+          font-weight: 700;
+          font-size: 18px;
+          color: $blue;
+        }
+      }
+
+      }
+      thead {
+        tr {
+          border-bottom: 2px solid $darkgrey;
+        }
+      }
+      tbody,
+      thead {
+        tr td,
+        tr th {
+        &:nth-child(1) {
+            display: none;
+          }
+        }
+      }
+      .views-field-detail {
+        float: left;
+        padding: 5px;
+      }
+      td .delete-line-item  {
+        font-size: 0!important;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        border-radius: 50%;
+        &:hover {
+          background-color: rgba(5, 0, 0, 0.2)
+        }
+      }
+      td.views-field-edit-delete {
+        font: normal normal normal 14px/1 FontAwesome;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transform: translate(0, 0);
+        font-size: 0;
+
+      }
+      td.views-field-edit-delete:before {
+        content: "\f00d";
+        font-size: 30px;
+        color: white;
+        line-height: 38px;
+        display: block;
+        margin-bottom: -40px;
+        margin-left: 0px;
+        z-index: -1;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: block;
+        background-color: $red;
+        text-align: center;
+      }
+    }
+
+.form-disabled input {
+  background-color: $lightgrey;
 }
 
 // taxonomy
@@ -1765,6 +1904,10 @@ $contact: #f7941d;
 // manyform table
 
 #manyforms-form {
+  .sticky-header {
+    top: 90px!important;
+    z-index: 9;
+  }
   .help {
     &:before {
       content: "\f059";
@@ -1784,8 +1927,14 @@ $contact: #f7941d;
       color: $grey;
     }
   }
+  .form-wrapper input[type="text"] {
+    width: auto;
+    display: inline;
+  }
   caption {
     text-align: left;
+    margin-top: 30px;
+    margin-bottom: 20px;
     .text {
       display: none;
       border: 2px solid $blue;
@@ -1801,7 +1950,6 @@ $contact: #f7941d;
       background-color: $lightgrey;
     }
   }
-
   .form-type-radio {
       float: left;
       margin-right: $padding;
@@ -1817,6 +1965,8 @@ $contact: #f7941d;
     input[type=submit] {
       clear: both;
       display: block;
+      float: left;
+      font-size: 18px;
     }
 
 
@@ -1831,7 +1981,6 @@ $contact: #f7941d;
       top: -9999px!important;
       left: -9999px!important;
     }
-
     caption {
       display: block;
     }
@@ -1843,14 +1992,14 @@ $contact: #f7941d;
       border-bottom: 1px solid #eee;
       position: relative;
       padding-left: 50%;
+      height: 32px;
       &[data-before="opmerking"] {
         border: none;
       }
     }
-
     td:before {
       position: absolute;
-      top: 15px;
+      top: 10px;
       left: 6px;
       width: 45%;
       padding-right: 10px;
@@ -1910,6 +2059,9 @@ $contact: #f7941d;
   }
 }
 
+input {
+  width: auto;
+}
 
 // CK editor styles
 

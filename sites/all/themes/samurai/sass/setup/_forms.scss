@@ -49,7 +49,7 @@ input[type="week"],
 textarea,
 select,
 .select {
-  border: 1px solid black;
+  border: 1px, solid, black;
   display: block;
   width: 100%;
   padding: $padding/2;
@@ -85,37 +85,13 @@ input[type="time"],
 input[type="week"],
 select,
 .select {
-  height: $padding*3;
+  height: $padding*1,5;
   border: 1px solid darkgrey;
   background-color: white;
 }
 
 textarea {
   max-width: 100%;
-}
-
-select,
-.select {
-  //-webkit-appearance: none !important;
-  -webkit-border-radius: 0;
-  //cursor: pointer;
-  width: 100%;
-  //background-image: url(../img/arrow-select.png);
-  //background-repeat: no-repeat;
-  //background-position: 100% 50%;
-  &:focus {
-    outline: none;
-    -webkit-appearance: none;
-  }
-}
-
-select {
-  //opacity: 0;
-}
-
-.select {
-  margin-top: -$padding*3;
-  opacity: 1;
 }
 
 .form-item-date {
@@ -147,6 +123,7 @@ input[type=radio] {}
 
 input[type="submit"],
 #edit-cancel {
+  @extend %button;
   -webkit-appearance: none;
   height: $padding*3;
   margin-right: $padding/2;
@@ -197,12 +174,14 @@ input[type="file"]:focus {
   outline: none;
 }
 
-
+.button {
+  @extend %button;
+}
 
 
 
 html.js input.form-autocomplete {
-  background-position: 100% 9px;
+  background-position: 99% 9px;
 }
 
 html.js input.throbbing {

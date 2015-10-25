@@ -1,7 +1,6 @@
 $black: #323232;
 $white: #ffffff;
 
-
 $whitetrans: rgba(254, 254, 254, 0.8);
 $blacktrans: rgba(0,0,0,0.7);
 $grey: #c7c7c7;
@@ -30,10 +29,13 @@ $textcolor: $black;
 
 $padding: 10px;
 
-$main-font: "Raleway", verdana, sans-serif;
-//$main-font-light: verdana, Arial, sans-serif;
-//$main-font-bold: verdana, Arial, sans-serif;
+// FONTS
+// https://github.com/penman/Sass-Web-Fonts
+$web-fonts-protocol: "https";
 
-$titel-font: "Times New Roman", Times, serif;
+@include web-fonts("Raleway");
 
-$main-font-size: 16px;
+$textfont: 'Raleway', serif;
+$titlefont: 'Raleway', serif;
+$menufont: 'Raleway', serif;
+

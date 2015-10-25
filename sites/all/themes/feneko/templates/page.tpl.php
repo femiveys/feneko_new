@@ -36,9 +36,7 @@
   </div>
 </div><!--menu-small-->
 
-</div>
-
-
+</div><!--mobile-header-->
 
 <?php if ($page['user_menu']): ?>
   <div id="usermenu-wrapper" class="wrapper">
@@ -75,7 +73,6 @@
 </div> <!-- #header-wrapper -->
 
 
-
 <?php if ($page['main_menu']): ?>
   <div id="mainmenu-wrapper" class="wrapper">
     <div class="inner-wrapper">
@@ -108,40 +105,56 @@
 <?php endif; ?>
 
 
-
   <?php if ($action_links): ?>
       <ul class="action-links"><?php print render($action_links); ?></ul>
-    <?php endif; ?>
+  <?php endif; ?>
 
-
+  <?php if ($messages) : ?>
+    <?php print $messages; ?>
+  <?php endif; ?>
 
 <div id="main-wrapper" class="wrapper">
   <div class="inner-wrapper">
 
-    <?php if ($page['sidebar_first']): ?>
-      <?php print render($page['sidebar_first']); ?>
-    <?php endif; ?>
-
-    <section id="main-content">
-      <?php if ($messages) : ?>
-        <?php print $messages; ?>
+    <div id="content">
+      <a id="main-content"></a>
+      <?php print render($title_prefix); ?>
+      <?php if ($title): ?>
+        <h1 class="title" id="page-title">
+          <?php print $title; ?>
+        </h1>
       <?php endif; ?>
+      <?php print render($title_suffix); ?>
+
       <?php if ($tabs): ?>
+
         <div class="tabs">
+          <i class="fa fa-cog"></i>
           <?php print render($tabs); ?>
         </div>
       <?php endif; ?>
+      <?php print render($page['help']); ?>
+      <?php if ($action_links): ?>
+        <ul class="action-links">
+          <?php print render($action_links); ?>
+        </ul>
+      <?php endif; ?>
+      <?php if ($page['sidebar_first']): ?>
+      <?php print render($page['sidebar_first']); ?>
+    <?php endif; ?>
 
       <?php print render($page['content']); ?>
-    </section>
+
+    </div> <!-- /.div, /#content -->
+
+
 
     <?php if ($page['sidebar_second']): ?>
       <?php print render($page['sidebar_second']); ?>
     <?php endif; ?>
 
-  </div> <!-- .inner-wrapper -->
+      </div> <!-- .inner-wrapper -->
 </div> <!-- #main-wrapper -->
-
 
 <?php if ($page['front_block']): ?>
   <div id="frontblock-wrapper" class="wrapper">
@@ -167,8 +180,6 @@
   </div> <!-- #bottomblock-wrapper -->
 <?php endif; ?>
 
-
-
 <?php if ($page['footer']): ?>
   <footer id="footer-footer" class="footer wrapper">
     <div class="inner-wrapper">
@@ -176,9 +187,6 @@
     </div> <!-- .inner-wrapper -->
   </footer>
 <?php endif; ?>
-
-
-
 
 <?php if(isset($closure)){print $closure;} ?>
 

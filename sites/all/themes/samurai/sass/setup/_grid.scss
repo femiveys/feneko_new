@@ -1,132 +1,197 @@
 #wrapper {
 	@include gridle_container ( );
-	@include gridle_state (min-tablet) {
-		max-width : 90%;
-	}
-
-	margin : 0 auto;
-	@include gridle_no_gutter (max-mobile);
+    max-width : 90%;
+    margin : 0 auto;
 }
 
 #main-header {
-	@include gridle ( 12 );
-	@include gridle_parent ( );
-
+	@include gridle_no_gutter ();
+	@include gridle_grid ( 12 );
 }
 
 #header {
-	@include gridle ( 12 );
-
+	@include gridle_no_gutter ();
+	@include gridle_grid ( 12 );
 }
 
 .logo {
-	@include gridle ( 12, max-tablet );
-	@include gridle ( 6, min-tablet );
-
+	@include gridle_no_gutter ();
+	@include gridle_state(max-tablet) {
+		@include gridle_grid (12);
+	}
+	@include gridle_state(min-mobile) {
+		@include gridle_grid (6);
+	}
 }
 
 #site-name {
-	@include gridle ( 12, max-tablet );
-	@include gridle ( 6, min-tablet );
-
+	@include gridle_no_gutter ();
+	@include gridle_state(max-tablet) {
+		@include gridle_grid (12);
+	}
+	@include gridle_state(min-mobile) {
+		@include gridle_grid (6);
+	}
 }
 
 #main_menu {
-	@include gridle ( 12 );
-	.fixed & {
-		position: fixed;
-		left: 0;
-		z-index: 99;
-		background-color: white;
-		.menu {
-			margin: 0 auto;
-			width: 90%;
-			z-index: 99999;
+	@include gridle_no_gutter ();
+	@include gridle_grid ( 12 );
+}
+
+#region-breadcrumb {
+	@include gridle_no_gutter ();
+	@include gridle_grid ( 12 );
+}
+
+#content {
+	clear: both;
+	//@include gridle_no_gutter ();
+	@include gridle_float ( left );
+	@include gridle_state(max-mobile) {
+		@include gridle_grid (12);
+	}
+	.one-sidebar & {
+		//@include gridle_no_gutter ();
+		@include gridle_state(max-tablet) {
+			@include gridle_grid (12);
+		}
+		@include gridle_state(only-desk) {
+			@include gridle_grid (8);
+		}
+		@include gridle_state(min-full) {
+			@include gridle_grid (9);
+		}
+	}
+	.one-sidebar.sidebar-first & {
+		//@include gridle_no_gutter ();
+		@include gridle_state(only-desk) {
+			@include gridle_push (4);
+		}
+		@include gridle_state(min-full) {
+			@include gridle_push (3);
+		}
+		@include gridle_state (max-tablet) {
+			@include gridle_no_gutter();
+		}
+		@include gridle_state(min-desk) {
+			@include gridle_no_gutter (right);
+		}
+	}
+	.one-sidebar.sidebar-second & {
+		@include gridle_state (max-tablet) {
+			@include gridle_no_gutter();
+		}
+		@include gridle_state(min-desk) {
+			@include gridle_no_gutter (left);
 		}
 
 	}
-}
-
-#breadcrumb {
-	@include gridle ( 12 );
-
-}
-
-#full_size {
-	@include full-size (red)
-}
-
-#triple {
-	@include gridle ( 12 );
-	@include gridle_parent ( );
-	.block {
-		@include gridle ( 12, max-mobile);
-		@include gridle ( 6, only-tablet );
-		@include gridle ( 4, min-desk );
-		//@include gridle_no_gutter();
-	}
-
-}
-
-#main-content {
-	@include gridle ( 12, max-mobile);
-	.one-sidebar & {
-		@include gridle ( 8, only-desk);
-		@include gridle (9, min-full);
-	}
-	.one-sidebar.sidebar-first & {
-		@include gridle_pull (4, only-desk);
-		@include gridle_pull (3, min-full);
-	}
 	.two-sidebars & {
-		@include gridle ( 6, min-desk );
+		//@include gridle_no_gutter ();
+		@include gridle_state (max-mobile) {
+			@include gridle_no_gutter();
+		}
+		@include gridle_state (only-tablet) {
+			@include gridle_no_gutter(left);
+		}
+		@include gridle_state(only-tablet) {
+			@include gridle_grid(8);
+		}
+		@include gridle_state(min-desk) {
+			@include gridle_push(3);
+			@include gridle_grid(6);
+		}
 	}
-	.no-sidebars & {
-		@include gridle ( 12 );
-	}
-
-	#content {
-		clear: both;
-	}
-
 }
 
 aside.sidebar {
-	@include gridle ( 12, max-mobile);
+	@include gridle_no_gutter ();
+	@include gridle_float ( left );
+	@include gridle_state(max-mobile) {
+		@include gridle_grid (12);
+	}
 	.one-sidebar &,
 	.two-sidebars & {
-		@include gridle ( 3, min-full );
+		@include gridle_no_gutter ();
+		@include gridle_state(min-full) {
+			@include gridle_grid (3);
+		}
 	}
 	.one-sidebar & {
-		@include gridle ( 12, max-tablet);
-		@include gridle ( 4, only-desk);
-		@include gridle ( 3, min-full);
+		@include gridle_no_gutter ();
+		@include gridle_state(max-tablet) {
+			@include gridle_grid (12);
+		}
+		@include gridle_state(only-desk) {
+			@include gridle_grid (4);
+		}
+		@include gridle_state(min-full) {
+			@include gridle_grid (3);
+		}
 	}
 	.one-sidebar.sidebar-first & {
-		@include gridle_push (8, only-desk);
-		@include gridle_push (9, min-full);
+		@include gridle_no_gutter ();
+		@include gridle_state(only-desk) {
+			@include gridle_grid (4);
+			@include gridle_pull (8);
+		}
+		@include gridle_state(min-full) {
+			@include gridle_grid (3);
+			@include gridle_pull (9);
+		}
+		//@include gridle_pull (9, min-full);
 	}
+
+}
+
+aside#sidebar_first {
 	.two-sidebars & {
-		@include gridle ( 6, only-tablet only-desk );
+		@include gridle_no_gutter ();
+		@include gridle_state(only-tablet) {
+			@include gridle_grid(4);
+		}
+		@include gridle_state(min-desk) {
+			@include gridle_grid(3);
+			@include gridle_pull (6);
+		}
 	}
-
-
 }
 
-aside#sidebar_first {}
-
-aside#sidebar_second {}
-
-.footer {
-	@include gridle ( 12 );
-
+aside#sidebar_second {
+	.two-sidebars & {
+		@include gridle_no_gutter ();
+		@include gridle_state(only-tablet) {
+			@include gridle_grid (12);
+		}
+		@include gridle_state(min-desk) {
+			@include gridle_grid(3);
+		}
+	}
 }
 
-#pre-footer {}
+#region-cover {
+	@include gridle_no_gutter ();
+	@include gridle_grid ( 12 );
+}
 
-#footer {}
+#region-slideshow {
+	@include gridle_no_gutter ();
+	@include gridle_grid ( 12 );
+}
+
+#region-highlighted {
+	@include gridle_no_gutter ();
+	@include gridle_grid ( 12 );
+}
+
+
+#footer {
+	@include gridle_no_gutter();
+	@include gridle_grid(12);
+}
 
 .totop {
-	@include gridle ( 12 );
-
+	@include gridle_no_gutter ();
+	@include gridle_grid ( 12 );
 }
