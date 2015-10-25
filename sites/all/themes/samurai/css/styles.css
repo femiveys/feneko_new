@@ -911,12 +911,27 @@ div.tabs {
   top: 0;
   right: 0;
 }
+div.tabs a {
+  text-decoration: none;
+  display: block;
+}
+div.tabs a:nth-child(2) {
+  display: inline-block;
+  background-color: white;
+  border: 1px solid black;
+  padding: 5px;
+}
+div.tabs .edit {
+  display: none;
+}
 div.tabs .fa {
   position: relative;
   right: 0;
   display: none;
+  float: right;
+  color: grey !important;
 }
-.page-node.not-front.logged-in div.tabs .fa, .page-taxonomy.logged-in div.tabs .fa, .page-user.logged-in div.tabs .fa {
+.page-node.not-front.logged-in div.tabs .fa, .page-taxonomy.logged-in div.tabs .fa, .page-user.logged-in div.tabs .fa, .view-nieuws div.tabs .fa, .view-about div.tabs .fa {
   display: block;
 }
 div.tabs .fa.open {
@@ -925,6 +940,9 @@ div.tabs .fa.open {
 div.tabs .fa:before {
   font-size: 40px;
   cursor: pointer;
+  display: block;
+  right: 0;
+  position: relative;
 }
 div.tabs .fa:hover {
   -webkit-animation-name: spin;
@@ -943,6 +961,14 @@ div.tabs .fa:hover {
   animation-duration: 400ms;
   animation-iteration-count: 1;
   animation-timing-function: linear;
+}
+
+div.edit-link .fa {
+  display: block;
+}
+
+.view-about div.tabs {
+  right: 50px;
 }
 
 @-ms-keyframes spin {
