@@ -16,15 +16,22 @@
       $(this).addClass('over');
     });
 
-    // TOTOP LINK SCROLL
+    // scroll to top link
     var topLink = $('.totop');
     var showTopLink = 500;
     topLink.hide();
 
-    $(window).scroll( function(){
+    var scrollbarTimeout;
+
+    $(window).scroll(function() {
       var y = $(window).scrollTop();
       if( y > showTopLink  ) {
-        topLink.fadeIn('slow');
+        topLink.fadeIn();
+        clearTimeout(scrollbarTimeout);
+        scrollbarTimeout = setTimeout(function()
+        {
+          topLink.fadeOut();
+        }, 1000);
       } else {
         topLink.fadeOut('slow');
       }
