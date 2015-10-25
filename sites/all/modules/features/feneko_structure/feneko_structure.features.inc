@@ -95,6 +95,15 @@ function feneko_structure_image_default_styles() {
   $styles['force_square_medium'] = array(
     'label' => 'force square medium',
     'effects' => array(
+      6 => array(
+        'name' => 'image_crop',
+        'data' => array(
+          'width' => 220,
+          'height' => 220,
+          'anchor' => 'center-center',
+        ),
+        'weight' => -10,
+      ),
       5 => array(
         'name' => 'image_scale',
         'data' => array(
@@ -102,14 +111,15 @@ function feneko_structure_image_default_styles() {
           'height' => '',
           'upscale' => 1,
         ),
-        'weight' => -10,
+        'weight' => -9,
       ),
-      6 => array(
-        'name' => 'image_crop',
+      14 => array(
+        'name' => 'canvasactions_file2canvas',
         'data' => array(
-          'width' => 220,
-          'height' => 220,
-          'anchor' => 'center-center',
+          'xpos' => 'right',
+          'ypos' => 'bottom',
+          'alpha' => 100,
+          'path' => 'sites/all/themes/feneko/img/feneko.png',
         ),
         'weight' => -8,
       ),
@@ -120,7 +130,7 @@ function feneko_structure_image_default_styles() {
           'height' => 220,
           'upscale' => 1,
         ),
-        'weight' => 3,
+        'weight' => -7,
       ),
     ),
   );
@@ -136,7 +146,7 @@ function feneko_structure_image_default_styles() {
           'height' => '',
           'upscale' => 1,
         ),
-        'weight' => 1,
+        'weight' => -10,
       ),
       10 => array(
         'name' => 'image_scale',
@@ -145,7 +155,7 @@ function feneko_structure_image_default_styles() {
           'height' => 200,
           'upscale' => 1,
         ),
-        'weight' => 2,
+        'weight' => -9,
       ),
       11 => array(
         'name' => 'image_crop',
@@ -154,7 +164,17 @@ function feneko_structure_image_default_styles() {
           'height' => 150,
           'anchor' => 'center-center',
         ),
-        'weight' => 3,
+        'weight' => -8,
+      ),
+      15 => array(
+        'name' => 'canvasactions_file2canvas',
+        'data' => array(
+          'xpos' => 'right',
+          'ypos' => 'bottom',
+          'alpha' => 100,
+          'path' => 'sites/all/themes/feneko/img/feneko.png',
+        ),
+        'weight' => -7,
       ),
     ),
   );
@@ -186,6 +206,16 @@ function feneko_structure_image_default_styles() {
         ),
         'weight' => 1,
       ),
+      16 => array(
+        'name' => 'canvasactions_file2canvas',
+        'data' => array(
+          'xpos' => 'right',
+          'ypos' => 'bottom',
+          'alpha' => 100,
+          'path' => 'sites/all/themes/feneko/img/feneko.png',
+        ),
+        'weight' => 2,
+      ),
     ),
   );
 
@@ -200,6 +230,16 @@ function feneko_structure_image_default_styles() {
           'height' => 150,
         ),
         'weight' => 1,
+      ),
+      19 => array(
+        'name' => 'canvasactions_file2canvas',
+        'data' => array(
+          'xpos' => 'right',
+          'ypos' => 'bottom',
+          'alpha' => 100,
+          'path' => 'sites/all/themes/feneko/img/feneko.png',
+        ),
+        'weight' => 2,
       ),
     ),
   );

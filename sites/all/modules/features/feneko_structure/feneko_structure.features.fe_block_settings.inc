@@ -149,7 +149,7 @@ sollicitez',
         'weight' => -17,
       ),
     ),
-    'title' => '',
+    'title' => '<none>',
     'visibility' => 0,
   );
 
@@ -371,7 +371,7 @@ sollicitez',
         'weight' => -19,
       ),
     ),
-    'title' => '<none>',
+    'title' => '',
     'visibility' => 1,
   );
 

@@ -51,6 +51,5 @@ function feneko_structure_menu_default_menu_custom() {
   t('User menu');
   t('Waarom kiezen voor FenekO?');
 
-
   return $menus;
 }

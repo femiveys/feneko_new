@@ -10,7 +10,7 @@
 function feneko_structure_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: main-menu_home:<front>
+  // Exported menu link: main-menu_home:<front>.
   $menu_links['main-menu_home:<front>'] = array(
     'menu_name' => 'main-menu',
     'link_path' => '<front>',
@@ -33,7 +33,7 @@ function feneko_structure_menu_default_menu_links() {
     'language' => 'und',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: main-menu_jobs:jobs
+  // Exported menu link: main-menu_jobs:jobs.
   $menu_links['main-menu_jobs:jobs'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'jobs',
@@ -56,7 +56,7 @@ function feneko_structure_menu_default_menu_links() {
     'language' => 'und',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: main-menu_nieuws:nieuws
+  // Exported menu link: main-menu_nieuws:nieuws.
   $menu_links['main-menu_nieuws:nieuws'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'nieuws',
@@ -79,7 +79,7 @@ function feneko_structure_menu_default_menu_links() {
     'language' => 'und',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: main-menu_producten:onze-producten
+  // Exported menu link: main-menu_producten:onze-producten.
   $menu_links['main-menu_producten:onze-producten'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'onze-producten',
@@ -102,7 +102,7 @@ function feneko_structure_menu_default_menu_links() {
     'language' => 'und',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: menu-waarom-feneko_onze-machines:machines
+  // Exported menu link: menu-waarom-feneko_onze-machines:machines.
   $menu_links['menu-waarom-feneko_onze-machines:machines'] = array(
     'menu_name' => 'menu-waarom-feneko',
     'link_path' => 'machines',
@@ -125,7 +125,7 @@ function feneko_structure_menu_default_menu_links() {
     'language' => 'nl',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: menu-waarom-feneko_onze-producten-colors--screens:onze-producten
+  // Exported menu link: menu-waarom-feneko_onze-producten-colors--screens:onze-producten.
   $menu_links['menu-waarom-feneko_onze-producten-colors--screens:onze-producten'] = array(
     'menu_name' => 'menu-waarom-feneko',
     'link_path' => 'onze-producten',
@@ -148,7 +148,7 @@ function feneko_structure_menu_default_menu_links() {
     'language' => 'nl',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: user-menu_klantenzone:user/login
+  // Exported menu link: user-menu_klantenzone:user/login.
   $menu_links['user-menu_klantenzone:user/login'] = array(
     'menu_name' => 'user-menu',
     'link_path' => 'user/login',
@@ -171,7 +171,7 @@ function feneko_structure_menu_default_menu_links() {
     'language' => 'und',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: user-menu_log-out:user/logout
+  // Exported menu link: user-menu_log-out:user/logout.
   $menu_links['user-menu_log-out:user/logout'] = array(
     'menu_name' => 'user-menu',
     'link_path' => 'user/logout',

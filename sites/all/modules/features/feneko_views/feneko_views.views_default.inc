@@ -414,7 +414,9 @@ function feneko_views_views_default_views() {
 [field_e_mail] 
 </div>
 <div class="cl">
-<i class="fa fa-fax"></i> [field_fax]
+<div class="field-name-field-label">Fax</div>
+<i class="fa fa-fax"></i>
+ [field_fax]
 </div>
 </div>';
   $handler->display->display_options['fields']['field_fax']['element_label_colon'] = FALSE;
@@ -1438,6 +1440,21 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['view_node']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['view_node']['text'] = 'Meer lezen';
+  /* Field: Content: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['edit_node']['alter']['text'] = '<div class="edit-link">
+          <i class="fa fa-cog"></i>
+          <ul class="tabs primary">
+           <li>[edit_node] </li>
+</ul>        </div>';
+  $handler->display->display_options['fields']['edit_node']['element_type'] = 'div';
+  $handler->display->display_options['fields']['edit_node']['element_class'] = 'edit-link';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['element_default_classes'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';

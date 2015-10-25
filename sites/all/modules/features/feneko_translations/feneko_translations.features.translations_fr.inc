@@ -163,6 +163,15 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Nieuws', array(), array('context' => ''));
+  $translations['fr:default']['e927095211969d0db2e3d18e154c1be7'] = array(
+    'source' => 'aantal',
+    'context' => '',
+    'location' => 'forms/FenekoForm.php:527',
+    'translation' => 'nombre',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('aantal', array(), array('context' => ''));
   $translations['fr:default']['ea22a9e38ce6daabf42557163ec3f009'] = array(
     'source' => 'Naam',
     'context' => '',

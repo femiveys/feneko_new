@@ -10,7 +10,7 @@
 function feneko_structure_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'entityform-contact-field_e_mail_contact'
+  // Exported field_instance: 'entityform-contact-field_e_mail_contact'.
   $field_instances['entityform-contact-field_e_mail_contact'] = array(
     'bundle' => 'contact',
     'default_value' => NULL,
@@ -44,7 +44,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-contact-field_naam'
+  // Exported field_instance: 'entityform-contact-field_naam'.
   $field_instances['entityform-contact-field_naam'] = array(
     'bundle' => 'contact',
     'default_value' => NULL,
@@ -79,7 +79,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-contact-field_uw_vraag'
+  // Exported field_instance: 'entityform-contact-field_uw_vraag'.
   $field_instances['entityform-contact-field_uw_vraag'] = array(
     'bundle' => 'contact',
     'default_value' => NULL,
@@ -114,7 +114,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-solliciteer-field_c_v_'
+  // Exported field_instance: 'entityform-solliciteer-field_c_v_'.
   $field_instances['entityform-solliciteer-field_c_v_'] = array(
     'bundle' => 'solliciteer',
     'deleted' => 0,
@@ -151,7 +151,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-solliciteer-field_e_mail_contact'
+  // Exported field_instance: 'entityform-solliciteer-field_e_mail_contact'.
   $field_instances['entityform-solliciteer-field_e_mail_contact'] = array(
     'bundle' => 'solliciteer',
     'default_value' => NULL,
@@ -185,7 +185,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-solliciteer-field_gewenste_functie'
+  // Exported field_instance: 'entityform-solliciteer-field_gewenste_functie'.
   $field_instances['entityform-solliciteer-field_gewenste_functie'] = array(
     'bundle' => 'solliciteer',
     'default_value' => NULL,
@@ -220,7 +220,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-solliciteer-field_motivatie'
+  // Exported field_instance: 'entityform-solliciteer-field_motivatie'.
   $field_instances['entityform-solliciteer-field_motivatie'] = array(
     'bundle' => 'solliciteer',
     'default_value' => NULL,
@@ -255,7 +255,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-solliciteer-field_naam'
+  // Exported field_instance: 'entityform-solliciteer-field_naam'.
   $field_instances['entityform-solliciteer-field_naam'] = array(
     'bundle' => 'solliciteer',
     'default_value' => NULL,
@@ -290,7 +290,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'entityform-solliciteer-field_uw_tel'
+  // Exported field_instance: 'entityform-solliciteer-field_uw_tel'.
   $field_instances['entityform-solliciteer-field_uw_tel'] = array(
     'bundle' => 'solliciteer',
     'default_value' => NULL,
@@ -326,7 +326,7 @@ function feneko_structure_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_social_follow-field_contact'
+  // 'field_collection_item-field_social_follow-field_contact'.
   $field_instances['field_collection_item-field_social_follow-field_contact'] = array(
     'bundle' => 'field_social_follow',
     'default_value' => NULL,
@@ -379,7 +379,7 @@ function feneko_structure_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_social_follow-field_facebook'
+  // 'field_collection_item-field_social_follow-field_facebook'.
   $field_instances['field_collection_item-field_social_follow-field_facebook'] = array(
     'bundle' => 'field_social_follow',
     'default_value' => NULL,
@@ -432,7 +432,7 @@ function feneko_structure_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'field_collection_item-field_social_follow-field_twitter'
+  // 'field_collection_item-field_social_follow-field_twitter'.
   $field_instances['field_collection_item-field_social_follow-field_twitter'] = array(
     'bundle' => 'field_social_follow',
     'default_value' => NULL,
@@ -484,7 +484,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_tel-field_caption'
+  // Exported field_instance: 'field_collection_item-field_tel-field_caption'.
   $field_instances['field_collection_item-field_tel-field_caption'] = array(
     'bundle' => 'field_tel',
     'default_value' => NULL,
@@ -519,7 +519,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_tel-field_label'
+  // Exported field_instance: 'field_collection_item-field_tel-field_label'.
   $field_instances['field_collection_item-field_tel-field_label'] = array(
     'bundle' => 'field_tel',
     'default_value' => NULL,
@@ -554,7 +554,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_tel-field_tel_field'
+  // Exported field_instance: 'field_collection_item-field_tel-field_tel_field'.
   $field_instances['field_collection_item-field_tel-field_tel_field'] = array(
     'bundle' => 'field_tel',
     'default_value' => NULL,
@@ -589,7 +589,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'file-image-field_file_image_alt_text'
+  // Exported field_instance: 'file-image-field_file_image_alt_text'.
   $field_instances['file-image-field_file_image_alt_text'] = array(
     'bundle' => 'image',
     'default_value' => NULL,
@@ -654,7 +654,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'file-image-field_file_image_title_text'
+  // Exported field_instance: 'file-image-field_file_image_title_text'.
   $field_instances['file-image-field_file_image_title_text'] = array(
     'bundle' => 'image',
     'default_value' => NULL,
@@ -719,7 +719,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-article-body'
+  // Exported field_instance: 'node-article-body'.
   $field_instances['node-article-body'] = array(
     'bundle' => 'article',
     'default_value' => NULL,
@@ -764,7 +764,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-article-field_image'
+  // Exported field_instance: 'node-article-field_image'.
   $field_instances['node-article-field_image'] = array(
     'bundle' => 'article',
     'deleted' => 0,
@@ -825,7 +825,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-article-field_tags'
+  // Exported field_instance: 'node-article-field_tags'.
   $field_instances['node-article-field_tags'] = array(
     'bundle' => 'article',
     'default_value' => NULL,
@@ -866,7 +866,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-article-title_field'
+  // Exported field_instance: 'node-article-title_field'.
   $field_instances['node-article-title_field'] = array(
     'bundle' => 'article',
     'default_value' => NULL,
@@ -909,7 +909,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-info_pagina-field_about'
+  // Exported field_instance: 'node-info_pagina-field_about'.
   $field_instances['node-info_pagina-field_about'] = array(
     'bundle' => 'info_pagina',
     'default_value' => NULL,
@@ -953,7 +953,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-info_pagina-field_adres'
+  // Exported field_instance: 'node-info_pagina-field_adres'.
   $field_instances['node-info_pagina-field_adres'] = array(
     'bundle' => 'info_pagina',
     'default_value' => NULL,
@@ -1011,7 +1011,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-info_pagina-field_afbeelding'
+  // Exported field_instance: 'node-info_pagina-field_afbeelding'.
   $field_instances['node-info_pagina-field_afbeelding'] = array(
     'bundle' => 'info_pagina',
     'deleted' => 0,
@@ -1070,7 +1070,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-info_pagina-field_big_image'
+  // Exported field_instance: 'node-info_pagina-field_big_image'.
   $field_instances['node-info_pagina-field_big_image'] = array(
     'bundle' => 'info_pagina',
     'deleted' => 0,
@@ -1129,7 +1129,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-info_pagina-field_btw_nummer'
+  // Exported field_instance: 'node-info_pagina-field_btw_nummer'.
   $field_instances['node-info_pagina-field_btw_nummer'] = array(
     'bundle' => 'info_pagina',
     'default_value' => NULL,
@@ -1170,7 +1170,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-info_pagina-field_disclaimer'
+  // Exported field_instance: 'node-info_pagina-field_disclaimer'.
   $field_instances['node-info_pagina-field_disclaimer'] = array(
     'bundle' => 'info_pagina',
     'default_value' => NULL,
@@ -1210,7 +1210,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-info_pagina-field_e_mail'
+  // Exported field_instance: 'node-info_pagina-field_e_mail'.
   $field_instances['node-info_pagina-field_e_mail'] = array(
     'bundle' => 'info_pagina',
     'default_value' => NULL,
@@ -1250,7 +1250,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-info_pagina-field_fax'
+  // Exported field_instance: 'node-info_pagina-field_fax'.
   $field_instances['node-info_pagina-field_fax'] = array(
     'bundle' => 'info_pagina',
     'default_value' => NULL,
@@ -1291,7 +1291,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-info_pagina-field_handelsregister_brussel'
+  // Exported field_instance: 'node-info_pagina-field_handelsregister_brussel'.
   $field_instances['node-info_pagina-field_handelsregister_brussel'] = array(
     'bundle' => 'info_pagina',
     'default_value' => NULL,
@@ -1338,7 +1338,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-info_pagina-field_klant_worden'
+  // Exported field_instance: 'node-info_pagina-field_klant_worden'.
   $field_instances['node-info_pagina-field_klant_worden'] = array(
     'bundle' => 'info_pagina',
     'default_value' => NULL,
@@ -1378,7 +1378,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-info_pagina-field_levertijden'
+  // Exported field_instance: 'node-info_pagina-field_levertijden'.
   $field_instances['node-info_pagina-field_levertijden'] = array(
     'bundle' => 'info_pagina',
     'default_value' => NULL,
@@ -1418,7 +1418,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-info_pagina-field_linktekst_afbeelding'
+  // Exported field_instance: 'node-info_pagina-field_linktekst_afbeelding'.
   $field_instances['node-info_pagina-field_linktekst_afbeelding'] = array(
     'bundle' => 'info_pagina',
     'default_value' => NULL,
@@ -1476,7 +1476,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-info_pagina-field_openingsuren'
+  // Exported field_instance: 'node-info_pagina-field_openingsuren'.
   $field_instances['node-info_pagina-field_openingsuren'] = array(
     'bundle' => 'info_pagina',
     'default_value' => NULL,
@@ -1517,7 +1517,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-info_pagina-field_route'
+  // Exported field_instance: 'node-info_pagina-field_route'.
   $field_instances['node-info_pagina-field_route'] = array(
     'bundle' => 'info_pagina',
     'default_value' => NULL,
@@ -1557,7 +1557,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-info_pagina-field_social_follow'
+  // Exported field_instance: 'node-info_pagina-field_social_follow'.
   $field_instances['node-info_pagina-field_social_follow'] = array(
     'bundle' => 'info_pagina',
     'default_value' => NULL,
@@ -1594,7 +1594,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-info_pagina-field_tekst_big_image'
+  // Exported field_instance: 'node-info_pagina-field_tekst_big_image'.
   $field_instances['node-info_pagina-field_tekst_big_image'] = array(
     'bundle' => 'info_pagina',
     'default_value' => NULL,
@@ -1634,7 +1634,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-info_pagina-field_tel'
+  // Exported field_instance: 'node-info_pagina-field_tel'.
   $field_instances['node-info_pagina-field_tel'] = array(
     'bundle' => 'info_pagina',
     'default_value' => NULL,
@@ -1678,7 +1678,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-info_pagina-field_verkoopsvoorwaarden'
+  // Exported field_instance: 'node-info_pagina-field_verkoopsvoorwaarden'.
   $field_instances['node-info_pagina-field_verkoopsvoorwaarden'] = array(
     'bundle' => 'info_pagina',
     'default_value' => NULL,
@@ -1718,7 +1718,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-info_pagina-title_field'
+  // Exported field_instance: 'node-info_pagina-title_field'.
   $field_instances['node-info_pagina-title_field'] = array(
     'bundle' => 'info_pagina',
     'default_value' => NULL,
@@ -1761,7 +1761,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-machine-body'
+  // Exported field_instance: 'node-machine-body'.
   $field_instances['node-machine-body'] = array(
     'bundle' => 'machine',
     'default_value' => NULL,
@@ -1806,7 +1806,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-machine-field_afbeelding'
+  // Exported field_instance: 'node-machine-field_afbeelding'.
   $field_instances['node-machine-field_afbeelding'] = array(
     'bundle' => 'machine',
     'deleted' => 0,
@@ -1866,7 +1866,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-machine-title_field'
+  // Exported field_instance: 'node-machine-title_field'.
   $field_instances['node-machine-title_field'] = array(
     'bundle' => 'machine',
     'default_value' => NULL,
@@ -1909,7 +1909,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-body'
+  // Exported field_instance: 'node-page-body'.
   $field_instances['node-page-body'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -1954,7 +1954,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_afbeelding'
+  // Exported field_instance: 'node-page-field_afbeelding'.
   $field_instances['node-page-field_afbeelding'] = array(
     'bundle' => 'page',
     'deleted' => 0,
@@ -2014,7 +2014,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-title_field'
+  // Exported field_instance: 'node-page-title_field'.
   $field_instances['node-page-title_field'] = array(
     'bundle' => 'page',
     'default_value' => NULL,
@@ -2057,7 +2057,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-body'
+  // Exported field_instance: 'node-product-body'.
   $field_instances['node-product-body'] = array(
     'bundle' => 'product',
     'default_value' => NULL,
@@ -2134,7 +2134,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-field_attach_secured'
+  // Exported field_instance: 'node-product-field_attach_secured'.
   $field_instances['node-product-field_attach_secured'] = array(
     'bundle' => 'product',
     'deleted' => 0,
@@ -2191,7 +2191,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-field_images'
+  // Exported field_instance: 'node-product-field_images'.
   $field_instances['node-product-field_images'] = array(
     'bundle' => 'product',
     'deleted' => 0,
@@ -2265,7 +2265,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-field_orderable_products'
+  // Exported field_instance: 'node-product-field_orderable_products'.
   $field_instances['node-product-field_orderable_products'] = array(
     'bundle' => 'product',
     'deleted' => 0,
@@ -2335,7 +2335,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-field_productcategorie'
+  // Exported field_instance: 'node-product-field_productcategorie'.
   $field_instances['node-product-field_productcategorie'] = array(
     'bundle' => 'product',
     'default_value' => NULL,
@@ -2396,7 +2396,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-field_tech_docs'
+  // Exported field_instance: 'node-product-field_tech_docs'.
   $field_instances['node-product-field_tech_docs'] = array(
     'bundle' => 'product',
     'deleted' => 0,
@@ -2453,7 +2453,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-field_tech_image'
+  // Exported field_instance: 'node-product-field_tech_image'.
   $field_instances['node-product-field_tech_image'] = array(
     'bundle' => 'product',
     'deleted' => 0,
@@ -2523,7 +2523,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-field_tech_info'
+  // Exported field_instance: 'node-product-field_tech_info'.
   $field_instances['node-product-field_tech_info'] = array(
     'bundle' => 'product',
     'default_value' => NULL,
@@ -2564,7 +2564,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-title_field'
+  // Exported field_instance: 'node-product-title_field'.
   $field_instances['node-product-title_field'] = array(
     'bundle' => 'product',
     'default_value' => NULL,
@@ -2607,7 +2607,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-vacature-body'
+  // Exported field_instance: 'node-vacature-body'.
   $field_instances['node-vacature-body'] = array(
     'bundle' => 'vacature',
     'default_value' => NULL,
@@ -2653,7 +2653,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-vacature-field_offering'
+  // Exported field_instance: 'node-vacature-field_offering'.
   $field_instances['node-vacature-field_offering'] = array(
     'bundle' => 'vacature',
     'default_value' => NULL,
@@ -2696,7 +2696,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-vacature-field_solliciteer'
+  // Exported field_instance: 'node-vacature-field_solliciteer'.
   $field_instances['node-vacature-field_solliciteer'] = array(
     'bundle' => 'vacature',
     'default_value' => array(
@@ -2758,7 +2758,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-vacature-field_ultimate_date'
+  // Exported field_instance: 'node-vacature-field_ultimate_date'.
   $field_instances['node-vacature-field_ultimate_date'] = array(
     'bundle' => 'vacature',
     'deleted' => 0,
@@ -2813,7 +2813,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-vacature-field_wanted'
+  // Exported field_instance: 'node-vacature-field_wanted'.
   $field_instances['node-vacature-field_wanted'] = array(
     'bundle' => 'vacature',
     'default_value' => NULL,
@@ -2856,7 +2856,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-vacature-title_field'
+  // Exported field_instance: 'node-vacature-title_field'.
   $field_instances['node-vacature-title_field'] = array(
     'bundle' => 'vacature',
     'default_value' => NULL,
@@ -2899,7 +2899,8 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-product_category-description_field'
+  // Exported field_instance:
+  // 'taxonomy_term-product_category-description_field'.
   $field_instances['taxonomy_term-product_category-description_field'] = array(
     'bundle' => 'product_category',
     'default_value' => NULL,
@@ -2940,7 +2941,7 @@ function feneko_structure_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'taxonomy_term-product_category-field_product_category_image'
+  // 'taxonomy_term-product_category-field_product_category_image'.
   $field_instances['taxonomy_term-product_category-field_product_category_image'] = array(
     'bundle' => 'product_category',
     'deleted' => 0,
@@ -3046,7 +3047,7 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-product_category-name_field'
+  // Exported field_instance: 'taxonomy_term-product_category-name_field'.
   $field_instances['taxonomy_term-product_category-name_field'] = array(
     'bundle' => 'product_category',
     'default_value' => NULL,

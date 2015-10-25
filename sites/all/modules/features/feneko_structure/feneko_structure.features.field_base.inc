@@ -10,7 +10,7 @@
 function feneko_structure_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'body'
+  // Exported field_base: 'body'.
   $field_bases['body'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -36,7 +36,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'description_field'
+  // Exported field_base: 'description_field'.
   $field_bases['description_field'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -57,7 +57,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_about'
+  // Exported field_base: 'field_about'.
   $field_bases['field_about'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -78,7 +78,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_adres'
+  // Exported field_base: 'field_adres'.
   $field_bases['field_adres'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -98,7 +98,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'addressfield',
   );
 
-  // Exported field_base: 'field_afbeelding'
+  // Exported field_base: 'field_afbeelding'.
   $field_bases['field_afbeelding'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -123,7 +123,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_attach_secured'
+  // Exported field_base: 'field_attach_secured'.
   $field_bases['field_attach_secured'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -152,7 +152,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_big_image'
+  // Exported field_base: 'field_big_image'.
   $field_bases['field_big_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -180,7 +180,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_c_v_'
+  // Exported field_base: 'field_c_v_'.
   $field_bases['field_c_v_'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -209,7 +209,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_caption'
+  // Exported field_base: 'field_caption'.
   $field_bases['field_caption'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -233,7 +233,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_contact'
+  // Exported field_base: 'field_contact'.
   $field_bases['field_contact'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -263,7 +263,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_disclaimer'
+  // Exported field_base: 'field_disclaimer'.
   $field_bases['field_disclaimer'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -284,7 +284,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_e_mail'
+  // Exported field_base: 'field_e_mail'.
   $field_bases['field_e_mail'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -304,7 +304,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'email',
   );
 
-  // Exported field_base: 'field_e_mail_contact'
+  // Exported field_base: 'field_e_mail_contact'.
   $field_bases['field_e_mail_contact'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -324,7 +324,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'email',
   );
 
-  // Exported field_base: 'field_facebook'
+  // Exported field_base: 'field_facebook'.
   $field_bases['field_facebook'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -354,7 +354,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_fax'
+  // Exported field_base: 'field_fax'.
   $field_bases['field_fax'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -379,7 +379,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_file_image_alt_text'
+  // Exported field_base: 'field_file_image_alt_text'.
   $field_bases['field_file_image_alt_text'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -404,7 +404,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_file_image_title_text'
+  // Exported field_base: 'field_file_image_title_text'.
   $field_bases['field_file_image_title_text'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -429,7 +429,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_gewenste_functie'
+  // Exported field_base: 'field_gewenste_functie'.
   $field_bases['field_gewenste_functie'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -454,7 +454,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_handelsregister_brussel'
+  // Exported field_base: 'field_handelsregister_brussel'.
   $field_bases['field_handelsregister_brussel'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -474,7 +474,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_image'
+  // Exported field_base: 'field_image'.
   $field_bases['field_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -499,7 +499,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_images'
+  // Exported field_base: 'field_images'.
   $field_bases['field_images'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -527,7 +527,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_klant_worden'
+  // Exported field_base: 'field_klant_worden'.
   $field_bases['field_klant_worden'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -548,7 +548,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_label'
+  // Exported field_base: 'field_label'.
   $field_bases['field_label'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -573,7 +573,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_levertijden'
+  // Exported field_base: 'field_levertijden'.
   $field_bases['field_levertijden'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -594,7 +594,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_linktekst_afbeelding'
+  // Exported field_base: 'field_linktekst_afbeelding'.
   $field_bases['field_linktekst_afbeelding'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -627,7 +627,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_motivatie'
+  // Exported field_base: 'field_motivatie'.
   $field_bases['field_motivatie'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -651,7 +651,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_naam'
+  // Exported field_base: 'field_naam'.
   $field_bases['field_naam'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -676,7 +676,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_offering'
+  // Exported field_base: 'field_offering'.
   $field_bases['field_offering'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -697,7 +697,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_openingsuren'
+  // Exported field_base: 'field_openingsuren'.
   $field_bases['field_openingsuren'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -721,7 +721,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_orderable_products'
+  // Exported field_base: 'field_orderable_products'.
   $field_bases['field_orderable_products'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -770,7 +770,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
-  // Exported field_base: 'field_product_category_image'
+  // Exported field_base: 'field_product_category_image'.
   $field_bases['field_product_category_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -798,7 +798,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_productcategorie'
+  // Exported field_base: 'field_productcategorie'.
   $field_bases['field_productcategorie'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -826,7 +826,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_route'
+  // Exported field_base: 'field_route'.
   $field_bases['field_route'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -847,7 +847,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_social_follow'
+  // Exported field_base: 'field_social_follow'.
   $field_bases['field_social_follow'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -870,7 +870,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'field_collection',
   );
 
-  // Exported field_base: 'field_solliciteer'
+  // Exported field_base: 'field_solliciteer'.
   $field_bases['field_solliciteer'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -903,7 +903,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_tags'
+  // Exported field_base: 'field_tags'.
   $field_bases['field_tags'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -931,7 +931,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_tech_docs'
+  // Exported field_base: 'field_tech_docs'.
   $field_bases['field_tech_docs'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -960,7 +960,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_tech_image'
+  // Exported field_base: 'field_tech_image'.
   $field_bases['field_tech_image'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -988,7 +988,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_tech_info'
+  // Exported field_base: 'field_tech_info'.
   $field_bases['field_tech_info'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1009,7 +1009,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_tekst_big_image'
+  // Exported field_base: 'field_tekst_big_image'.
   $field_bases['field_tekst_big_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1034,7 +1034,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_tel'
+  // Exported field_base: 'field_tel'.
   $field_bases['field_tel'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -1060,7 +1060,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'field_collection',
   );
 
-  // Exported field_base: 'field_tel_field'
+  // Exported field_base: 'field_tel_field'.
   $field_bases['field_tel_field'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1085,7 +1085,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_twitter'
+  // Exported field_base: 'field_twitter'.
   $field_bases['field_twitter'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1115,7 +1115,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'link_field',
   );
 
-  // Exported field_base: 'field_ultimate_date'
+  // Exported field_base: 'field_ultimate_date'.
   $field_bases['field_ultimate_date'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1145,7 +1145,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_uw_tel'
+  // Exported field_base: 'field_uw_tel'.
   $field_bases['field_uw_tel'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1170,7 +1170,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_uw_vraag'
+  // Exported field_base: 'field_uw_vraag'.
   $field_bases['field_uw_vraag'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1191,7 +1191,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_verkoopsvoorwaarden'
+  // Exported field_base: 'field_verkoopsvoorwaarden'.
   $field_bases['field_verkoopsvoorwaarden'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1212,7 +1212,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_wanted'
+  // Exported field_base: 'field_wanted'.
   $field_bases['field_wanted'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1236,7 +1236,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'name_field'
+  // Exported field_base: 'name_field'.
   $field_bases['name_field'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1258,7 +1258,7 @@ function feneko_structure_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'title_field'
+  // Exported field_base: 'title_field'.
   $field_bases['title_field'] = array(
     'active' => 1,
     'cardinality' => 1,
