@@ -232,7 +232,10 @@ function feneko_views_views_default_views() {
 <div class="edit">
 [edit_node]
 </div>';
+  $handler->display->display_options['fields']['edit_node_1']['element_type'] = 'div';
+  $handler->display->display_options['fields']['edit_node_1']['element_class'] = 'tabs';
   $handler->display->display_options['fields']['edit_node_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node_1']['element_default_classes'] = FALSE;
   $handler->display->display_options['path'] = 'disclaimer';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Disclaimer';
@@ -1605,7 +1608,7 @@ function feneko_views_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'gerelateerde producten';
+  $handler->display->display_options['title'] = 'Gerelateerde producten';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
