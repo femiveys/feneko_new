@@ -91,6 +91,12 @@ h1 a,
   margin-bottom: 36px;
 }
 
+#view-main-categories {
+  .view-grouping-header {
+    font-size: 26px;
+  }
+}
+
 #sidebar_second {
   h1 {
     font-size: 20px;
@@ -1351,6 +1357,10 @@ div.horizontal-tabs {
 
 #block-views-related-block {
   text-align: center;
+  @include gridle_state (min-desk) {
+    background-color: $lightgrey;
+    padding: 10px 0;
+  }
   h1 {
     @include gridle_state (max-tablet) {
       font-size: 24px;
@@ -1358,6 +1368,7 @@ div.horizontal-tabs {
   }
   .views-row {
     margin-bottom: $padding*5;
+    position: relative;
     @include gridle_state (only-tablet) {
       width: 50%;
       float: left;
@@ -1372,15 +1383,39 @@ div.horizontal-tabs {
     font-weight: 700;
     margin-top: $padding;
   }
+  .views-field-title-field-et {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $blue;
+    margin: auto;
+    color: $white;
+    @include gridle_state (min-desk) {
+      width: 80%;
+    }
+    a {
+      color: $white;
+      font-weight: 400;
+      font-size: 18px;
+    }
+  }
   .rel-img-link a {
     border: 2px solid $blue;
     display: inline-block;
     overflow: hidden;
+    @include gridle_state (min-desk) {
+      width: 80%;
+    }
   }
   img {
+    //width: 100%;
     display: block;
     -webkit-transition: opacity 0.35s,-webkit-transform 0.35s;
     transition: opacity 0.35s,transform 0.35s;
+    @include gridle_state (min-desk) {
+      width: 100%;
+    }
     &:hover {
       -webkit-transform:scale(1.15);
       transform:scale(1.15);
@@ -1693,8 +1728,6 @@ div.horizontal-tabs {
 }
 
 
-
-
 // form items
 
 .form-item-quantity {
@@ -1823,15 +1856,11 @@ form.commerce-add-to-cart {
   }
 }
 
-
-
 // social follow
 
 $facebook: #3b5998;
 $twitter: #55acee;
 $contact: #f7941d;
-
-
 
 .view-social-follow,
 .views-field-field-social-follow {
@@ -2038,10 +2067,8 @@ $contact: #f7941d;
         content: "&nbsp;";
         width: 5px;
         display: inline-block;
-        //display: none;
       }
     }
-
     td {
       padding: $padding/2;
       &[data-before="aantal"],
@@ -2100,7 +2127,6 @@ input {
 
 // File
 
-// file
 .field-type-file {
   .field-item {
     color: $blue;

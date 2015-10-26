@@ -871,6 +871,9 @@ body {
 .totop {
   cursor: pointer;
 }
+.totop:hover {
+  display: block !important;
+}
 
 .hidden {
   display: none;
@@ -1033,6 +1036,35 @@ ul.tabs.primary li {
 
 #content {
   position: relative;
+}
+
+.field-type-file .field-item {
+  margin-bottom: 10px;
+  cursor: pointer;
+  display: table;
+  width: 100%;
+}
+.field-type-file .field-item:before {
+  content: "\f016";
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+  float: left;
+  font-size: 36px;
+  clear: both;
+  padding: 10px;
+}
+.field-type-file .file img {
+  display: none;
+}
+.field-type-file .file a {
+  text-decoration: none;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 /* FORMS
@@ -1269,52 +1301,29 @@ html.js input.throbbing {
 }
 
 div.messages {
-  padding: 10px;
+  padding: 10px 10px 10px 40px;
   background-position: 5px 50%;
   clear: both;
   margin: 20px 0;
-}
-div.messages:before {
-  display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
-  padding-right: 10px;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transform: translate(0, 0);
-}
-
-div.messages {
+  background-color: transparent;
+  border-left: 20px solid;
   overflow: hidden;
 }
 div.messages ul {
   display: inline-table;
 }
+
 div.messages.status {
-  border-color: #003400;
-  background-color: green;
-  background-image: none;
-}
-div.messages.status:before {
-  content: "\f05d";
+  background-color: lightgreen;
+  border-color: green;
 }
 div.messages.warning {
-  border-color: #b37300;
-  background-color: orange;
-  background-image: none;
-}
-div.messages.warning:before {
-  content: "\f071";
+  background-color: #ffe4b2;
+  border-color: #ffa500;
 }
 div.messages.error {
-  border-color: #b30000;
-  background-color: red;
-  background-image: none;
-  color: white;
-}
-div.messages.error:before {
-  content: "\f057";
+  background-color: #FFE4E1;
+  border-color: red;
 }
 div.messages .krumo-root {
   width: 100%;

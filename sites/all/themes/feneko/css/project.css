@@ -597,7 +597,7 @@ retina: 1280 - +
   outline: none;
 }
 #colorbox img {
-  padding: 20px;
+  padding: 10px;
   background-color: #ffffff;
 }
 
@@ -865,6 +865,10 @@ h1 a,
 #block-menu-menu-waarom-feneko h2 {
   font-size: 36px;
   margin-bottom: 36px;
+}
+
+#view-main-categories .view-grouping-header {
+  font-size: 26px;
 }
 
 #sidebar_second h1 {
@@ -2166,6 +2170,12 @@ div.horizontal-tabs {
 #block-views-related-block {
   text-align: center;
 }
+@media screen and (min-width: 851px) {
+  #block-views-related-block {
+    background-color: #e6e6e6;
+    padding: 10px 0;
+  }
+}
 @media screen and (max-width: 850px) {
   #block-views-related-block h1 {
     font-size: 24px;
@@ -2173,6 +2183,7 @@ div.horizontal-tabs {
 }
 #block-views-related-block .views-row {
   margin-bottom: 50px;
+  position: relative;
 }
 @media screen and (min-width: 600px) and (max-width: 850px) {
   #block-views-related-block .views-row {
@@ -2189,15 +2200,44 @@ div.horizontal-tabs {
   font-weight: 700;
   margin-top: 10px;
 }
+#block-views-related-block .views-field-title-field-et {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #295D8F;
+  margin: auto;
+  color: #ffffff;
+}
+@media screen and (min-width: 851px) {
+  #block-views-related-block .views-field-title-field-et {
+    width: 80%;
+  }
+}
+#block-views-related-block .views-field-title-field-et a {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 18px;
+}
 #block-views-related-block .rel-img-link a {
   border: 2px solid #295D8F;
   display: inline-block;
   overflow: hidden;
 }
+@media screen and (min-width: 851px) {
+  #block-views-related-block .rel-img-link a {
+    width: 80%;
+  }
+}
 #block-views-related-block img {
   display: block;
   -webkit-transition: opacity 0.35s,-webkit-transform 0.35s;
   transition: opacity 0.35s,transform 0.35s;
+}
+@media screen and (min-width: 851px) {
+  #block-views-related-block img {
+    width: 100%;
+  }
 }
 #block-views-related-block img:hover {
   -webkit-transform: scale(1.15);
