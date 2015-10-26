@@ -913,6 +913,7 @@ div.tabs {
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 9;
 }
 div.tabs a {
   text-decoration: none;

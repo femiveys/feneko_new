@@ -1188,8 +1188,8 @@ div.messages {
     padding: $padding;
     p {
       display: table-cell;
-vertical-align: middle;
-width: 100%;
+      vertical-align: middle;
+      width: 100%;
     }
   }
 }
@@ -1202,6 +1202,51 @@ width: 100%;
     margin-right: $padding;
     img {
       border: 2px solid $blue;
+    }
+  }
+}
+
+.node-type-product {
+  &.one-sidebar {
+    @include gridle_state(max-tablet) {
+      #main-wrapper.wrapper {
+          padding-bottom: 0;
+      }
+    }
+  }
+  #sidebar_second {
+    @include gridle_state (max-tablet) {
+      background-color: $lightgrey;
+      position: relative;
+      padding-top: 20px;
+      &:before,
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        z-index: -1;
+        background-color: $lightgrey;
+      }
+      &:before {
+        margin-left: -9999px;
+        padding-right: 9999px;
+      }
+      &:after {
+        margin-right: -9999px;
+        padding-left: 9999px;
+      }
+    }
+  }
+  .first-col {
+    .field-name-field-images {
+      @include gridle_state (max-mobile) {
+        display: none;
+      }
+      @include gridle_state (min-tablet) {
+        display: block!important;
+      }
     }
   }
 }
@@ -1220,6 +1265,11 @@ width: 100%;
     }
     &:hover {
       background-color: lighten($orange, 15%);
+    }
+  }
+  &:nth-child(1) {
+    a {
+      margin-top: 0;
     }
   }
 }
@@ -1264,7 +1314,6 @@ width: 100%;
     @include gridle_state (max-mobile) {
       overflow: hidden;
     }
-
     li {
       a {
         background-color: $lightgrey;
@@ -1273,7 +1322,6 @@ width: 100%;
           background-color: $grey;
         }
       }
-
       &:hover {
         background-color: $white;
       }
@@ -1317,23 +1365,22 @@ width: 100%;
       margin-right: 0;
     }
     a {
-        position: relative;
-        display: block;
-        overflow: hidden;
-        border: 1px solid $grey;
-        &:hover:after {
-          content:'';
-          position:absolute;
-          top:-1px;
-          bottom:0;
-          left:0;
-          right:0;
-          background:url(../img/plus.png) center center no-repeat $orangetrans;
-        }
+      position: relative;
+      display: block;
+      overflow: hidden;
+      border: 1px solid $grey;
+      &:hover:after {
+        content:'';
+        position:absolute;
+        top:-1px;
+        bottom:0;
+        left:0;
+        right:0;
+        background:url(../img/plus.png) center center no-repeat $orangetrans;
       }
+    }
   }
 }
-
 
 .horizontal-tab-button {
   border-left: 1px solid $grey;
@@ -1366,12 +1413,28 @@ div.horizontal-tabs {
       font-size: 24px;
     }
   }
+  h2 {
+    @include gridle_state (max-tablet) {
+      font-size: 26px;
+      margin-bottom: 30px;
+    }
+    @include gridle_state (min-desk) {
+      font-size: 20px;
+    }
+  }
   .views-row {
     margin-bottom: $padding*5;
     position: relative;
-    @include gridle_state (only-tablet) {
+    @include gridle_state (max-tablet) {
       width: 50%;
       float: left;
+    }
+    &:hover {
+      img {
+        -webkit-transform:scale(1.15);
+        transform:scale(1.15);
+        opacity:0.7;
+      }
     }
   }
   .views-row-odd {
@@ -1391,8 +1454,20 @@ div.horizontal-tabs {
     background: $blue;
     margin: auto;
     color: $white;
+    @include gridle_state (max-mobile) {
+      width: 80%;
+      h3 a {
+        font-size: 16px;
+      }
+    }
+    @include gridle_state (only-tablet) {
+      width: 60%;
+    }
     @include gridle_state (min-desk) {
       width: 80%;
+      h3 {
+        padding: 0 3px;
+      }
     }
     a {
       color: $white;
@@ -1404,23 +1479,21 @@ div.horizontal-tabs {
     border: 2px solid $blue;
     display: inline-block;
     overflow: hidden;
+    @include gridle_state (max-mobile) {
+      width: 80%;
+    }
+    @include gridle_state (only-tablet) {
+      width: 60%;
+    }
     @include gridle_state (min-desk) {
       width: 80%;
     }
   }
   img {
-    //width: 100%;
     display: block;
     -webkit-transition: opacity 0.35s,-webkit-transform 0.35s;
     transition: opacity 0.35s,transform 0.35s;
-    @include gridle_state (min-desk) {
-      width: 100%;
-    }
-    &:hover {
-      -webkit-transform:scale(1.15);
-      transform:scale(1.15);
-      opacity:0.7;
-    }
+    width: 100%;
   }
 }
 
@@ -2152,3 +2225,16 @@ input {
   }
 }
 
+.open-img {
+  border: 1px solid $orange;
+  background-color: $blue;
+  border-radius: 3px;
+  padding: 10px;
+  text-align: center;
+  color: $white;
+  cursor: pointer;
+  margin-bottom: 30px;
+  @include gridle_state (min-tablet) {
+    display: none;
+  }
+}

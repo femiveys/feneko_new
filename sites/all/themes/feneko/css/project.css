@@ -2035,6 +2035,46 @@ div.messages.error {
   border: 2px solid #295D8F;
 }
 
+@media screen and (max-width: 850px) {
+  .node-type-product.one-sidebar #main-wrapper.wrapper {
+    padding-bottom: 0;
+  }
+}
+@media screen and (max-width: 850px) {
+  .node-type-product #sidebar_second {
+    background-color: #e6e6e6;
+    position: relative;
+    padding-top: 20px;
+  }
+  .node-type-product #sidebar_second:before, .node-type-product #sidebar_second:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    z-index: -1;
+    background-color: #e6e6e6;
+  }
+  .node-type-product #sidebar_second:before {
+    margin-left: -9999px;
+    padding-right: 9999px;
+  }
+  .node-type-product #sidebar_second:after {
+    margin-right: -9999px;
+    padding-left: 9999px;
+  }
+}
+@media screen and (max-width: 599px) {
+  .node-type-product .first-col .field-name-field-images {
+    display: none;
+  }
+}
+@media screen and (min-width: 600px) {
+  .node-type-product .first-col .field-name-field-images {
+    display: block !important;
+  }
+}
+
 .field-name-field-orderable-products a {
   margin-bottom: 10px;
   margin-top: 20px;
@@ -2048,6 +2088,9 @@ div.messages.error {
 }
 .field-name-field-orderable-products a:hover {
   background-color: #ffc04d;
+}
+.field-name-field-orderable-products:nth-child(1) a {
+  margin-top: 0;
 }
 
 .field-name-body a {
@@ -2181,15 +2224,31 @@ div.horizontal-tabs {
     font-size: 24px;
   }
 }
+@media screen and (max-width: 850px) {
+  #block-views-related-block h2 {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+}
+@media screen and (min-width: 851px) {
+  #block-views-related-block h2 {
+    font-size: 20px;
+  }
+}
 #block-views-related-block .views-row {
   margin-bottom: 50px;
   position: relative;
 }
-@media screen and (min-width: 600px) and (max-width: 850px) {
+@media screen and (max-width: 850px) {
   #block-views-related-block .views-row {
     width: 50%;
     float: left;
   }
+}
+#block-views-related-block .views-row:hover img {
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
+  opacity: 0.7;
 }
 @media screen and (min-width: 600px) and (max-width: 850px) {
   #block-views-related-block .views-row-odd {
@@ -2209,9 +2268,25 @@ div.horizontal-tabs {
   margin: auto;
   color: #ffffff;
 }
+@media screen and (max-width: 599px) {
+  #block-views-related-block .views-field-title-field-et {
+    width: 80%;
+  }
+  #block-views-related-block .views-field-title-field-et h3 a {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 850px) {
+  #block-views-related-block .views-field-title-field-et {
+    width: 60%;
+  }
+}
 @media screen and (min-width: 851px) {
   #block-views-related-block .views-field-title-field-et {
     width: 80%;
+  }
+  #block-views-related-block .views-field-title-field-et h3 {
+    padding: 0 3px;
   }
 }
 #block-views-related-block .views-field-title-field-et a {
@@ -2224,6 +2299,16 @@ div.horizontal-tabs {
   display: inline-block;
   overflow: hidden;
 }
+@media screen and (max-width: 599px) {
+  #block-views-related-block .rel-img-link a {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 850px) {
+  #block-views-related-block .rel-img-link a {
+    width: 60%;
+  }
+}
 @media screen and (min-width: 851px) {
   #block-views-related-block .rel-img-link a {
     width: 80%;
@@ -2233,16 +2318,7 @@ div.horizontal-tabs {
   display: block;
   -webkit-transition: opacity 0.35s,-webkit-transform 0.35s;
   transition: opacity 0.35s,transform 0.35s;
-}
-@media screen and (min-width: 851px) {
-  #block-views-related-block img {
-    width: 100%;
-  }
-}
-#block-views-related-block img:hover {
-  -webkit-transform: scale(1.15);
-  transform: scale(1.15);
-  opacity: 0.7;
+  width: 100%;
 }
 
 .view-feneko-shopping-cart-block table,
@@ -2959,4 +3035,20 @@ input {
 }
 .field-type-file .field-item:hover .file a {
   color: #c7c7c7;
+}
+
+.open-img {
+  border: 1px solid #FFA500;
+  background-color: #295D8F;
+  border-radius: 3px;
+  padding: 10px;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+@media screen and (min-width: 600px) {
+  .open-img {
+    display: none;
+  }
 }

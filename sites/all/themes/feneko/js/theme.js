@@ -113,6 +113,11 @@
       $(this).attr('data-before', product)
     });
 
+    $('.open-img').click(function() {
+      $('.field-name-field-images').toggle();
+      $(this).toggleClass('open');
+    });
+
 
   });
 })(jQuery);

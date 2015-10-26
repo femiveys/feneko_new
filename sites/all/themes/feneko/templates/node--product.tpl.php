@@ -86,8 +86,6 @@
 <?php print render($title_prefix); ?>
   <header class="node-header">
 
-
-
     <?php if ($teaser) : ?>
     <h2<?php print $title_attributes; ?>><?php print $title; ?></h2>
     <?php endif; ?>
@@ -100,7 +98,7 @@
   <?php if ($page) : ?>
     <div class="first-col">
   <?php endif; ?>
-
+  <div class="open-img"><?php print t('bekijk afbeeldingen'); ?> <i class="fa fa-arrow-circle-o-down"></i></div>
   <?php print render($content['field_images']); ?>
 
   <?php if ($page) : ?>
