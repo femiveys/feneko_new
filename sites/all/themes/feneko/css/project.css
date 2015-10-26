@@ -2011,6 +2011,7 @@ div.messages.error {
 .node-type-product .lev,
 .page-taxonomy .lev {
   margin-top: 30px;
+  margin-bottom: 30px;
   overflow: hidden;
   border: 1px solid #323232;
   border-radius: 3px;

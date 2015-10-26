@@ -98,7 +98,9 @@
   <?php if ($page) : ?>
     <div class="first-col">
   <?php endif; ?>
+  <?php if ($page) : ?>
   <div class="open-img"><?php print t('bekijk afbeeldingen'); ?> <i class="fa fa-arrow-circle-o-down"></i></div>
+  <?php endif; ?>
   <?php print render($content['field_images']); ?>
 
   <?php if ($page) : ?>

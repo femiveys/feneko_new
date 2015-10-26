@@ -123,8 +123,8 @@ sollicitez',
     'roles' => array(),
     'themes' => array(
       'feneko' => array(
-        'region' => 'header',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'feneko',
         'weight' => -14,
       ),
@@ -391,7 +391,7 @@ sollicitez',
         'weight' => -15,
       ),
     ),
-    'title' => '<none>',
+    'title' => '',
     'visibility' => 0,
   );
 
