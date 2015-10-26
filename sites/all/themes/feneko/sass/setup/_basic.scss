@@ -454,6 +454,7 @@ div.messages {
   }
   ul.menu {
     width: 100%;
+    margin: 0;
     @include gridle_state (max-tablet) {
       text-align: center;
     }
@@ -475,7 +476,6 @@ div.messages {
       margin: auto;
       margin-bottom: $padding*2;
       text-align: center;
-      width: 250px;
       margin: auto;
     }
     @include gridle_state (min-desk) {
@@ -483,41 +483,44 @@ div.messages {
     }
     &#block-menu-menu-footer-menu {
       @include gridle_state (max-tablet) {
-        padding: 40px 0;
+        padding: 1px 0 0px 0;
       }
       @include gridle_state (min-desk) {
         width: 30%;
       }
     }
     &.views-field-field-social-follow {
-      @include gridle_state (max-mobile) {
+      @include gridle_state (max-tablet) {
         margin-bottom: 30px;
-      }
-      @include gridle_state (min-tablet) {
-        text-align: right;
-        float: right;
-        margin: 40px 0;
-
       }
       @include gridle_state (min-desk) {
         margin: auto;
         padding-bottom: 20px;
+        text-align: right;
+        float: right;
+        margin: 40px 0;
       }
+    }
+    .field-collection-item-field-social-follow {
+      margin-top: 60px;
     }
   }
 
   .footer-block {
+    p {
+      margin: 20px 0;
+    }
     > div:nth-child(1) {
-      @include gridle_state (min-tablet) {
+      @include gridle_state (min-desk) {
         float: left;
         text-align: left;
       }
     }
     > div:nth-last-child(1) {
-      @include gridle_state (min-tablet) {
+      @include gridle_state (min-desk) {
         float: right;
         text-align: right;
-        clear: both;
+        margin-top: 20px;
       }
     }
   }
@@ -527,8 +530,14 @@ div.messages {
       float: left;
     }
     a {
-      text-decoration: underline;
+      display: block;
+      border-bottom: 1px solid $lightgrey;
+      padding: 20px 0;
+      //text-decoration: underline;
     }
+    .last a {
+        border-bottom: none;
+      }
   }
 
   #block-views-footer-info-block {
@@ -1301,7 +1310,6 @@ div.messages {
 
 // HTABS
 
-//.horizontal-tabs,
 .field-group-accordion-wrapper {
   margin-bottom: 30px;
   fieldset {
@@ -1314,7 +1322,6 @@ div.messages {
   .ui-corner-top {
     border-radius: 0;
   }
-// ul.horizontal-tabs-list,
   .field-group-format-toggler {
     background-color: $white;
     border-right: none;
@@ -1322,38 +1329,37 @@ div.messages {
     @include gridle_state (max-mobile) {
       overflow: hidden;
     }
-    //li {
-      a {
-        background-color: $lightgrey;
-        color: $white;
-        display: block;
-        width: 100%;
-        margin-bottom: 0;
-        &:hover {
-          background-color: $grey;
-        }
-      }
+    a {
+      background-color: $grey;
+      color: $white;
+      display: block;
+      width: 100%;
+      margin-bottom: 0;
+      font-weight: unset;
       &:hover {
-        background-color: $white;
+        background-color: $lightgrey;
       }
-      &.ui-state-active {
+    }
+    &:hover {
+      background-color: $white;
+    }
+    &.ui-state-active {
+      background-color: $blue;
+      margin-bottom: -1px;
+      &:hover {
+        border-bottom: none;
+      }
+      strong {
+        color: $white;
+      }
+      a {
         background-color: $blue;
-        margin-bottom: -1px;
         &:hover {
-          border-bottom: none;
-        }
-        strong {
-          color: $white;
-        }
-        a {
           background-color: $blue;
-          &:hover {
-            background-color: $blue;
-            border: none;
-          }
+          border: none;
         }
       }
-    //}
+    }
     @include gridle_state(max-tablet) {
       display: block;
     }
@@ -1417,7 +1423,7 @@ div.horizontal-tabs {
   text-align: center;
   @include gridle_state (min-desk) {
     background-color: $lightgrey;
-    padding: 20px 0 5px 0;
+    padding: 0px 0 5px 0;
   }
   h1 {
     @include gridle_state (max-tablet) {
@@ -1427,18 +1433,25 @@ div.horizontal-tabs {
   h2 {
     @include gridle_state (max-tablet) {
       font-size: 26px;
-      margin-bottom: 30px;
+      margin-bottom: 50px;
     }
     @include gridle_state (min-desk) {
       font-size: 20px;
+      padding: 10px 5px;
+      border-bottom: 1px solid $blue;
+      margin-bottom: 30px;
     }
   }
   .views-row {
     margin-bottom: $padding*5;
     position: relative;
     @include gridle_state (max-tablet) {
-      width: 50%;
+      width: 44%;
       float: left;
+      &:only-child {
+        float: none;
+        margin: 0 auto 50px auto;
+      }
     }
     &:hover {
       img {
@@ -1451,6 +1464,27 @@ div.horizontal-tabs {
   .views-row-odd {
     @include gridle_state (only-tablet) {
       clear: both;
+      margin-right: 3%;
+    }
+  }
+  .views-row-even {
+    @include gridle_state (only-tablet) {
+      margin-left: 3%;
+    }
+  }
+  > .content {
+    margin: auto;
+    @include gridle_state (max-mobile) {
+      width: 80%;
+    }
+    @include gridle_state (only-tablet) {
+      width: 60%;
+    }
+    @include gridle_state (only-desk) {
+      width: 90%;
+    }
+    @include gridle_state (min-full) {
+      width: 75%;
     }
   }
   .views-field-title {
@@ -1466,16 +1500,11 @@ div.horizontal-tabs {
     margin: auto;
     color: $white;
     @include gridle_state (max-mobile) {
-      width: 80%;
       h3 a {
         font-size: 16px;
       }
     }
-    @include gridle_state (only-tablet) {
-      width: 60%;
-    }
     @include gridle_state (min-desk) {
-      width: 80%;
       h3 {
         padding: 0 3px;
       }
@@ -1490,15 +1519,7 @@ div.horizontal-tabs {
     border: 2px solid $blue;
     display: inline-block;
     overflow: hidden;
-    @include gridle_state (max-mobile) {
-      width: 80%;
-    }
-    @include gridle_state (only-tablet) {
-      width: 60%;
-    }
-    @include gridle_state (min-desk) {
-      width: 80%;
-    }
+    width: 100%;
   }
   img {
     display: block;
@@ -1511,7 +1532,6 @@ div.horizontal-tabs {
 // SHOPPING CART
 
 //BOTH BLOCK & FORM
-
 
 .view-feneko-shopping-cart-block,
 .view-commerce-cart-form-feneko,
@@ -1542,7 +1562,6 @@ div.horizontal-tabs {
         padding: 10px;
       }
     }
-
   }
   td {
     font-weight: bold;
@@ -1551,7 +1570,7 @@ div.horizontal-tabs {
   .line-item-summary-view-cart  {
     position: relative;
     display: inline-block;
-    &:after {
+    &:before {
       content: "\f07a";
       display: inline-block;
       font: normal normal normal 14px/1 FontAwesome;
@@ -1561,10 +1580,9 @@ div.horizontal-tabs {
       -moz-osx-font-smoothing: grayscale;
       transform: translate(0, 0);
       float: right;
-      font-size: 36px;
+      font-size: 30px;
       clear: both;
-      margin-top: 4px;
-      padding: 15px;
+      padding: 5px;
     }
   }
   .node-header {
@@ -1586,7 +1604,8 @@ div.horizontal-tabs {
 
 .view-feneko-shopping-cart-block {
   cursor: default;
-  ul.inline, ul.links.inline {
+  ul.inline,
+  ul.links.inline {
     display: block;
     margin-top: 1em;
   }
@@ -1598,9 +1617,9 @@ div.horizontal-tabs {
     font-weight: normal;
     margin: 0;
     margin-top: -40px;
-    &:after {
+    &:before {
       font-size: 16px;
-      padding: 0 0 0 15px;
+      padding: 0 0 0 10px;
     }
     &:hover {
       color: $lightblue;
@@ -1620,12 +1639,11 @@ div.horizontal-tabs {
       content: "\f0d7";
       display: inline-block;
       font: normal normal normal 14px/1 FontAwesome;
-      font-size: inherit;
       text-rendering: auto;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       transform: translate(0, 0);
-      float: right;
+      float: left;
       font-size: 1em;
       clear: both;
       padding: $padding;
@@ -1645,7 +1663,7 @@ div.horizontal-tabs {
     background-color: $blue;
     padding: $padding;
     position: absolute;
-    z-index: 9;
+    z-index: 10;
   }
   .view-footer {
     padding: $padding;
@@ -1656,12 +1674,21 @@ div.horizontal-tabs {
       text-decoration: none;
     }
   }
+  .views-field-type-1 {
+    padding: 10px 0;
+  }
   .line-item-summary-view-cart {
     width: 100%;
     background-color: $yellow;
     color: $blue;
+    cursor: pointer;
     a {
       color: $blue;
+      display: block;
+      padding: 5px;
+    }
+    &:hover {
+      background-color: $orange;
     }
   }
   .line-item-quantity,
@@ -1674,6 +1701,7 @@ div.horizontal-tabs {
   }
   .views-field-quantity {
     width: 15%;
+    padding-left: 10px;
   }
   .views-field-commerce-total {
     width: 25%;
@@ -1692,74 +1720,72 @@ div.horizontal-tabs {
     border-collapse: separate;
     border-spacing: 0 2.5em;
   }
-    tbody {
-      tr {
-        position: relative;
-        &:before {
-          content: attr(data-before);
-          position:absolute;
-          margin-top: -25px;
-          font-weight: 700;
-          font-size: 18px;
-          color: $blue;
-        }
-      }
-
-      }
-      thead {
-        tr {
-          border-bottom: 2px solid $darkgrey;
-        }
-      }
-      tbody,
-      thead {
-        tr td,
-        tr th {
-        &:nth-child(1) {
-            display: none;
-          }
-        }
-      }
-      .views-field-detail {
-        float: left;
-        padding: 5px;
-      }
-      td .delete-line-item  {
-        font-size: 0!important;
-        width: 40px;
-        height: 40px;
-        background-color: transparent;
-        border-radius: 50%;
-        &:hover {
-          background-color: rgba(5, 0, 0, 0.2)
-        }
-      }
-      td.views-field-edit-delete {
-        font: normal normal normal 14px/1 FontAwesome;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        transform: translate(0, 0);
-        font-size: 0;
-
-      }
-      td.views-field-edit-delete:before {
-        content: "\f00d";
-        font-size: 30px;
-        color: white;
-        line-height: 38px;
-        display: block;
-        margin-bottom: -40px;
-        margin-left: 0px;
-        z-index: -1;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: block;
-        background-color: $red;
-        text-align: center;
+  tbody {
+    tr {
+      position: relative;
+      &:before {
+        content: attr(data-before);
+        position:absolute;
+        margin-top: -25px;
+        font-weight: 700;
+        font-size: 18px;
+        color: $blue;
       }
     }
+  }
+  thead {
+    tr {
+      border-bottom: 2px solid $darkgrey;
+    }
+  }
+  tbody,
+  thead {
+    tr td,
+    tr th {
+      &:nth-child(1) {
+        display: none;
+      }
+    }
+  }
+  .views-field-detail {
+    float: left;
+    padding: 5px;
+  }
+  td .delete-line-item  {
+    font-size: 0!important;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 50%;
+    &:hover {
+      background-color: rgba(5, 0, 0, 0.2)
+    }
+  }
+  td.views-field-edit-delete {
+    font: normal normal normal 14px/1 FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    font-size: 0;
+  }
+  td.views-field-edit-delete:before {
+    content: "\f00d";
+    font-size: 30px;
+    color: white;
+    line-height: 38px;
+    display: block;
+    margin-bottom: -40px;
+    margin-left: 0px;
+    z-index: -1;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: block;
+    background-color: $red;
+    text-align: center;
+  }
+}
 
 .form-disabled input {
   background-color: $lightgrey;
@@ -1811,7 +1837,6 @@ div.horizontal-tabs {
   }
 }
 
-
 // form items
 
 .form-item-quantity {
@@ -1823,7 +1848,6 @@ div.horizontal-tabs {
 .commerce-quantity-plusminus-link a.button {
   padding: 6px 7px;
 }
-
 
 .submitted {
   font-size: 16px;
@@ -2247,5 +2271,11 @@ input {
   margin-bottom: 30px;
   @include gridle_state (min-tablet) {
     display: none;
+  }
+}
+
+.view-about {
+  div.tabs {
+    right: 50px;
   }
 }

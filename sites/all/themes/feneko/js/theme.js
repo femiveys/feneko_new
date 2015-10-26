@@ -118,6 +118,10 @@
       $(this).toggleClass('open');
     });
 
+    $('.view-feneko-shopping-cart-block .node-header').click(function() {
+      $('.view-total').toggle();
+    });
+
 
   });
 })(jQuery);

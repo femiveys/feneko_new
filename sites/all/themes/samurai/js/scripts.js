@@ -16,7 +16,7 @@
       $(this).addClass('over');
     });
 
-    // scroll to top link
+    // SCROLL TO TOP LINK
     var topLink = $('.totop');
     var showTopLink = 500;
     topLink.hide();
@@ -31,7 +31,7 @@
         scrollbarTimeout = setTimeout(function()
         {
           topLink.fadeOut();
-        }, 1000);
+        }, 2000);
       } else {
         topLink.fadeOut('slow');
       }
@@ -42,16 +42,11 @@
       $('body, html').animate( {scrollTop : 0}, 'slow' );
     });
 
+    // EDIT PAGE COG
     $('div.tabs .fa').click(function(e) {
       e.preventDefault();
-//      $('ul.tabs', '.edit').toggle();
       $(this).parents().closest('.tabs').find('ul.tabs, .edit').toggle();
-      //$(this).siblings().toggle();
-      //$(this).parent().siblings($('.edit')).toggle();
-      //$(this).toggle();
-      //$(this).toggleClass('open');
     });
-
 
     // LINK ON BLOCK
     function blocklink (selector) {
@@ -62,6 +57,7 @@
 
     blocklink($('.blocklink'));
     blocklink($('.field-type-file .field-item'));
+    blocklink($('.line-item-summary-view-cart'));
 
     // EQUAL HEIGHT DIVS
     function equalHeight (container, div) {

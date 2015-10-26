@@ -82,7 +82,7 @@
 <?php endif; ?>
 
 <?php if ($page['shopping_cart']): ?>
-  <div id="shoppingcart" class="wrapperr">
+  <div id="shoppingcart">
     <div class="inner-wrapper">
       <?php print render($page['shopping_cart']); ?>
     </div>

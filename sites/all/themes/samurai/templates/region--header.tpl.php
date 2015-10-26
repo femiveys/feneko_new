@@ -27,8 +27,7 @@
  *
  * @ingroup themeable
  *
- * @link http://api.drupal.org/api/drupal/modules--system--region.tpl.php/7
-
+ * @link http://api.drupal.org/api/drupal/modules--system--region.tpl.php/
  */
 ?>
 <header id="<?php print $region; ?>" class="region">

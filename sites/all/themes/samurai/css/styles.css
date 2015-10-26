@@ -971,10 +971,6 @@ div.edit-link .fa {
   display: block;
 }
 
-.view-about div.tabs {
-  right: 50px;
-}
-
 @-ms-keyframes spin {
   from {
     -ms-transform: rotate(0deg);
