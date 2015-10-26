@@ -920,7 +920,18 @@ h3 a,
 
 div.messages {
   border-radius: 5px;
-  border: 2px solid #e6e6e6 !important;
+}
+div.messages.status {
+  background-color: lightgreen;
+  border-color: #488214;
+}
+div.messages.warning {
+  background-color: #ffe4b2;
+  border-color: #FFA500;
+}
+div.messages.error {
+  background-color: #FFE4E1;
+  border-color: #DC5126;
 }
 
 .wrapper {
@@ -2889,4 +2900,23 @@ input {
   clear: both;
   padding-right: 10px;
   color: #488214;
+}
+
+.field-type-file .field-item {
+  color: #295D8F;
+}
+.field-type-file .field-item:before {
+  color: #295D8F;
+}
+.field-type-file .field-item .file a {
+  color: #295D8F;
+}
+.field-type-file .field-item:hover {
+  color: #c7c7c7;
+}
+.field-type-file .field-item:hover:before {
+  color: #c7c7c7;
+}
+.field-type-file .field-item:hover .file a {
+  color: #c7c7c7;
 }

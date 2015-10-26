@@ -45,7 +45,7 @@
     $('div.tabs .fa').click(function(e) {
       e.preventDefault();
 //      $('ul.tabs', '.edit').toggle();
-      $(this).parents().find('ul.tabs, .edit').toggle();
+      $(this).parents().closest('.tabs').find('ul.tabs, .edit').toggle();
       //$(this).siblings().toggle();
       //$(this).parent().siblings($('.edit')).toggle();
       //$(this).toggle();

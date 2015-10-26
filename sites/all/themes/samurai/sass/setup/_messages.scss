@@ -1,51 +1,30 @@
 
 %message {
-  padding: $padding ;
+  padding: 10px 10px 10px 40px;
   background-position: $padding/2 50%;
   clear: both;
   margin: $padding*2 0;
-    &:before {
-      display: inline-block;
-      font: normal normal normal 14px/1 FontAwesome;
-      padding-right: $padding;
-      font-size: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      transform: translate(0, 0);
-    }
-}
-
-div.messages {
+  background-color: transparent;
+  border-left: 20px solid;
   overflow: hidden;
   ul {
     display: inline-table;
   }
+}
+
+div.messages {
   @extend %message;
   &.status {
-    border-color: darken(green, 15%);
-    background-color: green;
-    background-image: none;
-    &:before {
-      content: "\f05d";
-    }
+    background-color: lightgreen;
+    border-color: green;
   }
   &.warning {
-    border-color: darken(orange, 15%);
-    background-color: orange;
-    background-image: none;
-    &:before {
-      content: "\f071";
-    }
+    background-color: #ffe4b2;
+    border-color: #ffa500;
   }
   &.error {
-    border-color: darken(red, 15%);
-    background-color: red;
-    background-image: none;
-    color: white;
-    &:before {
-      content: "\f057";
-    }
+    background-color: #FFE4E1;
+    border-color: red;
   }
   .krumo-root {
     width: 100%;

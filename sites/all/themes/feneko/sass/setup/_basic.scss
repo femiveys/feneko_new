@@ -72,7 +72,6 @@ ul.tabs {
 
 // TITELS
 
-
 h1,
 h2,
 h1 a,
@@ -159,7 +158,18 @@ h3 a,
 
 div.messages {
   border-radius: 5px;
-  border: 2px solid $lightgrey!important;
+  &.status {
+    background-color: lightgreen;
+    border-color: $green;
+  }
+  &.warning {
+    background-color: #ffe4b2;
+    border-color: $orange;
+  }
+  &.error {
+    background-color: #FFE4E1;
+    border-color: $red;
+  }
 }
 
 
@@ -1895,7 +1905,6 @@ $contact: #f7941d;
     }
   }
   .field {
-    //float: left;
     margin: 0 $padding/2;
     display: inline-block;
   }
@@ -2089,5 +2098,31 @@ input {
   }
 }
 
+// File
 
+// file
+.field-type-file {
+  .field-item {
+    color: $blue;
+    &:before {
+      color: $blue;
+    }
+    .file {
+      a {
+        color: $blue;
+      }
+    }
+    &:hover {
+      color: $grey;
+      &:before {
+        color: $grey;
+      }
+      .file {
+        a {
+          color: $grey;
+        }
+      }
+    }
+  }
+}
 

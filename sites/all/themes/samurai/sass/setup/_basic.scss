@@ -15,6 +15,9 @@ body {
 
 .totop {
 	cursor: pointer;
+  &:hover {
+    display: block!important;
+  }
 }
 
 .hidden {
@@ -176,6 +179,40 @@ ul.tabs {
 
 #content {
   position: relative;
+}
+
+// file
+.field-type-file {
+  .field-item {
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: table;
+    width: 100%;
+    &:before {
+      content: "\f016";
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0,0);
+      float: left;
+      font-size: 36px;
+      clear: both;
+      padding: 10px;
+    }
+  }
+  .file {
+    img {
+      display: none;
+    }
+    a {
+      text-decoration: none;
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
 }
 
 
