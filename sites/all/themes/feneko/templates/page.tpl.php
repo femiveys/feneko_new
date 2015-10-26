@@ -109,12 +109,14 @@
       <ul class="action-links"><?php print render($action_links); ?></ul>
   <?php endif; ?>
 
-  <?php if ($messages) : ?>
-    <?php print $messages; ?>
-  <?php endif; ?>
+
 
 <div id="main-wrapper" class="wrapper">
   <div class="inner-wrapper">
+
+    <?php if ($messages) : ?>
+      <?php print $messages; ?>
+    <?php endif; ?>
 
     <div id="content">
       <a id="main-content"></a>

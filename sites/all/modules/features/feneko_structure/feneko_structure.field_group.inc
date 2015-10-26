@@ -60,15 +60,12 @@ function feneko_structure_field_group_info() {
     'children' => array(
       0 => 'field_tech_docs',
     ),
-    'format_type' => 'htab',
+    'format_type' => 'accordion-item',
     'format_settings' => array(
-      'label' => 'Technical documents',
+      'formatter' => 'closed',
       'instance_settings' => array(
-        'id' => '',
         'classes' => '',
-        'description' => '',
       ),
-      'formatter' => 'open',
     ),
   );
   $export['group_doc_tab|node|product|default'] = $field_group;
@@ -88,13 +85,11 @@ function feneko_structure_field_group_info() {
     'children' => array(
       0 => 'field_tech_image',
     ),
-    'format_type' => 'htab',
+    'format_type' => 'accordion-item',
     'format_settings' => array(
       'label' => 'Technical drawing',
       'instance_settings' => array(
-        'id' => '',
         'classes' => '',
-        'description' => '',
       ),
       'formatter' => 'open',
     ),
@@ -146,15 +141,12 @@ function feneko_structure_field_group_info() {
     'children' => array(
       0 => 'field_tech_info',
     ),
-    'format_type' => 'htab',
+    'format_type' => 'accordion-item',
     'format_settings' => array(
-      'label' => 'Technical information',
+      'formatter' => 'closed',
       'instance_settings' => array(
-        'id' => '',
         'classes' => '',
-        'description' => '',
       ),
-      'formatter' => 'open',
     ),
   );
   $export['group_info_tab|node|product|default'] = $field_group;
@@ -234,14 +226,16 @@ function feneko_structure_field_group_info() {
     'weight' => '2',
     'children' => array(
       0 => 'group_doc_tab',
-      1 => 'group_info_tab',
-      2 => 'group_draw_tab',
+      1 => 'group_draw_tab',
+      2 => 'group_info_tab',
     ),
-    'format_type' => 'htabs',
+    'format_type' => 'accordion',
     'format_settings' => array(
       'formatter' => '',
       'instance_settings' => array(
-        'classes' => 'group-wrapper field-group-htabs',
+        'description' => '',
+        'classes' => '',
+        'effect' => 'bounceslide',
       ),
     ),
   );

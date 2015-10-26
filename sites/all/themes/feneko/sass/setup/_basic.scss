@@ -91,7 +91,7 @@ h1 a,
   margin-bottom: 36px;
 }
 
-#view-main-categories {
+.view-main-categories {
   .view-grouping-header {
     font-size: 26px;
   }
@@ -1301,24 +1301,34 @@ div.messages {
 
 // HTABS
 
-.horizontal-tabs {
+//.horizontal-tabs,
+.field-group-accordion-wrapper {
+  margin-bottom: 30px;
   fieldset {
     margin-bottom: 0;
     &.horizontal-tabs-pane {
       padding: $padding*4 $padding/2 $padding/2 $padding/2;
     }
   }
-  ul.horizontal-tabs-list {
+  .ui-corner-all,
+  .ui-corner-top {
+    border-radius: 0;
+  }
+// ul.horizontal-tabs-list,
+  .field-group-format-toggler {
     background-color: $white;
     border-right: none;
     display: flex;
     @include gridle_state (max-mobile) {
       overflow: hidden;
     }
-    li {
+    //li {
       a {
         background-color: $lightgrey;
         color: $white;
+        display: block;
+        width: 100%;
+        margin-bottom: 0;
         &:hover {
           background-color: $grey;
         }
@@ -1326,7 +1336,7 @@ div.messages {
       &:hover {
         background-color: $white;
       }
-      &.selected {
+      &.ui-state-active {
         background-color: $blue;
         margin-bottom: -1px;
         &:hover {
@@ -1343,7 +1353,7 @@ div.messages {
           }
         }
       }
-    }
+    //}
     @include gridle_state(max-tablet) {
       display: block;
     }
@@ -1407,7 +1417,7 @@ div.horizontal-tabs {
   text-align: center;
   @include gridle_state (min-desk) {
     background-color: $lightgrey;
-    padding: 10px 0;
+    padding: 20px 0 5px 0;
   }
   h1 {
     @include gridle_state (max-tablet) {
