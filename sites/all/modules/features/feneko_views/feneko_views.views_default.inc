@@ -544,10 +544,11 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['field_openingsuren']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_openingsuren']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_openingsuren']['hide_empty'] = TRUE;
-  /* Field: Content: Tel */
+  /* Field: Inhoud: Tel - x */
   $handler->display->display_options['fields']['field_tel']['id'] = 'field_tel';
   $handler->display->display_options['fields']['field_tel']['table'] = 'field_data_field_tel';
   $handler->display->display_options['fields']['field_tel']['field'] = 'field_tel';
+  $handler->display->display_options['fields']['field_tel']['ui_name'] = 'Inhoud: Tel - x';
   $handler->display->display_options['fields']['field_tel']['label'] = '';
   $handler->display->display_options['fields']['field_tel']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_tel']['element_label_colon'] = FALSE;
@@ -564,28 +565,13 @@ function feneko_views_views_default_views() {
   );
   $handler->display->display_options['fields']['field_tel']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_tel']['delta_offset'] = '0';
-  /* Field: Content: Social follow */
-  $handler->display->display_options['fields']['field_social_follow']['id'] = 'field_social_follow';
-  $handler->display->display_options['fields']['field_social_follow']['table'] = 'field_data_field_social_follow';
-  $handler->display->display_options['fields']['field_social_follow']['field'] = 'field_social_follow';
-  $handler->display->display_options['fields']['field_social_follow']['label'] = '';
-  $handler->display->display_options['fields']['field_social_follow']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_social_follow']['alter']['text'] = '[field_social_follow] 
-[field_tel]';
-  $handler->display->display_options['fields']['field_social_follow']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_social_follow']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_social_follow']['settings'] = array(
-    'edit' => '',
-    'delete' => '',
-    'add' => '',
-    'description' => 0,
-    'view_mode' => 'full',
-  );
-  /* Field: Content: Adres */
+  /* Field: Inhoud: Adres - x */
   $handler->display->display_options['fields']['field_adres']['id'] = 'field_adres';
   $handler->display->display_options['fields']['field_adres']['table'] = 'field_data_field_adres';
   $handler->display->display_options['fields']['field_adres']['field'] = 'field_adres';
+  $handler->display->display_options['fields']['field_adres']['ui_name'] = 'Inhoud: Adres - x';
   $handler->display->display_options['fields']['field_adres']['label'] = '';
+  $handler->display->display_options['fields']['field_adres']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_adres']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_adres']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_adres']['hide_empty'] = TRUE;
@@ -596,6 +582,26 @@ function feneko_views_views_default_views() {
       'address' => 'address',
       'address-hide-country' => 'address-hide-country',
     ),
+  );
+  /* Field: Inhoud: Social follow - r */
+  $handler->display->display_options['fields']['field_social_follow']['id'] = 'field_social_follow';
+  $handler->display->display_options['fields']['field_social_follow']['table'] = 'field_data_field_social_follow';
+  $handler->display->display_options['fields']['field_social_follow']['field'] = 'field_social_follow';
+  $handler->display->display_options['fields']['field_social_follow']['ui_name'] = 'Inhoud: Social follow - r';
+  $handler->display->display_options['fields']['field_social_follow']['label'] = '';
+  $handler->display->display_options['fields']['field_social_follow']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_social_follow']['alter']['text'] = '[field_adres] 
+[field_tel]
+[field_social_follow] 
+';
+  $handler->display->display_options['fields']['field_social_follow']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_social_follow']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_social_follow']['settings'] = array(
+    'edit' => '',
+    'delete' => '',
+    'add' => '',
+    'description' => 0,
+    'view_mode' => 'full',
   );
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
