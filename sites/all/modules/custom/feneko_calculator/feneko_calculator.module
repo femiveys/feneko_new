@@ -90,6 +90,31 @@ function feneko_calculator_menu() {
 }
 
 /**
+ * Implements hook_variable_info
+ */
+function feneko_calculator_variable_info($options) {
+  $variable = array(
+    'fc_order_email_text' => array(
+      'type' => 'string',
+      'title' => t('Feneko calculator: Client e-mail text for an order', array(), $options),
+      'description' => t('Text of the email that will be sent to user who has submitted an order'),
+    ),
+    'fc_offer_email_text' => array(
+      'type' => 'string',
+      'title' => t('Feneko calculator: Client e-mail text for an offer', array(), $options),
+      'description' => t('Text of the email that will be sent to user who has submitted an offer'),
+    ),
+    'fc_submiting_text' => array(
+      'type' => 'string',
+      'title' => t('Feneko calculator: After submit message', array(), $options),
+      'description' => t('Text that will be shown to the user after successfull form submission'),
+    ),
+  );
+  return $variable;
+}
+
+
+/**
  * Implements hook_theme_registry_alter
  */
 function feneko_calculator_theme_registry_alter(&$theme_registry) {
@@ -128,6 +153,7 @@ function feneko_calculator_mail_alter(&$message) {
     // Take the order ID from the title
     preg_match("/(\d+)/", $message['subject'], $matches);
     $order_id = $matches[0];
+    $order = entity_metadata_wrapper('commerce_order', $order_id);
 
     // Attach the pdf
     module_load_include('inc', 'feneko_calculator', 'feneko_calculator.mpdf');
@@ -138,22 +164,42 @@ function feneko_calculator_mail_alter(&$message) {
     );
     $message['params']['attachments'][] = $attachment;
 
-    // Attach the XML for the mail to Feneko
     if(strpos($message['id'], $mail_id_patterns['feneko']) !== false) {
+      // For feneko mail
+
+      // Set the to
+      $message['to'] = variable_get('fc_notification_email');
+
+      // Set the body
+      $body = variable_get('fc_notification_email_text') ;
+
+       // Attach the XML for the mail to Feneko
       module_load_include('inc', 'feneko_calculator', 'feneko_calculator.admin');
-      $order = commerce_order_load($order_id);
       $attachment = array(
-        'filecontent' => feneko_calculator_order_to_xml($order),
+        'filecontent' => feneko_calculator_order_to_xml($order->value()),
         'filename' => "$order_id.xml",
         'filemime' => 'text/xml',
       );
       $message['params']['attachments'][] = $attachment;
+    } else {
+      // For mail to client
+      $body = $order->field_order_type->value() === 'order'
+            ?  variable_get('fc_order_email_text')
+            :  variable_get('fc_offer_email_text');
     }
+
+    // Set the body and apply the replacements
+    $body = str_replace('{name}', $order->owner->name->value(), $body);
+    $body = str_replace('{company}', $order->owner->field_naam_bedrijf->value(), $body);
+    $body = str_replace('{klantennummer}', $order->field_order4->value(), $body);
+    $body = str_replace('{client_number}', $order->field_order4->value(), $body);
+    $message['body'][0] = $body;
 
     // Attach drawings
     fc_add_drawings_attachments($order_id, $message);
   }
 }
+
 
 function feneko_calculator_preprocess_views_view(&$vars) {
   $view = $vars['view'];
@@ -375,7 +421,9 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
 
   if(!$user) return;
 
-  if(!$cart = commerce_cart_order_load($user->uid)) {
+  $cart = commerce_cart_order_load($user->uid);
+
+  if(!$cart && $user->uid) {
     $cart = commerce_cart_order_new($user->uid);
     watchdog('feneko_calculator', 'No cart found for current user. We just created one.');
   }
@@ -1273,7 +1321,7 @@ function fc_disable_multi_fields(&$form, &$form_state, $number) {
   // For field_multi_hoek
   for($i = $number-1; $i < $multiHoek['#cardinality']; $i++) {
     $form_state['values']['line_item_fields']['field_multi_hoek']['und'][$i]['value'] = 0;
-    $multiHoek[$i]['value']['#default_value'] = 90;
+    $multiHoek[$i]['value']['#default_value'] = 0; // 90 gives unexpected results
     $multiHoek[$i]['value']['#disabled'] = TRUE;
   }
 }

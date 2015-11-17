@@ -1,7 +1,7 @@
 <?php
 define('FENEKO_CODE_ORDER_STATUSES_TABLE', 'order_statuses');
 define('FENEKO_CODE_IMPORT_DELIMITER', ';');
-define('FENEKO_OLD', true);
+define('FENEKO_OLD', false);
 
 function feneko_code_permission() {
   return array(
@@ -129,9 +129,16 @@ function feneko_code_form_alter(&$form, &$form_state, $form_id) {
   }
 }
 
-function feneko_code_get_order4_options() {
+function feneko_code_get_clients_options() {
   global $user;
+  $options = array();
   $wrapper = entity_metadata_wrapper('user', $user);
+  foreach ($wrapper->field_clients->value() as $client) {
+    $client_number = $client->field_client_number[LANGUAGE_NONE][0]['value'];
+    $options[$client->nid] = $client->title . "($client_number)";
+  }
+  return $options;
+  dpm($wrapper->field_clients->value());
   $klantennummers = $wrapper->field_klantennummer->value();
   return array_combine($klantennummers, $klantennummers);
 }

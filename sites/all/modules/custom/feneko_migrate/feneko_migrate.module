@@ -1,0 +1,53 @@
+<?php
+function feneko_migrate_users() {
+	$query = new EntityFieldQuery();
+	$result = $query->entityCondition('entity_type', 'user')->execute();
+
+	if (isset($result['user'])) {
+	  $nids = array_keys($result['user']);
+	  $users = entity_load('user', $nids);
+	}
+
+	$l = LANGUAGE_NONE;
+
+	$msgs = array();
+
+	foreach ($users as $user) {
+		$klantennummers = $user->field_klantennummer;
+		if(isset($klantennummers[$l]) && is_array($klantennummers[$l])) {
+			$clients = array();
+			foreach ($klantennummers[$l] as $values) {
+				$klantennummer = $values['value'];
+				$query = new EntityFieldQuery();
+				$result = $query->entityCondition('entity_type', 'node')
+							    ->entityCondition('bundle', 'client')
+							    ->fieldCondition('field_client_number', 'value', $klantennummer)
+							    ->execute();
+				if($result) {
+					$clientNid = key($result['node']);
+					$clients[] = array('target_id' => $clientNid);
+				} else {
+					$msg = t('Client number :num not found for user :name', array(
+						':num' => $klantennummer,
+						':name' => $user->name,
+					));
+					$msgs['not_found'][] = $msg;
+				}
+			}
+			$user->field_clients[$l] = $clients;
+			field_attach_update('user', $user);
+		} else {
+			$msg = t('User :name (:uid) is is not assigned to a client', array(
+				':name' => $user->name,
+				':uid' => $user->uid,
+			));
+			$msgs['not_assigned'][] = $msg;
+		}
+	}
+
+	foreach ($msgs as $type => $messages) {
+		foreach ($messages as $msg) {
+			drupal_set_message($msg, 'warning');
+		}
+	}
+}

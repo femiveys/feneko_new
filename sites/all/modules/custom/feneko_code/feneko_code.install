@@ -59,7 +59,10 @@ function feneko_code_update_7003() {
  */
 function feneko_code_update_7004() {
   $table = FENEKO_CODE_ORDER_STATUSES_TABLE;
-  db_add_index($table, $table . '_ref', array('ref'));
+  $name = $table . '_ref';
+  if(!db_index_exists($table, $name)) {
+    db_add_index($table, $name, array('ref'));
+  }
 }
 
 /**
@@ -76,3 +79,17 @@ function feneko_code_update_7005() {
   db_change_field($table, $oldname, $name, $conf);
 }
 
+/*
+Export users from prod
+Export users_roles table from prod (remove index part)
+
+femi, jeremie verwijderen van new
+rollen ID's juist zetten (zou in features moeten zitten)
+
+Import users into new
+Import users_roles into
+
+Import clients
+Run user-script
+Remove some user fields
+*/

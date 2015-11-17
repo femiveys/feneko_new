@@ -418,3 +418,15 @@ features_exclude[features_overrides][rules_config.commerce_discount_rule_discoun
 features_exclude[features_overrides][rules_config.commerce_discount_rule_discount_global_discount_400_800.1] = rules_config.commerce_discount_rule_discount_global_discount_400_800.1
 features_exclude[variable][i18n_node_extended_dorpel_koppelstuk] = i18n_node_extended_dorpel_koppelstuk
 features_exclude[variable][i18n_node_options_dorpel_koppelstuk] = i18n_node_options_dorpel_koppelstuk
+features_exclude[dependencies][feneko_structure] = feneko_structure
+features_exclude[field_instance][node-dorpel_anti_dreunstrook-title_field] = node-dorpel_anti_dreunstrook-title_field
+features_exclude[field_instance][node-dorpel_eindstuk-title_field] = node-dorpel_eindstuk-title_field
+features_exclude[field_instance][node-dorpel_hoek-title_field] = node-dorpel_hoek-title_field
+features_exclude[field_instance][node-dorpel_koppelstuk-title_field] = node-dorpel_koppelstuk-title_field
+features_exclude[field_instance][node-muurkap-title_field] = node-muurkap-title_field
+features_exclude[field_instance][node-plaatbewerking-title_field] = node-plaatbewerking-title_field
+features_exclude[field_instance][node-raamtablet-title_field] = node-raamtablet-title_field
+features_exclude[field_instance][node-sandwichpaneel-title_field] = node-sandwichpaneel-title_field
+features_exclude[field_instance][node-standaardprofiel-title_field] = node-standaardprofiel-title_field
+features_exclude[field_instance][node-stuk-title_field] = node-stuk-title_field
+features_exclude[field_instance][node-unit-title_field] = node-unit-title_field

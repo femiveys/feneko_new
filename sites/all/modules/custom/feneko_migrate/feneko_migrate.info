@@ -1,0 +1,9 @@
+name = "Feneko Migrate"
+description = "Module to migrate data from Feneko Systems to Drupal"
+package = "Feneko"
+core = 7.x
+
+dependencies[] = migrate
+
+;  include the files that contain your Migrate classes
+files[] = clients.inc
