@@ -294,7 +294,6 @@ function feneko_code_retours_pdf($record) {
 }
 
 function feneko_code_parse_pdf_field($name, $record) {
-  $form = feneko_code_retours_form(array());
   $mapping = feneko_code_retours_mapping();
 
   switch ($name) {

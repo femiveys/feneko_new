@@ -1615,7 +1615,7 @@ class FenekoForm {
    * @param $message
    * @return boolean TRUE if the mail could be sent, FALSE otherwise
    */
-  private static function sendMail($to, $subject, $message, $attachments = NULL){
+  public static function sendMail($to, $subject, $message, $attachments = NULL){
     $from = 'Feneko <jeremie@feneko.be>';
     $params = array(
       'body'    => $message,
