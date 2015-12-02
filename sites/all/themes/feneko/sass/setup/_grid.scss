@@ -91,6 +91,7 @@
     @include gridle_state (min-desk) {
       @include gridle_grid (3);
       @include gridle_no_gutter();
+      margin-top: 75px;
     }
   }
 }

@@ -72,6 +72,7 @@
       }
     }
 
+/*
     // products format for columns
     $('.view-grouping-content h3').each(function() {
       $(this).after('<div class="new"></div>');
@@ -80,6 +81,7 @@
     $('.new').each(function() {
       $(this).siblings('.rij-product-naam').appendTo($(this));
     });
+*/
 
 
     // mabile menu
