@@ -9,7 +9,7 @@ function feneko_code_schema() {
     'description' => 'Holds the statuses of the screens orders',
     'fields' => array(
       'klant'         => array('type' => 'int'    , 'not null' => TRUE, 'default' => 0 , 'unsigned' => TRUE),
-      'orderbon'      => array('type' => 'varchar', 'not null' => TRUE, 'default' => '', 'length' => 10,),
+      'orderbon'      => array('type' => 'varchar', 'not null' => TRUE, 'default' => '', 'length' => 10),
       'ref'           => array('type' => 'varchar', 'not null' => FALSE,'default' => '', 'length' => 255),
       'omschrijving'  => array('type' => 'varchar', 'not null' => FALSE,'default' => '', 'length' => 255),
       'kleur'         => array('type' => 'varchar', 'not null' => TRUE, 'default' => '', 'length' => 255),
@@ -29,6 +29,29 @@ function feneko_code_schema() {
       FENEKO_CODE_ORDER_STATUSES_TABLE . '_ref'          => array('ref'),
     ),
     'primary key' => array('orderbon'),
+  );
+
+  $schema[FENEKO_CODE_RETOUR_TABLE] = array(
+    'description' => 'Holds the retour opdrachten',
+    'fields' => array(
+      'rid'         => array('type' => 'serial',  'not null' => TRUE, 'unsigned' => TRUE),
+      'uid'         => array('type' => 'int',     'not null' => TRUE, 'default' => 0 , 'unsigned' => TRUE),
+      'type'        => array('type' => 'varchar', 'not null' => TRUE, 'default' => '', 'length' => 8),
+      'chauffeur'   => array('type' => 'varchar', 'not null' => TRUE, 'default' => '', 'length' => 255),
+      'client'      => array('type' => 'varchar', 'not null' => TRUE, 'default' => '', 'length' => 255),
+      'reference'   => array('type' => 'varchar', 'not null' => TRUE, 'default' => '', 'length' => 255),
+      'contact'     => array('type' => 'varchar', 'not null' => TRUE, 'default' => '', 'length' => 255),
+      'product'     => array('type' => 'varchar', 'not null' => TRUE, 'default' => '', 'length' => 255),
+      'num_prod'    => array('type' => 'int',     'not null' => TRUE, 'default' => 0, 'unsigned' => TRUE),
+      'description' => array('type' => 'varchar', 'not null' => TRUE, 'default' => '', 'length' => 5000),
+      'created'     => array('type' => 'int',     'not null' => TRUE, 'default' => 0),
+    ),
+    'indexes' => array(
+      FENEKO_CODE_RETOUR_TABLE . '_rid'     => array('rid'),
+      FENEKO_CODE_RETOUR_TABLE . '_uid'     => array('uid'),
+      FENEKO_CODE_RETOUR_TABLE . '_created' => array('created'),
+    ),
+    'primary key' => array('rid'),
   );
 
   return $schema;
@@ -77,6 +100,36 @@ function feneko_code_update_7005() {
   $conf = $schema[FENEKO_CODE_ORDER_STATUSES_TABLE]['fields'][$name];
 
   db_change_field($table, $oldname, $name, $conf);
+}
+
+/**
+ * Create schema for retours
+ */
+function feneko_code_update_7006() {
+  $module = FENEKO_CODE;
+  $table = FENEKO_CODE_RETOUR_TABLE;
+  // Check if table exists, if not install the schema.
+  if(!db_table_exists($table)) {
+    $schema = drupal_get_schema_unprocessed($module);
+    _drupal_schema_initialize($schema, $module, FALSE);
+    db_create_table($table, $schema[$table]);
+  }
+}
+
+/**
+ * Remove date field and add type field
+ */
+function feneko_code_update_7007() {
+  $module = FENEKO_CODE;
+  $table = FENEKO_CODE_RETOUR_TABLE;
+  $schema = drupal_get_schema($table);
+
+  // Change field
+  db_drop_field($table, 'date');
+
+  if(!db_field_exists($table, 'type')) {
+    db_add_field($table, 'type', $schema['fields']['type']);
+  }
 }
 
 /*

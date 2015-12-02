@@ -1,5 +1,7 @@
 <?php
+define('FENEKO_CODE', 'feneko_code');
 define('FENEKO_CODE_ORDER_STATUSES_TABLE', 'order_statuses');
+define('FENEKO_CODE_RETOUR_TABLE', 'retours');
 define('FENEKO_CODE_IMPORT_DELIMITER', ';');
 define('FENEKO_OLD', false);
 
@@ -64,6 +66,15 @@ function feneko_code_menu(){
     'page arguments' => array('feneko_code_orders_form', FALSE),
     'access arguments' => array('submit_manyforms'),
     'file' => 'feneko_code.orders.inc',
+  );
+
+  $items['user/%/retour'] = array(
+    'title' => 'Retouropdracht',
+    'type' => MENU_LOCAL_TASK,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('feneko_code_retours_form', FALSE),
+    'access arguments' => array('submit_manyforms'),
+    'file' => 'feneko_code.retour.inc',
   );
 
   return $items;

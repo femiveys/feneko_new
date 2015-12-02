@@ -25,7 +25,8 @@ function feneko_account_field_group_info() {
     'children' => array(
       0 => 'ckeditor',
       1 => 'timezone',
-      2 => 'locale',
+      2 => 'overlay_control',
+      3 => 'locale',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
