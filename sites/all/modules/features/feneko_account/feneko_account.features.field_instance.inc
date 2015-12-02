@@ -62,7 +62,7 @@ function feneko_account_field_default_field_instances() {
         ),
       ),
       'type' => 'addressfield_standard',
-      'weight' => 7,
+      'weight' => 4,
     ),
   );
 
@@ -104,7 +104,7 @@ function feneko_account_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 6,
+      'weight' => 15,
     ),
   );
 
@@ -146,7 +146,7 @@ function feneko_account_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 5,
+      'weight' => 10,
     ),
   );
 
@@ -199,7 +199,7 @@ function feneko_account_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 4,
+      'weight' => 2,
     ),
   );
 
@@ -255,7 +255,7 @@ function feneko_account_field_default_field_instances() {
         ),
       ),
       'type' => 'addressfield_standard',
-      'weight' => 18,
+      'weight' => 7,
     ),
   );
 
@@ -297,7 +297,7 @@ function feneko_account_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 15,
+      'weight' => 9,
     ),
   );
 
@@ -339,7 +339,7 @@ function feneko_account_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 16,
+      'weight' => 8,
     ),
   );
 
@@ -384,7 +384,7 @@ function feneko_account_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 9,
+      'weight' => 6,
     ),
   );
 
@@ -476,7 +476,7 @@ function feneko_account_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 8,
+      'weight' => 5,
     ),
   );
 
@@ -556,7 +556,7 @@ function feneko_account_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 10,
+      'weight' => 14,
     ),
   );
 
@@ -648,7 +648,7 @@ function feneko_account_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 14,
+      'weight' => 3,
     ),
   );
 
@@ -669,15 +669,11 @@ function feneko_account_field_default_field_instances() {
     'entity_type' => 'user',
     'field_name' => 'field_btw_nummer',
     'label' => 'BTW nummer',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'linkit' => array(
-        'enable' => 0,
-        'insert_plugin' => '',
-      ),
       'text_processing' => 0,
-      'user_register_form' => 1,
+      'user_register_form' => 0,
     ),
     'widget' => array(
       'active' => 1,
@@ -686,7 +682,7 @@ function feneko_account_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 12,
+      'weight' => 17,
     ),
   );
 
@@ -742,8 +738,9 @@ function feneko_account_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'list',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'list_default',
         'weight' => 8,
       ),
     ),
@@ -760,7 +757,7 @@ function feneko_account_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 9,
+      'weight' => 14,
     ),
   );
 
@@ -785,12 +782,8 @@ Het eerste nummer wordt als standaard beschouwd.',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'linkit' => array(
-        'enable' => 0,
-        'insert_plugin' => '',
-      ),
       'text_processing' => 0,
-      'user_register_form' => 1,
+      'user_register_form' => 0,
     ),
     'widget' => array(
       'active' => 1,
@@ -799,7 +792,7 @@ Het eerste nummer wordt als standaard beschouwd.',
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 11,
+      'weight' => 16,
     ),
   );
 
@@ -820,15 +813,11 @@ Het eerste nummer wordt als standaard beschouwd.',
     'entity_type' => 'user',
     'field_name' => 'field_naam_bedrijf',
     'label' => 'Naam Bedrijf',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'linkit' => array(
-        'enable' => 0,
-        'insert_plugin' => '',
-      ),
       'text_processing' => 0,
-      'user_register_form' => 1,
+      'user_register_form' => 0,
     ),
     'widget' => array(
       'active' => 1,
@@ -837,7 +826,7 @@ Het eerste nummer wordt als standaard beschouwd.',
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 10,
+      'weight' => 15,
     ),
   );
 
@@ -924,15 +913,11 @@ Het eerste nummer wordt als standaard beschouwd.',
     'entity_type' => 'user',
     'field_name' => 'field_telefoon',
     'label' => 'Telefoonnummer',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'linkit' => array(
-        'enable' => 0,
-        'insert_plugin' => '',
-      ),
       'text_processing' => 0,
-      'user_register_form' => 1,
+      'user_register_form' => 0,
     ),
     'widget' => array(
       'active' => 1,
@@ -941,7 +926,7 @@ Het eerste nummer wordt als standaard beschouwd.',
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 13,
+      'weight' => 18,
     ),
   );
 

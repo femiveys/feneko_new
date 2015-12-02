@@ -15,7 +15,7 @@ function manyforms_menu() {
       'page arguments' => array($id),
       'type' => MENU_CALLBACK,
       'access callback' => array('feneko_code_access'),
-      'access arguments' => array('blabla', 'submit_manyforms'),
+      'access arguments' => array('submit_manyforms'),
     );
   }
 

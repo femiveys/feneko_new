@@ -44,13 +44,13 @@ function feneko_account_strongarm() {
           'weight' => '2',
         ),
         'title' => array(
-          'weight' => '3',
-        ),
-        'path' => array(
           'weight' => '1',
         ),
-        'language' => array(
+        'path' => array(
           'weight' => '0',
+        ),
+        'language' => array(
+          'weight' => '16',
         ),
       ),
       'display' => array(

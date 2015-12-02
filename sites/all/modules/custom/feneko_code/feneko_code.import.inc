@@ -51,7 +51,7 @@ function feneko_code_import_form($form, &$form_state) {
         'ral'                            => 'RAL codes',
         'renolit'                        => 'Renolit codes',
         'utilo'                          => 'Utilo profielen',
-        'blokced'                        => 'Geblokkeerd/EB',
+        'blocked'                        => 'Geblokkeerd/EB',
         FENEKO_CODE_ORDER_STATUSES_TABLE => 'Statussen Orders',
       ),
       '#required' => true,

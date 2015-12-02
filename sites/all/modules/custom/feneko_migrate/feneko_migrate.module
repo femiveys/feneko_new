@@ -59,9 +59,6 @@ function feneko_migrate_users($SIMULATE = true) {
 					$msg = t('SIMULATION: saving user :uid', array(':uid' => $user->uid));
 					drupal_set_message($msg, 'status');
 				} else {
-					if($user->uid == 2292) {
-						dpm($wrapper->value());
-					}
 					$wrapper->save();
 				}
 			} else {

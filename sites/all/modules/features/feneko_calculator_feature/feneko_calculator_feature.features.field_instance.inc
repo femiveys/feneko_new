@@ -1264,7 +1264,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
     'default_value' => array(
       0 => array(
-        'value' => 90,
+        'value' => 0,
       ),
     ),
     'deleted' => 0,
