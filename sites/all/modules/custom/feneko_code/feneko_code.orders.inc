@@ -4,7 +4,7 @@ function feneko_code_orders_form($form, &$form_state) {
   global $language;
   $date_format = "d/m/Y";
 
-  $klantennummers = feneko_code_get_order4_options();
+  $klantennummers = array_keys(feneko_code_get_clients_options());
 
   $header = array(
     'orderbon' => array(

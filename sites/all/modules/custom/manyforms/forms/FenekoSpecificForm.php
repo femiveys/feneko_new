@@ -183,6 +183,7 @@ class FenekoSpecificForm extends FenekoForm {
     $html .= '<h1>' . $this->title . ': ' . strtoupper($type) . ' ' . t('via website') . '</h1>';
     $html .= '<div class="inline left">';
     $html .= $this->remark . '<br/><br />';
+    $html .= $this->parsePDFfield('uid', $record);
     $html .= $this->parsePDFfield('datesubmit', $record);
     $html .= $this->parsePDFfield('klant', $record);
     $html .= $this->parsePDFfield('referentie', $record);
@@ -755,16 +756,28 @@ class FenekoSpecificForm extends FenekoForm {
         $val = date('d-m-Y', $record->$name);
 
       case 'datesubmit':
-      case 'klant':
-        $title = $name === 'klant' ? t('klant') : t('datum');
         return "<div class=\"inline-field\">"
-             . "<div class=\"label\">$title :</div><div class=\"value\">$val</div>"
+             . "<div class=\"label\">" . t('datum') . "</div><div class=\"value\">$val</div>"
+             . "</div>";
+
+      case 'klant':
+      $client = feneko_code_get_client_by_number($val);
+        $val = $client->title->value() . " (" . $client->field_client_number->value() . ")";
+        return "<div class=\"inline-field\">"
+             . "<div class=\"label\">" . t('klant') . "</div><div class=\"value\">$val</div>"
+             . "</div>";
+
+      case 'uid':
+        $user = entity_metadata_wrapper('user', $val);
+        $val = $user->name->value();
+        return "<div class=\"inline-field\">"
+             . "<div class=\"label\">" . t('user') . "</div><div class=\"value\">$val</div>"
              . "</div>";
 
       case 'referentie':
         $title = $this->form[$name]['#title'];
         return "<div class=\"inline-field last\">"
-             . "<div class=\"label\">$title :</div><div class=\"value\">$val</div>"
+             . "<div class=\"label\">$title</div><div class=\"value\">$val</div>"
              . "</div>";
 
       case 'frame':

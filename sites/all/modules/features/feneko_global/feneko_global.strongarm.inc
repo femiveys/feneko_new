@@ -161,12 +161,15 @@ function feneko_global_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'variable_realm_list_language';
   $strongarm->value = array(
-    0 => 'manyforms_order_email_text',
-    1 => 'manyforms_offer_email_text',
-    2 => 'manyforms_submiting_text',
-    3 => 'site_name',
-    4 => 'site_slogan',
-    5 => 'maintenance_mode_message',
+    0 => 'fc_order_email_text',
+    1 => 'fc_offer_email_text',
+    2 => 'fc_submiting_text',
+    3 => 'manyforms_order_email_text',
+    4 => 'manyforms_offer_email_text',
+    5 => 'manyforms_submiting_text',
+    6 => 'site_name',
+    7 => 'site_slogan',
+    8 => 'maintenance_mode_message',
   );
   $export['variable_realm_list_language'] = $strongarm;
 

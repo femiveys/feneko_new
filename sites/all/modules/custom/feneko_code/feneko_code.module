@@ -1,7 +1,9 @@
 <?php
+define('FENEKO_CODE', 'feneko_code');
 define('FENEKO_CODE_ORDER_STATUSES_TABLE', 'order_statuses');
+define('FENEKO_CODE_RETOUR_TABLE', 'retours');
 define('FENEKO_CODE_IMPORT_DELIMITER', ';');
-define('FENEKO_OLD', true);
+define('FENEKO_OLD', false);
 
 function feneko_code_permission() {
   return array(
@@ -16,6 +18,15 @@ function feneko_code_permission() {
   );
 }
 
+function feneko_code_access() {
+  foreach (func_get_args() as $permission) {
+    if(!user_access($permission)) {
+      dpm($permission);
+      return false;
+    }
+  }
+  return true;
+}
 
 function feneko_code_menu(){
   if(FENEKO_OLD) {
@@ -55,6 +66,15 @@ function feneko_code_menu(){
     'page arguments' => array('feneko_code_orders_form', FALSE),
     'access arguments' => array('submit_manyforms'),
     'file' => 'feneko_code.orders.inc',
+  );
+
+  $items['user/%/retour'] = array(
+    'title' => 'Retouropdracht',
+    'type' => MENU_LOCAL_TASK,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('feneko_code_retours_form', FALSE),
+    'access arguments' => array('submit_manyforms'),
+    'file' => 'feneko_code.retour.inc',
   );
 
   return $items;
@@ -129,12 +149,53 @@ function feneko_code_form_alter(&$form, &$form_state, $form_id) {
   }
 }
 
-function feneko_code_get_order4_options() {
+function feneko_code_get_clients_options() {
   global $user;
+  $options = array();
   $wrapper = entity_metadata_wrapper('user', $user);
-  $klantennummers = $wrapper->field_klantennummer->value();
-  return array_combine($klantennummers, $klantennummers);
+  foreach ($wrapper->field_clients->value() as $client) {
+    if(!empty($client)) {
+      $client_number = $client->field_client_number[LANGUAGE_NONE][0]['value'];
+      $options[$client_number] = $client->title . " ($client_number)";
+    } else {
+      $msg = t('The user (:user) is linked to an invalid client', array(':user' => $user->uid));
+      drupal_set_message($msg, 'error');
+    }
+  }
+  return $options;
 }
+
+/**
+ * @param $number client number
+ * @return EntityMetadataWrapper
+ */
+function feneko_code_get_client_by_number($number) {
+  $query = new EntityFieldQuery();
+  $result = $query->entityCondition('entity_type', 'node')
+            ->entityCondition('bundle', 'client')
+            ->fieldCondition('field_client_number', 'value', $number)
+            ->execute();
+
+  if (isset($result['node'])) {
+    $nids = array_keys($result['node']);
+    $clients = entity_load('node', $nids);
+  }
+
+  switch (count($clients)) {
+    case 0:
+      watchdog('feneko', 'Client number :num not found', array(':num' => $number));
+      return null;
+
+    case 1:
+      return entity_metadata_wrapper('node', key($clients));
+
+    default:
+      watchdog('feneko', 'Client number :num has multiple nids', array(':num' => $number));
+      return entity_metadata_wrapper('node', key($clients));
+      break;
+  }
+}
+
 
 function feneko_code_inform_admin($form, &$form_state) {
   if(FENEKO_OLD) {

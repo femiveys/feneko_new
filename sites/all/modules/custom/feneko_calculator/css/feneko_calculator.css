@@ -95,3 +95,7 @@ form.commerce-add-to-cart .form-submit {
 #commerce-checkout-form-checkout .checkout-buttons {
   float: right;
 }
+
+form.commerce-add-to-cart .grippie {
+  display: none;
+}

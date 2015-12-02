@@ -57,9 +57,9 @@ function feneko_calculator_feature_field_group_info() {
     'weight' => '0',
     'children' => array(
       0 => 'field_comment',
-      1 => 'field_reference',
-      2 => 'field_order_type',
-      3 => 'field_order4',
+      1 => 'field_order_type',
+      2 => 'field_reference',
+      3 => 'field_client',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(

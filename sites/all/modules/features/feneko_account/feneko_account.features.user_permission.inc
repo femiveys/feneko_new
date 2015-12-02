@@ -51,7 +51,7 @@ function feneko_account_user_default_permissions() {
   $permissions['post api'] = array(
     'name' => 'post api',
     'roles' => array(
-      'api' => 'api',
+      'content editor' => 'content editor',
     ),
     'module' => 'feneko_code',
   );
@@ -62,8 +62,8 @@ function feneko_account_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
-      'content editor' => 'content editor',
       'handelaar' => 'handelaar',
+      'interne medewerker' => 'interne medewerker',
     ),
     'module' => 'feneko_code',
   );

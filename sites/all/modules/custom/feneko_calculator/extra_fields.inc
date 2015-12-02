@@ -47,6 +47,7 @@ function fc_line_item_details($line_item, $format = 'ra') {
       'field_gaatjes_rug',
       'field_kant',
       'field_raamtablet_diepte',
+      'field_comment',
     ),
   );
 
@@ -126,83 +127,78 @@ function _fc_field_output($field_name, $entity, $entity_type, $format) {
 
   $lang = $format === 'xml' ? 'nl' : NULL;
 
-  // if($field_name === 'TOREMOVE') {
-  // } else {
-    if ($info = field_info_field($field_name)) {
-      $raw_values = field_get_items($entity_type, $entity, $field_name, $lang);
+  if ($info = field_info_field($field_name)) {
+    $raw_values = field_get_items($entity_type, $entity, $field_name, $lang);
 
-      // Multifields have to be rendered differently
-      if ($info['cardinality'] == 1) {
-        // These fields should be shown even if empty or 0
-        $force_empty = array('field_tekening', 'field_rug');
+    // Multifields have to be rendered differently
+    if ($info['cardinality'] == 1) {
+      // These fields should be shown even if empty or 0
+      $force_empty = array('field_tekening', 'field_rug');
 
-        // We don't render fields having an empty value
-        if (!empty($raw_values[0]['value']) or in_array($field_name, $force_empty)) {
-          $display = array(
-            'label' => 'inline',
-            'settings' => array(
-              'decimal_separator' => ',',
-              'prefix_suffix' => TRUE,
-              'scale' => 0,
-              'thousand_separator' => '',
-            ),
-          );
-          $ra = field_view_field($entity_type, $entity, $field_name, $display, $lang);
+      // We don't render fields having an empty value
+      if (!empty($raw_values[0]['value']) or in_array($field_name, $force_empty)) {
+        $display = array(
+          'label' => 'inline',
+          'settings' => array(
+            'decimal_separator' => ',',
+            'prefix_suffix' => TRUE,
+            'scale' => 0,
+            'thousand_separator' => '',
+          ),
+        );
+        $ra = field_view_field($entity_type, $entity, $field_name, $display, $lang);
 
-          // For products, we need to take the label from the ATTRIBUTE FIELD SETTINGS
-          if($entity_type === 'commerce_product') {
-            $instance_info = field_info_instance($entity_type, $field_name, $entity->type);
-            $ra['#title'] =  commerce_cart_attribute_widget_title($instance_info);
-          }
-
-          // Convert this to just the text for text-only output
-          switch ($format) {
-            case 'text':
-              if($field_name === 'field_tekening') {
-                if(isset($ra[0]['#file'])) {
-                  $file = $ra[0]['#file'];
-                  $ra = array(
-                    'text' => $ra['#title'] . ": " . $file->filename . "\n",
-                  );
-                }
-              } else {
-                $ra = array(
-                  'text' => $ra['#title'] . ": " . $ra[0]['#markup'] . "\n",
-                );
-              }
-              break;
-
-            case 'xml':
-              if($field_name === 'field_tekening') {
-                if(isset($ra[0]['#file'])) {
-                  $file = $ra[0]['#file'];
-                  $ra = array(
-                    'xml' => $ra['#title'] . ": " . $file->filename . "\n",
-                  );
-                }
-              } else {
-                $replacements = array(
-                  '_' => '-',
-                  ' ' => '-',
-                );
-                $tag = camelCase($ra['#title']);
-                $ra = array(
-                  'xml' => "<$tag>" . $ra[0]['#markup'] . "</$tag>",
-                );
-              }
-              break;
-          }
+        // For products, we need to take the label from the ATTRIBUTE FIELD SETTINGS
+        if($entity_type === 'commerce_product') {
+          $instance_info = field_info_instance($entity_type, $field_name, $entity->type);
+          $ra['#title'] =  commerce_cart_attribute_widget_title($instance_info);
         }
-      } else {
-        $ra = _fc_multi_field_ra($entity, $field_name, $format);
+
+        // Convert this to just the text for text-only output
+        switch ($format) {
+          case 'text':
+            if($field_name === 'field_tekening') {
+              if(isset($ra[0]['#file'])) {
+                $file = $ra[0]['#file'];
+                $ra = array(
+                  'text' => $ra['#title'] . ": " . $file->filename . "\n",
+                );
+              }
+            } else {
+              $ra = array(
+                'text' => $ra['#title'] . ": " . $ra[0]['#markup'] . "\n",
+              );
+            }
+            break;
+
+          case 'xml':
+            if($field_name === 'field_tekening') {
+              if(isset($ra[0]['#file'])) {
+                $file = $ra[0]['#file'];
+                $ra = array(
+                  'xml' => $ra['#title'] . ": " . $file->filename . "\n",
+                );
+              }
+            } else {
+              $replacements = array(
+                '_' => '-',
+                ' ' => '-',
+              );
+              $tag = camelCase($ra['#title']);
+              $ra = array(
+                'xml' => "<$tag>" . $ra[0]['#markup'] . "</$tag>",
+              );
+            }
+            break;
+        }
       }
     } else {
-      $msg = t('Field info for :field was not found', array(':field' => $field_name));
-      drupal_set_message($msg, 'error');
+      $ra = _fc_multi_field_ra($entity, $field_name, $format);
     }
-
-  // }
-
+  } else {
+    $msg = t('Field info for :field was not found', array(':field' => $field_name));
+    drupal_set_message($msg, 'error');
+  }
 
   return $ra;
 }

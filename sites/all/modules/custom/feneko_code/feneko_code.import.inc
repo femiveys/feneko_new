@@ -3,18 +3,18 @@ function feneko_code_import_form($form, &$form_state) {
   $formaat = "formaat (gescheiden door <strong>punt-comma's</strong>).</li>";
   // $csv = "<li>Upload een bestand in <strong>CSV</strong> $formaat";
   $csvzip = "<li>Upload een bestand in <strong>.csv</strong> of <strong>.zip</strong> $formaat";
-  $ral         = "<ul>$csvzip<li>Velden: kleurcode;poedercode;type</li></ul>";
-  $renolit     = "<ul>$csvzip<li>Velden: id;kleurcode;omschrijving</li></ul>";
-  $utilo       = "<ul>$csvzip<li>Velden: ?;referentie;omschrijving</li></ul>";
-  $geblokkeerd = "<ul>$csvzip<li>Velden: klantennummer;geblokkeerd_J/N</li></ul>";
-  $statuses    = "<ul>$csvzip<li>Velden: klant;orderbon;orderdatum;omschrijving;"
-               . "referentie;fase;leverdatum;aantal;bedrag;leverconditie;kleur</li></ul>";
+  $ral      = "<ul>$csvzip<li>Velden: kleurcode;poedercode;type</li></ul>";
+  $renolit  = "<ul>$csvzip<li>Velden: id;kleurcode;omschrijving</li></ul>";
+  $utilo    = "<ul>$csvzip<li>Velden: ?;referentie;omschrijving</li></ul>";
+  $blocked  = "<ul>$csvzip<li>Velden: klantennummer;geblokkeerd_J/N</li></ul>";
+  $statuses = "<ul>$csvzip<li>Velden: klant;orderbon;orderdatum;omschrijving;"
+            . "referentie;fase;leverdatum;aantal;bedrag;leverconditie;kleur</li></ul>";
 
   $mapping = array(
     'ral'                            => $ral,
     'renolit'                        => $renolit,
     'utilo'                          => $utilo,
-    'field_data_field_geblokkeerd'   => $geblokkeerd,
+    'blocked'                        => $blocked,
     FENEKO_CODE_ORDER_STATUSES_TABLE => $statuses,
   );
 
@@ -51,7 +51,7 @@ function feneko_code_import_form($form, &$form_state) {
         'ral'                            => 'RAL codes',
         'renolit'                        => 'Renolit codes',
         'utilo'                          => 'Utilo profielen',
-        'field_data_field_geblokkeerd'   => 'Geblokkeerd/EB',
+        'blocked'                        => 'Geblokkeerd/EB',
         FENEKO_CODE_ORDER_STATUSES_TABLE => 'Statussen Orders',
       ),
       '#required' => true,
@@ -147,7 +147,7 @@ function _feneko_code_csv_import($filename, $values) {
     fgetcsv($handle, 0, FENEKO_CODE_IMPORT_DELIMITER);
   }
 
-  if($table !== 'field_data_field_geblokkeerd' and $table !== FENEKO_CODE_ORDER_STATUSES_TABLE) {
+  if($table !== 'blocked' and $table !== FENEKO_CODE_ORDER_STATUSES_TABLE) {
     // First clear the table.
     if (db_table_exists($table)) {
       db_truncate($table)->execute();
@@ -204,22 +204,11 @@ function _feneko_code_csv_import($filename, $values) {
         $num_updated += db_insert($table)->fields($fields)->execute();
         break;
 
-      case 'field_data_field_geblokkeerd':
-        $query = new EntityFieldQuery();
-        $query->entityCondition('entity_type', 'user')
-          ->fieldCondition('field_klantennummer', 'value', $data[0]);
-
-        $result = $query->execute();
-        $users_ids = array_keys($result['user']);
-
-        foreach ($users_ids as $uid) {
-          $user = user_load($uid);
-          $wrapper = entity_metadata_wrapper('user', $user);
-          $wrapper->field_geblokkeerd = strtr(strtoupper($data[1]), $mapping);
-          $wrapper->save();
-          $num_updated++;
-        }
-
+      case 'blocked':
+        $client = feneko_code_get_client_by_number($data[0]);
+        $client->field_block_order_input->set(strtr(strtoupper($data[1]), $mapping));
+        $wrapper->save();
+        $num_updated++;
         break;
 
       case FENEKO_CODE_ORDER_STATUSES_TABLE:
@@ -298,9 +287,9 @@ function _feneko_code_csv_import($filename, $values) {
   fclose($handle);
 
   if($table !== FENEKO_CODE_ORDER_STATUSES_TABLE) {
-    if($table === 'field_data_field_geblokkeerd') {
+    if($table === 'blocked') {
       if($num_updated > 0) {
-        $msg = t('Er werden :num gebruikers aangepast.', array(':num' => $num_updated));
+        $msg = t('Er werden :num klanten aangepast.', array(':num' => $num_updated));
       }
     } else {
       $msg = t(':num records werden succesvol geïmporteerd.', array(':num' => $num_updated));
