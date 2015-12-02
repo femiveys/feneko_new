@@ -1,0 +1,21 @@
+.node-type-client,
+.page-user {
+	.field {
+		margin-bottom: $padding;
+	}
+	.field-label {
+		width: 150px;
+		// text-align: right;
+	}
+}
+
+.page-user {
+	.node-client {
+		border-top: 1px solid $blue;
+		margin-top: $padding;
+		padding: $padding 0;
+	}
+	h2 {
+		font-size: inherit;
+	}
+}

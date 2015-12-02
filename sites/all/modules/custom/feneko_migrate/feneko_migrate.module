@@ -1,21 +1,31 @@
 <?php
-function feneko_migrate_users() {
+function feneko_migrate_users($SIMULATE = true) {
+	// Get all users
+	$users = array();
 	$query = new EntityFieldQuery();
-	$result = $query->entityCondition('entity_type', 'user')->execute();
-
+	$result = $query->entityCondition('entity_type', 'user')
+									->propertyCondition('uid', 0, '<>') // Anonymous user
+									->propertyCondition('uid', 1, '<>') // admin user
+									->execute();
 	if (isset($result['user'])) {
 	  $nids = array_keys($result['user']);
 	  $users = entity_load('user', $nids);
 	}
 
+	$mappings = feneko_migrate_csv_users();
+
 	$l = LANGUAGE_NONE;
 
 	$msgs = array();
 
+	// Loop over all users in de DB
 	foreach ($users as $user) {
+		$noClients = false;
 		$klantennummers = $user->field_klantennummer;
 		if(isset($klantennummers[$l]) && is_array($klantennummers[$l])) {
 			$clients = array();
+
+			// Loop over all klantennummers
 			foreach ($klantennummers[$l] as $values) {
 				$klantennummer = $values['value'];
 				$query = new EntityFieldQuery();
@@ -23,31 +33,169 @@ function feneko_migrate_users() {
 							    ->entityCondition('bundle', 'client')
 							    ->fieldCondition('field_client_number', 'value', $klantennummer)
 							    ->execute();
-				if($result) {
+
+				// If there are results, we add the first (and only expected) result as a client
+				if(count($result)) {
 					$clientNid = key($result['node']);
 					$clients[] = array('target_id' => $clientNid);
 				} else {
-					$msg = t('Client number :num not found for user :name', array(
+					$msg = t('Client number :num not found for user :name.', array(
 						':num' => $klantennummer,
 						':name' => $user->name,
 					));
 					$msgs['not_found'][] = $msg;
 				}
 			}
-			$user->field_clients[$l] = $clients;
-			field_attach_update('user', $user);
+
+			// If clients have been identified to link to the user, we first link them,
+			// then we set the phone number
+			// Otherwise we remove users that are not connected to any client
+			if(count($clients) > 0) {
+				$user->field_clients[$l] = $clients;
+				$wrapper = entity_metadata_wrapper('user', $user);
+				feneko_migrate_set_phone($wrapper, $mappings);
+
+				if($SIMULATE) {
+					$msg = t('SIMULATION: saving user :uid', array(':uid' => $user->uid));
+					drupal_set_message($msg, 'status');
+				} else {
+					if($user->uid == 2292) {
+						dpm($wrapper->value());
+					}
+					$wrapper->save();
+				}
+			} else {
+				$noClients = true;
+			}
 		} else {
-			$msg = t('User :name (:uid) is is not assigned to a client', array(
+			$noClients = true;
+		}
+
+		// If the user doesn't have any clients, we let it know and remove the user
+		if($noClients) {
+			$msg = t('User :name (:uid) is not assigned to a client. REMOVED USER.', array(
 				':name' => $user->name,
 				':uid' => $user->uid,
 			));
 			$msgs['not_assigned'][] = $msg;
+
+			if($SIMULATE) {
+				$msg = t('SIMULATION: removing user :uid', array(':uid' => $user->uid));
+				drupal_set_message($msg, 'status');
+			} else {
+				user_delete($user->uid);
+			}
 		}
 	}
 
+	// Finally we set all the messages
 	foreach ($msgs as $type => $messages) {
 		foreach ($messages as $msg) {
 			drupal_set_message($msg, 'warning');
 		}
 	}
 }
+
+function feneko_migrate_set_phone(&$wrapper, $mappings) {
+	$email = $wrapper->mail->value();
+	$currentPhone = $wrapper->field_telefoon->value();
+	$newPhone = isset($mappings['emails'][$email]) ? $mappings['emails'][$email] : $currentPhone;
+	$newPhone = substr($newPhone, 0, 32);
+	$wrapper->field_phone->set($newPhone);
+}
+
+function feneko_migrate_csv_users() {
+	$clients = $emails = $dups = array();
+	$csvPath = "private://users.csv";
+	$file = fopen($csvPath, 'r');
+	while (($line = fgetcsv($file, 100000, ';')) !== FALSE) {
+		$client = trim($line[0]);
+		$email = trim($line[4]);
+		$phone = trim($line[5]);
+		feneko_migrate_handle_phone($phone);
+
+		// emails
+		if(!empty($email)) {
+			if(isset($emails[$email])) {
+				if(empty($email)) {
+					// dpm("Emails: Email empty for $phone");
+				} else {
+					if(!empty($phone)) {
+						if(empty($emails[$email])) {
+							$emails[$email] = $phone;
+						} else {
+							if(!isset($dups[$email])) {
+								$dups[$email] = array($emails[$email]);
+							}
+							$dups[$email][] = $phone;
+							// dpm("Emails: Duplicate: $email : $phone");
+						}
+					}
+				}
+			} else {
+				if(empty($phone)) {
+					// dpm("Emails: Phone number empty for " . $email);
+				} else {
+					$emails[$email] = $phone;
+				}
+			}
+		}
+
+		// clients
+		if(!empty($client)) {
+			if(isset($clients[$client])) {
+				// dpm("Clients: Duplicate $client $phone");
+			} else {
+				if(empty($phone)) {
+					// dpm("Clients: Phone number empty for $client");
+				} else {
+					$clients[$client] = $phone;
+				}
+			}
+		}
+	}
+	fclose($file);
+
+	// Add same dups to emails if possible
+	foreach ($dups as $email => &$values) {
+		$values = array_unique($values);
+		// if(count($values) === 1) { // we take them all
+			$val = array_shift($values);
+			if(isset($emails[$email])) {
+				if($emails[$email] === $val) {
+					unset($dups[$email]);
+				} else {
+					dpm('Another phone number for this email already exists.');
+				}
+			} else {
+				$emails[$email] = $val;
+				unset($dups[$email]);
+			}
+		// }
+	}
+
+	// remove header
+	unset($clients['Klantennummer']);
+	unset($emails['Emailadres']);
+
+	return compact('clients', 'emails');
+}
+
+function feneko_migrate_cleanup() {
+	// Get all uids
+	$users = entity_load('user');
+	$uids = array_keys($users);
+
+	// Remove roles_users not assigned to any user
+	$userRoles = db_delete('users_roles')->condition('uid', $uids, 'NOT IN')->execute();
+}
+
+function feneko_migrate_handle_phone(&$phone) {
+  $phone = str_replace(',', '.', $phone);
+  $phone = str_replace('-', '.', $phone);
+  $phone = trim($phone);
+  $phone = str_replace(' ', '.', $phone);
+  $phone = str_replace('..', '.', $phone);
+  $phone = str_replace('/.', '/', $phone);
+}
+

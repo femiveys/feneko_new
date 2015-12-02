@@ -132,11 +132,7 @@ class ClientsMigration extends Migration {
   }
 
   private static function handlePhone(&$phone) {
-    $phone = str_replace(',', '.', $phone);
-    $phone = str_replace('-', '.', $phone);
-    $phone = trim($phone);
-    $phone = str_replace(' ', '.', $phone);
-    $phone = str_replace('..', '.', $phone);
+    feneko_migrate_handle_phone($phone);
   }
 
 }

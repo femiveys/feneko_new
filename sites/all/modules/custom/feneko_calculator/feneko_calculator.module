@@ -257,7 +257,7 @@ function feneko_calculator_form_alter(&$form, &$form_state, $form_id) {
     );
 
     $form['commerce_fieldgroup_pane__group_order_info']
-         ['field_order4']['und']['#options'] = feneko_code_get_order4_options();
+         ['field_order4']['und']['#options'] = feneko_code_get_clients_options();
   }
 
   if (strpos($form_id, 'views_form_commerce_cart_form_') === 0) {

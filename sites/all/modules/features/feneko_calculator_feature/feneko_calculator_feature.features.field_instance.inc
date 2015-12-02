@@ -3356,6 +3356,40 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'commerce_order-commerce_order-field_client'.
+  $field_instances['commerce_order-commerce_order-field_client'] = array(
+    'bundle' => 'commerce_order',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 12,
+      ),
+    ),
+    'entity_type' => 'commerce_order',
+    'field_name' => 'field_client',
+    'label' => 'Client',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 10,
+    ),
+  );
+
   // Exported field_instance: 'commerce_order-commerce_order-field_color'.
   $field_instances['commerce_order-commerce_order-field_color'] = array(
     'bundle' => 'commerce_order',
@@ -3430,7 +3464,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 8,
+      'weight' => 12,
     ),
   );
 
@@ -3472,38 +3506,6 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_order-commerce_order-field_order4'.
-  $field_instances['commerce_order-commerce_order-field_order4'] = array(
-    'bundle' => 'commerce_order',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 12,
-      ),
-    ),
-    'entity_type' => 'commerce_order',
-    'field_name' => 'field_order4',
-    'label' => 'Klantennummer',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 6,
-    ),
-  );
-
   // Exported field_instance: 'commerce_order-commerce_order-field_order_type'.
   $field_instances['commerce_order-commerce_order-field_order_type'] = array(
     'bundle' => 'commerce_order',
@@ -3536,7 +3538,7 @@ function feneko_calculator_feature_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 9,
+      'weight' => 13,
     ),
   );
 
@@ -3575,7 +3577,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 7,
+      'weight' => 11,
     ),
   );
 
@@ -7903,6 +7905,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Base Price');
   t('Breedte');
   t('Breedte delen');
+  t('Client');
   t('Diepte');
   t('Display path');
   t('Eenheidsprijs');
@@ -7913,7 +7916,6 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Hoeken');
   t('Isolatie Dikte');
   t('Kant');
-  t('Klantennummer');
   t('Kleur');
   t('Kleur plaat 2');
   t('Knippen');

@@ -80,16 +80,22 @@ function feneko_code_update_7005() {
 }
 
 /*
-Export users from prod
+Export users from prod (data_export_import)
 Export users_roles table from prod (remove index part)
 
 femi, jeremie verwijderen van new
 rollen ID's juist zetten (zou in features moeten zitten)
 
-Import users into new
-Import users_roles into
+Import users into new (data_export_import)
+Import users_roles into (SQL)
 
-Import clients
-Run user-script
+Import clients (maybe we need a new version here. can be tested offline)
+Apply patch: https://www.drupal.org/node/2487898#comment-9921650
+Run user-script: feneko_migrate_users()
 Remove some user fields
+
+
+TO TEST
+Import blocked clients list
+
 */

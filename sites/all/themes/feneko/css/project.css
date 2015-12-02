@@ -41,9 +41,9 @@ retina: 1280 - +
 .no-sidebars #content {
   display: inline-block;
   min-height: 1px;
+  float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  font-size: 1rem;
   box-sizing: border-box;
   vertical-align: top;
   padding-right: 20px;
@@ -54,9 +54,9 @@ retina: 1280 - +
   #content, .first-col, .second-col {
     display: inline-block;
     min-height: 1px;
+    float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    font-size: 1rem;
     box-sizing: border-box;
     vertical-align: top;
     padding-right: 20px;
@@ -67,9 +67,9 @@ retina: 1280 - +
   #header, .small-block, .nieuws-rij {
     display: inline-block;
     min-height: 1px;
+    float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    font-size: 1rem;
     box-sizing: border-box;
     vertical-align: top;
     padding-right: 20px;
@@ -80,9 +80,9 @@ retina: 1280 - +
   .logo, #header, #main_menu, .page-about #content, .node-type-product aside#sidebar_second, .nieuws-rij, .nieuws-rij.views-row-first, .view-feneko-shopping-cart-block .view-total, .first-col, .second-col, #search-form {
     display: inline-block;
     min-height: 1px;
+    float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    font-size: 1rem;
     box-sizing: border-box;
     vertical-align: top;
     padding-right: 20px;
@@ -98,9 +98,9 @@ retina: 1280 - +
   .node-type-product #content, .view-feneko-shopping-cart-block .view-total {
     display: inline-block;
     min-height: 1px;
+    float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    font-size: 1rem;
     box-sizing: border-box;
     vertical-align: top;
     padding-right: 20px;
@@ -116,9 +116,9 @@ retina: 1280 - +
   .first-col, .second-col {
     display: inline-block;
     min-height: 1px;
+    float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    font-size: 1rem;
     box-sizing: border-box;
     vertical-align: top;
     padding-right: 20px;
@@ -129,9 +129,9 @@ retina: 1280 - +
   .node-type-product #content {
     display: inline-block;
     min-height: 1px;
+    float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    font-size: 1rem;
     box-sizing: border-box;
     vertical-align: top;
     padding-right: 20px;
@@ -3153,4 +3153,22 @@ input {
 
 .view-about div.tabs {
   right: 50px;
+}
+
+.node-type-client .field,
+.page-user .field {
+  margin-bottom: 10px;
+}
+.node-type-client .field-label,
+.page-user .field-label {
+  width: 150px;
+}
+
+.page-user .node-client {
+  border-top: 1px solid #295D8F;
+  margin-top: 10px;
+  padding: 10px 0;
+}
+.page-user h2 {
+  font-size: inherit;
 }

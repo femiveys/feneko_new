@@ -86,12 +86,18 @@ function feneko_calculator_order_to_xml(stdClass $order) {
   $xml = "<Order>";
 
   $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'order_id');
-  $xml .= empty($order->field_order4)
-          ? _feneko_calculator_add_xml_field($order_wrapper->owner, 'field_klantennummer')
-          : _feneko_calculator_add_xml_field($order_wrapper, 'field_order4', "Klantennummer");
   $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'status');
   $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'created');
   $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'changed');
+
+  $xml .= "<Client>";
+  $xml .= _feneko_calculator_add_xml_field($order_wrapper->field_client, 'title', 'Name');
+  $xml .= _feneko_calculator_add_xml_field($order_wrapper->field_client, 'field_client_number');
+  $xml .= _feneko_calculator_add_xml_field($order_wrapper->field_client, 'field_tva_number');
+  $xml .= _feneko_calculator_add_xml_field($order_wrapper->field_client, 'field_phone');
+  $xml .= _feneko_calculator_add_xml_field($order_wrapper->field_client, 'field_block_order_input');
+  $xml .= "</Client>";
+
   $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'field_color');
   $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'field_comment');
   $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'field_reference');
@@ -102,10 +108,7 @@ function feneko_calculator_order_to_xml(stdClass $order) {
   $xml .= _feneko_calculator_add_xml_field($order_wrapper->owner, 'name');
   $xml .= _feneko_calculator_add_xml_field($order_wrapper->owner, 'mail');
   $xml .= _feneko_calculator_add_xml_field($order_wrapper->owner, 'language');
-  $xml .= _feneko_calculator_add_xml_field($order_wrapper->owner, 'field_naam_bedrijf');
-  $xml .= _feneko_calculator_add_xml_field($order_wrapper->owner, 'field_btw_nummer');
-  $xml .= _feneko_calculator_add_xml_field($order_wrapper->owner, 'field_telefoon');
-  $xml .= _feneko_calculator_add_xml_field($order_wrapper->owner, 'field_geblokkeerd');
+  $xml .= _feneko_calculator_add_xml_field($order_wrapper->owner, 'field_phone');
   $xml .= "</Owner>";
 
   foreach ($order_wrapper->commerce_line_items as $delta => $line) {

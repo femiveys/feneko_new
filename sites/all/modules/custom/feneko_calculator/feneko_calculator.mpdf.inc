@@ -14,6 +14,8 @@ function fc_get_attachment($order_id, $outputAsString = TRUE) {
   $order = commerce_order_load($order_id);
   $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
 
+  $client = $order_wrapper->field_client->value();
+
   $path =  drupal_get_path('module', 'feneko_calculator');
   $style = file_get_contents("$path/css/extra_fields.css");
 
@@ -24,9 +26,13 @@ function fc_get_attachment($order_id, $outputAsString = TRUE) {
   $html .= "<head><style>";
   $html .= $style;
   $html .= "
-    .left,
+    .left {
+      width: 65%;
+      float: left;
+    }
+
     .right {
-      width: 50%;
+      width: 35%;
       float: left;
     }
 
@@ -140,17 +146,20 @@ function fc_get_attachment($order_id, $outputAsString = TRUE) {
   ";
   $html .= "</style></head>";
 
-  $client = user_load($order->uid);
-  if(isset($client->picture->uri)) {
-    $logo = "<img class=\"client-logo\" src=\"" . $client->picture->uri . "\">";
+  $user = user_load($order->uid);
+  if(isset($user->picture->uri)) {
+    $logo = "<img class=\"client-logo\" src=\"" . $user->picture->uri . "\">";
   } else {
     $logo = '';
   }
 
-  $order4 = empty($order->field_order4)
-    ? field_view_field('user', $client, 'field_klantennummer')
-    : field_view_field('commerce_order', $order, 'field_order4')
-  ;
+  // get the client for whom the order is
+  $client_ra = field_view_field('commerce_order', $order, 'field_client');
+
+  // The user field
+  $user_ra = $client_ra;
+  $user_ra['#title'] = ucfirst(t('user'));
+  $user_ra[0]['#markup'] = $user->name;
 
   $client_data = array(
     '#type' => 'container',
@@ -158,10 +167,11 @@ function fc_get_attachment($order_id, $outputAsString = TRUE) {
     'left' => array(
       '#type' => 'container',
       '#attributes' => array('class' => array('left')),
-      'tel'  => field_view_field('user', $client, 'field_telefoon'),
-      'tva'  => field_view_field('user', $client, 'field_btw_nummer'),
-      'num'  => $order4,
-      'name' => field_view_field('user', $client, 'field_naam_bedrijf'),
+      'tel'    => field_view_field('node', $client, 'field_phone'),
+      'tva'    => field_view_field('node', $client, 'field_tva_number'),
+      'num'    => field_view_field('node', $client, 'field_client_number'),
+      'client' => $client_ra,
+      'user'   => $user_ra,
     ),
     'right' => array(
       '#type' => 'container',

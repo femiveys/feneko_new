@@ -65,8 +65,10 @@ class FenekoForm {
     $type = $values['kies_een_optie'];
     $ref = self::sanitize($values['referentie']);
 
+    $client = feneko_code_get_client_by_number($fields['klant']);
+
     $this->message($dbID, $type);
-    $this->mailing($dbID, $type, $ref, $file, $articles);
+    $this->mailing($dbID, $type, $ref, $file, $articles, $client);
   }
 
   /**
@@ -320,14 +322,8 @@ class FenekoForm {
    * @return string The fiche string
    */
   private function getFiche($fields) {
-    // In some cases the fiche has to be MANUAL. Then we return FALSE
-    // if(isset($fields['soort_bevestiging'])) {
-    //   list($val, $dep_val) = self::explodeDep($fields['soort_bevestiging']);
-    //   if($val === 'op_maat') return 'op_maat';
-    // }
-
-    $user = user_load($fields['uid']);
-    if($user->field_geblokkeerd['und'][0]['value']) {
+    $client = feneko_code_get_client_by_number($fields['klant']);
+    if($client->field_block_order_input->value()) {
       return 'geblokkeerd';
     }
 
@@ -339,8 +335,6 @@ class FenekoForm {
     $record = json_decode(json_encode($fields), FALSE);
     $product_fiche = $this->getProductFiche($fields);
 
-    // $bijkomende = str_replace("\r", "|", $fields['bijkomende']);
-    // $bijkomende = str_replace("\n", "|", $bijkomende);
 
     $header  = ':UOR:' . PHP_EOL . PHP_EOL;
     $header .= PHP_EOL . ":K1: " . $fields['klant'] . PHP_EOL . PHP_EOL . PHP_EOL; // klantnummer
@@ -941,7 +935,7 @@ class FenekoForm {
    * Handle the mailing of this form
    * @param $id The database id for which mailings have to be handled
    */
-  private function mailing($id, $type, $ref, $file, $articles){
+  private function mailing($id, $type, $ref, $file, $articles, $client){
     global $user;
     global $language;
     $feneko_attmnts = array();
@@ -961,7 +955,7 @@ class FenekoForm {
     $feneko_msg = str_replace('{name}', $user->name, $feneko_msg);
     $feneko_msg = str_replace('{type}', $type, $feneko_msg);
 
-    if(isset($user->field_geblokkeerd['und'][0]['value']) and $user->field_geblokkeerd['und'][0]['value']) {
+    if($client->field_block_order_input->value()) {
       $feneko_msg .= "\n\nOPGEPAST KLANT DIENT EERST TE BETALEN, procedure EB volgen.";
     }
 
@@ -1206,7 +1200,7 @@ class FenekoForm {
   private static function handleExportFiches($ids, $only_exported = FALSE, $single = FALSE) {
     $omdat = array(
       // 'op_maat' => t('de bevestiging op maat is'),
-      'geblokkeerd' => t('de gebruiker geblokkeerd is'),
+      'geblokkeerd' => t('de klant geblokkeerd is'),
     );
 
     if(!$only_exported or !$single) {
@@ -2694,6 +2688,7 @@ class FenekoForm {
         '#type' => 'select',
         '#weight' => $weight,
         '#options' => feneko_code_get_clients_options(),
+        '#required' => TRUE,
       ),
       'kleur' => array(
         '#type' => 'container',
