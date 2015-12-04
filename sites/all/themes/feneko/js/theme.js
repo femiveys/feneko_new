@@ -35,6 +35,8 @@
       parallax2($('.node-info-pagina h2'));
     });
 
+    $('.form-radio.error').after('<div class="radio-error"></div>');
+
     // STICKY MENU
     // Create a clone of the menu, right next to original.
     $('#mainmenu-wrapper').addClass('original')
@@ -72,6 +74,7 @@
       }
     }
 
+/*
     // products format for columns
     $('.view-grouping-content h3').each(function() {
       $(this).after('<div class="new"></div>');
@@ -80,6 +83,7 @@
     $('.new').each(function() {
       $(this).siblings('.rij-product-naam').appendTo($(this));
     });
+*/
 
 
     // mabile menu

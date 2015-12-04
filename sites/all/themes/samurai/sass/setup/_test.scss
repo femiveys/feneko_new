@@ -1,92 +1,56 @@
-#wrapper {
+#content {
 
     background-color: yellow;
 }
 
-#main-header {
-
+#header {
 	background-color: lightblue;
 }
 
 .logo {
-
 	background-color: red;
 }
 
 #site-name {
-
 	background-color: teal;
 }
 
 #main_menu {
-
 	background-color: lightgrey;
 }
 
-#breadcrumb {
-
+#region-breadcrumb {
 	background-color: orange;
 }
 
-#full_size {
-	
-}
-
-#triple {
-	.block {
-		&:nth-child(1) {
-			background-color: lightblue;
-		}
-		&:nth-child(2) {
-			background-color: lightgreen;
-		}
-		&:nth-child(3) {
-			background-color: lightpink;
-		}
-		
-	}
-
-	background-color: green;
-}
-
 #main-content {
-
 	background-color: pink;
 }
 
-aside.sidebar {
-	
+#region-cover {
+	background-color: teal;
+}
 
-	background-color: beige;
+#region-highlighted {
+	background-color: maroon;
+}
+
+#region-slideshow {
+	background-color: silver;
 }
 
 aside#sidebar_first {
-	
-
 	background-color: fuchsia;
 }
 
 aside#sidebar_second {
-
 	background-color: gold;
 }
 
-.footer {
-
+#footer {
 	background-color: green;
 }
 
-#pre-footer {
-
-	background-color: crimson;
-}
-
-#footer {
-
-	background-color: coral;
-}
-
 .totop {
-
 	background-color: black;
 }
