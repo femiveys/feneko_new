@@ -36,10 +36,10 @@ function feneko_calculator_feature_default_fe_block_settings() {
     'roles' => array(),
     'themes' => array(
       'feneko' => array(
-        'region' => 'sidebar_second',
+        'region' => 'shopping_cart',
         'status' => 1,
         'theme' => 'feneko',
-        'weight' => 0,
+        'weight' => -18,
       ),
     ),
     'title' => '',

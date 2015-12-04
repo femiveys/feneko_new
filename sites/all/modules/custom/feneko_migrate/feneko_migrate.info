@@ -4,6 +4,7 @@ package = "Feneko"
 core = 7.x
 
 dependencies[] = migrate
+dependencies[] = migrate_ui
 
 ;  include the files that contain your Migrate classes
 files[] = clients.inc
