@@ -35,6 +35,8 @@
       parallax2($('.node-info-pagina h2'));
     });
 
+    $('.form-radio.error').after('<div class="radio-error"></div>');
+
     // STICKY MENU
     // Create a clone of the menu, right next to original.
     $('#mainmenu-wrapper').addClass('original')

@@ -1019,6 +1019,7 @@ div.messages {
     overflow: hidden;
     a {
       text-decoration: none;
+      //margin-right: 15px;
     }
   }
   img {
@@ -1254,8 +1255,6 @@ div.messages {
     }
   }
 }
-
-
 
 .node-type-product {
   &.one-sidebar {
@@ -1968,15 +1967,15 @@ div.horizontal-tabs {
   }
   @include gridle_state (min-full) {
     @include gridle_grid (3.5);
-    position: absolute;
-    top: 60px;
-    right: 0;
+    //position: absolute;
+    //top: 60px;
+    //right: 0;
   }
 }
 
 .product-teaser .field-name-body {
   @include gridle_state (min-full) {
-    @include gridle_grid(6);
+    //@include gridle_grid(6);
   }
 }
 
@@ -2431,5 +2430,18 @@ input {
 .view-about {
   div.tabs {
     right: 50px;
+  }
+}
+
+.catalog {
+  a {
+    padding: 10px;
+    background-color: $blue;
+    color: $white;
+    border-radius: 3px;
+    text-decoration: none;
+    &:hover {
+      background-color: lighten($blue, 10%);
+    }
   }
 }

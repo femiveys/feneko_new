@@ -112,7 +112,7 @@ retina: 1280 - +
   }
 }
 @media screen and (min-width: 992px) {
-  .node-type-product #content, .view-feneko-shopping-cart-block .view-total, .not-front .view-main-categories .view-grouping-content .view-grouping-header, .not-front .view-main-categories .view-grouping-content .view-grouping-content, .not-front .view-main-categories .view-grouping-content .rij-product-naam, .product-teaser .field-name-field-images, .product-teaser .field-name-field-orderable-products, .product-teaser .field-name-body {
+  .node-type-product #content, .view-feneko-shopping-cart-block .view-total, .not-front .view-main-categories .view-grouping-content .view-grouping-header, .not-front .view-main-categories .view-grouping-content .view-grouping-content, .not-front .view-main-categories .view-grouping-content .rij-product-naam, .product-teaser .field-name-field-images, .product-teaser .field-name-field-orderable-products {
     display: inline-block;
     min-height: 1px;
     -webkit-box-sizing: border-box;
@@ -2911,15 +2911,6 @@ div.horizontal-tabs {
 @media screen and (min-width: 992px) {
   .product-teaser .field-name-field-orderable-products {
     width: 29.16667%;
-    position: absolute;
-    top: 60px;
-    right: 0;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .product-teaser .field-name-body {
-    width: 50%;
   }
 }
 
@@ -3340,6 +3331,17 @@ input {
 
 .view-about div.tabs {
   right: 50px;
+}
+
+.catalog a {
+  padding: 10px;
+  background-color: #295D8F;
+  color: #ffffff;
+  border-radius: 3px;
+  text-decoration: none;
+}
+.catalog a:hover {
+  background-color: #3477b7;
 }
 
 .node-type-client .field,
