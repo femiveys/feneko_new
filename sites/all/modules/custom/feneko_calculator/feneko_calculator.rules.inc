@@ -285,7 +285,7 @@ function fc_apply_staffel_korting($order_wrapper) {
   $normal_discount_pct = _feneko_calculator_get_normal_discount($amount, $discounts);
 
   // Get the staffelkorting (pct) for this user (owner of order)
-  $sk_name = $order_wrapper->owner->field_staffelkorting->value();
+  $sk_name = $order_wrapper->field_client->field_staffelkorting->value();
   $sk_name = empty($sk_name) ? $default : $sk_name;
   $sk_wrapper = entity_metadata_wrapper('commerce_discount', $sk_name);
   $sk_pct  = intval($sk_wrapper->commerce_discount_offer->commerce_percentage->value());
