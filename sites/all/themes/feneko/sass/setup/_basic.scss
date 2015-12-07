@@ -1413,7 +1413,6 @@ div.messages {
 }
 
 .field-name-field-orderable-products {
-
   a {
     margin-bottom: $padding;
     margin-top: 20px;
@@ -1423,11 +1422,6 @@ div.messages {
     padding: $padding;
     &:hover {
       background-color: lighten($orange, 15%);
-    }
-  }
-  &:nth-child(1) {
-    a {
-      margin-top: 0;
     }
   }
 }

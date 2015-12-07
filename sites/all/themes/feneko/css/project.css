@@ -2413,9 +2413,6 @@ div.messages.error {
 .field-name-field-orderable-products a:hover {
   background-color: #ffc04d;
 }
-.field-name-field-orderable-products:nth-child(1) a {
-  margin-top: 0;
-}
 
 .field-name-body a {
   font-weight: 700;
