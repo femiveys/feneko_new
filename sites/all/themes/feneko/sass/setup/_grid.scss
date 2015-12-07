@@ -103,9 +103,7 @@
   }
 }
 
-.node-type-product
-
-#sidebar_second {
+.node-type-product #sidebar_second {
   .page-about & {
     @include gridle_state (min-desk) {
       @include gridle_push (1);
