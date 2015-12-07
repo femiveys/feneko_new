@@ -2838,7 +2838,6 @@ input {
     }
     tr:nth-child(odd) {
       font-weight: bold;
-
       td {
         padding-left: 6px;
         height: 42px;
@@ -2848,6 +2847,12 @@ input {
       td:before {
         content: "";
       }
+    }
+    tr.even:nth-child(odd) {
+      background-color: lighten($lightblue, 15%);
+    }
+    tr.odd:nth-child(odd) {
+      background-color: lighten($lightgrey, 15%);
     }
   }
   @include gridle_state(min-desk) {
