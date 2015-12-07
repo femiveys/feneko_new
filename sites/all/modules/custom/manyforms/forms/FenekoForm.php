@@ -257,7 +257,12 @@ class FenekoForm {
     foreach ($this->fields as $name => $weight) {
       $form[$name] = $this->getField($name, $weight);
     }
-    $form['submit_button'] = $this->getField('submit_button', 1200);
+    $form['actions'] = array(
+      '#type' => 'container',
+      '#weight' => 1200,
+      'submit_button' => $this->getField('submit_button', 10),
+      'cancel_button' => $this->getField('cancel_button', 20),
+    );
 
     return $form;
   }
@@ -2514,6 +2519,10 @@ class FenekoForm {
           'vp5088' => 'vp5088',
           'vp5514' => 'vp5514',
         ),
+      ),
+      'cancel_button' => array(
+        '#weight' => $weight,
+        '#markup' => '<a href="javascript:history.back();">' . t('Back') . '</a>',
       ),
       'diepte' => array(
         '#title' => t('diepte'),
