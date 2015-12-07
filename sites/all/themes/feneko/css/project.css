@@ -3640,6 +3640,9 @@ input {
     display: none;
   }
 }
+.page-user-feneko-orders .sticky-table {
+  width: 100%;
+}
 
 .page-user-orders tr,
 .page-user-feneko-orders .sticky-table tr {
