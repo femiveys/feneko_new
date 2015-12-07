@@ -67,10 +67,12 @@
         widthOrgElement = orgElement.css('width');
         $('.cloned').css('left',leftOrgElement+'px').css('top',0).css('width',widthOrgElement).show();
         $('.original').css('visibility','hidden');
+        $('#shoppingcart').addClass('fix');
       } else {
         // not scrolled past the menu; only show the original menu.
         $('.cloned').hide();
         $('.original').css('visibility','visible');
+        $('#shoppingcart').removeClass('fix');
       }
     }
 

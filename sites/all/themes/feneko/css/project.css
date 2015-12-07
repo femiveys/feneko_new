@@ -1658,6 +1658,10 @@ div.messages.error {
 .page-user.page-user-retour label {
   float: none;
 }
+.node-type-client.page-user-retour .form-item-chauffeur,
+.page-user.page-user-retour .form-item-chauffeur {
+  clear: both;
+}
 .node-type-client .field-name-field-clients > .field-items > .field-item,
 .page-user .field-name-field-clients > .field-items > .field-item {
   margin-bottom: 20px;
@@ -1692,6 +1696,11 @@ div.messages.error {
   padding: 0;
 }
 @media screen and (max-width: 850px) {
+  .page-user.logged-in ul.tabs.primary {
+    border: 1px solid #323232;
+  }
+}
+@media screen and (max-width: 850px) {
   .page-user.logged-in ul.tabs.primary li {
     width: 50%;
     margin: 0;
@@ -1699,6 +1708,7 @@ div.messages.error {
   .page-user.logged-in ul.tabs.primary li:nth-child(2n+1) {
     border-right: 1px solid #323232;
     float: left;
+    border-left: 3px solid #ffffff;
   }
   .page-user.logged-in ul.tabs.primary li:nth-child(2n+1).active {
     border-left: 3px solid #295D8F;
@@ -1706,6 +1716,7 @@ div.messages.error {
   .page-user.logged-in ul.tabs.primary li:nth-child(2n+0) {
     float: right;
     text-align: right;
+    border-right: 3px solid #ffffff;
   }
   .page-user.logged-in ul.tabs.primary li:nth-child(2n+0).active {
     border-right: 3px solid #295D8F;
@@ -3708,6 +3719,12 @@ input {
     border-left: none !important;
     border-right: none !important;
   }
+  .page-user-feneko-orders .filters .fieldset-wrapper > div:nth-child(2), .page-user-feneko-orders .filters .fieldset-wrapper > div:nth-child(3) {
+    padding-left: 0;
+  }
+  .page-user-feneko-orders .filters .fieldset-wrapper .container-inline-date {
+    padding-left: 0;
+  }
 }
 .page-user-feneko-orders .container-inline-date .date-padding {
   float: none;
@@ -3874,7 +3891,7 @@ input {
 }
 
 @media screen and (min-width: 992px) {
-  .prod-info {
+  .page-node .prod-info {
     position: relative;
     top: -130px;
   }

@@ -741,6 +741,9 @@ div.messages {
     label {
       float: none;
     }
+    .form-item-chauffeur {
+      clear: both;
+    }
   }
   .field-name-field-clients {
     > .field-items {
@@ -782,6 +785,9 @@ div.messages {
       margin-top: 0;
       padding: 0;
       &.primary {
+        @include gridle_state(max-tablet) {
+          border: 1px solid $black;
+        }
         li {
           @include gridle_state (max-tablet) {
             width: 50%;
@@ -789,6 +795,7 @@ div.messages {
             &:nth-child(2n+1) {
               border-right: 1px solid $black;
               float: left;
+              border-left: 3px solid $white;
               &.active  {
                 border-left: 3px solid $blue;
               }
@@ -796,6 +803,7 @@ div.messages {
             &:nth-child(2n+0) {
               float: right;
               text-align: right;
+              border-right: 3px solid $white;
               &.active  {
                 border-right: 3px solid $blue;
               }
@@ -804,6 +812,7 @@ div.messages {
           a {
             background-color: transparent;
             color: $black;
+
             &:hover {
               color: $blue;
             }
@@ -2770,6 +2779,13 @@ input {
           border: none;
           border-left: none!important;
           border-right: none!important;
+          &:nth-child(2),
+          &:nth-child(3) {
+            padding-left: 0;
+          }
+        }
+        .container-inline-date {
+          padding-left: 0;
         }
       }
     }
@@ -2946,7 +2962,7 @@ input {
   }
 }
 
-.prod-info {
+.page-node .prod-info {
   @include gridle_state(min-full) {
     position: relative;
     top: -130px;
