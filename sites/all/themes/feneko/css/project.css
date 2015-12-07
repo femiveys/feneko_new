@@ -3748,17 +3748,15 @@ input {
 .page-user-feneko-orders .sticky-table tr td {
   vertical-align: middle;
 }
-@media screen and (max-width: 991px) {
-  .page-user-orders tr:nth-child(2n+1),
-  .page-user-feneko-orders .sticky-table tr:nth-child(2n+1) {
+@media screen and (min-width: 992px) {
+  .page-user-orders tr:nth-child(odd),
+  .page-user-feneko-orders .sticky-table tr:nth-child(odd) {
     font-weight: bold;
   }
 }
-@media screen and (min-width: 992px) {
-  .page-user-orders tr:nth-child(2n+0),
-  .page-user-feneko-orders .sticky-table tr:nth-child(2n+0) {
-    border-bottom: 5px solid #ffffff;
-  }
+.page-user-orders tr:nth-child(2n+0),
+.page-user-feneko-orders .sticky-table tr:nth-child(2n+0) {
+  border-bottom: 5px solid #ffffff;
 }
 @media screen and (max-width: 991px) {
   .page-user-orders,

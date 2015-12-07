@@ -2813,15 +2813,13 @@ input {
     td {
       vertical-align: middle;
     }
-    @include gridle_state (max-desk) {
-      &:nth-child(2n+1) {
+    @include gridle_state (min-full) {
+      &:nth-child(odd) {
         font-weight: bold;
       }
     }
-    @include gridle_state (min-full) {
-      &:nth-child(2n+0) {
-        border-bottom: 5px solid $white;
-      }
+    &:nth-child(2n+0) {
+      border-bottom: 5px solid $white;
     }
   }
   @include gridle_state (max-desk) {
