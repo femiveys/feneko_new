@@ -2609,6 +2609,20 @@ $contact: #f7941d;
     width: 200px;
     display: inline;
   }
+  input[type=submit] {
+    margin: 0;
+  }
+  #edit-actions {
+    clear: both;
+    padding-top: 30px;
+    a {
+      display: block;
+      padding-top: 5px;
+    }
+    input[type=submit] {
+      margin-right: 20px;
+    }
+  }
   caption {
     text-align: left;
     margin-top: 30px;
@@ -2629,25 +2643,23 @@ $contact: #f7941d;
     }
   }
   .form-type-radio {
-      float: left;
-      margin-right: $padding;
-    }
-    label {
-      padding-top: 20px;
-      clear: both;
-    }
-    .description {
-      clear: both;
-      padding-top: 10px;
-    }
-    input[type=submit] {
-      clear: both;
-      display: block;
-      float: left;
-      font-size: 18px;
-    }
-
-
+    float: left;
+    margin-right: $padding;
+  }
+  label {
+    padding-top: 20px;
+    clear: both;
+  }
+  .description {
+    clear: both;
+    padding-top: 10px;
+  }
+  input[type=submit] {
+    clear: both;
+    display: block;
+    float: left;
+    font-size: 18px;
+  }
   @include gridle_state (max-tablet) {
     table, thead, tbody, th, td, tr {
       display: block;
@@ -2947,15 +2959,13 @@ input {
 }
 
 .cat-bestel {
-  @include gridle_state(only-desk) {
-
-  }
   @include gridle_state(min-full) {
     left: 110%;
     position: relative;
     padding-left: 40px;
     padding-bottom: 20px;
     top: -50px;
+    max-width: 250px;
   }
 }
 

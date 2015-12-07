@@ -3633,6 +3633,20 @@ form.commerce-add-to-cart label {
   width: 200px;
   display: inline;
 }
+#manyforms-form input[type=submit] {
+  margin: 0;
+}
+#manyforms-form #edit-actions {
+  clear: both;
+  padding-top: 30px;
+}
+#manyforms-form #edit-actions a {
+  display: block;
+  padding-top: 5px;
+}
+#manyforms-form #edit-actions input[type=submit] {
+  margin-right: 20px;
+}
 #manyforms-form caption {
   text-align: left;
   margin-top: 30px;
@@ -3958,6 +3972,7 @@ input {
     padding-left: 40px;
     padding-bottom: 20px;
     top: -50px;
+    max-width: 250px;
   }
 }
 
