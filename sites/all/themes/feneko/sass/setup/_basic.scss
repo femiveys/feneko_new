@@ -1168,7 +1168,6 @@ div.messages {
     overflow: hidden;
     a {
       text-decoration: none;
-      //margin-right: 15px;
     }
   }
   .catalog {
@@ -1176,12 +1175,10 @@ div.messages {
     margin-top: 30px;
   }
   img {
-    //float: left;
     margin-right: $padding;
     border: 2px solid $blue;
     display: block;
     width: 90%;
-    //@include gridle_grid
   }
   h3 {
     margin-bottom: $padding*2;
@@ -2655,7 +2652,6 @@ $contact: #f7941d;
     table, thead, tbody, th, td, tr {
       display: block;
     }
-
     /* Hide table headers (but not display: none;, for accessibility) */
     thead tr {
       position: absolute;
@@ -2690,7 +2686,6 @@ $contact: #f7941d;
     }
   }
   @include gridle_state (min-desk) {
-
     th {
       height: 100px;
       white-space: nowrap;
