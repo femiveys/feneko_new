@@ -2702,7 +2702,7 @@ input {
 
 .page-user-orders,
 .page-user-feneko-orders {
-    @include gridle_state (max-tablet) {
+  @include gridle_state (max-tablet) {
     table, thead, tbody, th, td, tr {
       display: block;
     }
@@ -2718,10 +2718,13 @@ input {
     }
     tr {
       border: 1px solid #ccc;
+      &.even {
+        background-color: $lightblue;
+      }
     }
     td {
       border: none;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid $black;
       position: relative;
       padding-left: 50%;
       height: 32px;

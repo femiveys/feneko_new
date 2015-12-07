@@ -3630,10 +3630,14 @@ input {
   .page-user-feneko-orders tr {
     border: 1px solid #ccc;
   }
+  .page-user-orders tr.even,
+  .page-user-feneko-orders tr.even {
+    background-color: #9BD4DF;
+  }
   .page-user-orders td,
   .page-user-feneko-orders td {
     border: none;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #323232;
     position: relative;
     padding-left: 50%;
     height: 32px;
