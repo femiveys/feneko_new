@@ -31,7 +31,7 @@
 
 <?php if($logged_in) : ?>
 <div class="catalog">
-      <a href="/<?php global $language_content; print $language_content->language; ?>/catalog/screens/flipper">Catalogus</a>
+      <a href="/<?php global $language_content; print $language_content->language; ?>/catalog/screens/flipper" target="_blank">Catalogus</a>
   </div>
 
 <?php endif; ?>

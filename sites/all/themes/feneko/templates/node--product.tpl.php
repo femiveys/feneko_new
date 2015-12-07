@@ -119,10 +119,10 @@
   <div class="catalog">
     <?php
     if($product_grandparent == 'screens') : ?>
-      <a href="/<?php global $language_content; print $language_content->language; ?>/catalog/screens/flipper">Catalogus</a>
+      <a href="/<?php global $language_content; print $language_content->language; ?>/catalog/screens/flipper" target="_blank">Catalogus</a>
     <?php
     elseif($product_grandparent == 'colors') : ?>
-        <a href="/<?php global $language_content; print $language_content->language; ?>/catalog/colors/flipper">Catalogus</a>
+        <a href="/<?php global $language_content; print $language_content->language; ?>/catalog/colors/flipper" target="_blank">Catalogus</a>
     <?php
     endif;
     ?>
