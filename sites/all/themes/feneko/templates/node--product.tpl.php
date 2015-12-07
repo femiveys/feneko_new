@@ -169,7 +169,7 @@
   <?php endif; ?>
 </div>
 
-<?php if ($page) : ?>
+<?php if($logged_in && $page) : ?>
   <div class="catalog">
     <?php
     if($product_grandparent == 'screens') : ?>

@@ -38,7 +38,7 @@ retina: 1280 - +
   padding-bottom: 0;
   padding-left: 0;
 }
-.no-sidebars #content, .not-front .view-main-categories .view-grouping-content .view-grouping-content {
+.no-sidebars #content {
   display: inline-block;
   min-height: 1px;
   -webkit-box-sizing: border-box;
@@ -51,7 +51,7 @@ retina: 1280 - +
 }
 
 @media screen and (max-width: 599px) {
-  #content, .first-col, .second-col, .not-front .view-main-categories .view-grouping-content .view-grouping-header, .page-taxonomy .field-name-field-product-category-image,
+  #content, .first-col, .second-col, .page-taxonomy .field-name-field-product-category-image,
   .product-teaser .field-name-field-images, .product-teaser .links, .page-taxonomy .field-name-description-field,
   .product-teaser .field-name-body, .product-teaser .field-name-field-orderable-products {
     display: inline-block;
@@ -127,6 +127,32 @@ retina: 1280 - +
 @media screen and (min-width: 992px) {
   .view-feneko-shopping-cart-block .view-total {
     position: relative;
+  }
+}
+@media screen and (max-width: 399px) {
+  .not-front .view-main-categories .view-grouping-content .view-grouping-header, .not-front .view-main-categories .view-grouping-content .view-grouping-content {
+    display: inline-block;
+    min-height: 1px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-size: 1rem;
+    box-sizing: border-box;
+    vertical-align: top;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+@media screen and (min-width: 400px) and (max-width: 599px) {
+  .not-front .view-main-categories .view-grouping-content .view-grouping-header, .not-front .view-main-categories .view-grouping-content .view-grouping-content {
+    display: inline-block;
+    min-height: 1px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-size: 1rem;
+    box-sizing: border-box;
+    vertical-align: top;
+    padding-right: 20px;
+    padding-left: 20px;
   }
 }
 @media screen and (min-width: 600px) and (max-width: 850px) {
@@ -1694,8 +1720,15 @@ div.messages.error {
   padding: 10px;
 }
 
-#block-system-user-menu .menu li.first a {
-  padding-left: 5px;
+#feneko-code-retours-form .form-type-radio {
+  float: left;
+  margin-right: 10px;
+}
+
+@media screen and (min-width: 851px) {
+  #block-system-user-menu .menu li.first a {
+    padding-left: 5px;
+  }
 }
 #block-system-user-menu .menu li.last a:after {
   content: "";
@@ -1949,7 +1982,14 @@ div.messages.error {
   display: block;
 }
 
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 399px) {
+  .not-front .view-main-categories .view-grouping-content .view-grouping-header {
+    width: 50%;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+@media screen and (min-width: 400px) and (max-width: 599px) {
   .not-front .view-main-categories .view-grouping-content .view-grouping-header {
     width: 33.33333%;
     padding-left: 0;
@@ -1973,12 +2013,18 @@ div.messages.error {
     padding-left: 0;
   }
 }
-.not-front .view-main-categories .view-grouping-content .view-grouping-content {
-  width: 58.33333%;
-  padding-top: 0;
-  padding-right: 0;
-  padding-bottom: 0;
-  padding-left: 0;
+@media screen and (max-width: 399px) {
+  .not-front .view-main-categories .view-grouping-content .view-grouping-content {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+@media screen and (min-width: 400px) and (max-width: 599px) {
+  .not-front .view-main-categories .view-grouping-content .view-grouping-content {
+    width: 66.66667%;
+    padding-left: 0;
+  }
 }
 @media screen and (min-width: 600px) and (max-width: 850px) {
   .not-front .view-main-categories .view-grouping-content .view-grouping-content {
@@ -2042,6 +2088,9 @@ div.messages.error {
 }
 .not-front .view-main-categories .view-grouping a {
   text-decoration: none;
+}
+.not-front .view-main-categories .catalog {
+  float: right;
 }
 .not-front .view-main-categories img {
   margin-right: 10px;
@@ -2808,7 +2857,7 @@ div.horizontal-tabs {
 }
 .view-feneko-shopping-cart-block .node-header h1 {
   color: #ffffff;
-  font-size: 16px;
+  font-size: 14px;
   float: right;
   font-family: "Raleway", serif;
   font-weight: normal;
@@ -2819,8 +2868,23 @@ div.horizontal-tabs {
   font-size: 16px;
   padding: 0 0 0 10px;
 }
+@media screen and (min-width: 851px) and (max-width: 991px) {
+  .view-feneko-shopping-cart-block .node-header h1:before {
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    padding: 2px 0 0 0;
+  }
+}
 .view-feneko-shopping-cart-block .node-header h1:hover {
   color: #9BD4DF;
+}
+@media screen and (min-width: 851px) and (max-width: 991px) {
+  .view-feneko-shopping-cart-block .node-header h1 {
+    font-size: 0;
+  }
 }
 .view-feneko-shopping-cart-block th {
   padding: 10px;
@@ -2914,6 +2978,9 @@ div.horizontal-tabs {
     width: 100%;
     right: 0;
     display: none;
+  }
+  #shoppingcart.show {
+    display: block;
   }
   #shoppingcart .inner-wrapper {
     max-width: 95%;

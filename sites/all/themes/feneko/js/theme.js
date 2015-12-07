@@ -78,12 +78,22 @@
     $('#menu-small').click(function() {
       $('#mainmenu-wrapper').toggleClass('show');
       $('#header-wrapper.show').removeClass('show');
+      $('#shoppingcart.show').removeClass('show');
     });
 
+/*
     // mobile search
     $('#search-small').click(function() {
       $('#header-wrapper').toggleClass('show');
       $('#main_menu.show').removeClass('show');
+    });
+*/
+
+    // mobile search
+    $('#cart-small').click(function() {
+      $('#shoppingcart').toggleClass('show');
+      //$('#main_menu.show').removeClass('show');
+      $('#mainmenu-wrapper.show').removeClass('show');
     });
 
     // responsive table
