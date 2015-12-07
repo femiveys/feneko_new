@@ -1447,6 +1447,7 @@ div.messages {
 }
 
 .field-name-field-orderable-products {
+
   a {
     margin-bottom: $padding;
     margin-top: 20px;
@@ -1463,20 +1464,6 @@ div.messages {
       margin-top: 0;
     }
   }
-  /*
-  @include gridle_state (only-desk) {
-    margin-left: 170px;
-    width: 170px;
-  }
-  @include gridle_state (only-full) {
-    margin-left: 230px;
-    width: 230px;
-  }
-  @include gridle_state (min-retina) {
-    margin-left: 260px;
-    width: 260px;
-  }
-  */
 }
 
 .field-name-body {
@@ -2920,6 +2907,26 @@ input {
     &:hover {
       background-color: lighten($blue, 10%);
     }
+  }
+}
+
+.cat-bestel {
+  @include gridle_state(only-desk) {
+
+  }
+  @include gridle_state(min-full) {
+    left: 110%;
+    position: relative;
+    padding-left: 40px;
+    padding-bottom: 20px;
+    top: -50px;
+  }
+}
+
+.prod-info {
+  @include gridle_state(min-full) {
+    position: relative;
+    top: -130px;
   }
 }
 

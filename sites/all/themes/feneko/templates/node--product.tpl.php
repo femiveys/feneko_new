@@ -114,6 +114,20 @@
 
   <?php if($logged_in && $page) : ?>
 
+  <div class="cat-bestel">
+
+  <div class="catalog">
+    <?php
+    if($product_grandparent == 'screens') : ?>
+      <a href="/<?php global $language_content; print $language_content->language; ?>/catalog/screens/flipper">Catalogus</a>
+    <?php
+    elseif($product_grandparent == 'colors') : ?>
+        <a href="/<?php global $language_content; print $language_content->language; ?>/catalog/colors/flipper">Catalogus</a>
+    <?php
+    endif;
+    ?>
+  </div>
+
     <div class="field-name-field-orderable-products">
 
       <?php
@@ -126,8 +140,11 @@
 
     </div>
 
+  </div>
+
   <?php endif; ?>
 
+<div class="prod-info">
       <?php print render($content['body']);?>
 
       <?php print render($content['links']);?>
@@ -162,6 +179,8 @@
 
     </div>
 
+</div>
+
   <?php endif; ?>
 
   <?php if($page) : ?>
@@ -169,16 +188,4 @@
   <?php endif; ?>
 </div>
 
-<?php if($logged_in && $page) : ?>
-  <div class="catalog">
-    <?php
-    if($product_grandparent == 'screens') : ?>
-      <a href="/<?php global $language_content; print $language_content->language; ?>/catalog/screens/flipper">Catalogus</a>
-    <?php
-    elseif($product_grandparent == 'colors') : ?>
-        <a href="/<?php global $language_content; print $language_content->language; ?>/catalog/colors/flipper">Catalogus</a>
-    <?php
-    endif;
-    ?>
-  </div>
-<?php endif; ?>
+

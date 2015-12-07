@@ -107,7 +107,8 @@ retina: 1280 - +
   }
 }
 @media screen and (min-width: 851px) {
-  #header, .page-about #sidebar_second, .view-feneko-shopping-cart-block .view-total {
+  #header, .page-about .node-type-product
+  #sidebar_second, .view-feneko-shopping-cart-block .view-total {
     position: relative;
   }
 }
@@ -276,12 +277,17 @@ retina: 1280 - +
     padding-right: 0;
     padding-bottom: 0;
     padding-left: 0;
-    margin-top: 175px;
+  }
+}
+@media screen and (min-width: 851px) {
+  .node-type-product.logged-in aside#sidebar_second {
+    margin-top: 145px;
   }
 }
 
 @media screen and (min-width: 851px) {
-  .page-about #sidebar_second {
+  .page-about .node-type-product
+  #sidebar_second {
     left: 8.33333%;
   }
 }
@@ -539,12 +545,17 @@ retina: 1280 - +
     padding-right: 0;
     padding-bottom: 0;
     padding-left: 0;
-    margin-top: 175px;
+  }
+}
+@media screen and (min-width: 851px) {
+  .node-type-product.logged-in aside#sidebar_second {
+    margin-top: 145px;
   }
 }
 
 @media screen and (min-width: 851px) {
-  .page-about #sidebar_second {
+  .page-about .node-type-product
+  #sidebar_second {
     left: 8.33333%;
   }
 }
@@ -2359,22 +2370,6 @@ div.messages.error {
   }
 }
 
-.field-name-field-orderable-products {
-  /*
-  @include gridle_state (only-desk) {
-    margin-left: 170px;
-    width: 170px;
-  }
-  @include gridle_state (only-full) {
-    margin-left: 230px;
-    width: 230px;
-  }
-  @include gridle_state (min-retina) {
-    margin-left: 260px;
-    width: 260px;
-  }
-  */
-}
 .field-name-field-orderable-products a {
   margin-bottom: 10px;
   margin-top: 20px;
@@ -3844,6 +3839,23 @@ input {
 }
 .catalog a:hover {
   background-color: #3477b7;
+}
+
+@media screen and (min-width: 992px) {
+  .cat-bestel {
+    left: 110%;
+    position: relative;
+    padding-left: 40px;
+    padding-bottom: 20px;
+    top: -50px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .prod-info {
+    position: relative;
+    top: -130px;
+  }
 }
 
 html.js fieldset.collapsed {
