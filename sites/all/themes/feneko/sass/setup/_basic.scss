@@ -2809,6 +2809,7 @@ input {
       text-align: left;
     }
     tr:nth-child(odd) {
+      font-weight: bold;
       td:before {
         content; "";
       }

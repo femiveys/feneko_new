@@ -1,22 +1,22 @@
 /*
 Error: Invalid CSS after "        content": expected "{", was "; "";"
-        on line 2813 of /Applications/MAMP/htdocs/feneko_new/sites/all/themes/feneko/sass/setup/_basic.scss
+        on line 2814 of /Applications/MAMP/htdocs/feneko_new/sites/all/themes/feneko/sass/setup/_basic.scss
         from line 12 of /Applications/MAMP/htdocs/feneko_new/sites/all/themes/feneko/sass/project.scss
 
-2808:       font-weight: 700;
 2809:       text-align: left;
 2810:     }
 2811:     tr:nth-child(odd) {
-2812:       td:before {
-2813:         content; "";
-2814:       }
-2815:     }
-2816:   }
-2817:   @include gridle_state(min-desk) {
-2818:     td {
+2812:       font-weight: bold;
+2813:       td:before {
+2814:         content; "";
+2815:       }
+2816:     }
+2817:   }
+2818:   @include gridle_state(min-desk) {
+2819:     td {
 
 Backtrace:
-/Applications/MAMP/htdocs/feneko_new/sites/all/themes/feneko/sass/setup/_basic.scss:2813
+/Applications/MAMP/htdocs/feneko_new/sites/all/themes/feneko/sass/setup/_basic.scss:2814
 /Applications/MAMP/htdocs/feneko_new/sites/all/themes/feneko/sass/project.scss:12
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.13/lib/sass/scss/parser.rb:1165:in `expected'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.13/lib/sass/scss/parser.rb:1101:in `expected'
@@ -28,7 +28,7 @@ Backtrace:
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.13/lib/sass/scss/parser.rb:642:in `block'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.13/lib/sass/scss/parser.rb:711:in `declaration_or_ruleset'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.13/lib/sass/scss/parser.rb:661:in `block_child'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.13/lib/sass/scss/parser.rb:650:in `block_contents'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.13/lib/sass/scss/parser.rb:653:in `block_contents'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.13/lib/sass/scss/parser.rb:642:in `block'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.13/lib/sass/scss/parser.rb:711:in `declaration_or_ruleset'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.13/lib/sass/scss/parser.rb:661:in `block_child'
@@ -89,4 +89,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"        content\": expected \"{\", was \"; \"\";\"\A         on line 2813 of /Applications/MAMP/htdocs/feneko_new/sites/all/themes/feneko/sass/setup/_basic.scss\A         from line 12 of /Applications/MAMP/htdocs/feneko_new/sites/all/themes/feneko/sass/project.scss\A \A 2808:       font-weight: 700;\A 2809:       text-align: left;\A 2810:     }\A 2811:     tr:nth-child(odd) {\A 2812:       td:before {\A 2813:         content; \"\";\A 2814:       }\A 2815:     }\A 2816:   }\A 2817:   @include gridle_state(min-desk) {\A 2818:     td {"; }
+  content: "Error: Invalid CSS after \"        content\": expected \"{\", was \"; \"\";\"\A         on line 2814 of /Applications/MAMP/htdocs/feneko_new/sites/all/themes/feneko/sass/setup/_basic.scss\A         from line 12 of /Applications/MAMP/htdocs/feneko_new/sites/all/themes/feneko/sass/project.scss\A \A 2809:       text-align: left;\A 2810:     }\A 2811:     tr:nth-child(odd) {\A 2812:       font-weight: bold;\A 2813:       td:before {\A 2814:         content; \"\";\A 2815:       }\A 2816:     }\A 2817:   }\A 2818:   @include gridle_state(min-desk) {\A 2819:     td {"; }
