@@ -31,7 +31,8 @@
 
 <?php if($logged_in) : ?>
 <div class="catalog">
-      <a href="/<?php global $language_content; print $language_content->language; ?>/catalog/colors/flipper" target="_blank">Catalogus</a>
+      <a class="hide-mobile" href="/<?php global $language_content; print $language_content->language; ?>/catalog/colors/flipper" target="_blank">Catalogus</a>
+      <a class="hide-desk" href="/sites/default/files/pdfs/colors_<?php global $language_content; print $language_content->language; ?>.pdf" target="_blank">Catalogus</a>
   </div>
 
 <?php endif; ?>

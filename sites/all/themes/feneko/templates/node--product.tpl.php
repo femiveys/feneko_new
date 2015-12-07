@@ -119,10 +119,12 @@
   <div class="catalog">
     <?php
     if($product_grandparent == 'screens') : ?>
-      <a href="/<?php global $language_content; print $language_content->language; ?>/catalog/screens/flipper" target="_blank">Catalogus</a>
+      <a class="hide-mobile" href="/<?php global $language_content; print $language_content->language; ?>/catalog/screens/flipper" target="_blank">Catalogus</a>
+      <a class="hide-desk" href="/sites/default/files/pdfs/screens_<?php global $language_content; print $language_content->language; ?>.pdf" target="_blank">Catalogus</a>
     <?php
     elseif($product_grandparent == 'colors') : ?>
-        <a href="/<?php global $language_content; print $language_content->language; ?>/catalog/colors/flipper" target="_blank">Catalogus</a>
+        <a class="hide-mobile" href="/<?php global $language_content; print $language_content->language; ?>/catalog/colors/flipper" target="_blank">Catalogus</a>
+        <a class="hide-desk" href="/sites/default/files/pdfs/colors_<?php global $language_content; print $language_content->language; ?>.pdf" target="_blank">Catalogus</a>
     <?php
     endif;
     ?>
