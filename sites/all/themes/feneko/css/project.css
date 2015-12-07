@@ -3635,6 +3635,12 @@ input {
   float: none;
 }
 
+@media screen and (max-width: 991px) {
+  .page-user-feneko-orders .sticky-header {
+    display: none;
+  }
+}
+
 .page-user-orders tr,
 .page-user-feneko-orders .sticky-table tr {
   margin-bottom: 5px;
@@ -3660,10 +3666,6 @@ input {
   .page-user-feneko-orders .sticky-table td,
   .page-user-feneko-orders .sticky-table tr {
     display: block;
-  }
-  .page-user-orders .sticky-header,
-  .page-user-feneko-orders .sticky-table .sticky-header {
-    display: none;
   }
   .page-user-orders thead tr,
   .page-user-feneko-orders .sticky-table thead tr {

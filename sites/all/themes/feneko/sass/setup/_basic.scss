@@ -2740,6 +2740,14 @@ input {
   }
 }
 
+.page-user-feneko-orders {
+  @include gridle_state (max-desk) {
+    .sticky-header {
+      display: none;
+    }
+  }
+}
+
 .page-user-orders,
 .page-user-feneko-orders .sticky-table {
   tr {
@@ -2756,9 +2764,7 @@ input {
       display: block;
     }
 
-    .sticky-header {
-      display: none;
-    }
+
 
     /* Hide table headers (but not display: none;, for accessibility) */
     thead tr {
