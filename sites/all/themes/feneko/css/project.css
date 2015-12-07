@@ -3603,24 +3603,35 @@ input {
 }
 
 @media screen and (max-width: 850px) {
-  .page-user-orders {
+  .page-user-orders,
+  .page-user-feneko-orders {
     /* Hide table headers (but not display: none;, for accessibility) */
   }
-  .page-user-orders table, .page-user-orders thead, .page-user-orders tbody, .page-user-orders th, .page-user-orders td, .page-user-orders tr {
+  .page-user-orders table, .page-user-orders thead, .page-user-orders tbody, .page-user-orders th, .page-user-orders td, .page-user-orders tr,
+  .page-user-feneko-orders table,
+  .page-user-feneko-orders thead,
+  .page-user-feneko-orders tbody,
+  .page-user-feneko-orders th,
+  .page-user-feneko-orders td,
+  .page-user-feneko-orders tr {
     display: block;
   }
-  .page-user-orders thead tr {
+  .page-user-orders thead tr,
+  .page-user-feneko-orders thead tr {
     position: absolute;
     top: -9999px !important;
     left: -9999px !important;
   }
-  .page-user-orders caption {
+  .page-user-orders caption,
+  .page-user-feneko-orders caption {
     display: block;
   }
-  .page-user-orders tr {
+  .page-user-orders tr,
+  .page-user-feneko-orders tr {
     border: 1px solid #ccc;
   }
-  .page-user-orders td {
+  .page-user-orders td,
+  .page-user-feneko-orders td {
     border: none;
     border-bottom: 1px solid #eee;
     position: relative;
@@ -3628,7 +3639,8 @@ input {
     height: 32px;
     text-align: right;
   }
-  .page-user-orders td:before {
+  .page-user-orders td:before,
+  .page-user-feneko-orders td:before {
     position: absolute;
     top: 10px;
     left: 6px;

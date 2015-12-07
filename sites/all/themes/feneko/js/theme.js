@@ -90,13 +90,13 @@
 
     var order = [];
 
-    $('#manyforms-form th, .view-commerce-cart-form-feneko th, .page-user-orders th').each(function(index, value) {
+    $('#manyforms-form th, .view-commerce-cart-form-feneko th, .page-user-orders th, .page-user-feneko-orders th').each(function(index, value) {
       order[index] = $(this).text();
       $(this).wrapInner('<div><span>');
     });
 
 
-    $('#manyforms-form tr td, .view-commerce-cart-form-feneko tr td, .page-user-orders tr td').each(function() {
+    $('#manyforms-form tr td, .view-commerce-cart-form-feneko tr td, .page-user-orders tr td, .page-user-feneko-orders tr td').each(function() {
       $(this).attr('data-before',(order[$(this).index()]));
     });
 

@@ -2700,7 +2700,8 @@ input {
   width: auto;
 }
 
-.page-user-orders {
+.page-user-orders,
+.page-user-feneko-orders {
     @include gridle_state (max-tablet) {
     table, thead, tbody, th, td, tr {
       display: block;
