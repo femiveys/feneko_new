@@ -230,23 +230,22 @@ function feneko_code_orders_form($form, &$form_state) {
       $result['order_datum'] = $result['order_datum'] ? date($date_format, $result['order_datum']) : $unknown;
       $result['lever_datum'] = $result['lever_datum'] ? date($date_format, $result['lever_datum']) : $unknown;
 
-
       $result['fase']          = $mapping[$result['fase']]['label'][$language->language];
       $result['leverconditie'] = $mapping[$result['leverconditie']]['label'][$language->language];
 
       // Make the orderbon span over 2 rows
-      $result['orderbon'] = array('data' => $result['orderbon'], 'rowspan' => 2);
+      $result['orderbon'] = array('data' => $result['orderbon']);
 
       // Set the omschrijving row and remove the omschrijving from the result
       $omschrijving = array(
-        array('data' => $result['omschrijving'], 'colspan' => count($header) - 1),
+        array('data' => $result['omschrijving'], 'colspan' => count($header)),
       );
       unset($result['omschrijving']);
 
       $evenodd = $count++ % 2 === 0 ? 'even' : 'odd';
 
-      $rows[] = array('data' => $result      , 'no_striping' => TRUE, 'class' => $evenodd);
       $rows[] = array('data' => $omschrijving, 'no_striping' => TRUE, 'class' => $evenodd);
+      $rows[] = array('data' => $result      , 'no_striping' => TRUE, 'class' => $evenodd);
     }
 
     $table = array(
