@@ -2848,17 +2848,17 @@ input {
         content: "";
       }
     }
-    tr.even:nth-child(odd) {
-      background-color: lighten($lightblue, 15%);
-    }
-    tr.odd:nth-child(odd) {
-      background-color: lighten($lightgrey, 15%);
-    }
   }
   @include gridle_state(min-desk) {
     td {
       padding: 5px;
     }
+  }
+  tr.even:nth-child(odd) {
+    background-color: lighten($lightblue, 15%);
+  }
+  tr.odd:nth-child(even) {
+    background-color: lighten($lightgrey, 15%);
   }
 }
 

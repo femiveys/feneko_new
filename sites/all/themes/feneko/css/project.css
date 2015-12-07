@@ -3851,20 +3851,20 @@ input {
   .page-user-feneko-orders .sticky-table tr:nth-child(odd) td:before {
     content: "";
   }
-  .page-user-orders tr.even:nth-child(odd),
-  .page-user-feneko-orders .sticky-table tr.even:nth-child(odd) {
-    background-color: #d5edf2;
-  }
-  .page-user-orders tr.odd:nth-child(odd),
-  .page-user-feneko-orders .sticky-table tr.odd:nth-child(odd) {
-    background-color: white;
-  }
 }
 @media screen and (min-width: 851px) {
   .page-user-orders td,
   .page-user-feneko-orders .sticky-table td {
     padding: 5px;
   }
+}
+.page-user-orders tr.even:nth-child(odd),
+.page-user-feneko-orders .sticky-table tr.even:nth-child(odd) {
+  background-color: #d5edf2;
+}
+.page-user-orders tr.odd:nth-child(even),
+.page-user-feneko-orders .sticky-table tr.odd:nth-child(even) {
+  background-color: white;
 }
 
 .ck-check {
