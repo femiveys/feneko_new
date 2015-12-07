@@ -3862,8 +3862,8 @@ input {
 .page-user-feneko-orders .sticky-table tr.even:nth-child(odd) {
   background-color: #d5edf2;
 }
-.page-user-orders tr.odd:nth-child(even),
-.page-user-feneko-orders .sticky-table tr.odd:nth-child(even) {
+.page-user-orders tr.odd:nth-child(odd),
+.page-user-feneko-orders .sticky-table tr.odd:nth-child(odd) {
   background-color: white;
 }
 

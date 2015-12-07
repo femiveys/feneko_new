@@ -2857,7 +2857,7 @@ input {
   tr.even:nth-child(odd) {
     background-color: lighten($lightblue, 15%);
   }
-  tr.odd:nth-child(even) {
+  tr.odd:nth-child(odd) {
     background-color: lighten($lightgrey, 15%);
   }
 }
