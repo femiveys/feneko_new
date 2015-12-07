@@ -34,7 +34,7 @@
 .small-block {
   @include gridle_no_gutter();
   @include gridle_state(max-tablet) {
-    @include gridle_grid (3);
+    @include gridle_grid (4);
   }
   @include gridle_state (min-desk) {
     display: none;

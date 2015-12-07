@@ -38,6 +38,10 @@ input[type="submit"],
   @extend %button;
 }
 
+input[title="Hoeveelheid"] {
+    width: 50px;
+}
+
 li.node-readmore {
   padding: 0!important;
 }
@@ -696,6 +700,121 @@ div.messages {
   display: block;
 }
 
+.node-type-client,
+.page-user {
+  .field,
+  .form-item {
+    margin-bottom: $padding*2;
+    padding-bottom: $padding;
+    border-bottom: 1px solid $grey;
+    &:nth-last-child(1),
+    &.field-name-field-clients {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+  }
+  .field-label,
+  label {
+    @include gridle_state(max-tablet) {
+      width: 100%;
+      margin-bottom: $padding/2;
+
+    }
+    @include gridle_state(min-desk) {
+      width: 150px;
+      float: left;
+    }
+  }
+  &.page-user-retour {
+    .field,
+    .form-item {
+      padding-bottom: $padding;
+      border-bottom: none;
+    }
+    .field-label,
+    label {
+      float: none;
+    }
+  }
+  .field-name-field-clients {
+    > .field-items {
+      > .field-item {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .profile {
+    h3 {
+      border-bottom: none;
+    }
+  }
+}
+
+.page-user {
+  .node-client {
+    border-bottom: 1px solid $blue;
+    margin-top: $padding;
+    padding: $padding 0;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  &.logged-in  {
+    div.tabs {
+      display: block;
+      position: static;
+      .fa-cog {
+        display: none;
+      }
+    }
+    ul.tabs {
+      display: block;
+      border: none;
+      box-shadow: none;
+      webkit-box-shadow: none;
+      moz-box-shadow: none;
+      margin-top: 0;
+      padding: 0;
+      &.primary {
+        li {
+          @include gridle_state (max-tablet) {
+            width: 50%;
+            margin: 0;
+            &:nth-child(2n+1) {
+              border-right: 1px solid $black;
+              float: left;
+            }
+            &:nth-child(2n+0) {
+              float: right;
+              text-align: right;
+            }
+          }
+          a {
+            background-color: transparent;
+            color: $black;
+            &:hover {
+              color: $blue;
+            }
+            @include gridle_state(max-tablet) {
+              border: none;
+              width: 100%;
+              display: block;
+              padding: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.view-payments {
+  th {
+    padding: $padding;
+  }
+}
+
+
 #block-system-user-menu {
   .menu {
     li.first {
@@ -752,7 +871,6 @@ div.messages {
 
 .small-block {
   display: table;
-  width: 25%;
   cursor: pointer;
   height: 60px;
   @include linear-gradient(rgba(255,255,255,1), rgba(203,217,216,1));
@@ -889,7 +1007,7 @@ div.messages {
   }
 }
 
-#main-content .machine-rij {
+#region-content .machine-rij {
   width: 48%;
   background-color: $lightgrey;
   padding: $padding;
@@ -1374,9 +1492,56 @@ div.messages {
       padding: $padding*4 $padding/2 $padding/2 $padding/2;
     }
   }
+  .ui-widget {
+    font-family: $textfont;
+  }
   .ui-corner-all,
   .ui-corner-top {
     border-radius: 0;
+  }
+  .ui-icon {
+    background-image: none;
+  }
+  .ui-state-active  {
+    &:before {
+      background-color: $blue;
+      content: "\f0d7";
+      display: inline-block;
+      font: normal normal normal 20px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+      float: right;
+      font-size: 24px;
+      clear: both;
+      padding: 5px;
+      color: $white;
+    }
+  }
+  .ui-state-default  {
+    &:before {
+      background-color: $grey;
+      content: "\f0da";
+      display: inline-block;
+      font: normal normal normal 20px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+      float: right;
+      font-size: 24px;
+      clear: both;
+      padding: 5px;
+      color: $white;
+    }
+    &:hover {
+      &:before {
+        background-color: $lightgrey;
+      }
+    }
   }
   .field-group-format-toggler {
     background-color: $white;
@@ -1596,7 +1761,7 @@ div.horizontal-tabs {
   table {
     width: 100%;
     border-collapse: separate;
-    border-spacing: 0 0.5em;
+    //border-spacing: 0 0.5em!important;
   }
   tr {
     &.even,
@@ -1616,6 +1781,26 @@ div.horizontal-tabs {
       }
       &.pane-data td {
         padding: 10px;
+      }
+    }
+  }
+  .checkout-review {
+    tr {
+      &.even,
+      &.odd {
+        background-color: transparent;
+      }
+      &.even,
+      &.odd {
+        tr {
+          background-color: $lightgrey;
+        }
+      }
+      &.even,
+      &.odd {
+        thead tr {
+          background-color: transparent;
+        }
       }
     }
   }
@@ -1771,6 +1956,29 @@ div.horizontal-tabs {
   }
 }
 
+#shoppingcart {
+  @include gridle_state(max-tablet) {
+    position: fixed;
+  top: 100px;
+  z-index: 98;
+  width: 100%;
+  right: 0;
+  display: none;
+  .inner-wrapper {
+    max-width: 95%;
+  }
+  .node-header {
+    display: none;
+  }
+  .view-total {
+    display: block;
+    right: 0;
+    width: 100%;
+  }
+  }
+
+}
+
 .view-commerce-cart-form-feneko {
   table {
     border-collapse: separate;
@@ -1847,6 +2055,140 @@ div.horizontal-tabs {
   background-color: $lightgrey;
 }
 
+.page-user-orders {
+  ul.action-links {
+    list-style: none;
+    display: initial;
+    li {
+      a {
+        text-decoration: none;
+        background-color: $orange;
+        color: $white;
+        padding: 10px;
+        border-radius: 3px;
+        &:hover {
+          background-color: lighten($orange, 10%);
+        }
+      }
+    }
+  }
+  .field {
+    border: none;
+  }
+  .line-item-details ul {
+    display: block!important;
+  }
+  td {
+    vertical-align: top;
+  }
+}
+
+.entity-commerce-order .content {
+  > .field {
+    > .field-items {
+      clear: both;
+      padding-top: 10px;
+    }
+  }
+}
+
+.view-feneko-calculator-line-items,
+.view-commerce-backoffice-user-orders,
+.view-payments {
+  table {
+    width: 100%;
+    thead {
+      border-bottom: 5px solid $white;
+    }
+    tbody {
+      tr {
+        background-color: $lightgrey;
+        border-bottom: 10px solid $white;
+        td {
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
+
+.views-field-commerce-total {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.field-name-commerce-order-total {
+  td {
+    padding: 10px;
+  }
+}
+
+.page-cart,
+.page-checkout {
+  @include gridle_state(max-tablet) {
+    th,
+    td {
+      display: inline-block;
+      width: 20%;
+      margin-bottom: 10px;
+      float: left;
+      padding: 10px;
+    }
+    .views-field-detail {
+      width: 100%;
+      border-bottom: 1px solid $black;
+      padding-bottom: 10px;
+    }
+    thead {
+      display: none;
+    }
+  }
+  input[type=submit] {
+      margin-left: 2px;
+      margin-top: 10px;
+    }
+}
+
+.page-checkout {
+  @include gridle_state(max-tablet) {
+    td {
+      width: 30%;
+    }
+    .commerce-price-formatted-components {
+      td {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.page-checkout-review {
+  @include gridle_state(max-tablet) {
+    td {
+      width: 100%;
+    }
+    .commerce-price-formatted-components {
+      td {
+        width: 100%;
+      }
+    }
+    .views-table {
+      td {
+        width: 30%;
+        &.views-field-detail {
+          width: 100%;
+        }
+      }
+    }
+    .commerce-price-formatted-components {
+      width: 100%;
+      td {
+        width: 100%;
+      }
+    }
+  }
+}
+
 // taxonomy
 
 .page-taxonomy {
@@ -1861,19 +2203,6 @@ div.horizontal-tabs {
     h2 {
       color: $grey;
     }
-    /*
-    .field-name-field-product-category-image {
-      @include gridle_state (max-mobile) {
-        width: 65%;
-        margin: auto;
-      }
-      @include gridle_state (min-tablet) {
-        float: left;
-        width: 25%;
-        margin-right: 30px;
-      }
-    }
-    */
     .node-header {
       clear: both;
     }
@@ -1965,20 +2294,7 @@ div.horizontal-tabs {
       margin-top: 5px;
     }
   }
-  @include gridle_state (min-full) {
-    @include gridle_grid (3.5);
-    //position: absolute;
-    //top: 60px;
-    //right: 0;
-  }
 }
-
-.product-teaser .field-name-body {
-  @include gridle_state (min-full) {
-    //@include gridle_grid(6);
-  }
-}
-
 
 // colorbox
 
@@ -2442,6 +2758,25 @@ input {
     text-decoration: none;
     &:hover {
       background-color: lighten($blue, 10%);
+    }
+  }
+}
+
+html.js {
+  fieldset.collapsed {
+    height: 3em;
+    margin-top: 20px;
+  }
+}
+
+.page-user-feneko-orders {
+  .filters {
+    .fieldset-wrapper {
+      padding-top: 30px;
+      > div.actions {
+        clear: both;
+        margin-top: 20px;
+      }
     }
   }
 }

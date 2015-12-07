@@ -29,12 +29,16 @@
   </div>
 </div><!--menu-small-->
 
+<!--
 <div id="search-small" class="small-block last">
   <div class="inner-wrapper">
     <i class="fa fa-search"></i>
       search
   </div>
-</div><!--menu-small-->
+</div>
+
+-->
+
 
 </div><!--mobile-header-->
 
