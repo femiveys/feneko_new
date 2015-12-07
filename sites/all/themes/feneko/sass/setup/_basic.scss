@@ -1436,6 +1436,20 @@ div.messages {
       margin-top: 0;
     }
   }
+  /*
+  @include gridle_state (only-desk) {
+    margin-left: 170px;
+    width: 170px;
+  }
+  @include gridle_state (only-full) {
+    margin-left: 230px;
+    width: 230px;
+  }
+  @include gridle_state (min-retina) {
+    margin-left: 260px;
+    width: 260px;
+  }
+  */
 }
 
 .field-name-body {
@@ -2081,6 +2095,16 @@ div.horizontal-tabs {
   td {
     vertical-align: top;
   }
+  tr {
+    &.even {
+      background-color: $lightblue;
+    }
+  }
+  td {
+    &.active {
+      background-color: transparent;
+    }
+  }
 }
 
 .entity-commerce-order .content {
@@ -2675,6 +2699,47 @@ $contact: #f7941d;
 input {
   width: auto;
 }
+
+.page-user-orders {
+    @include gridle_state (max-tablet) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+      position: absolute;
+      top: -9999px!important;
+      left: -9999px!important;
+    }
+    caption {
+      display: block;
+    }
+    tr {
+      border: 1px solid #ccc;
+    }
+    td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 50%;
+      height: 32px;
+      text-align: right;
+    }
+    td:before {
+      position: absolute;
+      top: 10px;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      content: attr(data-before);
+      font-weight: 700;
+      text-align: left;
+    }
+  }
+}
+
 
 // CK editor styles
 

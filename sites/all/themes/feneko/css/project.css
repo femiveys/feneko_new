@@ -250,7 +250,7 @@ retina: 1280 - +
     padding-right: 0;
     padding-bottom: 0;
     padding-left: 0;
-    margin-top: 75px;
+    margin-top: 175px;
   }
 }
 
@@ -513,7 +513,7 @@ retina: 1280 - +
     padding-right: 0;
     padding-bottom: 0;
     padding-left: 0;
-    margin-top: 75px;
+    margin-top: 175px;
   }
 }
 
@@ -2300,6 +2300,22 @@ div.messages.error {
   }
 }
 
+.field-name-field-orderable-products {
+  /*
+  @include gridle_state (only-desk) {
+    margin-left: 170px;
+    width: 170px;
+  }
+  @include gridle_state (only-full) {
+    margin-left: 230px;
+    width: 230px;
+  }
+  @include gridle_state (min-retina) {
+    margin-left: 260px;
+    width: 260px;
+  }
+  */
+}
 .field-name-field-orderable-products a {
   margin-bottom: 10px;
   margin-top: 20px;
@@ -2992,6 +3008,12 @@ div.horizontal-tabs {
 .page-user-orders td {
   vertical-align: top;
 }
+.page-user-orders tr.even {
+  background-color: #9BD4DF;
+}
+.page-user-orders td.active {
+  background-color: transparent;
+}
 
 .entity-commerce-order .content > .field > .field-items {
   clear: both;
@@ -3578,6 +3600,45 @@ form.commerce-add-to-cart label {
 
 input {
   width: auto;
+}
+
+@media screen and (max-width: 850px) {
+  .page-user-orders {
+    /* Hide table headers (but not display: none;, for accessibility) */
+  }
+  .page-user-orders table, .page-user-orders thead, .page-user-orders tbody, .page-user-orders th, .page-user-orders td, .page-user-orders tr {
+    display: block;
+  }
+  .page-user-orders thead tr {
+    position: absolute;
+    top: -9999px !important;
+    left: -9999px !important;
+  }
+  .page-user-orders caption {
+    display: block;
+  }
+  .page-user-orders tr {
+    border: 1px solid #ccc;
+  }
+  .page-user-orders td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+    height: 32px;
+    text-align: right;
+  }
+  .page-user-orders td:before {
+    position: absolute;
+    top: 10px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    content: attr(data-before);
+    font-weight: 700;
+    text-align: left;
+  }
 }
 
 .ck-check {

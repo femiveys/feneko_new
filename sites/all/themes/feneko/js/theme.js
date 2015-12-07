@@ -90,19 +90,19 @@
 
     var order = [];
 
-    $('#manyforms-form th, .view-commerce-cart-form-feneko th').each(function(index, value) {
+    $('#manyforms-form th, .view-commerce-cart-form-feneko th, .page-user-orders th').each(function(index, value) {
       order[index] = $(this).text();
       $(this).wrapInner('<div><span>');
     });
 
 
-    $('#manyforms-form tr td, .view-commerce-cart-form-feneko tr td').each(function() {
+    $('#manyforms-form tr td, .view-commerce-cart-form-feneko tr td, .page-user-orders tr td').each(function() {
       $(this).attr('data-before',(order[$(this).index()]));
     });
 
     $('.view-commerce-cart-form-feneko tbody tr').each(function() {
       var product = $(this).find('td:nth-child(1)').text();
-      $(this).attr('data-before', product)
+      $(this).attr('data-before', product);
     });
 
     $('.open-img').click(function() {
