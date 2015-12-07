@@ -3028,6 +3028,41 @@ div.horizontal-tabs {
     width: 100%;
   }
 }
+@media screen and (min-width: 851px) {
+  #shoppingcart.fix {
+    position: relative;
+  }
+  #shoppingcart.fix .view-total {
+    position: fixed;
+    left: 50%;
+    top: 59px;
+    transform: translateX(-41%);
+  }
+  .admin-menu #shoppingcart.fix .view-total {
+    top: 89px;
+  }
+}
+@media screen and (min-width: 851px) and (min-width: 851px) and (max-width: 991px) {
+  #shoppingcart.fix .view-total {
+    left: 49%;
+    transform: translateX(-32%);
+    width: 60%;
+  }
+}
+@media screen and (min-width: 851px) and (min-width: 992px) and (max-width: 1279px) {
+  #shoppingcart.fix .view-total {
+    left: 63.5%;
+    transform: translateX(-44%);
+    width: 47%;
+  }
+}
+@media screen and (min-width: 851px) and (min-width: 1280px) {
+  #shoppingcart.fix .view-total {
+    left: 64.4%;
+    transform: translateX(-45%);
+    width: 46.6%;
+  }
+}
 
 .view-commerce-cart-form-feneko table {
   border-collapse: separate;
@@ -3064,9 +3099,6 @@ div.horizontal-tabs {
   background-color: transparent;
   border-radius: 50%;
 }
-.view-commerce-cart-form-feneko td .delete-line-item:hover {
-  background-color: rgba(5, 0, 0, 0.2);
-}
 .view-commerce-cart-form-feneko td.views-field-edit-delete {
   font: normal normal normal 14px/1 FontAwesome;
   text-rendering: auto;
@@ -3090,6 +3122,9 @@ div.horizontal-tabs {
   display: block;
   background-color: #DC5126;
   text-align: center;
+}
+.view-commerce-cart-form-feneko td.views-field-edit-delete:hover:before {
+  background-color: #9c3819;
 }
 
 .form-disabled input {
@@ -3994,4 +4029,8 @@ html.js fieldset.collapsed {
 
 #edit-dierendeur-dep .form-item {
   margin-top: 5px;
+}
+
+div.contextual-links-wrapper {
+  z-index: 500;
 }

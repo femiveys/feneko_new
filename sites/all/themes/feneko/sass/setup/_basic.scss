@@ -1991,6 +1991,35 @@ div.horizontal-tabs {
       width: 100%;
     }
   }
+  @include gridle_state (min-desk) {
+    &.fix {
+      position: relative;
+      .view-total {
+        position: fixed;
+        left: 50%;
+        top: 59px;
+        .admin-menu & {
+          top: 89px;
+        }
+        transform: translateX(-41%);
+        @include gridle_state (only-desk) {
+          left: 49%;
+          transform: translateX(-32%);
+          width: 60%;
+        }
+        @include gridle_state (only-full) {
+          left: 63.5%;
+          transform: translateX(-44%);
+          width: 47%;
+        }
+        @include gridle_state (min-retina) {
+          left: 64.4%;
+          transform: translateX(-45%);
+          width: 46.6%;
+        }
+      }
+    }
+  }
 }
 
 .view-commerce-cart-form-feneko {
@@ -2035,9 +2064,6 @@ div.horizontal-tabs {
     height: 40px;
     background-color: transparent;
     border-radius: 50%;
-    &:hover {
-      background-color: rgba(5, 0, 0, 0.2)
-    }
   }
   td.views-field-edit-delete {
     font: normal normal normal 14px/1 FontAwesome;
@@ -2062,6 +2088,9 @@ div.horizontal-tabs {
     display: block;
     background-color: $red;
     text-align: center;
+  }
+  td.views-field-edit-delete:hover:before {
+    background-color: darken($red, 15%);
   }
 }
 
@@ -2149,7 +2178,6 @@ div.horizontal-tabs {
 
 .page-cart,
 .page-checkout {
-
   @include gridle_state(max-tablet) {
     th,
     td {
@@ -2988,4 +3016,8 @@ html.js {
   .form-item {
     margin-top: 5px;
   }
+}
+
+div.contextual-links-wrapper {
+  z-index: 500;
 }
