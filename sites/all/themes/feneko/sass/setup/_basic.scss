@@ -1697,6 +1697,12 @@ div.horizontal-tabs {
     @include gridle_state (max-tablet) {
       width: 44%;
       float: left;
+      &.views-row-odd {
+        float: left;
+      }
+      &.views-row-even {
+        float: right;
+      }
       &:only-child {
         float: none;
         margin: 0 auto 50px auto;

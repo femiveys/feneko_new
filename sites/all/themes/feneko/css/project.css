@@ -2610,6 +2610,12 @@ div.horizontal-tabs {
     width: 44%;
     float: left;
   }
+  #block-views-related-block .views-row.views-row-odd {
+    float: left;
+  }
+  #block-views-related-block .views-row.views-row-even {
+    float: right;
+  }
   #block-views-related-block .views-row:only-child {
     float: none;
     margin: 0 auto 50px auto;
