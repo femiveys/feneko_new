@@ -3966,3 +3966,7 @@ html.js fieldset.collapsed {
 .dep-container .form-item {
   margin-top: 0;
 }
+
+.edit-dierendeur-dep .form-item {
+  margin-top: 10px;
+}
