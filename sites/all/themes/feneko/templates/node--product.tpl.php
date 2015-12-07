@@ -144,7 +144,9 @@
 
   <?php endif; ?>
 
+<?php if($page) : ?>
 <div class="prod-info">
+  <?php endif; ?>
       <?php print render($content['body']);?>
 
       <?php print render($content['links']);?>
@@ -179,7 +181,9 @@
 
     </div>
 
+<?php if($page) : ?>
 </div>
+<?php endif; ?>
 
   <?php endif; ?>
 
