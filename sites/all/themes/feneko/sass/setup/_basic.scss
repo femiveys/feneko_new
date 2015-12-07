@@ -2810,6 +2810,7 @@ input {
     }
     tr:nth-child(odd) {
       font-weight: bold;
+      padding-left: 6px;
       td:before {
         content: "";
       }

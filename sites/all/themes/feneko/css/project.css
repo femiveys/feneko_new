@@ -3806,6 +3806,7 @@ input {
   .page-user-orders tr:nth-child(odd),
   .page-user-feneko-orders .sticky-table tr:nth-child(odd) {
     font-weight: bold;
+    padding-left: 6px;
   }
   .page-user-orders tr:nth-child(odd) td:before,
   .page-user-feneko-orders .sticky-table tr:nth-child(odd) td:before {
