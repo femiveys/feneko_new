@@ -187,8 +187,8 @@
     @include gridle_no_gutter();
   }
   @include gridle_state(min-desk) {
-      @include gridle_grid (7);
-    }
+    @include gridle_grid (7);
+  }
 }
 
 // SEARCH
