@@ -3617,6 +3617,7 @@ form.commerce-add-to-cart label {
 }
 #manyforms-form .form-wrapper input[type="text"] {
   width: auto;
+  width: 200px;
   display: inline;
 }
 #manyforms-form caption {
@@ -3957,4 +3958,11 @@ input {
 html.js fieldset.collapsed {
   height: 3em;
   margin-top: 20px;
+}
+
+.dep-container {
+  float: left;
+}
+.dep-container .form-item {
+  margin-top: 0;
 }

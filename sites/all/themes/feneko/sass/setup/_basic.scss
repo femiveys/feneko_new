@@ -2608,6 +2608,7 @@ $contact: #f7941d;
   }
   .form-wrapper input[type="text"] {
     width: auto;
+    width: 200px;
     display: inline;
   }
   caption {
@@ -2976,4 +2977,9 @@ html.js {
   }
 }
 
-
+.dep-container {
+  float: left;
+  .form-item {
+    margin-top: 0;
+  }
+}
