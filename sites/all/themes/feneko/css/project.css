@@ -3602,40 +3602,44 @@ input {
   width: auto;
 }
 
+.page-user-orders tr.even,
+.page-user-feneko-orders .sticky-table tr.even {
+  background-color: #9BD4DF;
+}
+.page-user-orders tr td,
+.page-user-feneko-orders .sticky-table tr td {
+  vertical-align: center;
+}
 @media screen and (max-width: 850px) {
   .page-user-orders,
-  .page-user-feneko-orders {
+  .page-user-feneko-orders .sticky-table {
     /* Hide table headers (but not display: none;, for accessibility) */
   }
   .page-user-orders table, .page-user-orders thead, .page-user-orders tbody, .page-user-orders th, .page-user-orders td, .page-user-orders tr,
-  .page-user-feneko-orders table,
-  .page-user-feneko-orders thead,
-  .page-user-feneko-orders tbody,
-  .page-user-feneko-orders th,
-  .page-user-feneko-orders td,
-  .page-user-feneko-orders tr {
+  .page-user-feneko-orders .sticky-table table,
+  .page-user-feneko-orders .sticky-table thead,
+  .page-user-feneko-orders .sticky-table tbody,
+  .page-user-feneko-orders .sticky-table th,
+  .page-user-feneko-orders .sticky-table td,
+  .page-user-feneko-orders .sticky-table tr {
     display: block;
   }
   .page-user-orders thead tr,
-  .page-user-feneko-orders thead tr {
+  .page-user-feneko-orders .sticky-table thead tr {
     position: absolute;
     top: -9999px !important;
     left: -9999px !important;
   }
   .page-user-orders caption,
-  .page-user-feneko-orders caption {
+  .page-user-feneko-orders .sticky-table caption {
     display: block;
   }
   .page-user-orders tr,
-  .page-user-feneko-orders tr {
-    border: 1px solid #ccc;
-  }
-  .page-user-orders tr.even,
-  .page-user-feneko-orders tr.even {
-    background-color: #9BD4DF;
+  .page-user-feneko-orders .sticky-table tr {
+    margin-bottom: 10px;
   }
   .page-user-orders td,
-  .page-user-feneko-orders td {
+  .page-user-feneko-orders .sticky-table td {
     border: none;
     border-bottom: 1px solid #323232;
     position: relative;
@@ -3644,7 +3648,7 @@ input {
     text-align: right;
   }
   .page-user-orders td:before,
-  .page-user-feneko-orders td:before {
+  .page-user-feneko-orders .sticky-table td:before {
     position: absolute;
     top: 10px;
     left: 6px;

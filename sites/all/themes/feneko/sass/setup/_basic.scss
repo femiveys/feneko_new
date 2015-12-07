@@ -2701,7 +2701,15 @@ input {
 }
 
 .page-user-orders,
-.page-user-feneko-orders {
+.page-user-feneko-orders .sticky-table {
+  tr {
+    &.even {
+      background-color: $lightblue;
+    }
+    td {
+      vertical-align: center;
+    }
+  }
   @include gridle_state (max-tablet) {
     table, thead, tbody, th, td, tr {
       display: block;
@@ -2717,10 +2725,8 @@ input {
       display: block;
     }
     tr {
-      border: 1px solid #ccc;
-      &.even {
-        background-color: $lightblue;
-      }
+      margin-bottom: 10px;
+
     }
     td {
       border: none;
