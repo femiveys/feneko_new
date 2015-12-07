@@ -809,7 +809,6 @@ div.messages {
           a {
             background-color: transparent;
             color: $black;
-
             &:hover {
               color: $blue;
             }
@@ -818,7 +817,6 @@ div.messages {
               width: 100%;
               display: block;
               padding: 5px;
-
             }
           }
         }
@@ -869,7 +867,6 @@ div.messages {
     }
   }
 }
-
 
 // TOTOP
 
@@ -997,7 +994,6 @@ div.messages {
     opacity: 0.5;
     a {
       padding: $padding/2 $padding;
-      //background-color: $blue;
       border-radius: $padding;
       border: 1px solid $white;
       font-weight: 700;
@@ -1128,7 +1124,6 @@ div.messages {
       }
     }
     .view-grouping-content {
-
       @include gridle_state (only-mobile-port) {
         @include gridle_grid(12);
         margin: 0 auto;
@@ -1193,47 +1188,8 @@ div.messages {
     div {
       font-size: 16px;
     }
-    .view-grouping-header {
-      @include gridle_state (only-mobile-port) {
-        //width: 47%;
-        //float: left;
-      }
-      @include gridle_state (only-mobile-land) {
-        //width: 37%;
-        //float: left;
-      }
-      @include gridle_state (only-tablet) {
-        //width: 25%;
-        //float: left;
-      }
-    }
-    .view-grouping-content {
-      @include gridle_state (only-mobile-port) {
-        //width: 50%;
-        //float: right;
-      }
-      @include gridle_state (only-mobile-land) {
-        //width: 61%;
-        //float: right;
-      }
-      @include gridle_state (only-tablet) {
-        //width: 72%;
-        //float: right;
-      }
-    }
     .new {
       vertical-align: top;
-      @include gridle_state (min-desk) {
-        //-webkit-columns: 2; /* Chrome, Safari, Opera */
-        //-moz-columns: 2; /* Firefox */
-        //columns: 2;
-
-      }
-      @include gridle_state (min-full) {
-        //-webkit-columns: 3; /* Chrome, Safari, Opera */
-        //-moz-columns: 3; /* Firefox */
-        //columns: 3;
-      }
     }
     .views-row-odd,
     .views-row-even {
@@ -1477,7 +1433,6 @@ div.messages {
     font-weight: 700;
   }
 }
-
 
 .field-name-field-ultimate-date,
 .view-jobs .datum {
@@ -2021,19 +1976,18 @@ div.horizontal-tabs {
     &.show {
       display: block;
     }
-  .inner-wrapper {
-    max-width: 95%;
+    .inner-wrapper {
+      max-width: 95%;
+    }
+    .node-header {
+      display: none;
+    }
+    .view-total {
+      display: block;
+      right: 0;
+      width: 100%;
+    }
   }
-  .node-header {
-    display: none;
-  }
-  .view-total {
-    display: block;
-    right: 0;
-    width: 100%;
-  }
-  }
-
 }
 
 .view-commerce-cart-form-feneko {
@@ -2853,6 +2807,11 @@ input {
       content: attr(data-before);
       font-weight: 700;
       text-align: left;
+    }
+    tr:nth-child(odd) {
+      td:before {
+        content; "";
+      }
     }
   }
   @include gridle_state(min-desk) {
