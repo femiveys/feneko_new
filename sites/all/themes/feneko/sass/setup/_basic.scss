@@ -357,9 +357,6 @@ div.messages {
       top: 0;
     }
     @include gridle_state (max-tablet) {
-      //max-width: none;
-    }
-    @include gridle_state (max-tablet) {
       bottom: 0;
       left: 0;
       right: 0;
@@ -2817,9 +2814,12 @@ input {
       vertical-align: middle;
     }
     @include gridle_state (min-full) {
-      &:nth-child(2n+0) {
-        border-bottom: 5px solid $white;
+      &:nth-child(odd) {
+        font-weight: bold;
       }
+    }
+    &:nth-child(2n+0) {
+      border-bottom: 5px solid $white;
     }
   }
   @include gridle_state (max-desk) {
