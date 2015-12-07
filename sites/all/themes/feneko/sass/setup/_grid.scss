@@ -95,11 +95,10 @@
   }
   &.logged-in  {
     aside#sidebar_second {
-      @include gridle_state (min-desk) {
-      margin-top: 145px;
+      @include gridle_state (min-full) {
+        margin-top: 145px;
+      }
     }
-    }
-
   }
 }
 

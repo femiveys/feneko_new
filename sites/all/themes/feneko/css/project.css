@@ -278,7 +278,7 @@ retina: 1280 - +
     padding-left: 0;
   }
 }
-@media screen and (min-width: 851px) {
+@media screen and (min-width: 992px) {
   .node-type-product.logged-in aside#sidebar_second {
     margin-top: 145px;
   }
@@ -545,7 +545,7 @@ retina: 1280 - +
     padding-left: 0;
   }
 }
-@media screen and (min-width: 851px) {
+@media screen and (min-width: 992px) {
   .node-type-product.logged-in aside#sidebar_second {
     margin-top: 145px;
   }
@@ -1582,6 +1582,16 @@ div.messages.error {
 @media screen and (min-width: 851px) {
   #mainmenu-wrapper .menu a {
     padding-right: 5px;
+  }
+}
+@media screen and (min-width: 851px) and (max-width: 991px) {
+  #mainmenu-wrapper .menu a {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1279px) {
+  #mainmenu-wrapper .menu a {
+    font-size: 15px;
   }
 }
 @media screen and (min-width: 851px) {
@@ -2881,10 +2891,10 @@ div.horizontal-tabs {
   .view-feneko-shopping-cart-block .node-header h1:before {
     border: 1px solid #ffffff;
     border-radius: 50%;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     text-align: center;
-    padding: 2px 0 0 0;
+    padding: 5px 0 0 0;
   }
 }
 .view-feneko-shopping-cart-block .node-header h1:hover {
@@ -3812,6 +3822,7 @@ input {
     padding-left: 6px;
     height: 42px;
     text-align: left;
+    padding-top: 8px;
   }
   .page-user-orders tr:nth-child(odd) td:before,
   .page-user-feneko-orders .sticky-table tr:nth-child(odd) td:before {
@@ -3906,7 +3917,7 @@ input {
 }
 
 @media screen and (min-width: 992px) {
-  .page-node .prod-info {
+  .page-node.logged-in .prod-info {
     position: relative;
     top: -130px;
   }

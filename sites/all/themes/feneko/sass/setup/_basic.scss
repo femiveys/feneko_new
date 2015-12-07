@@ -676,6 +676,12 @@ div.messages {
       @include gridle_state (min-desk) {
         padding-right: $padding/2;
       }
+      @include gridle_state (only-desk) {
+        font-size: 14px;
+      }
+      @include gridle_state (only-full) {
+        font-size: 15px;
+      }
       &:after {
         @include gridle_state (min-desk) {
           content: "\007C";
@@ -1862,10 +1868,10 @@ div.horizontal-tabs {
       @include gridle_state (only-desk) {
         border: 1px solid $white;
         border-radius: 50%;
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height: 30px;
         text-align: center;
-        padding: 2px 0 0 0;
+        padding: 5px 0 0 0;
       }
     }
     &:hover {
@@ -2815,6 +2821,7 @@ input {
         padding-left: 6px;
         height: 42px;
         text-align: left;
+        padding-top: 8px;
       }
       td:before {
         content: "";
@@ -2928,7 +2935,7 @@ input {
   }
 }
 
-.page-node .prod-info {
+.page-node.logged-in .prod-info {
   @include gridle_state(min-full) {
     position: relative;
     top: -130px;
