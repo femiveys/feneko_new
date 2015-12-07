@@ -1614,45 +1614,45 @@ div.messages.error {
   display: block;
 }
 
-.node-type-client .field,
-.node-type-client .form-item,
-.page-user .field,
-.page-user .form-item {
+.node-type-client #main-wrapper .field,
+.node-type-client #main-wrapper .form-item,
+.page-user #main-wrapper .field,
+.page-user #main-wrapper .form-item {
   margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 1px solid #c7c7c7;
 }
-.node-type-client .field:nth-last-child(1), .node-type-client .field.field-name-field-clients,
-.node-type-client .form-item:nth-last-child(1),
-.node-type-client .form-item.field-name-field-clients,
-.page-user .field:nth-last-child(1),
-.page-user .field.field-name-field-clients,
-.page-user .form-item:nth-last-child(1),
-.page-user .form-item.field-name-field-clients {
+.node-type-client #main-wrapper .field:nth-last-child(1), .node-type-client #main-wrapper .field.field-name-field-clients,
+.node-type-client #main-wrapper .form-item:nth-last-child(1),
+.node-type-client #main-wrapper .form-item.field-name-field-clients,
+.page-user #main-wrapper .field:nth-last-child(1),
+.page-user #main-wrapper .field.field-name-field-clients,
+.page-user #main-wrapper .form-item:nth-last-child(1),
+.page-user #main-wrapper .form-item.field-name-field-clients {
   border-bottom: none;
   margin-bottom: 0;
 }
-.node-type-client #footer-footer .field,
-.page-user #footer-footer .field {
-  border-bottom: none;
-}
 @media screen and (max-width: 850px) {
-  .node-type-client .field-label,
-  .node-type-client label,
-  .page-user .field-label,
-  .page-user label {
+  .node-type-client #main-wrapper .field-label,
+  .node-type-client #main-wrapper label,
+  .page-user #main-wrapper .field-label,
+  .page-user #main-wrapper label {
     width: 100%;
     margin-bottom: 5px;
   }
 }
 @media screen and (min-width: 851px) {
-  .node-type-client .field-label,
-  .node-type-client label,
-  .page-user .field-label,
-  .page-user label {
+  .node-type-client #main-wrapper .field-label,
+  .node-type-client #main-wrapper label,
+  .page-user #main-wrapper .field-label,
+  .page-user #main-wrapper label {
     width: 150px;
     float: left;
   }
+}
+.node-type-client #footer-footer .field,
+.page-user #footer-footer .field {
+  border-bottom: none;
 }
 .node-type-client.page-user-retour .field,
 .node-type-client.page-user-retour .form-item,
