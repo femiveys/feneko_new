@@ -229,12 +229,13 @@ function feneko_code_orders_form($form, &$form_state) {
       $result['bedrag'] = "€" . str_replace('.', ',', sprintf("%01.2f", $result['bedrag']));
       $result['order_datum'] = $result['order_datum'] ? date($date_format, $result['order_datum']) : $unknown;
       $result['lever_datum'] = $result['lever_datum'] ? date($date_format, $result['lever_datum']) : $unknown;
-
       $result['fase']          = $mapping[$result['fase']]['label'][$language->language];
       $result['leverconditie'] = $mapping[$result['leverconditie']]['label'][$language->language];
 
-      // Make the orderbon span over 2 rows
-      $result['orderbon'] = array('data' => $result['orderbon']);
+      $client = feneko_code_get_client_by_number($result['klant']);
+      $result['klant'] = '<a href="/node/' . $client->nid->value() . '">' . $result['klant'] .  '</a>';
+
+      $mapping[$result['leverconditie']]['label'][$language->language];
 
       // Set the omschrijving row and remove the omschrijving from the result
       $omschrijving = array(
