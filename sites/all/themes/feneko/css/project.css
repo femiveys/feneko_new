@@ -3864,7 +3864,7 @@ input {
 }
 .page-user-orders tr.odd:nth-child(odd),
 .page-user-feneko-orders .sticky-table tr.odd:nth-child(odd) {
-  background-color: white;
+  background-color: #f3f3f3;
 }
 
 .ck-check {
