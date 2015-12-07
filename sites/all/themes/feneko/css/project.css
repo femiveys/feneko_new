@@ -1586,6 +1586,10 @@ div.messages.error {
   border-bottom: none;
   margin-bottom: 0;
 }
+.node-type-client #footer-footer .field,
+.page-user #footer-footer .field {
+  border-bottom: none;
+}
 @media screen and (max-width: 850px) {
   .node-type-client .field-label,
   .node-type-client label,
@@ -1659,9 +1663,15 @@ div.messages.error {
     border-right: 1px solid #323232;
     float: left;
   }
+  .page-user.logged-in ul.tabs.primary li:nth-child(2n+1).active {
+    border-left: 3px solid #295D8F;
+  }
   .page-user.logged-in ul.tabs.primary li:nth-child(2n+0) {
     float: right;
     text-align: right;
+  }
+  .page-user.logged-in ul.tabs.primary li:nth-child(2n+0).active {
+    border-right: 3px solid #295D8F;
   }
 }
 .page-user.logged-in ul.tabs.primary li a {
@@ -3602,6 +3612,9 @@ input {
   width: auto;
 }
 
+.page-user-feneko-orders .filters .form-item {
+  border-bottom: none;
+}
 .page-user-feneko-orders .filters .fieldset-wrapper {
   padding-top: 30px;
 }
@@ -3609,11 +3622,17 @@ input {
   clear: both;
   margin-top: 20px;
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 850px) {
   .page-user-feneko-orders .filters .fieldset-wrapper > div {
     clear: both;
     width: 100%;
+    border: none;
+    border-left: none !important;
+    border-right: none !important;
   }
+}
+.page-user-feneko-orders .container-inline-date .date-padding {
+  float: none;
 }
 
 .page-user-orders tr,
@@ -3626,9 +3645,9 @@ input {
 }
 .page-user-orders tr td,
 .page-user-feneko-orders .sticky-table tr td {
-  vertical-align: center;
+  vertical-align: middle;
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 991px) {
   .page-user-orders,
   .page-user-feneko-orders .sticky-table {
     /* Hide table headers (but not display: none;, for accessibility) */
