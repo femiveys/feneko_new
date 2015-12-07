@@ -1530,24 +1530,6 @@ div.messages {
   .ui-icon {
     background-image: none;
   }
-  .ui-state-active  {
-    &:before {
-      background-color: $blue;
-      content: "\f0d7";
-      display: inline-block;
-      font: normal normal normal 20px/1 FontAwesome;
-      font-size: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      transform: translate(0, 0);
-      float: right;
-      font-size: 24px;
-      clear: both;
-      padding: 5px;
-      color: $white;
-    }
-  }
   .ui-state-default  {
     &:before {
       background-color: $grey;
@@ -1569,6 +1551,24 @@ div.messages {
       &:before {
         background-color: $lightgrey;
       }
+    }
+  }
+  .ui-state-active  {
+    &:before {
+      background-color: $blue;
+      content: "\f0d7";
+      display: inline-block;
+      font: normal normal normal 20px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+      float: right;
+      font-size: 24px;
+      clear: both;
+      padding: 5px;
+      color: $white;
     }
   }
   .field-group-format-toggler {
@@ -2186,6 +2186,7 @@ div.horizontal-tabs {
 
 .page-cart,
 .page-checkout {
+
   @include gridle_state(max-tablet) {
     th,
     td {
@@ -2207,7 +2208,21 @@ div.horizontal-tabs {
   input[type=submit] {
       margin-left: 2px;
       margin-top: 10px;
+  }
+}
+
+.page-user-feneko-orders {
+  .sticky-table {
+    thead {
+      font-size: 12px;
+      text-align: center;
     }
+  }
+  @include gridle_state(min-full) {
+    td:nth-child(1) {
+      width: 100px;
+    }
+  }
 }
 
 .page-checkout {
@@ -2778,21 +2793,23 @@ input {
 .page-user-orders,
 .page-user-feneko-orders .sticky-table {
   tr {
-    margin-bottom: 5px;
+    border-bottom: none;
     &.even {
       background-color: $lightblue;
     }
     td {
       vertical-align: middle;
     }
+    @include gridle_state (min-full) {
+      &:nth-child(2n+0) {
+        border-bottom: 5px solid $white;
+      }
+    }
   }
   @include gridle_state (max-desk) {
     table, thead, tbody, th, td, tr {
       display: block;
     }
-
-
-
     /* Hide table headers (but not display: none;, for accessibility) */
     thead tr {
       position: absolute;

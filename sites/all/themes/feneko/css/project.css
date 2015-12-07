@@ -2440,22 +2440,6 @@ div.messages.error {
 .field-group-accordion-wrapper .ui-icon {
   background-image: none;
 }
-.field-group-accordion-wrapper .ui-state-active:before {
-  background-color: #295D8F;
-  content: "\f0d7";
-  display: inline-block;
-  font: normal normal normal 20px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transform: translate(0, 0);
-  float: right;
-  font-size: 24px;
-  clear: both;
-  padding: 5px;
-  color: #ffffff;
-}
 .field-group-accordion-wrapper .ui-state-default:before {
   background-color: #c7c7c7;
   content: "\f0da";
@@ -2474,6 +2458,22 @@ div.messages.error {
 }
 .field-group-accordion-wrapper .ui-state-default:hover:before {
   background-color: #e6e6e6;
+}
+.field-group-accordion-wrapper .ui-state-active:before {
+  background-color: #295D8F;
+  content: "\f0d7";
+  display: inline-block;
+  font: normal normal normal 20px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+  float: right;
+  font-size: 24px;
+  clear: both;
+  padding: 5px;
+  color: #ffffff;
 }
 .field-group-accordion-wrapper .field-group-format-toggler {
   background-color: #ffffff;
@@ -3157,6 +3157,16 @@ div.horizontal-tabs {
   margin-top: 10px;
 }
 
+.page-user-feneko-orders .sticky-table thead {
+  font-size: 12px;
+  text-align: center;
+}
+@media screen and (min-width: 992px) {
+  .page-user-feneko-orders td:nth-child(1) {
+    width: 100px;
+  }
+}
+
 @media screen and (max-width: 850px) {
   .page-checkout td {
     width: 30%;
@@ -3714,7 +3724,7 @@ input {
 
 .page-user-orders tr,
 .page-user-feneko-orders .sticky-table tr {
-  margin-bottom: 5px;
+  border-bottom: none;
 }
 .page-user-orders tr.even,
 .page-user-feneko-orders .sticky-table tr.even {
@@ -3723,6 +3733,12 @@ input {
 .page-user-orders tr td,
 .page-user-feneko-orders .sticky-table tr td {
   vertical-align: middle;
+}
+@media screen and (min-width: 992px) {
+  .page-user-orders tr:nth-child(2n+0),
+  .page-user-feneko-orders .sticky-table tr:nth-child(2n+0) {
+    border-bottom: 5px solid #ffffff;
+  }
 }
 @media screen and (max-width: 991px) {
   .page-user-orders,
