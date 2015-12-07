@@ -21,7 +21,7 @@ function feneko_code_permission() {
 function feneko_code_access() {
   foreach (func_get_args() as $permission) {
     if(!user_access($permission)) {
-      dpm($permission);
+      // dpm($permission);
       return false;
     }
   }
@@ -149,14 +149,15 @@ function feneko_code_form_alter(&$form, &$form_state, $form_id) {
   }
 }
 
-function feneko_code_get_clients_options() {
+function feneko_code_get_clients_options($idKeys = false) {
   global $user;
   $options = array();
   $wrapper = entity_metadata_wrapper('user', $user);
   foreach ($wrapper->field_clients->value() as $client) {
     if(!empty($client)) {
       $client_number = $client->field_client_number[LANGUAGE_NONE][0]['value'];
-      $options[$client_number] = $client->title . " ($client_number)";
+      $key = $idKeys ? $client->nid : $client_number;
+      $options[$key] = $client->title . " ($client_number)";
     } else {
       $msg = t('The user (:user) is linked to an invalid client', array(':user' => $user->uid));
       drupal_set_message($msg, 'error');

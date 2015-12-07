@@ -283,34 +283,30 @@ function feneko_calculator_form_alter(&$form, &$form_state, $form_id) {
     $form['status']['#attributes'] = array('data-placeholder' => array(t('All statuses')));
     $form['combine']['#attributes'] = array('placeholder' => array(t('Search by username, email, order ID')));
   }
-
   // Add the korting names to the staffelkorting
-  if($form_id === 'user_profile_form') {
-    if(isset($form['field_staffelkorting']['und']['#options'])) {
-      $options = array();
+  if(isset($form['field_staffelkorting']['und']['#options'])) {
+    $options = array();
 
-      // Get all order discounts
-      $result = db_select('commerce_discount')->fields(NULL, array('name'))
-               ->condition('type', 'order_discount')
-               ->orderBy('component_title')
-               ->execute();
+    // Get all order discounts
+    $result = db_select('commerce_discount')->fields(NULL, array('name'))
+             ->condition('type', 'order_discount')
+             ->orderBy('component_title')
+             ->execute();
 
-      foreach ($result as $discount) {
-        $discount_wrapper = entity_metadata_wrapper('commerce_discount', $discount->name);
-        $options[$discount->name] = $discount_wrapper->component_title->value();
-      }
+    foreach ($result as $discount) {
+      $discount_wrapper = entity_metadata_wrapper('commerce_discount', $discount->name);
+      $options[$discount->name] = $discount_wrapper->component_title->value();
+    }
 
-      // Add the options to the form
-      $form['field_staffelkorting']['und']['#options'] = $options;
+    // Add the options to the form
+    $form['field_staffelkorting']['und']['#options'] = $options;
 
-      // Set the default value
-      if(isset($form_state['user']->field_staffelkorting['und'][0]['value'])) {
-        $form['field_staffelkorting']['und']['#default_value'] =
-                   $form_state['user']->field_staffelkorting['und'][0]['value'];
-      }
+    // Set the default value
+    if(isset($form_state['user']->field_staffelkorting['und'][0]['value'])) {
+      $form['field_staffelkorting']['und']['#default_value'] =
+                 $form_state['user']->field_staffelkorting['und'][0]['value'];
     }
   }
-
 }
 
 
@@ -845,10 +841,16 @@ function fc_cart_init_form($form, $form_state) {
       t('Cancel')
     );
   } else {
-    drupal_set_title(t('Kies kleur'));
+    drupal_set_title(t('Kies kleur en klant'));
     return array(
       'text' => array(
         '#markup' => t('Voor u iets kan bestellen, moet u eerst de gewenste kleur van de bestelling kiezen'),
+      ),
+      'client' => array(
+        '#type' => 'select',
+        '#options' => feneko_code_get_clients_options(true),
+        '#title' => t('Client'),
+        '#required' => true,
       ),
       'color' => array(
         '#type' => 'textfield',
@@ -1165,6 +1167,7 @@ function fc_cart_init_form_submit($form, $form_state) {
     }
   } else {
     $cart_wrapper->field_color->set($form_state['values']['color']);
+    $cart_wrapper->field_client->set($form_state['values']['client']);
 
     // We set the qualité maritime field only if a color has been chosen
     if($form_state['values']['color'] === FC_NO_COLOR) {
@@ -1173,9 +1176,7 @@ function fc_cart_init_form_submit($form, $form_state) {
       $cart_wrapper->field_maritime->set($form_state['values']['maritime']);
     }
   }
-
   $cart_wrapper->save();
-
 }
 
 

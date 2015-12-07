@@ -116,6 +116,12 @@ function commerce_price_decimals_formatter_field_formatter_view($entity_type, $e
         foreach ($item['data']['components'] as $key => $component) {
           $component_type = commerce_price_component_type_load($component['name']);
 
+          // Hook in with the Commerce Discount module
+          if(isset($component['price']['data']['discount_component_title'])) {
+           $component_type['display_title'] = $component['price']['data']['discount_component_title'];
+           $component_type['weight'] = 0;
+          }
+
           if (empty($components[$component['name']])) {
             $components[$component['name']] = array(
               'title' => check_plain($component_type['display_title']),

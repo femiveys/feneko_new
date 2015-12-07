@@ -30,8 +30,7 @@ function feneko_calculator_feature_strongarm() {
   $strongarm->name = 'commerce_checkout_completion_message';
   $strongarm->value = array(
     'value' => '<p>Je bestellingsnummer is: [commerce-order:order-number].</p>
-<p>Je kan je <a href="[commerce-order:url]">bestelling bekijken</a> op je profiel.</p>
-<p><a href="/cart/init">Bestel iets anders</a></p>',
+<p>Je kan de status bekijken bij <a href="/user/[commerce-order:uid]/feneko_orders">Lopende orders</a> in de klantenzone.</p>',
     'format' => 'full_html',
   );
   $export['commerce_checkout_completion_message'] = $strongarm;
