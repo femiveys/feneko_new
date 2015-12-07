@@ -1537,6 +1537,11 @@ div.messages {
       padding: 5px;
       color: $white;
     }
+    &:hover {
+      &:before {
+        background-color: $blue;
+      }
+    }
   }
   .field-group-format-toggler {
     background-color: $white;

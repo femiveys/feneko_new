@@ -2493,6 +2493,9 @@ div.messages.error {
   padding: 5px;
   color: #ffffff;
 }
+.field-group-accordion-wrapper .ui-state-active:hover:before {
+  background-color: #295D8F;
+}
 .field-group-accordion-wrapper .field-group-format-toggler {
   background-color: #ffffff;
   border-right: none;
