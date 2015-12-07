@@ -2700,9 +2700,28 @@ input {
   width: auto;
 }
 
+.page-user-feneko-orders {
+  .filters {
+    .fieldset-wrapper {
+      padding-top: 30px;
+      > div.actions {
+        clear: both;
+        margin-top: 20px;
+      }
+      @include gridle_state(max-mobile) {
+        > div {
+          clear: both;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
 .page-user-orders,
 .page-user-feneko-orders .sticky-table {
   tr {
+    margin-bottom: 5px;
     &.even {
       background-color: $lightblue;
     }
@@ -2724,10 +2743,6 @@ input {
     caption {
       display: block;
     }
-    tr {
-      margin-bottom: 10px;
-
-    }
     td {
       border: none;
       border-bottom: 1px solid $black;
@@ -2746,6 +2761,11 @@ input {
       content: attr(data-before);
       font-weight: 700;
       text-align: left;
+    }
+  }
+  @include gridle_state(min-desk) {
+    td {
+      padding: 5px;
     }
   }
 }
@@ -2844,14 +2864,4 @@ html.js {
   }
 }
 
-.page-user-feneko-orders {
-  .filters {
-    .fieldset-wrapper {
-      padding-top: 30px;
-      > div.actions {
-        clear: both;
-        margin-top: 20px;
-      }
-    }
-  }
-}
+

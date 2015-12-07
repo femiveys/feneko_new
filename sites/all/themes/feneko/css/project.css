@@ -3602,6 +3602,24 @@ input {
   width: auto;
 }
 
+.page-user-feneko-orders .filters .fieldset-wrapper {
+  padding-top: 30px;
+}
+.page-user-feneko-orders .filters .fieldset-wrapper > div.actions {
+  clear: both;
+  margin-top: 20px;
+}
+@media screen and (max-width: 599px) {
+  .page-user-feneko-orders .filters .fieldset-wrapper > div {
+    clear: both;
+    width: 100%;
+  }
+}
+
+.page-user-orders tr,
+.page-user-feneko-orders .sticky-table tr {
+  margin-bottom: 5px;
+}
 .page-user-orders tr.even,
 .page-user-feneko-orders .sticky-table tr.even {
   background-color: #9BD4DF;
@@ -3634,10 +3652,6 @@ input {
   .page-user-feneko-orders .sticky-table caption {
     display: block;
   }
-  .page-user-orders tr,
-  .page-user-feneko-orders .sticky-table tr {
-    margin-bottom: 10px;
-  }
   .page-user-orders td,
   .page-user-feneko-orders .sticky-table td {
     border: none;
@@ -3658,6 +3672,12 @@ input {
     content: attr(data-before);
     font-weight: 700;
     text-align: left;
+  }
+}
+@media screen and (min-width: 851px) {
+  .page-user-orders td,
+  .page-user-feneko-orders .sticky-table td {
+    padding: 5px;
   }
 }
 
@@ -3733,13 +3753,5 @@ input {
 
 html.js fieldset.collapsed {
   height: 3em;
-  margin-top: 20px;
-}
-
-.page-user-feneko-orders .filters .fieldset-wrapper {
-  padding-top: 30px;
-}
-.page-user-feneko-orders .filters .fieldset-wrapper > div.actions {
-  clear: both;
   margin-top: 20px;
 }
