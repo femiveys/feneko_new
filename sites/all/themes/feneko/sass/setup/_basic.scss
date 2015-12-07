@@ -2756,6 +2756,10 @@ input {
       display: block;
     }
 
+    .sticky-header {
+      display: none;
+    }
+
     /* Hide table headers (but not display: none;, for accessibility) */
     thead tr {
       position: absolute;

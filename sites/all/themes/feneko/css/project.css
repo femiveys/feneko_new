@@ -3661,6 +3661,10 @@ input {
   .page-user-feneko-orders .sticky-table tr {
     display: block;
   }
+  .page-user-orders .sticky-header,
+  .page-user-feneko-orders .sticky-table .sticky-header {
+    display: none;
+  }
   .page-user-orders thead tr,
   .page-user-feneko-orders .sticky-table thead tr {
     position: absolute;
