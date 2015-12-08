@@ -97,7 +97,7 @@
 
 
 
-<div class="content <?php if ($teaser) : print('product-teaser'); endif; ?><?php
+<div class="content <?php if ($teaser) : print('product-teaser'); endif; ?> <?php
     if($product_grandparent == 'screens') : print('prod-screens');
     elseif($product_grandparent == 'colors') : print('prod-colors');
     endif;
