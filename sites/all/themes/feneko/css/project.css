@@ -38,18 +38,6 @@ retina: 1280 - +
   padding-bottom: 0;
   padding-left: 0;
 }
-.no-sidebars #content {
-  display: inline-block;
-  min-height: 1px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  font-size: 1rem;
-  box-sizing: border-box;
-  vertical-align: top;
-  padding-right: 20px;
-  padding-left: 20px;
-}
-
 @media screen and (max-width: 599px) {
   #content, .first-col, .second-col, .page-taxonomy .field-name-field-product-category-image,
   .product-teaser .field-name-field-images, .product-teaser .links, .page-taxonomy .field-name-description-field,
@@ -257,13 +245,6 @@ retina: 1280 - +
   .node-type-product #content {
     width: 75%;
   }
-}
-.no-sidebars #content {
-  width: 100%;
-  padding-top: 0;
-  padding-right: 0;
-  padding-bottom: 0;
-  padding-left: 0;
 }
 @media screen and (min-width: 851px) {
   .page-about #content {
@@ -524,13 +505,6 @@ retina: 1280 - +
   .node-type-product #content {
     width: 75%;
   }
-}
-.no-sidebars #content {
-  width: 100%;
-  padding-top: 0;
-  padding-right: 0;
-  padding-bottom: 0;
-  padding-left: 0;
 }
 @media screen and (min-width: 851px) {
   .page-about #content {
@@ -4008,9 +3982,6 @@ input {
     top: -50px;
     max-width: 250px;
   }
-}
-.no-sidebars .cat-bestel {
-  left: 90%;
 }
 
 @media screen and (min-width: 992px) {
