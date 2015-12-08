@@ -84,13 +84,15 @@
 ?>
 
 <?php print render($title_prefix); ?>
-  <header class="node-header">
+
 
     <?php if ($teaser) : ?>
+    <header class="node-header">
     <h2<?php print $title_attributes; ?>><?php print $title; ?></h2>
+    </header>
     <?php endif; ?>
 
-  </header>
+
 <?php print render($title_suffix); ?>
 
 
