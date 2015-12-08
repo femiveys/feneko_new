@@ -2989,6 +2989,9 @@ input {
     top: -50px;
     max-width: 250px;
   }
+  .no-sidebars & {
+    left: 90%;
+  }
 }
 
 .page-node.logged-in .prod-info {

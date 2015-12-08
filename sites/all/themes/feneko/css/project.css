@@ -4007,6 +4007,9 @@ input {
     max-width: 250px;
   }
 }
+.no-sidebars .cat-bestel {
+  left: 90%;
+}
 
 @media screen and (min-width: 992px) {
   .page-node.logged-in .prod-info {
