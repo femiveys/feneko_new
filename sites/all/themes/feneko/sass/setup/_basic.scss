@@ -734,7 +734,8 @@ div.messages {
     }
   }
   &.page-user-retour {
-    .field,
+    #block-system-main {
+      .field,
     .form-item {
       padding-bottom: $padding;
       border-bottom: none;
@@ -746,6 +747,8 @@ div.messages {
     .form-item-chauffeur {
       clear: both;
     }
+    }
+
   }
   .field-name-field-clients {
     > .field-items {
@@ -2139,9 +2142,11 @@ div.horizontal-tabs {
   td {
     vertical-align: top;
   }
-  tr {
+  #main-wrapper tr {
+    border-top: 10px solid $white;
     &.even {
       background-color: $lightblue;
+
     }
   }
   td {
@@ -2832,7 +2837,7 @@ input {
   }
 }
 
-.page-user-orders,
+.page-user-orders #main-wrapper,
 .page-user-feneko-orders .sticky-table {
   tr {
     border-bottom: none;
@@ -3022,6 +3027,14 @@ input {
   }
   aside#sidebar_second {
     margin-top: 90px;
+  }
+}
+
+.page-node.logged-in .prod-screens {
+  .prod-info {
+    @include gridle_state(min-full) {
+      margin-top: -70px;
+    }
   }
 }
 

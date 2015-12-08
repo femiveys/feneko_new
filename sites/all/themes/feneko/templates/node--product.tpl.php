@@ -93,7 +93,13 @@
   </header>
 <?php print render($title_suffix); ?>
 
-<div class="content <?php if ($teaser) : print('product-teaser'); endif; ?>">
+
+
+<div class="content <?php if ($teaser) : print('product-teaser'); endif; ?><?php
+    if($product_grandparent == 'screens') : print('prod-screens');
+    elseif($product_grandparent == 'colors') : print('prod-colors');
+    endif;
+?>">
 
   <?php if ($page) : ?>
     <div class="first-col">

@@ -1641,21 +1641,21 @@ div.messages.error {
 .page-user #footer-footer .field {
   border-bottom: none;
 }
-.node-type-client.page-user-retour .field,
-.node-type-client.page-user-retour .form-item,
-.page-user.page-user-retour .field,
-.page-user.page-user-retour .form-item {
+.node-type-client.page-user-retour #block-system-main .field,
+.node-type-client.page-user-retour #block-system-main .form-item,
+.page-user.page-user-retour #block-system-main .field,
+.page-user.page-user-retour #block-system-main .form-item {
   padding-bottom: 10px;
   border-bottom: none;
 }
-.node-type-client.page-user-retour .field-label,
-.node-type-client.page-user-retour label,
-.page-user.page-user-retour .field-label,
-.page-user.page-user-retour label {
+.node-type-client.page-user-retour #block-system-main .field-label,
+.node-type-client.page-user-retour #block-system-main label,
+.page-user.page-user-retour #block-system-main .field-label,
+.page-user.page-user-retour #block-system-main label {
   float: none;
 }
-.node-type-client.page-user-retour .form-item-chauffeur,
-.page-user.page-user-retour .form-item-chauffeur {
+.node-type-client.page-user-retour #block-system-main .form-item-chauffeur,
+.page-user.page-user-retour #block-system-main .form-item-chauffeur {
   clear: both;
 }
 .node-type-client .field-name-field-clients > .field-items > .field-item,
@@ -3141,7 +3141,10 @@ div.horizontal-tabs {
 .page-user-orders td {
   vertical-align: top;
 }
-.page-user-orders tr.even {
+.page-user-orders #main-wrapper tr {
+  border-top: 10px solid #ffffff;
+}
+.page-user-orders #main-wrapper tr.even {
   background-color: #9BD4DF;
 }
 .page-user-orders td.active {
@@ -3817,34 +3820,34 @@ input {
   width: 100%;
 }
 
-.page-user-orders tr,
+.page-user-orders #main-wrapper tr,
 .page-user-feneko-orders .sticky-table tr {
   border-bottom: none;
 }
-.page-user-orders tr.even,
+.page-user-orders #main-wrapper tr.even,
 .page-user-feneko-orders .sticky-table tr.even {
   background-color: #9BD4DF;
 }
-.page-user-orders tr td,
+.page-user-orders #main-wrapper tr td,
 .page-user-feneko-orders .sticky-table tr td {
   vertical-align: middle;
 }
 @media screen and (min-width: 992px) {
-  .page-user-orders tr:nth-child(odd),
+  .page-user-orders #main-wrapper tr:nth-child(odd),
   .page-user-feneko-orders .sticky-table tr:nth-child(odd) {
     font-weight: bold;
   }
 }
-.page-user-orders tr:nth-child(2n+0),
+.page-user-orders #main-wrapper tr:nth-child(2n+0),
 .page-user-feneko-orders .sticky-table tr:nth-child(2n+0) {
   border-bottom: 5px solid #ffffff;
 }
 @media screen and (max-width: 991px) {
-  .page-user-orders,
+  .page-user-orders #main-wrapper,
   .page-user-feneko-orders .sticky-table {
     /* Hide table headers (but not display: none;, for accessibility) */
   }
-  .page-user-orders table, .page-user-orders thead, .page-user-orders tbody, .page-user-orders th, .page-user-orders td, .page-user-orders tr,
+  .page-user-orders #main-wrapper table, .page-user-orders #main-wrapper thead, .page-user-orders #main-wrapper tbody, .page-user-orders #main-wrapper th, .page-user-orders #main-wrapper td, .page-user-orders #main-wrapper tr,
   .page-user-feneko-orders .sticky-table table,
   .page-user-feneko-orders .sticky-table thead,
   .page-user-feneko-orders .sticky-table tbody,
@@ -3853,17 +3856,17 @@ input {
   .page-user-feneko-orders .sticky-table tr {
     display: block;
   }
-  .page-user-orders thead tr,
+  .page-user-orders #main-wrapper thead tr,
   .page-user-feneko-orders .sticky-table thead tr {
     position: absolute;
     top: -9999px !important;
     left: -9999px !important;
   }
-  .page-user-orders caption,
+  .page-user-orders #main-wrapper caption,
   .page-user-feneko-orders .sticky-table caption {
     display: block;
   }
-  .page-user-orders td,
+  .page-user-orders #main-wrapper td,
   .page-user-feneko-orders .sticky-table td {
     border: none;
     border-bottom: 1px solid #323232;
@@ -3872,7 +3875,7 @@ input {
     height: 32px;
     text-align: right;
   }
-  .page-user-orders td:before,
+  .page-user-orders #main-wrapper td:before,
   .page-user-feneko-orders .sticky-table td:before {
     position: absolute;
     top: 10px;
@@ -3884,33 +3887,33 @@ input {
     font-weight: 700;
     text-align: left;
   }
-  .page-user-orders tr:nth-child(odd),
+  .page-user-orders #main-wrapper tr:nth-child(odd),
   .page-user-feneko-orders .sticky-table tr:nth-child(odd) {
     font-weight: bold;
   }
-  .page-user-orders tr:nth-child(odd) td,
+  .page-user-orders #main-wrapper tr:nth-child(odd) td,
   .page-user-feneko-orders .sticky-table tr:nth-child(odd) td {
     padding-left: 6px;
     height: 42px;
     text-align: left;
     padding-top: 8px;
   }
-  .page-user-orders tr:nth-child(odd) td:before,
+  .page-user-orders #main-wrapper tr:nth-child(odd) td:before,
   .page-user-feneko-orders .sticky-table tr:nth-child(odd) td:before {
     content: "";
   }
 }
 @media screen and (min-width: 851px) {
-  .page-user-orders td,
+  .page-user-orders #main-wrapper td,
   .page-user-feneko-orders .sticky-table td {
     padding: 5px;
   }
 }
-.page-user-orders tr.even:nth-child(odd),
+.page-user-orders #main-wrapper tr.even:nth-child(odd),
 .page-user-feneko-orders .sticky-table tr.even:nth-child(odd) {
   background-color: #d5edf2;
 }
-.page-user-orders tr.odd:nth-child(odd),
+.page-user-orders #main-wrapper tr.odd:nth-child(odd),
 .page-user-feneko-orders .sticky-table tr.odd:nth-child(odd) {
   background-color: #f3f3f3;
 }
@@ -4010,6 +4013,12 @@ input {
 }
 .page-node.logged-in.no-orderable-products aside#sidebar_second {
   margin-top: 90px;
+}
+
+@media screen and (min-width: 992px) {
+  .page-node.logged-in .prod-screens .prod-info {
+    margin-top: -70px;
+  }
 }
 
 html.js fieldset.collapsed {

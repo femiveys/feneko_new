@@ -56,11 +56,6 @@
 
 <div id="header-wrapper" class="wrapper">
   <div class="inner-wrapper">
-    <?php if ($logo): ?>
-   <!-- <a class="logo" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
-      <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-    </a> -->
-    <?php endif; ?>
 
     <h2 class="logo"><a href="<?php print $front_page; ?>"><div class="feneko_logo"><span class="feneko_fenek">Fenek</span><span class="feneko_o">O</span></div></a></h2>
 
