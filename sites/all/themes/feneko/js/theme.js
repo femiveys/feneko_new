@@ -130,6 +130,10 @@
       $('.view-total').toggle();
     });
 
+    $(".front.nl .node-info-pagina a").attr("href", "/nl/about");
+
+    $(".front.fr .node-info-pagina a").attr("href", "/fr/about");
+
 
   });
 })(jQuery);

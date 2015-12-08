@@ -532,11 +532,10 @@ div.messages {
       display: block;
       border-bottom: 1px solid $lightgrey;
       padding: 20px 0;
-      //text-decoration: underline;
     }
     .last a {
-        border-bottom: none;
-      }
+      border-bottom: none;
+    }
   }
 
   #block-views-footer-info-block {
@@ -545,7 +544,6 @@ div.messages {
       width: 66%;
     }
   }
-
   .field-collection-item-field-tel {
     margin-top: $padding*3;
   }
