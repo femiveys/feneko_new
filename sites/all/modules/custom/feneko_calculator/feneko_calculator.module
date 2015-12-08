@@ -124,7 +124,6 @@ function feneko_calculator_preprocess_html(&$vars) {
         if($key[0] !== '#') {
           if($value['#node']->type === 'product' && isset($value['#node']->field_orderable_products)) {
             if(count($value['#node']->field_orderable_products) === 0) {
-              dpm($value['#node']);
               $vars['classes_array'][] = 'no-orderable-products';
             }
           }
