@@ -58,7 +58,8 @@ function feneko_account_field_group_info() {
       1 => 'field_klantennummer',
       2 => 'field_naam_bedrijf',
       3 => 'field_telefoon',
-      4 => 'field_geblokkeerd',
+      4 => 'field_staffelkorting',
+      5 => 'field_geblokkeerd',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

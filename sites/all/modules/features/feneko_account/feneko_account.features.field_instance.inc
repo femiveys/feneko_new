@@ -720,7 +720,7 @@ function feneko_account_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 17,
+      'weight' => 18,
     ),
   );
 
@@ -830,7 +830,7 @@ Het eerste nummer wordt als standaard beschouwd.',
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 16,
+      'weight' => 17,
     ),
   );
 
@@ -864,7 +864,7 @@ Het eerste nummer wordt als standaard beschouwd.',
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 15,
+      'weight' => 16,
     ),
   );
 
@@ -930,7 +930,7 @@ Het eerste nummer wordt als standaard beschouwd.',
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 4,
+      'weight' => 15,
     ),
   );
 
@@ -964,7 +964,7 @@ Het eerste nummer wordt als standaard beschouwd.',
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 18,
+      'weight' => 19,
     ),
   );
 
