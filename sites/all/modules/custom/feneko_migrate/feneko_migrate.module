@@ -54,6 +54,7 @@ function feneko_migrate_users($SIMULATE = true) {
 				$user->field_clients[$l] = $clients;
 				$wrapper = entity_metadata_wrapper('user', $user);
 				feneko_migrate_set_phone($wrapper, $mappings);
+				feneko_migrate_set_staffelkorting($clients, $wrapper, $SIMULATE);
 
 				if($SIMULATE) {
 					$msg = t('SIMULATION: saving user :uid', array(':uid' => $user->uid));
@@ -99,6 +100,59 @@ function feneko_migrate_set_phone(&$wrapper, $mappings) {
 	$newPhone = isset($mappings['emails'][$email]) ? $mappings['emails'][$email] : $currentPhone;
 	$newPhone = substr($newPhone, 0, 32);
 	$wrapper->field_phone->set($newPhone);
+}
+
+function feneko_migrate_set_staffelkorting($clients, $wrapper, $SIMULATE = true) {
+	$sk = $wrapper->field_staffelkorting->value();
+	$sk = empty($sk) ? 'discount_global_discount_0_200' : $sk;
+
+	foreach ($clients as $value) {
+		_fm_set_staffelkorting($sk, $value['target_id'], $SIMULATE);
+	}
+}
+
+function _fm_set_staffelkorting($sk, $clientNid, $SIMULATE = true) {
+	$client = entity_metadata_wrapper('node', $clientNid);
+	$clientSk = $client->field_staffelkorting->value();
+
+	if(empty($clientSk)) {
+		if($SIMULATE) {
+			$msg = t('SIMULATION: client :client (:num) doesn\'t have a staffelkorting. Setting to :sk', array(
+				':client' => $client->title->value(),
+				':num' => $client->field_client_number->value(),
+				':sk' => $sk,
+			));
+			drupal_set_message($msg, 'status');
+		} else {
+			$client->field_staffelkorting->set($sk);
+			$client->save();
+		}
+	} else {
+		$chunks = explode('_', $sk);
+		$min = intval($chunks[3]);
+
+		$chunks = explode('_', $clientSk);
+		$clientMin = intval($chunks[3]);
+
+		// If the provided minimum is higher than teh minimum we have on the client,
+		// we set the higher one.
+		if($min > $clientMin) {
+			if($SIMULATE) {
+				$msg = t('SIMULATION: client :client (:num) has a staffelkorting: :clientSk. Setting to higher :sk', array(
+					':client' => $client->title->value(),
+					':num' => $client->field_client_number->value(),
+					':clientSk' => $clientSk,
+					':sk' => $sk,
+				));
+				drupal_set_message($msg, 'status');
+			} else {
+				$client->field_staffelkorting->set($sk);
+				$client->save();
+			}
+		} else {
+			// leave the client as it is
+		}
+	}
 }
 
 function feneko_migrate_csv_users() {
