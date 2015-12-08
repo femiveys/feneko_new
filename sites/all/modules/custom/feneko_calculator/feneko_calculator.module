@@ -113,6 +113,26 @@ function feneko_calculator_variable_info($options) {
   return $variable;
 }
 
+/**
+ * Implements hook_preprocess_html
+ */
+function feneko_calculator_preprocess_html(&$vars) {
+  if(isset($vars['page']['content']['system_main']['nodes'])) {
+    $nodes = &$vars['page']['content']['system_main']['nodes'];
+    if(count($nodes) === 2) {
+      foreach ($nodes as $key => $value) {
+        if($key[0] !== '#') {
+          if($value['#node']->type === 'product' && isset($value['#node']->field_orderable_products)) {
+            if(count($value['#node']->field_orderable_products) === 0) {
+              dpm($value['#node']);
+              $vars['classes_array'][] = 'no-orderable-products';
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 /**
  * Implements hook_theme_registry_alter

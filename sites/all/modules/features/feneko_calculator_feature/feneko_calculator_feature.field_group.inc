@@ -54,12 +54,11 @@ function feneko_calculator_feature_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Order specific information',
-    'weight' => '0',
+    'weight' => '2',
     'children' => array(
       0 => 'field_comment',
       1 => 'field_order_type',
       2 => 'field_reference',
-      3 => 'field_client',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(

@@ -3273,7 +3273,7 @@ function feneko_calculator_feature_field_default_field_instances() {
       'module' => 'commerce_line_item',
       'settings' => array(),
       'type' => 'commerce_line_item_manager',
-      'weight' => 3,
+      'weight' => 6,
     ),
   );
 
@@ -3352,7 +3352,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'currency_code' => 'default',
       ),
       'type' => 'commerce_price_full',
-      'weight' => 4,
+      'weight' => 7,
     ),
   );
 
@@ -3386,7 +3386,7 @@ function feneko_calculator_feature_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 10,
+      'weight' => 3,
     ),
   );
 
@@ -3425,7 +3425,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 1,
+      'weight' => 4,
     ),
   );
 
@@ -3502,7 +3502,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 2,
+      'weight' => 5,
     ),
   );
 

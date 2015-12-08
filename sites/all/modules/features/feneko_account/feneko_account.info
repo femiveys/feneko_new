@@ -59,6 +59,7 @@ features[field_instance][] = node-client-field_payment_condition
 features[field_instance][] = node-client-field_phone
 features[field_instance][] = node-client-field_price_code
 features[field_instance][] = node-client-field_representative
+features[field_instance][] = node-client-field_staffelkorting
 features[field_instance][] = node-client-field_tva_code
 features[field_instance][] = node-client-field_tva_number
 features[field_instance][] = user-user-field_btw_nummer

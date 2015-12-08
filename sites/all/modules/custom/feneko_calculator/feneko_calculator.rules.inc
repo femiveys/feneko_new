@@ -290,6 +290,9 @@ function fc_apply_staffel_korting($order_wrapper) {
   $sk_wrapper = entity_metadata_wrapper('commerce_discount', $sk_name);
   $sk_pct  = intval($sk_wrapper->commerce_discount_offer->commerce_percentage->value());
 
+// dpm($sk_name);
+// dpm($sk_wrapper->value());
+
   foreach ($discounts as $discount_name => $discount) {
     // Get the discount pct for this discount
     $discount_pct = intval($discount['wrapper']->commerce_discount_offer

@@ -50,7 +50,7 @@ function feneko_account_strongarm() {
           'weight' => '0',
         ),
         'language' => array(
-          'weight' => '16',
+          'weight' => '17',
         ),
       ),
       'display' => array(
@@ -60,7 +60,7 @@ function feneko_account_strongarm() {
             'visible' => FALSE,
           ),
           'default' => array(
-            'weight' => '14',
+            'weight' => '15',
             'visible' => TRUE,
           ),
         ),
