@@ -551,7 +551,8 @@ div.messages {
   }
 }
 
-.field-name-field-tel-field {
+.field-name-field-tel-field,
+.field-name-field-phone {
   .field-item {
     &:before {
       display: inline-block;

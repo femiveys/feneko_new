@@ -1463,7 +1463,8 @@ div.messages.error {
   margin-top: 30px;
 }
 
-.field-name-field-tel-field .field-item:before {
+.field-name-field-tel-field .field-item:before,
+.field-name-field-phone .field-item:before {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
