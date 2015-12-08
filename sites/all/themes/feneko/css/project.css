@@ -3228,6 +3228,7 @@ div.horizontal-tabs {
 .page-user-feneko-orders .sticky-table thead {
   font-size: 12px;
   text-align: center;
+  border-bottom: 10px solid #ffffff;
 }
 @media screen and (min-width: 992px) {
   .page-user-feneko-orders td:nth-child(1) {
@@ -4016,6 +4017,15 @@ input {
     position: relative;
     top: -130px;
   }
+}
+
+@media screen and (min-width: 992px) {
+  .page-node.logged-in.no-orderable-products .prod-info {
+    top: -55px;
+  }
+}
+.page-node.logged-in.no-orderable-products aside#sidebar_second {
+  margin-top: 90px;
 }
 
 html.js fieldset.collapsed {
