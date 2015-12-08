@@ -532,11 +532,10 @@ div.messages {
       display: block;
       border-bottom: 1px solid $lightgrey;
       padding: 20px 0;
-      //text-decoration: underline;
     }
     .last a {
-        border-bottom: none;
-      }
+      border-bottom: none;
+    }
   }
 
   #block-views-footer-info-block {
@@ -545,13 +544,13 @@ div.messages {
       width: 66%;
     }
   }
-
   .field-collection-item-field-tel {
     margin-top: $padding*3;
   }
 }
 
-.field-name-field-tel-field {
+.field-name-field-tel-field,
+.field-name-field-phone {
   .field-item {
     &:before {
       display: inline-block;
@@ -2207,6 +2206,7 @@ div.horizontal-tabs {
     thead {
       font-size: 12px;
       text-align: center;
+      border-bottom: 10px solid $white;
     }
   }
   @include gridle_state(min-full) {
@@ -2989,12 +2989,26 @@ input {
     top: -50px;
     max-width: 250px;
   }
+  .no-sidebars & {
+    left: 90%;
+  }
 }
 
 .page-node.logged-in .prod-info {
   @include gridle_state(min-full) {
     position: relative;
     top: -130px;
+  }
+}
+
+.page-node.logged-in.no-orderable-products {
+  .prod-info {
+    @include gridle_state(min-full) {
+      top: -55px;
+    }
+  }
+  aside#sidebar_second {
+    margin-top: 90px;
   }
 }
 
