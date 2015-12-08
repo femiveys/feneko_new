@@ -1734,6 +1734,18 @@ div.messages.error {
   }
 }
 
+.page-user-retour #main-wrapper .field,
+.page-user-retour #main-wrapper .form-item {
+  border-bottom: none;
+}
+.page-user-retour #main-wrapper .form-radios {
+  clear: both;
+}
+.page-user-retour #main-wrapper label {
+  min-width: 80px;
+  width: auto;
+}
+
 .view-payments th {
   padding: 10px;
 }

@@ -830,6 +830,22 @@ div.messages {
   }
 }
 
+.page-user-retour {
+  #main-wrapper {
+    .field,
+    .form-item {
+      border-bottom: none;
+    }
+    .form-radios {
+      clear: both;
+    }
+    label {
+      min-width: 80px;
+      width: auto;
+    }
+  }
+}
+
 .view-payments {
   th {
     padding: $padding;
