@@ -127,6 +127,7 @@
   <div class="catalog">
     <?php
     if($product_grandparent == 'screens') : ?>
+
       <a class="hide-mobile" href="/<?php global $language_content; print $language_content->language; ?>/catalog/screens/flipper" target="_blank">Catalogus</a>
       <a class="hide-desk" href="/sites/default/files/pdfs/screens_<?php global $language_content; print $language_content->language; ?>.pdf" target="_blank">Catalogus</a>
     <?php
@@ -141,21 +142,8 @@
     <div class="field-name-field-orderable-products">
 
       <?php
-      print $node_url;
-      if($node_url == '/nl/inzetvliegenraam-vr033-ultra') :
-        print print('<a href="/nl/inzetvliegenraam/'.t('bestel').'?ultra=true">'.t('bestel').' '.$title.'</a>');
-
-      elseif($node_url == '/nl/inzetvliegenraam-vr033') :
-        print print('<a href="/nl/inzetvliegenraam/'.t('bestel').'">'.t('bestel').' '.$title.'</a>');
-
-      elseif($node_url == '/fr/moustiquaires-encastrée-vr033-ultra') :
-        print print('<a href="/fr/moustiquaires-encastrée/'.t('bestel').'?ultra=true">'.t('bestel').' '.$title.'</a>');
-
-      elseif($node_url == '/fr/moustiquaires-encastrée-vr033') :
-        print print('<a href="/fr/moustiquaires-encastrée/'.t('bestel').'">'.t('bestel').' '.$title.'</a>');
-
-      elseif($product_grandparent == 'screens') :
-        print('<a href="'.$node_url.'/'.t('bestel').'">'.t('bestel').' '.$title.'</a>');
+      if($product_grandparent == 'screens') :
+        print(feneko_order_urls($node_url, $title));
       endif;
       ?>
 
