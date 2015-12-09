@@ -143,13 +143,13 @@
       <?php
       print $node_url;
       if($node_url == '/nl/inzetvliegenraam-vr033-ultra') :
-        print print('<a href="/nl/inzetvliegenraam/'.t('bestel').'#ultra">'.t('bestel').' '.$title.'</a>');
+        print print('<a href="/nl/inzetvliegenraam/'.t('bestel').'?ultra=true">'.t('bestel').' '.$title.'</a>');
 
       elseif($node_url == '/nl/inzetvliegenraam-vr033') :
         print print('<a href="/nl/inzetvliegenraam/'.t('bestel').'">'.t('bestel').' '.$title.'</a>');
 
       elseif($node_url == '/fr/moustiquaires-encastrée-vr033-ultra') :
-        print print('<a href="/fr/moustiquaires-encastrée/'.t('bestel').'#ultra">'.t('bestel').' '.$title.'</a>');
+        print print('<a href="/fr/moustiquaires-encastrée/'.t('bestel').'?ultra=true">'.t('bestel').' '.$title.'</a>');
 
       elseif($node_url == '/fr/moustiquaires-encastrée-vr033') :
         print print('<a href="/fr/moustiquaires-encastrée/'.t('bestel').'">'.t('bestel').' '.$title.'</a>');
