@@ -232,8 +232,12 @@ function feneko_code_orders_form($form, &$form_state) {
       $result['fase']          = $mapping[$result['fase']]['label'][$language->language];
       $result['leverconditie'] = $mapping[$result['leverconditie']]['label'][$language->language];
 
-      $client = feneko_code_get_client_by_number($result['klant']);
-      $result['klant'] = '<a href="/node/' . $client->nid->value() . '">' . $result['klant'] .  '</a>';
+      if(count($klantennummers) > 1) {
+        $client = feneko_code_get_client_by_number($result['klant']);
+        if(isset($client->nid) && !empty($client->nid->value())) {
+          $result['klant'] = '<a href="/node/' . $client->nid->value() . '">' . $result['klant'] .  '</a>';
+        }
+      }
 
       $mapping[$result['leverconditie']]['label'][$language->language];
 

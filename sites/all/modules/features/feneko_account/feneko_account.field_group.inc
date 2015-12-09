@@ -24,9 +24,10 @@ function feneko_account_field_group_info() {
     'weight' => '6',
     'children' => array(
       0 => 'ckeditor',
-      1 => 'timezone',
-      2 => 'overlay_control',
-      3 => 'locale',
+      1 => 'mimemail',
+      2 => 'timezone',
+      3 => 'overlay_control',
+      4 => 'locale',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
