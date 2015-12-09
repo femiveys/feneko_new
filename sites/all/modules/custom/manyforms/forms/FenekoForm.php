@@ -1312,7 +1312,7 @@ class FenekoForm {
             $value_array = array($value_array);
           }
           foreach ($value_array as $key => $value) {
-            if($value === $values[$target_field]) {
+            if(isset($values[$target_field]) && $value === $values[$target_field]) {
               return $ret_match;
             }
           }
