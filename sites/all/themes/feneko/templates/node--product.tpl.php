@@ -127,6 +127,7 @@
   <div class="catalog">
     <?php
     if($product_grandparent == 'screens') : ?>
+
       <a class="hide-mobile" href="/<?php global $language_content; print $language_content->language; ?>/catalog/screens/flipper" target="_blank">Catalogus</a>
       <a class="hide-desk" href="/sites/default/files/pdfs/screens_<?php global $language_content; print $language_content->language; ?>.pdf" target="_blank">Catalogus</a>
     <?php
@@ -142,7 +143,7 @@
 
       <?php
       if($product_grandparent == 'screens') :
-        print('<a href="'.$node_url.'/'.t('bestel').'">'.t('bestel').' '.$title.'</a>');
+        print(feneko_order_urls($node_url, $title));
       endif;
       ?>
 

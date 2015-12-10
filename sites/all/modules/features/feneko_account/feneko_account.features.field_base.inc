@@ -287,7 +287,7 @@ function feneko_account_field_default_field_bases() {
         3 => 'contant',
         4 => 'Rembours',
         5 => '30 dagen einde maand',
-        6 => '60 dagen einde maan',
+        6 => '60 dagen einde maand',
         7 => '8 dagen',
         8 => '30 dagen',
       ),
