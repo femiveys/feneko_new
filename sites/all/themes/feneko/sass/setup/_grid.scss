@@ -76,8 +76,8 @@
     }
   }
   .no-sidebars & {
-    //@include gridle ( 12 );
-    //@include gridle_no_gutter ();
+    @include gridle_grid(12);
+    @include gridle_no_gutter ();
   }
   .page-about & {
     @include gridle_state(min-desk) {
@@ -96,7 +96,7 @@
   &.logged-in  {
     aside#sidebar_second {
       @include gridle_state (min-full) {
-        margin-top: 145px;
+        //margin-top: 145px;
       }
     }
   }
@@ -159,35 +159,158 @@
 // PROD
 
 .first-col {
-  @include gridle_state(max-mobile) {
-    @include gridle_grid (12);
-  }
+  @include gridle_no_gutter ();
   @include gridle_state(only-tablet) {
     @include gridle_grid (4);
+    @include gridle_no_gutter ();
   }
   @include gridle_state(max-tablet) {
     @include gridle_no_gutter();
   }
   @include gridle_state(min-desk) {
     @include gridle_grid (4);
-    @include gridle_no_gutter(left);
+    @include gridle_no_gutter();
+  }
+  @include gridle_state(min-full) {
+    @include gridle_grid (2.5);
+    @include gridle_no_gutter();
+  }
+  @include gridle_state (min-tablet) {
+    padding-right: 20px;
+  }
+  @include gridle_state (only-mobile-port) {
+    @include gridle_grid (12);
+    @include gridle_no_gutter ();
+  }
+  .product-teaser & {
+    @include gridle_state (only-mobile-land) {
+      @include gridle_grid (5);
+      @include gridle_no_gutter ();
+    }
+    @include gridle_state (only-mobile-land) {
+      padding-right: 20px;
+    }
+    @include gridle_state(min-tablet) {
+      padding-right: 20px;
+    }
+  }
+  .node-type-product & {
+    @include gridle_state (only-mobile-land) {
+      @include gridle_grid (12);
+      @include gridle_no_gutter ();
+    }
+    @include gridle_state(min-full) {
+      @include gridle_grid (3.5);
+      @include gridle_no_gutter();
+    }
+    @include gridle_state (only-mobile-land) {
+      padding-right: 20px;
+    }
+    @include gridle_state(min-tablet) {
+      padding-right: 20px;
+    }
   }
 }
 
 .second-col {
-  @include gridle_no_gutter (right);
+  @include gridle_no_gutter ();
   @include gridle_state(max-mobile) {
     @include gridle_grid (12);
     @include gridle_no_gutter();
   }
-  @include gridle_state(only-tablet) {
-    @include gridle_grid (7);
+  @include gridle_state(min-desk) {
+    @include gridle_grid (7.5);
+    @include gridle_no_gutter ();
   }
-  @include gridle_state(max-mobile) {
+  @include gridle_state(only-tablet) {
+    @include gridle_grid (7.5);
+    @include gridle_no_gutter ();
+  }
+  .node-type-product & {
+    @include gridle_state(min-full) {
+    @include gridle_grid (7.5);
+    @include gridle_no_gutter ();
+  }
+  }
+  .product-teaser & {
+    @include gridle_state (only-mobile-land) {
+      @include gridle_grid (6);
+      @include gridle_no_gutter ();
+    }
+    @include gridle_state(only-tablet) {
+      @include gridle_grid (7.5);
+      @include gridle_no_gutter ();
+    }
+    @include gridle_state(min-full) {
+      @include gridle_grid (9);
+      @include gridle_no_gutter ();
+    }
+  }
+}
+
+.vocabulary-product-category {
+  .field-name-field-product-category-image {
+    @include gridle_no_gutter ();
+  @include gridle_state(only-tablet) {
+    @include gridle_grid (4);
+    @include gridle_no_gutter ();
+  }
+  @include gridle_state(max-tablet) {
     @include gridle_no_gutter();
   }
   @include gridle_state(min-desk) {
-    @include gridle_grid (7);
+    @include gridle_grid (4);
+    @include gridle_no_gutter();
+  }
+  @include gridle_state(min-full) {
+    @include gridle_grid (2.5);
+    @include gridle_no_gutter();
+  }
+  @include gridle_state (min-tablet) {
+    padding-right: 20px;
+  }
+  @include gridle_state (only-mobile-port) {
+    @include gridle_grid (12);
+    @include gridle_no_gutter ();
+    background-color: red;
+  }
+  @include gridle_state (only-mobile-land) {
+      @include gridle_grid (5);
+      @include gridle_no_gutter ();
+    }
+    @include gridle_state (only-mobile-land) {
+    padding-right: 20px;
+  }
+    @include gridle_state(min-tablet) {
+    padding-right: 20px;
+  }
+  }
+  .field-name-description-field {
+    @include gridle_no_gutter ();
+  @include gridle_state(max-mobile) {
+    @include gridle_grid (12);
+    @include gridle_no_gutter();
+  }
+  @include gridle_state(min-desk) {
+    @include gridle_grid (7.5);
+    @include gridle_no_gutter ();
+  }
+  @include gridle_state(only-tablet) {
+    @include gridle_grid (7.5);
+    @include gridle_no_gutter ();
+  }
+  @include gridle_state (only-mobile-land) {
+      @include gridle_grid (6);
+      @include gridle_no_gutter ();
+    }
+    @include gridle_state(only-tablet) {
+      @include gridle_grid (7.5);
+      @include gridle_no_gutter ();
+    }
+    @include gridle_state(min-full) {
+      @include gridle_grid (9);
+      @include gridle_no_gutter ();
+    }
   }
 }
 
@@ -196,6 +319,6 @@
 #search-form {
   @include gridle_no_gutter;
   @include gridle_state(min-desk) {
-      @include gridle_grid (6);
-    }
+    @include gridle_grid (6);
+  }
 }

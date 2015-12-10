@@ -6,9 +6,14 @@ body {
 
 a {
   color: $blue;
+  font-weight: 700;
   &:hover {
     color: $darkgrey;
   }
+}
+
+p {
+  margin-top: 0;
 }
 
 %button {
@@ -17,13 +22,15 @@ a {
   border: none;
   text-decoration: none;
   display: inline-block;
-  padding: $padding/4 $padding;
-  margin-right: $padding/2;
+  padding: 5px 10px;
   color: $white;
+  text-align: center;
+  word-break: break-all;
   @include crisp;
   a {
     text-decoration: none;
     color: $white;
+    display: block;
   }
   &:hover {
     background: $lightblue;
@@ -46,11 +53,6 @@ li.node-readmore {
   padding: 0!important;
 }
 
-p.node-readmore,
-div.node-readmore {
-  display: inline-block;
-}
-
 ul.tabs {
   &.primary {
     a {
@@ -68,6 +70,40 @@ ul.tabs {
           }
         }
       }
+    }
+  }
+}
+
+// FILE
+
+.field-type-file {
+  .field-item {
+    color: $blue;
+    &:before {
+      color: $blue;
+    }
+    .file {
+      a {
+        color: $blue;
+        height: 40px;
+      }
+    }
+    &:hover {
+      color: $grey;
+      &:before {
+        color: $grey;
+      }
+      .file {
+        a {
+          color: $grey;
+        }
+      }
+    }
+  }
+  .field-item {
+    margin: $padding 0;
+    &:before {
+      font-size: 20px;
     }
   }
 }
@@ -181,6 +217,37 @@ div.messages {
 }
 
 
+// CONTACT INFO
+
+.adres {
+  border: 1px solid $black;
+  padding: $padding;
+  background-color: $darkgrey;
+  color: $white;
+  .fa {
+    float: left;
+    font-size: 20px;
+  }
+  .street-block,
+  .addressfield-container-inline {
+    margin-left: $padding*3;
+  }
+  #sidebar_second & {
+    margin: $padding*2 0;
+    width: 100%;
+  }
+}
+
+.tel {
+  ul {
+    list-style-type: none;
+    li {
+      margin-left: 0;
+      margin-bottom: $padding;
+    }
+  }
+}
+
 // regions
 
 .wrapper {
@@ -263,8 +330,6 @@ div.messages {
       font-weight: 700;
       border: 2px solid $blue;
       background-color: $white;
-      padding: 5px 20px;
-      display: inherit;
       &:hover {
         background-color: $blue;
         color: $white;
@@ -340,6 +405,10 @@ div.messages {
   }
 }
 
+#region-content {
+  clear: both;
+}
+
 #cover-wrapper {
   position: relative;
   clear: both;
@@ -384,7 +453,6 @@ div.messages {
   }
   .node-readmore {
     @include gridle_state (max-mobile) {
-      text-align: center;
       margin-top: $padding;
       position: absolute;
       bottom: $padding;
@@ -661,6 +729,7 @@ div.messages {
     }
     a {
       color: $white;
+      font-weight: 400;
       &:hover {
         color: $lightblue;
       }
@@ -792,10 +861,11 @@ div.messages {
       &.primary {
         @include gridle_state(max-tablet) {
           border: 1px solid $black;
+          overflow: hidden;
         }
         li {
           @include gridle_state (max-tablet) {
-            width: 50%;
+            width: 49%;
             margin: 0;
             &:nth-child(2n+1) {
               border-right: 1px solid $black;
@@ -825,6 +895,7 @@ div.messages {
               width: 100%;
               display: block;
               padding: 5px;
+              text-align: inherit;
             }
           }
         }
@@ -849,11 +920,6 @@ div.messages {
   }
 }
 
-.view-payments {
-  th {
-    padding: $padding;
-  }
-}
 
 #feneko-code-retours-form {
   .form-type-radio {
@@ -1042,11 +1108,112 @@ div.messages {
   }
 }
 
+// social follow
+
+$facebook: #3b5998;
+$twitter: #55acee;
+$contact: #f7941d;
+
+.view-social-follow,
+.views-field-field-social-follow {
+  li {
+    list-style-type: none;
+  }
+  margin-bottom: $padding*2;
+  a {
+    font-size: 0;
+    width: $padding*5;
+    height: $padding*5;
+    display: inline-block;
+    border-radius: 50%;
+    -webkit-transition: background-color 400ms linear;
+    -moz-transition: background-color 400ms linear;
+    -o-transition: background-color 400ms linear;
+    -ms-transition: background-color 400ms linear;
+    transition: background-color 400ms linear;
+    &:before {
+      display: inline-block;
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      line-height: $padding*5;
+      font-size-adjust: none;
+      font-stretch: normal;
+      font-feature-settings: normal;
+      font-language-override: normal;
+      font-kerning: auto;
+      font-synthesis: weight style;
+      font-variant: normal;
+      font-size: inherit;
+      text-rendering: auto;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0px, 0px);
+      font-size: 20px;
+      text-align: center;
+      width: $padding*5;
+      vertical-align: middle;
+      width: 100%;
+    }
+    &.facebook {
+      background-color: $facebook;
+      &:before {
+          content: "\f09a";
+          color: white;
+      }
+      &:hover {
+        background-color: lighten($facebook, 10%);
+      }
+    }
+    &.twitter {
+      background-color: $twitter;
+      &:before {
+          content: "\f099";
+          color: white;
+      }
+      &:hover {
+        background-color: lighten($twitter, 10%);
+      }
+    }
+    &.contactlink {
+      background-color: $contact;
+      &:before {
+          content: "\f003";
+          color: white;
+      }
+      &:hover {
+        background-color: lighten($contact, 10%);
+      }
+    }
+  }
+  .field {
+    margin: 0 $padding/2;
+    display: inline-block;
+  }
+}
+
 // rijen
 
 .teaser-rij {
   overflow: hidden;
-  margin-bottom: $padding;
+  margin-bottom: $padding*3;
+  position: relative;
+  .links,
+  .node-readmore {
+    @include gridle_state (max-mobile) {
+      @include gridle_grid(12);
+      @include gridle_no_gutter();
+      margin-top: 20px;
+      display: inline-block;
+    }
+    @include gridle_state (min-tablet) {
+      width: auto;
+      display: inline-block;
+      float: right;
+    }
+  }
+}
+
+.nieuws-rij {
   img {
     float: left;
     padding-right: $padding*2;
@@ -1054,8 +1221,13 @@ div.messages {
   }
 }
 
-#region-content .machine-rij {
-  width: 48%;
+.machine-rij {
+  @include gridle_state (max-mobile) {
+    @include gridle_grid(12);
+  }
+  @include gridle_state (min-tablet) {
+    width: 48%;
+  }
   background-color: $lightgrey;
   padding: $padding;
   &:nth-child(2n + 0) {
@@ -1069,15 +1241,10 @@ div.messages {
 }
 
 .nieuws-rij {
-  margin-bottom: $padding*3;
-  position: relative;
   .edit-link {
     position: absolute;
     top: 0;
     right: 0;
-  }
-  .node-readmore {
-    float: right;
   }
   h2 {
     font-size: 20px;
@@ -1223,7 +1390,6 @@ div.messages {
         margin-bottom: $padding*1.5;
       }
     }
-
   }
 }
 
@@ -1385,70 +1551,6 @@ div.messages {
   }
 }
 
-.node-type-product {
-  &.one-sidebar {
-    @include gridle_state(max-tablet) {
-      #main-wrapper.wrapper {
-          padding-bottom: 0;
-      }
-    }
-  }
-  #sidebar_second {
-    @include gridle_state (max-tablet) {
-      background-color: $lightgrey;
-      position: relative;
-      padding-top: 20px;
-      &:before,
-      &:after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        height: 100%;
-        z-index: -1;
-        background-color: $lightgrey;
-      }
-      &:before {
-        margin-left: -9999px;
-        padding-right: 9999px;
-      }
-      &:after {
-        margin-right: -9999px;
-        padding-left: 9999px;
-      }
-    }
-  }
-  .first-col {
-    .field-name-field-images {
-      @include gridle_state (max-mobile) {
-        display: none;
-      }
-      @include gridle_state (min-tablet) {
-        display: block!important;
-      }
-    }
-  }
-}
-
-.field-name-field-orderable-products {
-  a {
-    margin-bottom: $padding;
-    margin-top: 20px;
-    @extend %button;
-    background-color: darken($orange, 5%);
-    border-radius: 3px;
-    padding: $padding;
-    &:hover {
-      background-color: lighten($orange, 15%);
-    }
-  }
-}
-
-.field-name-body {
-  a {
-    font-weight: 700;
-  }
-}
 
 .field-name-field-ultimate-date,
 .view-jobs .datum {
@@ -1766,356 +1868,6 @@ div.horizontal-tabs {
   }
 }
 
-// SHOPPING CART
-
-//BOTH BLOCK & FORM
-
-.view-feneko-shopping-cart-block,
-.view-commerce-cart-form-feneko,
-#commerce-checkout-form-checkout,
-.page-checkout {
-  table {
-    width: 100%;
-    border-collapse: separate;
-    //border-spacing: 0 0.5em!important;
-  }
-  tr {
-    &.even,
-    &.odd {
-      background-color: $lightgrey;
-      border: none;
-      color: $black;
-      &.pane-title {
-        background-color: transparent;
-        font-size: 24px;
-        color: $orange;
-      }
-      &.pane-title td {
-        padding-left: 0;
-        padding-top: 20px;
-        padding-bottom: 10px;
-      }
-      &.pane-data td {
-        padding: 10px;
-      }
-    }
-  }
-  .checkout-review {
-    tr {
-      &.even,
-      &.odd {
-        background-color: transparent;
-      }
-      &.even,
-      &.odd {
-        tr {
-          background-color: $lightgrey;
-        }
-      }
-      &.even,
-      &.odd {
-        thead tr {
-          background-color: transparent;
-        }
-      }
-    }
-  }
-  td {
-    font-weight: bold;
-  }
-  .node-header h1,
-  .line-item-summary-view-cart  {
-    position: relative;
-    display: inline-block;
-    &:before {
-      content: "\f07a";
-      display: inline-block;
-      font: normal normal normal 14px/1 FontAwesome;
-      font-size: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      transform: translate(0, 0);
-      float: right;
-      font-size: 30px;
-      clear: both;
-      padding: 5px;
-    }
-  }
-  .node-header h1 {
-
-  }
-  .node-header {
-    cursor: pointer;
-  }
-  input[type="submit"] {
-    &#edit-submit,
-    &#edit-submit--2,
-    &.checkout-cancel {
-      background: transparent;
-      text-decoration: underline;
-      color: $blue;
-      &:hover {
-        color: $lightblue;
-      }
-    }
-  }
-}
-
-.view-feneko-shopping-cart-block {
-  cursor: default;
-  ul.inline,
-  ul.links.inline {
-    display: block;
-    margin-top: 1em;
-  }
-  .node-header h1 {
-    color: $white;
-    font-size: 14px;
-    float: right;
-    font-family: $textfont;
-    font-weight: normal;
-    margin: 0;
-    margin-top: -40px;
-    &:before {
-      font-size: 16px;
-      padding: 0 0 0 10px;
-      @include gridle_state (only-desk) {
-        border: 1px solid $white;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        text-align: center;
-        padding: 5px 0 0 0;
-      }
-    }
-    &:hover {
-      color: $lightblue;
-    }
-    @include gridle_state (only-desk) {
-      font-size: 0;
-    }
-  }
-  th {
-    padding: $padding;
-  }
-  tr {
-    &.even,
-    &.odd {
-      background-color: $lightgrey;
-      border: none;
-      color: $black;
-    }
-    &:after {
-      content: "\f0d7";
-      display: inline-block;
-      font: normal normal normal 14px/1 FontAwesome;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      transform: translate(0, 0);
-      float: left;
-      font-size: 1em;
-      clear: both;
-      padding: $padding;
-    }
-    &.open {
-      &:after {
-        content: "\f0d8";
-      }
-    }
-  }
-  td {
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .view-total {
-    display: none;
-    background-color: $blue;
-    padding: $padding;
-    position: absolute;
-    z-index: 10;
-  }
-  .view-footer {
-    padding: $padding;
-    color: white;
-    font-size: 1.5em;
-    a {
-      color: $white;
-      text-decoration: none;
-    }
-  }
-  .views-field-type-1 {
-    padding: 10px 0;
-  }
-  .line-item-summary-view-cart {
-    width: 100%;
-    background-color: $yellow;
-    color: $blue;
-    cursor: pointer;
-    a {
-      color: $blue;
-      display: block;
-      padding: 5px;
-    }
-    &:hover {
-      background-color: $orange;
-    }
-  }
-  .line-item-quantity,
-  .line-item-total {
-    padding: 0 $padding;
-  }
-  .views-field-type {
-    padding: $padding 0 $padding $padding;
-    width: 60%;
-  }
-  .views-field-quantity {
-    width: 15%;
-    padding-left: 10px;
-  }
-  .views-field-commerce-total {
-    width: 25%;
-    padding-right: $padding;
-  }
-  .detail {
-    font-weight: normal;
-    font-size: 0.8em;
-    padding-top: $padding*1.5;
-    line-height: 150%;
-  }
-}
-
-#shoppingcart {
-  @include gridle_state(max-tablet) {
-    position: fixed;
-    top: 100px;
-    z-index: 98;
-    width: 100%;
-    right: 0;
-    display: none;
-    &.show {
-      display: block;
-    }
-    .inner-wrapper {
-      max-width: 95%;
-    }
-    .node-header {
-      display: none;
-    }
-    .view-total {
-      display: block;
-      right: 0;
-      width: 100%;
-    }
-  }
-  @include gridle_state (min-desk) {
-    &.fix {
-      position: relative;
-      .view-total {
-        position: fixed;
-        left: 50%;
-        top: 59px;
-        .admin-menu & {
-          top: 89px;
-        }
-        transform: translateX(-41%);
-        @include gridle_state (only-desk) {
-          left: 49%;
-          transform: translateX(-32%);
-          width: 60%;
-        }
-        @include gridle_state (only-full) {
-          left: 63.5%;
-          transform: translateX(-44%);
-          width: 47%;
-        }
-        @include gridle_state (min-retina) {
-          left: 64.4%;
-          transform: translateX(-45%);
-          width: 46.6%;
-        }
-      }
-    }
-  }
-}
-
-.view-commerce-cart-form-feneko {
-  table {
-    border-collapse: separate;
-    border-spacing: 0 2.5em;
-  }
-  tbody {
-    tr {
-      position: relative;
-      &:before {
-        content: attr(data-before);
-        position:absolute;
-        margin-top: -25px;
-        font-weight: 700;
-        font-size: 18px;
-        color: $blue;
-      }
-    }
-  }
-  thead {
-    tr {
-      border-bottom: 2px solid $darkgrey;
-    }
-  }
-  tbody,
-  thead {
-    tr td,
-    tr th {
-      &:nth-child(1) {
-        display: none;
-      }
-    }
-  }
-  .views-field-detail {
-    float: left;
-    padding: 5px;
-  }
-  td .delete-line-item  {
-    font-size: 0!important;
-    width: 40px;
-    height: 40px;
-    background-color: transparent;
-    border-radius: 50%;
-  }
-  td.views-field-edit-delete {
-    font: normal normal normal 14px/1 FontAwesome;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transform: translate(0, 0);
-    font-size: 0;
-  }
-  td.views-field-edit-delete:before {
-    content: "\f00d";
-    font-size: 30px;
-    color: white;
-    line-height: 38px;
-    display: block;
-    margin-bottom: -40px;
-    margin-left: 0px;
-    z-index: -1;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: block;
-    background-color: $red;
-    text-align: center;
-  }
-  td.views-field-edit-delete:hover:before {
-    background-color: darken($red, 15%);
-  }
-}
-
-.form-disabled input {
-  background-color: $lightgrey;
-}
-
 .page-user-orders {
   ul.action-links {
     list-style: none;
@@ -2165,116 +1917,9 @@ div.horizontal-tabs {
   }
 }
 
-.view-feneko-calculator-line-items,
-.view-commerce-backoffice-user-orders,
-.view-payments {
-  table {
-    width: 100%;
-    thead {
-      border-bottom: 5px solid $white;
-    }
-    tbody {
-      tr {
-        background-color: $lightgrey;
-        border-bottom: 10px solid $white;
-        td {
-          padding: 10px;
-        }
-      }
-    }
-  }
-}
-
 .views-field-commerce-total {
   font-size: 20px;
   font-weight: 700;
-}
-
-.field-name-commerce-order-total {
-  td {
-    padding: 10px;
-  }
-}
-
-.page-cart,
-.page-checkout {
-  @include gridle_state(max-tablet) {
-    th,
-    td {
-      display: inline-block;
-      width: 20%;
-      margin-bottom: 10px;
-      float: left;
-      padding: 10px;
-    }
-    .views-field-detail {
-      width: 100%;
-      border-bottom: 1px solid $black;
-      padding-bottom: 10px;
-    }
-    thead {
-      display: none;
-    }
-  }
-  input[type=submit] {
-      margin-left: 2px;
-      margin-top: 10px;
-  }
-}
-
-.page-user-feneko-orders {
-  .sticky-table {
-    thead {
-      font-size: 12px;
-      text-align: center;
-      border-bottom: 10px solid $white;
-    }
-  }
-  @include gridle_state(min-full) {
-    td:nth-child(1) {
-      width: 100px;
-    }
-  }
-}
-
-.page-checkout {
-  @include gridle_state(max-tablet) {
-    td {
-      width: 30%;
-    }
-    .commerce-price-formatted-components {
-      td {
-        width: 100%;
-      }
-    }
-  }
-}
-
-.page-checkout-review {
-  @include gridle_state(max-tablet) {
-    td {
-      width: 100%;
-    }
-    .commerce-price-formatted-components {
-      td {
-        width: 100%;
-      }
-    }
-    .views-table {
-      td {
-        width: 30%;
-        &.views-field-detail {
-          width: 100%;
-        }
-      }
-    }
-    .commerce-price-formatted-components {
-      width: 100%;
-      td {
-        width: 100%;
-      }
-    }
-  }
 }
 
 // taxonomy
@@ -2284,9 +1929,6 @@ div.horizontal-tabs {
     .term-listing-heading {
       overflow: hidden;
       margin-bottom: 50px;
-    }
-    img {
-      width: 100%;
     }
     h2 {
       color: $grey;
@@ -2306,6 +1948,104 @@ div.horizontal-tabs {
   }
 }
 
+// PRODUCT
+
+.field-name-field-orderable-products {
+  a {
+    @extend %button;
+    background-color: darken($orange, 5%);
+    border-radius: 3px;
+    width: 100%;
+    &:hover {
+      background-color: lighten($orange, 15%);
+    }
+  }
+}
+.catalog {
+  margin-bottom: 20px;
+  a {
+    @extend %button;
+    border-radius: 3px;
+    width: 100%;
+    &.hide-mobile {
+      @include gridle_state (max-tablet) {
+        display: none;
+      }
+    }
+    &.hide-desk {
+      @include gridle_state (min-desk) {
+        display: none;
+      }
+    }
+    &:hover {
+      background-color: lighten($blue, 10%);
+    }
+  }
+}
+
+.open-img {
+  border: 1px solid $grey;
+  background-color: $blue;
+  border-radius: 3px;
+  padding: 10px;
+  text-align: center;
+  color: $white;
+  cursor: pointer;
+  margin-bottom: 30px;
+  @include gridle_state (min-tablet) {
+    display: none;
+  }
+}
+
+// product page
+
+.node-type-product {
+  &.one-sidebar {
+    @include gridle_state(max-tablet) {
+      #main-wrapper.wrapper {
+          padding-bottom: 0;
+      }
+    }
+  }
+  #sidebar_second {
+    @include gridle_state (max-tablet) {
+      background-color: $lightgrey;
+      position: relative;
+      padding-top: 20px;
+      &:before,
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        z-index: -1;
+        background-color: $lightgrey;
+      }
+      &:before {
+        margin-left: -9999px;
+        padding-right: 9999px;
+      }
+      &:after {
+        margin-right: -9999px;
+        padding-left: 9999px;
+      }
+    }
+  }
+  .first-col {
+    .field-name-field-images {
+      @include gridle_state (max-mobile) {
+        display: none;
+      }
+      @include gridle_state (min-tablet) {
+        display: block!important;
+      }
+    }
+  }
+}
+
+// product teaser
+
 .product-teaser {
   margin: $padding*3 0;
   overflow: hidden;
@@ -2317,90 +2057,6 @@ div.horizontal-tabs {
   }
 }
 
-.page-taxonomy .field-name-field-product-category-image,
-.product-teaser .field-name-field-images {
-  @include gridle_state (max-mobile) {
-    @include gridle_grid (3);
-  }
-  @include gridle_state(only-mobile-port) {
-    @include gridle_grid (8);
-    margin: auto;
-  }
-  @include gridle_state (min-tablet) {
-    @include gridle_grid (3);
-    margin-bottom: 20px;
-  }
-  margin: 0;
-  @include gridle_no_gutter();
-}
-
-.product-teaser .field-name-field-images {
-  @include gridle_state (min-full) {
-    @include gridle_grid (2);
-  }
-}
-
-.page-taxonomy .field-name-field-product-category-image {
-
-}
-
-.product-teaser .links {
-  display: inline-block!important;
-  @include gridle_state (max-mobile) {
-    @include gridle_grid(12);
-    @include gridle_no_gutter();
-    margin-top: 20px;
-  }
-  @include gridle_state (min-tablet) {
-    @include gridle_grid (3);
-    @include gridle_no_gutter();
-    display: inline-block;
-  }
-}
-
-.page-taxonomy .field-name-description-field,
-.product-teaser .field-name-body {
-  p {
-    margin-top: 0;
-  }
-  @include gridle_state (max-mobile) {
-    @include gridle_grid(8.5);
-    @include gridle_no_gutter(right);
-  }
-  @include gridle_state (only-mobile-port) {
-    @include gridle_grid(12);
-    @include gridle_no_gutter();
-    margin-top: 20px;
-  }
-  @include gridle_state (min-tablet) {
-    @include gridle_grid (8.5);
-    padding-left: 20px;
-  }
-  margin: 0;
-}
-
-.page-taxonomy .field-name-description-field {
-
-}
-
-.product-teaser .field-name-field-orderable-products {
-  @include gridle_state (max-mobile) {
-    @include gridle_grid(12);
-    @include gridle_no_gutter();
-    a {
-      margin-top: 5px;
-    }
-  }
-  @include gridle_state (min-tablet) {
-    @include gridle_grid (7.5);
-    @include gridle_no_gutter();
-    display: inline-block;
-    a {
-      margin-top: 5px;
-    }
-  }
-}
-
 // colorbox
 
 #cboxPrevious,
@@ -2408,59 +2064,6 @@ div.horizontal-tabs {
   &:before {
     text-shadow: 0px 0px 4px $blue;
     font-size: 32px;
-  }
-}
-
-// form items
-
-.form-item-quantity {
-  input[type="text"] {
-    display: inline-block;
-  }
-}
-
-.commerce-quantity-plusminus-link a.button {
-  padding: 6px 7px;
-}
-
-.submitted {
-  font-size: 16px;
-  margin-bottom: $padding*2;
-  clear: both;
-  color: $darkgrey;
-}
-
-form.commerce-add-to-cart {
-  @include gridle_state(max-tablet) {
-    padding-top: 230px;
-  }
-  label {
-    width: 235px;
-  }
-  select {
-    @include gridle_state(min-desk) {
-      width: 65%;
-    }
-  }
-  img.right {
-    @include gridle_state(max-tablet) {
-      left: 0;
-    }
-  }
-}
-
-// file
-
-.field-type-file .field-item {
-  margin: $padding 0;
-  &:before {
-    font-size: 20px;
-  }
-}
-
-.file {
-  a {
-    height: 40px;
   }
 }
 
@@ -2509,411 +2112,22 @@ form.commerce-add-to-cart {
   margin-bottom: $padding*2;
 }
 
-.adres {
-  border: 1px solid $black;
-  padding: $padding;
-  background-color: $darkgrey;
-  color: $white;
-  .fa {
-    float: left;
-    font-size: 20px;
-  }
-  .street-block,
-  .addressfield-container-inline {
-    margin-left: $padding*3;
-  }
-  #sidebar_second & {
-    margin: $padding*2 0;
-    width: 100%;
+.view-about {
+  div.tabs {
+    right: 50px;
   }
 }
 
-.tel {
-  ul {
-    list-style-type: none;
-    li {
-      margin-left: 0;
-      margin-bottom: $padding;
-    }
+html.js {
+  fieldset.collapsed {
+    height: 3em;
+    margin-top: 20px;
   }
 }
 
-// social follow
-
-$facebook: #3b5998;
-$twitter: #55acee;
-$contact: #f7941d;
-
-.view-social-follow,
-.views-field-field-social-follow {
-  li {
-    list-style-type: none;
-  }
-  margin-bottom: $padding*2;
-  a {
-    font-size: 0;
-    width: $padding*5;
-    height: $padding*5;
-    display: inline-block;
-    border-radius: 50%;
-    -webkit-transition: background-color 400ms linear;
-    -moz-transition: background-color 400ms linear;
-    -o-transition: background-color 400ms linear;
-    -ms-transition: background-color 400ms linear;
-    transition: background-color 400ms linear;
-    &:before {
-      display: inline-block;
-      font-family: FontAwesome;
-      font-style: normal;
-      font-weight: normal;
-      line-height: $padding*5;
-      font-size-adjust: none;
-      font-stretch: normal;
-      font-feature-settings: normal;
-      font-language-override: normal;
-      font-kerning: auto;
-      font-synthesis: weight style;
-      font-variant: normal;
-      font-size: inherit;
-      text-rendering: auto;
-      -moz-osx-font-smoothing: grayscale;
-      transform: translate(0px, 0px);
-      font-size: 20px;
-      text-align: center;
-      width: $padding*5;
-      vertical-align: middle;
-      width: 100%;
-    }
-    &.facebook {
-      background-color: $facebook;
-      &:before {
-          content: "\f09a";
-          color: white;
-      }
-      &:hover {
-        background-color: lighten($facebook, 10%);
-      }
-    }
-    &.twitter {
-      background-color: $twitter;
-      &:before {
-          content: "\f099";
-          color: white;
-      }
-      &:hover {
-        background-color: lighten($twitter, 10%);
-      }
-    }
-    &.contactlink {
-      background-color: $contact;
-      &:before {
-          content: "\f003";
-          color: white;
-      }
-      &:hover {
-        background-color: lighten($contact, 10%);
-      }
-    }
-  }
-  .field {
-    margin: 0 $padding/2;
-    display: inline-block;
-  }
+div.contextual-links-wrapper {
+  z-index: 500;
 }
-
-// manyform table
-
-#manyforms-form {
-  .sticky-header {
-    top: 90px!important;
-    z-index: 9;
-  }
-  .help {
-    &:before {
-      content: "\f059";
-      display: inline-block;
-      font: normal normal normal 14px/1 FontAwesome;
-      font-size: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      transform: translate(0, 0);
-      font-size: 36px;
-      clear: both;
-      color: $black;
-      cursor: pointer;
-    }
-    &:hover:before {
-      color: $grey;
-    }
-  }
-  .form-wrapper input[type="text"] {
-    width: auto;
-    width: 200px;
-    display: inline;
-  }
-  input[type=submit] {
-    margin: 0;
-  }
-  #edit-actions {
-    clear: both;
-    padding-top: 30px;
-    a {
-      display: block;
-      padding-top: 5px;
-    }
-    input[type=submit] {
-      margin-right: 20px;
-    }
-  }
-  caption {
-    text-align: left;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    .text {
-      display: none;
-      border: 2px solid $blue;
-      padding: $padding;
-      margin-bottom: $padding*4;
-    }
-  }
-  tr {
-    &.odd {
-      background-color: $lightblue;
-    }
-    &.even {
-      background-color: $lightgrey;
-    }
-  }
-  .form-type-radio {
-    float: left;
-    margin-right: $padding;
-  }
-  label {
-    padding-top: 20px;
-    clear: both;
-  }
-  .description {
-    clear: both;
-    padding-top: 10px;
-  }
-  input[type=submit] {
-    clear: both;
-    display: block;
-    float: left;
-    font-size: 18px;
-  }
-  @include gridle_state (max-tablet) {
-    table, thead, tbody, th, td, tr {
-      display: block;
-    }
-    /* Hide table headers (but not display: none;, for accessibility) */
-    thead tr {
-      position: absolute;
-      top: -9999px!important;
-      left: -9999px!important;
-    }
-    caption {
-      display: block;
-    }
-    tr {
-      border: 1px solid #ccc;
-    }
-    td {
-      border: none;
-      border-bottom: 1px solid #eee;
-      position: relative;
-      padding-left: 50%;
-      height: 32px;
-      &[data-before="opmerking"] {
-        border: none;
-      }
-    }
-    td:before {
-      position: absolute;
-      top: 10px;
-      left: 6px;
-      width: 45%;
-      padding-right: 10px;
-      white-space: nowrap;
-      content: attr(data-before);
-      font-weight: 700;
-    }
-  }
-  @include gridle_state (min-desk) {
-    th {
-      height: 100px;
-      white-space: nowrap;
-      div {
-        transform:
-        translate(7px, 51px)
-        rotate(315deg);
-        width: 30px;
-      }
-      span {
-        padding: 5px 10px 5px 40px;
-        border-top: 1px solid #ccc;
-        width: 140px;
-        display: inline-block;
-      }
-      br {
-        content: "&nbsp;";
-        width: 5px;
-        display: inline-block;
-      }
-    }
-    td {
-      padding: $padding/2;
-      &[data-before="aantal"],
-      &[data-before="standaard T"],
-      &[data-before="T standard"],
-      &[data-before="nombre"] {
-        width: 40px;
-      }
-      &[data-before="breedte(mm)"],
-      &[data-before="hoogte(mm)"],
-      &[data-before="largeur(mm)"],
-      &[data-before="hauteur(mm)"],
-      &[data-before="T1"],
-      &[data-before="T2"],
-      &[data-before="T3"],
-      &[data-before="lengterails"],
-      &[data-before="lgrails"] {
-        width: 60px;
-      }
-    }
-    #edit-dierendeur-dep {
-      clear: both;
-    }
-  }
-}
-
-input {
-  width: auto;
-}
-
-.page-user-feneko-orders {
-  .filters {
-    .form-item {
-      border-bottom: none;
-    }
-    .fieldset-wrapper {
-      padding-top: 30px;
-      > div.actions {
-        clear: both;
-        margin-top: 20px;
-      }
-      @include gridle_state(max-tablet) {
-        > div {
-          clear: both;
-          width: 100%;
-          border: none;
-          border-left: none!important;
-          border-right: none!important;
-          &:nth-child(2),
-          &:nth-child(3) {
-            padding-left: 0;
-          }
-        }
-        .container-inline-date {
-          padding-left: 0;
-        }
-      }
-    }
-  }
-  .container-inline-date .date-padding {
-    float: none;
-  }
-}
-
-.page-user-feneko-orders {
-  @include gridle_state (max-desk) {
-    .sticky-header {
-      display: none;
-    }
-  }
-  .sticky-table {
-    width: 100%;
-  }
-}
-
-.page-user-orders #main-wrapper,
-.page-user-feneko-orders .sticky-table {
-  tr {
-    border-bottom: none;
-    &.even {
-      background-color: $lightblue;
-    }
-    td {
-      vertical-align: middle;
-    }
-    @include gridle_state (min-full) {
-      &:nth-child(odd) {
-        font-weight: bold;
-      }
-    }
-    &:nth-child(2n+0) {
-      border-bottom: 5px solid $white;
-    }
-  }
-  @include gridle_state (max-desk) {
-    table, thead, tbody, th, td, tr {
-      display: block;
-    }
-    /* Hide table headers (but not display: none;, for accessibility) */
-    thead tr {
-      position: absolute;
-      top: -9999px!important;
-      left: -9999px!important;
-    }
-    caption {
-      display: block;
-    }
-    td {
-      border: none;
-      border-bottom: 1px solid $black;
-      position: relative;
-      padding-left: 50%;
-      height: 32px;
-      text-align: right;
-    }
-    td:before {
-      position: absolute;
-      top: 10px;
-      left: 6px;
-      width: 45%;
-      padding-right: 10px;
-      white-space: nowrap;
-      content: attr(data-before);
-      font-weight: 700;
-      text-align: left;
-    }
-    tr:nth-child(odd) {
-      font-weight: bold;
-      td {
-        padding-left: 6px;
-        height: 42px;
-        text-align: left;
-        padding-top: 8px;
-      }
-      td:before {
-        content: "";
-      }
-    }
-  }
-  @include gridle_state(min-desk) {
-    td {
-      padding: 5px;
-    }
-  }
-  tr.even:nth-child(odd) {
-    background-color: lighten($lightblue, 15%);
-  }
-  tr.odd:nth-child(odd) {
-    background-color: lighten($lightgrey, 5%);
-  }
-}
-
 
 // CK editor styles
 
@@ -2939,125 +2153,4 @@ input {
     padding-right: $padding;
     color: $green;
   }
-}
-
-// File
-
-.field-type-file {
-  .field-item {
-    color: $blue;
-    &:before {
-      color: $blue;
-    }
-    .file {
-      a {
-        color: $blue;
-      }
-    }
-    &:hover {
-      color: $grey;
-      &:before {
-        color: $grey;
-      }
-      .file {
-        a {
-          color: $grey;
-        }
-      }
-    }
-  }
-}
-
-.open-img {
-  border: 1px solid $orange;
-  background-color: $blue;
-  border-radius: 3px;
-  padding: 10px;
-  text-align: center;
-  color: $white;
-  cursor: pointer;
-  margin-bottom: 30px;
-  @include gridle_state (min-tablet) {
-    display: none;
-  }
-}
-
-.view-about {
-  div.tabs {
-    right: 50px;
-  }
-}
-
-.catalog {
-  a {
-    padding: 10px;
-    background-color: $blue;
-    color: $white;
-    border-radius: 3px;
-    text-decoration: none;
-    &:hover {
-      background-color: lighten($blue, 10%);
-    }
-  }
-}
-
-.cat-bestel {
-  @include gridle_state(min-full) {
-    left: 110%;
-    position: relative;
-    padding-left: 40px;
-    padding-bottom: 20px;
-    top: -50px;
-    max-width: 250px;
-  }
-}
-
-.page-node.logged-in .prod-info {
-  @include gridle_state(min-full) {
-    position: relative;
-    top: -130px;
-  }
-}
-
-.page-node.logged-in.no-orderable-products {
-  .prod-info {
-    @include gridle_state(min-full) {
-      top: -55px;
-    }
-  }
-  aside#sidebar_second {
-    margin-top: 130px;
-  }
-}
-
-.page-node.logged-in .prod-screens {
-  .prod-info {
-    @include gridle_state(min-full) {
-      margin-top: -70px;
-    }
-  }
-}
-
-html.js {
-  fieldset.collapsed {
-    height: 3em;
-    margin-top: 20px;
-  }
-}
-
-.dep-container {
-  float: left;
-  .form-item {
-    margin-top: 0;
-  }
-}
-
-#edit-dierendeur-dep {
-  .form-item {
-    margin-top: 5px;
-  }
-}
-
-div.contextual-links-wrapper {
-  z-index: 500;
 }

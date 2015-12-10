@@ -73,7 +73,7 @@
       }
     }
 
-    equalHeight($('.view-id-nieuws'), $('.nieuws-body'));
+    //equalHeight($('.view-id-nieuws'), $('.nieuws-body'));
 
 
   });

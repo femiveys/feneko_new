@@ -1,0 +1,307 @@
+// SHOPPING CART
+
+// .view-feneko-shopping-cart-block - block
+// .view-commerce-cart-form-feneko - page
+
+//BOTH BLOCK & FORM
+
+.view-feneko-shopping-cart-block,
+.view-commerce-cart-form-feneko, {
+  tr {
+    &.even,
+    &.odd {
+      border: none;
+      color: $black;
+      &.pane-title {
+        background-color: transparent;
+        font-size: 24px;
+        color: $orange;
+      }
+      &.pane-title td {
+        padding-left: 0;
+        padding-top: 20px;
+        padding-bottom: 10px;
+      }
+      &.pane-data td {
+        padding: 10px;
+      }
+    }
+  }
+  .checkout-review {
+    tr {
+      &.even,
+      &.odd {
+        background-color: transparent;
+      }
+      &.even,
+      &.odd {
+        tr {
+          background-color: $lightgrey;
+        }
+      }
+      &.even,
+      &.odd {
+        thead tr {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+  td {
+    font-weight: bold;
+  }
+  .node-header h1,
+  .line-item-summary-view-cart  {
+    position: relative;
+    display: inline-block;
+    &:before {
+      content: "\f07a";
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+      float: right;
+      font-size: 30px;
+      clear: both;
+      padding: 5px;
+    }
+  }
+  .node-header {
+    cursor: pointer;
+  }
+  input[type="submit"] {
+    &#edit-submit,
+    &#edit-submit--2,
+    &.checkout-cancel {
+      background: transparent;
+      text-decoration: underline;
+      color: $blue;
+      &:hover {
+        color: $lightblue;
+      }
+    }
+  }
+}
+
+.view-feneko-shopping-cart-block {
+  cursor: default;
+  ul.inline,
+  ul.links.inline {
+    display: block;
+    margin-top: 1em;
+  }
+  .node-header h1 {
+    color: $white;
+    font-size: 14px;
+    float: right;
+    font-family: $textfont;
+    font-weight: normal;
+    margin: 0;
+    margin-top: -40px;
+    &:before {
+      font-size: 16px;
+      padding: 0 0 0 10px;
+      @include gridle_state (only-desk) {
+        border: 1px solid $white;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        padding: 5px 0 0 0;
+      }
+    }
+    &:hover {
+      color: $lightblue;
+    }
+    @include gridle_state (only-desk) {
+      font-size: 0;
+    }
+  }
+  th {
+    padding: $padding;
+  }
+  tr {
+    &.even,
+    &.odd {
+      background-color: $lightgrey;
+      border: none;
+      color: $black;
+    }
+    &:after {
+      content: "\f0d7";
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+      float: left;
+      font-size: 1em;
+      clear: both;
+      padding: $padding;
+    }
+    &.open {
+      &:after {
+        content: "\f0d8";
+      }
+    }
+  }
+  td {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .view-total {
+    display: none;
+    background-color: $blue;
+    padding: $padding;
+    position: absolute;
+    z-index: 10;
+  }
+  .view-footer {
+    padding: $padding;
+    color: white;
+    font-size: 1.5em;
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+  .views-field-type-1 {
+    padding: 10px 0;
+  }
+  .line-item-summary-view-cart {
+    width: 100%;
+    background-color: $yellow;
+    color: $blue;
+    cursor: pointer;
+    a {
+      color: $blue;
+      display: block;
+      padding: 5px;
+    }
+    &:hover {
+      background-color: $orange;
+    }
+  }
+  .line-item-quantity,
+  .line-item-total {
+    padding: 0 $padding;
+  }
+  .views-field-type {
+    padding: $padding 0 $padding $padding;
+    width: 60%;
+  }
+  .views-field-quantity {
+    width: 15%;
+    padding-left: 10px;
+  }
+  .views-field-commerce-total {
+    width: 25%;
+    padding-right: $padding;
+  }
+  .detail {
+    font-weight: normal;
+    font-size: 0.8em;
+    line-height: 150%;
+  }
+}
+
+#shoppingcart {
+  @include gridle_state(max-tablet) {
+    position: fixed;
+    top: 100px;
+    z-index: 98;
+    width: 100%;
+    right: 0;
+    display: none;
+    &.show {
+      display: block;
+    }
+    .inner-wrapper {
+      max-width: 95%;
+    }
+    .node-header {
+      display: none;
+    }
+    .view-total {
+      display: block;
+      right: 0;
+      width: 100%;
+    }
+  }
+  @include gridle_state (min-desk) {
+    &.fix {
+      position: relative;
+      .view-total {
+        position: fixed;
+        left: 50%;
+        top: 59px;
+        .admin-menu & {
+          top: 89px;
+        }
+        transform: translateX(-41%);
+        @include gridle_state (only-desk) {
+          left: 49%;
+          transform: translateX(-32%);
+          width: 60%;
+        }
+        @include gridle_state (only-full) {
+          left: 63.5%;
+          transform: translateX(-44%);
+          width: 47%;
+        }
+        @include gridle_state (min-retina) {
+          left: 64.4%;
+          transform: translateX(-45%);
+          width: 46.6%;
+        }
+      }
+    }
+  }
+}
+
+
+.view-commerce-cart-form-feneko {
+  .views-field-detail {
+    @include gridle_state(min-desk) {
+      float: left;
+    }
+  }
+  td .delete-line-item  {
+    font-size: 0!important;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 50%;
+  }
+  td.views-field-edit-delete {
+    font: normal normal normal 14px/1 FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    font-size: 0;
+  }
+  td.views-field-edit-delete:before {
+    content: "\f00d";
+    font-size: 30px;
+    color: white;
+    line-height: 38px;
+    display: block;
+    margin-bottom: -40px;
+    margin-left: 0px;
+    z-index: -1;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: block;
+    background-color: $red;
+    text-align: center;
+  }
+  td.views-field-edit-delete:hover:before {
+    background-color: darken($red, 15%);
+  }
+}

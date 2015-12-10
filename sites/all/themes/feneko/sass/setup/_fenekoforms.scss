@@ -1,0 +1,233 @@
+input {
+  width: auto;
+}
+
+.form-disabled input {
+  background-color: $lightgrey;
+}
+
+#commerce-checkout-form-checkout,
+.page-checkout {
+  table {
+    width: 100%;
+  }
+  tr {
+    &.even,
+    &.odd {
+      background-color: $lightgrey;
+      border: none;
+      color: $black;
+      &.pane-title {
+        background-color: transparent;
+        font-size: 24px;
+        color: $orange;
+      }
+      &.pane-title td {
+        padding-left: 0;
+        padding-top: 20px;
+        padding-bottom: 10px;
+      }
+      &.pane-data td {
+        padding: 10px;
+      }
+    }
+  }
+  .checkout-review {
+    tr {
+      &.even,
+      &.odd {
+        background-color: transparent;
+      }
+      &.even,
+      &.odd {
+        tr {
+          background-color: $lightgrey;
+        }
+      }
+      &.even,
+      &.odd {
+        thead tr {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+  td {
+    font-weight: bold;
+  }
+  .node-header h1,
+  .line-item-summary-view-cart  {
+    position: relative;
+    display: inline-block;
+    &:before {
+      content: "\f07a";
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+      float: right;
+      font-size: 30px;
+      clear: both;
+      padding: 5px;
+    }
+  }
+  .node-header h1 {
+
+  }
+  .node-header {
+    cursor: pointer;
+  }
+  input[type="submit"] {
+    &#edit-submit,
+    &#edit-submit--2,
+    &.checkout-cancel {
+      background: transparent;
+      text-decoration: underline;
+      color: $blue;
+      &:hover {
+        color: $lightblue;
+      }
+    }
+  }
+}
+
+.form-item-quantity {
+  input[type="text"] {
+    display: inline-block;
+  }
+}
+
+.commerce-quantity-plusminus-link a.button {
+  padding: 6px 7px;
+}
+
+.submitted {
+  font-size: 16px;
+  margin-bottom: $padding*2;
+  clear: both;
+  color: $darkgrey;
+}
+
+form.commerce-add-to-cart {
+  @include gridle_state(max-tablet) {
+    padding-top: 230px;
+  }
+  label {
+    width: 235px;
+  }
+  select {
+    @include gridle_state(min-desk) {
+      width: 65%;
+    }
+  }
+  img.right {
+    @include gridle_state(max-tablet) {
+      left: 0;
+    }
+  }
+}
+
+.dep-container {
+  float: left;
+  .form-item {
+    margin-top: 0;
+  }
+}
+
+#edit-dierendeur-dep {
+  .form-item {
+    margin-top: 5px;
+  }
+}
+
+#manyforms-form {
+  .sticky-header {
+    top: 90px!important;
+    z-index: 9;
+  }
+  .help {
+    &:before {
+      content: "\f059";
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+      font-size: 36px;
+      clear: both;
+      color: $black;
+      cursor: pointer;
+    }
+    &:hover:before {
+      color: $grey;
+    }
+  }
+  .form-wrapper input[type="text"] {
+    width: auto;
+    width: 200px;
+    display: inline;
+  }
+  input[type=submit] {
+    margin: 0;
+  }
+  #edit-actions {
+    clear: both;
+    padding-top: 30px;
+    a {
+      display: block;
+      padding-top: 5px;
+    }
+    input[type=submit] {
+      margin-right: 20px;
+    }
+  }
+  caption {
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    .text {
+      display: none;
+      border: 2px solid $blue;
+      padding: $padding;
+      margin-bottom: $padding*4;
+    }
+  }
+  .form-type-radio {
+    float: left;
+    margin-right: $padding;
+  }
+  label {
+    padding-top: 20px;
+    clear: both;
+  }
+  .description {
+    clear: both;
+    padding-top: 10px;
+  }
+  input[type=submit] {
+    clear: both;
+    display: block;
+    float: left;
+    font-size: 18px;
+  }
+  @include gridle_state (min-desk) {
+    #edit-dierendeur-dep {
+      clear: both;
+    }
+  }
+}
+
+.line-item-details {
+  .field-label {
+    width: 200px;
+  }
+  ul {
+    padding: 0;
+    list-style-type: none;
+  }
+}
