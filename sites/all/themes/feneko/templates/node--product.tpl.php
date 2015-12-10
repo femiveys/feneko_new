@@ -83,124 +83,94 @@
  */
 ?>
 
-<?php print render($title_prefix); ?>
+<?php
+$classes = array("content", "prod-$product_grandparent");
+if($teaser) $classes[] = 'product-teaser';
+?>
+<div class="product-wrapper">
+  <?php print render($title_prefix); ?>
 
-
-    <?php if ($teaser) : ?>
-    <header class="node-header">
+  <?php if ($teaser) : ?>
+  <header class="node-header">
     <h2<?php print $title_attributes; ?>><?php print $title; ?></h2>
-    </header>
-    <?php endif; ?>
-
-
-<?php print render($title_suffix); ?>
-
-
-
-<div class="content <?php if ($teaser) : print('product-teaser'); endif; ?> <?php
-    if($product_grandparent == 'screens') : print('prod-screens');
-    elseif($product_grandparent == 'colors') : print('prod-colors');
-    endif;
-?>">
-
-  <?php if ($page) : ?>
-    <div class="first-col">
-  <?php endif; ?>
-  <?php if ($page) : ?>
-  <div class="open-img"><?php print t('bekijk afbeeldingen'); ?> <i class="fa fa-arrow-circle-o-down"></i></div>
-  <?php endif; ?>
-  <?php print render($content['field_images']); ?>
-
-  <?php if ($page) : ?>
-    </div>
+  </header>
   <?php endif; ?>
 
-  <?php if ($page) : ?>
-    <div class="second-col">
+  <?php print render($title_suffix); ?>
 
-  <?php endif; ?>
-
-  <?php if($logged_in && $page) : ?>
-
-  <div class="cat-bestel">
-
-  <div class="catalog">
-    <?php
-    if($product_grandparent == 'screens') : ?>
-
-      <a class="hide-mobile" href="/<?php global $language_content; print $language_content->language; ?>/catalog/screens/flipper" target="_blank">Catalogus</a>
-      <a class="hide-desk" href="/sites/default/files/pdfs/screens_<?php global $language_content; print $language_content->language; ?>.pdf" target="_blank">Catalogus</a>
-    <?php
-    elseif($product_grandparent == 'colors') : ?>
-        <a class="hide-mobile" href="/<?php global $language_content; print $language_content->language; ?>/catalog/colors/flipper" target="_blank">Catalogus</a>
-        <a class="hide-desk" href="/sites/default/files/pdfs/colors_<?php global $language_content; print $language_content->language; ?>.pdf" target="_blank">Catalogus</a>
-    <?php
-    endif;
-    ?>
+  <div class="<?php print implode(' ', $classes); ?>">
+    <?php if ($page) : ?>
+      <div class="first-col">
+        <div class="open-img">
+          <?php print t('bekijk afbeeldingen'); ?> <i class="fa fa-arrow-circle-o-down"></i>
+        </div>
+        <?php print render($content['field_images']); ?>
+      </div>
+      <div class="second-col">
+        <?php if($logged_in) : ?>
+          <?php
+            global $language_content;
+            $lang = $language_content->language;
+            $flipperUrl = "/$lang/catalog/$product_grandparent/flipper";
+            $pdfUrl = "/sites/default/files/pdfs/screens_$lang.pdf";
+            $catName = t('Catalog');
+          ?>
+          <div class="cat-bestel">
+            <div class="catalog">
+              <a class="hide-mobile" href="<?php print $flipperUrl; ?>" target="_blank"><?php print $catName; ?></a>
+              <a class="hide-desk" href="<?php print $pdfUrl; ?>" target="_blank"><?php print $catName; ?></a>
+            </div>
+            <div class="field-name-field-orderable-products">
+              <?php if($product_grandparent === 'screens') { print(feneko_order_urls($node_url, $title)); } ?>
+              <?php print render($content['field_orderable_products']); ?>
+            </div>
+          </div>
+        <?php endif; ?>
+        <div class="prod-info">
+          <?php print render($content['body']);?>
+          <?php print render($content['links']);?>
+          <?php print render($content['group_wrapper']);?>
+          <?php print render($content['field_attach_secured']);?>
+          <div class="lev">
+            <i class="fa fa-truck"></i>
+            <p><?php print t('Al onze leveringen gebeuren tussen de 8 en 12 werkdagen.'); ?></p>
+          </div>
+          <?php if($logged_in) : ?>
+            <div class="field-name-field-orderable-products">
+              <?php print render($content['field_orderable_products']); ?>
+              <div class="field-items">
+                <div class="field-item even">
+                  <?php if($product_grandparent === 'screens') { print(feneko_order_urls($node_url, $title)); } ?>
+                </div>
+              </div>
+            </div>
+          <?php endif ?>
+        </div>
+      </div>
+    <?php else : ?>
+      <div class="teaser-wrapper">
+        <div class="left">
+          <?php print render($content['field_images']); ?>
+          <?php if($logged_in) : ?>
+            <?php if($product_grandparent === 'screens') : ?>
+              <div class="field-name-field-orderable-products">
+                <div class="field-items">
+                  <div class="field-item even">
+                    <?php if($product_grandparent === 'screens') { print(feneko_order_urls($node_url, $title)); } ?>
+                  </div>
+                </div>
+              </div>
+            <?php endif ?>
+            <?php print render($content['field_orderable_products']); ?>
+          <?php endif ?>
+        </div>
+        <div class="right">
+          <?php print render($content['body']);?>
+          <?php print render($content['links']);?>
+        </div>
+      </div>
+    <?php endif ?>
   </div>
-
-    <div class="field-name-field-orderable-products">
-
-      <?php
-      if($product_grandparent == 'screens') :
-        print(feneko_order_urls($node_url, $title));
-      endif;
-      ?>
-
-      <?php print render($content['field_orderable_products']); ?>
-
-    </div>
-
-  </div>
-
-  <?php endif; ?>
-
-<?php if($page) : ?>
-<div class="prod-info">
-  <?php endif; ?>
-      <?php print render($content['body']);?>
-
-      <?php print render($content['links']);?>
-
-      <?php print render($content['group_wrapper']);?>
-
-      <?php print render($content['field_attach_secured']);?>
-
-      <?php if ($page) : ?>
-
-      <div class="lev"><i class="fa fa-truck"></i><p> <?php print t('Al onze leveringen gebeuren tussen de 8 en 12 werkdagen.'); ?></p></div>
-
-       <?php endif; ?>
-
-       <?php if($logged_in) : ?>
-
-    <div class="field-name-field-orderable-products">
-
-      <?php print render($content['field_orderable_products']); ?>
-
-      <?php
-      if($product_grandparent == 'screens') : ?>
-      <div class="field-items"><div class="field-item even">
-      <?php
-        print('<a href="'.$node_url.'/'.t('bestel').'">'.t('bestel').' '.$title.'</a>');
-      ?>
-      </div></div>
-      <?php
-      endif;
-      ?>
-
-
-    </div>
-
-<?php if($page) : ?>
-</div>
-<?php endif; ?>
-
-  <?php endif; ?>
-
-  <?php if($page) : ?>
-    </div>
-  <?php endif; ?>
 </div>
 
 
