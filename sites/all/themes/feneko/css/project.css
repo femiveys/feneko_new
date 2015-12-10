@@ -44,9 +44,9 @@ retina: 1280 - +
   .product-teaser .field-name-body, .product-teaser .field-name-field-orderable-products {
     display: inline-block;
     min-height: 1px;
+    float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    font-size: 1rem;
     box-sizing: border-box;
     vertical-align: top;
     padding-right: 20px;
@@ -57,9 +57,9 @@ retina: 1280 - +
   #header, .small-block, .nieuws-rij {
     display: inline-block;
     min-height: 1px;
+    float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    font-size: 1rem;
     box-sizing: border-box;
     vertical-align: top;
     padding-right: 20px;
@@ -72,9 +72,9 @@ retina: 1280 - +
   .product-teaser .field-name-body, .product-teaser .field-name-field-orderable-products {
     display: inline-block;
     min-height: 1px;
+    float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    font-size: 1rem;
     box-sizing: border-box;
     vertical-align: top;
     padding-right: 20px;
@@ -85,9 +85,9 @@ retina: 1280 - +
   .logo, #header, #main_menu, .page-about #content, .node-type-product aside#sidebar_second, .nieuws-rij, .nieuws-rij.views-row-first, .view-feneko-shopping-cart-block .view-total, .first-col, .second-col, #search-form {
     display: inline-block;
     min-height: 1px;
+    float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    font-size: 1rem;
     box-sizing: border-box;
     vertical-align: top;
     padding-right: 20px;
@@ -103,9 +103,9 @@ retina: 1280 - +
   .node-type-product #content, .view-feneko-shopping-cart-block .view-total, .not-front .view-main-categories .view-grouping-content .view-grouping-header, .not-front .view-main-categories .view-grouping-content .view-grouping-content, .not-front .view-main-categories .view-grouping-content .rij-product-naam, .product-teaser .field-name-field-images {
     display: inline-block;
     min-height: 1px;
+    float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    font-size: 1rem;
     box-sizing: border-box;
     vertical-align: top;
     padding-right: 20px;
@@ -123,9 +123,9 @@ retina: 1280 - +
   .product-teaser .field-name-body {
     display: inline-block;
     min-height: 1px;
+    float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    font-size: 1rem;
     box-sizing: border-box;
     vertical-align: top;
     padding-right: 20px;
@@ -136,9 +136,9 @@ retina: 1280 - +
   .not-front .view-main-categories .view-grouping-content .view-grouping-header, .not-front .view-main-categories .view-grouping-content .view-grouping-content {
     display: inline-block;
     min-height: 1px;
+    float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    font-size: 1rem;
     box-sizing: border-box;
     vertical-align: top;
     padding-right: 20px;
@@ -149,9 +149,9 @@ retina: 1280 - +
   .first-col, .second-col, .not-front .view-main-categories .view-grouping-content .view-grouping-header, .not-front .view-main-categories .view-grouping-content .view-grouping-content, .not-front .view-main-categories .view-grouping-content .rij-product-naam {
     display: inline-block;
     min-height: 1px;
+    float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    font-size: 1rem;
     box-sizing: border-box;
     vertical-align: top;
     padding-right: 20px;
@@ -162,9 +162,9 @@ retina: 1280 - +
   .node-type-product #content, .not-front .view-main-categories .view-grouping-content .view-grouping-header, .not-front .view-main-categories .view-grouping-content .view-grouping-content, .not-front .view-main-categories .view-grouping-content .rij-product-naam {
     display: inline-block;
     min-height: 1px;
+    float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    font-size: 1rem;
     box-sizing: border-box;
     vertical-align: top;
     padding-right: 20px;
@@ -4039,4 +4039,8 @@ html.js fieldset.collapsed {
 
 div.contextual-links-wrapper {
   z-index: 500;
+}
+
+.form-item-attributes-field-standaardprofiel-type {
+  display: none;
 }

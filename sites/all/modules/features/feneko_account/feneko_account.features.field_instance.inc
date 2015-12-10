@@ -38,7 +38,7 @@ function feneko_account_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_address',
-    'label' => 'Address',
+    'label' => 'Adres',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -52,8 +52,8 @@ function feneko_account_field_default_field_instances() {
         'default_country' => 'BE',
         'format_handlers' => array(
           'address' => 'address',
-          'address-hide-postal-code' => 0,
           'address-hide-street' => 0,
+          'address-hide-postal-code' => 0,
           'address-hide-country' => 0,
           'organisation' => 0,
           'name-oneline' => 0,
@@ -135,7 +135,7 @@ function feneko_account_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_client_group',
-    'label' => 'Client group',
+    'label' => 'Klantengroep',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -184,7 +184,7 @@ function feneko_account_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_client_number',
-    'label' => 'Client Number',
+    'label' => 'Klantennummer',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -231,7 +231,7 @@ function feneko_account_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_delivery_address',
-    'label' => 'Delivery Address',
+    'label' => 'Leveringsadres',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -246,8 +246,8 @@ function feneko_account_field_default_field_instances() {
         'format_handlers' => array(
           'address' => 'address',
           'organisation' => 'organisation',
-          'address-hide-postal-code' => 0,
           'address-hide-street' => 0,
+          'address-hide-postal-code' => 0,
           'address-hide-country' => 0,
           'name-oneline' => 0,
           'name-full' => 0,
@@ -286,7 +286,7 @@ function feneko_account_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_delivery_condition',
-    'label' => 'Delivery Condition',
+    'label' => 'Leveringsconditie',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -328,7 +328,7 @@ function feneko_account_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_delivery_day',
-    'label' => 'Delivery Day',
+    'label' => 'Leveringsdag',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -415,7 +415,7 @@ function feneko_account_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_payment_condition',
-    'label' => 'Payment condition',
+    'label' => 'Condition de payement',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -458,14 +458,10 @@ function feneko_account_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_phone',
-    'label' => 'Phone',
+    'label' => 'Telefoonnummer',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'linkit' => array(
-        'enable' => 0,
-        'insert_plugin' => '',
-      ),
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -507,7 +503,7 @@ function feneko_account_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_price_code',
-    'label' => 'Price code',
+    'label' => 'Prijscode',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -545,7 +541,7 @@ function feneko_account_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_representative',
-    'label' => 'Representative',
+    'label' => 'Vertegenwoordiger',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -625,7 +621,7 @@ function feneko_account_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_tva_code',
-    'label' => 'TVA code',
+    'label' => 'BTW code',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -668,14 +664,10 @@ function feneko_account_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_tva_number',
-    'label' => 'TVA number',
+    'label' => 'BTW nummer',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'linkit' => array(
-        'enable' => 0,
-        'insert_plugin' => '',
-      ),
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -744,7 +736,7 @@ function feneko_account_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_clients',
-    'label' => 'Clients',
+    'label' => 'Klanten',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -885,7 +877,7 @@ Het eerste nummer wordt als standaard beschouwd.',
     ),
     'entity_type' => 'user',
     'field_name' => 'field_phone',
-    'label' => 'Phone',
+    'label' => 'Telefoonnummer',
     'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -970,28 +962,26 @@ Het eerste nummer wordt als standaard beschouwd.',
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Address');
+  t('Adres');
+  t('BTW code');
   t('BTW nummer');
   t('Block Order input');
-  t('Client Number');
-  t('Client group');
-  t('Clients');
-  t('Delivery Address');
-  t('Delivery Condition');
-  t('Delivery Day');
+  t('Condition de payement');
   t('Fax');
   t('Geblokkeerd/EB');
   t('Indien hier "Ja" gekozen wordt en deze klant plaatst een bestelling, zal er een waarschuwingstekst komen in de mail naar Feneko en kan de export niet automatisch gebeuren.');
+  t('Klanten');
+  t('Klantengroep');
+  t('Klantennummer');
   t('Klantennummers');
+  t('Leveringsadres');
+  t('Leveringsconditie');
+  t('Leveringsdag');
   t('Naam Bedrijf');
-  t('Payment condition');
-  t('Phone');
-  t('Price code');
-  t('Representative');
+  t('Prijscode');
   t('Staffelkorting');
-  t('TVA code');
-  t('TVA number');
   t('Telefoonnummer');
+  t('Vertegenwoordiger');
   t('Vul hier de klantennummers in voor wie deze persoon bestellingen mag doen en bekijken.<br>
 Het eerste nummer wordt als standaard beschouwd.');
 

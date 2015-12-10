@@ -44,7 +44,7 @@ function feneko_account_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Client Number */
+  /* Field: Content: Klantennummer */
   $handler->display->display_options['fields']['field_client_number']['id'] = 'field_client_number';
   $handler->display->display_options['fields']['field_client_number']['table'] = 'field_data_field_client_number';
   $handler->display->display_options['fields']['field_client_number']['field'] = 'field_client_number';

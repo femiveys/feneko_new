@@ -9,7 +9,6 @@ dependencies[] = features
 dependencies[] = feneko_structure
 dependencies[] = feneko_translations
 dependencies[] = feneko_views
-dependencies[] = i18n_field
 dependencies[] = i18n_node
 dependencies[] = i18n_taxonomy
 dependencies[] = i18n_variable
