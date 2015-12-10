@@ -58,7 +58,7 @@ function feneko_global_strongarm() {
     'domain' => '',
     'prefix' => 'nl',
     'weight' => '-10',
-    'javascript' => '15fY_BGPmQcffo5JQBpE-8TLhrtNmfRvlnyShzCwiOM',
+    'javascript' => 'gjN3crWmBncdr8NJs7zmPANR75TgK7nYRqpMP3jhsJY',
   );
   $export['language_default'] = $strongarm;
 
