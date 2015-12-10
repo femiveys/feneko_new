@@ -4044,3 +4044,46 @@ div.contextual-links-wrapper {
 .form-item-attributes-field-standaardprofiel-type {
   display: none;
 }
+
+.teaser-wrapper {
+  position: relative;
+  height: auto;
+  overflow: hidden;
+}
+.teaser-wrapper .left {
+  width: 200px;
+  padding-right: 20px;
+  float: left;
+}
+.teaser-wrapper .left .field-type-image,
+.teaser-wrapper .left .field-name-field-orderable-products {
+  width: 100%;
+  display: block;
+}
+.teaser-wrapper .left a {
+  margin: 0;
+  display: block;
+  text-align: center;
+}
+.teaser-wrapper .right {
+  float: none;
+  margin-left: 200px;
+  width: auto;
+}
+.teaser-wrapper .field-name-body {
+  width: auto;
+  padding: 0;
+  margin: 0;
+}
+.teaser-wrapper .links {
+  width: auto;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.teaser-wrapper ul {
+  margin: 0;
+}
+.teaser-wrapper ul li {
+  display: block;
+}

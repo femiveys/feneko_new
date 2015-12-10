@@ -1,21 +1,48 @@
-.node-type-client,
-.page-user {
-	.field {
-		margin-bottom: $padding;
-	}
-	.field-label {
-		width: 150px;
-		// text-align: right;
-	}
-}
+$my-img-width: 200px;
+$my-padding: 20px;
 
-.page-user {
-	.node-client {
-		border-top: 1px solid $blue;
-		margin-top: $padding;
-		padding: $padding 0;
+.teaser-wrapper {
+	position: relative;
+	height: auto;
+    overflow: hidden;
+	.left {
+		width: $my-img-width;
+		padding-right: $my-padding;
+		float: left;
+		.field-type-image,
+		.field-name-field-orderable-products {
+			width: 100%;
+			display: block;
+		}
+		a {
+			margin: 0;  // om .field-name-field-orderable-products a te overschrijven
+						// Die margin is sowieso fout. Er moet een padding op de container.
+						// Ja weer die nutteloos geachte containers
+			display: block;
+			text-align: center;
+		}
 	}
-	h2 {
-		font-size: inherit;
+	.right {
+		float: none;
+		margin-left: $my-img-width;
+		width: auto;
 	}
+	.field-name-body {
+		width: auto;
+		padding: 0;
+		margin: 0;
+	}
+	.links {
+		width: auto;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
+	ul {
+		margin: 0;
+		li {
+			display: block;
+		}
+	}
+
 }
