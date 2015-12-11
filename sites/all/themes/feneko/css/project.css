@@ -1777,18 +1777,20 @@ td.active {
   }
 }
 
-.page-user-feneko-orders .sticky-table thead,
-.view-commerce-backoffice-user-orders thead {
-  background-color: #295D8F;
-  color: #ffffff;
+@media screen and (min-width: 851px) {
+  .page-user-feneko-orders .sticky-table thead,
+  .view-commerce-backoffice-user-orders thead {
+    background-color: #295D8F;
+    color: #ffffff;
+  }
+  .page-user-feneko-orders .sticky-table thead a,
+  .view-commerce-backoffice-user-orders thead a {
+    color: #ffffff;
+  }
 }
 .page-user-feneko-orders .sticky-table thead th,
 .view-commerce-backoffice-user-orders thead th {
   padding: 5px;
-}
-.page-user-feneko-orders .sticky-table thead a,
-.view-commerce-backoffice-user-orders thead a {
-  color: #ffffff;
 }
 
 @media screen and (max-width: 850px) {
@@ -2271,12 +2273,23 @@ form.commerce-add-to-cart label {
   width: auto;
 }
 
+.filters {
+  padding: 0;
+}
 .filters .form-item {
   border-bottom: none;
+}
+.filters .fieldset-wrapper {
+  margin-top: 30px;
 }
 .filters .fieldset-wrapper > div.actions {
   clear: both;
   margin-top: 20px;
+}
+.filters .fieldset-wrapper > div:nth-child(2), .filters .fieldset-wrapper > div:nth-child(3) {
+  padding-left: 0;
+  border-left: none;
+  border-right: none;
 }
 @media screen and (max-width: 850px) {
   .filters .fieldset-wrapper > div {
@@ -2315,18 +2328,6 @@ form.commerce-add-to-cart label {
 
 #edit-filter-ref {
   width: 90%;
-}
-
-.page-user-feneko-orders .filters {
-  padding: 0;
-}
-.page-user-feneko-orders .filters .fieldset-wrapper {
-  margin-top: 30px;
-}
-.page-user-feneko-orders .filters .fieldset-wrapper > div:nth-child(2), .page-user-feneko-orders .filters .fieldset-wrapper > div:nth-child(3) {
-  padding-left: 0;
-  border-left: none;
-  border-right: none;
 }
 
 html.js fieldset.collapsible {
@@ -2608,7 +2609,7 @@ ul.tabs.primary li.active a:hover {
   color: #c7c7c7;
 }
 
-.page-user-feneko-orders .help-text {
+.help-text {
   display: none;
   border: 2px solid #295D8F;
   padding: 10px;
