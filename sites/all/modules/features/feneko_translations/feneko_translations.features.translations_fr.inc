@@ -236,6 +236,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Wij bieden', array(), array('context' => ''));
+  $translations['fr:default']['763d6fefbb4a2cc9c2cf77320dcc101c'] = array(
+    'source' => 'Lever<wbr>datum',
+    'context' => '',
+    'location' => '/nl/user/1/feneko_orders',
+    'translation' => 'Date de livraison',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Lever<wbr>datum', array(), array('context' => ''));
   $translations['fr:default']['7d95fc465930fd6c2a668c6e0b41538d'] = array(
     'source' => 'Winkelwagen',
     'context' => '',
@@ -272,6 +281,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Catalogus', array(), array('context' => ''));
+  $translations['fr:default']['869343cd6abc48572c0f4c154c331c6a'] = array(
+    'source' => 'Order<wbr>nummer',
+    'context' => '',
+    'location' => '/nl/user/1/feneko_orders',
+    'translation' => 'Numéro d\'ordre',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Order<wbr>nummer', array(), array('context' => ''));
   $translations['fr:default']['88312199623a59a893fa2c0f5fb4a4af'] = array(
     'source' => 'Andere jobs',
     'context' => '',
@@ -308,6 +326,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('standaard T', array(), array('context' => ''));
+  $translations['fr:default']['8f1fb722e7e5fe36e7e5dd1837004d06'] = array(
+    'source' => 'Lever<wbr>conditie',
+    'context' => '',
+    'location' => '/nl/user/1/feneko_orders',
+    'translation' => 'Condition de livraison',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Lever<wbr>conditie', array(), array('context' => ''));
   $translations['fr:default']['957d2fa52c19a5aff4ccf5d9a959adab'] = array(
     'source' => 'van',
     'context' => '',
@@ -344,6 +371,33 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Leverconditie', array(), array('context' => ''));
+  $translations['fr:default']['aade70746e0d8e43ee84c01e7c52b144'] = array(
+    'source' => 'Order<wbr>datum',
+    'context' => '',
+    'location' => '/nl/user/1/feneko_orders',
+    'translation' => 'Date d\'ordre',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Order<wbr>datum', array(), array('context' => ''));
+  $translations['fr:default']['ad921d60486366258809553a3db49a4a'] = array(
+    'source' => 'unknown',
+    'context' => '',
+    'location' => '/fr/user/1/feneko_orders?sort=desc&order=Fase%3Cspan%20class%3D%22help%22%3E%3C/span%3E',
+    'translation' => 'inconnu',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('unknown', array(), array('context' => ''));
+  $translations['fr:default']['ba84ad4309c8f70ecebaffdac358c5fe'] = array(
+    'source' => 'Klanten<wbr>nummer',
+    'context' => '',
+    'location' => '/nl/user/1/feneko_orders',
+    'translation' => 'Numéro de client',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Klanten<wbr>nummer', array(), array('context' => ''));
   $translations['fr:default']['c11e09df1574eed40e1f075f5fdd717f'] = array(
     'source' => 'Schuifvliegendeuren Elegance+',
     'context' => '',

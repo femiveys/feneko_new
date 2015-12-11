@@ -8,7 +8,7 @@ $darkgrey: darken($grey, 30%);
 $lightgrey: #e6e6e6;
 $lightgreen: #BCED91;
 $blue: #295D8F;
-$lightblue: #9BD4DF;
+$lightblue: lighten(#9BD4DF, 10%);
 $darkblue: #2c62c7;
 $bluetrans: rgba(41, 93, 143, 0.8);
 $green: #488214;
@@ -37,4 +37,3 @@ $web-fonts-protocol: "https";
 $textfont: 'Raleway', serif;
 $titlefont: 'Raleway', serif;
 $menufont: 'Raleway', serif;
-

@@ -10,3 +10,4 @@ dependencies[] = disable_table_dnd
 dependencies[] = extrafield_views_integration
 dependencies[] = entity
 dependencies[] = feneko_libraries
+dependencies[] = mimemail

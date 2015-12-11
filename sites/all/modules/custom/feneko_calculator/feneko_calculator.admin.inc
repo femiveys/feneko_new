@@ -98,6 +98,7 @@ function feneko_calculator_order_to_xml(stdClass $order) {
   $xml .= _feneko_calculator_add_xml_field($order_wrapper->field_client, 'field_block_order_input');
   $xml .= "</Client>";
 
+  $xml .= _feneko_calculator_add_xml_field($order_wrapper->field_client, 'field_client_number', 'Klantennummer');
   $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'field_color');
   $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'field_comment');
   $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'field_reference');

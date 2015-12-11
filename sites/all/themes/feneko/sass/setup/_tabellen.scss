@@ -1,0 +1,496 @@
+table {
+  width: 100%;
+  border-collapse: separate;
+}
+
+thead {
+  width: 100%;
+}
+
+tbody {
+  width: 100%;
+  border-top: none;
+}
+
+th {
+  border-bottom: none;
+}
+
+tr {
+  &.even,
+  &.odd {
+    border: none;
+  }
+}
+
+td {
+  padding: 5px;
+}
+
+td.active {
+  background-color: transparent;
+}
+
+// TABLE MET HEADER BEFORE (cfr shopping cart page listing orders)
+
+.view-commerce-cart-form-feneko .view-content {
+  table {
+    border-spacing: 0 3em;
+  }
+  th {
+    padding-bottom: 10px;
+  }
+  tbody {
+    tr {
+      width: 100%;
+      position: relative;
+      &:before {
+        content: attr(data-before);
+        position:absolute;
+        margin-top: -40px;
+        font-weight: 700;
+        font-size: 18px;
+        color: $blue;
+        padding-top: 10px;
+      }
+      &:nth-child(1) {
+        &:before {
+          display: block;
+          width: 100%;
+          @include gridle_state (min-desk) {
+            border-top: 2px solid $darkgrey;
+          }
+          fieldset & {
+            @include gridle_state (min-desk) {
+              width: 90%;
+            }
+            @include gridle_state (min-retina) {
+              width: 94%;
+            }
+          }
+        }
+      }
+    }
+  }
+  tbody,
+  thead {
+    tr td,
+    tr th {
+      &:nth-child(1) {
+        display: none;
+      }
+    }
+  }
+  td {
+    @include gridle_state (max-tablet) {
+      position: relative;
+      &.views-field-edit-quantity,
+      &.views-field-commerce-total,
+      &.views-field-quantity,
+      &:not(.views-field) {
+        padding-top: 40px;
+        &:after {
+          content: attr(data-before);
+          position:absolute;
+          top: 0;
+          left: 0;
+          font-size: 14px;
+          color: $blue;
+          padding-top: 10px;
+        }
+        width: 25%;
+        .page-checkout & {
+          width: 33%;
+        }
+      }
+      &.views-field-edit-delete {
+        padding: 15px;
+      }
+    }
+  }
+}
+
+// TABEL MET LABELS BEFORE RESPONSIVE (cfr. lopende orders, manyforms)
+
+#manyforms-form,
+.page-user-feneko-orders .sticky-table,
+.view-commerce-backoffice-user-orders {
+  tr {
+    &.odd {
+      background-color: $lightblue;
+    }
+    &.even {
+      background-color: $lightgrey;
+    }
+  }
+  @include gridle_state (max-tablet) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+    caption {
+      display: block;
+    }
+    td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 50%;
+      min-height: 32px;
+      &[data-before="opmerking"] {
+        border: none;
+      }
+      &:nth-last-child(1) {
+        border-bottom: none;
+      }
+    }
+    td:before {
+      position: absolute;
+      left: 0;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      content: attr(data-before);
+      font-weight: 700;
+    }
+  }
+}
+
+#manyforms-form {
+  @include gridle_state (max-tablet) {
+    thead tr {
+      position: absolute;
+      top: -9999px!important;
+      left: -9999px!important;
+    }
+    tbody tr {
+      border-bottom: 10px solid white;
+    }
+  }
+  @include gridle_state (min-desk) {
+    th {
+      height: 100px;
+      white-space: nowrap;
+      div {
+        transform:
+        translate(7px, 51px)
+        rotate(315deg);
+        width: 30px;
+      }
+      span {
+        padding: 5px 10px 5px 40px;
+        border-top: 1px solid #ccc;
+        width: 140px;
+        display: inline-block;
+      }
+      br {
+        content: "&nbsp;";
+        width: 5px;
+        display: inline-block;
+      }
+    }
+    td {
+      padding: $padding/2;
+      &[data-before="aantal"],
+      &[data-before="standaard T"],
+      &[data-before="T standard"],
+      &[data-before="nombre"] {
+        width: 40px;
+      }
+      &[data-before="breedte(mm)"],
+      &[data-before="hoogte(mm)"],
+      &[data-before="largeur(mm)"],
+      &[data-before="hauteur(mm)"],
+      &[data-before="T1"],
+      &[data-before="T2"],
+      &[data-before="T3"],
+      &[data-before="lengterails"],
+      &[data-before="lgrails"] {
+        width: 60px;
+      }
+    }
+  }
+}
+
+
+// page user
+
+.page-user-orders .sticky-table {
+  tr {
+    border-bottom: none;
+    &.even {
+      background-color: $lightblue;
+    }
+    td {
+      vertical-align: middle;
+    }
+    @include gridle_state (min-full) {
+      &:nth-child(odd) {
+        font-weight: bold;
+      }
+    }
+  }
+  @include gridle_state (max-desk) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+    caption {
+      display: block;
+    }
+    td {
+      position: relative;
+      padding-left: 50%;
+      height: 32px;
+      line-height: 32px;
+      text-align: right;
+    }
+    td:before {
+      position: absolute;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      content: attr(data-before);
+      font-weight: 700;
+      text-align: left;
+    }
+    tr:nth-child(odd) {
+      font-weight: bold;
+      td {
+        padding-left: 6px;
+        height: 42px;
+        text-align: left;
+        padding-top: 8px;
+      }
+      td:before {
+        content: "";
+      }
+    }
+  }
+}
+
+// FENEKO-ORDERS
+
+.page-user-feneko-orders {
+  .container-inline-date .date-padding {
+    float: none;
+  }
+  @include gridle_state (max-desk) {
+    .sticky-header {
+      position: absolute;
+      top: -9999px!important;
+      left: -9999px!important;
+    }
+  }
+  .sticky-table {
+    border-collapse: collapse;
+    thead {
+      font-size: 12px;
+      text-align: center;
+      border-bottom: 10px solid $white;
+    }
+    tr {
+      &:nth-child(odd) {
+        td {
+          text-align: left;
+          &:before {
+            content: "";
+          }
+        }
+      }
+    }
+    @include gridle_state(max-tablet) {
+      tr {
+        border: none;
+        &:nth-child(odd) {
+          padding: 20px 0 0 0;
+          background-color: transparent;
+          font-size: 18px;
+          color: $blue;
+          border-bottom: none;
+          td {
+            border-bottom: none;
+            padding-left: 0;
+          }
+        }
+      }
+    }
+    @include gridle_state (min-desk) {
+      tr {
+        &:nth-child(odd) {
+          font-weight: 700;
+          background-color: transparent;
+          td {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+    @include gridle_state(min-full) {
+      tr:nth-child(odd) {
+        td:nth-child(1) {
+          width: 100px;
+          padding-top: 20px;
+        }
+      }
+    }
+  }
+}
+
+.view-commerce-backoffice-user-orders,
+.page-user-feneko-orders .sticky-table {
+  @include gridle_state(max-tablet) {
+    thead {
+      margin-bottom: 20px;
+      tr {
+        div {
+          font-size: 0;
+        }
+        span {
+          font-size: 0;
+          a {
+            font-size: 16px;
+            width: 100%;
+            border-bottom: 2px solid $blue;
+            padding: 5px 0;
+            display: block;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+#feneko-code-orders-form {
+  .help {
+            &:before {
+              font-size: 25px;
+            }
+          }
+}
+
+.view-commerce-backoffice-user-orders {
+  table {
+    border-spacing: 0 10px;
+  }
+}
+
+th.active img {
+  @include gridle_state(max-tablet) {
+    float: right;
+  }
+
+}
+
+// CART & CHECKOUT
+
+.page-cart,
+.page-checkout {
+  @include gridle_state(max-tablet) {
+    .view-content {
+      th,
+      td {
+        display: inline-block;
+        width: 20%;
+        float: left;
+      }
+      .views-field-detail {
+        width: 100%;
+        border-bottom: 1px solid $black;
+      }
+      thead {
+        display: none;
+      }
+    }
+  }
+}
+
+#commerce-checkout-form-checkout,
+.page-checkout {
+  tr {
+    &.even,
+    &.odd {
+      &.pane-title {
+        font-size: 24px;
+      }
+      &.pane-title td {
+        padding-left: 0;
+      }
+    }
+  }
+  .checkout-review {
+    tr {
+      &.even,
+      &.odd {
+        background-color: transparent;
+      }
+      &.even,
+      &.odd {
+        tr {
+          background-color: $lightgrey;
+        }
+      }
+      &.even,
+      &.odd {
+        thead tr {
+          background-color: transparent;
+        }
+      }
+    }
+    .pane-data-full {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.page-checkout-review {
+  @include gridle_state(max-tablet) {
+    .views-table {
+      td {
+        width: 30%;
+        &.views-field-detail {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.view-feneko-calculator-line-items,
+.view-commerce-backoffice-user-orders {
+  table {
+    tbody {
+      tr {
+        background-color: $lightgrey;
+      }
+    }
+  }
+}
+
+.view-feneko-calculator-line-items {
+  table {
+    thead {
+      border: none;
+    }
+    tbody {
+      tr {
+        td {
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
+
+.commerce-price-formatted-components {
+  border-spacing: 0 0.3em;
+  .commerce-order-handler-area-order-total & {
+    width: 100%;
+  }
+}
