@@ -138,6 +138,10 @@
 
     $(".front.fr .node-info-pagina a").attr("href", "/fr/about");
 
+    $('.ck-check').each(function() {
+      $(this).next().not('[class=ck-check]').prev().addClass('last-check');
+    });
+
 
   });
 })(jQuery);

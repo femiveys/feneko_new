@@ -260,6 +260,14 @@ function feneko_structure_node_info() {
       'title_label' => t('Titel'),
       'help' => '',
     ),
+    'banner' => array(
+      'name' => t('Banner'),
+      'base' => 'node_content',
+      'description' => t('Geef hier een banner in die in de header getoond zal worden.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'info_pagina' => array(
       'name' => t('Info pagina'),
       'base' => 'node_content',

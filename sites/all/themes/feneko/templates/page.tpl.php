@@ -1,72 +1,56 @@
 <div id="mobile-header">
-
-<div id="menu-small" class="small-block first">
-  <div class="inner-wrapper">
-    <i class="fa fa-bars menu-icon"></i>
-      menu
+  <div id="menu-small" class="small-block first">
+    <div class="inner-wrapper">
+      <i class="fa fa-bars menu-icon"></i> menu
+    </div>
+  </div><!--menu-small-->
+  <div id="logo-small" class="small-block blocklink">
+    <div class="inner-wrapper">
+      <a href="<?php print $front_page; ?>"><div class="feneko_logo"><span class="feneko_fenek">F</span><span class="feneko_o">O</span></div></a>
+    </div>
+  </div><!--logo-small-->
+  <div id="user-small" class="small-block blocklink">
+    <div class="inner-wrapper">
+      <a href="/user">login <i class="fa fa-user"></i></a>
+    </div>
+  </div><!--menu-small-->
+  <div id="cart-small" class="small-block">
+    <div class="inner-wrapper">
+      Shopping cart <i class="fa fa-shopping-cart"></i>
+    </div>
+  </div><!--menu-small-->
+  <!--
+  <div id="search-small" class="small-block last">
+    <div class="inner-wrapper">
+      <i class="fa fa-search"></i>search
+    </div>
   </div>
-</div><!--menu-small-->
-
-<div id="logo-small" class="small-block blocklink">
-  <div class="inner-wrapper">
-    <a href="<?php print $front_page; ?>"><div class="feneko_logo"><span class="feneko_fenek">F</span><span class="feneko_o">O</span></div></a>
-  </div>
-</div><!--logo-small-->
-
-<div id="user-small" class="small-block blocklink">
-  <div class="inner-wrapper">
-    <a href="/user">
-      login
-    <i class="fa fa-user"></i>
-  </a>
-  </div>
-</div><!--menu-small-->
-
-<div id="cart-small" class="small-block">
-  <div class="inner-wrapper">
-      Shopping cart
-    <i class="fa fa-shopping-cart"></i>
-  </div>
-</div><!--menu-small-->
-
-<!--
-<div id="search-small" class="small-block last">
-  <div class="inner-wrapper">
-    <i class="fa fa-search"></i>
-      search
-  </div>
-</div>
-
--->
-
-
+  -->
 </div><!--mobile-header-->
 
 <?php if ($page['user_menu']): ?>
   <div id="usermenu-wrapper" class="wrapper">
     <div class="inner-wrapper">
-
       <div id="user-menu">
         <?php print render($page['user_menu']); ?>
       </div>
-
     </div> <!-- .inner-wrapper -->
   </div> <!-- #usermenu-wrapper -->
 <?php endif; ?>
 
 <div id="header-wrapper" class="wrapper">
   <div class="inner-wrapper">
-
     <h2 class="logo"><a href="<?php print $front_page; ?>"><div class="feneko_logo"><span class="feneko_fenek">Fenek</span><span class="feneko_o">O</span></div></a></h2>
-
     <?php if ($site_name): ?>
     <h1 id="site-name">
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
     </h1>
     <?php endif; ?>
-
     <?php if ($page['header']): ?>
       <?php print render($page['header']); ?>
+    <?php endif; ?>
+    <?php if ($page['banner']): ?>
+      <?php print render($page['banner']); ?>
     <?php endif; ?>
   </div> <!-- .inner-wrapper -->
 </div> <!-- #header-wrapper -->
@@ -96,18 +80,21 @@
   </div> <!-- #breadcrumb-wrapper -->
 <?php endif; ?>
 
-
 <?php if ($page['cover']): ?>
   <div id="cover-wrapper" class="wrapper">
       <?php print render($page['cover']); ?>
   </div> <!-- #cover-wrapper -->
 <?php endif; ?>
 
+<?php if ($page['banner']): ?>
+  <div class="hide-desk">
+    <?php print render($page['banner']); ?>
+  </div>
+<?php endif; ?>
 
-  <?php if ($action_links): ?>
-      <ul class="action-links"><?php print render($action_links); ?></ul>
-  <?php endif; ?>
-
+<?php if ($action_links): ?>
+  <ul class="action-links"><?php print render($action_links); ?></ul>
+<?php endif; ?>
 
 
 <div id="main-wrapper" class="wrapper">
@@ -147,8 +134,6 @@
       <?php print render($page['content']); ?>
 
     </div> <!-- /.div, /#content -->
-
-
 
     <?php if ($page['sidebar_second']): ?>
       <?php print render($page['sidebar_second']); ?>

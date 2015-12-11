@@ -14,6 +14,7 @@ tbody {
 
 th {
   border-bottom: none;
+  padding-right: 5px;
 }
 
 tr {
@@ -151,6 +152,20 @@ td.active {
       white-space: nowrap;
       content: attr(data-before);
       font-weight: 700;
+    }
+  }
+}
+
+.page-user-feneko-orders .sticky-table,
+.view-commerce-backoffice-user-orders {
+  thead {
+    background-color: $blue;
+    color: $white;
+    th {
+      padding: 5px;
+    }
+    a {
+      color: $white;
     }
   }
 }
@@ -368,10 +383,11 @@ td.active {
 
 #feneko-code-orders-form {
   .help {
-            &:before {
-              font-size: 25px;
-            }
-          }
+    &:before {
+      font-size: 25px;
+      color: $white;
+    }
+  }
 }
 
 .view-commerce-backoffice-user-orders {

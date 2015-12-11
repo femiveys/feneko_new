@@ -322,6 +322,12 @@ div.messages {
   clear: both;
 }
 
+.page-cart-init {
+  #main-wrapper {
+    overflow: visible;
+  }
+}
+
 #sidebar_second {
   h1 {
     font-size: 20px;
@@ -464,11 +470,24 @@ div.messages {
   }
 }
 
+#region-banner {
+  .hide-desk & {
+    margin-top: 120px;
+    text-align: center;
+    .front & {
+      margin-top: 20px;
+    }
+    img {
+      margin: auto;
+    }
+  }
+}
+
 #cover-wrapper {
   position: relative;
   clear: both;
   @include gridle_state (max-tablet) {
-    top: 60px;
+    margin-top: 60px;
   }
   img {
     width: 100%;
@@ -561,6 +580,7 @@ div.messages {
   background-color: $darkgrey;
   color: $white;
   padding: 30px 0 60px;
+  clear: both;
   @include gridle_state (max-tablet) {
     text-align: center;
     padding-top: 0;
@@ -2116,5 +2136,8 @@ div.contextual-links-wrapper {
     clear: both;
     padding-right: $padding;
     color: $green;
+  }
+  &.last-check {
+    margin-bottom: 20px;
   }
 }
