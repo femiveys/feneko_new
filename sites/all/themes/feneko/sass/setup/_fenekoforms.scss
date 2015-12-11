@@ -3,7 +3,10 @@ input {
 }
 
 #autocomplete {
-  z-index: 999;
+  z-index: 999!important;
+  ul {
+    z-index: 999!important;
+  }
 }
 
 input[title="Hoeveelheid"] {
@@ -197,8 +200,8 @@ form.commerce-add-to-cart {
 
 .line-item-details {
   .field {
-    border-bottom: 2px solid $white;
-    padding: 3px 0;
+    border-bottom: 1px solid $white;
+    padding: 4px 0;
     &:nth-last-child(1) {
       border-bottom: none;
     }

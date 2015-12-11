@@ -127,7 +127,11 @@
     });
 
     $('.view-feneko-shopping-cart-block .node-header').click(function() {
-      $('.view-total').toggle();
+      $('.view-feneko-shopping-cart-block .view-total').toggle();
+    });
+
+    $('.view-feneko-shopping-cart-block .title').click(function() {
+      $(this).toggleClass('toggle');
     });
 
     $(".front.nl .node-info-pagina a").attr("href", "/nl/about");

@@ -164,6 +164,29 @@ h3 a,
   text-decoration: none;
 }
 
+/* LOGO
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
+
+.logo {
+  @include gridle_state (max-tablet) {
+    display: none;
+  }
+}
+
+.feneko_fenek,
+.feneko_o {
+  font-family: georgia, serif;
+  font-size: 40px;
+}
+
+.feneko_fenek {
+  color: $black;
+}
+
+.feneko_o {
+  color: $blue;
+}
+
 /* IMG
 ><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
@@ -279,24 +302,29 @@ div.messages {
   clear: both;
 }
 
-.logo {
-  @include gridle_state (max-tablet) {
+#shoppingcart {
+  @include gridle_state(max-tablet) {
+    position: fixed;
+    top: 100px;
+    z-index: 98;
+    width: 100%;
+    right: 0;
     display: none;
+    &.show {
+      display: block;
+    }
+    .inner-wrapper {
+      max-width: 95%;
+    }
+    .node-header {
+      display: none;
+    }
+    .view-total {
+      display: block;
+      right: 0;
+      width: 100%;
+    }
   }
-}
-
-.feneko_fenek,
-.feneko_o {
-  font-family: georgia, serif;
-  font-size: 40px;
-}
-
-.feneko_fenek {
-  color: $black;
-}
-
-.feneko_o {
-  color: $blue;
 }
 
 /* FRONT REGIONS
@@ -1332,7 +1360,6 @@ $contact: #f7941d;
 ><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
 
-
 .not-front .view-main-categories {
   .view-grouping {
     clear: both;
@@ -1344,11 +1371,9 @@ $contact: #f7941d;
   }
   .catalog {
     float: right;
-    //margin-top: 30px;
   }
   img {
     margin-right: $padding;
-    border: 2px solid $blue;
     display: block;
     width: 90%;
   }

@@ -1,54 +1,69 @@
-// SHOPPING CART
+// SHOPPING CART BLOCK - for page see 'tabellen'
 
 // .view-feneko-shopping-cart-block - block
-// .view-commerce-cart-form-feneko - page
 
-//BOTH BLOCK & FORM
-
-.view-feneko-shopping-cart-block,
-.view-commerce-cart-form-feneko, {
-  tr {
-    &.even,
-    &.odd {
-      border: none;
-      color: $black;
-      &.pane-title {
-        background-color: transparent;
-        font-size: 24px;
-        color: $orange;
-      }
-      &.pane-title td {
-        padding-left: 0;
-        padding-top: 20px;
-        padding-bottom: 10px;
-      }
-      &.pane-data td {
-        padding: 10px;
-      }
-    }
+.view-feneko-shopping-cart-block {
+  cursor: default;
+  .view-content tr,
+  .line-item-summary-view-cart {
+    min-height: 40px;
+    display: block;
   }
-  .checkout-review {
+  .view-total {
+    display: none;
+    background-color: $blue;
+    padding: 15px;
+    position: absolute;
+    z-index: 10;
     tr {
-      &.even,
-      &.odd {
-        background-color: transparent;
-      }
-      &.even,
-      &.odd {
-        tr {
-          background-color: $lightgrey;
-        }
-      }
-      &.even,
-      &.odd {
-        thead tr {
-          background-color: transparent;
-        }
-      }
+      cursor: pointer;
+      display: inline-table;
+      width: 100%;
     }
   }
   td {
-    font-weight: bold;
+    &.views-field-quantity {
+      width: 15%;
+    }
+    &.views-field-type-1 {
+      width: 55%;
+    }
+    &.views-field-commerce-total {
+      width: 30%;
+    }
+  }
+  .view-footer {
+    color: white;
+    font-size: 1.5em;
+    margin-top: 20px;
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+  .detail {
+    font-weight: normal;
+    font-size: 0.8em;
+    line-height: 150%;
+  }
+  .line-item-summary-view-cart {
+    width: 100%;
+    background-color: $yellow;
+    color: $blue;
+    cursor: pointer;
+    margin-top: 20px;
+    a {
+      color: $blue;
+      display: block;
+      padding: 5px;
+      text-align: center;
+    }
+    &:hover {
+      background-color: $orange;
+    }
+  }
+  .node-header {
+    cursor: pointer;
   }
   .node-header h1,
   .line-item-summary-view-cart  {
@@ -58,7 +73,6 @@
       content: "\f07a";
       display: inline-block;
       font: normal normal normal 14px/1 FontAwesome;
-      font-size: inherit;
       text-rendering: auto;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -69,30 +83,6 @@
       padding: 5px;
     }
   }
-  .node-header {
-    cursor: pointer;
-  }
-  input[type="submit"] {
-    &#edit-submit,
-    &#edit-submit--2,
-    &.checkout-cancel {
-      background: transparent;
-      text-decoration: underline;
-      color: $blue;
-      &:hover {
-        color: $lightblue;
-      }
-    }
-  }
-}
-
-.view-feneko-shopping-cart-block {
-  cursor: default;
-  ul.inline,
-  ul.links.inline {
-    display: block;
-    margin-top: 1em;
-  }
   .node-header h1 {
     color: $white;
     font-size: 14px;
@@ -101,6 +91,9 @@
     font-weight: normal;
     margin: 0;
     margin-top: -40px;
+    @include gridle_state (only-desk) {
+      font-size: 0;
+    }
     &:before {
       font-size: 16px;
       padding: 0 0 0 10px;
@@ -113,158 +106,27 @@
         padding: 5px 0 0 0;
       }
     }
-    &:hover {
-      color: $lightblue;
-    }
-    @include gridle_state (only-desk) {
-      font-size: 0;
-    }
   }
-  th {
-    padding: $padding;
-  }
-  tr {
-    &.even,
-    &.odd {
-      background-color: $lightgrey;
-      border: none;
-      color: $black;
-    }
+  .title {
+    display: table;
     &:after {
-      content: "\f0d7";
+      content: "\f053";
       display: inline-block;
       font: normal normal normal 14px/1 FontAwesome;
       text-rendering: auto;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       transform: translate(0, 0);
-      float: left;
-      font-size: 1em;
+      float: right;
+      font-size: 14px;
       clear: both;
-      padding: $padding;
+      padding-left: $padding;
+      color: $grey;
     }
-    &.open {
+    &.toggle {
       &:after {
-        content: "\f0d8";
+        content: "\f078";
       }
-    }
-  }
-  td {
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .view-total {
-    display: none;
-    background-color: $blue;
-    padding: $padding;
-    position: absolute;
-    z-index: 10;
-  }
-  .view-footer {
-    color: white;
-    font-size: 1.5em;
-    a {
-      color: $white;
-      text-decoration: none;
-    }
-  }
-  .line-item-summary-view-cart {
-    width: 100%;
-    background-color: $yellow;
-    color: $blue;
-    cursor: pointer;
-    a {
-      color: $blue;
-      display: block;
-      padding: 5px;
-    }
-    &:hover {
-      background-color: $orange;
-    }
-  }
-  .line-item-quantity,
-  .line-item-total {
-  }
-  .views-field-type {
-    padding: $padding 0 $padding $padding;
-    width: 60%;
-  }
-  .views-field-quantity {
-    width: 15%;
-    padding-left: 10px;
-  }
-  .views-field-commerce-total {
-    width: 25%;
-    padding-right: $padding;
-  }
-  .detail {
-    font-weight: normal;
-    font-size: 0.8em;
-    line-height: 150%;
-  }
-}
-
-#shoppingcart {
-  @include gridle_state(max-tablet) {
-    position: fixed;
-    top: 100px;
-    z-index: 98;
-    width: 100%;
-    right: 0;
-    display: none;
-    &.show {
-      display: block;
-    }
-    .inner-wrapper {
-      max-width: 95%;
-    }
-    .node-header {
-      display: none;
-    }
-    .view-total {
-      display: block;
-      right: 0;
-      width: 100%;
-    }
-  }
-  @include gridle_state (min-desk) {
-
-    // HERDOEN
-
-    &.fix {
-      position: relative;
-      .view-total {
-        position: fixed;
-        left: 50%;
-        top: 59px;
-        .admin-menu & {
-          top: 89px;
-        }
-        transform: translateX(-41%);
-        @include gridle_state (only-desk) {
-          left: 49%;
-          transform: translateX(-32%);
-          width: 60%;
-        }
-        @include gridle_state (only-full) {
-          left: 63.5%;
-          transform: translateX(-44%);
-          width: 47%;
-        }
-        @include gridle_state (min-retina) {
-          left: 64.4%;
-          transform: translateX(-45%);
-          width: 46.6%;
-        }
-      }
-    }
-  }
-}
-
-.view-commerce-cart-form-feneko {
-  .views-field-detail {
-    @include gridle_state(min-desk) {
-      float: left;
     }
   }
 }
