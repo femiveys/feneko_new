@@ -110,18 +110,16 @@ if($teaser) array_push($classes,"product-teaser", "teaser-rij");
           <a class="hide-mobile" href="<?php print $flipperUrl; ?>" target="_blank"><?php print $catName; ?></a>
           <a class="hide-desk" href="<?php print $pdfUrl; ?>" target="_blank"><?php print $catName; ?></a>
         </div>
+        <div class="field-name-field-orderable-products">
+          <?php if($product_grandparent == 'screens') : print(feneko_order_urls($node_url, $title)); endif; ?>
+          <?php print render($content['field_orderable_products']); ?>
+        </div><!--.field-name-field-orderable-products -->
       <?php endif; ?>
       <div class="open-img">
         <?php print t('bekijk afbeeldingen'); ?>
         <i class="fa fa-arrow-circle-o-down"></i>
       </div>
       <?php print render($content['field_images']); ?>
-      <?php if($logged_in) : ?>
-        <div class="field-name-field-orderable-products">
-          <?php if($product_grandparent == 'screens') : print(feneko_order_urls($node_url, $title)); endif; ?>
-          <?php print render($content['field_orderable_products']); ?>
-        </div><!--.field-name-field-orderable-products -->
-      <?php endif; ?>
     </div><!--.first-col-->
     <div class="second-col">
       <?php print render($content['body']);?>
