@@ -104,13 +104,6 @@
       @include gridle_no_gutter();
     }
   }
-  &.logged-in  {
-    aside#sidebar_second {
-      @include gridle_state (min-full) {
-        //margin-top: 145px;
-      }
-    }
-  }
 }
 
 .node-type-product #sidebar_second {

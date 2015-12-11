@@ -2082,6 +2082,10 @@ input[title="Hoeveelheid"] {
   background-color: #e6e6e6;
 }
 
+#fc-cart-init-form {
+  margin-bottom: 30px;
+}
+
 #commerce-checkout-form-checkout .node-header h1,
 #commerce-checkout-form-checkout .line-item-summary-view-cart,
 .page-checkout .node-header h1,
@@ -2495,7 +2499,7 @@ html.js fieldset.collapsed {
   display: table;
 }
 .view-feneko-shopping-cart-block .title:after {
-  content: "\f053";
+  content: "\f054";
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   text-rendering: auto;
@@ -3637,7 +3641,6 @@ div.messages.error {
   font-kerning: auto;
   font-synthesis: weight style;
   font-variant: normal;
-  font-size: inherit;
   text-rendering: auto;
   -moz-osx-font-smoothing: grayscale;
   transform: translate(0px, 0px);
@@ -3718,7 +3721,6 @@ div.messages.error {
   content: "\f0da";
   display: inline-block;
   font: normal normal normal 20px/1 FontAwesome;
-  font-size: inherit;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -3737,7 +3739,6 @@ div.messages.error {
   content: "\f0d7";
   display: inline-block;
   font: normal normal normal 20px/1 FontAwesome;
-  font-size: inherit;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

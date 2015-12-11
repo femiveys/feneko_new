@@ -97,6 +97,10 @@ if($teaser) array_push($classes,"product-teaser", "teaser-rij");
 
   <?php print render($title_suffix); ?>
   <?php if($page) : ?>
+
+  <div class="breadcrumb">
+  </div>
+
     <div class="first-col">
       <?php if($logged_in) : ?>
         <?php
