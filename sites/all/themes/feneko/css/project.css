@@ -2082,6 +2082,10 @@ input[title="Hoeveelheid"] {
   background-color: #e6e6e6;
 }
 
+#fc-cart-init-form {
+  margin-bottom: 30px;
+}
+
 #commerce-checkout-form-checkout .node-header h1,
 #commerce-checkout-form-checkout .line-item-summary-view-cart,
 .page-checkout .node-header h1,

@@ -49,7 +49,7 @@
     <?php if ($page['header']): ?>
       <?php print render($page['header']); ?>
     <?php endif; ?>
-    <?php if ($page['banner']): ?>
+    <?php if ($page['banner'] && $is_front): ?>
       <?php print render($page['banner']); ?>
     <?php endif; ?>
   </div> <!-- .inner-wrapper -->
@@ -86,7 +86,7 @@
   </div> <!-- #cover-wrapper -->
 <?php endif; ?>
 
-<?php if ($page['banner']): ?>
+<?php if ($page['banner'] && $is_front): ?>
   <div class="hide-desk">
     <?php print render($page['banner']); ?>
   </div>
