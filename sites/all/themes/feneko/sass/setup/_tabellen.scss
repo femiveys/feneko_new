@@ -156,6 +156,20 @@ td.active {
   }
 }
 
+.page-user-feneko-orders .sticky-table,
+.view-commerce-backoffice-user-orders {
+  thead {
+    background-color: $blue;
+    color: $white;
+    th {
+      padding: 5px;
+    }
+    a {
+      color: $white;
+    }
+  }
+}
+
 #manyforms-form {
   @include gridle_state (max-tablet) {
     thead tr {

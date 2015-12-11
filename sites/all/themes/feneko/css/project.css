@@ -1749,6 +1749,20 @@ td.active {
   }
 }
 
+.page-user-feneko-orders .sticky-table thead,
+.view-commerce-backoffice-user-orders thead {
+  background-color: #295D8F;
+  color: #ffffff;
+}
+.page-user-feneko-orders .sticky-table thead th,
+.view-commerce-backoffice-user-orders thead th {
+  padding: 5px;
+}
+.page-user-feneko-orders .sticky-table thead a,
+.view-commerce-backoffice-user-orders thead a {
+  color: #ffffff;
+}
+
 @media screen and (max-width: 850px) {
   #manyforms-form thead tr {
     position: absolute;

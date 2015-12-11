@@ -106,14 +106,14 @@ if($teaser) array_push($classes,"product-teaser", "teaser-rij");
           $pdfUrl = "/sites/default/files/pdfs/screens_$lang.pdf";
           $catName = t('Catalog');
         ?>
-        <div class="catalog">
-          <a class="hide-mobile" href="<?php print $flipperUrl; ?>" target="_blank"><?php print $catName; ?></a>
-          <a class="hide-desk" href="<?php print $pdfUrl; ?>" target="_blank"><?php print $catName; ?></a>
-        </div>
         <div class="field-name-field-orderable-products">
           <?php if($product_grandparent == 'screens') : print(feneko_order_urls($node_url, $title)); endif; ?>
           <?php print render($content['field_orderable_products']); ?>
         </div><!--.field-name-field-orderable-products -->
+        <div class="catalog">
+          <a class="hide-mobile" href="<?php print $flipperUrl; ?>" target="_blank"><?php print $catName; ?></a>
+          <a class="hide-desk" href="<?php print $pdfUrl; ?>" target="_blank"><?php print $catName; ?></a>
+        </div>
       <?php endif; ?>
       <div class="open-img">
         <?php print t('bekijk afbeeldingen'); ?>
