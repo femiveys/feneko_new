@@ -68,7 +68,6 @@
         $('.cloned').css('left',leftOrgElement+'px').css('top',0).css('width',widthOrgElement).show();
         $('.original').css('visibility','hidden');
         $('#shoppingcart').addClass('fix');
-        //$('.view-feneko-shopping-cart-block').clone().insertAfter('.cloned');
       } else {
         // not scrolled past the menu; only show the original menu.
         $('.cloned').hide();
@@ -77,7 +76,6 @@
 
       }
     }
-
 
 
     // mobile menu
@@ -98,7 +96,6 @@
     // mobile search
     $('#cart-small').click(function() {
       $('#shoppingcart').toggleClass('show');
-      //$('#main_menu.show').removeClass('show');
       $('#mainmenu-wrapper.show').removeClass('show');
     });
 
