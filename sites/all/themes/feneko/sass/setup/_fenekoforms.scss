@@ -2,59 +2,22 @@ input {
   width: auto;
 }
 
+#autocomplete {
+  z-index: 999;
+}
+
+input[title="Hoeveelheid"] {
+  width: 50px;
+  text-align: right;
+}
+
+
 .form-disabled input {
   background-color: $lightgrey;
 }
 
 #commerce-checkout-form-checkout,
 .page-checkout {
-  table {
-    width: 100%;
-  }
-  tr {
-    &.even,
-    &.odd {
-      background-color: $lightgrey;
-      border: none;
-      color: $black;
-      &.pane-title {
-        background-color: transparent;
-        font-size: 24px;
-        color: $orange;
-      }
-      &.pane-title td {
-        padding-left: 0;
-        padding-top: 20px;
-        padding-bottom: 10px;
-      }
-      &.pane-data td {
-        padding: 10px;
-      }
-    }
-  }
-  .checkout-review {
-    tr {
-      &.even,
-      &.odd {
-        background-color: transparent;
-      }
-      &.even,
-      &.odd {
-        tr {
-          background-color: $lightgrey;
-        }
-      }
-      &.even,
-      &.odd {
-        thead tr {
-          background-color: transparent;
-        }
-      }
-    }
-  }
-  td {
-    font-weight: bold;
-  }
   .node-header h1,
   .line-item-summary-view-cart  {
     position: relative;
@@ -74,9 +37,6 @@ input {
       padding: 5px;
     }
   }
-  .node-header h1 {
-
-  }
   .node-header {
     cursor: pointer;
   }
@@ -91,6 +51,17 @@ input {
         color: $lightblue;
       }
     }
+  }
+}
+
+.checkout-buttons,
+.commerce-line-item-actions {
+  border: 1px solid $darkgrey;
+  float: right;
+  padding: 10px;
+  input[type="submit"] {
+    padding: 5px 10px;
+    margin-left: 10px;
   }
 }
 
@@ -136,6 +107,12 @@ form.commerce-add-to-cart {
     margin-top: 0;
   }
 }
+
+@include gridle_state (min-desk) {
+    #edit-dierendeur-dep {
+      clear: both;
+    }
+  }
 
 #edit-dierendeur-dep {
   .form-item {
@@ -215,19 +192,171 @@ form.commerce-add-to-cart {
     float: left;
     font-size: 18px;
   }
-  @include gridle_state (min-desk) {
-    #edit-dierendeur-dep {
-      clear: both;
-    }
-  }
+
 }
 
 .line-item-details {
+  .field {
+    border-bottom: 2px solid $white;
+    padding: 3px 0;
+    &:nth-last-child(1) {
+      border-bottom: none;
+    }
+  }
   .field-label {
     width: 200px;
   }
   ul {
     padding: 0;
     list-style-type: none;
+  }
+}
+
+.page-user-retour {
+  #main-wrapper {
+    .field,
+    .form-item {
+      border-bottom: none;
+    }
+    .form-radios {
+      clear: both;
+    }
+    .form-type-radio {
+      float: left;
+      margin-right: 10px;
+    }
+    label {
+      min-width: 80px;
+      width: auto;
+    }
+  }
+}
+
+.filters {
+  .form-item {
+    border-bottom: none;
+  }
+  .fieldset-wrapper {
+    > div.actions {
+      clear: both;
+      margin-top: 20px;
+    }
+    @include gridle_state(max-tablet) {
+      > div {
+        clear: both;
+        width: 100%;
+        border: none;
+        border-left: none!important;
+        border-right: none!important;
+        &:nth-child(2),
+        &:nth-child(3) {
+          padding-left: 0;
+        }
+      }
+      .container-inline-date {
+        padding-left: 0;
+      }
+    }
+    @include gridle_state(only-mobile-land only-tablet) {
+      > div {
+        &.container-inline-date {
+          width: 50%;
+        }
+      }
+    }
+    @include gridle_state(min-desk) {
+      > div {
+        &.container-inline-date {
+          width: 23%;
+        }
+      }
+    }
+  }
+}
+
+.container-inline-date .date-padding {
+  float: none;
+}
+
+#edit-filter-ref {
+  width: 90%;
+}
+
+.page-user-feneko-orders {
+  .filters {
+    padding: 0;
+    .fieldset-wrapper {
+      margin-top: 30px;
+      > div {
+        &:nth-child(2),
+        &:nth-child(3) {
+          padding-left: 0;
+          border-left: none;
+          border-right: none;
+        }
+      }
+    }
+  }
+}
+
+html.js {
+  fieldset {
+    &.collapsible {
+      margin-top: 20px;
+    }
+    &.collapsed {
+      height: 3em;
+    }
+  }
+}
+
+.view-commerce-cart-form-feneko {
+  .views-field-detail {
+    @include gridle_state(min-desk) {
+      float: left;
+    }
+  }
+}
+
+.view-commerce-cart-form-feneko {
+  input[type="submit"].delete-line-item {
+    background-color: transparent;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+  td .delete-line-item  {
+    font-size: 0!important;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 50%;
+  }
+  td.views-field-edit-delete {
+    font: normal normal normal 14px/1 FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    font-size: 0;
+  }
+  td.views-field-edit-delete:before {
+    content: "\f00d";
+    font-size: 30px;
+    color: white;
+    line-height: 38px;
+    display: block;
+    margin-bottom: -40px;
+    margin-left: 0px;
+    z-index: -1;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: block;
+    background-color: $red;
+    text-align: center;
+  }
+  td.views-field-edit-delete:hover:before {
+    background-color: darken($red, 15%);
   }
 }

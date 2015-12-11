@@ -161,16 +161,12 @@
     z-index: 10;
   }
   .view-footer {
-    padding: $padding;
     color: white;
     font-size: 1.5em;
     a {
       color: $white;
       text-decoration: none;
     }
-  }
-  .views-field-type-1 {
-    padding: 10px 0;
   }
   .line-item-summary-view-cart {
     width: 100%;
@@ -188,7 +184,6 @@
   }
   .line-item-quantity,
   .line-item-total {
-    padding: 0 $padding;
   }
   .views-field-type {
     padding: $padding 0 $padding $padding;
@@ -233,6 +228,9 @@
     }
   }
   @include gridle_state (min-desk) {
+
+    // HERDOEN
+
     &.fix {
       position: relative;
       .view-total {
@@ -263,45 +261,10 @@
   }
 }
 
-
 .view-commerce-cart-form-feneko {
   .views-field-detail {
     @include gridle_state(min-desk) {
       float: left;
     }
-  }
-  td .delete-line-item  {
-    font-size: 0!important;
-    width: 40px;
-    height: 40px;
-    background-color: transparent;
-    border-radius: 50%;
-  }
-  td.views-field-edit-delete {
-    font: normal normal normal 14px/1 FontAwesome;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transform: translate(0, 0);
-    font-size: 0;
-  }
-  td.views-field-edit-delete:before {
-    content: "\f00d";
-    font-size: 30px;
-    color: white;
-    line-height: 38px;
-    display: block;
-    margin-bottom: -40px;
-    margin-left: 0px;
-    z-index: -1;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: block;
-    background-color: $red;
-    text-align: center;
-  }
-  td.views-field-edit-delete:hover:before {
-    background-color: darken($red, 15%);
   }
 }

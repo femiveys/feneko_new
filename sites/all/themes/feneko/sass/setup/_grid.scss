@@ -195,6 +195,7 @@
     }
   }
   .node-type-product & {
+    @include gridle_no_gutter ();
     @include gridle_state (only-mobile-land) {
       @include gridle_grid (12);
       @include gridle_no_gutter ();
@@ -202,9 +203,6 @@
     @include gridle_state(min-full) {
       @include gridle_grid (3.5);
       @include gridle_no_gutter();
-    }
-    @include gridle_state (only-mobile-land) {
-      padding-right: 20px;
     }
     @include gridle_state(min-tablet) {
       padding-right: 20px;
@@ -320,5 +318,59 @@
   @include gridle_no_gutter;
   @include gridle_state(min-desk) {
     @include gridle_grid (6);
+  }
+}
+
+
+.not-front .view-main-categories {
+  .view-grouping-content {
+    .view-grouping-header {
+      @include gridle_state (only-mobile-port) {
+        @include gridle_grid(6);
+        margin: 0 auto;
+        padding: 0;
+      }
+      @include gridle_state (only-mobile-land) {
+        @include gridle_grid(4);
+        @include gridle_no_gutter(left);
+      }
+      @include gridle_state (only-tablet only-desk) {
+        @include gridle_grid(3);
+        @include gridle_no_gutter(left);
+      }
+      @include gridle_state (min-full) {
+        @include gridle_grid (2);
+        @include gridle_no_gutter(left);
+      }
+    }
+    .view-grouping-content {
+      @include gridle_state (only-mobile-port) {
+        @include gridle_grid(12);
+        margin: 0 auto;
+        padding: 0;
+      }
+      @include gridle_state (only-mobile-land) {
+        @include gridle_grid(8);
+        @include gridle_no_gutter(left);
+      }
+      @include gridle_state (only-tablet only-desk) {
+        @include gridle_grid(8);
+        @include gridle_no_gutter();
+      }
+      @include gridle_state (min-full) {
+        @include gridle_grid(10);
+        @include gridle_no_gutter();
+      }
+    }
+    .rij-product-naam {
+      @include gridle_state (only-tablet only-desk) {
+        @include gridle_grid(5.8);
+        @include gridle_no_gutter();
+      }
+      @include gridle_state (min-full) {
+        @include gridle_grid(3.9);
+        @include gridle_no_gutter();
+      }
+    }
   }
 }

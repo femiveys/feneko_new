@@ -1,3 +1,6 @@
+/* ELEMENTS
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
+
 body {
   color: $black;
   font-family: $textfont;
@@ -25,7 +28,7 @@ p {
   padding: 5px 10px;
   color: $white;
   text-align: center;
-  word-break: break-all;
+  font-weight: 400;
   @include crisp;
   a {
     text-decoration: none;
@@ -45,9 +48,6 @@ input[type="submit"],
   @extend %button;
 }
 
-input[title="Hoeveelheid"] {
-    width: 50px;
-}
 
 li.node-readmore {
   padding: 0!important;
@@ -74,7 +74,12 @@ ul.tabs {
   }
 }
 
-// FILE
+.description {
+  padding-top: 3px;
+}
+
+/* FILE
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
 .field-type-file {
   .field-item {
@@ -108,14 +113,14 @@ ul.tabs {
   }
 }
 
-// TITELS
+/* TITELS
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
 h1,
 h2,
 h1 a,
 h2 a,
 .view-grouping-header {
-  color: $blue;
   font-weight: normal;
   font-weight: bold;
   font-family: $titlefont;
@@ -127,12 +132,15 @@ h1 a,
 #block-menu-menu-waarom-feneko h2 {
   font-size: 36px;
   margin-bottom: 36px;
+  color: $blue;
 }
 
-.view-main-categories {
-  .view-grouping-header {
-    font-size: 26px;
-  }
+h2,
+h2 a,
+.view-grouping-header {
+  color: $darkgrey;
+  font-size: 26px;
+  margin-bottom: 14px;
 }
 
 #sidebar_second {
@@ -145,41 +153,19 @@ h1 a,
   }
 }
 
-.view-grouping-header {
-  margin-bottom: 20px;
-}
-
-.view-grouping-content .view-grouping-header {
-  margin-bottom: 0;
-}
-
-h2 {
-  font-size: 26px;
-  margin-bottom: 14px;
-  .node-type-product & {
-    font-weight: 400;
-    font-size: 22px;
-  }
-}
-
 h3,
 h3 a,
 .fieldset-legend,
 .view-grouping-content .view-grouping-header a {
-  color: $darkgrey;
+  color: $orange;
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 10px;
   text-decoration: none;
 }
 
-.node-info-pagina {
-  h2 {
-    font-size: 36px;
-  }
-}
-
-// IMG
+/* IMG
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
 .node-type-machine {
   #main-content {
@@ -198,7 +184,8 @@ h3 a,
   }
 }
 
-//messages
+/* MESSAGES
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
 div.messages {
   border-radius: 5px;
@@ -216,8 +203,20 @@ div.messages {
   }
 }
 
+/* COLORBOX
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
-// CONTACT INFO
+#cboxPrevious,
+#cboxNext {
+  &:before {
+    text-shadow: 0px 0px 4px $blue;
+    font-size: 32px;
+  }
+}
+
+
+/* CONTACT INFO
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
 .adres {
   border: 1px solid $black;
@@ -248,7 +247,8 @@ div.messages {
   }
 }
 
-// regions
+/* REGIONS
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
 .wrapper {
   overflow: hidden;
@@ -299,7 +299,8 @@ div.messages {
   color: $blue;
 }
 
-// front regions
+/* FRONT REGIONS
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
 #frontblock-wrapper,
 #bottomblock-wrapper,
@@ -506,9 +507,6 @@ div.messages {
   background-color: $darkgrey;
   color: $white;
   padding: 30px 0 60px;
-  article {
-
-  }
   @include gridle_state (max-tablet) {
     text-align: center;
     padding-top: 0;
@@ -634,36 +632,55 @@ div.messages {
   }
 }
 
-#block-menu-menu-footer-menu {
-  @include gridle_state (max-tablet) {
-    background-color: $blue;
-    padding: 40px 0;
-    position: relative;
-    z-index: 0;
-    &:before,
-    &:after {
-      background-color: $blue;
-      content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      height: 100%;
-      z-index: -1;
-    }
-    &:before {
-      margin-left: -9999px;
-      padding-right: 9999px;
-      background-color: $blue;
-    }
-    &:after {
-      margin-right: -9999px;
-      padding-left: 9999px;
-    }
+/* CONTACT
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
+
+.c-l,
+.c-r,
+.view-id-contact {
+  span,
+  .field-name-field-label {
+    font-weight: 700;
+    padding-top: $padding*2;
+  }
+  .fa {
+    clear: both;
+  }
+  .cl {
+    clear: both;
+    margin-bottom: $padding;
+  }
+  .tel,
+  .fax,
+  .btw,
+  .hrb {
+    margin-bottom: $padding*2;
   }
 }
 
+.c-l {
+  @include gridle_state (min-tablet) {
+    float: left;
+    width: 52%;
+  }
+}
 
-// MENU
+.c-r {
+  @include gridle_state (min-tablet) {
+    float: right;
+    width: 42%;
+  }
+}
+
+#map_canvas {
+  height: 300px!important;
+  width: 100%!important;
+  margin-bottom: $padding*2;
+}
+
+
+/* MENUS
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
 @mixin linear-gradient($fromColor, $toColor) {
   background-color: $toColor; /* Fallback Color */
@@ -771,6 +788,67 @@ div.messages {
   display: block;
 }
 
+#block-menu-menu-footer-menu {
+  @include gridle_state (max-tablet) {
+    background-color: $blue;
+    padding: 40px 0;
+    position: relative;
+    z-index: 0;
+    &:before,
+    &:after {
+      background-color: $blue;
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      height: 100%;
+      z-index: -1;
+    }
+    &:before {
+      margin-left: -9999px;
+      padding-right: 9999px;
+      background-color: $blue;
+    }
+    &:after {
+      margin-right: -9999px;
+      padding-left: 9999px;
+    }
+  }
+}
+
+#block-system-user-menu {
+  .menu {
+    li.first {
+      @include gridle_state(min-desk) {
+        a {
+          padding-left: 5px;
+        }
+      }
+    }
+    li.last {
+      a:after {
+        content: "";
+      }
+    }
+  }
+}
+
+#usermenu-wrapper {
+  background-color: $black;
+  color: $white;
+  a {
+    color: $white;
+  }
+  li {
+    @include gridle_state (min-desk){
+      display: inline-block;
+    }
+  }
+}
+
+/* PAGES
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
+
 .node-type-client,
 .page-user {
   #main-wrapper {
@@ -778,7 +856,7 @@ div.messages {
     .form-item {
       margin-bottom: $padding*2;
       padding-bottom: $padding;
-      border-bottom: 1px solid $grey;
+      //border-bottom: 1px solid $grey;
       &:nth-last-child(1),
       &.field-name-field-clients {
         border-bottom: none;
@@ -805,19 +883,18 @@ div.messages {
   &.page-user-retour {
     #block-system-main {
       .field,
-    .form-item {
-      padding-bottom: $padding;
-      border-bottom: none;
+      .form-item {
+        padding-bottom: $padding;
+        border-bottom: none;
+      }
+      .field-label,
+      label {
+        float: none;
+      }
+      .form-item-chauffeur {
+        clear: both;
+      }
     }
-    .field-label,
-    label {
-      float: none;
-    }
-    .form-item-chauffeur {
-      clear: both;
-    }
-    }
-
   }
   .field-name-field-clients {
     > .field-items {
@@ -904,61 +981,8 @@ div.messages {
   }
 }
 
-.page-user-retour {
-  #main-wrapper {
-    .field,
-    .form-item {
-      border-bottom: none;
-    }
-    .form-radios {
-      clear: both;
-    }
-    label {
-      min-width: 80px;
-      width: auto;
-    }
-  }
-}
-
-
-#feneko-code-retours-form {
-  .form-type-radio {
-    float: left;
-    margin-right: 10px;
-  }
-}
-
-#block-system-user-menu {
-  .menu {
-    li.first {
-      @include gridle_state(min-desk) {
-        a {
-          padding-left: 5px;
-        }
-      }
-    }
-    li.last {
-      a:after {
-        content: "";
-      }
-    }
-  }
-}
-
-#usermenu-wrapper {
-  background-color: $black;
-  color: $white;
-  a {
-    color: $white;
-  }
-  li {
-    @include gridle_state (min-desk){
-      display: inline-block;
-    }
-  }
-}
-
-// TOTOP
+/* TOTOP
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
 .totop {
   padding: $padding;
@@ -969,7 +993,8 @@ div.messages {
   bottom: 0;
 }
 
-// small blocks
+/* MOBILE HEADER BLOCKS
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
 #mobile-header {
   position: fixed;
@@ -1023,7 +1048,8 @@ div.messages {
   }
 }
 
-// search
+/* SEARCH
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
 #block-search-form,
 #search-form {
@@ -1069,7 +1095,8 @@ div.messages {
   clear: both;
 }
 
-// language switcher
+/* LANGUAGE SWITCHER
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
 #block-locale-language {
   clear: both;
@@ -1108,7 +1135,8 @@ div.messages {
   }
 }
 
-// social follow
+/* SOCIAL ICONS
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
 $facebook: #3b5998;
 $twitter: #55acee;
@@ -1191,7 +1219,8 @@ $contact: #f7941d;
   }
 }
 
-// rijen
+/* RIJEN
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
 .teaser-rij {
   overflow: hidden;
@@ -1210,6 +1239,12 @@ $contact: #f7941d;
       display: inline-block;
       float: right;
     }
+  }
+}
+
+.categorie-rij {
+  h3 {
+    text-transform: uppercase;
   }
 }
 
@@ -1280,7 +1315,7 @@ $contact: #f7941d;
         clear: both;
       }
       @include gridle_state(min-desk) {
-        float: right;
+        //float: right;
       }
       + * {
         clear: both;
@@ -1290,61 +1325,13 @@ $contact: #f7941d;
   }
 }
 
+/* VIEWS
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
-//view
+/* MAIN CATEGORIES VIEW
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
-.not-front .view-main-categories {
-  .view-grouping-content {
-    .view-grouping-header {
-      @include gridle_state (only-mobile-port) {
-        @include gridle_grid(6);
-        margin: 0 auto;
-        padding: 0;
-      }
-      @include gridle_state (only-mobile-land) {
-        @include gridle_grid(4);
-        @include gridle_no_gutter(left);
-      }
-      @include gridle_state (only-tablet only-desk) {
-        @include gridle_grid(3);
-        @include gridle_no_gutter(left);
-      }
-      @include gridle_state (min-full) {
-        @include gridle_grid (2);
-        @include gridle_no_gutter(left);
-      }
-    }
-    .view-grouping-content {
-      @include gridle_state (only-mobile-port) {
-        @include gridle_grid(12);
-        margin: 0 auto;
-        padding: 0;
-      }
-      @include gridle_state (only-mobile-land) {
-        @include gridle_grid(8);
-        @include gridle_no_gutter(left);
-      }
-      @include gridle_state (only-tablet only-desk) {
-        @include gridle_grid(8);
-        @include gridle_no_gutter();
-      }
-      @include gridle_state (min-full) {
-        @include gridle_grid(10);
-        @include gridle_no_gutter();
-      }
-    }
-    .rij-product-naam {
-      @include gridle_state (only-tablet only-desk) {
-        @include gridle_grid(5.8);
-        @include gridle_no_gutter();
-      }
-      @include gridle_state (min-full) {
-        @include gridle_grid(3.9);
-        @include gridle_no_gutter();
-      }
-    }
-  }
-}
+
 
 .not-front .view-main-categories {
   .view-grouping {
@@ -1357,7 +1344,7 @@ $contact: #f7941d;
   }
   .catalog {
     float: right;
-    margin-top: 30px;
+    //margin-top: 30px;
   }
   img {
     margin-right: $padding;
@@ -1367,6 +1354,12 @@ $contact: #f7941d;
   }
   h3 {
     margin-bottom: $padding*2;
+    a {
+      color: $darkgrey;
+      &:hover {
+        color: lighten($darkgrey, 10%);
+      }
+    }
   }
   .view-grouping-header {
     a {
@@ -1390,12 +1383,6 @@ $contact: #f7941d;
         margin-bottom: $padding*1.5;
       }
     }
-  }
-}
-
-.categorie-rij {
-  h3 {
-    text-transform: uppercase;
   }
 }
 
@@ -1457,300 +1444,8 @@ $contact: #f7941d;
   }
 }
 
-// NODE TYPES
-
-.node-type-product,
-.page-taxonomy {
-  #sidebar_second {
-    @include gridle_state (max-tablet) {
-      margin-top: 40px;
-      width: 100%;
-    }
-  }
-  .first-col .field-name-field-images,
-  .term-listing-heading .field-name-field-product-category-image {
-    .field-item {
-      a {
-        position: relative;
-        display: block;
-        overflow: hidden;
-        border: 2px solid $blue;
-        @include gridle_state (min-tablet) {
-          width: 85%;
-        }
-        &:hover:after {
-          content:'';
-          position:absolute;
-          top:-1px;
-          bottom:0;
-          left:0;
-          right:0;
-          background:url(../img/plus.png) center center no-repeat $orangetrans;
-        }
-      }
-      @include gridle_state (only-mobile-land) {
-        margin-bottom: 3px;
-      }
-      @include gridle_state(max-mobile) {
-        width: 22%;
-        margin-right: 4%;
-        margin-bottom: $padding;
-        &:nth-child(4n+1) {
-          margin-right: 0;
-        }
-      }
-      @include gridle_state (min-tablet) {
-        width: 50%;
-      }
-      float: left;
-      margin-bottom: $padding*2;
-      img {
-        display: block;
-      }
-      @include gridle_state(min-tablet) {
-        &.even {
-          a {
-            float: right;
-          }
-        }
-        &.odd {
-          a {
-            float: left;
-          }
-        }
-      }
-      &:nth-child(1) {
-        width: 100%;
-        margin-bottom: $padding*2;
-        a {
-          width: 100%;
-        }
-        img {
-          width: 100%;
-        }
-      }
-    }
-  }
-  .fa-truck {
-    font-size: 36px;
-    float: left;
-    padding-right: $padding*2;
-  }
-  .lev {
-    margin-top: $padding*3;
-    margin-bottom: $padding*3;
-    overflow: hidden;
-    border: 1px solid $black;
-    border-radius: 3px;
-    padding: $padding;
-    p {
-      display: table-cell;
-      vertical-align: middle;
-      width: 100%;
-    }
-  }
-}
-
-
-.field-name-field-ultimate-date,
-.view-jobs .datum {
-  margin-bottom: $padding*2;
-}
-
-.node-type-vacature {
-  .field-name-field-wanted,
-  .field-name-field-offering {
-    .field-label {
-      color: $orange;
-      font-size: 18px;
-      font-weight: 400;
-      margin-bottom: $padding;
-    }
-  }
-}
-
-.page-contact {
-  #block-entityform-block-contact {
-    border: 1px solid $blue;
-    background-color: $lightgrey;
-    padding: $padding;
-    @include gridle_state (max-tablet) {
-      margin-top: 50px;
-    }
-    input[type="submit"] {
-      background-color: $orange;
-      &:hover {
-        background-color: lighten($orange, 15%);
-      }
-    }
-    label {
-      margin-bottom: 0;
-    }
-  }
-}
-
-// HTABS
-
-.field-group-accordion-wrapper {
-  margin-bottom: 30px;
-  fieldset {
-    margin-bottom: 0;
-    &.horizontal-tabs-pane {
-      padding: $padding*4 $padding/2 $padding/2 $padding/2;
-    }
-  }
-  .ui-widget {
-    font-family: $textfont;
-  }
-  .ui-corner-all,
-  .ui-corner-top {
-    border-radius: 0;
-  }
-  .ui-icon {
-    background-image: none;
-  }
-  .ui-state-default  {
-    &:before {
-      background-color: $grey;
-      content: "\f0da";
-      display: inline-block;
-      font: normal normal normal 20px/1 FontAwesome;
-      font-size: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      transform: translate(0, 0);
-      float: right;
-      font-size: 24px;
-      clear: both;
-      padding: 5px;
-      color: $white;
-    }
-    &:hover {
-      &:before {
-        background-color: $lightgrey;
-      }
-    }
-  }
-  .ui-state-active  {
-    &:before {
-      background-color: $blue;
-      content: "\f0d7";
-      display: inline-block;
-      font: normal normal normal 20px/1 FontAwesome;
-      font-size: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      transform: translate(0, 0);
-      float: right;
-      font-size: 24px;
-      clear: both;
-      padding: 5px;
-      color: $white;
-    }
-    &:hover {
-      &:before {
-        background-color: $blue;
-      }
-    }
-  }
-  .field-group-format-toggler {
-    background-color: $white;
-    border-right: none;
-    display: flex;
-    @include gridle_state (max-mobile) {
-      overflow: hidden;
-    }
-    a {
-      background-color: $grey;
-      color: $white;
-      display: block;
-      width: 100%;
-      margin-bottom: 0;
-      font-weight: unset;
-      &:hover {
-        background-color: $lightgrey;
-      }
-    }
-    &:hover {
-      background-color: $white;
-    }
-    &.ui-state-active {
-      background-color: $blue;
-      margin-bottom: -1px;
-      &:hover {
-        border-bottom: none;
-      }
-      strong {
-        color: $white;
-      }
-      a {
-        background-color: $blue;
-        &:hover {
-          background-color: $blue;
-          border: none;
-        }
-      }
-    }
-    @include gridle_state(max-tablet) {
-      display: block;
-    }
-  }
-  .field-type-file .field-item {
-    margin: 0;
-    a {
-      text-decoration: underline;
-    }
-  }
-}
-
-.field-name-field-tech-image {
-  .field-item {
-    width: 30%;
-    float: left;
-    margin-right: 5%;
-    margin-bottom: $padding;
-    &:nth-child(3n+3) {
-      margin-right: 0;
-    }
-    a {
-      position: relative;
-      display: block;
-      overflow: hidden;
-      border: 1px solid $grey;
-      &:hover:after {
-        content:'';
-        position:absolute;
-        top:-1px;
-        bottom:0;
-        left:0;
-        right:0;
-        background:url(../img/plus.png) center center no-repeat $orangetrans;
-      }
-    }
-  }
-}
-
-.horizontal-tab-button {
-  border-left: 1px solid $grey;
-  border-top: 1px solid $grey;
-  border-right: 1px solid $grey;
-  @include gridle_state (max-tablet) {
-    width: 100%;
-  }
-}
-
-div.horizontal-tabs {
-  border: none;
-}
-
-.horizontal-tabs-panes {
-  border: 1px solid $grey;
-  padding: $padding;
-}
-
-// RELATED
+/* RELATED VIEW
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
 #block-views-related-block {
   text-align: center;
@@ -1868,6 +1563,143 @@ div.horizontal-tabs {
   }
 }
 
+.view-about {
+  div.tabs {
+    right: 50px;
+  }
+}
+
+/* NODE TYPES
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
+
+.node-type-product,
+.page-taxonomy {
+  #sidebar_second {
+    @include gridle_state (max-tablet) {
+      margin-top: 40px;
+      width: 100%;
+    }
+  }
+  .first-col .field-name-field-images,
+  .term-listing-heading .field-name-field-product-category-image {
+    .field-item {
+      a {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        @include gridle_state (min-tablet) {
+          width: 85%;
+        }
+        &:hover:after {
+          content:'';
+          position:absolute;
+          top:-1px;
+          bottom:0;
+          left:0;
+          right:0;
+          background:url(../img/plus.png) center center no-repeat $orangetrans;
+        }
+      }
+      @include gridle_state (only-mobile-land) {
+        margin-bottom: 3px;
+      }
+      @include gridle_state(max-mobile) {
+        width: 22%;
+        margin-right: 4%;
+        margin-bottom: $padding;
+        &:nth-child(4n+1) {
+          margin-right: 0;
+        }
+      }
+      @include gridle_state (min-tablet) {
+        width: 50%;
+      }
+      float: left;
+      margin-bottom: $padding*2;
+      img {
+        display: block;
+      }
+      @include gridle_state(min-tablet) {
+        &.even {
+          a {
+            float: right;
+          }
+        }
+        &.odd {
+          a {
+            float: left;
+          }
+        }
+      }
+      &:nth-child(1) {
+        width: 100%;
+        margin-bottom: $padding*2;
+        a {
+          width: 100%;
+        }
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .fa-truck {
+    font-size: 36px;
+    float: left;
+    padding-right: $padding*2;
+  }
+  .lev {
+    margin-top: $padding*3;
+    margin-bottom: $padding*3;
+    overflow: hidden;
+    border: 1px solid $black;
+    border-radius: 3px;
+    padding: $padding;
+    p {
+      display: table-cell;
+      vertical-align: middle;
+      width: 100%;
+    }
+  }
+}
+
+.field-name-field-ultimate-date,
+.view-jobs .datum {
+  margin-bottom: $padding*2;
+}
+
+.node-type-vacature {
+  .field-name-field-wanted,
+  .field-name-field-offering {
+    .field-label {
+      color: $orange;
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: $padding;
+    }
+  }
+}
+
+.page-contact {
+  #block-entityform-block-contact {
+    border: 1px solid $blue;
+    background-color: $lightgrey;
+    padding: $padding;
+    @include gridle_state (max-tablet) {
+      margin-top: 50px;
+    }
+    input[type="submit"] {
+      background-color: $orange;
+      &:hover {
+        background-color: lighten($orange, 15%);
+      }
+    }
+    label {
+      margin-bottom: 0;
+    }
+  }
+}
+
 .page-user-orders {
   ul.action-links {
     list-style: none;
@@ -1891,21 +1723,6 @@ div.horizontal-tabs {
   .line-item-details ul {
     display: block!important;
   }
-  td {
-    vertical-align: top;
-  }
-  #main-wrapper tr {
-    border-top: 10px solid $white;
-    &.even {
-      background-color: $lightblue;
-
-    }
-  }
-  td {
-    &.active {
-      background-color: transparent;
-    }
-  }
 }
 
 .entity-commerce-order .content {
@@ -1922,16 +1739,14 @@ div.horizontal-tabs {
   font-weight: 700;
 }
 
-// taxonomy
+/* TAXONOMY
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
 .page-taxonomy {
   #content {
     .term-listing-heading {
       overflow: hidden;
       margin-bottom: 50px;
-    }
-    h2 {
-      color: $grey;
     }
     .node-header {
       clear: both;
@@ -1948,7 +1763,35 @@ div.horizontal-tabs {
   }
 }
 
-// PRODUCT
+/* PRODUCT
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
+
+.field-name-field-tech-image {
+  .field-item {
+    width: 30%;
+    float: left;
+    margin-right: 5%;
+    margin-bottom: $padding;
+    &:nth-child(3n+3) {
+      margin-right: 0;
+    }
+    a {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      border: 1px solid $grey;
+      &:hover:after {
+        content:'';
+        position:absolute;
+        top:-1px;
+        bottom:0;
+        left:0;
+        right:0;
+        background:url(../img/plus.png) center center no-repeat $orangetrans;
+      }
+    }
+  }
+}
 
 .field-name-field-orderable-products {
   a {
@@ -1967,6 +1810,7 @@ div.horizontal-tabs {
     @extend %button;
     border-radius: 3px;
     width: 100%;
+    background-color: $green;
     &.hide-mobile {
       @include gridle_state (max-tablet) {
         display: none;
@@ -1978,20 +1822,16 @@ div.horizontal-tabs {
       }
     }
     &:hover {
-      background-color: lighten($blue, 10%);
+      background-color: lighten($green, 10%);
     }
   }
 }
 
 .open-img {
-  border: 1px solid $grey;
-  background-color: $blue;
-  border-radius: 3px;
-  padding: 10px;
-  text-align: center;
-  color: $white;
+  @extend %button;
+  width: 100%;
   cursor: pointer;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   @include gridle_state (min-tablet) {
     display: none;
   }
@@ -2044,92 +1884,150 @@ div.horizontal-tabs {
   }
 }
 
-// product teaser
+/* HTABS
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
-.product-teaser {
-  margin: $padding*3 0;
-  overflow: hidden;
-  position: relative;
-  .field-type-image  {
-    img {
-      border: 2px solid $blue;
+.field-group-accordion-wrapper {
+  margin-bottom: 30px;
+  fieldset {
+    margin-bottom: 0;
+    &.horizontal-tabs-pane {
+      padding: $padding*4 $padding/2 $padding/2 $padding/2;
+    }
+  }
+  .ui-widget {
+    font-family: $textfont;
+  }
+  .ui-corner-all,
+  .ui-corner-top {
+    border-radius: 0;
+  }
+  .ui-icon {
+    background-image: none;
+  }
+  .ui-state-default  {
+    &:before {
+      background-color: $grey;
+      content: "\f0da";
+      display: inline-block;
+      font: normal normal normal 20px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+      float: right;
+      font-size: 24px;
+      clear: both;
+      padding: 5px;
+      color: $white;
+    }
+    &:hover {
+      &:before {
+        background-color: $lightgrey;
+      }
+    }
+  }
+  .ui-state-active  {
+    &:before {
+      background-color: $blue;
+      content: "\f0d7";
+      display: inline-block;
+      font: normal normal normal 20px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+      float: right;
+      font-size: 24px;
+      clear: both;
+      padding: 5px;
+      color: $white;
+    }
+    &:hover {
+      &:before {
+        background-color: $blue;
+      }
+    }
+  }
+  .field-group-format-toggler {
+    background-color: $white;
+    border-right: none;
+    display: flex;
+    @include gridle_state (max-mobile) {
+      overflow: hidden;
+    }
+    a {
+      background-color: $grey;
+      color: $white;
+      display: block;
+      width: 100%;
+      margin-bottom: 0;
+      font-weight: unset;
+      &:hover {
+        background-color: $lightgrey;
+      }
+    }
+    &:hover {
+      background-color: $white;
+    }
+    &.ui-state-active {
+      background-color: $blue;
+      margin-bottom: -1px;
+      &:hover {
+        border-bottom: none;
+      }
+      strong {
+        color: $white;
+      }
+      a {
+        background-color: $blue;
+        &:hover {
+          background-color: $blue;
+          border: none;
+        }
+      }
+    }
+    @include gridle_state(max-tablet) {
+      display: block;
+    }
+  }
+  .field-type-file .field-item {
+    margin: 0;
+    a {
+      text-decoration: underline;
     }
   }
 }
 
-// colorbox
-
-#cboxPrevious,
-#cboxNext {
-  &:before {
-    text-shadow: 0px 0px 4px $blue;
-    font-size: 32px;
+.horizontal-tab-button {
+  border-left: 1px solid $grey;
+  border-top: 1px solid $grey;
+  border-right: 1px solid $grey;
+  @include gridle_state (max-tablet) {
+    width: 100%;
   }
 }
 
-// CONTACT
-
-.c-l,
-.c-r,
-.view-id-contact {
-  span,
-  .field-name-field-label {
-    font-weight: 700;
-    padding-top: $padding*2;
-  }
-  .fa {
-    clear: both;
-  }
-  .cl {
-    clear: both;
-    margin-bottom: $padding;
-  }
-  .tel,
-  .fax,
-  .btw,
-  .hrb {
-    margin-bottom: $padding*2;
-  }
+div.horizontal-tabs {
+  border: none;
 }
 
-.c-l {
-  @include gridle_state (min-tablet) {
-    float: left;
-    width: 52%;
-  }
+.horizontal-tabs-panes {
+  border: 1px solid $grey;
+  padding: $padding;
 }
 
-.c-r {
-  @include gridle_state (min-tablet) {
-    float: right;
-    width: 42%;
-  }
-}
-
-#map_canvas {
-  height: 300px!important;
-  width: 100%!important;
-  margin-bottom: $padding*2;
-}
-
-.view-about {
-  div.tabs {
-    right: 50px;
-  }
-}
-
-html.js {
-  fieldset.collapsed {
-    height: 3em;
-    margin-top: 20px;
-  }
-}
+/* SYSTEM
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
 div.contextual-links-wrapper {
   z-index: 500;
 }
 
-// CK editor styles
+/* CK EDITOR STYLES
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
 .ck-knop {
   @extend %button;
@@ -2153,131 +2051,4 @@ div.contextual-links-wrapper {
     padding-right: $padding;
     color: $green;
   }
-}
-
-
-// File
-
-.field-type-file {
-  .field-item {
-    color: $blue;
-    &:before {
-      color: $blue;
-    }
-    .file {
-      a {
-        color: $blue;
-      }
-    }
-    &:hover {
-      color: $grey;
-      &:before {
-        color: $grey;
-      }
-      .file {
-        a {
-          color: $grey;
-        }
-      }
-    }
-  }
-}
-
-.open-img {
-  border: 1px solid $orange;
-  background-color: $blue;
-  border-radius: 3px;
-  padding: 10px;
-  text-align: center;
-  color: $white;
-  cursor: pointer;
-  margin-bottom: 30px;
-  @include gridle_state (min-tablet) {
-    display: none;
-  }
-}
-
-.view-about {
-  div.tabs {
-    right: 50px;
-  }
-}
-
-.catalog {
-  a {
-    padding: 10px;
-    background-color: $blue;
-    color: $white;
-    border-radius: 3px;
-    text-decoration: none;
-    &:hover {
-      background-color: lighten($blue, 10%);
-    }
-  }
-}
-
-.cat-bestel {
-  @include gridle_state(min-full) {
-    left: 110%;
-    position: relative;
-    padding-left: 40px;
-    padding-bottom: 20px;
-    top: -50px;
-    max-width: 250px;
-  }
-}
-
-.page-node.logged-in .prod-info {
-  @include gridle_state(min-full) {
-    position: relative;
-    top: -130px;
-  }
-}
-
-.page-node.logged-in.no-orderable-products {
-  .prod-info {
-    @include gridle_state(min-full) {
-      top: -55px;
-    }
-  }
-  aside#sidebar_second {
-    margin-top: 130px;
-  }
-}
-
-.page-node.logged-in .prod-screens {
-  .prod-info {
-    @include gridle_state(min-full) {
-      margin-top: -70px;
-    }
-  }
-}
-
-
-html.js {
-  fieldset.collapsed {
-    height: 3em;
-    margin-top: 20px;
-  }
-}
-
-.dep-container {
-  float: left;
-  .form-item {
-    margin-top: 0;
-  }
-}
-
-#edit-dierendeur-dep {
-  .form-item {
-    margin-top: 5px;
-  }
-}
-
-div.contextual-links-wrapper {
-  z-index: 500;
-}
-
-.form-item-attributes-field-standaardprofiel-type {
-  display: none;
 }
