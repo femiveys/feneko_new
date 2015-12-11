@@ -383,10 +383,11 @@ td.active {
 
 #feneko-code-orders-form {
   .help {
-            &:before {
-              font-size: 25px;
-            }
-          }
+    &:before {
+      font-size: 25px;
+      color: $white;
+    }
+  }
 }
 
 .view-commerce-backoffice-user-orders {

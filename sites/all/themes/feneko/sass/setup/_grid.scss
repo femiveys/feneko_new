@@ -17,7 +17,7 @@
 .logo {
   @include gridle_no_gutter();
   @include gridle_state(min-desk) {
-    @include gridle_grid (6);
+    @include gridle_grid (4);
   }
 }
 
@@ -28,6 +28,17 @@
   @include gridle_state(min-desk) {
     @include gridle_grid (4);
     @include gridle_push (2);
+  }
+}
+
+#region-banner {
+  @include gridle_state(min-desk) {
+    @include gridle_grid(8);
+    @include gridle_no_gutter();
+    float: right;
+    img {
+      float: right;
+    }
   }
 }
 

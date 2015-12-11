@@ -78,7 +78,7 @@ retina: 1280 - +
   }
 }
 @media screen and (min-width: 851px) {
-  .logo, #header, #main_menu, .page-about #content, .node-type-product aside#sidebar_second, .nieuws-rij, .nieuws-rij.views-row-first, .view-feneko-shopping-cart-block .view-total, .first-col, .second-col, .vocabulary-product-category .field-name-field-product-category-image, .vocabulary-product-category .field-name-description-field, #search-form {
+  .logo, #header, #region-banner, #main_menu, .page-about #content, .node-type-product aside#sidebar_second, .nieuws-rij, .nieuws-rij.views-row-first, .view-feneko-shopping-cart-block .view-total, .first-col, .second-col, .vocabulary-product-category .field-name-field-product-category-image, .vocabulary-product-category .field-name-description-field, #search-form {
     display: inline-block;
     min-height: 1px;
     -webkit-box-sizing: border-box;
@@ -167,7 +167,7 @@ retina: 1280 - +
 }
 @media screen and (min-width: 851px) {
   .logo {
-    width: 50%;
+    width: 33.33333%;
   }
 }
 
@@ -180,6 +180,20 @@ retina: 1280 - +
   #header {
     width: 33.33333%;
     left: 16.66667%;
+  }
+}
+
+@media screen and (min-width: 851px) {
+  #region-banner {
+    width: 66.66667%;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    float: right;
+  }
+  #region-banner img {
+    float: right;
   }
 }
 
@@ -782,7 +796,7 @@ retina: 1280 - +
 }
 @media screen and (min-width: 851px) {
   .logo {
-    width: 50%;
+    width: 33.33333%;
   }
 }
 
@@ -795,6 +809,20 @@ retina: 1280 - +
   #header {
     width: 33.33333%;
     left: 16.66667%;
+  }
+}
+
+@media screen and (min-width: 851px) {
+  #region-banner {
+    width: 66.66667%;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    float: right;
+  }
+  #region-banner img {
+    float: right;
   }
 }
 
@@ -1942,6 +1970,7 @@ td.active {
 
 #feneko-code-orders-form .help:before {
   font-size: 25px;
+  color: #ffffff;
 }
 
 .view-commerce-backoffice-user-orders table {
@@ -2912,13 +2941,24 @@ div.messages.error {
   }
 }
 
+.hide-desk #region-banner {
+  margin-top: 120px;
+  text-align: center;
+}
+.front .hide-desk #region-banner {
+  margin-top: 20px;
+}
+.hide-desk #region-banner img {
+  margin: auto;
+}
+
 #cover-wrapper {
   position: relative;
   clear: both;
 }
 @media screen and (max-width: 850px) {
   #cover-wrapper {
-    top: 60px;
+    margin-top: 60px;
   }
 }
 #cover-wrapper img {
@@ -4638,4 +4678,7 @@ div.contextual-links-wrapper {
   clear: both;
   padding-right: 10px;
   color: #488214;
+}
+.ck-check.last-check {
+  margin-bottom: 20px;
 }
