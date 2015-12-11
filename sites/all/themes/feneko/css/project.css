@@ -2805,7 +2805,7 @@ div.messages.error {
 }
 
 .page-cart-init #main-wrapper {
-  overflow: hidden;
+  overflow: visible;
 }
 
 #sidebar_second h1 {
