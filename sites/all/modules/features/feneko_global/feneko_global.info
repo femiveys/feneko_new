@@ -32,7 +32,6 @@ features[variable][] = language_default
 features[variable][] = language_negotiation_language
 features[variable][] = language_negotiation_language_url
 features[variable][] = locale_language_providers_weight_language
-features[variable][] = site_name
 features[variable][] = theme_default
 features[variable][] = theme_feneko_settings
 features[variable][] = variable_realm_list_language
