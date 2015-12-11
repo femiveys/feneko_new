@@ -3,7 +3,6 @@ define('FENEKO_CODE', 'feneko_code');
 define('FENEKO_CODE_ORDER_STATUSES_TABLE', 'order_statuses');
 define('FENEKO_CODE_RETOUR_TABLE', 'retours');
 define('FENEKO_CODE_IMPORT_DELIMITER', ';');
-define('FENEKO_OLD', false);
 
 function feneko_code_permission() {
   return array(
@@ -29,17 +28,6 @@ function feneko_code_access() {
 }
 
 function feneko_code_menu(){
-  if(FENEKO_OLD) {
-    $items['user/%user/logout'] = array(
-      'title' => 'Log out',
-      'page callback' => 'feneko_user_logout',
-      'page arguments' => array('user_profile_form', 1),
-      'access callback' => 'user_edit_access',
-      'access arguments' => array(1),
-      'type' => MENU_LOCAL_TASK,
-    );
-  }
-
   $items['catalog/%/%'] = array(
     'title' => 'Feneko catalog',
     'page callback' => 'feneko_catalog',
@@ -81,32 +69,6 @@ function feneko_code_menu(){
 }
 
 
-/**
- * Implements hook_block_info().
- */
-function feneko_code_block_info() {
-  if(FENEKO_OLD) {
-    $blocks['feneko_code_flipper'] = array(
-      'info' => t('link to flipper block'),
-      'cache' => DRUPAL_CACHE_GLOBAL,
-    );
-    return $blocks;
-  }
-}
-
-
-/**
- * Implements hook_block_view().
- */
-function feneko_code_block_view($delta) {
-  if(FENEKO_OLD) {
-    switch ($delta) {
-      case 'feneko_code_flipper':
-      return feneko_code_flipper();
-    }
-  }
-}
-
 
 /**
  * Render block().
@@ -130,24 +92,6 @@ function feneko_code_flipper(){
 }
 
 
-function feneko_user_logout(){
-  if(FENEKO_OLD) {
-    global $user;
-    module_invoke_all('user_logout', $user);
-    session_destroy();
-    drupal_set_message(t('You are logged out'));
-    drupal_goto('<front>');
-  }
-}
-
-
-function feneko_code_form_alter(&$form, &$form_state, $form_id) {
-  if(FENEKO_OLD) {
-    if ($form_id == 'user_register_form') {
-      $form['#submit'][]  = 'feneko_code_inform_admin';
-    }
-  }
-}
 
 function feneko_code_get_clients_options($idKeys = false) {
   global $user;
@@ -196,66 +140,6 @@ function feneko_code_get_client_by_number($number) {
       break;
   }
 }
-
-
-function feneko_code_inform_admin($form, &$form_state) {
-  if(FENEKO_OLD) {
-    $values = $form_state['values'];
-    $body = 'A user registered on feneko.be.
-    Please check his/her account and activate it.
-    His language is  ' . $values['language'] . '
-    The user name is ' . $values['name'] . '
-    The BTW nummer is ' . $values['field_btw_nummer']['und'][0]['value'] . '
-    The Company is ' . $values['field_naam_bedrijf']['und'][0]['value'] . '
-    The telefoon is ' . $values['field_telefoon']['und'][0]['value'] . '
-    Administrate the users here: http://feneko.be/admin/people .
-    ';
-    $to = 'jeremie@fenekobvba.be';
-    $from = 'no-reply@feneko.be';
-    $header_cc = 'david@fenekobvba.be';
-    $header_cc = 'wouters.f@gmail.com';
-    $subject = 'User registratie op [feneko.be]';
-    $message = drupal_mail(
-      'feneko_code',
-      'user_registers',
-      $to,
-      user_preferred_language($user),
-      array(
-        'body' => $body,
-        'subject' => $subject,
-        'headers' => array(
-          'Cc' => $header_cc,
-          'Bcc' => $header_bcc,
-        ),
-        $from,
-        TRUE
-      )
-    );
-  }
-}
-
-
-/*
-function feneko_code_mail($key, &$message, $params){
-  if (isset($params['subject'])) {
-    $message['subject'] = $params['subject'];
-  }
-  if (isset($params['body'])) {
-    $message['body'][] = $params['body'];
-  }
-  if (isset($params['headers']) && is_array($params['headers'])) {
-    $message['headers'] += $params['headers'];
-  }
-  switch ($key) {
-    case 'user_registers':
-      // do something specific for mails of type key1
-      break;
-   case 'key2':
-      // do something specific for mails of type key2
-      break;
-   }
-}
-*/
 
 /**
  * Implements of hook_services_resources().

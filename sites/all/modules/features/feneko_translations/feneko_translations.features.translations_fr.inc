@@ -10,19 +10,6 @@
 function feneko_translations_translations_fr_defaults() {
   $translations = array();
   $translatables = array();
-  $translations['fr:commerce']['dfe1d9859438d87edcb3bcf0944973fd'] = array(
-    'source' => '<p>Je bestellingsnummer is: [commerce-order:order-number].</p>
-<p>Je kan je <a href="[commerce-order:url]">bestelling bekijken</a> op je profiel.</p>
-<p><a href="/cart/init">Bestel iets anders</a></p>',
-    'context' => 'checkout:complete:message',
-    'location' => 'commerce:checkout:complete:message',
-    'translation' => '<p>Ton numéro de ordre est : [commerce-order:order-number].</p><p>Vous pouvez regarder vorte commande sur: <a href="/user/[commerce-order:uid]/feneko_orders">Ordres en cours</a> sur ton profil.</p>',
-    'plid' => 0,
-    'plural' => 0,
-  );
-  $translatables[] = t('<p>Je bestellingsnummer is: [commerce-order:order-number].</p>
-<p>Je kan je <a href="[commerce-order:url]">bestelling bekijken</a> op je profiel.</p>
-<p><a href="/cart/init">Bestel iets anders</a></p>', array(), array('context' => 'checkout:complete:message'));
   $translations['fr:default']['09bc5f9df1cb5ea352fb427ef7a8080a'] = array(
     'source' => 'Plaats bestelling',
     'context' => '',
@@ -407,6 +394,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Schuifvliegendeuren Elegance+', array(), array('context' => ''));
+  $translations['fr:default']['c32516babc5b6c47eb8ce1bfc223253c'] = array(
+    'source' => 'Catalog',
+    'context' => '',
+    'location' => '/nl/vliegenraam-basic',
+    'translation' => 'Catalogue',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Catalog', array(), array('context' => ''));
   $translations['fr:default']['c5ea47e90c480be70ab8fce6259581ac'] = array(
     'source' => 'Klantennummer (field_klantennummer)',
     'context' => '',
@@ -857,6 +853,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Onze producten', array(), array('context' => 'main_categories:default:title'));
+  $translations['fr:views']['6a122f4fb87a472e0d4621a3caa47681'] = array(
+    'source' => 'Name',
+    'context' => 'commerce_orders:default:field:field_data_commerce_customer_address:commerce_customer_address:label',
+    'location' => 'views:commerce_orders:default:field:field_data_commerce_customer_address:commerce_customer_address:label',
+    'translation' => 'Nom',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Name', array(), array('context' => 'commerce_orders:default:field:field_data_commerce_customer_address:commerce_customer_address:label'));
   $translations['fr:views']['83341be8545fbd9bbcc65100100b9faa'] = array(
     'source' => 'Winkelwagen',
     'context' => 'commerce_cart_form_feneko:default:title',
@@ -884,15 +889,6 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Klant worden', array(), array('context' => 'about:page_2:title'));
-  $translations['fr:views']['b98b6800cf191eea3f76cee072c94d47'] = array(
-    'source' => 'Naam',
-    'context' => 'commerce_orders:default:field:field_data_commerce_customer_address:commerce_customer_address:label',
-    'location' => 'views:commerce_orders:default:field:field_data_commerce_customer_address:commerce_customer_address:label',
-    'translation' => 'Nom',
-    'plid' => 0,
-    'plural' => 0,
-  );
-  $translatables[] = t('Naam', array(), array('context' => 'commerce_orders:default:field:field_data_commerce_customer_address:commerce_customer_address:label'));
   $translations['fr:views']['ddfa5e952149a2889dc5f008c5da9dcb'] = array(
     'source' => 'Levertijden',
     'context' => 'about:page_1:title',
