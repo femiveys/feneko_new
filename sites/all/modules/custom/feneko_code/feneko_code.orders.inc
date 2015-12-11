@@ -8,7 +8,7 @@ function feneko_code_orders_form($form, &$form_state) {
 
   $header = array(
     'orderbon' => array(
-      'data' => t('Ordernummer'),
+      'data' => t('Order<wbr>nummer'),
       'field' => 'orderbon',
     ),
     'ref' => array(
@@ -20,11 +20,11 @@ function feneko_code_orders_form($form, &$form_state) {
       'field' => 'kleur',
     ),
     'order_datum' => array(
-      'data' => t('Orderdatum'),
+      'data' => t('Order<wbr>datum'),
       'field' => 'order_datum',
     ),
     'lever_datum' => array(
-      'data' => t('Leverdatum'),
+      'data' => t('Lever<wbr>datum'),
       'field' => 'lever_datum',
     ),
     'aantal' => t('Aantal'),
@@ -33,7 +33,7 @@ function feneko_code_orders_form($form, &$form_state) {
       'field' => 'fase',
     ),
     'bedrag' => t('Bedrag'),
-    'leverconditie' => t('Leverconditie'),
+    'leverconditie' => t('Lever<wbr>conditie'),
   );
 
   $mapping = array(
@@ -192,13 +192,13 @@ function feneko_code_orders_form($form, &$form_state) {
 
   if(count($klantennummers) > 1) {
     $header['klant'] = array(
-      'data' => t('Klantennummer'),
+      'data' => t('Klanten<wbr>nummer'),
       'field' => 'klant',
     );
     $fields[] = 'klant';
   }
 
-  $unknown = t("ONBEKEND");
+  $unknown = t("unknown");
 
   $query = db_select(FENEKO_CODE_ORDER_STATUSES_TABLE)
                ->condition('klant', $klantennummers, 'IN')
@@ -229,7 +229,7 @@ function feneko_code_orders_form($form, &$form_state) {
       $result['bedrag'] = "€" . str_replace('.', ',', sprintf("%01.2f", $result['bedrag']));
       $result['order_datum'] = $result['order_datum'] ? date($date_format, $result['order_datum']) : $unknown;
       $result['lever_datum'] = $result['lever_datum'] ? date($date_format, $result['lever_datum']) : $unknown;
-      $result['fase']          = $mapping[$result['fase']]['label'][$language->language];
+      $result['fase']          = mb_strtolower($mapping[$result['fase']]['label'][$language->language]) ;
       $result['leverconditie'] = $mapping[$result['leverconditie']]['label'][$language->language];
 
       if(count($klantennummers) > 1) {
@@ -239,7 +239,8 @@ function feneko_code_orders_form($form, &$form_state) {
         }
       }
 
-      $mapping[$result['leverconditie']]['label'][$language->language];
+// dpm($result['leverconditie']);
+      // $mapping[$result['leverconditie']]['label'][$language->language];
 
       // Set the omschrijving row and remove the omschrijving from the result
       $omschrijving = array(
@@ -265,7 +266,7 @@ function feneko_code_orders_form($form, &$form_state) {
   foreach ($mapping as $key => $value) {
     if(isset($value['description'])) {
       $text .= '<div>';
-      $text .= '<span class="label">' . $value['label'][$language->language] . ': </span>';
+      $text .= '<span class="label">' . mb_strtolower($value['label'][$language->language]) . ': </span>';
       $text .= '<span class="descr">' . $value['description'][$language->language] . '</span>';
       $text .= '</div>';
     }

@@ -12,3 +12,5 @@ stylesheets[all][] = css/style.css
 
 dependencies[] = feneko_libraries
 dependencies[] = i18n_variable
+dependencies[] = mimemail
+
