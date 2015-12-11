@@ -28,5 +28,14 @@ function feneko_translations_translations_nl_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('unknown', array(), array('context' => ''));
+  $translations['nl:default']['c32516babc5b6c47eb8ce1bfc223253c'] = array(
+    'source' => 'Catalog',
+    'context' => '',
+    'location' => '/nl/vliegenraam-basic',
+    'translation' => 'Catalogus',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Catalog', array(), array('context' => ''));
   return $translations;
 }

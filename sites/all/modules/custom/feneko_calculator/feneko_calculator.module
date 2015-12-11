@@ -320,10 +320,18 @@ function feneko_calculator_form_alter(&$form, &$form_state, $form_id) {
     // Add the options to the form
     $form['field_staffelkorting']['und']['#options'] = $options;
 
-    // Set the default value
-    if(isset($form_state['user']->field_staffelkorting['und'][0]['value'])) {
-      $form['field_staffelkorting']['und']['#default_value'] =
-                 $form_state['user']->field_staffelkorting['und'][0]['value'];
+    // Set the default value for user or node (client)
+    if(isset($form_state['user'])) {
+      $type = 'user';
+    } elseif(isset($form_state['node'])) {
+      $type = 'node';
+    }
+
+    if(isset($type)) {
+      if(isset($form_state[$type]->field_staffelkorting['und'][0]['value'])) {
+        $form['field_staffelkorting']['und']['#default_value'] =
+                   $form_state[$type]->field_staffelkorting['und'][0]['value'];
+      }
     }
   }
 }
