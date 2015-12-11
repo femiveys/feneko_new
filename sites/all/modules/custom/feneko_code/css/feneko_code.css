@@ -3,15 +3,7 @@ form#feneko-code-import-form .manual {
   background-color: #bbb;
 }
 
-.page-user-feneko-orders .help {
-  display: inline-block;
-  width: 20px !important;
-  height: 20px !important;
-  vertical-align: middle;
-  margin-left: 5px !important;
-}
-
-.page-user-feneko-orders .help-text {
+.help-text {
   display: none;
   border: 1px solid #ccc;
   border-bottom: none;
@@ -20,13 +12,21 @@ form#feneko-code-import-form .manual {
   color: #6A6A6A;
 }
 
-.page-user-feneko-orders .help-text div {
+.help-text div {
   display: inline-block;
   width: 49%;
 }
 
-.page-user-feneko-orders .help-text .label {
+.help-text .label {
   font-weight: bold;
+}
+
+.page-user-feneko-orders .help {
+  display: inline-block;
+  width: 20px !important;
+  height: 20px !important;
+  vertical-align: middle;
+  margin-left: 5px !important;
 }
 
 .page-user-feneko-orders fieldset.filters {
