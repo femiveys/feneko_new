@@ -2804,7 +2804,7 @@ div.messages.error {
   clear: both;
 }
 
-#page-cart-init #main-wrapper {
+.page-cart-init #main-wrapper {
   overflow: hidden;
 }
 
