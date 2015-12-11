@@ -14,7 +14,6 @@ input[title="Hoeveelheid"] {
   text-align: right;
 }
 
-
 .form-disabled input {
   background-color: $lightgrey;
 }
@@ -111,15 +110,10 @@ form.commerce-add-to-cart {
   }
 }
 
-@include gridle_state (min-desk) {
-    #edit-dierendeur-dep {
-      clear: both;
-    }
-  }
-
-#edit-dierendeur-dep {
-  .form-item {
-    margin-top: 5px;
+#edit-dierendeur {
+  .dep-container {
+    clear: both;
+    padding-top: 10px;
   }
 }
 
@@ -127,25 +121,6 @@ form.commerce-add-to-cart {
   .sticky-header {
     top: 90px!important;
     z-index: 9;
-  }
-  .help {
-    &:before {
-      content: "\f059";
-      display: inline-block;
-      font: normal normal normal 14px/1 FontAwesome;
-      font-size: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      transform: translate(0, 0);
-      font-size: 36px;
-      clear: both;
-      color: $black;
-      cursor: pointer;
-    }
-    &:hover:before {
-      color: $grey;
-    }
   }
   .form-wrapper input[type="text"] {
     width: auto;

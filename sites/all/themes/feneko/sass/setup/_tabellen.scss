@@ -84,7 +84,6 @@ td.active {
   td {
     @include gridle_state (max-tablet) {
       position: relative;
-      &.views-field-edit-delete,
       &.views-field-edit-quantity,
       &.views-field-commerce-total,
       &.views-field-quantity,
@@ -103,6 +102,9 @@ td.active {
         .page-checkout & {
           width: 33%;
         }
+      }
+      &.views-field-edit-delete {
+        padding: 15px;
       }
     }
   }
@@ -266,7 +268,6 @@ td.active {
   }
 }
 
-
 // FENEKO-ORDERS
 
 .page-user-feneko-orders {
@@ -363,6 +364,14 @@ td.active {
       }
     }
   }
+}
+
+#feneko-code-orders-form {
+  .help {
+            &:before {
+              font-size: 25px;
+            }
+          }
 }
 
 .view-commerce-backoffice-user-orders {
