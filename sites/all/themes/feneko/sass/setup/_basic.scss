@@ -322,6 +322,12 @@ div.messages {
   clear: both;
 }
 
+#page-cart-init {
+  #main-wrapper {
+    overflow: hidden;
+  }
+}
+
 #sidebar_second {
   h1 {
     font-size: 20px;
@@ -574,6 +580,7 @@ div.messages {
   background-color: $darkgrey;
   color: $white;
   padding: 30px 0 60px;
+  clear: both;
   @include gridle_state (max-tablet) {
     text-align: center;
     padding-top: 0;

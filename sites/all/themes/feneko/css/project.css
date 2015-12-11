@@ -2804,6 +2804,10 @@ div.messages.error {
   clear: both;
 }
 
+#page-cart-init #main-wrapper {
+  overflow: hidden;
+}
+
 #sidebar_second h1 {
   font-size: 20px;
   margin-bottom: 20px;
@@ -3071,6 +3075,7 @@ div.messages.error {
   background-color: #7b7b7b;
   color: #ffffff;
   padding: 30px 0 60px;
+  clear: both;
 }
 @media screen and (max-width: 850px) {
   #footer-footer {
