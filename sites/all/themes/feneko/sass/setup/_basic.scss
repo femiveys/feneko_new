@@ -21,7 +21,7 @@ p {
 
 %button {
   background: $blue;
-  transition: background-color 0.2s ease;
+  @include vendor-prefix(transition, background-color 0.2s ease);
   border: none;
   text-decoration: none;
   display: inline-block;
@@ -82,7 +82,6 @@ ul.tabs {
     content: "\f059";
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -132,7 +131,7 @@ ul.tabs {
     }
   }
   .field-item {
-    margin: $padding 0;
+    margin: 10px 0;
     &:before {
       font-size: 20px;
     }
@@ -210,7 +209,7 @@ h3 a,
   #main-content {
     img {
       float: left;
-      padding-right: $padding;
+      padding-right: 10px;
     }
   }
 }
@@ -218,7 +217,7 @@ h3 a,
 .page-about {
   #main-content {
     img {
-      margin-bottom: $padding*4;
+      margin-bottom: 40px;
     }
   }
 }
@@ -259,7 +258,7 @@ div.messages {
 
 .adres {
   border: 1px solid $black;
-  padding: $padding;
+  padding: 10px;
   background-color: $darkgrey;
   color: $white;
   .fa {
@@ -268,7 +267,7 @@ div.messages {
   }
   .street-block,
   .addressfield-container-inline {
-    margin-left: $padding*3;
+    margin-left: 30px;
   }
   #sidebar_second & {
     margin: $padding*2 0;
@@ -281,7 +280,7 @@ div.messages {
     list-style-type: none;
     li {
       margin-left: 0;
-      margin-bottom: $padding;
+      margin-bottom: 10px;
     }
   }
 }
@@ -303,9 +302,7 @@ div.messages {
   clear: both;
   padding: $padding*2.5 0;
   @include gridle_state (max-tablet) {
-    -webkit-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
-    box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
+    @include vendor-prefix(box-shadow,0px 10px 31px -3px rgba(0,0,0,0.75) );
     display: none;
     position: fixed;
     top: 60px;
@@ -370,7 +367,7 @@ div.messages {
 #bottomblock-wrapper,
 #main-wrapper {
   &.wrapper {
-    padding: $padding*4 0;
+    padding: 40px 0;
   }
 }
 
@@ -409,9 +406,9 @@ div.messages {
     display: block;
     position: relative;
     z-index: -1;
-    transition: 0.5s ease;
-    transform: translate3d(0, 0, 0);
-    transition-property: background-position;
+    @include vendor-prefix(transition, 0.5s ease);
+    @include vendor-prefix(transform, translate3d(0, 0, 0));
+    @include vendor-prefix(transition-property, background-position);
   }
 }
 
@@ -439,7 +436,7 @@ div.messages {
       display: inline-block;
       vertical-align: top;
       @include gridle_state (max-mobile) {
-        margin-bottom: $padding*5;
+        margin-bottom: 50px;
       }
     }
     .first,
@@ -458,13 +455,13 @@ div.messages {
     .first a {
       background-image: url(../img/fabriek.png);
       @include gridle_state (min-tablet) {
-        margin-right: $padding*2;
+        margin-right: 20px;
       }
     }
     .last a {
       background-image: url(../img/doos.png);
       @include gridle_state (min-tablet) {
-        margin-left: $padding*2;
+        margin-left: 20px;
       }
     }
   }
@@ -527,9 +524,9 @@ div.messages {
   }
   .node-readmore {
     @include gridle_state (max-mobile) {
-      margin-top: $padding;
+      margin-top: 10px;
       position: absolute;
-      bottom: $padding;
+      bottom: 10px;
       left: 0;
       right: 0;
       margin: 0 auto $padding*2;
@@ -555,13 +552,12 @@ div.messages {
     padding: $padding $padding*2;
     font-weight: 700;
     background-color: $bluetrans;
-      border: 1px solid $black;
+    border: 1px solid $black;
     @include gridle_state (only-tablet) {
       font-size: 16px;
     }
     @include gridle_state (min-tablet) {
       max-width: 80%;
-
     }
     @include gridle_state (min-desk) {
       font-size: 24px;
@@ -753,24 +749,11 @@ div.messages {
 /* MENUS
 ><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
-@mixin linear-gradient($fromColor, $toColor) {
-  background-color: $toColor; /* Fallback Color */
-  background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
-  background-image: -webkit-linear-gradient(top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
-  background-image:    -moz-linear-gradient(top, $fromColor, $toColor); /* FF3.6 */
-  background-image:     -ms-linear-gradient(top, $fromColor, $toColor); /* IE10 */
-  background-image:      -o-linear-gradient(top, $fromColor, $toColor); /* Opera 11.10+ */
-  background-image:         linear-gradient(top, $fromColor, $toColor);
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
-}
-
 #mainmenu-wrapper {
   position: relative;
   @include linear-gradient(rgba(28,64,99,1), rgba(41,93,143,1));
   @include gridle_state (max-tablet) {
-    -webkit-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
-    box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
+    @include vendor-prefix(box-shadow, 0px 10px 31px -3px rgba(0,0,0,0.75));
   }
   &.wrapper {
     clear: both;
@@ -785,12 +768,9 @@ div.messages {
         top: 100px;
       }
     }
-
   }
   &.cloned {
-    -webkit-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
-    box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
+    @include vendor-prefix(box-shadow, 0px 10px 31px -3px rgba(0,0,0,0.75));
     .admin-menu & {
       padding-top: 30px;
     }
@@ -936,9 +916,7 @@ div.messages {
   position: fixed;
   width: 100%;
   z-index: 99;
-  -webkit-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
-  box-shadow: 0px 10px 31px -3px rgba(0,0,0,0.75);
+  @include vendor-prefix(box-shadow, 0px 10px 31px -3px rgba(0,0,0,0.75));
   .admin-menu.small & {
     padding-top: 20px;
   }
@@ -1090,11 +1068,7 @@ $contact: #f7941d;
     height: $padding*5;
     display: inline-block;
     border-radius: 50%;
-    -webkit-transition: background-color 400ms linear;
-    -moz-transition: background-color 400ms linear;
-    -o-transition: background-color 400ms linear;
-    -ms-transition: background-color 400ms linear;
-    transition: background-color 400ms linear;
+    @include vendor-prefix(transition, background-color 400ms linear);
     &:before {
       display: inline-block;
       font-family: FontAwesome;
@@ -1130,8 +1104,8 @@ $contact: #f7941d;
     &.twitter {
       background-color: $twitter;
       &:before {
-          content: "\f099";
-          color: white;
+        content: "\f099";
+        color: white;
       }
       &:hover {
         background-color: lighten($twitter, 10%);
@@ -1140,8 +1114,8 @@ $contact: #f7941d;
     &.contactlink {
       background-color: $contact;
       &:before {
-          content: "\f003";
-          color: white;
+        content: "\f003";
+        color: white;
       }
       &:hover {
         background-color: lighten($contact, 10%);
@@ -1382,9 +1356,6 @@ div.horizontal-tabs {
         float: left;
         clear: both;
       }
-      @include gridle_state(min-desk) {
-        //float: right;
-      }
       + * {
         clear: both;
         display: block;
@@ -1493,9 +1464,8 @@ div.horizontal-tabs {
         }
       }
       img {
-        -webkit-transform:scale(1.15);
-        transform:scale(1.15);
         opacity:0.7;
+        @include vendor-prefix(transform, scale(1.15));
       }
     }
   }
@@ -1503,8 +1473,8 @@ div.horizontal-tabs {
     width: 190px;
     height: 190px;
     padding: 0;
-    -webkit-transition: opacity 0.35s,-webkit-transform 0.35s;
-    transition: opacity 0.35s,transform 0.35s;
+    @include vendor-prefix(transition, opacity 0.35s);
+    @include vendor-prefix(transition, transform 0.35s);
   }
 }
 
@@ -1553,9 +1523,8 @@ div.horizontal-tabs {
     }
     &:hover {
       img {
-        -webkit-transform:scale(1.15);
-        transform:scale(1.15);
         opacity:0.7;
+        @include vendor-prefix(transform, scale(1.15));
       }
     }
   }
@@ -1587,7 +1556,7 @@ div.horizontal-tabs {
   }
   .views-field-title {
     font-weight: 700;
-    margin-top: $padding;
+    margin-top: 10px;
   }
   .views-field-title-field-et {
     position: absolute;
@@ -1621,8 +1590,8 @@ div.horizontal-tabs {
   }
   img {
     display: block;
-    -webkit-transition: opacity 0.35s,-webkit-transform 0.35s;
-    transition: opacity 0.35s,transform 0.35s;
+    @include vendor-prefix(transition, opacity 0.35s);
+    @include vendor-prefix(transition, transform 0.35s);
     width: 100%;
   }
 }
@@ -1863,7 +1832,7 @@ div.horizontal-tabs {
       color: $orange;
       font-size: 18px;
       font-weight: 400;
-      margin-bottom: $padding;
+      margin-bottom: 10px;
     }
   }
 }
@@ -1875,7 +1844,7 @@ div.horizontal-tabs {
   #block-entityform-block-contact {
     border: 1px solid $blue;
     background-color: $lightgrey;
-    padding: $padding;
+    padding: 10px;
     @include gridle_state (max-tablet) {
       margin-top: 50px;
     }
@@ -2016,9 +1985,7 @@ div.horizontal-tabs {
     ul.tabs {
       display: block;
       border: none;
-      box-shadow: none;
-      webkit-box-shadow: none;
-      moz-box-shadow: none;
+      @include vendor-prefix(box-shadow, none);
       margin-top: 0;
       padding: 0;
       &.primary {
@@ -2117,13 +2084,14 @@ div.contextual-links-wrapper {
 }
 
 .ck-check {
-  margin-bottom: $padding/2;
+  margin-bottom: 10px;
   display: table;
+  text-indent: -30px;
+  padding-left: 30px;
   &:before {
     content: "\f00c";
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -2131,10 +2099,10 @@ div.contextual-links-wrapper {
     float: left;
     font-size: 16px;
     clear: both;
-    padding-right: $padding;
+    margin-right: 30px;
     color: $green;
   }
   &.last-check {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 }
