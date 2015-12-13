@@ -252,39 +252,6 @@ div.messages {
   }
 }
 
-
-/* CONTACT INFO
-><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
-
-.adres {
-  border: 1px solid $black;
-  padding: 10px;
-  background-color: $darkgrey;
-  color: $white;
-  .fa {
-    float: left;
-    font-size: 20px;
-  }
-  .street-block,
-  .addressfield-container-inline {
-    margin-left: 30px;
-  }
-  #sidebar_second & {
-    margin: $padding*2 0;
-    width: 100%;
-  }
-}
-
-.tel {
-  ul {
-    list-style-type: none;
-    li {
-      margin-left: 0;
-      margin-bottom: 10px;
-    }
-  }
-}
-
 /* REGIONS
 ><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
@@ -360,17 +327,6 @@ div.messages {
   }
 }
 
-/* FRONT REGIONS
-><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
-
-#frontblock-wrapper,
-#bottomblock-wrapper,
-#main-wrapper {
-  &.wrapper {
-    padding: 40px 0;
-  }
-}
-
 #main-wrapper {
   &.wrapper {
     @include gridle_state (max-tablet) {
@@ -400,73 +356,6 @@ div.messages {
   }
 }
 
-.view-front-image {
-  img {
-    width: 100%;
-    display: block;
-    position: relative;
-    z-index: -1;
-    @include vendor-prefix(transition, 0.5s ease);
-    @include vendor-prefix(transform, translate3d(0, 0, 0));
-    @include vendor-prefix(transition-property, background-position);
-  }
-}
-
-.front #main-wrapper,
-#bottomblock-wrapper {
-  text-align: center;
-}
-
-#frontblock-wrapper {
-  background-color: $blue;
-  * {
-    color: $white;
-  }
-}
-
-.field-name-field-about {
-  padding-bottom: 20px;
-}
-
-#bottomblock-wrapper {
-  background-color: $grey;
-  .menu {
-    text-align: center;
-    li {
-      display: inline-block;
-      vertical-align: top;
-      @include gridle_state (max-mobile) {
-        margin-bottom: 50px;
-      }
-    }
-    .first,
-    .last {
-      a {
-        width: 205px;
-        height: 275px;
-        background-position: 0 70px;
-        background-repeat: no-repeat;
-        background-size: 205px 205px;
-        display: block;
-        font-size: 20px;
-        font-weight: 700;
-      }
-    }
-    .first a {
-      background-image: url(../img/fabriek.png);
-      @include gridle_state (min-tablet) {
-        margin-right: 20px;
-      }
-    }
-    .last a {
-      background-image: url(../img/doos.png);
-      @include gridle_state (min-tablet) {
-        margin-left: 20px;
-      }
-    }
-  }
-}
-
 #region-banner {
   .hide-desk & {
     margin-top: 120px;
@@ -476,98 +365,6 @@ div.messages {
     }
     img {
       margin: auto;
-    }
-  }
-}
-
-#cover-wrapper {
-  position: relative;
-  clear: both;
-  @include gridle_state (max-tablet) {
-    margin-top: 60px;
-  }
-  img {
-    width: 100%;
-    display: block;
-  }
-  .inner-wrapper {
-    position: absolute;
-    @include gridle_state (max-mobile) {
-      max-width: none;
-      top: 0;
-    }
-    @include gridle_state (max-tablet) {
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-    @include gridle_state (only-tablet) {
-      top: 25%;
-    }
-    @include gridle_state (min-desk) {
-      bottom: 20%;
-      left: 10%;
-    }
-  }
-  .big-image-caption {
-    @include gridle_state (max-mobile) {
-      margin: 0;
-      text-align: center;
-    }
-    @include gridle_state (only-mobile-land) {
-      max-width: 85%;
-      margin: 8% auto 0;
-    }
-    @include gridle_state (only-tablet) {
-      margin-bottom: 50px;
-    }
-  }
-  .node-readmore {
-    @include gridle_state (max-mobile) {
-      margin-top: 10px;
-      position: absolute;
-      bottom: 10px;
-      left: 0;
-      right: 0;
-      margin: 0 auto $padding*2;
-    }
-    @include gridle_state (only-mobile-land) {
-      margin-bottom: 25px;
-    }
-  }
-  .node-readmore a {
-    @include gridle_state (max-mobile) {
-      background-color: transparent;
-      border: 1px solid $white;
-      text-align: center;
-      display: inline;
-    }
-    @include gridle_state (min-tablet) {
-      display: initial;
-    }
-  }
-  .big-image-caption,
-  .node-readmore a {
-    color: $white;
-    padding: $padding $padding*2;
-    font-weight: 700;
-    background-color: $bluetrans;
-    border: 1px solid $black;
-    @include gridle_state (only-tablet) {
-      font-size: 16px;
-    }
-    @include gridle_state (min-tablet) {
-      max-width: 80%;
-    }
-    @include gridle_state (min-desk) {
-      font-size: 24px;
-    }
-  }
-  .node-readmore {
-    a {
-      &:hover {
-        background-color: $lightblue;
-      }
     }
   }
 }
@@ -682,22 +479,194 @@ div.messages {
   }
 }
 
-.field-name-field-tel-field,
-.field-name-field-phone {
-  .field-item {
-    &:before {
-      display: inline-block;
-      font: normal normal normal 14px/1 FontAwesome;
-      font-size: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      transform: translate(0, 0);
-      content: "\f095";
-      padding-right: 5px;
+/* FRONT REGIONS
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
+
+#frontblock-wrapper,
+#bottomblock-wrapper,
+#main-wrapper {
+  &.wrapper {
+    padding: 40px 0;
+  }
+}
+
+.view-front-image {
+  img {
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: -1;
+    @include vendor-prefix(transition, 0.5s ease);
+    @include vendor-prefix(transform, translate3d(0, 0, 0));
+    @include vendor-prefix(transition-property, background-position);
+  }
+}
+
+.front #main-wrapper,
+#bottomblock-wrapper {
+  text-align: center;
+}
+
+.front #block-system-main {
+  h2 {
+    a {
+      font-size: 42px;
+      color: $blue;
     }
   }
 }
+
+#frontblock-wrapper {
+  background-color: $blue;
+  * {
+    color: $white;
+  }
+  .view-grouping-header {
+    font-size: 32px;
+    margin-bottom: 32px;
+  }
+  .view-grouping {
+    &:nth-child(1) {
+      margin-bottom: 42px;
+    }
+  }
+}
+
+.field-name-field-about {
+  padding-bottom: 20px;
+}
+
+#bottomblock-wrapper {
+  background-color: $grey;
+  .menu {
+    text-align: center;
+    li {
+      display: inline-block;
+      vertical-align: top;
+      @include gridle_state (max-mobile) {
+        margin-bottom: 50px;
+      }
+    }
+    .first,
+    .last {
+      a {
+        width: 205px;
+        height: 275px;
+        background-position: 0 70px;
+        background-repeat: no-repeat;
+        background-size: 205px 205px;
+        display: block;
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+    .first a {
+      background-image: url(../img/fabriek.png);
+      @include gridle_state (min-tablet) {
+        margin-right: 20px;
+      }
+    }
+    .last a {
+      background-image: url(../img/doos.png);
+      @include gridle_state (min-tablet) {
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+#cover-wrapper {
+  position: relative;
+  clear: both;
+  @include gridle_state (max-tablet) {
+    margin-top: 60px;
+  }
+  img {
+    width: 100%;
+    display: block;
+  }
+  .inner-wrapper {
+    position: absolute;
+    @include gridle_state (max-mobile) {
+      max-width: none;
+      top: 0;
+    }
+    @include gridle_state (max-tablet) {
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    @include gridle_state (only-tablet) {
+      top: 25%;
+    }
+    @include gridle_state (min-desk) {
+      bottom: 20%;
+      left: 10%;
+    }
+  }
+  .big-image-caption {
+    @include gridle_state (max-mobile) {
+      margin: 0;
+      text-align: center;
+    }
+    @include gridle_state (only-mobile-land) {
+      max-width: 85%;
+      margin: 8% auto 0;
+    }
+    @include gridle_state (only-tablet) {
+      margin-bottom: 50px;
+    }
+  }
+  .node-readmore {
+    @include gridle_state (max-mobile) {
+      margin-top: 10px;
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      margin: 0 auto $padding*2;
+    }
+    @include gridle_state (only-mobile-land) {
+      margin-bottom: 25px;
+    }
+  }
+  .node-readmore a {
+    @include gridle_state (max-mobile) {
+      background-color: transparent;
+      border: 1px solid $white;
+      text-align: center;
+      display: inline;
+    }
+    @include gridle_state (min-tablet) {
+      display: initial;
+    }
+  }
+  .big-image-caption,
+  .node-readmore a {
+    color: $white;
+    padding: $padding $padding*2;
+    font-weight: 700;
+    background-color: $bluetrans;
+    border: 1px solid $black;
+    @include gridle_state (only-tablet) {
+      font-size: 16px;
+    }
+    @include gridle_state (min-tablet) {
+      max-width: 80%;
+    }
+    @include gridle_state (min-desk) {
+      font-size: 24px;
+    }
+  }
+  .node-readmore {
+    a {
+      &:hover {
+        background-color: $lightblue;
+      }
+    }
+  }
+}
+
 
 /* CONTACT
 ><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
@@ -744,6 +713,56 @@ div.messages {
   width: 100%!important;
   margin-bottom: $padding*2;
 }
+
+/* CONTACT INFO
+><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
+
+.adres {
+  border: 1px solid $black;
+  padding: 10px;
+  background-color: $darkgrey;
+  color: $white;
+  .fa {
+    float: left;
+    font-size: 20px;
+  }
+  .street-block,
+  .addressfield-container-inline {
+    margin-left: 30px;
+  }
+  #sidebar_second & {
+    margin: $padding*2 0;
+    width: 100%;
+  }
+}
+
+.tel {
+  ul {
+    list-style-type: none;
+    li {
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.field-name-field-tel-field,
+.field-name-field-phone {
+  .field-item {
+    &:before {
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+      content: "\f095";
+      padding-right: 5px;
+    }
+  }
+}
+
 
 
 /* MENUS
@@ -1475,6 +1494,12 @@ div.horizontal-tabs {
     padding: 0;
     @include vendor-prefix(transition, opacity 0.35s);
     @include vendor-prefix(transition, transform 0.35s);
+  }
+}
+
+.rel-img-link {
+  a {
+    background-color: $blue;
   }
 }
 
