@@ -71,7 +71,7 @@ function feneko_calculator_menu() {
     'type' => MENU_LOCAL_TASK,
     'file' => 'feneko_calculator.mpdf.inc',
     'page callback' => 'fc_get_attachment',
-    'page arguments' => array(3, false, true),
+    'page arguments' => array(3, false, false),
     'access arguments' => array('admin_manyforms'), // TODO set right permissions
     'parent' => 'admin/commerce/orders/%commerce_order',
     'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
@@ -758,7 +758,9 @@ function _fc_get_standaardprofiel_image($type, $title = '', $weight = 0) {
 }
 
 function _fc_get_plaatbewerking_image($name, $weight = 0) {
-  $path = FC_PATH . "/in/images/$name.jpg";
+  $prefix = FC_PATH;
+  // $prefix = 'sites/default/files/private';
+  $path = "$prefix/in/images/$name.jpg";
   $title = t('plaatbewerking') . " " . $name;
   return _fc_get_image($path, $title, $weight);;
 }
@@ -1532,7 +1534,7 @@ function fc_export_orders_submit($form, $form_state) {
         // Add XML and PDF of the order to zipstream
         $xml = feneko_calculator_order_to_xml($order);
         $pdf = fc_get_attachment($order->order_id);
-        $zp_pdf = fc_get_attachment($order->order_id, true, true);
+        $zp_pdf = fc_get_attachment($order->order_id, true, false);
         $zip->add_file("$order_id.xml", $xml);
         $zip->add_file("$order_id.pdf", $pdf);
         $zip->add_file("ZP$order_id.pdf", $zp_pdf);
