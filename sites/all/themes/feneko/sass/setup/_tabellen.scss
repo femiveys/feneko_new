@@ -159,13 +159,15 @@ td.active {
 .page-user-feneko-orders .sticky-table,
 .view-commerce-backoffice-user-orders {
   thead {
-    background-color: $blue;
-    color: $white;
+    @include gridle_state (min-desk) {
+      background-color: $blue;
+      color: $white;
+      a {
+        color: $white;
+      }
+    }
     th {
       padding: 5px;
-    }
-    a {
-      color: $white;
     }
   }
 }

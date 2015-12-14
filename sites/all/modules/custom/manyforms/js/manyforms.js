@@ -1,11 +1,12 @@
 (function ($) {
   Drupal.behaviors.table_help = {
     attach: function (context, settings) {
-      $('.manyform_table caption').wrapInner('<div class="help-text">');
+      var className = 'help-text';
+      $('.manyform_table caption').wrapInner('<div class="' + className + '">');
       $('.manyform_table caption').prepend($('<div>', { "class": "help" }));
 
       $('.manyform_table caption div').click(function() {
-        $(this).parents('caption').find('.text').slideToggle();
+        $(this).parents('caption').find('.' + className).slideToggle();
       });
     }
   };

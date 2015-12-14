@@ -27,6 +27,7 @@
 -moz-osx-font-smoothing: grayscale;
 }
 
+/*
 @mixin transition($property, $time, $sort) {
   -webkit-transition: $property $time $sort;
   -moz-transition: $property $time $sort;
@@ -34,6 +35,7 @@
   -ms-transition: $property $time $sort;
   transition: $property $time $sort;
 }
+*/
 
 @mixin linear-gradient($fromColor, $toColor) {
   background-color: $toColor; /* Fallback Color */
@@ -44,6 +46,14 @@
   background-image:      -o-linear-gradient(top, $fromColor, $toColor); /* Opera 11.10+ */
   background-image:         linear-gradient(top, $fromColor, $toColor);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$fromColor}', EndColorStr='#{$toColor}');
+}
+
+@mixin vendor-prefix($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+  #{$name}: #{$argument};
 }
 
 

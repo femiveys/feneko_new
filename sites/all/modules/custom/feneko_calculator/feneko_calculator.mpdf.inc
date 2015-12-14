@@ -7,7 +7,7 @@
  * @return
  *   PDF as a string to attach to a mail
  */
-function fc_get_attachment($order_id, $outputAsString = TRUE) {
+function fc_get_attachment($order_id, $outputAsString = TRUE, $includePrice = TRUE) {
   libraries_load('mpdf');
   module_load_include('inc', 'feneko_calculator', 'extra_fields');
 
@@ -183,9 +183,13 @@ function fc_get_attachment($order_id, $outputAsString = TRUE) {
   $table_header  = '<thead><tr>';
   $table_header .= '<th class="product">' . t('Product') . '</th>';
   $table_header .= '<th class="details">' . t('Productspecificatie') . '</th>';
-  $table_header .= '<th>' . t('Price') . '</th>';
-  $table_header .= '<th class="amount">' . t('Amount') . '</th>';
-  $table_header .= '<th>' . t('Total') . '</th>';
+  if($includePrice) {
+    $table_header .= '<th>' . t('Price') . '</th>';
+  }
+  $table_header .= '<th class="amount">' . t('Aantal') . '</th>';
+  if($includePrice) {
+    $table_header .= '<th>' . t('Total') . '</th>';
+  }
   $table_header .= '</tr></thead>';
 
   $line_items = '';
@@ -204,35 +208,41 @@ function fc_get_attachment($order_id, $outputAsString = TRUE) {
       $line_items .= '<td class="details">';
       $line_items .= nl2br(fc_line_item_details($line->value(), 'text'));
       $line_items .= '</td>';
-      $line_items .= '<td class="price">';
-      $line_items .= _fc_format_amount($price['amount']);
-      $line_items .= '</td>';
+      if($includePrice) {
+        $line_items .= '<td class="price">';
+        $line_items .= _fc_format_amount($price['amount']);
+        $line_items .= '</td>';
+      }
       $line_items .= '<td class="amount">';
       $line_items .= intval($line->quantity->value());
       $line_items .= '</td>';
-      $line_items .= '<td class="total">';
-      $line_items .= _fc_format_amount($total['amount']);
-      $line_items .= '</td>';
+      if($includePrice) {
+        $line_items .= '<td class="total">';
+        $line_items .= _fc_format_amount($total['amount']);
+        $line_items .= '</td>';
+      }
       $line_items .= '</tr>';
     }
   }
 
-  $totals = _fc_totals_order($order_wrapper);
-  $sub_total  = '<tr class="subtotal"><td colspan="4">' . t('Subtotal') . '</td>';
-  $sub_total .= '<td>' . $totals['formatted']['subtotal'] . '</td></tr>';
-  $total  = '<tr class="total"><td colspan="4">' . t('Total') . '</td>';
-  $total .= '<td><strong>' . $totals['formatted']['total'] . '</strong></td></tr>';
+  if($includePrice) {
+    $totals = _fc_totals_order($order_wrapper);
+    $sub_total  = '<tr class="subtotal"><td colspan="4">' . t('Subtotal') . '</td>';
+    $sub_total .= '<td>' . $totals['formatted']['subtotal'] . '</td></tr>';
+    $total  = '<tr class="total"><td colspan="4">' . t('Total') . '</td>';
+    $total .= '<td><strong>' . $totals['formatted']['total'] . '</strong></td></tr>';
 
-  $discounts = '';
-  foreach ($order_wrapper->commerce_line_items as $line) {
-    if($line->type->value() === 'commerce_discount') {
-      $sections = _fc_get_discount_sections($line->commerce_unit_price->data->value());
+    $discounts = '';
+    foreach ($order_wrapper->commerce_line_items as $line) {
+      if($line->type->value() === 'commerce_discount') {
+        $sections = _fc_get_discount_sections($line->commerce_unit_price->data->value());
 
-      foreach ($sections as $section) {
-        $discounts .= '<tr class="' . $section['key'] . '">';
-        $discounts .= '<td colspan="4">' . $section['label'] . '</td>';
-        $discounts .= '<td>' . $section['price'] . '</td>';
-        $discounts .= '</tr>';
+        foreach ($sections as $section) {
+          $discounts .= '<tr class="' . $section['key'] . '">';
+          $discounts .= '<td colspan="4">' . $section['label'] . '</td>';
+          $discounts .= '<td>' . $section['price'] . '</td>';
+          $discounts .= '</tr>';
+        }
       }
     }
   }
@@ -269,21 +279,25 @@ function fc_get_attachment($order_id, $outputAsString = TRUE) {
   $html .= drupal_render($comment);
   $html .= '<table class="total" align="right">';
   $html .= '<tbody>';
-  $html .= $sub_total;
-  $html .= $discounts;
-  $html .= $total;
+  if($includePrice) {
+    $html .= $sub_total;
+    $html .= $discounts;
+    $html .= $total;
+  }
   $html .= '</tbody>';
   $html .= '</table>';
   $html .= '</body></html>';
 
 // dpm($html);
 
-  $footer = '<div class="prices">';
-  $footer.= '<div class="subtotal">' . t('Subtotal') . ': ';
-  $footer.= $totals['formatted']['subtotal'] . '</div>';
-  $footer.= '<div class="total">' . t('Total') . ': ';
-  $footer.= $totals['formatted']['total'] . '</div>';
-  $footer.= '</div>';
+  if($includePrice) {
+    $footer = '<div class="prices">';
+    $footer.= '<div class="subtotal">' . t('Subtotal') . ': ';
+    $footer.= $totals['formatted']['subtotal'] . '</div>';
+    $footer.= '<div class="total">' . t('Total') . ': ';
+    $footer.= $totals['formatted']['total'] . '</div>';
+    $footer.= '</div>';
+  }
   $footer.= '<div class="top-line"></div>';
   $footer.= '<div class="pagenum">{PAGENO}/{nbpg}</div>';
   $footer.= '<div class="feneko_logo" style="line-height: 20px">';

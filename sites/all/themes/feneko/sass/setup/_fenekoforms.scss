@@ -214,13 +214,23 @@ form.commerce-add-to-cart {
 }
 
 .filters {
+  padding: 0;
   .form-item {
     border-bottom: none;
   }
   .fieldset-wrapper {
+    margin-top: 30px;
     > div.actions {
       clear: both;
       margin-top: 20px;
+    }
+    > div {
+      &:nth-child(2),
+      &:nth-child(3) {
+        padding-left: 0;
+        border-left: none;
+        border-right: none;
+      }
     }
     @include gridle_state(max-tablet) {
       > div {
@@ -263,22 +273,6 @@ form.commerce-add-to-cart {
   width: 90%;
 }
 
-.page-user-feneko-orders {
-  .filters {
-    padding: 0;
-    .fieldset-wrapper {
-      margin-top: 30px;
-      > div {
-        &:nth-child(2),
-        &:nth-child(3) {
-          padding-left: 0;
-          border-left: none;
-          border-right: none;
-        }
-      }
-    }
-  }
-}
 
 html.js {
   fieldset {
