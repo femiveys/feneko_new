@@ -31,7 +31,7 @@ function feneko_code_allow_order() {
     // OK: continue checks
   } else {
     $msg = t('You don\'t have a role having "feneko order" permission. Contact the administrator.');
-    drupal_set_message($msg, 'warning');
+    // drupal_set_message($msg, 'warning');
     return false;
   }
 
@@ -41,11 +41,9 @@ function feneko_code_allow_order() {
     // OK
   } else {
     $msg = t('You don\'t have any clients assigned. Contact the administrator.');
-    drupal_set_message($msg, 'warning');
+    // drupal_set_message($msg, 'warning');
     return false;
   }
-
-
 
   return true;
 }

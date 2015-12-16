@@ -655,6 +655,9 @@ class FenekoForm {
           if(isset($ral_code)) {
             $product_fiche .= $this->getCode("kleur_dep", $ral_code);
           }
+          if($value === 'ral') {
+            $value = $this->handleRal($fields['klant']);
+          }
           break;
 
         case 'ondergeleider':
@@ -741,6 +744,36 @@ class FenekoForm {
     for($i = 1; $i < 5; $i++) {
       if(isset($this->form["table$i"])) return $i;
     }
+  }
+
+  /**
+   * Handle the visibility state of the form elements:
+   * - Set an error message for visibile fields that are not filled in
+   * - Set non visible values to NULL
+   * @param $values Array all fields of the submission
+   */
+  private function handleRal($clientId) {
+    $id = intval($this->getId());
+    $client = entity_metadata_wrapper('node', $clientId);
+    $value = 'ral';
+
+    switch ($client->field_client_group->value()) {
+      case 11: // BudgetLine
+        $matches = array(2, 4, 10);
+        if(in_array($id, $matches)) {
+          $value = 'ral_bl';
+        }
+        break;
+
+      case 13: // Groep A
+        if($id <= 3) {
+          $value = 'ral_a1';
+        } else {
+          $value = 'ral_a2';
+        }
+        break;
+    }
+    return $value;
   }
 
 
@@ -1997,6 +2030,9 @@ class FenekoForm {
         'bruin'     => 2,
         'anodise'   => 3,
         'ral'       => 4,
+        'ral_bl'    => 8,
+        'ral_a1'    => 9,
+        'ral_a2'    => 7,
         'f9001'     => 5,
         '7016'      => 6,
         '7039-70d'  => 7,
@@ -2376,6 +2412,15 @@ class FenekoForm {
 
     // Add the human readible value if set
     if(isset($value)) {
+      // Translate the special RAL values
+      $rals = array(
+        'ral' => 'Ral-' . t('color'),
+        'ral_bl' => 'BudgetLine',
+        'ral_a1' => t('Group') . ' A',
+        'ral_a2' => t('Group') . ' A',
+      );
+      $value = isset($rals[$value]) ? $rals[$value] : $value;
+
       $comment .= ": $value";
     }
 

@@ -732,3 +732,24 @@ function manyforms_update_7045() {
     }
   }
 }
+
+/**
+ * Add client_group field to ral.
+ */
+function manyforms_update_7046() {
+  $field = array(
+    'description' => 'Client group',
+    'type' => 'int',
+    'size' => 'tiny',
+    'not null' => TRUE,
+    'unsigned' => TRUE,
+    'default' => 0,
+  );
+
+  $table = 'ral';
+  $name = 'client_group';
+
+  if (!db_field_exists($table, $name)) {
+    db_add_field($table, $name, $field);
+  }
+}
