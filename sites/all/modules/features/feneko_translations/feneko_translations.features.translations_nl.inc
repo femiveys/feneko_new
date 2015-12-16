@@ -19,6 +19,15 @@ function feneko_translations_translations_nl_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Order specific information', array(), array('context' => ''));
+  $translations['nl:default']['5a2d7865f8878cb7cb82a45b2be8ba8e'] = array(
+    'source' => 'You don\'t have any clients assigned. Contact the administrator.',
+    'context' => '',
+    'location' => '/nl/vliegenraam-basic/bestel',
+    'translation' => 'U heeft geen klanten toegewezen. Contacteer de beheerder.',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('You don\'t have any clients assigned. Contact the administrator.', array(), array('context' => ''));
   $translations['nl:default']['ad921d60486366258809553a3db49a4a'] = array(
     'source' => 'unknown',
     'context' => '',

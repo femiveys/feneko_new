@@ -14,8 +14,7 @@ function manyforms_menu() {
       'page callback' => 'manyforms_form_callback',
       'page arguments' => array($id),
       'type' => MENU_CALLBACK,
-      'access callback' => array('feneko_code_access'),
-      'access arguments' => array('submit_manyforms'),
+      'access callback' => array('feneko_code_allow_order'),
     );
   }
 
@@ -23,7 +22,7 @@ function manyforms_menu() {
     'title' => 'Zoek profielen',
     'type' => MENU_CALLBACK,
     'page callback' => 'manyforms_utilo_search_page',
-    'access arguments' => array('submit_manyforms'),
+    'access callback' => array('feneko_code_allow_order'),
   );
 
   $items['admin/feneko_screens'] = array(
@@ -32,14 +31,14 @@ function manyforms_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('manyforms_setting_form'),
     'file' => 'manyforms_setting.inc',
-    'access arguments' => array('admin_manyforms'),
+    'access arguments' => array('feneko admin'),
   );
 
   $items['admin/feneko_screens/overview'] = array(
     'title' => 'Overview',
     'type' => MENU_LOCAL_TASK,
     'page callback' => 'manyforms_overview',
-    'access arguments' => array('admin_manyforms'),
+    'access arguments' => array('feneko admin'),
   );
 
   $items['admin/feneko_screens/admin'] = array(
@@ -48,7 +47,7 @@ function manyforms_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('manyforms_setting_form'),
     'file' => 'manyforms_setting.inc',
-    'access arguments' => array('admin_manyforms'),
+    'access arguments' => array('feneko admin'),
   );
 
   $items['admin/feneko_screens/export'] = array(
@@ -57,7 +56,7 @@ function manyforms_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('manyforms_export_form', FALSE),
     'file' => 'manyforms_export.inc',
-    'access arguments' => array('admin_manyforms'),
+    'access arguments' => array('feneko admin'),
   );
 
   $items['admin/feneko_screens/archive'] = array(
@@ -73,7 +72,7 @@ function manyforms_menu() {
     'title' => 'PDF',
     'description' => 'PDF generator',
     'page callback' => 'manyforms_generate_pdf',
-    'access arguments' => array('admin_manyforms'),
+    'access arguments' => array('feneko admin'),
     'type' => MENU_LOCAL_TASK,
   );
 
@@ -81,29 +80,21 @@ function manyforms_menu() {
     'description' => 'autocomplete callback',
     'page callback' => 'manyforms_autocomplete',
     'page arguments' => array(2, 3),
-    'access arguments' => array('submit_manyforms'),
+    'access callback' => array('feneko_code_allow_order'),
     'type' => MENU_LOCAL_TASK,
   );
-
-  // $items['manyforms/autocomplete2'] = array(
-  //   'description' => 'autocomplete callback',
-  //   'page callback' => 'manyforms_autocomplete',
-  //   'page arguments' => array(2, TRUE),
-  //   'access arguments' => array('submit_manyforms'),
-  //   'type' => MENU_LOCAL_TASK,
-  // );
 
   $items['forms/test'] = array(
     'description' => 'Test',
     'page callback' => 'manyforms_test',
-    'access arguments' => array('admin_manyforms'),
+    'access arguments' => array('feneko admin'),
     'type' => MENU_CALLBACK,
   );
 
   $items['forms/export'] = array(
     'description' => 'Export single item',
     'page callback' => 'manyforms_export_single',
-    'access arguments' => array('admin_manyforms'),
+    'access arguments' => array('feneko admin'),
     'type' => MENU_CALLBACK,
     'file' => 'manyforms_export.inc',
   );
@@ -111,7 +102,7 @@ function manyforms_menu() {
   $items['forms/aliases'] = array(
     'description' => 'Set aliases for forms',
     'page callback' => 'manyforms_aliases',
-    'access arguments' => array('admin_manyforms'),
+    'access arguments' => array('feneko admin'),
     'type' => MENU_CALLBACK,
   );
 
@@ -308,14 +299,6 @@ function manyforms_test() {
 // DEFINE PERMISSIONS.
 function manyforms_permission() {
   return array(
-    'admin_manyforms' => array(
-      'title' => 'Admin manyforms module',
-      'restrict access' => TRUE,
-    ),
-    'submit_manyforms' => array(
-      'title' => 'Submit form',
-      'restrict access' => TRUE,
-    ),
     'archive_manyforms' => array(
       'title' => 'Access archive screen forms',
       'restrict access' => TRUE,

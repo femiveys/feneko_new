@@ -22,25 +22,25 @@ function feneko_calculator_menu() {
     'title' => 'Convert MDB to CSVs',
     'type' => MENU_LOCAL_ACTION,
     'page callback' => 'fc_convert_mdb',
-    'access arguments' => array('admin_manyforms'), // TODO set right permissions
+    'access arguments' => array('feneko admin'),
   );
   $items['import/fc_preprocess'] = array(
     'title' => 'Preprocess Calculator Files',
     'type' => MENU_LOCAL_ACTION,
     'page callback' => 'fc_preprocess',
-    'access arguments' => array('admin_manyforms'), // TODO set right permissions
+    'access arguments' => array('feneko admin'),
   );
   $items['cart/init'] = array(
     'title' => 'Kies kleur',
     'type' => MENU_LOCAL_TASK,
     'page callback' => 'drupal_get_form',
     'page arguments' => array('fc_cart_init_form'),
-    'access arguments' => array('submit_manyforms'), // TODO set right permissions
+    'access callback' => array('feneko_code_allow_order'),
   );
   $items['calculator/colors'] = array(
     'description' => 'colors autocomplete callback',
     'page callback' => 'fc_colors_autocomplete',
-    'access arguments' => array('submit_manyforms'),
+    'access callback' => array('feneko_code_allow_order'),
     'type' => MENU_LOCAL_TASK,
   );
   $items['admin/commerce/config/feneko'] = array(
@@ -49,7 +49,7 @@ function feneko_calculator_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('feneko_calculator_settings_form'),
     'file' => 'feneko_calculator.admin.inc',
-    'access arguments' => array('admin_manyforms'),
+    'access arguments' => array('feneko admin'),
   );
   $items['admin/commerce/config/feneko/settings'] = array(
     'title' => 'Settings',
@@ -57,14 +57,14 @@ function feneko_calculator_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('feneko_calculator_settings_form'),
     'file' => 'feneko_calculator.admin.inc',
-    'access arguments' => array('admin_manyforms'),
+    'access arguments' => array('feneko admin'),
   );
   $items['admin/commerce/config/feneko/import'] = array(
     'title' => 'Import',
     'weight' => 200,
     'type' => MENU_LOCAL_TASK,
     'page callback' => 'fc_goto',
-    'access arguments' => array('admin_manyforms'), // TODO set right permissions
+    'access arguments' => array('feneko admin'),
   );
   $items['admin/commerce/orders/%/zppdf'] = array(
     'title' => 'PDF (Zonder prijs)',
@@ -72,7 +72,7 @@ function feneko_calculator_menu() {
     'file' => 'feneko_calculator.mpdf.inc',
     'page callback' => 'fc_get_attachment',
     'page arguments' => array(3, false, false),
-    'access arguments' => array('admin_manyforms'), // TODO set right permissions
+    'access arguments' => array('feneko admin'),
     'parent' => 'admin/commerce/orders/%commerce_order',
     'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
   );
@@ -82,7 +82,7 @@ function feneko_calculator_menu() {
     'file' => 'feneko_calculator.mpdf.inc',
     'page callback' => 'fc_get_attachment',
     'page arguments' => array(3, false),
-    'access arguments' => array('admin_manyforms'), // TODO set right permissions
+    'access arguments' => array('feneko admin'),
     'parent' => 'admin/commerce/orders/%commerce_order',
     'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
   );
@@ -92,7 +92,7 @@ function feneko_calculator_menu() {
     'file' => 'feneko_calculator.admin.inc',
     'page callback' => 'feneko_calculator_xml',
     'page arguments' => array(3),
-    'access arguments' => array('admin_manyforms'), // TODO set right permissions
+    'access arguments' => array('feneko admin'),
     'parent' => 'admin/commerce/orders/%commerce_order',
     'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
   );

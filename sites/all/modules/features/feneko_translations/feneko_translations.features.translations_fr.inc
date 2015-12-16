@@ -169,6 +169,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Al onze leveringen gebeuren tussen de 8 en 12 werkdagen.', array(), array('context' => ''));
+  $translations['fr:default']['5a2d7865f8878cb7cb82a45b2be8ba8e'] = array(
+    'source' => 'You don\'t have any clients assigned. Contact the administrator.',
+    'context' => '',
+    'location' => '/nl/vliegenraam-basic/bestel',
+    'translation' => 'Il n\'y a pas de clients assignés à vous. Contactez l\'administrateur.',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('You don\'t have any clients assigned. Contact the administrator.', array(), array('context' => ''));
   $translations['fr:default']['648930cf62ba900667f41bd903a76a21'] = array(
     'source' => 'Solliciteren tot (toutes les langues)',
     'context' => '',

@@ -47,6 +47,24 @@ function feneko_account_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'feneko admin'.
+  $permissions['feneko admin'] = array(
+    'name' => 'feneko admin',
+    'roles' => array(
+      'interne medewerker' => 'interne medewerker',
+    ),
+    'module' => 'feneko_code',
+  );
+
+  // Exported permission: 'feneko order'.
+  $permissions['feneko order'] = array(
+    'name' => 'feneko order',
+    'roles' => array(
+      'handelaar' => 'handelaar',
+    ),
+    'module' => 'feneko_code',
+  );
+
   // Exported permission: 'post api'.
   $permissions['post api'] = array(
     'name' => 'post api',
@@ -66,16 +84,6 @@ function feneko_account_user_default_permissions() {
       'interne medewerker' => 'interne medewerker',
     ),
     'module' => 'feneko_code',
-  );
-
-  // Exported permission: 'submit_manyforms'.
-  $permissions['submit_manyforms'] = array(
-    'name' => 'submit_manyforms',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'handelaar' => 'handelaar',
-    ),
-    'module' => 'manyforms',
   );
 
   // Exported permission: 'view any commerce_product entity'.
