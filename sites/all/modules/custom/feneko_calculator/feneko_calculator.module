@@ -435,7 +435,6 @@ function feneko_calculator_commerce_cart_order_empty($order) {
  */
 function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$form_state, $form_id) {
   // GENERIC STUFF
-
   // Workaround for AJAX bug described in https://www.drupal.org/node/1181370
   $action = isset($form_state['values']['action'])
                    ? $form_state['values']['action'] : $form['#action'];
@@ -475,6 +474,7 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
 
   // Add a validator to prepare some values
   $form['#validate'][] = 'fc_validate_add_to_cart_form';
+  $form['#submit'][] = 'fc_submit_add_to_cart_form';
 
   // START PRODUCT SPECIFIC STUFF
   $product = commerce_product_load($form['product_id']['#value']);
@@ -482,6 +482,9 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
     'callback' => 'commerce_cart_add_to_cart_form_attributes_refresh',
     'event' => 'fc_change',
   );
+
+  // Apply the last config for this product
+  fc_apply_last_config($form_state, $product);
 
   switch ($product->type) {
     case 'plaatbewerking':
@@ -913,8 +916,31 @@ function fc_cart_init_form($form, $form_state) {
       '#validate' => array('fc_cart_init_form_validate'),
     );
   }
+}
 
+// Restore the last config if available for the given product type
+function fc_apply_last_config(&$form_state, $product) {
+  $product_type = fc_get_last_config_type($product);
+  if(isset($form_state['input']) &&
+    !isset($form_state['process_input']) &&
+     isset($_SESSION['fc_last_config'][$product_type])) {
+      $msg = t('The values below are filled in because your last configuration has been restored.');
+      drupal_set_message($msg, 'warning', false);
+      $form_state['input'] = $_SESSION['fc_last_config'][$product_type];
+  }
+}
 
+// Store the last config to the session
+function fc_submit_add_to_cart_form($form, &$form_state) {
+  $product = commerce_product_load($form['product_id']['#value']);
+  $product_type = fc_get_last_config_type($product);
+  $_SESSION['fc_last_config'][$product_type] = $form_state['input'];
+}
+
+function fc_get_last_config_type($product) {
+  return $product->type === 'standaardprofiel'
+          ? $product->field_standaardprofiel_type['und'][0]['value']
+          : $product->type;
 }
 
 function fc_validate_add_to_cart_form($form, &$form_state) {
@@ -948,102 +974,102 @@ function fc_validate_add_to_cart_form($form, &$form_state) {
     _fc_set_default_value($form, $form_state);
 
     // Do some VALIDATION checks
-
-    // Aantal Anti-Dreunstroken
-    if(!empty($line_item['field_anti_dreunstrook']['und'][0]['value'])
-      and empty($line_item['field_aantal_adsn']['und'][0]['value'])) {
-      $msg = t('U moet minstens 1 anti-dreunstrook kiezen.');
-      form_set_error('line_item_fields][field_aantal_adsn', $msg);
-      $form_state['rebuild'] = true;
-    }
-
-    // Multi breedte
-    if(isset($line_item['field_multi_breedte'])) {
-      $typeBewerking = $line_item['field_type_bewerking']['und'][0]['value'];
-      $number = fc_get_parts($typeBewerking);
-      $max = 1500;
-
-      $total = 0;
-      for ($i=0; $i < $number; $i++) {
-        $val = $line_item['field_multi_breedte']['und'][$i]['value'];
-        $total += $val;
-        if($val <= 0) {
-          $msg = t('Breedte !b moet groter zijn dan 0.', array('!b' => chr(97 + $i)));
-          form_set_error("line_item_fields][field_multi_breedte][und][$i", $msg);
-          $form_state['rebuild'] = true;
-        }
-      }
-      if($total > $max) {
-        $msg = t('De som van de breedte stukken mag maximaal :max mm zijn.', array(':max' => $max));
-        form_set_error("line_item_fields][field_multi_breedte", $msg);
+    if(!$form_state['rebuild']) {
+      // Aantal Anti-Dreunstroken
+      if(!empty($line_item['field_anti_dreunstrook']['und'][0]['value'])
+        and empty($line_item['field_aantal_adsn']['und'][0]['value'])) {
+        $msg = t('U moet minstens 1 anti-dreunstrook kiezen.');
+        form_set_error('line_item_fields][field_aantal_adsn', $msg);
         $form_state['rebuild'] = true;
       }
-    }
 
-    // Multi Hoek
-    if(isset($line_item['field_multi_hoek'])) {
-      $typeBewerking = $line_item['field_type_bewerking']['und'][0]['value'];
-      $number = fc_get_parts($typeBewerking) - 1;
+      // Multi breedte
+      if(isset($line_item['field_multi_breedte'])) {
+        $typeBewerking = $line_item['field_type_bewerking']['und'][0]['value'];
+        $number = fc_get_parts($typeBewerking);
+        $max = 1500;
 
-      for ($i=0; $i < $number; $i++) {
-        $val = $line_item['field_multi_hoek']['und'][$i]['value'];
-        if($val < 30 or $val > 180) {
-          $msg = t('Hoek !h moet minimum 30 zijn en maximum 180.', array('!h' => "x" . ($i+1)));
-          form_set_error("line_item_fields][field_multi_hoek][und][$i", $msg);
-          $form_state['rebuild'] = true;
-        }
-      }
-    }
-
-    // Breedte
-    if(isset($line_item['field_breedte'])) {
-      if($line_item['field_breedte']['und'][0]['value'] <= 0) {
-        $msg = t('De breedte moet groter zijn dan 0.');
-        form_set_error('line_item_fields][field_breedte', $msg);
-        $form_state['rebuild'] = true;
-      }
-    }
-
-    // Lengte
-    if(isset($line_item['field_lengte'])) {
-      $product = commerce_product_load($form['product_id']['#value']);
-      switch ($product->type) {
-        case 'plaatbewerking':
-        case 'raamtablet':
-        case 'muurkap':
-        case 'sandwichpaneel':
-          $max = 4000;
-          if($line_item['field_lengte']['und'][0]['value'] > $max) {
-            $msg = t('De lengte mag maximaal :max mm zijn.', array(':max' => $max));
-            form_set_error('line_item_fields][field_lengte', $msg);
+        $total = 0;
+        for ($i=0; $i < $number; $i++) {
+          $val = $line_item['field_multi_breedte']['und'][$i]['value'];
+          $total += $val;
+          if($val <= 0) {
+            $msg = t('Breedte !b moet groter zijn dan 0.', array('!b' => chr(97 + $i)));
+            form_set_error("line_item_fields][field_multi_breedte][und][$i", $msg);
             $form_state['rebuild'] = true;
           }
-          break;
-      }
-    }
-
-    // Plooien
-    if(isset($line_item['field_plooien'])) {
-      if(!is_int(intval($line_item['field_plooien']['und'][0]['value']))) {
-        $msg = t('Het aantal plooien moet een getal zijn.');
-        form_set_error('line_item_fields][field_plooien', $msg);
-        $form_state['rebuild'] = true;
-      }
-    }
-
-    // The drawing
-    if(isset($line_item['field_tekening'])) {
-      // The file is only important for the special type bewerking
-      $typeBewerking = $line_item['field_type_bewerking']['und'][0]['value'];
-      if($typeBewerking === FC_PB_SPECIAL) {
-        if(!$line_item['field_tekening']['und'][0]['fid']) {
-          $msg = t('Gelieve een tekening toe te voegen.');
-          form_set_error('line_item_fields][field_tekening', $msg);
+        }
+        if($total > $max) {
+          $msg = t('De som van de breedte stukken mag maximaal :max mm zijn.', array(':max' => $max));
+          form_set_error("line_item_fields][field_multi_breedte", $msg);
           $form_state['rebuild'] = true;
         }
       }
-    }
 
+      // Multi Hoek
+      if(isset($line_item['field_multi_hoek']) && !$form_state['rebuild']) {
+        $typeBewerking = $line_item['field_type_bewerking']['und'][0]['value'];
+        $number = fc_get_parts($typeBewerking) - 1;
+
+        for ($i=0; $i < $number; $i++) {
+          $val = $line_item['field_multi_hoek']['und'][$i]['value'];
+          if($val < 30 or $val > 180) {
+            $msg = t('Hoek !h moet minimum 30 zijn en maximum 180.', array('!h' => "x" . ($i+1)));
+            form_set_error("line_item_fields][field_multi_hoek][und][$i", $msg);
+            $form_state['rebuild'] = true;
+          }
+        }
+      }
+
+      // Breedte
+      if(isset($line_item['field_breedte'])) {
+        if($line_item['field_breedte']['und'][0]['value'] <= 0) {
+          $msg = t('De breedte moet groter zijn dan 0.');
+          form_set_error('line_item_fields][field_breedte', $msg);
+          $form_state['rebuild'] = true;
+        }
+      }
+
+      // Lengte
+      if(isset($line_item['field_lengte'])) {
+        $product = commerce_product_load($form['product_id']['#value']);
+        switch ($product->type) {
+          case 'plaatbewerking':
+          case 'raamtablet':
+          case 'muurkap':
+          case 'sandwichpaneel':
+            $max = 4000;
+            if($line_item['field_lengte']['und'][0]['value'] > $max) {
+              $msg = t('De lengte mag maximaal :max mm zijn.', array(':max' => $max));
+              form_set_error('line_item_fields][field_lengte', $msg);
+              $form_state['rebuild'] = true;
+            }
+            break;
+        }
+      }
+
+      // Plooien
+      if(isset($line_item['field_plooien'])) {
+        if(!is_int(intval($line_item['field_plooien']['und'][0]['value']))) {
+          $msg = t('Het aantal plooien moet een getal zijn.');
+          form_set_error('line_item_fields][field_plooien', $msg);
+          $form_state['rebuild'] = true;
+        }
+      }
+
+      // The drawing
+      if(isset($line_item['field_tekening'])) {
+        // The file is only important for the special type bewerking
+        $typeBewerking = $line_item['field_type_bewerking']['und'][0]['value'];
+        if($typeBewerking === FC_PB_SPECIAL) {
+          if(!$line_item['field_tekening']['und'][0]['fid']) {
+            $msg = t('Gelieve een tekening toe te voegen.');
+            form_set_error('line_item_fields][field_tekening', $msg);
+            $form_state['rebuild'] = true;
+          }
+        }
+      }
+    }
   } else {
     // Update the discrete lengte based on what has been filled in for the lengte
     if($field_name = _fc_get_field_name($form['attributes'], 'lengte')) {
