@@ -100,6 +100,25 @@ function feneko_calculator_menu() {
 }
 
 /**
+ * Implements hook_page_alter
+ */
+function feneko_calculator_page_alter(&$page) {
+  // Add class to cart if fc_added_to_cart flag is set in the session
+  if(isset($_SESSION['fc_added_to_cart']) && $_SESSION['fc_added_to_cart']) {
+    if(isset($page['shopping_cart'])) {
+      foreach ($page['shopping_cart'] as $key => &$value) {
+        if($key[0] !== '#') {
+          $pattern = 'class="view view-feneko-shopping-cart-block';
+          $value['#markup'] = str_replace($pattern, "$pattern item-added", $value['#markup']);
+          unset($_SESSION['fc_added_to_cart']);
+          return;
+        }
+      }
+    }
+  }
+}
+
+/**
  * Implements hook_variable_info
  */
 function feneko_calculator_variable_info($options) {
@@ -930,11 +949,15 @@ function fc_apply_last_config(&$form_state, $product) {
   }
 }
 
-// Store the last config to the session
 function fc_submit_add_to_cart_form($form, &$form_state) {
+  // Store the last config to the session
   $product = commerce_product_load($form['product_id']['#value']);
   $product_type = fc_get_last_config_type($product);
   $_SESSION['fc_last_config'][$product_type] = $form_state['input'];
+
+  // Store in the session that an element has been added
+  $_SESSION['fc_added_to_cart'] = true;
+
 }
 
 function fc_get_last_config_type($product) {
