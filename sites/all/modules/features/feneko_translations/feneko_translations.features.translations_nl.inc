@@ -28,6 +28,15 @@ function feneko_translations_translations_nl_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('You don\'t have any clients assigned. Contact the administrator.', array(), array('context' => ''));
+  $translations['nl:default']['948ddd9ce1f2ff02a51c1298eafc442b'] = array(
+    'source' => '%title has been added to your cart.',
+    'context' => '',
+    'location' => '/nl/node/416',
+    'translation' => 'Dit artikel is toegevoegd aan je winkelmandje',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('%title has been added to your cart.', array(), array('context' => ''));
   $translations['nl:default']['ad921d60486366258809553a3db49a4a'] = array(
     'source' => 'unknown',
     'context' => '',
@@ -46,5 +55,14 @@ function feneko_translations_translations_nl_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Catalog', array(), array('context' => ''));
+  $translations['nl:default']['cd2dcc8e7370619d45a5c41f22801bf0'] = array(
+    'source' => 'The values below are filled in because your last configuration has been restored.',
+    'context' => '',
+    'location' => '/nl/plaatbewerking/bestel',
+    'translation' => 'De velden zijn reeds ingevuld omdat je laatste configuratie hersteld is.',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('The values below are filled in because your last configuration has been restored.', array(), array('context' => ''));
   return $translations;
 }

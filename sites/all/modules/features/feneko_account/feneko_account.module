@@ -5,3 +5,25 @@
  */
 
 include_once 'feneko_account.features.inc';
+
+/**
+ * Implements hook_node_access
+ */
+function feneko_account_node_access($node, $op, $account) {
+  // Black access to client nodes vor non authorized users
+  if(is_object($node) && $node->type === 'client') {
+    // A user has only view access to his own clients
+    $clientIds = array_keys(feneko_code_get_clients_options(true));
+    if(in_array($node->nid, $clientIds) && $op === 'view') {
+      return NODE_ACCESS_ALLOW;
+    }
+
+    // A site admin has access to all clients
+    $user = entity_metadata_wrapper('user', $account);
+    if(in_array('site_admin', $user->roles->value())) {
+      return NODE_ACCESS_ALLOW;
+    }
+
+    return NODE_ACCESS_DENY;
+  }
+}

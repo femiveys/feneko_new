@@ -439,6 +439,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Klantennummer', array(), array('context' => ''));
+  $translations['fr:default']['cd2dcc8e7370619d45a5c41f22801bf0'] = array(
+    'source' => 'The values below are filled in because your last configuration has been restored.',
+    'context' => '',
+    'location' => '/nl/plaatbewerking/bestel',
+    'translation' => 'Les champs ont déjà été remplis parce-que la dernière configuration a été rétablie.',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('The values below are filled in because your last configuration has been restored.', array(), array('context' => ''));
   $translations['fr:default']['d4d537cf9231306d75c5d2aba0c22b00'] = array(
     'source' => 'Bedrag',
     'context' => '',
