@@ -99,3 +99,7 @@ form.commerce-add-to-cart .form-submit {
 form.commerce-add-to-cart .grippie {
   display: none;
 }
+
+form .form-item-attributes-field-standaardprofiel-type {
+  display: none;
+}
