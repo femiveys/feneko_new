@@ -133,3 +133,22 @@
     }
   }
 }
+
+.item-added {
+  .node-header {
+    @include vendor-prefix(animation, appear 300ms ease-in);
+  }
+}
+
+// animation on first appearance cart
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    margin-right: -500px;
+  }
+  to {
+    opacity: 16px;
+    margin-right: 0;
+  }
+}
