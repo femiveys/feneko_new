@@ -939,7 +939,7 @@ function feneko_structure_field_default_field_instances() {
     'settings' => array(
       'alt_field' => 0,
       'default_image' => 0,
-      'entity_translation_sync' => FALSE,
+      'entity_translation_sync' => 0,
       'file_directory' => 'banner',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
@@ -953,6 +953,9 @@ function feneko_structure_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
+          'feed' => 0,
+          'http' => 0,
+          'https' => 0,
           'private' => 0,
           'public' => 'public',
         ),
@@ -965,6 +968,7 @@ function feneko_structure_field_default_field_instances() {
         'browser_plugins' => array(
           'media_default--media_browser_1' => 'media_default--media_browser_1',
           'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
+          'remote_file' => 'remote_file',
           'upload' => 'upload',
         ),
       ),

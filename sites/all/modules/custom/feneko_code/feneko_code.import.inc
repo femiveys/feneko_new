@@ -3,7 +3,7 @@ function feneko_code_import_form($form, &$form_state) {
   $formaat = "formaat (gescheiden door <strong>punt-comma's</strong>).</li>";
   // $csv = "<li>Upload een bestand in <strong>CSV</strong> $formaat";
   $csvzip = "<li>Upload een bestand in <strong>.csv</strong> of <strong>.zip</strong> $formaat";
-  $ral      = "<ul>$csvzip<li>Velden: kleurcode;poedercode;type</li></ul>";
+  $ral      = "<ul>$csvzip<li>Velden: kleurcode;poedercode;typeKleur;typeKlant</li></ul>";
   $renolit  = "<ul>$csvzip<li>Velden: id;kleurcode;omschrijving</li></ul>";
   $utilo    = "<ul>$csvzip<li>Velden: ?;referentie;omschrijving</li></ul>";
   $blocked  = "<ul>$csvzip<li>Velden: klantennummer;geblokkeerd_J/N</li></ul>";
@@ -173,15 +173,30 @@ function _feneko_code_csv_import($filename, $values) {
         if(isset($mapping[$data[2]])) {
           $type = $mapping[$data[2]];
         } else {
-          $msg = t("Mapping not found for :mapping. Ignored record.", array(':mapping' => $data[2]));
+          $msg = t("Type Mapping not found for :mapping. Ignored record.", array(':mapping' => $data[2]));
+          drupal_set_message($msg, 'warning');
+          continue 2;
+        }
+
+        $field = field_info_field('field_client_group');
+        $client_group_keys = array_keys(list_allowed_values($field));
+
+        $data[3] = explode(',', str_replace(' ', '', $data[3]));
+
+        if(count(array_diff($data[3], $client_group_keys)) === 0) {
+          $client_groups = $data[3];
+        } else {
+          $client_groups = '';
+          $msg = t("Client mapping not found for :mapping. Set to 0.", array(':mapping' => $data[3]));
           drupal_set_message($msg, 'warning');
           continue 2;
         }
 
         $fields = array(
-          'kleur' => drupal_convert_to_utf8($data[0], 'Windows-1252'),
-          'ref'   => drupal_convert_to_utf8($data[1], 'Windows-1252'),
-          'type'  => $type,
+          'kleur'         => drupal_convert_to_utf8($data[0], 'Windows-1252'),
+          'ref'           => drupal_convert_to_utf8($data[1], 'Windows-1252'),
+          'type'          => $type,
+          'client_groups' => $client_groups,
         );
         $num_updated += db_insert($table)->fields($fields)->execute();
         break;

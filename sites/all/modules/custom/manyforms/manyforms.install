@@ -732,3 +732,53 @@ function manyforms_update_7045() {
     }
   }
 }
+
+/**
+ * Add client_group field to ral.
+ */
+function manyforms_update_7046() {
+  $field = array(
+    'description' => 'Client group',
+    'type' => 'int',
+    'size' => 'tiny',
+    'not null' => TRUE,
+    'unsigned' => TRUE,
+    'default' => 0,
+  );
+
+  $table = 'ral';
+  $name = 'client_group';
+
+  if (!db_field_exists($table, $name)) {
+    db_add_field($table, $name, $field);
+  }
+}
+
+/**
+ * Change ral.client_group to be varchar
+ */
+function manyforms_update_7047() {
+  $field = array(
+    'description' => 'Client group',
+    'type' => 'varchar',
+    'length' => 16,
+  );
+
+  $table = 'ral';
+  $oldName = 'client_group';
+  $newName = 'client_groups';
+
+
+  if (db_field_exists($table, $name)) {
+    db_change_field($table, $oldName, $newName, $field);
+  }
+}
+
+/**
+ * Add indexes and unique constraints to ral
+ */
+function manyforms_update_7048() {
+  db_add_index($table, 'idx_kleur', array('kleur'));
+  db_add_index($table, 'idx_ref', array('ref'));
+  db_add_unique_key($table, 'unique_kleur', array('kleur'));
+}

@@ -14,16 +14,37 @@ function feneko_code_permission() {
       'title' => t('Post to the API'),
       'description' => t('Post to the API'),
     ),
+    'feneko admin' => array(
+      'title' => 'Administer order modules',
+      'restrict access' => TRUE,
+    ),
+    'feneko order' => array(
+      'title' => 'Submit orders',
+      'restrict access' => TRUE,
+    ),
   );
 }
 
-function feneko_code_access() {
-  foreach (func_get_args() as $permission) {
-    if(!user_access($permission)) {
-      // dpm($permission);
-      return false;
-    }
+function feneko_code_allow_order() {
+  // Make sure the user has the "feneko order" permission
+  if(user_access('feneko order')) {
+    // OK: continue checks
+  } else {
+    // $msg = t('You don\'t have a role having "feneko order" permission. Contact the administrator.');
+    // drupal_set_message($msg, 'warning');
+    return false;
   }
+
+  // Check that the user has at least 1 client assigned to it
+  $clients = feneko_code_get_clients_options(true);
+  if(count($clients) > 0) {
+    // OK
+  } else {
+    // $msg = t('You don\'t have any clients assigned. Contact the administrator.');
+    // drupal_set_message($msg, 'warning');
+    return false;
+  }
+
   return true;
 }
 
@@ -32,7 +53,6 @@ function feneko_code_menu(){
     'title' => 'Feneko catalog',
     'page callback' => 'feneko_catalog',
     'page arguments' => array(1,2,3),
-    'access callback' => 'user_access',
     'access arguments' => array('see the catalog'),
     'type' => MENU_LOCAL_TASK,
     'file' => 'feneko_code.catalog.inc',
@@ -43,7 +63,7 @@ function feneko_code_menu(){
     'type' => MENU_NORMAL_ITEM,
     'page callback' => 'drupal_get_form',
     'page arguments' => array('feneko_code_import_form'),
-    'access arguments' => array('admin_manyforms'),
+    'access arguments' => array('feneko admin'),
     'file' => 'feneko_code.import.inc',
   );
 
@@ -52,7 +72,7 @@ function feneko_code_menu(){
     'type' => MENU_LOCAL_TASK,
     'page callback' => 'drupal_get_form',
     'page arguments' => array('feneko_code_orders_form', FALSE),
-    'access arguments' => array('submit_manyforms'),
+    'access callback' => array('feneko_code_allow_order'),
     'file' => 'feneko_code.orders.inc',
   );
 
@@ -61,7 +81,7 @@ function feneko_code_menu(){
     'type' => MENU_LOCAL_TASK,
     'page callback' => 'drupal_get_form',
     'page arguments' => array('feneko_code_retours_form', FALSE),
-    'access arguments' => array('submit_manyforms'),
+    'access callback' => array('feneko_code_allow_order'),
     'file' => 'feneko_code.retour.inc',
   );
 
@@ -92,7 +112,11 @@ function feneko_code_flipper(){
 }
 
 
-
+/**
+ * @param $idKeys bool
+ *   true: keys will be client IDs
+ *   false: keys will be client numbers
+ */
 function feneko_code_get_clients_options($idKeys = false) {
   global $user;
   $options = array();
@@ -170,4 +194,16 @@ function feneko_code_services_resources() {
     ),
   );
   return $api;
+}
+
+
+function fc_ral_search_by_kleur($kleur) {
+  $result = array();
+  $query = db_select('ral', 'r')->fields('r')
+                                ->condition('kleur', $kleur)
+                                ;
+  $result = $query->execute()->fetchAssoc();
+
+  return $result;
+
 }

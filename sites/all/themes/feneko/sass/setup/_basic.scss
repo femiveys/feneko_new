@@ -78,6 +78,8 @@ ul.tabs {
 }
 
 .help {
+  width: 36px!important;
+  height: 36px!important;
   &:before {
     content: "\f059";
     display: inline-block;
@@ -534,6 +536,14 @@ div.messages {
 
 .field-name-field-about {
   padding-bottom: 20px;
+  font-size: 18px;
+  line-height: 150%;
+  @include gridle_state(only-desk) {
+    padding: 0 60px 20px;
+  }
+  @include gridle_state(min-full) {
+    padding: 0 90px 20px;
+  }
 }
 
 #bottomblock-wrapper {
@@ -1951,7 +1961,7 @@ div.horizontal-tabs {
       }
       @include gridle_state(min-desk) {
         width: 150px;
-        float: left;
+        //float: left;
       }
     }
   }

@@ -9,6 +9,10 @@ input {
   }
 }
 
+.form-radios {
+  clear: both;
+}
+
 input[title="Hoeveelheid"] {
   width: 50px;
   text-align: right;
@@ -123,8 +127,12 @@ form.commerce-add-to-cart {
 
 #manyforms-form {
   .sticky-header {
-    top: 90px!important;
+    top: 60px!important;
     z-index: 9;
+    border-bottom: 2px solid $grey;
+    .admin-menu & {
+      top: 90px!important;
+    }
   }
   .form-wrapper input[type="text"] {
     width: auto;

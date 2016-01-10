@@ -421,10 +421,7 @@ function inline_conditions_field_widget_form(&$form, &$form_state, $field, $inst
 
   // Attach module cascade style sheet to inline_conditions_field_widget_form.
   $form['#attached']['css'][] = drupal_get_path('module', 'inline_conditions') . '/css/inline_conditions.css';
-  // Load rtl.css file if needed.
-  if ($GLOBALS['language']->direction == 1) {
-    $form['#attached']['css'][] = drupal_get_path('module', 'inline_conditions') . '/css/inline_conditions-rtl.css';
-  }
+
 
   // If "Add a new condition" button has been pressed.
   if (isset($form_state['triggering_element']['#condition_action'])) {
@@ -482,7 +479,7 @@ function inline_conditions_field_widget_form(&$form, &$form_state, $field, $inst
     // A condition has been selected, and a "configure" callback exists.
     if (!empty($item['condition_name']) && !empty($condition_info[$item['condition_name']]['callbacks']['configure'])) {
       $callback = $condition_info[$item['condition_name']]['callbacks']['configure'];
-      $element[$delta]['condition_settings'] = $callback($item['condition_settings']);
+      $element[$delta]['condition_settings'] = $callback($item['condition_settings'], $instance, $delta);
       $element[$delta]['#attributes'] = array('class' => array('container-inline'));
     }
 
@@ -699,7 +696,6 @@ function inline_conditions_build(RulesReactionRule $rule, $field_values) {
       }
 
       // No logical operator found, so we put the condition in the temp array.
-      // It will be added to next condition using a logical operator.
       $temp = $condition;
     }
 
@@ -711,7 +707,8 @@ function inline_conditions_build(RulesReactionRule $rule, $field_values) {
       $rule->condition($or);
     }
 
-    // If a condition is still present in the temp var, attach it to the rule.
+    // If a condition is still present in the temp var, attach it to the rule
+    // using an AND operator.
     if (isset($temp)) {
       $rule->condition($temp);
     }
@@ -738,7 +735,19 @@ function inline_conditions_get_info($condition_name = NULL) {
         $condition_info += array(
           // Remember the providing module.
           'module' => $module,
+          'callbacks' => array(),
         );
+        // Provide default callbacks based on condition name when they are using
+        // the MODULE_CONDITION condition name's naming pattern.
+        $callback_prefix = $condition;
+        if (strpos($callback_prefix, $module . '_') !== 0) {
+          $callback_prefix = $module . '_' . $condition;
+        }
+        $condition_info['callbacks'] += array(
+          'configure' => $callback_prefix . '_configure',
+          'build' => $callback_prefix . '_build',
+        );
+
         $conditions[$condition] = $condition_info;
       }
     }

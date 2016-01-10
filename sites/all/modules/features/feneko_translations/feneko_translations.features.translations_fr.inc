@@ -55,6 +55,15 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Bereken korting', array(), array('context' => ''));
+  $translations['fr:default']['1cc0d3105e2664958a391fcc2bc0473a'] = array(
+    'source' => 'Technical information',
+    'context' => '',
+    'location' => '/nl/plaatbewerking',
+    'translation' => 'Information Technique',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Technical information', array(), array('context' => ''));
   $translations['fr:default']['1d03e968c40b69c6e88fefbe5833f517'] = array(
     'source' => 'Leverdatum',
     'context' => '',
@@ -169,6 +178,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Al onze leveringen gebeuren tussen de 8 en 12 werkdagen.', array(), array('context' => ''));
+  $translations['fr:default']['5a2d7865f8878cb7cb82a45b2be8ba8e'] = array(
+    'source' => 'You don\'t have any clients assigned. Contact the administrator.',
+    'context' => '',
+    'location' => '/nl/vliegenraam-basic/bestel',
+    'translation' => 'Il n\'y a pas de clients assignés à vous. Contactez l\'administrateur.',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('You don\'t have any clients assigned. Contact the administrator.', array(), array('context' => ''));
   $translations['fr:default']['648930cf62ba900667f41bd903a76a21'] = array(
     'source' => 'Solliciteren tot (toutes les langues)',
     'context' => '',
@@ -268,6 +286,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Catalogus', array(), array('context' => ''));
+  $translations['fr:default']['84b269e5675d0682656fcd3c169da8f2'] = array(
+    'source' => 'Technical documents',
+    'context' => '',
+    'location' => '/nl/plaatbewerking',
+    'translation' => 'Documents techniques',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Technical documents', array(), array('context' => ''));
   $translations['fr:default']['869343cd6abc48572c0f4c154c331c6a'] = array(
     'source' => 'Order<wbr>nummer',
     'context' => '',
@@ -430,6 +457,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Klantennummer', array(), array('context' => ''));
+  $translations['fr:default']['cd2dcc8e7370619d45a5c41f22801bf0'] = array(
+    'source' => 'The values below are filled in because your last configuration has been restored.',
+    'context' => '',
+    'location' => '/nl/plaatbewerking/bestel',
+    'translation' => 'Les champs ont déjà été remplis parce-que la dernière configuration a été rétablie.',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('The values below are filled in because your last configuration has been restored.', array(), array('context' => ''));
   $translations['fr:default']['d4d537cf9231306d75c5d2aba0c22b00'] = array(
     'source' => 'Bedrag',
     'context' => '',
@@ -475,6 +511,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Orderdatum', array(), array('context' => ''));
+  $translations['fr:default']['e7cee91b53432a2fd3a6e76b2599405f'] = array(
+    'source' => 'Technical drawing',
+    'context' => '',
+    'location' => '/nl/plaatbewerking',
+    'translation' => 'Dessin technique',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Technical drawing', array(), array('context' => ''));
   $translations['fr:default']['e927095211969d0db2e3d18e154c1be7'] = array(
     'source' => 'aantal',
     'context' => '',

@@ -2084,6 +2084,10 @@ input {
   z-index: 999 !important;
 }
 
+.form-radios {
+  clear: both;
+}
+
 input[title="Hoeveelheid"] {
   width: 50px;
   text-align: right;
@@ -2199,8 +2203,12 @@ form.commerce-add-to-cart label {
 }
 
 #manyforms-form .sticky-header {
-  top: 90px !important;
+  top: 60px !important;
   z-index: 9;
+  border-bottom: 2px solid #c7c7c7;
+}
+.admin-menu #manyforms-form .sticky-header {
+  top: 90px !important;
 }
 #manyforms-form .form-wrapper input[type="text"] {
   width: auto;
@@ -2526,6 +2534,24 @@ html.js fieldset.collapsed {
   content: "\f078";
 }
 
+.item-added .node-header {
+  -webkit-animation: appear 300ms ease-in;
+  -ms-animation: appear 300ms ease-in;
+  -moz-animation: appear 300ms ease-in;
+  -o-animation: appear 300ms ease-in;
+  animation: appear 300ms ease-in;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    margin-right: -500px;
+  }
+  to {
+    opacity: 16px;
+    margin-right: 0;
+  }
+}
 /* ELEMENTS
 ><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 body {
@@ -2604,6 +2630,10 @@ ul.tabs.primary li.active a:hover {
   padding-top: 3px;
 }
 
+.help {
+  width: 36px !important;
+  height: 36px !important;
+}
 .help:before {
   content: "\f059";
   display: inline-block;
@@ -3052,6 +3082,18 @@ div.messages.error {
 
 .field-name-field-about {
   padding-bottom: 20px;
+  font-size: 18px;
+  line-height: 150%;
+}
+@media screen and (min-width: 851px) and (max-width: 991px) {
+  .field-name-field-about {
+    padding: 0 60px 20px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .field-name-field-about {
+    padding: 0 90px 20px;
+  }
 }
 
 #bottomblock-wrapper {
@@ -4600,7 +4642,6 @@ div.horizontal-tabs {
   .page-user #main-wrapper .field-label,
   .page-user #main-wrapper label {
     width: 150px;
-    float: left;
   }
 }
 .node-type-client #footer-footer .field,
