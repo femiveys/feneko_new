@@ -181,20 +181,22 @@ function _feneko_code_csv_import($filename, $values) {
         $field = field_info_field('field_client_group');
         $client_group_keys = array_keys(list_allowed_values($field));
 
-        if(in_array($data[3], $client_group_keys)) {
-          $client_group = $data[3];
+        $data[3] = explode(',', str_replace(' ', '', $data[3]));
+
+        if(count(array_diff($data[3], $client_group_keys)) === 0) {
+          $client_groups = $data[3];
         } else {
-          $client_group = 0;
+          $client_groups = '';
           $msg = t("Client mapping not found for :mapping. Set to 0.", array(':mapping' => $data[3]));
           drupal_set_message($msg, 'warning');
           continue 2;
         }
 
         $fields = array(
-          'kleur'        => drupal_convert_to_utf8($data[0], 'Windows-1252'),
-          'ref'          => drupal_convert_to_utf8($data[1], 'Windows-1252'),
-          'type'         => $type,
-          'client_group' => $client_group,
+          'kleur'         => drupal_convert_to_utf8($data[0], 'Windows-1252'),
+          'ref'           => drupal_convert_to_utf8($data[1], 'Windows-1252'),
+          'type'          => $type,
+          'client_groups' => $client_groups,
         );
         $num_updated += db_insert($table)->fields($fields)->execute();
         break;

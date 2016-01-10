@@ -195,3 +195,15 @@ function feneko_code_services_resources() {
   );
   return $api;
 }
+
+
+function fc_ral_search_by_kleur($kleur) {
+  $result = array();
+  $query = db_select('ral', 'r')->fields('r')
+                                ->condition('kleur', $kleur)
+                                ;
+  $result = $query->execute()->fetchAssoc();
+
+  return $result;
+
+}

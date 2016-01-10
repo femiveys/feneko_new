@@ -656,7 +656,7 @@ class FenekoForm {
             $product_fiche .= $this->getCode("kleur_dep", $ral_code);
           }
           if($value === 'ral') {
-            $value = $this->handleRal($fields['klant']);
+            $value = $this->handleRal($fields['klant'], $ral_code);
           }
           break;
 
@@ -752,27 +752,35 @@ class FenekoForm {
    * - Set non visible values to NULL
    * @param $values Array all fields of the submission
    */
-  private function handleRal($clientId) {
+  private function handleRal($clientId, $ralCode) {
     $id = intval($this->getId());
     $client = entity_metadata_wrapper('node', $clientId);
     $value = 'ral';
+    $client_group = $client->field_client_group->value();
 
-    switch ($client->field_client_group->value()) {
-      case 11: // BudgetLine
-        $matches = array(2, 4, 10);
-        if(in_array($id, $matches)) {
-          $value = 'ral_bl';
-        }
-        break;
+    // Find the client groups of the current RAL color
+    $ral_record = fc_ral_search_by_kleur($ralCode);
+    $ral_client_groups = explode(',', str_replace(' ', '', $ral_record['client_groups']));
 
-      case 13: // Groep A
-        if($id <= 3) {
-          $value = 'ral_a1';
-        } else {
-          $value = 'ral_a2';
-        }
-        break;
+    if(in_array($client_group, $ral_client_groups)) {
+      switch ($client_group) {
+        case 11: // BudgetLine
+          $matches = array(2, 4, 10);
+          if(in_array($id, $matches)) {
+            $value = 'ral_bl';
+          }
+          break;
+
+        case 13: // Groep A
+          if($id <= 3) {
+            $value = 'ral_a1';
+          } else {
+            $value = 'ral_a2';
+          }
+          break;
+      }
     }
+
     return $value;
   }
 

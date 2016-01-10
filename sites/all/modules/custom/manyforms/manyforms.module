@@ -145,10 +145,8 @@ function manyforms_ral_search($id, $string) {
 
   $rs = $query->execute();
   foreach ($rs as $record) {
-    // if($record->kleur !== $exception) {
-      $key = $record->kleur . ' (' . $record->ref . ')';
-      $result[$key] = $key;
-    // }
+    $key = $record->kleur . ' (' . $record->ref . ')';
+    $result[$key] = $key;
   }
 
   return $result;
