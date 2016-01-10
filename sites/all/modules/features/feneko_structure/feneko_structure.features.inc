@@ -265,7 +265,7 @@ function feneko_structure_node_info() {
       'base' => 'node_content',
       'description' => t('Geef hier een banner in die in de header getoond zal worden.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
     'info_pagina' => array(

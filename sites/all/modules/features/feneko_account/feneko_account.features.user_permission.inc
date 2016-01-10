@@ -416,7 +416,6 @@ function feneko_account_user_default_permissions() {
   $permissions['create field_attach_secured'] = array(
     'name' => 'create field_attach_secured',
     'roles' => array(
-      'administrator' => 'administrator',
       'content editor' => 'content editor',
     ),
     'module' => 'field_permissions',
@@ -1350,7 +1349,6 @@ function feneko_account_user_default_permissions() {
   $permissions['edit field_attach_secured'] = array(
     'name' => 'edit field_attach_secured',
     'roles' => array(
-      'administrator' => 'administrator',
       'content editor' => 'content editor',
     ),
     'module' => 'field_permissions',
@@ -1554,7 +1552,6 @@ function feneko_account_user_default_permissions() {
   $permissions['edit own field_attach_secured'] = array(
     'name' => 'edit own field_attach_secured',
     'roles' => array(
-      'administrator' => 'administrator',
       'content editor' => 'content editor',
     ),
     'module' => 'field_permissions',
@@ -1993,7 +1990,6 @@ function feneko_account_user_default_permissions() {
   $permissions['view field_attach_secured'] = array(
     'name' => 'view field_attach_secured',
     'roles' => array(
-      'administrator' => 'administrator',
       'content editor' => 'content editor',
       'handelaar' => 'handelaar',
     ),
@@ -2077,6 +2073,7 @@ function feneko_account_user_default_permissions() {
   $permissions['view field_tech_docs'] = array(
     'name' => 'view field_tech_docs',
     'roles' => array(
+      'content editor' => 'content editor',
       'handelaar' => 'handelaar',
     ),
     'module' => 'field_permissions',
@@ -2124,7 +2121,6 @@ function feneko_account_user_default_permissions() {
   $permissions['view own field_attach_secured'] = array(
     'name' => 'view own field_attach_secured',
     'roles' => array(
-      'administrator' => 'administrator',
       'content editor' => 'content editor',
     ),
     'module' => 'field_permissions',
