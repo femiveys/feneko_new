@@ -113,7 +113,7 @@ if($teaser) array_push($classes,"product-teaser", "teaser-rij");
         <div class="field-name-field-orderable-products">
           <?php if($product_grandparent == 'screens') : print(feneko_order_urls($node_url, $title)); endif; ?>
           <?php print render($content['field_orderable_products']); ?>
-        </div><!--.field-name-field-orderable-products -->
+        </div>
         <div class="catalog">
           <a class="hide-mobile" href="<?php print $flipperUrl; ?>" target="_blank"><?php print $catName; ?></a>
           <a class="hide-desk" href="<?php print $pdfUrl; ?>" target="_blank"><?php print $catName; ?></a>
@@ -129,28 +129,26 @@ if($teaser) array_push($classes,"product-teaser", "teaser-rij");
       <?php print render($content['body']);?>
       <?php print render($content['links']);?>
       <?php print render($content['group_wrapper']);?>
-      <?php if($logged_in) : ?>
-        <?php print render($content['field_attach_secured']);?>
-      <?php endif; ?>
+      <?php print render($content['field_attach_secured']);?>
       <div class="lev">
         <i class="fa fa-truck"></i>
         <p> <?php print t('Al onze leveringen gebeuren tussen de 8 en 12 werkdagen.'); ?></p>
       </div>
-      <?php if($logged_in) : ?>
+      <?php if(feneko_code_allow_order()) : ?>
         <div class="field-name-field-orderable-products">
-          <?php if($product_grandparent == 'screens') : print(feneko_order_urls($node_url, $title)); endif; ?>
+          <?php if($product_grandparent == 'screens') { print(feneko_order_urls($node_url, $title)); } ?>
           <?php print render($content['field_orderable_products']); ?>
-        </div><!--.field-name-field-orderable-products -->
+        </div>
       <?php endif; ?>
     </div><!--.second-col-->
   <?php else : ?>
     <div class="first-col">
       <?php print render($content['field_images']); ?>
-      <?php if($logged_in) : ?>
+      <?php if(feneko_code_allow_order()) : ?>
         <div class="field-name-field-orderable-products">
-          <?php if($product_grandparent == 'screens') : print(feneko_order_urls($node_url, $title)); endif; ?>
+          <?php if($product_grandparent == 'screens') { print(feneko_order_urls($node_url, $title)); } ?>
           <?php print render($content['field_orderable_products']); ?>
-        </div><!--.field-name-field-orderable-products -->
+        </div>
       <?php endif; ?>
     </div><!--.first-col-->
     <div class="second-col">

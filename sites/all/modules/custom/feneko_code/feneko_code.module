@@ -30,7 +30,7 @@ function feneko_code_allow_order() {
   if(user_access('feneko order')) {
     // OK: continue checks
   } else {
-    $msg = t('You don\'t have a role having "feneko order" permission. Contact the administrator.');
+    // $msg = t('You don\'t have a role having "feneko order" permission. Contact the administrator.');
     // drupal_set_message($msg, 'warning');
     return false;
   }
@@ -40,7 +40,7 @@ function feneko_code_allow_order() {
   if(count($clients) > 0) {
     // OK
   } else {
-    $msg = t('You don\'t have any clients assigned. Contact the administrator.');
+    // $msg = t('You don\'t have any clients assigned. Contact the administrator.');
     // drupal_set_message($msg, 'warning');
     return false;
   }
