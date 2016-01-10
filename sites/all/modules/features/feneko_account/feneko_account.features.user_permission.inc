@@ -496,6 +496,15 @@ function feneko_account_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'create field_tech_docs'.
+  $permissions['create field_tech_docs'] = array(
+    'name' => 'create field_tech_docs',
+    'roles' => array(
+      'content editor' => 'content editor',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'create field_telefoon'.
   $permissions['create field_telefoon'] = array(
     'name' => 'create field_telefoon',
@@ -1420,6 +1429,15 @@ function feneko_account_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'edit field_tech_docs'.
+  $permissions['edit field_tech_docs'] = array(
+    'name' => 'edit field_tech_docs',
+    'roles' => array(
+      'content editor' => 'content editor',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'edit field_telefoon'.
   $permissions['edit field_telefoon'] = array(
     'name' => 'edit field_telefoon',
@@ -1611,6 +1629,15 @@ function feneko_account_user_default_permissions() {
     'name' => 'edit own field_staffelkorting',
     'roles' => array(
       'site_admin' => 'site_admin',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'edit own field_tech_docs'.
+  $permissions['edit own field_tech_docs'] = array(
+    'name' => 'edit own field_tech_docs',
+    'roles' => array(
+      'content editor' => 'content editor',
     ),
     'module' => 'field_permissions',
   );
@@ -2046,6 +2073,15 @@ function feneko_account_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'view field_tech_docs'.
+  $permissions['view field_tech_docs'] = array(
+    'name' => 'view field_tech_docs',
+    'roles' => array(
+      'handelaar' => 'handelaar',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'view field_telefoon'.
   $permissions['view field_telefoon'] = array(
     'name' => 'view field_telefoon',
@@ -2164,6 +2200,15 @@ function feneko_account_user_default_permissions() {
     'name' => 'view own field_staffelkorting',
     'roles' => array(
       'site_admin' => 'site_admin',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'view own field_tech_docs'.
+  $permissions['view own field_tech_docs'] = array(
+    'name' => 'view own field_tech_docs',
+    'roles' => array(
+      'content editor' => 'content editor',
     ),
     'module' => 'field_permissions',
   );

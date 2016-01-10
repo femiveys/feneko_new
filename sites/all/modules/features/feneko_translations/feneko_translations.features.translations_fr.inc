@@ -55,6 +55,15 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Bereken korting', array(), array('context' => ''));
+  $translations['fr:default']['1cc0d3105e2664958a391fcc2bc0473a'] = array(
+    'source' => 'Technical information',
+    'context' => '',
+    'location' => '/nl/plaatbewerking',
+    'translation' => 'Information Technique',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Technical information', array(), array('context' => ''));
   $translations['fr:default']['1d03e968c40b69c6e88fefbe5833f517'] = array(
     'source' => 'Leverdatum',
     'context' => '',
@@ -277,6 +286,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Catalogus', array(), array('context' => ''));
+  $translations['fr:default']['84b269e5675d0682656fcd3c169da8f2'] = array(
+    'source' => 'Technical documents',
+    'context' => '',
+    'location' => '/nl/plaatbewerking',
+    'translation' => 'Documents techniques',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Technical documents', array(), array('context' => ''));
   $translations['fr:default']['869343cd6abc48572c0f4c154c331c6a'] = array(
     'source' => 'Order<wbr>nummer',
     'context' => '',
@@ -493,6 +511,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Orderdatum', array(), array('context' => ''));
+  $translations['fr:default']['e7cee91b53432a2fd3a6e76b2599405f'] = array(
+    'source' => 'Technical drawing',
+    'context' => '',
+    'location' => '/nl/plaatbewerking',
+    'translation' => 'Dessin technique',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Technical drawing', array(), array('context' => ''));
   $translations['fr:default']['e927095211969d0db2e3d18e154c1be7'] = array(
     'source' => 'aantal',
     'context' => '',

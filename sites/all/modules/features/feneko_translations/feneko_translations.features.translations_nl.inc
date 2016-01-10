@@ -10,6 +10,15 @@
 function feneko_translations_translations_nl_defaults() {
   $translations = array();
   $translatables = array();
+  $translations['nl:default']['1cc0d3105e2664958a391fcc2bc0473a'] = array(
+    'source' => 'Technical information',
+    'context' => '',
+    'location' => '/nl/plaatbewerking',
+    'translation' => 'Technische informatie',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Technical information', array(), array('context' => ''));
   $translations['nl:default']['33be3953588cc10edb3d6341919109b9'] = array(
     'source' => 'Order specific information',
     'context' => '',
@@ -28,6 +37,15 @@ function feneko_translations_translations_nl_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('You don\'t have any clients assigned. Contact the administrator.', array(), array('context' => ''));
+  $translations['nl:default']['84b269e5675d0682656fcd3c169da8f2'] = array(
+    'source' => 'Technical documents',
+    'context' => '',
+    'location' => '/nl/plaatbewerking',
+    'translation' => 'Technische documenten',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Technical documents', array(), array('context' => ''));
   $translations['nl:default']['948ddd9ce1f2ff02a51c1298eafc442b'] = array(
     'source' => '%title has been added to your cart.',
     'context' => '',
@@ -64,5 +82,14 @@ function feneko_translations_translations_nl_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('The values below are filled in because your last configuration has been restored.', array(), array('context' => ''));
+  $translations['nl:default']['e7cee91b53432a2fd3a6e76b2599405f'] = array(
+    'source' => 'Technical drawing',
+    'context' => '',
+    'location' => '/nl/plaatbewerking',
+    'translation' => 'Technische tekening',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Technical drawing', array(), array('context' => ''));
   return $translations;
 }
