@@ -778,7 +778,17 @@ function manyforms_update_7047() {
  * Add indexes and unique constraints to ral
  */
 function manyforms_update_7048() {
+  $table = 'ral';
   db_add_index($table, 'idx_kleur', array('kleur'));
   db_add_index($table, 'idx_ref', array('ref'));
   db_add_unique_key($table, 'unique_kleur', array('kleur'));
+}
+
+/**
+ * Set all clientgroups values to ''
+ */
+function manyforms_update_7049() {
+  $table = 'ral';
+  $name = 'client_groups';
+  db_update($table)->fields(array($name => ''))->execute();
 }
