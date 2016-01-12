@@ -769,7 +769,7 @@ function manyforms_update_7047() {
   $newName = 'client_groups';
 
 
-  if (db_field_exists($table, $name)) {
+  if (db_field_exists($table, $oldName)) {
     db_change_field($table, $oldName, $newName, $field);
   }
 }
