@@ -3,7 +3,7 @@ function feneko_code_import_form($form, &$form_state) {
   $formaat = "formaat (gescheiden door <strong>punt-comma's</strong>).</li>";
   // $csv = "<li>Upload een bestand in <strong>CSV</strong> $formaat";
   $csvzip = "<li>Upload een bestand in <strong>.csv</strong> of <strong>.zip</strong> $formaat";
-  $ral      = "<ul>$csvzip<li>Velden: kleurcode;poedercode;typeKleur;typeKlant</li></ul>";
+  $ral      = "<ul>$csvzip<li>Velden: kleurcode;poedercode;typeKleur;typesKlant(comma-separated)</li></ul>";
   $renolit  = "<ul>$csvzip<li>Velden: id;kleurcode;omschrijving</li></ul>";
   $utilo    = "<ul>$csvzip<li>Velden: ?;referentie;omschrijving</li></ul>";
   $blocked  = "<ul>$csvzip<li>Velden: klantennummer;geblokkeerd_J/N</li></ul>";
