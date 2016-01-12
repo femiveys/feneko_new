@@ -69,7 +69,11 @@ function feneko_calculator_feature_default_rules_configuration() {
           }
         },
         { "entity_has_field" : { "entity" : [ "commerce-line-item" ], "field" : "field_ophanging" } },
-        { "data_is" : { "data" : [ "commerce-line-item:field-ophanging" ], "value" : "G" } }
+        { "data_is" : {
+            "data" : [ "commerce-line-item:field-ophanging" ],
+            "value" : "lasbouten"
+          }
+        }
       ],
       "DO" : [
         { "variable_add" : {

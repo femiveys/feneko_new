@@ -6,6 +6,7 @@ function feneko_migrate_users($SIMULATE = true) {
 	$result = $query->entityCondition('entity_type', 'user')
 									->propertyCondition('uid', 0, '<>') // Anonymous user
 									->propertyCondition('uid', 1, '<>') // admin user
+									->propertyCondition('name', 'api', '<>') // api user
 									->execute();
 	if (isset($result['user'])) {
 	  $nids = array_keys($result['user']);
