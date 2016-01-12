@@ -755,12 +755,18 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['order_number']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['order_number']['alter']['path'] = 'admin/commerce/orders/[order_number]/pdf';
   $handler->display->display_options['fields']['order_number']['alter']['target'] = '_blank';
-  /* Field: Commerce Order: Created date */
-  $handler->display->display_options['fields']['created']['id'] = 'created';
-  $handler->display->display_options['fields']['created']['table'] = 'commerce_order';
-  $handler->display->display_options['fields']['created']['field'] = 'created';
-  $handler->display->display_options['fields']['created']['label'] = 'Aangemaakt';
-  $handler->display->display_options['fields']['created']['date_format'] = 'short';
+  /* Field: Commerce Order: Order type */
+  $handler->display->display_options['fields']['type']['id'] = 'type';
+  $handler->display->display_options['fields']['type']['table'] = 'commerce_order';
+  $handler->display->display_options['fields']['type']['field'] = 'type';
+  $handler->display->display_options['fields']['type']['label'] = 'Bestellingstype';
+  /* Field: Commerce Order: Client */
+  $handler->display->display_options['fields']['field_client']['id'] = 'field_client';
+  $handler->display->display_options['fields']['field_client']['table'] = 'field_data_field_client';
+  $handler->display->display_options['fields']['field_client']['field'] = 'field_client';
+  $handler->display->display_options['fields']['field_client']['settings'] = array(
+    'link' => 1,
+  );
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
@@ -779,9 +785,23 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['commerce_order_total']['field'] = 'commerce_order_total';
   $handler->display->display_options['fields']['commerce_order_total']['label'] = 'Totaal';
   $handler->display->display_options['fields']['commerce_order_total']['click_sort_column'] = 'amount';
+  $handler->display->display_options['fields']['commerce_order_total']['type'] = 'commerce_price_decimals_formatter';
   $handler->display->display_options['fields']['commerce_order_total']['settings'] = array(
     'calculation' => FALSE,
+    'currencies' => array(
+      'EUR' => array(
+        'decimals' => '2',
+        'force' => 1,
+        'zero' => 1,
+      ),
+    ),
   );
+  /* Field: Commerce Order: Created date */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'commerce_order';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = 'Aangemaakt';
+  $handler->display->display_options['fields']['created']['date_format'] = 'short';
   /* Field: Commerce Order: Order status */
   $handler->display->display_options['fields']['status']['id'] = 'status';
   $handler->display->display_options['fields']['status']['table'] = 'commerce_order';
