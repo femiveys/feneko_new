@@ -60,17 +60,18 @@
   <div id="mainmenu-wrapper" class="wrapper">
     <div class="inner-wrapper">
       <?php print render($page['main_menu']); ?>
+      <?php if ($page['shopping_cart']): ?>
+  <div id="shoppingcart">
+<!--     <div class="inner-wrapper"> -->
+      <?php print render($page['shopping_cart']); ?>
+    </div>
+  </div> <!-- #shoppingcart -->
+<?php endif; ?>
     </div> <!-- .inner-wrapper -->
   </div> <!-- #mainmenu-wrapper -->
 <?php endif; ?>
 
-<?php if ($page['shopping_cart']): ?>
-  <div id="shoppingcart">
-    <div class="inner-wrapper">
-      <?php print render($page['shopping_cart']); ?>
-    </div>
-  </div> <!-- #cover-wrapper -->
-<?php endif; ?>
+
 
 <?php if ($page['breadcrumb']): ?>
   <div id="breadcrumb-wrapper" class="wrapper">

@@ -1,6 +1,6 @@
 /*
  * main scripts
- * author: pure sign
+ * author: esther
  */
 
 (function ($) {
@@ -72,9 +72,6 @@
         });
       }
     }
-
-    //equalHeight($('.view-id-nieuws'), $('.nieuws-body'));
-
 
   });
 })(jQuery);

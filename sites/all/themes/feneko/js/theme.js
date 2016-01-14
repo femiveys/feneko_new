@@ -20,7 +20,7 @@
     });
 
     // paralax
-    function parallax(selector) {
+    function parallax(selector, speed) {
       ypos = window.pageYOffset;
       selector.css('top', '-' + ypos*.2 + 'px');
     }
@@ -38,15 +38,11 @@
     $('.form-radio.error').after('<div class="radio-error"></div>');
 
     // STICKY MENU
-    // Create a clone of the menu, right next to original.
+    // Create a clone of the menuwrapper, right next to original.
     $('#mainmenu-wrapper').addClass('original')
       .clone()
       .insertAfter('#mainmenu-wrapper').
       addClass('cloned').
-      css('position','fixed').
-      css('top','0').
-      css('margin-top','0').
-      css('z-index','500').
       removeClass('original').hide();
 
     scrollIntervalID = setInterval(stickIt, 10);
@@ -59,24 +55,18 @@
 
       if ($(window).scrollTop() >= (orgElementTop)) {
         // scrolled past the original position; now only show the cloned, sticky element.
-
         // Cloned element should always have same left position and width as original element.
         orgElement = $('.original');
         coordsOrgElement = orgElement.offset();
         leftOrgElement = coordsOrgElement.left;
         widthOrgElement = orgElement.css('width');
-        $('.cloned').css('left',leftOrgElement+'px').css('top',0).css('width',widthOrgElement).show();
+        $('.cloned').css('top',0).css('width',widthOrgElement).show();
         $('.original').css('visibility','hidden');
-        $('#shoppingcart').addClass('fix');
       } else {
-        // not scrolled past the menu; only show the original menu.
         $('.cloned').hide();
         $('.original').css('visibility','visible');
-        $('#shoppingcart').removeClass('fix');
-
       }
     }
-
 
     // mobile menu
     $('#menu-small').click(function() {
@@ -85,6 +75,8 @@
       $('#shoppingcart.show').removeClass('show');
     });
 
+
+// commented because may come back
 /*
     // mobile search
     $('#search-small').click(function() {
@@ -93,7 +85,7 @@
     });
 */
 
-    // mobile search
+    // mobile cart
     $('#cart-small').click(function() {
       $('#shoppingcart').toggleClass('show');
       $('#mainmenu-wrapper.show').removeClass('show');
@@ -124,7 +116,7 @@
     });
 
     $('.view-feneko-shopping-cart-block .node-header').click(function() {
-      $('.view-feneko-shopping-cart-block .view-total').toggle();
+      $('.view-feneko-shopping-cart-block .view-total').toggleClass('show');
     });
 
     $('.view-feneko-shopping-cart-block .title').click(function() {
