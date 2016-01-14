@@ -656,7 +656,8 @@ class FenekoForm {
             $product_fiche .= $this->getCode("kleur_dep", $ral_code);
           }
           if($value === 'ral') {
-            $value = $this->handleRal($fields['klant'], $ral_code);
+            $client = feneko_code_get_client_by_number($fields['klant']);
+            $value = $this->handleRal($client, $ral_code);
           }
           break;
 
@@ -752,9 +753,8 @@ class FenekoForm {
    * - Set non visible values to NULL
    * @param $values Array all fields of the submission
    */
-  private function handleRal($clientId, $ralCode) {
+  private function handleRal($client, $ralCode) {
     $id = intval($this->getId());
-    $client = entity_metadata_wrapper('node', $clientId);
     $value = 'ral';
     $client_group = $client->field_client_group->value();
 
