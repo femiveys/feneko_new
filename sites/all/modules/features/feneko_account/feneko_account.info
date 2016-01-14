@@ -318,6 +318,7 @@ features[user_permission][] = use text format full_html
 features[user_permission][] = view any commerce_order entity
 features[user_permission][] = view any commerce_order entity of bundle commerce_order
 features[user_permission][] = view any commerce_product entity
+features[user_permission][] = view any commerce_product entity of bundle product
 features[user_permission][] = view any entityform
 features[user_permission][] = view field_attach_secured
 features[user_permission][] = view field_block_order_input
