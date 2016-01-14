@@ -1972,6 +1972,16 @@ function feneko_account_user_default_permissions() {
     'name' => 'view any commerce_product entity',
     'roles' => array(
       'administrator' => 'administrator',
+      'handelaar' => 'handelaar',
+    ),
+    'module' => 'commerce_product',
+  );
+
+  // Exported permission: 'view any commerce_product entity of bundle product'.
+  $permissions['view any commerce_product entity of bundle product'] = array(
+    'name' => 'view any commerce_product entity of bundle product',
+    'roles' => array(
+      'administrator' => 'administrator',
     ),
     'module' => 'commerce_product',
   );

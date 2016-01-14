@@ -2419,6 +2419,9 @@ html.js fieldset.collapsed {
   -moz-box-shadow: 0px 10px 31px -3px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 10px 31px -3px rgba(0, 0, 0, 0.75);
 }
+.view-feneko-shopping-cart-block .view-total.show {
+  display: block;
+}
 .view-feneko-shopping-cart-block .view-total tr {
   cursor: pointer;
   display: inline-table;
@@ -3357,6 +3360,7 @@ div.messages.error {
 ><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 #mainmenu-wrapper {
   position: relative;
+  overflow: visible;
   background-color: #295d8f;
   /* Fallback Color */
   background-image: -webkit-gradient(linear, left top, left bottom, from(#1c4063), to(#295d8f));
@@ -3403,6 +3407,10 @@ div.messages.error {
   -moz-box-shadow: 0px 10px 31px -3px rgba(0, 0, 0, 0.75);
   -o-box-shadow: 0px 10px 31px -3px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 10px 31px -3px rgba(0, 0, 0, 0.75);
+  position: fixed;
+  z-index: 500;
+  top: 0;
+  margin-top: 0;
 }
 .admin-menu #mainmenu-wrapper.cloned {
   padding-top: 30px;
