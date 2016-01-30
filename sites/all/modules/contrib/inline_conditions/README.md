@@ -1,7 +1,6 @@
 ## CONTENTS OF THIS FILE
 
  * Description
- * Contributing
 
 
 ## DESCRIPTION
@@ -20,11 +19,3 @@ creating a field of the "inline_conditions" type on the entity, and later
 calling inline_conditions_build_rule() from the implementation of
 hook_default_rules_configuration(). See inline_conditions.api.php for more
 information.
-
-
-## CONTRIBUTING
-To contribute CSS fixes/improvements to this module please do so in the `sass`
-folder. This is a SASS folder and you can compile the CSS using the following
-command:
-
-```sass --watch sass:css  --style expanded```
