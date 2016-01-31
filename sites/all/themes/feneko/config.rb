@@ -1,5 +1,7 @@
 
 # as a default susy is included
+require 'rubygems'
+require 'bundler/setup'
 
 
 # Require any additional compass plugins here.
