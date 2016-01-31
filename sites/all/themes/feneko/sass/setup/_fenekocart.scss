@@ -139,7 +139,10 @@
 
 .item-added {
   .node-header {
-    @include vendor-prefix(animation, appear 300ms ease-in);
+    @include vendor-prefix(animation, appear 1000ms ease-out);
+    h1, h1::before {
+      @include vendor-prefix(animation, shrink 1000ms ease-out);
+    }
   }
 }
 
@@ -148,10 +151,21 @@
 @keyframes appear {
   from {
     opacity: 0;
-    margin-right: -500px;
+    margin-right: 250px;
   }
   to {
-    opacity: 16px;
+    opacity: 1;
     margin-right: 0;
+  }
+}
+
+@keyframes shrink {
+  from {
+    color: transparent;
+    font-size: 3rem;
+  }
+  to {
+    color: $white;
+    font-size: 1rem;
   }
 }
