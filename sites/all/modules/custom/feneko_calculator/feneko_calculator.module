@@ -237,10 +237,10 @@ function feneko_calculator_mail_alter(&$message) {
     }
 
     // Set the body and apply the replacements
-    $body = str_replace('{name}', $order->owner->name->value(), $body);
-    $body = str_replace('{company}', $order->owner->field_naam_bedrijf->value(), $body);
-    $body = str_replace('{klantennummer}', $order->field_order4->value(), $body);
-    $body = str_replace('{client_number}', $order->field_order4->value(), $body);
+    // $body = str_replace('{name}', $order->owner->name->value(), $body);
+    // $body = str_replace('{company}', $order->owner->field_naam_bedrijf->value(), $body);
+    // $body = str_replace('{klantennummer}', $order->field_order4->value(), $body);
+    // $body = str_replace('{client_number}', $order->field_order4->value(), $body);
     $message['body'][0] = $body;
 
     // Attach drawings
@@ -304,8 +304,13 @@ function feneko_calculator_form_alter(&$form, &$form_state, $form_id) {
       '#weight' => -100,
     );
 
-    $form['commerce_fieldgroup_pane__group_order_info']
-         ['field_order4']['und']['#options'] = feneko_code_get_clients_options();
+    $group = &$form['commerce_fieldgroup_pane__group_order_info'];
+    $order = entity_metadata_wrapper('commerce_order', $group['#entity']);
+    if($order->field_client->field_block_order_input->value()) {
+      unset($group['field_order_type']['und']['#options']['order']);
+      $group['field_order_type']['und']['#default_value'] = 'offer';
+      $group['field_order_type']['und']['#description'] = '';
+    }
   }
 
   if (strpos($form_id, 'views_form_commerce_cart_form_') === 0) {
