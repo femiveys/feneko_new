@@ -146,6 +146,16 @@ class FenekoForm {
           }
           break;
 
+        case 'kies_een_optie':
+          // To prevent fraude: set to offerte for blocked clients
+          if($values['klant']) {
+            $client = feneko_code_get_client_by_number($values['klant']);
+            if($client->field_block_order_input->value()) {
+              $values[$name] = 'offerte';
+            }
+          }
+          break;
+
         case 'kleur_dep':
           // Make sure the RAL color has been chosen
           if($values['kleur'] === 'ral') {
@@ -2484,607 +2494,692 @@ class FenekoForm {
       'nee' => t('nee'),
     );
 
-    $fields = array(
-      'afdekdoppen' => array(
-        '#title' => t('afdekdoppen op vleugel en kader'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#options' => $ja_nee_options,
-        '#states' => array(
-          'invisible' => array(
-            'input[name="kader"]' => array('value' => 'smal'),
-          ),
-        ),
-      ),
-      'bevestiging' => array(
-        '#title' => t('bevestiging'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#required' => TRUE,
-        '#options' => array(
-          'geen' => t('geen bevestiging'),
-          'los'  => t('los'),
-          'op'   => t('op vliegenraam'),
-        ),
-      ),
-      // 'bijkomende' => array(
-      //   '#title' => t('bijkomende opmerkingen'),
-      //   '#type' => 'textarea',
-      //   '#weight' => $weight,
-      // ),
-      'borstel' => array(
-        '#title' => t('borstel'),
-        '#type' => 'radios',
-        '#required' => TRUE,
-        '#weight' => $weight,
-        '#options' => array(
-          'kopse' => t('kopse kant'),
-          'zij' => t('zijkant'),
-        ),
-      ),
-      'borstel_kopse_kant' => array(
-        '#title' => t('borstel kopse kant'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#required' => TRUE,
-        '#options' => $borstel_options,
-      ),
-      'borstel_links' => array(
-        '#title' => t('borstel links'),
-        '#type' => 'radios',
-        '#description' => t('Borstel van van buiten gezien'),
-        '#weight' => $weight,
-        '#required' => TRUE,
-        '#options' => $borstel_options,
-      ),
-      'borstel_rechts' => array(
-        '#title' => t('borstel rechts'),
-        '#type' => 'radios',
-        '#description' => t('Borstel van van buiten gezien'),
-        '#weight' => $weight,
-        '#required' => TRUE,
-        '#options' => $borstel_options,
-      ),
-      'borstel_profiel' => array(
-        '#title' => t('Borstelprofiel VP1200'),
-        '#type' => 'radios',
-        '#required' => FALSE,
-        '#weight' => $weight,
-        '#options' => array(
-          'nee'  => t('nee'),
-          'ja'  => t('ja'),
-        ),
-        '#states' => array(
-          'visible' => array(
-            'input[name="profiel"]' => array('value' => 'vr060'),
-          ),
-        ),
-      ),
-      'bovengeleider' => array(
-        '#title' => t('bovengeleider'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#required' => TRUE,
-        '#options' => array(
-          'vp5087' => 'vp5087',
-          'vp1011' => 'vp1011',
-          'vp4961' => 'vp4961',
-          'vp5088' => 'vp5088',
-          'vp5514' => 'vp5514',
-        ),
-      ),
-      'cancel_button' => array(
-        '#weight' => $weight,
-        '#markup' => '<a href="javascript:history.back();">' . t('Back') . '</a>',
-      ),
-      'diepte' => array(
-        '#title' => t('diepte'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#options' => array(
-          '20'      => 20,
-          '30'      => 30,
-          '40'      => 40,
-          '50'      => 50,
-          '60'      => 60,
-        ),
-        '#states' => array(
-          'visible' => array(
-            'input[name="profiel"]' => array('value' => 'vr033ultra'),
-          ),
-        ),
-      ),
-      'diepte_borstel' => array(
-        '#title' => t('diepte'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#options' => array(
-          'geen' => t('geen'),
-          '5'    => '5mm',
-          '10'   => '10mm',
-          '15'   => '15mm',
-          '20'   => '20mm',
-        ),
-        '#states' => array(
-          'visible' => array(
-            'input[name="borstel"]' => array('value' => 'zij'),
-          ),
-        ),
-      ),
-      'dierendeur' => array(
-        '#type' => 'container',
-        '#weight' => $weight,
-        'dierendeur' => array(
-          '#title' => t('dierendeur'),
+    switch ($name) {
+      case 'afdekdoppen':
+        return array(
+          '#title' => t('afdekdoppen op vleugel en kader'),
           '#type' => 'radios',
-          '#options' => array(
-            'geen'       => t('geen'),
-            'hond_groot' => t('hond groot'),
-            'hond_klein' => t('hond klein'),
-            'kat'        => t('kat'),
-          ),
+          '#weight' => $weight,
+          '#options' => $ja_nee_options,
           '#states' => array(
             'invisible' => array(
-              'input[name="plint"]' => array('value' => 'geen'),
+              'input[name="kader"]' => array('value' => 'smal'),
             ),
           ),
-        ),
-        'container' => array(
-          '#type' => 'container',
-          '#attributes' => array('class' => array('dep-container')),
-          'dierendeur_dep' => array(
-            '#title' => t('Dierendeur plaats'),
-            '#title_display' => 'invisible',
-            '#type' => 'radios',
-            '#options' => array(
-              'links'  => t('links'),
-              'midden' => t('midden'),
-              'rechts' => t('rechts'),
-            ),
-            '#states' => array(
-              'visible' => array(
-                'input[name="dierendeur"]' => array(
-                  array('value' => 'hond_groot'),
-                  array('value' => 'hond_klein'),
-                  array('value' => 'kat'),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-      'eindstoppen' => array(
-        '#title' => t('eindstoppen'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#required' => TRUE,
-        '#options' => $ja_nee_options,
-      ),
-      'file' => array(
-        '#title' => t('Tekening opladen'),
-        '#type' => 'file',
-        '#weight' => $weight,
-        '#states' => array(
-          'visible' => array('input[name="opties"]' => array('value' => 'gebogen')),
-        ),
-        '#description' => t('De toegelaten bestandstypes zijn: :types.<br />De maximum grootte is: :max.',
-                            array(
-                              ':types' => 'pdf jpg jpeg png dwg dxf',
-                              ':max' => '3MB',
-                          )),
-      ),
-      'frame' => array(
-        '#title' => t('kader'),
-        '#type' => 'container',
-        '#weight' => $weight,
-        'title' => array(
-          '#prefix' => '<label>',
-          '#suffix' => '</label>',
-          '#markup' => t('kader'),
-        ),
-        'kader' => array(
-          '#type' => 'container',
-          'kader' => array(
-            '#type' => 'container',
-            '#attributes' => array('class' => array('kader')),
-            '#tree' => true,
-            'markup' => array(
-              '#markup' => t('Duid aan waar u een kader wenst'),
-            ),
-            'top' => array(
-              '#type' => 'checkbox',
-              '#default_value' => 0,
-            ),
-            'left' => array(
-              '#type' => 'checkbox',
-              '#default_value' => 0,
-            ),
-            'right' => array(
-              '#type' => 'checkbox',
-              '#default_value' => 0,
-            ),
-            'bottom' => array(
-              '#type' => 'checkbox',
-              '#default_value' => 0,
-            ),
-          ),
-        ),
-      ),
-      'hoekverbinding' => array(
-        '#title' => t('hoekverbinding'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        // '#required' => TRUE,
-        '#options' => array(
-          'gevezen' => t('gevezen'),
-          'geperst' => t('geperst'),
-        ),
-        '#states' => array(
-          'invisible' => array(
-            'input[name="kader"]' => array('value' => 'vp1001'),
-          ),
-        ),
-      ),
-      'kader' => array(
-        '#title' => t('kader'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#options' => array(
-          'standaard' => t('standaard'),
-          'smal'      => t('smal'),
-        ),
-      ),
-      'kies_een_optie' => array(
-        '#title' => t('kies een optie'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#required' => TRUE,
-        '#options' => array(
-          'bestelling' => t('bestelling'),
-          'offerte'    => t('offerte'),
-        ),
-        '#default_value' => 'offerte',
-      ),
-      'klant' => array(
-        '#title' => t('Klant'),
-        '#type' => 'select',
-        '#weight' => $weight,
-        '#options' => feneko_code_get_clients_options(),
-        '#required' => TRUE,
-      ),
-      'kleur' => array(
-        '#type' => 'container',
-        '#weight' => $weight,
-        'kleur' => array(
-          '#title' => t('kleur'),
+        );
+
+      case 'afgewerkte':
+        return array(
+          '#title' => t('Afgewerkte maten'),
+          '#type' => 'checkbox',
+          '#weight' => $weight,
+          '#description' => t('Indien u dit aanvinkt, zullen de maten bij bestelling automatisch aangepast worden naar de doorkijkmaten.'),
+        );
+
+      case 'bevestiging':
+        return array(
+          '#title' => t('bevestiging'),
           '#type' => 'radios',
+          '#weight' => $weight,
           '#required' => TRUE,
           '#options' => array(
-            'wit'     => t('wit'),
-            'f9001'   => '9001',
-            'bruin'   => t('bruin'),
-            '7016'    => '7016',
-            'anodise' => t('anodise'),
-            'ral'     => t('ral'),
+            'geen' => t('geen bevestiging'),
+            'los'  => t('los'),
+            'op'   => t('op vliegenraam'),
           ),
-        ),
-        'container' => array(
-          '#type' => 'container',
-          '#attributes' => array('class' => array('dep-container', 'inline')),
-          'kleur_dep' => array(
-            '#title' => t('RAL code'),
-            '#type' => 'textfield',
-            '#description' => t('XXXX-30d** => Standaard voor matkleuren<br />XXXX-70d* => Standaard voor blinkende kleuren'),
-            '#title_display' => 'invisible',
-            '#autocomplete_path' => 'manyforms/autocomplete/'.$this->getId(),
-            '#attributes' => array(
-              'placeholder' => t('Zoek de RAL code'),
-            ),
-            '#states' => array(
-              'visible' => array(
-                'input[name="kleur"]' => array('value' => 'ral'),
-              ),
-            ),
-          ),
-        ),
-      ),
-      'kleur_pees' => array(
-        '#title' => t('kleur pees'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#required' => TRUE,
-        '#options' => array(
-          'zwart' => t('zwart'),
-          'grijs' => t('grijs'),
-        ),
-      ),
-      'ondergeleider' => array(
-        '#title' => t('ondergeleider'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#required' => TRUE,
-        '#options' => array(
-          'vp1012'  => 'vp1012',
-          'vr073'   => 'vr073',
-          'vr074'   => 'vr074',
-          'vp1016'  => 'vp1016',
-          'vp1012a' => 'vp1012 (anodise)',
-          'vp1016a' => 'vp1016 (anodise)',
-          'vr073a'  => 'vr073 (anodise)',
-          'vr074a'  => 'vr074 (anodise)',
-        ),
-      ),
-      'ondergeleider_anodise' => array(
-        '#title' => t('ondergeleider anodisé'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#required' => TRUE,
-        '#options' => $ja_nee_options,
-      ),
-      'opties' => array(
-        '#title' => t('opties'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#options' => array(
-          'nvt' => t('Niet van toepassing'),
-          'gebogen' => t('Gebogen/Schuin'),
-        ),
-        '#default_value' => 'nvt',
-        '#prefix' => '<div id="opties-replace">',
-        '#suffix' => '</div>',
-      ),
-      'plint' => array(
-        '#type' => 'container',
-        '#weight' => $weight,
-        'plint' => array(
-          '#title' => t('plint'),
+        );
+
+      case 'borstel':
+        return array(
+          '#title' => t('borstel'),
           '#type' => 'radios',
           '#required' => TRUE,
+          '#weight' => $weight,
           '#options' => array(
-            'geen'         => t('geen'),
-            'f300mm'       => '300mm',
-            'tot_tssstijl' => t('tot tussenstijl'),
-            'andere'       => t('andere'),
+            'kopse' => t('kopse kant'),
+            'zij' => t('zijkant'),
           ),
-        ),
-        'container' => array(
-          '#type' => 'container',
-          '#attributes' => array('class' => array('dep-container', 'inline')),
-          'plint_dep' => array(
-            '#title' => t('Andere plint maat'),
-            '#title_display' => 'invisible',
-            '#type' => 'textfield',
-            '#element_validate' => array('element_validate_integer'),
-            '#attributes' => array(
-              'placeholder' => t('Geef hier andere maten in...'),
-            ),
-            '#states' => array(
-              'visible' => array(
-                'input[name="plint"]' => array('value' => 'andere'),
-              ),
-            ),
-          ),
-        ),
-      ),
-      'pomp' => array(
-        '#title' => t('pomp'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#required' => TRUE,
-        '#options' => $ja_nee_options,
-      ),
-      'profiel' => array(
-        '#title' => t('profiel'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#required' => TRUE,
-        '#options' => array(
-          'vr050' => 'vr050(16mm)',
-          'vr060' => 'vr060(11mm)',
-          'vr080' => 'vr080(24mm)',
-          'vr090' => 'vr090(40mm)',
-        ),
-      ),
-      'pvc' => array(
-        '#title' => t('kleur toebehoren PVC'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#required' => TRUE,
-        '#options' => array(
-          'wit'   => t('wit'),
-          'bruin' => t('bruin'),
-          'zwart' => t('zwart'),
-          'grijs' => t('grijs'),
-        ),
-      ),
-      'referentie' => array(
-        '#title' => t('referentie'),
-        '#type' => 'textfield',
-        '#description' => t('De referentie dient om je stukken makkelijker terug te vinden'),
-        '#weight' => $weight,
-        '#size' => 60,
-        '#maxlength' => 128,
-        '#required' => TRUE,
-      ),
-      'scharnierkant' => array(
-        '#title' => t('scharnierkant'),
-        '#type' => 'radios',
-        '#description' => t('Kant scharnier van van buiten gezien<br />Scharnierkant is de eerst opendraaiende deur'),
-        '#weight' => $weight,
-        '#required' => FALSE,
-        '#options' => array(
-          'links' => t('links'),
-          'rechts' => t('rechts'),
-        ),
-        '#states' => array(
-          'invisible' => array(
-            'input[name="uitvoering"]' => array(
-              array('value' => 'zonder'),
-            ),
-          ),
-        ),
-      ),
-      'soort_bevestiging' => array(
-        '#type' => 'container',
-        '#weight' => $weight,
-        '#states' => array(
-          'invisible' => array(
-            'input[name="bevestiging"]' => array(
-              array('value' => 'geen'),
-            ),
-          ),
-        ),
-        'soort_bevestiging' => array(
-          '#title' => t('soort bevestiging'),
+        );
+
+      case 'borstel_kopse_kant':
+        return array(
+          '#title' => t('borstel kopse kant'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#required' => TRUE,
+          '#options' => $borstel_options,
+        );
+
+      case 'borstel_links':
+        return array(
+          '#title' => t('borstel links'),
+          '#type' => 'radios',
+          '#description' => t('Borstel van van buiten gezien'),
+          '#weight' => $weight,
+          '#required' => TRUE,
+          '#options' => $borstel_options,
+        );
+
+      case 'borstel_rechts':
+        return array(
+          '#title' => t('borstel rechts'),
+          '#type' => 'radios',
+          '#description' => t('Borstel van van buiten gezien'),
+          '#weight' => $weight,
+          '#required' => TRUE,
+          '#options' => $borstel_options,
+        );
+
+      case 'borstel_profiel':
+        return array(
+          '#title' => t('Borstelprofiel VP1200'),
           '#type' => 'radios',
           '#required' => FALSE,
-          '#options' => self::getDynamicFieldOptions('soort_bevestiging') +
-                        array('op_maat' => t('Op maat')),
-        ),
-        'container' => array(
-          '#type' => 'container',
-          '#attributes' => array('class' => array('dep-container')),
-          'soort_bevestiging_dep' => array(
-            '#title' => t('Andere soort bevestiging'),
-            '#title_display' => 'invisible',
-            '#type' => 'textfield',
-            '#attributes' => array('placeholder' => t('Geef zelf de gewenste maat op')),
-            '#states' => array(
-              'visible' => array(
-                'input[name="soort_bevestiging"]' => array(
-                  array('value' => 'op_maat'),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-      'speling' => array(
-        '#title' => t('speling voorzien'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#options' => $ja_nee_options,
-        '#states' => array(
-          'visible' => array(
-            'input[name="profiel"]' => array(
-              array('value' => 'vr033'),
-            ),
-          ),
-        ),
-      ),
-      'stootrubber' => array(
-        '#title' => t('stootrubber'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#required' => TRUE,
-        '#options' => $ja_nee_options,
-      ),
-      'submit_button' => array(
-        '#type' => 'submit',
-        '#weight' => $weight,
-        '#value' => t('Submit'),
-      ),
-      'table1' => self::getTable($weight, 1), // weight 30
-      'table2' => self::getTable($weight, 2), // weight 30
-      'table3' => self::getTable($weight, 3), // weight 30
-      'table4' => self::getTable($weight, 4), // weight 30
-      'type_gaas' => array(
-        '#type' => 'container',
-        '#weight' => $weight,
-        'type_gaas' => array(
-          '#title' => t('type gaas'),
-          '#type' => 'radios',
-          '#description' => t('Soltisdoek is door u aan te leveren.'),
-          '#required' => TRUE,
+          '#weight' => $weight,
           '#options' => array(
-            'standaard'  => t('standaard'),
-            'petscreen'  => t('petscreen'),
-            'clearview'  => t('clearview'),
-            'soltisdoek' => t('soltisdoek'),
-            'inox'       => t('inox'),
-          ),
-        ),
-        'container' => array(
-          '#type' => 'container',
-          '#attributes' => array('class' => array('dep-container')),
-          'type_gaas_dep' => array(
-            '#title' => t('Gaas plaats'),
-            '#title_display' => 'invisible',
-            '#type' => 'radios',
-            '#options' => array(
-              'onderaan' => t('onderaan'),
-              'volledig'  => t('volledig'),
-            ),
-            '#states' => array(
-              'visible' => array(
-                'input[name="type_gaas"]' => array(
-                  array('value' => 'petscreen'),
-                  array('value' => 'clearview'),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-      'gaas_kleur' => array(
-        '#title' => t('gaas kleur'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#required' => FALSE,
-        '#options' => array(
-          'grijs'  => t('grijs'),
-          'zwart' => t('zwart'),
-        ),
-        '#states' => array(
-          'visible' => array(
-            'input[name="type_gaas"]' => array('value' => 'petscreen'),
-          ),
-        ),
-      ),
-      'afgewerkte' => array(
-        '#title' => t('Afgewerkte maten'),
-        '#type' => 'checkbox',
-        '#weight' => $weight,
-        '#description' => t('Indien u dit aanvinkt, zullen de maten bij bestelling automatisch aangepast worden naar de doorkijkmaten.'),
-      ),
-      'uitvoering' => array(
-        '#type' => 'container',
-        '#weight' => $weight,
-        'uitvoering' => array(
-          '#title' => t('uitvoering'),
-          '#type' => 'radios',
-          '#required' => TRUE,
-          '#options' => array(
-            'enkel'  => t('enkel'),
-            'dubbel' => t('dubbel'),
-          ),
-        ),
-        'container' => array(
-          '#type' => 'container',
-          '#attributes' => array('class' => array('description')),
-          'conditional_help' => array(
-            '#markup' => t('De breedte is de maat van de 2 vleugels samen'),
+            'nee'  => t('nee'),
+            'ja'  => t('ja'),
           ),
           '#states' => array(
             'visible' => array(
-              'input[name="uitvoering"]' => array('value' => 'dubbel'),
+              'input[name="profiel"]' => array('value' => 'vr060'),
             ),
           ),
-        ),
-      ),
-      'verbreding' => array(
-        '#title' => t('verbreding'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#required' => TRUE,
-        '#options' => $ja_nee_options,
-      ),
-    );
+        );
 
-    if(isset($fields[$name])) {
-      return $fields[$name];
-    } else {
-      return NULL;
+      case 'bovengeleider':
+        return array(
+          '#title' => t('bovengeleider'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#required' => TRUE,
+          '#options' => array(
+            'vp5087' => 'vp5087',
+            'vp1011' => 'vp1011',
+            'vp4961' => 'vp4961',
+            'vp5088' => 'vp5088',
+            'vp5514' => 'vp5514',
+          ),
+        );
+
+      case 'cancel_button':
+        return array(
+          '#weight' => $weight,
+          '#markup' => '<a href="javascript:history.back();">' . t('Back') . '</a>',
+        );
+
+      case 'diepte':
+        return array(
+          '#title' => t('diepte'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#options' => array(
+            '20'      => 20,
+            '30'      => 30,
+            '40'      => 40,
+            '50'      => 50,
+            '60'      => 60,
+          ),
+          '#states' => array(
+            'visible' => array(
+              'input[name="profiel"]' => array('value' => 'vr033ultra'),
+            ),
+          ),
+        );
+
+      case 'diepte_borstel':
+        return array(
+          '#title' => t('diepte'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#options' => array(
+            'geen' => t('geen'),
+            '5'    => '5mm',
+            '10'   => '10mm',
+            '15'   => '15mm',
+            '20'   => '20mm',
+          ),
+          '#states' => array(
+            'visible' => array(
+              'input[name="borstel"]' => array('value' => 'zij'),
+            ),
+          ),
+        );
+
+      case 'dierendeur':
+        return array(
+          '#type' => 'container',
+          '#weight' => $weight,
+          'dierendeur' => array(
+            '#title' => t('dierendeur'),
+            '#type' => 'radios',
+            '#options' => array(
+              'geen'       => t('geen'),
+              'hond_groot' => t('hond groot'),
+              'hond_klein' => t('hond klein'),
+              'kat'        => t('kat'),
+            ),
+            '#states' => array(
+              'invisible' => array(
+                'input[name="plint"]' => array('value' => 'geen'),
+              ),
+            ),
+          ),
+          'container' => array(
+            '#type' => 'container',
+            '#attributes' => array('class' => array('dep-container')),
+            'dierendeur_dep' => array(
+              '#title' => t('Dierendeur plaats'),
+              '#title_display' => 'invisible',
+              '#type' => 'radios',
+              '#options' => array(
+                'links'  => t('links'),
+                'midden' => t('midden'),
+                'rechts' => t('rechts'),
+              ),
+              '#states' => array(
+                'visible' => array(
+                  'input[name="dierendeur"]' => array(
+                    array('value' => 'hond_groot'),
+                    array('value' => 'hond_klein'),
+                    array('value' => 'kat'),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+
+      case 'eindstoppen':
+        return array(
+          '#title' => t('eindstoppen'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#required' => TRUE,
+          '#options' => $ja_nee_options,
+        );
+
+      case 'file':
+        return array(
+          '#title' => t('Tekening opladen'),
+          '#type' => 'file',
+          '#weight' => $weight,
+          '#states' => array(
+            'visible' => array('input[name="opties"]' => array('value' => 'gebogen')),
+          ),
+          '#description' => t('De toegelaten bestandstypes zijn: :types.<br />De maximum grootte is: :max.',
+                              array(
+                                ':types' => 'pdf jpg jpeg png dwg dxf',
+                                ':max' => '3MB',
+                            )),
+        );
+
+      case 'frame':
+        return array(
+          '#title' => t('kader'),
+          '#type' => 'container',
+          '#weight' => $weight,
+          'title' => array(
+            '#prefix' => '<label>',
+            '#suffix' => '</label>',
+            '#markup' => t('kader'),
+          ),
+          'kader' => array(
+            '#type' => 'container',
+            'kader' => array(
+              '#type' => 'container',
+              '#attributes' => array('class' => array('kader')),
+              '#tree' => true,
+              'markup' => array(
+                '#markup' => t('Duid aan waar u een kader wenst'),
+              ),
+              'top' => array(
+                '#type' => 'checkbox',
+                '#default_value' => 0,
+              ),
+              'left' => array(
+                '#type' => 'checkbox',
+                '#default_value' => 0,
+              ),
+              'right' => array(
+                '#type' => 'checkbox',
+                '#default_value' => 0,
+              ),
+              'bottom' => array(
+                '#type' => 'checkbox',
+                '#default_value' => 0,
+              ),
+            ),
+          ),
+        );
+
+      case 'hoekverbinding':
+        return array(
+          '#title' => t('hoekverbinding'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          // '#required' => TRUE,
+          '#options' => array(
+            'gevezen' => t('gevezen'),
+            'geperst' => t('geperst'),
+          ),
+          '#states' => array(
+            'invisible' => array(
+              'input[name="kader"]' => array('value' => 'vp1001'),
+            ),
+          ),
+        );
+
+      case 'kader':
+        return array(
+          '#title' => t('kader'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#options' => array(
+            'standaard' => t('standaard'),
+            'smal'      => t('smal'),
+          ),
+        );
+
+      case 'kies_een_optie':
+        return array(
+          '#title' => t('kies een optie'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#required' => TRUE,
+          '#prefix' => '<div id="kies-een-optie">',
+          '#suffix' => '</div>',
+          '#options' => array(
+            'bestelling' => t('bestelling'),
+            'offerte'    => t('offerte'),
+          ),
+          '#default_value' => 'offerte',
+        );
+
+      case 'klant':
+        return array(
+          '#title' => t('Klant'),
+          '#type' => 'select',
+          '#weight' => $weight,
+          '#options' => feneko_code_get_clients_options(),
+          '#required' => TRUE,
+          '#ajax' => array(
+            'event' => 'change',
+            'callback' => 'manyforms_kies_een_optie_callback',
+            'wrapper' => 'kies-een-optie',
+            'method' => 'replace',
+          ),
+        );
+
+      case 'kleur':
+        return array(
+          '#type' => 'container',
+          '#weight' => $weight,
+          'kleur' => array(
+            '#title' => t('kleur'),
+            '#type' => 'radios',
+            '#required' => TRUE,
+            '#options' => array(
+              'wit'     => t('wit'),
+              'f9001'   => '9001',
+              'bruin'   => t('bruin'),
+              '7016'    => '7016',
+              'anodise' => t('anodise'),
+              'ral'     => t('ral'),
+            ),
+          ),
+          'container' => array(
+            '#type' => 'container',
+            '#attributes' => array('class' => array('dep-container', 'inline')),
+            'kleur_dep' => array(
+              '#title' => t('RAL code'),
+              '#type' => 'textfield',
+              '#description' => t('XXXX-30d** => Standaard voor matkleuren<br />XXXX-70d* => Standaard voor blinkende kleuren'),
+              '#title_display' => 'invisible',
+              '#autocomplete_path' => 'manyforms/autocomplete/'.$this->getId(),
+              '#attributes' => array(
+                'placeholder' => t('Zoek de RAL code'),
+              ),
+              '#states' => array(
+                'visible' => array(
+                  'input[name="kleur"]' => array('value' => 'ral'),
+                ),
+              ),
+            ),
+          ),
+        );
+
+      case 'kleur_pees':
+        return array(
+          '#title' => t('kleur pees'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#required' => TRUE,
+          '#options' => array(
+            'zwart' => t('zwart'),
+            'grijs' => t('grijs'),
+          ),
+        );
+
+      case 'ondergeleider':
+        return array(
+          '#title' => t('ondergeleider'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#required' => TRUE,
+          '#options' => array(
+            'vp1012'  => 'vp1012',
+            'vr073'   => 'vr073',
+            'vr074'   => 'vr074',
+            'vp1016'  => 'vp1016',
+            'vp1012a' => 'vp1012 (anodise)',
+            'vp1016a' => 'vp1016 (anodise)',
+            'vr073a'  => 'vr073 (anodise)',
+            'vr074a'  => 'vr074 (anodise)',
+          ),
+        );
+
+      case 'ondergeleider_anodise':
+        return array(
+          '#title' => t('ondergeleider anodisé'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#required' => TRUE,
+          '#options' => $ja_nee_options,
+        );
+
+      case 'opties':
+        return array(
+          '#title' => t('opties'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#options' => array(
+            'nvt' => t('Niet van toepassing'),
+            'gebogen' => t('Gebogen/Schuin'),
+          ),
+          '#default_value' => 'nvt',
+          '#prefix' => '<div id="opties-replace">',
+          '#suffix' => '</div>',
+        );
+
+      case 'plint':
+        return array(
+          '#type' => 'container',
+          '#weight' => $weight,
+          'plint' => array(
+            '#title' => t('plint'),
+            '#type' => 'radios',
+            '#required' => TRUE,
+            '#options' => array(
+              'geen'         => t('geen'),
+              'f300mm'       => '300mm',
+              'tot_tssstijl' => t('tot tussenstijl'),
+              'andere'       => t('andere'),
+            ),
+          ),
+          'container' => array(
+            '#type' => 'container',
+            '#attributes' => array('class' => array('dep-container', 'inline')),
+            'plint_dep' => array(
+              '#title' => t('Andere plint maat'),
+              '#title_display' => 'invisible',
+              '#type' => 'textfield',
+              '#element_validate' => array('element_validate_integer'),
+              '#attributes' => array(
+                'placeholder' => t('Geef hier andere maten in...'),
+              ),
+              '#states' => array(
+                'visible' => array(
+                  'input[name="plint"]' => array('value' => 'andere'),
+                ),
+              ),
+            ),
+          ),
+        );
+
+      case 'pomp':
+        return array(
+          '#title' => t('pomp'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#required' => TRUE,
+          '#options' => $ja_nee_options,
+        );
+
+      case 'profiel':
+        return array(
+          '#title' => t('profiel'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#required' => TRUE,
+          '#options' => array(
+            'vr050' => 'vr050(16mm)',
+            'vr060' => 'vr060(11mm)',
+            'vr080' => 'vr080(24mm)',
+            'vr090' => 'vr090(40mm)',
+          ),
+        );
+
+      case 'pvc':
+        return array(
+          '#title' => t('kleur toebehoren PVC'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#required' => TRUE,
+          '#options' => array(
+            'wit'   => t('wit'),
+            'bruin' => t('bruin'),
+            'zwart' => t('zwart'),
+            'grijs' => t('grijs'),
+          ),
+        );
+
+      case 'referentie':
+        return array(
+          '#title' => t('referentie'),
+          '#type' => 'textfield',
+          '#description' => t('De referentie dient om je stukken makkelijker terug te vinden'),
+          '#weight' => $weight,
+          '#size' => 60,
+          '#maxlength' => 128,
+          '#required' => TRUE,
+        );
+
+      case 'scharnierkant':
+        return array(
+          '#title' => t('scharnierkant'),
+          '#type' => 'radios',
+          '#description' => t('Kant scharnier van van buiten gezien<br />Scharnierkant is de eerst opendraaiende deur'),
+          '#weight' => $weight,
+          '#required' => FALSE,
+          '#options' => array(
+            'links' => t('links'),
+            'rechts' => t('rechts'),
+          ),
+          '#states' => array(
+            'invisible' => array(
+              'input[name="uitvoering"]' => array(
+                array('value' => 'zonder'),
+              ),
+            ),
+          ),
+        );
+
+      case 'soort_bevestiging':
+        return array(
+          '#type' => 'container',
+          '#weight' => $weight,
+          '#states' => array(
+            'invisible' => array(
+              'input[name="bevestiging"]' => array(
+                array('value' => 'geen'),
+              ),
+            ),
+          ),
+          'soort_bevestiging' => array(
+            '#title' => t('soort bevestiging'),
+            '#type' => 'radios',
+            '#required' => FALSE,
+            '#options' => self::getDynamicFieldOptions('soort_bevestiging') +
+                          array('op_maat' => t('Op maat')),
+          ),
+          'container' => array(
+            '#type' => 'container',
+            '#attributes' => array('class' => array('dep-container')),
+            'soort_bevestiging_dep' => array(
+              '#title' => t('Andere soort bevestiging'),
+              '#title_display' => 'invisible',
+              '#type' => 'textfield',
+              '#attributes' => array('placeholder' => t('Geef zelf de gewenste maat op')),
+              '#states' => array(
+                'visible' => array(
+                  'input[name="soort_bevestiging"]' => array(
+                    array('value' => 'op_maat'),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+
+      case 'speling':
+        return array(
+          '#title' => t('speling voorzien'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#options' => $ja_nee_options,
+          '#states' => array(
+            'visible' => array(
+              'input[name="profiel"]' => array(
+                array('value' => 'vr033'),
+              ),
+            ),
+          ),
+        );
+
+      case 'stootrubber':
+        return array(
+          '#title' => t('stootrubber'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#required' => TRUE,
+          '#options' => $ja_nee_options,
+        );
+
+      case 'submit_button':
+        return array(
+          '#type' => 'submit',
+          '#weight' => $weight,
+          '#value' => t('Submit'),
+        );
+
+      case 'table1':
+        return self::getTable($weight, 1); // weight 30
+
+      case 'table2':
+        return self::getTable($weight, 2); // weight 30
+
+      case 'table3':
+        return self::getTable($weight, 3); // weight 30
+
+      case 'table4':
+        return self::getTable($weight, 4); // weight 30
+
+      case 'type_gaas':
+        return array(
+          '#type' => 'container',
+          '#weight' => $weight,
+          'type_gaas' => array(
+            '#title' => t('type gaas'),
+            '#type' => 'radios',
+            '#description' => t('Soltisdoek is door u aan te leveren.'),
+            '#required' => TRUE,
+            '#options' => array(
+              'standaard'  => t('standaard'),
+              'petscreen'  => t('petscreen'),
+              'clearview'  => t('clearview'),
+              'soltisdoek' => t('soltisdoek'),
+              'inox'       => t('inox'),
+            ),
+          ),
+          'container' => array(
+            '#type' => 'container',
+            '#attributes' => array('class' => array('dep-container')),
+            'type_gaas_dep' => array(
+              '#title' => t('Gaas plaats'),
+              '#title_display' => 'invisible',
+              '#type' => 'radios',
+              '#options' => array(
+                'onderaan' => t('onderaan'),
+                'volledig'  => t('volledig'),
+              ),
+              '#states' => array(
+                'visible' => array(
+                  'input[name="type_gaas"]' => array(
+                    array('value' => 'petscreen'),
+                    array('value' => 'clearview'),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        );
+
+      case 'gaas_kleur':
+        return array(
+          '#title' => t('gaas kleur'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#required' => FALSE,
+          '#options' => array(
+            'grijs'  => t('grijs'),
+            'zwart' => t('zwart'),
+          ),
+          '#states' => array(
+            'visible' => array(
+              'input[name="type_gaas"]' => array('value' => 'petscreen'),
+            ),
+          ),
+        );
+
+      case 'uitvoering':
+        return array(
+          '#type' => 'container',
+          '#weight' => $weight,
+          'uitvoering' => array(
+            '#title' => t('uitvoering'),
+            '#type' => 'radios',
+            '#required' => TRUE,
+            '#options' => array(
+              'enkel'  => t('enkel'),
+              'dubbel' => t('dubbel'),
+            ),
+          ),
+          'container' => array(
+            '#type' => 'container',
+            '#attributes' => array('class' => array('description')),
+            'conditional_help' => array(
+              '#markup' => t('De breedte is de maat van de 2 vleugels samen'),
+            ),
+            '#states' => array(
+              'visible' => array(
+                'input[name="uitvoering"]' => array('value' => 'dubbel'),
+              ),
+            ),
+          ),
+        );
+
+      case 'verbreding':
+        return array(
+          '#title' => t('verbreding'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#required' => TRUE,
+          '#options' => $ja_nee_options,
+        );
+
+      default:
+        return NULL;
     }
   }
 }

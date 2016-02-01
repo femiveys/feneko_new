@@ -357,6 +357,20 @@ function manyforms_opties_callback($form, &$form_state) {
   return $ff->form['opties'];
 }
 
+function manyforms_kies_een_optie_callback($form, $form_state) {
+  // Make sure blocked clients cannot place an order
+  $field = &$form['kies_een_optie'];
+  if(isset($form_state['values']['klant'])) {
+    $client_number = $form_state['values']['klant'];
+    $client = feneko_code_get_client_by_number($client_number);
+    if($client->field_block_order_input->value()) {
+      unset($field['#options']['bestelling']);
+      unset($field['bestelling']);
+      $field['offerte']['#value'] = 'offerte';
+    }
+  }
+  return $field;
+}
 
 function manyforms_variable_info($options) {
   $variable = array(
