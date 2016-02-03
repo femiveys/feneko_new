@@ -761,7 +761,7 @@ class FenekoSpecificForm extends FenekoForm {
              . "</div>";
 
       case 'klant':
-      $client = feneko_code_get_client_by_number($val);
+        $client = feneko_code_get_client_by_number($val);
         $val = $client->title->value() . " (" . $client->field_client_number->value() . ")";
         return "<div class=\"inline-field\">"
              . "<div class=\"label\">" . t('klant') . "</div><div class=\"value\">$val</div>"

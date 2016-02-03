@@ -2538,21 +2538,38 @@ html.js fieldset.collapsed {
 }
 
 .item-added .node-header {
-  -webkit-animation: appear 300ms ease-in;
-  -ms-animation: appear 300ms ease-in;
-  -moz-animation: appear 300ms ease-in;
-  -o-animation: appear 300ms ease-in;
-  animation: appear 300ms ease-in;
+  -webkit-animation: appear 1000ms ease-out;
+  -ms-animation: appear 1000ms ease-out;
+  -moz-animation: appear 1000ms ease-out;
+  -o-animation: appear 1000ms ease-out;
+  animation: appear 1000ms ease-out;
+}
+.item-added .node-header h1, .item-added .node-header h1::before {
+  -webkit-animation: shrink 1000ms ease-out;
+  -ms-animation: shrink 1000ms ease-out;
+  -moz-animation: shrink 1000ms ease-out;
+  -o-animation: shrink 1000ms ease-out;
+  animation: shrink 1000ms ease-out;
 }
 
 @keyframes appear {
   from {
     opacity: 0;
-    margin-right: -500px;
+    margin-right: 250px;
   }
   to {
-    opacity: 16px;
+    opacity: 1;
     margin-right: 0;
+  }
+}
+@keyframes shrink {
+  from {
+    color: transparent;
+    font-size: 3rem;
+  }
+  to {
+    color: #ffffff;
+    font-size: 1rem;
   }
 }
 /* ELEMENTS
