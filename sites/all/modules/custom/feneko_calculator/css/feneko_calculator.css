@@ -92,6 +92,11 @@ form.commerce-add-to-cart .form-submit {
   margin: 2em 0;
 }
 
+form.commerce-add-to-cart .form-submit[disabled] {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
 #commerce-checkout-form-checkout .checkout-buttons {
   float: right;
 }

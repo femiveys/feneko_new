@@ -16,7 +16,7 @@
 
         // Set focus on current element
         // $(selector).focus();
-      }
+      };
 
       // Fire the right trigger
       $('.commerce-add-to-cart input:not(.form-autocomplete), .commerce-add-to-cart select').change(function(e) {
@@ -32,7 +32,7 @@
       $('.commerce-add-to-cart .field-name-field-bicolor-kleur input').keydown(function(objEvent) {
         if (objEvent.keyCode == 9) {  //tab pressed
           if(!$(this).hasClass('default-prevented')) {
-            $(this).addClass('default-prevented')
+            $(this).addClass('default-prevented');
             objEvent.preventDefault(); // stops its action
           }
         }
@@ -45,6 +45,16 @@
         // $(".commerce-add-to-cart input, .commerce-add-to-cart select").attr('disabled','disabled');
       });
 
+      // Disable submit button when an ajax textfield is edited
+      $('form.commerce-add-to-cart .field-type-number-integer input.ajax-processed').each(function() {
+        $(this).keyup(function() {
+          if(this.value !== this.defaultValue) {
+            $('form.commerce-add-to-cart .form-submit').attr('disabled', 'disabled');
+          } else {
+            $('form.commerce-add-to-cart .form-submit').attr('disabled', null);
+          }
+        });
+      });
     }
   };
 
