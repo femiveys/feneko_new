@@ -38,3 +38,6 @@ DEPENDENCIES
   rb-fsevent (= 0.9.4)
   rb-inotify (= 0.9.5)
   sass (= 3.4.13)
+
+BUNDLED WITH
+   1.11.2

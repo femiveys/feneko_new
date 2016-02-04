@@ -30,13 +30,33 @@
       selector.css('padding-bottom', ypos*0.05 + 'px');
     }
 
+    var elementPos = $('#mainmenu-wrapper').offset();
+    elementTop = elementPos.top;
+
     $(window).scroll( function () {
       parallax($('.view-front-image img'));
       parallax2($('.node-info-pagina h2'));
+
+      if ($(window).scrollTop() >= (elementTop)) {
+        $('#mainmenu-wrapper').css({position: "fixed", top: "0px", width: "100%", zIndex: "500"});
+        $('#main-wrapper').css({paddingTop: "100px"});
+      } else {
+        $('#mainmenu-wrapper').css({position: "relative", top: "0px"});
+        $('#main-wrapper').css({paddingTop: "40px"});
+      }
     });
 
     $('.form-radio.error').after('<div class="radio-error"></div>');
 
+
+
+
+
+      //console.log($(document).top);
+
+
+
+/*
     // STICKY MENU
     // Create a clone of the menuwrapper, right next to original.
     $('#mainmenu-wrapper').addClass('original')
@@ -74,6 +94,8 @@
       $('#header-wrapper.show').removeClass('show');
       $('#shoppingcart.show').removeClass('show');
     });
+
+  */
 
 
 // commented because may come back
@@ -120,6 +142,7 @@
     });
 
     $('.view-feneko-shopping-cart-block .title').click(function() {
+      //alert('auw');
       $(this).toggleClass('toggle');
     });
 
