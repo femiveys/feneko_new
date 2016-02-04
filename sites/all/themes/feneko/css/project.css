@@ -2416,7 +2416,9 @@ html.js fieldset.collapsed {
   position: absolute;
   z-index: 10;
   -webkit-box-shadow: 0px 10px 31px -3px rgba(0, 0, 0, 0.75);
+  -ms-box-shadow: 0px 10px 31px -3px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 10px 31px -3px rgba(0, 0, 0, 0.75);
+  -o-box-shadow: 0px 10px 31px -3px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 10px 31px -3px rgba(0, 0, 0, 0.75);
 }
 .view-feneko-shopping-cart-block .view-total.show {
