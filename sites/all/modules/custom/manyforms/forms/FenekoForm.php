@@ -66,7 +66,6 @@ class FenekoForm {
     $ref = self::sanitize($values['referentie']);
 
     $client = feneko_code_get_client_by_number($fields['klant']);
-
     $this->message($dbID, $type);
     $this->mailing($dbID, $type, $ref, $file, $articles, $client);
   }
@@ -1071,7 +1070,6 @@ class FenekoForm {
     $type = $type === 'offerte' ? t('offerte aanvraag') : t('bestelling');
 
     $message = variable_get('manyforms_submiting_text', '');
-// dpm('test');
     $message = str_replace('{name}', $user->name, $message);
     $message = str_replace('{type}', $type, $message);
     drupal_set_message(nl2br($message));
