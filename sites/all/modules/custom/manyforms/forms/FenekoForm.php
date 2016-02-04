@@ -79,7 +79,6 @@ class FenekoForm {
   public function validate(&$values) {
     // Make sure all visible fields are mandatory and all invisible fields are reset
     $this->handleVisibilityState($values);
-
     foreach ($values as $name => $value) {
       // First make sure at least 1 line is filled in if there is a table
       if(substr($name, 0, 5) === 'table') {
@@ -1072,7 +1071,7 @@ class FenekoForm {
     $type = $type === 'offerte' ? t('offerte aanvraag') : t('bestelling');
 
     $message = variable_get('manyforms_submiting_text', '');
-
+// dpm('test');
     $message = str_replace('{name}', $user->name, $message);
     $message = str_replace('{type}', $type, $message);
     drupal_set_message(nl2br($message));
@@ -2803,12 +2802,14 @@ class FenekoForm {
           '#weight' => $weight,
           '#options' => feneko_code_get_clients_options(),
           '#required' => TRUE,
-          '#ajax' => array(
-            'event' => 'change',
-            'callback' => 'manyforms_kies_een_optie_callback',
-            'wrapper' => 'kies-een-optie',
-            'method' => 'replace',
-          ),
+          // TODO: fix: table values are not posted anymore and on error this is
+          //       not initialized
+          // '#ajax' => array(
+          //   'event' => 'change',
+          //   'callback' => 'manyforms_kies_een_optie_callback',
+          //   'wrapper' => 'kies-een-optie',
+          //   'method' => 'replace',
+          // ),
         );
 
       case 'kleur':

@@ -47,6 +47,7 @@
 
       // Disable submit button when an ajax textfield is edited
       $('form.commerce-add-to-cart .field-type-number-integer input.ajax-processed').each(function() {
+console.log('ja');
         $(this).keyup(function() {
           if(this.value !== this.defaultValue) {
             $('form.commerce-add-to-cart .form-submit').attr('disabled', 'disabled');
