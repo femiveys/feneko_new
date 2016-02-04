@@ -346,10 +346,12 @@ function _fc_get_pdf_image($line_item_wrapper) {
 }
 
 function _fc_get_discount_sections($data) {
+  $sections = array();
   $mapping = commerce_price_component_titles();
 
   foreach ($data['components'] as $component) {
     $key = $component['name'];
+    $sections[$key] = array();
     if($key === 'minimum_invoice_amount') {
       $sections[$key]['weight'] = 0;
       $sections[$key]['key'] = $key;
