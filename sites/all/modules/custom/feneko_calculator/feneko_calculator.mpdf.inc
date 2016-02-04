@@ -157,9 +157,14 @@ function fc_get_attachment($order_id, $outputAsString = TRUE, $includePrice = TR
   $client_ra = field_view_field('commerce_order', $order, 'field_client');
 
   // The user field
-  $user_ra = $client_ra;
+  $user_ra = $client_ra; // Little hack, Just for convenience
   $user_ra['#title'] = ucfirst(t('user'));
   $user_ra[0]['#markup'] = $user->name;
+
+  // The date field
+  $date_ra = $client_ra; // Little hack, Just for convenience
+  $date_ra['#title'] = ucfirst(t('date'));
+  $date_ra[0]['#markup'] = format_date(intval($order->changed), 'short');
 
   $client_data = array(
     '#type' => 'container',
@@ -167,6 +172,7 @@ function fc_get_attachment($order_id, $outputAsString = TRUE, $includePrice = TR
     'left' => array(
       '#type' => 'container',
       '#attributes' => array('class' => array('left')),
+      'date'   => $date_ra,
       'tel'    => field_view_field('node', $client, 'field_phone'),
       'tva'    => field_view_field('node', $client, 'field_tva_number'),
       'num'    => field_view_field('node', $client, 'field_client_number'),
