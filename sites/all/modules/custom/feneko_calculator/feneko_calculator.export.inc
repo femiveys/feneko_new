@@ -168,7 +168,7 @@ function feneko_calculator_order_to_txt(stdClass $order) {
         round(_feneko_calculator_add_txt_field($line, 'quantity')),
       );
 
-      switch ($line->type->value()) {
+      switch ($line->commerce_product->type->value()) {
         case 'plaatbewerking':
           $arr[] = _feneko_calculator_add_txt_field($line, 'field_type_bewerking');
           $arr[] = _feneko_calculator_add_txt_field($line, 'field_lakzijde');
@@ -231,6 +231,12 @@ function feneko_calculator_order_to_txt(stdClass $order) {
           $arr[] = _feneko_calculator_add_txt_field($line, 'field_koppelstukken');
           $arr[] = _feneko_calculator_add_txt_field($line, 'field_beugels');
           break;
+
+        case 'muurkap_eindstuk':
+          $arr[] = _feneko_calculator_add_txt_field($line->commerce_product, 'field_muurkap_type');
+          $arr[] = _feneko_calculator_add_txt_field($line->commerce_product, 'field_muurkap_diepte');
+          $arr[] = _feneko_calculator_add_txt_field($line->commerce_product, 'field_mke_type');
+          break;
       }
 
       $txt .= arrayToCsv($arr) . "\n";
@@ -241,10 +247,11 @@ function feneko_calculator_order_to_txt(stdClass $order) {
 }
 
 function _feneko_calculator_add_txt_field(EntityMetadataWrapper $wrapper, $name) {
+    $jaNeeFields = array('field_gaatjes_rug');
     $value = $wrapper->$name->value();
 
-    // Make sure booleans are returned as ja or nee
-    if(is_bool($value)) {
+    // Make sure booleans or other fields are returned as ja or nee
+    if(is_bool($value) || in_array($name, $jaNeeFields)) {
         $value = $value ? 'ja' : 'nee';
     }
     return $value;
@@ -279,10 +286,10 @@ function arrayToCsv( array &$fields, $delimiter = ';', $enclosure = '"', $enclos
 
 function fc_price($price) {
   if(empty($price)) {
+    return 0;
+  } else {
     $multiplyer = pow(10, 5);
     return round($price/$multiplyer, 2);
-  } else {
-    return 0;
   }
 }
 
