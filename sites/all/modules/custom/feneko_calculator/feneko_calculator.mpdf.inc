@@ -10,6 +10,7 @@
 function fc_get_attachment($order_id, $outputAsString = TRUE, $includePrice = TRUE) {
   libraries_load('mpdf');
   module_load_include('inc', 'feneko_calculator', 'extra_fields');
+  module_load_include('inc', 'feneko_calculator', 'feneko_calculator.export');
 
   $order = commerce_order_load($order_id);
   $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
@@ -343,43 +344,4 @@ function _fc_get_pdf_image($line_item_wrapper) {
       return '<br>' . drupal_render($ra);
   }
 
-}
-
-function _fc_get_discount_sections($data) {
-  $sections = array();
-  $mapping = commerce_price_component_titles();
-
-  foreach ($data['components'] as $component) {
-    $key = $component['name'];
-    $sections[$key] = array();
-    if($key === 'minimum_invoice_amount') {
-      $sections[$key]['weight'] = 0;
-      $sections[$key]['key'] = $key;
-      $sections[$key]['label'] = $mapping[$key];
-      _fc_set_price($sections[$key], $component['price']['amount']);
-    } elseif (substr($key, 0, 9) === 'discount|') {
-      $sections[$key]['weight'] = 10;
-      $sections[$key]['key'] = drupal_clean_css_identifier($component['price']['data']['discount_name']);
-      $sections[$key]['label'] = $component['price']['data']['discount_component_title'];
-      _fc_set_price($sections[$key], $component['price']['amount']);
-    }
-  }
-
-  // Set the price in a readible way
-  foreach ($sections as &$section) {
-    $section['price'] = _fc_format_amount($section['price']);
-  }
-
-  // Sort the array
-  uasort($sections, 'drupal_sort_weight');
-
-  return $sections;
-}
-
-function _fc_set_price(&$section, $price) {
-  if(isset($section['price'])) {
-    $section['price'] += $price;
-  } else {
-    $section['price'] = $price;
-  }
 }
