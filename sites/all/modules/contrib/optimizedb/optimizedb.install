@@ -6,20 +6,9 @@
  */
 
 /**
- * Database Drivers with which works module.
- *
- * @return array
- *   List drivers.
- */
-function optimizedb_available_db_drivers() {
-  return array(
-    'mysql',
-    'pgsql',
-  );
-}
-
-/**
  * Implements hook_enable().
+ *
+ * @see _optimizedb_tables_list()
  */
 function optimizedb_enable() {
   // Update information on the size of tables.
@@ -79,17 +68,18 @@ function optimizedb_requirements($phase) {
   }
 
   if ($phase == 'install') {
-    $db_drivers_list = optimizedb_available_db_drivers();
-    $db_driver = db_driver();
+    // Need to verify the database connection, hook is called when
+    // install installation profile, if the module is added to the dependencies.
+    if (Database::isActiveConnection()) {
+      module_load_include('module', 'optimizedb', 'optimizedb');
 
-    if (!in_array($db_driver, $db_drivers_list)) {
-      $requirements['optimizedb'] = array(
-        'title' => $t('Database Optimization'),
-        'description' => $t('The module Optimizedb does not work with db driver "@name".', array(
-          '@name' => $db_driver,
-        )),
-        'severity' => REQUIREMENT_ERROR,
-      );
+      if ($message = optimizedb_check_works()) {
+        $requirements['optimizedb'] = array(
+          'title' => $t('Database Optimization'),
+          'description' => $message,
+          'severity' => REQUIREMENT_ERROR,
+        );
+      }
     }
   }
 
@@ -97,21 +87,21 @@ function optimizedb_requirements($phase) {
 }
 
 /**
- * Implements hook_update_N().
+ * Clear the cache for cache_id "optimizedb_tables_status".
  */
 function optimizedb_update_7100() {
   cache_clear_all('optimizedb_tables_status');
 }
 
 /**
- * Implements hook_update_N().
+ * Rebuild menu, a new menu item.
  */
 function optimizedb_update_7101() {
   menu_rebuild();
 }
 
 /**
- * Implements hook_update_N().
+ * Changing the name of a variable.
  */
 function optimizedb_update_7102() {
   $clear_type = variable_get('optimize_clear_type', 0);
