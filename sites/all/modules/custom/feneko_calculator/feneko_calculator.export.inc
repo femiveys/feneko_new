@@ -139,8 +139,8 @@ function feneko_calculator_order_to_txt(stdClass $order) {
     _feneko_calculator_add_txt_field($order_wrapper, 'changed'),
     fc_price($totals['raw']['subtotal']),
     fc_price($totals['raw']['subtotal'] - $totals['raw']['total']),
-    'nee', // Never vliegenramen
     _feneko_calculator_add_txt_field($order_wrapper->owner, 'name'),
+    _feneko_calculator_add_txt_field($order_wrapper->owner, 'mail'),
     _feneko_calculator_add_txt_field($order_wrapper, 'field_maritime'),
   );
 
@@ -199,7 +199,6 @@ function feneko_calculator_order_to_txt(stdClass $order) {
           $arr[] = _feneko_calculator_add_txt_field($line, 'field_lengte');
           $arr[] = _feneko_calculator_add_txt_field($line, 'field_breedte');
           $arr[] = _feneko_calculator_add_txt_field($line, 'field_isolatie_dikte');
-          $arr[] = round(_feneko_calculator_add_txt_field($line, 'quantity'));
           $arr[] = _feneko_calculator_add_txt_field($line, 'field_bicolor_kleur');
           break;
 
@@ -207,7 +206,6 @@ function feneko_calculator_order_to_txt(stdClass $order) {
           $arr[] = _feneko_calculator_add_txt_field($line, 'field_rug');
           $arr[] = _feneko_calculator_add_txt_field($line->commerce_product, 'field_raamtablet_diepte');
           $arr[] = _feneko_calculator_add_txt_field($line, 'field_lengte');
-          $arr[] = round(_feneko_calculator_add_txt_field($line, 'quantity'));
           $arr[] = _feneko_calculator_add_txt_field($line, 'field_gaatjes_rug');
           $arr = array_merge(
             $arr,
