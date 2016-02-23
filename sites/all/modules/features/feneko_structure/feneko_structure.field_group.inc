@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function feneko_structure_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -43,7 +43,7 @@ function feneko_structure_field_group_info() {
       ),
     ),
   );
-  $export['group_algemeen|node|info_pagina|form'] = $field_group;
+  $field_groups['group_algemeen|node|info_pagina|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -68,7 +68,7 @@ function feneko_structure_field_group_info() {
       ),
     ),
   );
-  $export['group_doc_tab|node|product|default'] = $field_group;
+  $field_groups['group_doc_tab|node|product|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -94,7 +94,7 @@ function feneko_structure_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $export['group_draw_tab|node|product|default'] = $field_group;
+  $field_groups['group_draw_tab|node|product|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -124,7 +124,7 @@ function feneko_structure_field_group_info() {
       ),
     ),
   );
-  $export['group_front|node|info_pagina|form'] = $field_group;
+  $field_groups['group_front|node|info_pagina|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -149,7 +149,7 @@ function feneko_structure_field_group_info() {
       ),
     ),
   );
-  $export['group_info_tab|node|product|default'] = $field_group;
+  $field_groups['group_info_tab|node|product|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -176,7 +176,7 @@ function feneko_structure_field_group_info() {
       ),
     ),
   );
-  $export['group_informatie|node|info_pagina|form'] = $field_group;
+  $field_groups['group_informatie|node|info_pagina|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -210,7 +210,7 @@ function feneko_structure_field_group_info() {
       ),
     ),
   );
-  $export['group_sales|node|info_pagina|form'] = $field_group;
+  $field_groups['group_sales|node|info_pagina|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -239,7 +239,18 @@ function feneko_structure_field_group_info() {
       ),
     ),
   );
-  $export['group_wrapper|node|product|default'] = $field_group;
+  $field_groups['group_wrapper|node|product|default'] = $field_group;
 
-  return $export;
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Sales info');
+  t('Technical documents');
+  t('Technical drawing');
+  t('Technical information');
+  t('algemeen');
+  t('big image front');
+  t('informatie');
+  t('wrapper');
+
+  return $field_groups;
 }

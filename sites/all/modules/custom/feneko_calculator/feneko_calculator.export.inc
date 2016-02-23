@@ -194,7 +194,6 @@ function feneko_calculator_order_to_txt(stdClass $order) {
           // Ophanging
           break;
 
-
         case 'sandwichpaneel':
           $arr[] = _feneko_calculator_add_txt_field($line, 'field_lengte');
           $arr[] = _feneko_calculator_add_txt_field($line, 'field_breedte');

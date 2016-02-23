@@ -964,7 +964,7 @@ function feneko_calculator_feature_feeds_importer_default() {
           0 => array(
             'source' => 'referentie',
             'target' => 'sku',
-            'unique' => FALSE,
+            'unique' => 1,
           ),
           1 => array(
             'source' => 'omschrijving',
@@ -981,6 +981,7 @@ function feneko_calculator_feature_feeds_importer_default() {
         'input_format' => 'plain_text',
         'skip_hash_check' => 0,
         'bundle' => 'unit',
+        'update_non_existent' => 'skip',
       ),
     ),
     'content_type' => '',

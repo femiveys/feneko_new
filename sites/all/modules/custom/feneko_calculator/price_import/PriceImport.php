@@ -1,7 +1,7 @@
 <?php
 namespace FenekoCalculator;
 
-class Helper {
+class PriceImport {
   /**
    * - key: name
    *   - source: Name of source CSV
@@ -202,6 +202,9 @@ class Helper {
           'priceCols' => array(3),
           'concat' => array(3),
           'prefix' => "RT-",
+          'filter' => array(
+            1 => array(50, 70, 90),
+          ),
           'mapping' => array(
             0 => array(
               66 => 'ET1',
@@ -247,7 +250,7 @@ class Helper {
           ),
         ),
         'sandwichpanelen' => array(
-          'source' => 'Sandwichpaneel_Opmaat.csv',
+          'source' => 'Prijs_SWopmaat2.csv',
           'priceCols' => array(
             '500'  => 2,
             '1000' => 3,
@@ -260,38 +263,22 @@ class Helper {
             '3500' => 10,
             '4000' => 11,
           ),
-          // 'concat' => array(3),
-          // 'sku' => 0,
-          'prefix' => "SW-",
-          'skipFirstLine' => TRUE,
-        ),
-        'sandwichpanelen_old' => array(
-          'source' => 'Prijs_SWopmaat.csv',
-          'priceCols' => array(
-            '500'  => 1,
-            '1000' => 2,
-            '1250' => 3,
-            '1500' => 4,
-            '1750' => 5,
-            '2000' => 6,
-            '2500' => 7,
-            '3000' => 8,
-            '3500' => 9,
-            '4000' => 10,
-          ),
-          'concat' => array(2),
-          // 'sku' => 0,
-          'prefix' => "SW-",
-          'skipFirstLine' => TRUE,
           'mapping' => array(
             0 => array(
-              1 => 'brut',
-              2 => 'ral',
-              3 => 'str',
-              4 => 'bicolor', // New???
-              5 => 'reno',
+              1 => 'brut|brut',
+              2 => 'brut|ral',
+              3 => 'brut|str',
+              4 => 'brut|reno',
+              5 => 'ral|ral',
+              6 => 'ral|str',
+              7 => 'ral|reno',
+              8 => 'str|str',
+              9 => 'reno|str',
+              10 => 'reno|reno',
             ),
           ),
+          'prefix' => "SW-",
+          'skipFirstLine' => TRUE,
         ),
         'sandwichpanelen_isolatie' => array(
           'source' => 'Prijs_ISOopmaat.csv',
@@ -308,8 +295,6 @@ class Helper {
             '4000' => 10,
           ),
           'skipFirstLine' => TRUE,
-          // 'concat' => array(2),
-          // 'sku' => 0,
           'prefix' => "SW-ISO-",
           'mapping' => array(
             0 => array(
@@ -335,29 +320,48 @@ class Helper {
           ),
           'filter' => array(
             1 => array('UTILO'),
+            // 5 => array(6000),
+          ),
+        ),
+        'plaatbewerking' => array(
+          'source' => array(
+            '1.5mm' => 'Prijs_Plaatwerk_15mm.csv',
+            '2mm'   => 'Prijs_Plaatwerk_2mm.csv',
+            '3mm'   => 'Prijs_Plaatwerk_3mm.csv',
+          ),
+          'priceCols' => array(
+            '500'  => 1,
+            '1000' => 2,
+            '1250' => 3,
+            '1500' => 4,
+            '1750' => 5,
+            '2000' => 6,
+            '2500' => 7,
+            '3000' => 8,
+            '3500' => 9,
+            '4000' => 10,
+          ),
+          'concat' => array(2),
+          'prefix' => "PB-",
+          'skipFirstLine' => TRUE,
+          'mapping' => array(
+            0 => array(
+              1 => 'brut',
+              2 => 'ral',
+              3 => 'ral2',
+              4 => 'str',
+              5 => 'str2',
+              6 => 'reno',
+            ),
           ),
         ),
       );
 
-      self::$globalConfig['plaatbewerking'] = self::$globalConfig['sandwichpanelen_old'];
-      self::$globalConfig['plaatbewerking']['source'] = array(
-        '1.5mm' => 'Prijs_Plaatwerk_15mm.csv',
-        '2mm'   => 'Prijs_Plaatwerk_2mm.csv',
-        '3mm'   => 'Prijs_Plaatwerk_3mm.csv',
-      );
-      self::$globalConfig['plaatbewerking']['prefix'] = 'PB-';
-      self::$globalConfig['plaatbewerking']['mapping'] = array(
-        0 => array(
-          1 => 'brut',
-          2 => 'ral',
-          3 => 'ral2',
-          4 => 'str',
-          5 => 'str2',
-          6 => 'reno',
-        ),
-      );
+      // self::$globalConfig = array(
+      //   'standaardprofielen' => self::$globalConfig['standaardprofielen'],
+      // );
 
-
+      // unset(self::$globalConfig['standaardprofielen']); // Materialen doesn't exist
     }
 
 
@@ -365,6 +369,8 @@ class Helper {
    * Splits source CSV files in target CSV files
    */
   public static function split() {
+    require_once 'CsvHandler.php';
+
     self::init();
 
     foreach (self::$globalConfig as $key => $config) {

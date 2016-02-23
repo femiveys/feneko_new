@@ -1054,6 +1054,13 @@ system/ajax/*';
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_extended_banner';
+  $strongarm->value = 1;
+  $export['i18n_node_extended_banner'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'i18n_node_extended_info_pagina';
   $strongarm->value = '1';
   $export['i18n_node_extended_info_pagina'] = $strongarm;
@@ -1094,6 +1101,13 @@ system/ajax/*';
     0 => 'required',
   );
   $export['i18n_node_options_article'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_options_banner';
+  $strongarm->value = array();
+  $export['i18n_node_options_banner'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

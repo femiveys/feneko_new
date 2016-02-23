@@ -28,6 +28,15 @@ function feneko_translations_translations_nl_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Order specific information', array(), array('context' => ''));
+  $translations['nl:default']['577d7068826de925ea2aec01dbadf5e4'] = array(
+    'source' => 'Client',
+    'context' => '',
+    'location' => '/',
+    'translation' => 'Klant',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Client', array(), array('context' => ''));
   $translations['nl:default']['5a2d7865f8878cb7cb82a45b2be8ba8e'] = array(
     'source' => 'You don\'t have any clients assigned. Contact the administrator.',
     'context' => '',

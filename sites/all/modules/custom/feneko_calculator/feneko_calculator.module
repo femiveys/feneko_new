@@ -3,10 +3,6 @@
  * @file
  */
 
-require_once 'CsvLine.php';
-require_once 'CsvHandler.php';
-require_once 'Helper.php';
-
 define('FC_PATH', "private://calculator");
 define('FC_NO_COLOR', "brut");
 define('FC_PB_SPECIAL', "special");
@@ -1510,7 +1506,8 @@ function fc_custom_cart_callback($product) {
 
 
 function fc_preprocess() {
-  \FenekoCalculator\Helper::split();
+  require_once 'price_import/PriceImport.php';
+  \FenekoCalculator\PriceImport::split();
   drupal_goto('import');
 }
 
