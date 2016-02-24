@@ -520,7 +520,7 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
   );
 
   // Apply the last config for this product
-  fc_apply_last_config($form_state, $product);
+  // fc_apply_last_config($form_state, $product);
 
   switch ($product->type) {
     case 'plaatbewerking':
