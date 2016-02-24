@@ -766,6 +766,7 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
 }
 
 function _fc_get_image($path, $title, $weight) {
+  // return array(); // TODO: REMOVE
   return array(
     '#weight' => $weight,
     '#theme' => 'image_style',

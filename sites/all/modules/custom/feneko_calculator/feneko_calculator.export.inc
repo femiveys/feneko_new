@@ -296,16 +296,19 @@ function _fc_get_discount_sections($data) {
 
   foreach ($data['components'] as $component) {
     $key = $component['name'];
-    $sections[$key] = array();
     if($key === 'minimum_invoice_amount') {
-      $sections[$key]['weight'] = 0;
-      $sections[$key]['key'] = $key;
-      $sections[$key]['label'] = $mapping[$key];
+      $sections[$key] = array(
+        'weight' => 0,
+        'key' => $key,
+        'label' => $mapping[$key],
+      );
       _fc_set_price($sections[$key], $component['price']['amount']);
     } elseif (substr($key, 0, 9) === 'discount|') {
-      $sections[$key]['weight'] = 10;
-      $sections[$key]['key'] = drupal_clean_css_identifier($component['price']['data']['discount_name']);
-      $sections[$key]['label'] = $component['price']['data']['discount_component_title'];
+        $sections[$key] = array(
+          'weight' => 10,
+          'key' => drupal_clean_css_identifier($component['price']['data']['discount_name']),
+          'label' => $component['price']['data']['discount_component_title'],
+      );
       _fc_set_price($sections[$key], $component['price']['amount']);
     }
   }
