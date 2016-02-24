@@ -116,12 +116,28 @@ function feneko_code_flipper(){
  * @param $idKeys bool
  *   true: keys will be client IDs
  *   false: keys will be client numbers
+ * @todo cache this
  */
 function feneko_code_get_clients_options($idKeys = false) {
   global $user;
   $options = array();
   $wrapper = entity_metadata_wrapper('user', $user);
-  foreach ($wrapper->field_clients->value() as $client) {
+
+  if(in_array('interne medewerker', $user->roles)) {
+    // Get all clients
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'node')
+          ->entityCondition('bundle', 'client');
+    $result = $query->execute();
+    if (isset($result['node'])) {
+      $nids = array_keys($result['node']);
+      $clients = entity_load('node', $nids);
+    }
+  } else {
+    $clients = $wrapper->field_clients->value();
+  }
+
+  foreach ($clients as $client) {
     if(!empty($client)) {
       $client_number = $client->field_client_number[LANGUAGE_NONE][0]['value'];
       $key = $idKeys ? $client->nid : $client_number;
