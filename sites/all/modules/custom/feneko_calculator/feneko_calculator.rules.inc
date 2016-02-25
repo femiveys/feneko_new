@@ -158,14 +158,15 @@ function _fc_get_num_knippen($quantity, $order_length) {
   }
 
   // The maximum number of knippen is the quantity
-  $num_knippen = $quantity;
+  $num_knippen = $quantity + 1;
 
   // For every full profile that holds an exact number of parts we substract 1 knip
-  $afwerking_length = $quantity * $order_length;
-  $num_full_profiles = floor($afwerking_length / FC_PROFILE_LENGTH);
-  if(FC_PROFILE_LENGTH % $order_length === 0) {
-    $num_knippen -= $num_full_profiles;
-  }
+  // Olivier wants this optimisation out
+  // $afwerking_length = $quantity * $order_length;
+  // $num_full_profiles = floor($afwerking_length / FC_PROFILE_LENGTH);
+  // if(FC_PROFILE_LENGTH % $order_length === 0) {
+  //   $num_knippen -= $num_full_profiles;
+  // }
 
   return $num_knippen;
 }
