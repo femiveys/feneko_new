@@ -41,7 +41,7 @@ class OptimizedbFunctionsTestCase extends OptimizedbTestCase {
   /**
    * Sizes tables.
    */
-  public function testOptimizedbTablesList() {
+  public function testTablesList() {
     variable_set('optimizedb_tables_size', 0);
 
     // Function for output all database tables and update their total size.
@@ -51,31 +51,50 @@ class OptimizedbFunctionsTestCase extends OptimizedbTestCase {
   }
 
   /**
+   * Testing module admin page buttons.
+   */
+  public function testButtonsExecutingCommands() {
+    for ($i = 1; $i <= 10; $i++) {
+      $this->createCacheFormItem($i);
+    }
+
+    for ($i = 1; $i <= 5; $i++) {
+      $this->createCacheFormItem($i + 10, REQUEST_TIME + 3600);
+    }
+
+    $this->assertEqual($this->countCacheFormRows(), 15);
+
+    $this->drupalPost('admin/config/development/optimizedb', array(), t('Clear cache_form table'));
+    $this->assertEqual($this->countCacheFormRows(), 5);
+
+    $this->drupalPost('admin/config/development/optimizedb', array(), t('Clear an entire table cache_form'));
+    $this->assertEqual($this->countCacheFormRows(), 0);
+
+    $list_tables = _optimizedb_tables_list();
+    $count_tables = count($list_tables);
+
+    $this->drupalPost('admin/config/development/optimizedb', array(), t('Optimize tables'));
+    $this->assertText(t('Optimized @count tables.', array('@count' => $count_tables)));
+  }
+
+  /**
    * Test _optimizedb_clear_cache_form_table() function.
    */
-  public function testOptimizedbClearTable() {
+  public function testClearTable() {
     $this->assertEqual($this->countCacheFormRows(), 0);
 
     $time = REQUEST_TIME;
 
-    for ($i = 1; $i <= 5; $i++) {
-      $cache_time = $time - ($i * 10);
+    for ($cid = 1; $cid <= 5; $cid++) {
+      $cache_time = $time - ($cid * 10);
 
-      db_insert('cache_form')->fields(array(
-        'cid' => $i,
-        'expire' => $cache_time,
-        'created' => $cache_time,
-      ))->execute();
+      $this->createCacheFormItem($cid, $cache_time);
     }
 
-    for ($i = 6; $i <= 10; $i++) {
-      $cache_time = $time + ($i * 10);
+    for ($cid = 6; $cid <= 10; $cid++) {
+      $cache_time = $time + ($cid * 10);
 
-      db_insert('cache_form')->fields(array(
-        'cid' => $i,
-        'expire' => $cache_time,
-        'created' => $cache_time,
-      ))->execute();
+      $this->createCacheFormItem($cid, $cache_time);
     }
 
     $this->assertEqual($this->countCacheFormRows(), 10);
@@ -94,14 +113,10 @@ class OptimizedbFunctionsTestCase extends OptimizedbTestCase {
 
     db_truncate('cache_form')->execute();
 
-    for ($i = 1; $i <= 5; $i++) {
-      $cache_time = $time - ($i * 10);
+    for ($cid = 1; $cid <= 5; $cid++) {
+      $cache_time = $time - ($cid * 10);
 
-      db_insert('cache_form')->fields(array(
-        'cid' => $i,
-        'expire' => $cache_time,
-        'created' => $cache_time,
-      ))->execute();
+      $this->createCacheFormItem($cid, $cache_time);
     }
 
     _optimizedb_clear_cache_form_table(OPTIMIZEDB_CLEAR_EXPIRED_CACHE);
@@ -112,34 +127,60 @@ class OptimizedbFunctionsTestCase extends OptimizedbTestCase {
   /**
    * Test clear cache_form table in optimizedb_cron() function.
    */
-  public function testOptimizedbCronClearTable() {
+  public function testCronClearTable() {
     variable_set('optimizedb_clear_period', 100);
 
-    $cache_time = REQUEST_TIME - 3600;
-
-    db_insert('cache_form')->fields(array(
-      'cid' => 1,
-      'expire' => $cache_time,
-      'created' => $cache_time,
-    ))->execute();
-
+    $this->createCacheFormItem();
     $this->assertEqual($this->countCacheFormRows(), 1);
-
     $this->cronRun();
+    $this->assertEqual($this->countCacheFormRows(), 0);
+  }
 
+  /**
+   * Testing, when not set period of time clean-up table "cache_form"
+   * using Cron.
+   */
+  public function testCronClearTablePeriodTimeEmpty() {
+    variable_set('optimizedb_clear_period_time', 0);
+    variable_set('optimizedb_clear_period', 100);
+
+    $this->createCacheFormItem();
+    $this->assertEqual($this->countCacheFormRows(), 1);
+    $this->cronRun();
+    $this->assertEqual($this->countCacheFormRows(), 0);
+  }
+
+  /**
+   * Testing, when set period of time clean-up table "cache_form" using Cron.
+   */
+  public function testCronClearTablePeriodTime() {
+    variable_set('optimizedb_clear_period', 100);
+
+    $current_hour = (int) date('H');
+
+    foreach (range(0, 23, OPTIMIZEDB_CLEAR_PERIOD_STEP) as $time) {
+      $period_time_start = $time - OPTIMIZEDB_CLEAR_PERIOD_STEP;
+
+      if ($current_hour >= $period_time_start && $current_hour <= $time) {
+        variable_set('optimizedb_clear_period_time', $time);
+      }
+    }
+
+    $this->createCacheFormItem();
+    $this->assertEqual($this->countCacheFormRows(), 1);
+    $this->cronRun();
     $this->assertEqual($this->countCacheFormRows(), 0);
   }
 
   /**
    * Test notify optimize in optimizedb_cron() function.
    */
-  public function testOptimizedbCronNotifyOptimize() {
+  public function testCronNotifyOptimize() {
     variable_set('optimizedb_optimization_period', 1);
     variable_set('optimizedb_last_optimization', REQUEST_TIME - ((3600 * 24) * 2));
     variable_set('optimizedb_notify_optimize', FALSE);
 
     $this->cronRun();
-
     $this->assertTrue(variable_get('optimizedb_notify_optimize', FALSE));
   }
 
@@ -151,6 +192,29 @@ class OptimizedbFunctionsTestCase extends OptimizedbTestCase {
       ->countQuery()
       ->execute()
       ->fetchField();
+  }
+
+  /**
+   * Create new item in table "cache_form".
+   *
+   * @param int $cid
+   *   (optional) Cache ID.
+   * @param bool|int $cache_time
+   *   (optional) Cache expire time.
+   *
+   * @return DatabaseStatementInterface|int
+   *   ID new cache item.
+   */
+  protected function createCacheFormItem($cid = 1, $cache_time = FALSE) {
+    if (!$cache_time) {
+      $cache_time = REQUEST_TIME - 3600;
+    }
+
+    return db_insert('cache_form')->fields(array(
+      'cid' => $cid,
+      'expire' => $cache_time,
+      'created' => $cache_time,
+    ))->execute();
   }
 }
 
@@ -170,7 +234,7 @@ class OptimizedbHideNotificationTestCase extends OptimizedbTestCase {
   /**
    * Display notification of the need to perform optimization.
    */
-  public function testOptimizedbHideNotification() {
+  public function testHideNotification() {
     variable_set('optimizedb_notify_optimize', FALSE);
 
     $this->drupalGet('admin/config/development/optimizedb/hide');
@@ -186,6 +250,11 @@ class OptimizedbHideNotificationTestCase extends OptimizedbTestCase {
   }
 }
 
+/**
+ * Testing the performance of operations on tables.
+ *
+ * @link admin/config/development/optimizedb/list_tables @endlink
+ */
 class OptimizedbListTablesOperationExecuteTestCase extends OptimizedbTestCase {
 
   public static function getInfo() {
@@ -199,7 +268,7 @@ class OptimizedbListTablesOperationExecuteTestCase extends OptimizedbTestCase {
   /**
    * Performing operations on tables.
    */
-  public function testOptimizedbListTablesOperationExecute() {
+  public function testListTablesOperationExecute() {
     $this->drupalPost('admin/config/development/optimizedb/list_tables', array(), t('Check tables'));
     $this->assertText(t('To execute, you must select at least one table from the list.'));
 
