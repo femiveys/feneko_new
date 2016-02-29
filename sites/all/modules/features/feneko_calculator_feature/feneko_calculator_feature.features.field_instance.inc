@@ -3375,7 +3375,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
     'entity_type' => 'commerce_order',
     'field_name' => 'field_client',
-    'label' => 'Client',
+    'label' => 'Klant',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -7905,7 +7905,6 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Base Price');
   t('Breedte');
   t('Breedte delen');
-  t('Client');
   t('Diepte');
   t('Display path');
   t('Eenheidsprijs');
@@ -7916,6 +7915,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Hoeken');
   t('Isolatie Dikte');
   t('Kant');
+  t('Klant');
   t('Kleur');
   t('Kleur plaat 2');
   t('Knippen');

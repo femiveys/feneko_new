@@ -56,6 +56,8 @@ class CsvHandler {
    * Handle CSV split
    */
   public function handle() {
+    require_once 'CsvLine.php';
+
     $output = FC_PATH . "/out/" . $this->name . ".csv";
     $out = fopen($output, 'w');
 

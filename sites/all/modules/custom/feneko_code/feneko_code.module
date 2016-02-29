@@ -116,19 +116,50 @@ function feneko_code_flipper(){
  * @param $idKeys bool
  *   true: keys will be client IDs
  *   false: keys will be client numbers
+ * @todo cache this
  */
 function feneko_code_get_clients_options($idKeys = false) {
-  global $user;
-  $options = array();
-  $wrapper = entity_metadata_wrapper('user', $user);
-  foreach ($wrapper->field_clients->value() as $client) {
-    if(!empty($client)) {
-      $client_number = $client->field_client_number[LANGUAGE_NONE][0]['value'];
-      $key = $idKeys ? $client->nid : $client_number;
-      $options[$key] = $client->title . " ($client_number)";
-    } else {
-      $msg = t('The user (:user) is linked to an invalid client', array(':user' => $user->uid));
-      drupal_set_message($msg, 'error');
+  $name = __FUNCTION__ . $idKeys ? '1' : '0';
+  $options = &drupal_static($name);
+  if (!isset($options)) {
+    if ($cache = cache_get('fc_clients')) {
+      $options = $cache->data;
+    }
+    else {
+      // Do your expensive calculations here, and populate $options
+      // with the correct stuff..
+      global $user;
+      $options = array();
+      $wrapper = entity_metadata_wrapper('user', $user);
+
+      // Interne medewerker needs to have access to all clients
+      if(in_array('interne medewerker', $user->roles)) {
+        $query = new EntityFieldQuery();
+        $query->entityCondition('entity_type', 'node')
+              ->entityCondition('bundle', 'client');
+        $result = $query->execute();
+        if (isset($result['node'])) {
+          $nids = array_keys($result['node']);
+          $clients = entity_load('node', $nids);
+        }
+      } else {
+        $clients = $wrapper->field_clients->value();
+      }
+
+      // Build the options array
+      foreach ($clients as $client) {
+        if(!empty($client)) {
+          $client_number = $client->field_client_number[LANGUAGE_NONE][0]['value'];
+          $key = $idKeys ? $client->nid : $client_number;
+          $options[$key] = $client->title . " ($client_number)";
+        } else {
+          $msg = t('The user (:user) is linked to an invalid client', array(':user' => $user->uid));
+          drupal_set_message($msg, 'error');
+        }
+      }
+
+      // Finally populate the cache
+      cache_set('fc_clients', $options, 'cache');
     }
   }
   return $options;
@@ -194,6 +225,12 @@ function feneko_code_services_resources() {
     ),
   );
   return $api;
+}
+
+function feneko_code_node_update($node) {
+    if($node->type === 'client') {
+      cache_clear_all('fc_clients', 'cache');
+    }
 }
 
 

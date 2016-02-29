@@ -3,10 +3,6 @@
  * @file
  */
 
-require_once 'CsvLine.php';
-require_once 'CsvHandler.php';
-require_once 'Helper.php';
-
 define('FC_PATH', "private://calculator");
 define('FC_NO_COLOR', "brut");
 define('FC_PB_SPECIAL', "special");
@@ -89,8 +85,18 @@ function feneko_calculator_menu() {
   $items['admin/commerce/orders/%commerce_order/xml'] = array(
     'title' => 'XML',
     'type' => MENU_LOCAL_TASK,
-    'file' => 'feneko_calculator.admin.inc',
+    'file' => 'feneko_calculator.export.inc',
     'page callback' => 'feneko_calculator_xml',
+    'page arguments' => array(3),
+    'access arguments' => array('feneko admin'),
+    'parent' => 'admin/commerce/orders/%commerce_order',
+    'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+  );
+  $items['admin/commerce/orders/%commerce_order/txt'] = array(
+    'title' => 'TXT',
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'feneko_calculator.export.inc',
+    'page callback' => 'feneko_calculator_txt',
     'page arguments' => array(3),
     'access arguments' => array('feneko admin'),
     'parent' => 'admin/commerce/orders/%commerce_order',
@@ -222,13 +228,19 @@ function feneko_calculator_mail_alter(&$message) {
       $body = variable_get('fc_notification_email_text') ;
 
        // Attach the XML for the mail to Feneko
-      module_load_include('inc', 'feneko_calculator', 'feneko_calculator.admin');
-      $attachment = array(
+      module_load_include('inc', 'feneko_calculator', 'feneko_calculator.export');
+      $xml = array(
         'filecontent' => feneko_calculator_order_to_xml($order->value()),
         'filename' => "$order_id.xml",
         'filemime' => 'text/xml',
       );
-      $message['params']['attachments'][] = $attachment;
+      $txt = array(
+        'filecontent' => feneko_calculator_order_to_txt($order->value()),
+        'filename' => "$order_id.txt",
+        'filemime' => 'text/plain',
+      );
+      $message['params']['attachments'][] = $xml;
+      $message['params']['attachments'][] = $txt;
     } else {
       // For mail to client
       $body = $order->field_order_type->value() === 'order'
@@ -508,7 +520,7 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
   );
 
   // Apply the last config for this product
-  fc_apply_last_config($form_state, $product);
+  // fc_apply_last_config($form_state, $product);
 
   switch ($product->type) {
     case 'plaatbewerking':
@@ -754,6 +766,7 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
 }
 
 function _fc_get_image($path, $title, $weight) {
+  // return array(); // TODO: REMOVE
   return array(
     '#weight' => $weight,
     '#theme' => 'image_style',
@@ -1494,7 +1507,8 @@ function fc_custom_cart_callback($product) {
 
 
 function fc_preprocess() {
-  \FenekoCalculator\Helper::split();
+  require_once 'price_import/PriceImport.php';
+  \FenekoCalculator\PriceImport::split();
   drupal_goto('import');
 }
 
@@ -1573,7 +1587,7 @@ function fc_export_orders_submit($form, $form_state) {
   // Make sure we only react on a click on the export button
   if($form_state['clicked_button']['#value'] === $form['export']['#value']) {
     libraries_load('zipstream');
-    module_load_include('inc', 'feneko_calculator', 'feneko_calculator.admin');
+    module_load_include('inc', 'feneko_calculator', 'feneko_calculator.export');
     module_load_include('inc', 'feneko_calculator', 'feneko_calculator.mpdf');
 
     // Create the zipstream
@@ -1587,9 +1601,11 @@ function fc_export_orders_submit($form, $form_state) {
 
         // Add XML and PDF of the order to zipstream
         $xml = feneko_calculator_order_to_xml($order);
+        $txt = feneko_calculator_order_to_txt($order);
         $pdf = fc_get_attachment($order->order_id);
         $zp_pdf = fc_get_attachment($order->order_id, true, false);
         $zip->add_file("$order_id.xml", $xml);
+        $zip->add_file("$order_id.txt", $txt);
         $zip->add_file("$order_id.pdf", $pdf);
         $zip->add_file("ZP$order_id.pdf", $zp_pdf);
 

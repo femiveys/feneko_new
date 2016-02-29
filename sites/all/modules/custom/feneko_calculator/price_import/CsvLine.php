@@ -58,9 +58,15 @@ class CsvLine {
         break;
 
       case 'muurkappen':
-      case 'sandwichpanelen':
-      case 'sandwichpanelen_old':
       case 'sandwichpanelen_isolatie':
+        $this->line[] = "lengte";
+        $this->line[] = "SKU";
+        $this->line[] = "titel";
+        break;
+
+      case 'sandwichpanelen':
+        $this->line[0] = "Plaat 1";
+        $this->line[1] = "Plaat 2";
         $this->line[] = "lengte";
         $this->line[] = "SKU";
         $this->line[] = "titel";
@@ -113,17 +119,16 @@ class CsvLine {
       case 'raamtabletten':
       case 'muurkappen':
       case 'muurkap_eindstukken':
-      case 'sandwichpanelen':
+      case 'plaatbewerking':
+      case 'sandwichpanelen_isolatie':
         $this->setColumn('sku')
              ->setColumn('titel')
         ;
         break;
 
-      case 'plaatbewerking':
-      case 'sandwichpanelen_old':
-      case 'sandwichpanelen_isolatie':
-        $this->setColumn('sku')
-             // ->setColumn('maat')
+      case 'sandwichpanelen':
+        $this->setColumn('platen')
+             ->setColumn('sku')
              ->setColumn('titel')
         ;
         break;
@@ -374,6 +379,12 @@ class CsvLine {
       case 'utilo_type':
         preg_match ('/^(.*)[0-9]/U', $this->line[$config['sku']], $matches);
         $this->line[] = trim($matches[1]);
+        break;
+
+      case 'platen':
+        $chunks = explode('|', $this->line[0]);
+        $this->line[0] = $chunks[0];
+        array_splice( $this->line, 1, 0, array($chunks[1]) ); // insert at position 1
         break;
     }
 

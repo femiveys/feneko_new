@@ -217,7 +217,7 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['edit_quantity']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['edit_quantity']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['edit_quantity']['element_label_colon'] = FALSE;
-  /* Field: Commerce Line item: Total */
+  /* Field: Commerce Line item: Totaal */
   $handler->display->display_options['fields']['commerce_total']['id'] = 'commerce_total';
   $handler->display->display_options['fields']['commerce_total']['table'] = 'field_data_commerce_total';
   $handler->display->display_options['fields']['commerce_total']['field'] = 'commerce_total';
@@ -362,7 +362,7 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['quantity']['field'] = 'quantity';
   $handler->display->display_options['fields']['quantity']['relationship'] = 'commerce_line_items_line_item_id';
   $handler->display->display_options['fields']['quantity']['precision'] = '0';
-  /* Field: Commerce Line item: Total */
+  /* Field: Commerce Line item: Totaal */
   $handler->display->display_options['fields']['commerce_total']['id'] = 'commerce_total';
   $handler->display->display_options['fields']['commerce_total']['table'] = 'field_data_commerce_total';
   $handler->display->display_options['fields']['commerce_total']['field'] = 'commerce_total';
@@ -505,7 +505,7 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['quantity']['table'] = 'commerce_line_item';
   $handler->display->display_options['fields']['quantity']['field'] = 'quantity';
   $handler->display->display_options['fields']['quantity']['precision'] = '0';
-  /* Field: Commerce Line item: Total */
+  /* Field: Commerce Line item: Totaal */
   $handler->display->display_options['fields']['commerce_total']['id'] = 'commerce_total';
   $handler->display->display_options['fields']['commerce_total']['table'] = 'field_data_commerce_total';
   $handler->display->display_options['fields']['commerce_total']['field'] = 'commerce_total';
@@ -760,10 +760,11 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['type']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['label'] = 'Bestellingstype';
-  /* Field: Commerce Order: Client */
+  /* Field: Commerce Order: Klant */
   $handler->display->display_options['fields']['field_client']['id'] = 'field_client';
   $handler->display->display_options['fields']['field_client']['table'] = 'field_data_field_client';
   $handler->display->display_options['fields']['field_client']['field'] = 'field_client';
+  $handler->display->display_options['fields']['field_client']['label'] = 'Client';
   $handler->display->display_options['fields']['field_client']['settings'] = array(
     'link' => 1,
   );
@@ -1000,7 +1001,7 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['type_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['type_1']['link_to_product'] = 0;
   $handler->display->display_options['fields']['type_1']['use_raw_value'] = 0;
-  /* Field: Commerce Line item: Total */
+  /* Field: Commerce Line item: Totaal */
   $handler->display->display_options['fields']['commerce_total']['id'] = 'commerce_total';
   $handler->display->display_options['fields']['commerce_total']['table'] = 'field_data_commerce_total';
   $handler->display->display_options['fields']['commerce_total']['field'] = 'commerce_total';
