@@ -119,16 +119,20 @@ function feneko_code_flipper(){
  * @todo cache this
  */
 function feneko_code_get_clients_options($idKeys = false) {
-  $name = __FUNCTION__ . $idKeys ? '1' : '0';
-  $options = &drupal_static($name);
+  global $user;
+
+  $idKeysString = $idKeys ? '1' : '0';
+  $cid = 'fc_clients' . ':' . $user->uid . ':' . $idKeysString;
+
+  $options = &drupal_static($cid);
+
   if (!isset($options)) {
-    if ($cache = cache_get('fc_clients')) {
+    if ($cache = cache_get($cid)) {
       $options = $cache->data;
     }
     else {
       // Do your expensive calculations here, and populate $options
       // with the correct stuff..
-      global $user;
       $options = array();
       $wrapper = entity_metadata_wrapper('user', $user);
 
@@ -159,7 +163,7 @@ function feneko_code_get_clients_options($idKeys = false) {
       }
 
       // Finally populate the cache
-      cache_set('fc_clients', $options, 'cache');
+      cache_set($cid, $options, 'cache');
     }
   }
   return $options;
@@ -227,10 +231,10 @@ function feneko_code_services_resources() {
   return $api;
 }
 
-function feneko_code_node_update($node) {
-    if($node->type === 'client') {
-      cache_clear_all('fc_clients', 'cache');
-    }
+function feneko_code_user_update(&$edit, $account, $category) {
+  // Clear the clients cache for the user that has been changed
+  $cid = 'fc_clients' . ':' . $account->uid;
+  cache_clear_all($cid, 'cache', TRUE);
 }
 
 
