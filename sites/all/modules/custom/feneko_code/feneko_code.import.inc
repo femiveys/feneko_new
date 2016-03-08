@@ -86,7 +86,7 @@ function feneko_code_import_form($form, &$form_state) {
 
 function feneko_code_import_form_submit($form, &$form_state) {
   $file = file_save_upload('file_upload', array(
-    'file_validate_extensions' => 'csv zip',
+    'file_validate_extensions' => array('csv','zip'),
   ));
 
   if($file) {
@@ -198,7 +198,16 @@ function _feneko_code_csv_import($filename, $values) {
           'type'          => $type,
           'client_groups' => $client_groups,
         );
-        $num_updated += db_insert($table)->fields($fields)->execute();
+        try {
+          db_insert($table)->fields($fields)->execute();
+          $num_updated++;
+        } catch(Exception $e) {
+          $msg = t('Er was een probleem bij het importeren van :ref (:kleur)', array(
+            ':kleur' => $fields['kleur'],
+            ':ref'   => $fields['ref'],
+          ));
+          drupal_set_message($msg, 'warning');
+        }
         break;
 
       case 'renolit':
@@ -206,7 +215,16 @@ function _feneko_code_csv_import($filename, $values) {
           'kleur' => drupal_convert_to_utf8($data[2], 'Windows-1252'),
           'ref'   => drupal_convert_to_utf8($data[1], 'Windows-1252'),
         );
-        $num_updated += db_insert($table)->fields($fields)->execute();
+        try {
+          db_insert($table)->fields($fields)->execute();
+          $num_updated++;
+        } catch(Exception $e) {
+          $msg = t('Er was een probleem bij het importeren van :ref (:kleur)', array(
+            ':kleur' => $fields['kleur'],
+            ':ref'   => $fields['ref'],
+          ));
+          drupal_set_message($msg, 'warning');
+        }
         break;
 
       case 'utilo':
@@ -216,7 +234,16 @@ function _feneko_code_csv_import($filename, $values) {
           // 'lang'  => drupal_convert_to_utf8($data[3], 'Windows-1252'),
           'lang'  => 'nl',
         );
-        $num_updated += db_insert($table)->fields($fields)->execute();
+        try {
+          db_insert($table)->fields($fields)->execute();
+          $num_updated++;
+        } catch(Exception $e) {
+          $msg = t('Er was een probleem bij het importeren van :ref (:kleur)', array(
+            ':kleur' => $fields['descr'],
+            ':ref'   => $fields['ref'],
+          ));
+          drupal_set_message($msg, 'warning');
+        }
         break;
 
       case 'blocked':
