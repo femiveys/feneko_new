@@ -47,7 +47,6 @@
 
       // Disable submit button when an ajax textfield is edited
       $('form.commerce-add-to-cart .field-type-number-integer input.ajax-processed').each(function() {
-console.log('ja');
         $(this).keyup(function() {
           if(this.value !== this.defaultValue) {
             $('form.commerce-add-to-cart .form-submit').attr('disabled', 'disabled');
@@ -56,14 +55,28 @@ console.log('ja');
           }
         });
       });
+
+      // // Change hidden diepte and rug fields for dorpel united page
+      // diepte = $('.form-item-attributes-field-raamtablet-diepte select').val();
+      // $('.field-name-field-raamtablet-diepte select').val(diepte);
+      // $('.field-name-field-dorpels .field-name-field-rug select').change(function() {
+      //   $('.field-name-field-rug select').val(this.value);
+      // });
+
+      // // Replace the Hoeveelheid label by a submit button
+      // $('.commerce-add-to-cart').each(function(value, key) {
+      //   $(this).find('.form-item-quantity label').replaceWith($(this).find('.form-submit'));
+      // });
     }
   };
 
   Drupal.behaviors.extra_fields = {
     attach: function (context, settings) {
-      $('.view-feneko-shopping-cart-block tr').click(function() {
+      $('.view-feneko-shopping-cart-block tr:not(.toggle-processed)').click(function() {
         $(this).find('.detail').slideToggle();
-      });
+      })
+      .addClass('toggle-processed')
+      ;
     }
   };
 })(jQuery);
