@@ -8,4 +8,5 @@ sites/*/private
 **/.DS_Store
 sites/all/translations
 **/.sass-cache/*
+sites/all/libraries/mpdf/ttfontdata/*
 
