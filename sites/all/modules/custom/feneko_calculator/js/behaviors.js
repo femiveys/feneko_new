@@ -56,17 +56,10 @@
         });
       });
 
-      // // Change hidden diepte and rug fields for dorpel united page
-      // diepte = $('.form-item-attributes-field-raamtablet-diepte select').val();
-      // $('.field-name-field-raamtablet-diepte select').val(diepte);
-      // $('.field-name-field-dorpels .field-name-field-rug select').change(function() {
-      //   $('.field-name-field-rug select').val(this.value);
-      // });
-
-      // // Replace the Hoeveelheid label by a submit button
-      // $('.commerce-add-to-cart').each(function(value, key) {
-      //   $(this).find('.form-item-quantity label').replaceWith($(this).find('.form-submit'));
-      // });
+      // Replace the Hoeveelheid label by a submit button
+      $('.commerce-add-to-cart').each(function(value, key) {
+        // $(this).find('.form-item-quantity label').replaceWith($(this).find('.form-submit'));
+      });
     }
   };
 

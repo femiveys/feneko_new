@@ -108,3 +108,11 @@ form.commerce-add-to-cart .grippie {
 form .form-item-attributes-field-standaardprofiel-type {
   display: none;
 }
+
+form.commerce-add-to-cart .field-multiple-table tbody td {
+  padding-left: 10px;
+}
+
+form.commerce-add-to-cart .field-multiple-table tbody label {
+  width: 225px;
+}
