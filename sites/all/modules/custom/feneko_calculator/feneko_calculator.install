@@ -60,3 +60,20 @@ function feneko_calculator_update_7003() {
   db_query("UPDATE {field_revision_field_ophanging} SET field_ophanging_value='lasbouten'
             WHERE field_ophanging_value='G'");
 }
+
+/**
+ * Disable redundant muurkap and dorpel rules
+ */
+function feneko_calculator_update_7005() {
+  $rules = array(
+    'rules_raamtablet_add_anti_dreunstrook',
+    'rules_raamtablet_add_stukken',
+    'rules_muurkap_add_stukken',
+  );
+
+  foreach ($rules as $name) {
+      $rules_config = rules_config_load($name);
+      $rules_config->active = FALSE;
+      $rules_config->save();
+  }
+}
