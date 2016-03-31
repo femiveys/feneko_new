@@ -2404,6 +2404,10 @@ html.js fieldset.collapsed {
 .view-feneko-shopping-cart-block {
   cursor: default;
 }
+.view-feneko-shopping-cart-block .view-content {
+  max-height: 25em;
+  overflow: scroll;
+}
 .view-feneko-shopping-cart-block .view-content tr,
 .view-feneko-shopping-cart-block .line-item-summary-view-cart {
   min-height: 40px;
