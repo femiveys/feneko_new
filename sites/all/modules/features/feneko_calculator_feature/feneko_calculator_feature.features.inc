@@ -302,6 +302,13 @@ function feneko_calculator_feature_commerce_line_item_default_types() {
       'add_form_submit_value' => 'Add product',
       'base' => 'commerce_product_line_item',
     ),
+    'muurkap_stuk' => array(
+      'name' => 'Muurkap Stuk',
+      'description' => 'A customizable product line item type.',
+      'product' => TRUE,
+      'add_form_submit_value' => 'Add product',
+      'base' => 'commerce_product_line_item',
+    ),
     'plaatbewerking' => array(
       'name' => 'Plaatbewerking',
       'description' => 'A customizable product line item type.',
@@ -383,7 +390,7 @@ function feneko_calculator_feature_commerce_product_default_types() {
     ),
     'muurkap_eindstuk' => array(
       'type' => 'muurkap_eindstuk',
-      'name' => 'Muurkap Eindstuk',
+      'name' => 'Muurkap Stuk',
       'description' => '',
       'help' => '',
       'revision' => 0,
@@ -398,13 +405,6 @@ function feneko_calculator_feature_commerce_product_default_types() {
     'raamtablet' => array(
       'type' => 'raamtablet',
       'name' => 'Dorpel',
-      'description' => '',
-      'help' => '',
-      'revision' => 0,
-    ),
-    'raamtablet_eindstuk' => array(
-      'type' => 'raamtablet_eindstuk',
-      'name' => 'Dorpel Eindstuk Old',
       'description' => '',
       'help' => '',
       'revision' => 0,
@@ -508,6 +508,14 @@ function feneko_calculator_feature_node_info() {
       'title_label' => t('Titel'),
       'help' => '',
     ),
+    'muurkap_stuk' => array(
+      'name' => t('Muurkap Stuk'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'plaatbewerking' => array(
       'name' => t('Plaatbewerking'),
       'base' => 'node_content',
@@ -534,14 +542,6 @@ function feneko_calculator_feature_node_info() {
     ),
     'standaardprofiel' => array(
       'name' => t('Standaardprofiel'),
-      'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => t('Titel'),
-      'help' => '',
-    ),
-    'stuk' => array(
-      'name' => t('Stuk'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',

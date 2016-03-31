@@ -272,6 +272,7 @@ function feneko_calculator_feature_default_rules_configuration() {
       "LABEL" : "Muurkap Add Stukken",
       "PLUGIN" : "reaction rule",
       "WEIGHT" : "6",
+      "ACTIVE" : false,
       "OWNER" : "rules",
       "TAGS" : [ "calculator" ],
       "REQUIRES" : [ "rules", "commerce_line_item", "commerce_product_reference" ],
@@ -567,14 +568,11 @@ function feneko_calculator_feature_default_rules_configuration() {
       "REQUIRES" : [ "rules", "commerce_line_item", "commerce_product_reference" ],
       "ON" : { "commerce_product_calculate_sell_price" : [] },
       "IF" : [
-        { "AND" : [
-            { "entity_is_of_bundle" : {
-                "entity" : [ "commerce-line-item" ],
-                "type" : "commerce_line_item",
-                "bundle" : { "value" : { "plaatbewerking" : "plaatbewerking" } }
-              }
-            }
-          ]
+        { "entity_is_of_bundle" : {
+            "entity" : [ "commerce-line-item" ],
+            "type" : "commerce_line_item",
+            "bundle" : { "value" : { "plaatbewerking" : "plaatbewerking" } }
+          }
         }
       ],
       "DO" : [
@@ -666,6 +664,7 @@ function feneko_calculator_feature_default_rules_configuration() {
       "LABEL" : "Raamtablet Add Anti-Dreunstrook",
       "PLUGIN" : "reaction rule",
       "WEIGHT" : "6",
+      "ACTIVE" : false,
       "OWNER" : "rules",
       "TAGS" : [ "calculator" ],
       "REQUIRES" : [ "rules", "commerce_line_item", "commerce_product_reference" ],
@@ -720,6 +719,7 @@ function feneko_calculator_feature_default_rules_configuration() {
       "LABEL" : "Raamtablet Add Stukken",
       "PLUGIN" : "reaction rule",
       "WEIGHT" : "6",
+      "ACTIVE" : false,
       "OWNER" : "rules",
       "TAGS" : [ "calculator" ],
       "REQUIRES" : [ "rules", "commerce_line_item", "commerce_product_reference" ],

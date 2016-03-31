@@ -810,6 +810,284 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'commerce_line_item-muurkap_stuk-commerce_display_path'.
+  $field_instances['commerce_line_item-muurkap_stuk-commerce_display_path'] = array(
+    'bundle' => 'muurkap_stuk',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+      'display' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'commerce_line_item',
+    'field_name' => 'commerce_display_path',
+    'label' => 'Display path',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'commerce_line_item-muurkap_stuk-commerce_product'.
+  $field_instances['commerce_line_item-muurkap_stuk-commerce_product'] = array(
+    'bundle' => 'muurkap_stuk',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'commerce_cart',
+        'settings' => array(
+          'combine' => TRUE,
+          'default_quantity' => 1,
+          'line_item_type' => 'product',
+          'show_quantity' => FALSE,
+          'show_single_product_attributes' => FALSE,
+        ),
+        'type' => 'commerce_cart_add_to_cart_form',
+        'weight' => 2,
+      ),
+      'display' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_cart',
+        'settings' => array(
+          'combine' => TRUE,
+          'default_quantity' => 1,
+          'line_item_type' => 'product',
+          'show_quantity' => FALSE,
+          'show_single_product_attributes' => FALSE,
+        ),
+        'type' => 'commerce_cart_add_to_cart_form',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'commerce_line_item',
+    'field_name' => 'commerce_product',
+    'label' => 'Product',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'field_injection' => TRUE,
+      'referenceable_types' => array(),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'commerce_product_reference',
+      'settings' => array(
+        'autocomplete_match' => 'contains',
+        'autocomplete_path' => 'commerce_product/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'commerce_product_reference_autocomplete',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'commerce_line_item-muurkap_stuk-commerce_total'.
+  $field_instances['commerce_line_item-muurkap_stuk-commerce_total'] = array(
+    'bundle' => 'muurkap_stuk',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => FALSE,
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 1,
+      ),
+      'diff_standard' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => FALSE,
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 1,
+      ),
+      'display' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => FALSE,
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 1,
+      ),
+      'node_teaser' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => FALSE,
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 1,
+      ),
+      'token' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => FALSE,
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'commerce_line_item',
+    'field_name' => 'commerce_total',
+    'label' => 'Totaal',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'commerce_price',
+      'settings' => array(
+        'currency_code' => 'default',
+      ),
+      'type' => 'commerce_price_full',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'commerce_line_item-muurkap_stuk-commerce_unit_price'.
+  $field_instances['commerce_line_item-muurkap_stuk-commerce_unit_price'] = array(
+    'bundle' => 'muurkap_stuk',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => FALSE,
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+      'diff_standard' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => FALSE,
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+      'display' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => FALSE,
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+      'node_teaser' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => FALSE,
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+      'token' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => FALSE,
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'commerce_line_item',
+    'field_name' => 'commerce_unit_price',
+    'label' => 'Eenheidsprijs',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'commerce_price',
+      'settings' => array(
+        'currency_code' => 'default',
+      ),
+      'type' => 'commerce_price_full',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'commerce_line_item-muurkap_stuk-field_muurkap_stuk_kant'.
+  $field_instances['commerce_line_item-muurkap_stuk-field_muurkap_stuk_kant'] = array(
+    'bundle' => 'muurkap_stuk',
+    'commerce_cart_settings' => array(
+      'field_access' => 1,
+    ),
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 5,
+      ),
+    ),
+    'entity_type' => 'commerce_line_item',
+    'field_name' => 'field_muurkap_stuk_kant',
+    'label' => 'Muurkap Stuk Kant',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
   // 'commerce_line_item-plaatbewerking-commerce_display_path'.
   $field_instances['commerce_line_item-plaatbewerking-commerce_display_path'] = array(
     'bundle' => 'plaatbewerking',
@@ -1337,6 +1615,50 @@ function feneko_calculator_feature_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_select',
       'weight' => 15,
+    ),
+  );
+
+  // Exported field_instance: 'commerce_line_item-plaatbewerking-field_pb_type'.
+  $field_instances['commerce_line_item-plaatbewerking-field_pb_type'] = array(
+    'bundle' => 'plaatbewerking',
+    'commerce_cart_settings' => array(
+      'field_access' => 1,
+    ),
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 14,
+      ),
+    ),
+    'entity_type' => 'commerce_line_item',
+    'field_name' => 'field_pb_type',
+    'label' => 'PB Type',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 8,
     ),
   );
 
@@ -5821,209 +6143,6 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance:
-  // 'commerce_product-raamtablet_eindstuk-commerce_price'.
-  $field_instances['commerce_product-raamtablet_eindstuk-commerce_price'] = array(
-    'bundle' => 'raamtablet_eindstuk',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'commerce_line_item_display' => array(
-        'label' => 'hidden',
-        'module' => 'commerce_price',
-        'settings' => array(
-          'calculation' => 'calculated_sell_price',
-        ),
-        'type' => 'commerce_price_formatted_amount',
-        'weight' => 0,
-      ),
-      'commerce_line_item_token' => array(
-        'label' => 'hidden',
-        'module' => 'commerce_price',
-        'settings' => array(
-          'calculation' => 'calculated_sell_price',
-        ),
-        'type' => 'commerce_price_formatted_amount',
-        'weight' => 0,
-      ),
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'commerce_price',
-        'settings' => array(
-          'calculation' => 'calculated_sell_price',
-        ),
-        'type' => 'commerce_price_formatted_amount',
-        'weight' => 0,
-      ),
-      'full' => array(
-        'label' => 'hidden',
-        'module' => 'commerce_price',
-        'settings' => array(
-          'calculation' => 'calculated_sell_price',
-        ),
-        'type' => 'commerce_price_formatted_amount',
-        'weight' => 0,
-      ),
-      'line_item' => array(
-        'label' => 'hidden',
-        'module' => 'commerce_price',
-        'settings' => array(
-          'calculation' => 'calculated_sell_price',
-        ),
-        'type' => 'commerce_price_formatted_amount',
-        'weight' => 0,
-      ),
-      'node_full' => array(
-        'label' => 'hidden',
-        'module' => 'commerce_price',
-        'settings' => array(
-          'calculation' => 'calculated_sell_price',
-        ),
-        'type' => 'commerce_price_formatted_amount',
-        'weight' => 0,
-      ),
-      'node_icon' => array(
-        'label' => 'hidden',
-        'module' => 'commerce_price',
-        'settings' => array(
-          'calculation' => 'calculated_sell_price',
-        ),
-        'type' => 'commerce_price_formatted_amount',
-        'weight' => 0,
-      ),
-      'node_news_front_line' => array(
-        'label' => 'hidden',
-        'module' => 'commerce_price',
-        'settings' => array(
-          'calculation' => 'calculated_sell_price',
-        ),
-        'type' => 'commerce_price_formatted_amount',
-        'weight' => 0,
-      ),
-      'node_rss' => array(
-        'label' => 'hidden',
-        'module' => 'commerce_price',
-        'settings' => array(
-          'calculation' => 'calculated_sell_price',
-        ),
-        'type' => 'commerce_price_formatted_amount',
-        'weight' => 0,
-      ),
-      'node_teaser' => array(
-        'label' => 'hidden',
-        'module' => 'commerce_price',
-        'settings' => array(
-          'calculation' => 'calculated_sell_price',
-        ),
-        'type' => 'commerce_price_formatted_amount',
-        'weight' => 0,
-      ),
-      'node_teaser_left' => array(
-        'label' => 'hidden',
-        'module' => 'commerce_price',
-        'settings' => array(
-          'calculation' => 'calculated_sell_price',
-        ),
-        'type' => 'commerce_price_formatted_amount',
-        'weight' => 0,
-      ),
-      'node_teaser_right' => array(
-        'label' => 'hidden',
-        'module' => 'commerce_price',
-        'settings' => array(
-          'calculation' => 'calculated_sell_price',
-        ),
-        'type' => 'commerce_price_formatted_amount',
-        'weight' => 0,
-      ),
-      'node_token' => array(
-        'label' => 'hidden',
-        'module' => 'commerce_price',
-        'settings' => array(
-          'calculation' => 'calculated_sell_price',
-        ),
-        'type' => 'commerce_price_formatted_amount',
-        'weight' => 0,
-      ),
-      'token' => array(
-        'label' => 'hidden',
-        'module' => 'commerce_price',
-        'settings' => array(
-          'calculation' => 'calculated_sell_price',
-        ),
-        'type' => 'commerce_price_formatted_amount',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'commerce_product',
-    'field_name' => 'commerce_price',
-    'label' => 'Price',
-    'required' => TRUE,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'commerce_price',
-      'settings' => array(
-        'currency_code' => 'default',
-      ),
-      'type' => 'commerce_price_full',
-      'weight' => 0,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'commerce_product-raamtablet_eindstuk-field_raamtablet_afwerking'.
-  $field_instances['commerce_product-raamtablet_eindstuk-field_raamtablet_afwerking'] = array(
-    'bundle' => 'raamtablet_eindstuk',
-    'commerce_cart_settings' => array(
-      'attribute_field' => 1,
-      'attribute_widget' => 'select',
-      'attribute_widget_title' => 'Afwerking',
-    ),
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 1,
-      ),
-      'line_item' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'node_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'commerce_product',
-    'field_name' => 'field_raamtablet_afwerking',
-    'label' => 'Raamtablet Afwerking',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 37,
-    ),
-  );
-
   // Exported field_instance: 'commerce_product-sandwichpaneel-commerce_price'.
   $field_instances['commerce_product-sandwichpaneel-commerce_price'] = array(
     'bundle' => 'sandwichpaneel',
@@ -7478,30 +7597,137 @@ function feneko_calculator_feature_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_product',
     'label' => 'Product variations',
-    'required' => TRUE,
+    'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'field_injection' => 1,
       'referenceable_types' => array(
+        'dorpel_anti_dreunstrook' => 0,
+        'dorpel_eindstuk' => 0,
+        'dorpel_hoek' => 0,
+        'dorpel_koppelstuk' => 0,
         'muurkap' => 'muurkap',
+        'muurkap_eindstuk' => 0,
+        'plaatbewerking' => 0,
+        'product' => 0,
+        'raamtablet' => 0,
+        'sandwichpaneel' => 0,
+        'sandwichpaneel_isolatie' => 0,
+        'standaardprofiel' => 0,
+        'unit' => 0,
       ),
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(
-        'fields' => array(),
-        'type_settings' => array(
-          'allow_existing' => 0,
-          'autogenerate_title' => 1,
-          'delete_references' => 1,
-          'match_operator' => 'CONTAINS',
-          'use_variation_language' => 1,
-        ),
-      ),
+      'settings' => array(),
       'type' => 'options_select',
       'weight' => 41,
+    ),
+  );
+
+  // Exported field_instance: 'node-muurkap_stuk-body'.
+  $field_instances['node-muurkap_stuk-body'] = array(
+    'bundle' => 'muurkap_stuk',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'type' => 'text_summary_or_trimmed',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'body',
+    'label' => 'Body',
+    'required' => FALSE,
+    'settings' => array(
+      'display_summary' => TRUE,
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'type' => 'text_textarea_with_summary',
+      'weight' => 31,
+    ),
+  );
+
+  // Exported field_instance: 'node-muurkap_stuk-field_product_variations'.
+  $field_instances['node-muurkap_stuk-field_product_variations'] = array(
+    'bundle' => 'muurkap_stuk',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_cart',
+        'settings' => array(
+          'combine' => 1,
+          'default_quantity' => 1,
+          'line_item_type' => 'muurkap_stuk',
+          'show_quantity' => 1,
+          'show_single_product_attributes' => 1,
+        ),
+        'type' => 'commerce_cart_add_to_cart_form',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_product_variations',
+    'label' => 'Product variations',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'field_injection' => 1,
+      'referenceable_types' => array(
+        'dorpel_anti_dreunstrook' => 0,
+        'dorpel_eindstuk' => 0,
+        'dorpel_hoek' => 0,
+        'dorpel_koppelstuk' => 0,
+        'muurkap' => 0,
+        'muurkap_eindstuk' => 'muurkap_eindstuk',
+        'plaatbewerking' => 0,
+        'product' => 0,
+        'raamtablet' => 0,
+        'sandwichpaneel' => 0,
+        'sandwichpaneel_isolatie' => 0,
+        'standaardprofiel' => 0,
+        'unit' => 0,
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 32,
     ),
   );
 
@@ -7586,11 +7812,11 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
-          'combine' => 0,
+          'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 'raamtablet',
           'show_quantity' => 1,
-          'show_single_product_attributes' => 0,
+          'show_single_product_attributes' => 1,
         ),
         'type' => 'commerce_cart_add_to_cart_form',
         'weight' => 0,
@@ -7769,63 +7995,6 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-stuk-field_product'.
-  $field_instances['node-stuk-field_product'] = array(
-    'bundle' => 'stuk',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'commerce_cart',
-        'settings' => array(
-          'combine' => 1,
-          'default_quantity' => 1,
-          'line_item_type' => 'product',
-          'show_quantity' => 1,
-          'show_single_product_attributes' => 1,
-        ),
-        'type' => 'commerce_cart_add_to_cart_form',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_product',
-    'label' => 'Product variations',
-    'required' => 1,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'field_injection' => 1,
-      'referenceable_types' => array(
-        'muurkap' => 0,
-        'muurkap_eindstuk' => 'muurkap_eindstuk',
-        'plaatbewerking' => 0,
-        'product' => 0,
-        'raamtablet' => 0,
-        'raamtablet_eindstuk' => 'raamtablet_eindstuk',
-        'sandwichpaneel' => 0,
-        'sandwichpaneel_isolatie' => 0,
-        'standaardprofiel' => 0,
-        'unit' => 0,
-      ),
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 42,
-    ),
-  );
-
   // Exported field_instance: 'node-unit-field_product'.
   $field_instances['node-unit-field_product'] = array(
     'bundle' => 'unit',
@@ -7903,6 +8072,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Aantal koppelstukken');
   t('Anti-Dreunstrook');
   t('Base Price');
+  t('Body');
   t('Breedte');
   t('Breedte delen');
   t('Diepte');
@@ -7928,10 +8098,12 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Muurkap Afwerking');
   t('Muurkap Diepte');
   t('Muurkap Lengte');
+  t('Muurkap Stuk Kant');
   t('Muurkap Type');
   t('Ophanging');
   t('Opmerking');
   t('Order total');
+  t('PB Type');
   t('Plaatbewerking Afwerking');
   t('Plaatbewerking Dikte');
   t('Plooien');

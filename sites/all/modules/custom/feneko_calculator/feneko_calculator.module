@@ -758,13 +758,60 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
 
       break;
 
-    case 'muurkap_eindstuk':
     case 'raamtablet_eindstuk':
       // Make sure the afwerking is set correctly
       $options = array('color' => $color, 'change_color_link' => $change_color_link);
       if(_fc_check_afwerking($form, $form_state, $options) === false) return;
 
       break;
+
+    case 'muurkap_eindstuk':
+      // Make sure the afwerking is set correctly
+      $options = array('color' => $color, 'change_color_link' => $change_color_link);
+      if(_fc_check_afwerking($form, $form_state, $options) === false) return;
+
+      $kant = &$form['line_item_fields']['field_muurkap_stuk_kant']['und'];
+      $stukType = &$form_state['input']['attributes']['field_mke_type'];
+      $muurkapType = &$form_state['input']['attributes']['field_muurkap_type'];
+
+      switch ($stukType) {
+        case 'Hoek':
+          if($muurkapType == 3) {
+            _fc_strip_options($kant, array('binnen', 'buiten'));
+          } else {
+            unset($form['line_item_fields']['field_muurkap_stuk_kant']);
+          }
+          break;
+
+        case 'Eindstuk':
+          if($muurkapType == 3) {
+            _fc_strip_options($kant, array('left1', 'right1', 'left2', 'right2'));
+          } else {
+            _fc_strip_options($kant, array('type1', 'type2'));
+          }
+          break;
+
+        case 'Beugel':
+        case 'Koppelstuk':
+          unset($form['line_item_fields']['field_muurkap_stuk_kant']);
+          break;
+      }
+
+      break;
+
+  }
+}
+
+function _fc_strip_options(&$field, $keys) {
+  $options = array();
+  if(count($keys) > 0) {
+    foreach ($keys as $key) {
+      $options[$key] = $field['#options'][$key];
+    }
+    $field['#options'] = $options;
+    if(!in_array($kant['#default_value'], $keys)) {
+      $field['#default_value'] = $keys[0];
+    }
   }
 }
 
@@ -971,12 +1018,13 @@ function fc_apply_last_config(&$form_state, $product) {
 }
 
 function fc_submit_add_to_cart_form($form, &$form_state) {
-    // Add products to cart based on additional fields muurkappen and dorpels
-    _fc_add_toebehoren($form, $form_state);
-
-  // Store the last config to the session
   $product = commerce_product_load($form['product_id']['#value']);
   $product_type = fc_get_last_config_type($product);
+
+  // Add products to cart based on additional fields muurkappen and dorpels
+  _fc_add_toebehoren($product_type, $form_state['values']);
+
+  // Store the last config to the session
   $_SESSION['fc_last_config'][$product_type] = $form_state['input'];
 
   // Store in the session that an element has been added
@@ -991,97 +1039,175 @@ function fc_get_last_config_type($product) {
 }
 
 
-function _fc_add_toebehoren($form, $form_state) {
-  $product = commerce_product_load($form['product_id']['#value']);
-  if($product->type !== 'dorpel' && $product->type !== 'raamtablet') {
-    return; // We do nothing for other types
-  }
+function _fc_add_toebehoren($product_type, $values) {
+  if($product_type === 'muurkap' || $product_type === 'raamtablet') {
+    global $user;
+    $cart = commerce_cart_order_load($user->uid);
+    $line_item_fields = &$values['line_item_fields'];
 
-  global $user;
-  $cart = commerce_cart_order_load($user->uid);
-  $afwerking = $form_state['values']['attributes']['field_raamtablet_afwerking'];
-  $line_item_fields = &$form_state['values']['line_item_fields'];
+    switch ($product_type) {
+      case 'raamtablet':
+        $afwerking = $values['attributes']['field_raamtablet_afwerking'];
+        $diepte = $values['attributes']['field_raamtablet_diepte'];
 
-  switch ($product->type) {
-    case 'dorpel':
-    case 'raamtablet':
-      $diepte = $form_state['values']['attributes']['field_raamtablet_diepte'];
-
-      $dorpel_stuk_fields = array(
-        'field_rug' => $line_item_fields['field_rug']['und'][0]['value'],
-        'field_raamtablet_diepte' => $diepte,
-      );
-
-      // Eindstukken
-      if(isset($line_item_fields['field_eindstukken'])) {
-        $mapping = array(
-          0 => array('type' => 1, 'kant' => 'left'),
-          1 => array('type' => 1, 'kant' => 'right'),
-          2 => array('type' => 2, 'kant' => 'left'),
-          3 => array('type' => 2, 'kant' => 'right'),
+        $dorpel_stuk_fields = array(
+          'field_rug' => $line_item_fields['field_rug']['und'][0]['value'],
+          'field_raamtablet_diepte' => $diepte,
         );
 
-        // Do something slightly different for every eindstuk (Type: 1,2; Kant: left,right)
-        foreach ($line_item_fields['field_eindstukken']['und'] as $idx => $item) {
-          if($item['value'] > 0) {
-            $sku = "DE-" . $mapping[$idx]['type'] . "-" . $afwerking;
-            $fields = array(
-              'field_kant' => $mapping[$idx]['kant'],
-              'field_raamtablet_diepte' => $diepte,
-            );
-            $line_item_type = 'raamtablet_eindstuk';
-            _fc_add_by_sku($cart, $sku, $item['value'], $line_item_type, $fields);
+        // Eindstukken
+        if(isset($line_item_fields['field_eindstukken'])) {
+          $mapping = array(
+            0 => array('type' => 1, 'kant' => 'left'),
+            1 => array('type' => 1, 'kant' => 'right'),
+            2 => array('type' => 2, 'kant' => 'left'),
+            3 => array('type' => 2, 'kant' => 'right'),
+          );
+
+          // Do something slightly different for every eindstuk (Type: 1,2; Kant: left,right)
+          foreach ($line_item_fields['field_eindstukken']['und'] as $idx => $item) {
+            if($item['value'] > 0) {
+              $sku = "DE-" . $mapping[$idx]['type'] . "-" . $afwerking;
+              $fields = array(
+                'field_kant' => $mapping[$idx]['kant'],
+                'field_raamtablet_diepte' => $diepte,
+              );
+              $line_item_type = 'raamtablet_eindstuk';
+              _fc_add_by_sku($cart, $sku, $item['value'], $line_item_type, $fields);
+            }
           }
         }
-      }
 
-      // Hoeken
-      if(isset($line_item_fields['field_hoeken'])) {
-        $mapping = array(
-          0 => array('type' => 'binnen'),
-          1 => array('type' => 'buiten'),
+        // Hoeken
+        if(isset($line_item_fields['field_hoeken'])) {
+          $mapping = array(
+            0 => array('type' => 'binnen'),
+            1 => array('type' => 'buiten'),
+          );
+
+          // Do something slightly different for every hoek (field_hoek_type: binnen/buiten)
+          foreach ($line_item_fields['field_hoeken']['und'] as $idx => $item) {
+            if($item['value'] > 0) {
+              $sku = "DH-" . $mapping[$idx]['type'] . "-" . $afwerking;
+              _fc_add_by_sku($cart, $sku, $item['value'], 'dorpel_stuk', $dorpel_stuk_fields);
+            }
+          }
+        }
+
+        // Koppelstukken
+        if(isset($line_item_fields['field_koppelstukken'])) {
+          $num = $line_item_fields['field_koppelstukken']['und'][0]['value'];
+          if($num > 0) {
+            $sku = "DK-" . $afwerking;
+            _fc_add_by_sku($cart, $sku, $num, 'dorpel_stuk', $dorpel_stuk_fields);
+          }
+        }
+
+        // Anti-dreunstroken
+        if(isset($line_item_fields['field_aantal_adsn']) && isset($line_item_fields['field_anti_dreunstrook'])) {
+          $ads = $line_item_fields['field_anti_dreunstrook']['und'][0]['value'];
+          $num = $line_item_fields['field_aantal_adsn']['und'][0]['value'];
+          if($ads !== '_none' && $num > 0) {
+            $sku = "DA-$ads";
+            _fc_add_by_sku($cart, $sku, $num, 'product');
+          }
+        }
+
+        break;
+
+      case 'muurkap':
+        $afwerking = $values['attributes']['field_standaardprofiel_afwerking'];
+        $muurkap_type = $values['attributes']['field_muurkap_type'];
+        $diepte = $values['attributes']['field_muurkap_diepte'];
+
+        // Eindstukken
+        if(isset($line_item_fields['field_eindstukken'])) {
+          // Do something slightly different for every eindstuk (Type: 1,2; Kant: left,right)
+          foreach ($line_item_fields['field_eindstukken']['und'] as $idx => $item) {
+            if($item['value'] > 0) {
+              $sku = "MKE-$muurkap_type-$diepte-$afwerking-Eindstuk";
+              switch ($idx) {
+                case 0:
+                  if($muurkap_type == 3) {
+                    $kant = 'left1';
+                  } else {
+                    $kant = 'type1';
+                  }
+                  break;
+                case 1:
+                  $kant = 'right1';
+                  break;
+                case 2:
+                  if($muurkap_type == 3) {
+                    $kant = 'left2';
+                  } else {
+                    $kant = 'type2';
+                  }
+                  break;
+                case 3:
+                  $kant = 'right2';
+                  break;
+              }
+
+              $fields = array('field_muurkap_stuk_kant' => $kant);
+              $line_item_type = 'muurkap_stuk';
+              _fc_add_by_sku($cart, $sku, $item['value'], $line_item_type, $fields);
+            }
+          }
+        }
+
+        $field = 'field_hoeken';
+        if(isset($line_item_fields[$field])) {
+          // Do something slightly different for every eindstuk (Type: 1,2; Kant: left,right)
+          foreach ($line_item_fields[$field]['und'] as $idx => $item) {
+            if($item['value'] > 0) {
+              $sku = "MKE-$muurkap_type-$diepte-$afwerking-Hoek";
+              $kant = '';
+              switch ($idx) {
+                case 0:
+                  if($muurkap_type == 3) {
+                    $kant = 'binnen';
+                  }
+                  break;
+                case 1:
+                  if($muurkap_type == 3) {
+                    $kant = 'buiten';
+                  }
+                  break;
+              }
+
+              $fields = array('field_muurkap_stuk_kant' => $kant);
+              $line_item_type = 'muurkap_stuk';
+              _fc_add_by_sku($cart, $sku, $item['value'], $line_item_type, $fields);
+            }
+          }
+        }
+
+        $fields = array(
+          'field_koppelstukken' => 'Koppelstuk',
+          'field_beugels' => 'Beugel',
         );
 
-        // Do something slightly different for every hoek (field_hoek_type: binnen/buiten)
-        foreach ($line_item_fields['field_hoeken']['und'] as $idx => $item) {
-          if($item['value'] > 0) {
-            $sku = "DH-" . $mapping[$idx]['type'] . "-" . $afwerking;
-            _fc_add_by_sku($cart, $sku, $item['value'], 'dorpel_stuk', $dorpel_stuk_fields);
+        foreach ($fields as $field => $name) {
+          if(isset($line_item_fields[$field])) {
+            // Do something slightly different for every eindstuk (Type: 1,2; Kant: left,right)
+            $value = $line_item_fields[$field]['und'][0]['value'];
+            if($value > 0) {
+              $sku = "MKE-$muurkap_type-$diepte-$afwerking-$name";
+
+              $li_fields = array('field_muurkap_stuk_kant' => '');
+              $line_item_type = 'muurkap_stuk';
+              _fc_add_by_sku($cart, $sku, $value, $line_item_type, $li_fields);
+            }
           }
         }
-      }
 
-      // Koppelstukken
-      if(isset($line_item_fields['field_koppelstukken'])) {
-        $num = $line_item_fields['field_koppelstukken']['und'][0]['value'];
-        if($num > 0) {
-          $sku = "DK-" . "-" . $afwerking;
-          _fc_add_by_sku($cart, $sku, $item['value'], 'dorpel_stuk', $dorpel_stuk_fields);
-        }
-      }
-
-      // Anti-dreunstroken
-      if(isset($line_item_fields['field_aantal_adsn']) && isset($line_item_fields['field_anti_dreunstrook'])) {
-        $ads = $line_item_fields['field_anti_dreunstrook']['und'][0]['value'];
-        $num = $line_item_fields['field_aantal_adsn']['und'][0]['value'];
-        if($ads !== '_none' && $num > 0) {
-          $sku = "DA-$ads";
-          _fc_add_by_sku($cart, $sku, $num, 'product');
-        }
-      }
-
-      break;
-
-    case 'muurkap':
-      # code...
-      break;
-
-    default:
-      return;
+        break;
+    }
   }
 }
 
-function _fc_add_by_sku($cart, $sku, $quantity, $line_item_type, $line_item_fields) {
+function _fc_add_by_sku($cart, $sku, $quantity, $line_item_type, $line_item_fields = array()) {
   $product = commerce_product_load_by_sku($sku);
 
   if($product) {

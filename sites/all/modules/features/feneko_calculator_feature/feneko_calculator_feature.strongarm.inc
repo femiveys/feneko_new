@@ -794,6 +794,97 @@ function feneko_calculator_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_node__muurkap_stuk';
+  $strongarm->value = array(
+    'view_modes' => array(
+      'teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
+    ),
+    'extra_fields' => array(
+      'form' => array(
+        'title' => array(
+          'weight' => '-5',
+        ),
+        'path' => array(
+          'weight' => '30',
+        ),
+      ),
+      'display' => array(
+        'product:sku' => array(
+          'default' => array(
+            'weight' => '7',
+            'visible' => FALSE,
+          ),
+        ),
+        'product:title' => array(
+          'default' => array(
+            'weight' => '8',
+            'visible' => FALSE,
+          ),
+        ),
+        'product:status' => array(
+          'default' => array(
+            'weight' => '9',
+            'visible' => FALSE,
+          ),
+        ),
+        'product:commerce_price' => array(
+          'default' => array(
+            'weight' => '2',
+            'visible' => FALSE,
+          ),
+        ),
+        'product:field_mke_type' => array(
+          'default' => array(
+            'weight' => '3',
+            'visible' => FALSE,
+          ),
+        ),
+        'product:field_muurkap_diepte' => array(
+          'default' => array(
+            'weight' => '5',
+            'visible' => FALSE,
+          ),
+        ),
+        'product:field_muurkap_type' => array(
+          'default' => array(
+            'weight' => '4',
+            'visible' => FALSE,
+          ),
+        ),
+        'product:field_standaardprofiel_afwerking' => array(
+          'default' => array(
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
+        ),
+      ),
+    ),
+  );
+  $export['field_bundle_settings_node__muurkap_stuk'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__plaatbewerking';
   $strongarm->value = array(
     'view_modes' => array(
@@ -912,6 +1003,12 @@ function feneko_calculator_feature_strongarm() {
         'custom_settings' => FALSE,
       ),
       'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
         'custom_settings' => FALSE,
       ),
     ),
@@ -1176,124 +1273,6 @@ function feneko_calculator_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'field_bundle_settings_node__stuk';
-  $strongarm->value = array(
-    'view_modes' => array(
-      'teaser' => array(
-        'custom_settings' => TRUE,
-      ),
-      'full' => array(
-        'custom_settings' => FALSE,
-      ),
-      'rss' => array(
-        'custom_settings' => FALSE,
-      ),
-      'token' => array(
-        'custom_settings' => FALSE,
-      ),
-      'icon' => array(
-        'custom_settings' => FALSE,
-      ),
-      'news_front_line' => array(
-        'custom_settings' => FALSE,
-      ),
-      'teaser_left' => array(
-        'custom_settings' => FALSE,
-      ),
-      'teaser_right' => array(
-        'custom_settings' => FALSE,
-      ),
-      'diff_standard' => array(
-        'custom_settings' => FALSE,
-      ),
-    ),
-    'extra_fields' => array(
-      'form' => array(
-        'metatags' => array(
-          'weight' => '40',
-        ),
-        'title' => array(
-          'weight' => '-5',
-        ),
-        'path' => array(
-          'weight' => '30',
-        ),
-      ),
-      'display' => array(
-        'product:sku' => array(
-          'default' => array(
-            'weight' => '1',
-            'visible' => FALSE,
-          ),
-        ),
-        'product:title' => array(
-          'default' => array(
-            'weight' => '3',
-            'visible' => FALSE,
-          ),
-        ),
-        'product:status' => array(
-          'default' => array(
-            'weight' => '5',
-            'visible' => FALSE,
-          ),
-        ),
-        'product:commerce_price' => array(
-          'default' => array(
-            'weight' => '4',
-            'visible' => FALSE,
-          ),
-        ),
-        'product:field_muurkap_type' => array(
-          'default' => array(
-            'weight' => '7',
-            'visible' => FALSE,
-          ),
-        ),
-        'product:field_muurkap_diepte' => array(
-          'default' => array(
-            'weight' => '8',
-            'visible' => FALSE,
-          ),
-        ),
-        'product:field_standaardprofiel_afwerking' => array(
-          'default' => array(
-            'weight' => '9',
-            'visible' => FALSE,
-          ),
-        ),
-        'product:field_mke_type' => array(
-          'default' => array(
-            'weight' => '10',
-            'visible' => FALSE,
-          ),
-        ),
-        'product:field_raamtablet_afwerking' => array(
-          'default' => array(
-            'weight' => '6',
-            'visible' => FALSE,
-          ),
-        ),
-        'product:field_raamtablet_eindstuk_type' => array(
-          'default' => array(
-            'weight' => '39',
-            'visible' => FALSE,
-          ),
-        ),
-        'language' => array(
-          'default' => array(
-            'weight' => '2',
-            'visible' => FALSE,
-          ),
-        ),
-      ),
-    ),
-  );
-  $export['field_bundle_settings_node__stuk'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__unit';
   $strongarm->value = array(
     'view_modes' => array(
@@ -1408,6 +1387,13 @@ function feneko_calculator_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'language_content_type_muurkap_stuk';
+  $strongarm->value = '0';
+  $export['language_content_type_muurkap_stuk'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_plaatbewerking';
   $strongarm->value = '2';
   $export['language_content_type_plaatbewerking'] = $strongarm;
@@ -1485,6 +1471,13 @@ function feneko_calculator_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'menu_options_muurkap_stuk';
+  $strongarm->value = array();
+  $export['menu_options_muurkap_stuk'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_plaatbewerking';
   $strongarm->value = array();
   $export['menu_options_plaatbewerking'] = $strongarm;
@@ -1558,6 +1551,13 @@ function feneko_calculator_feature_strongarm() {
   $strongarm->name = 'menu_parent_muurkap';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_muurkap'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_parent_muurkap_stuk';
+  $strongarm->value = 'main-menu:0';
+  $export['menu_parent_muurkap_stuk'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1645,6 +1645,15 @@ function feneko_calculator_feature_strongarm() {
     0 => 'status',
   );
   $export['node_options_muurkap'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_options_muurkap_stuk';
+  $strongarm->value = array(
+    0 => 'status',
+  );
+  $export['node_options_muurkap_stuk'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1738,6 +1747,13 @@ function feneko_calculator_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'node_preview_muurkap_stuk';
+  $strongarm->value = '1';
+  $export['node_preview_muurkap_stuk'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_plaatbewerking';
   $strongarm->value = '1';
   $export['node_preview_plaatbewerking'] = $strongarm;
@@ -1762,13 +1778,6 @@ function feneko_calculator_feature_strongarm() {
   $strongarm->name = 'node_preview_standaardprofiel';
   $strongarm->value = '0';
   $export['node_preview_standaardprofiel'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'node_preview_stuk';
-  $strongarm->value = '0';
-  $export['node_preview_stuk'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1811,6 +1820,13 @@ function feneko_calculator_feature_strongarm() {
   $strongarm->name = 'node_submitted_muurkap';
   $strongarm->value = 0;
   $export['node_submitted_muurkap'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_submitted_muurkap_stuk';
+  $strongarm->value = 0;
+  $export['node_submitted_muurkap_stuk'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

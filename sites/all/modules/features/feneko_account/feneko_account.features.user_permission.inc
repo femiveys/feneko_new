@@ -594,13 +594,6 @@ function feneko_account_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'create stuk content'.
-  $permissions['create stuk content'] = array(
-    'name' => 'create stuk content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'create unit content'.
   $permissions['create unit content'] = array(
     'name' => 'create unit content',
@@ -794,13 +787,6 @@ function feneko_account_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any stuk content'.
-  $permissions['delete any stuk content'] = array(
-    'name' => 'delete any stuk content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any unit content'.
   $permissions['delete any unit content'] = array(
     'name' => 'delete any unit content',
@@ -980,13 +966,6 @@ function feneko_account_user_default_permissions() {
   // Exported permission: 'delete own standaardprofiel content'.
   $permissions['delete own standaardprofiel content'] = array(
     'name' => 'delete own standaardprofiel content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own stuk content'.
-  $permissions['delete own stuk content'] = array(
-    'name' => 'delete own stuk content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -1308,13 +1287,6 @@ function feneko_account_user_default_permissions() {
   // Exported permission: 'edit any standaardprofiel content'.
   $permissions['edit any standaardprofiel content'] = array(
     'name' => 'edit any standaardprofiel content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit any stuk content'.
-  $permissions['edit any stuk content'] = array(
-    'name' => 'edit any stuk content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -1725,13 +1697,6 @@ function feneko_account_user_default_permissions() {
   // Exported permission: 'edit own standaardprofiel content'.
   $permissions['edit own standaardprofiel content'] = array(
     'name' => 'edit own standaardprofiel content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own stuk content'.
-  $permissions['edit own stuk content'] = array(
-    'name' => 'edit own stuk content',
     'roles' => array(),
     'module' => 'node',
   );

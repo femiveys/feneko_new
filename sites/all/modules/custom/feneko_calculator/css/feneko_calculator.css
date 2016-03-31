@@ -88,6 +88,12 @@ form.commerce-add-to-cart .form-item-quantity {
   padding-top: 10px;
 }
 
+.node-type-muurkap form.commerce-add-to-cart .form-item-quantity,
+.node-type-raamtablet form.commerce-add-to-cart .form-item-quantity {
+  border-top: none;
+  padding-top: 0px;
+}
+
 form.commerce-add-to-cart .form-submit {
   margin: 2em 0;
 }

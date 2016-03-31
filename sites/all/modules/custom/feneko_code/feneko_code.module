@@ -121,16 +121,16 @@ function feneko_code_flipper(){
 function feneko_code_get_clients_options($idKeys = false) {
   global $user;
 
-  $idKeysString = $idKeys ? '1' : '0';
-  $cid = 'fc_clients' . ':' . $user->uid . ':' . $idKeysString;
+  // $idKeysString = $idKeys ? '1' : '0';
+  // $cid = 'fc_clients' . ':' . $user->uid . ':' . $idKeysString;
 
-  $options = &drupal_static($cid);
+  // $options = &drupal_static($cid);
 
-  if (!isset($options)) {
-    if ($cache = cache_get($cid)) {
-      $options = $cache->data;
-    }
-    else {
+  // if (!isset($options)) {
+  //   if ($cache = cache_get($cid)) {
+  //     $options = $cache->data;
+  //   }
+    // else {
       // Do your expensive calculations here, and populate $options
       // with the correct stuff..
       $options = array();
@@ -163,9 +163,10 @@ function feneko_code_get_clients_options($idKeys = false) {
       }
 
       // Finally populate the cache
-      cache_set($cid, $options, 'cache');
-    }
-  }
+      // cache_set($cid, $options, 'cache');
+  //   }
+  // }
+  asort($options);
   return $options;
 }
 
