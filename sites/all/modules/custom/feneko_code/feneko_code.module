@@ -166,7 +166,7 @@ function feneko_code_get_clients_options($idKeys = false) {
       // cache_set($cid, $options, 'cache');
   //   }
   // }
-  asort($options);
+  natcasesort($options);
   return $options;
 }
 
