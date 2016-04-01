@@ -682,40 +682,6 @@ function feneko_account_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-field_btw_nummer'.
-  $field_instances['user-user-field_btw_nummer'] = array(
-    'bundle' => 'user',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 10,
-      ),
-    ),
-    'entity_type' => 'user',
-    'field_name' => 'field_btw_nummer',
-    'label' => 'BTW nummer',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 0,
-      'user_register_form' => 0,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 18,
-    ),
-  );
-
   // Exported field_instance: 'user-user-field_clients'.
   $field_instances['user-user-field_clients'] = array(
     'bundle' => 'user',
@@ -755,110 +721,6 @@ function feneko_account_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-field_geblokkeerd'.
-  $field_instances['user-user-field_geblokkeerd'] = array(
-    'bundle' => 'user',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => 'Indien hier "Ja" gekozen wordt en deze klant plaatst een bestelling, zal er een waarschuwingstekst komen in de mail naar Feneko en kan de export niet automatisch gebeuren.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 4,
-      ),
-    ),
-    'entity_type' => 'user',
-    'field_name' => 'field_geblokkeerd',
-    'label' => 'Geblokkeerd/EB',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => 0,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 14,
-    ),
-  );
-
-  // Exported field_instance: 'user-user-field_klantennummer'.
-  $field_instances['user-user-field_klantennummer'] = array(
-    'bundle' => 'user',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Vul hier de klantennummers in voor wie deze persoon bestellingen mag doen en bekijken.<br>
-Het eerste nummer wordt als standaard beschouwd.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 7,
-      ),
-    ),
-    'entity_type' => 'user',
-    'field_name' => 'field_klantennummer',
-    'label' => 'Klantennummers',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 0,
-      'user_register_form' => 0,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 17,
-    ),
-  );
-
-  // Exported field_instance: 'user-user-field_naam_bedrijf'.
-  $field_instances['user-user-field_naam_bedrijf'] = array(
-    'bundle' => 'user',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 8,
-      ),
-    ),
-    'entity_type' => 'user',
-    'field_name' => 'field_naam_bedrijf',
-    'label' => 'Naam Bedrijf',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 0,
-      'user_register_form' => 0,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 16,
-    ),
-  );
-
   // Exported field_instance: 'user-user-field_phone'.
   $field_instances['user-user-field_phone'] = array(
     'bundle' => 'user',
@@ -894,71 +756,6 @@ Het eerste nummer wordt als standaard beschouwd.',
     ),
   );
 
-  // Exported field_instance: 'user-user-field_staffelkorting'.
-  $field_instances['user-user-field_staffelkorting'] = array(
-    'bundle' => 'user',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'inline',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 6,
-      ),
-    ),
-    'entity_type' => 'user',
-    'field_name' => 'field_staffelkorting',
-    'label' => 'Staffelkorting',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => 0,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 15,
-    ),
-  );
-
-  // Exported field_instance: 'user-user-field_telefoon'.
-  $field_instances['user-user-field_telefoon'] = array(
-    'bundle' => 'user',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 9,
-      ),
-    ),
-    'entity_type' => 'user',
-    'field_name' => 'field_telefoon',
-    'label' => 'Telefoonnummer',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'text_processing' => 0,
-      'user_register_form' => 0,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 19,
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
   t('Adres');
@@ -967,22 +764,16 @@ Het eerste nummer wordt als standaard beschouwd.',
   t('Block Order input');
   t('Condition de payement');
   t('Fax');
-  t('Geblokkeerd/EB');
-  t('Indien hier "Ja" gekozen wordt en deze klant plaatst een bestelling, zal er een waarschuwingstekst komen in de mail naar Feneko en kan de export niet automatisch gebeuren.');
   t('Klanten');
   t('Klantengroep');
   t('Klantennummer');
-  t('Klantennummers');
   t('Leveringsadres');
   t('Leveringsconditie');
   t('Leveringsdag');
-  t('Naam Bedrijf');
   t('Prijscode');
   t('Staffelkorting');
   t('Telefoonnummer');
   t('Vertegenwoordiger');
-  t('Vul hier de klantennummers in voor wie deze persoon bestellingen mag doen en bekijken.<br>
-Het eerste nummer wordt als standaard beschouwd.');
 
   return $field_instances;
 }

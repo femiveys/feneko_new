@@ -664,15 +664,6 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Verkoopsvoorwaarden', array(), array('context' => 'field_verkoopsvoorwaarden:info_pagina:label'));
-  $translations['fr:field']['667d5390b792b72a634adf0215ae9045'] = array(
-    'source' => 'Klantennummers',
-    'context' => 'field_klantennummer:user:label',
-    'location' => 'field:field_klantennummer:user:label',
-    'translation' => 'Numéros de client',
-    'plid' => 0,
-    'plural' => 0,
-  );
-  $translatables[] = t('Klantennummers', array(), array('context' => 'field_klantennummer:user:label'));
   $translations['fr:field']['6d1dbe4b85ebf9588816fdd06fa2eb84'] = array(
     'source' => 'Wij zoeken',
     'context' => 'field_wanted:vacature:label',
