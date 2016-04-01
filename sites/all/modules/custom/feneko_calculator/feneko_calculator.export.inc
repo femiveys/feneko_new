@@ -254,6 +254,7 @@ function feneko_calculator_order_to_txt(stdClass $order) {
           $arr[] = _feneko_calculator_add_txt_field($line->commerce_product, 'field_muurkap_type');
           $arr[] = _feneko_calculator_add_txt_field($line->commerce_product, 'field_muurkap_diepte');
           $arr[] = _feneko_calculator_add_txt_field($line->commerce_product, 'field_mke_type');
+          $arr[] = _feneko_calculator_add_txt_field($line, 'field_muurkap_stuk_kant');
           break;
       }
 
