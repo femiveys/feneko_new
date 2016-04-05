@@ -122,3 +122,12 @@ form.commerce-add-to-cart .field-multiple-table tbody td {
 form.commerce-add-to-cart .field-multiple-table tbody label {
   width: 225px;
 }
+
+/* Hack in images */
+.node-raamtablet #field-eindstukken-values tbody td.thumb {
+  width: 50px;
+}
+
+.node-raamtablet #field-eindstukken-values label {
+  width: 175px;
+}

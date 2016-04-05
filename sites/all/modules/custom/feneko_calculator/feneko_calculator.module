@@ -683,6 +683,8 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
 
       if(_fc_check_afwerking($form, $form_state, $options) === false) return;
 
+      $type = $form_state['input']['attributes']['field_raamtablet_eindstuk_type'];
+      $form['image'] = _fc_get_dorpel_eindstuk_image($type, 300);
       break;
 
     case 'dorpel_anti_dreunstrook':
@@ -754,14 +756,11 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
             'select[name="line_item_fields[field_anti_dreunstrook][und]"]' => array('value' => '_none'),
           ),
         );
+
+        // Add the type images
+        $form['dorpel_eindstuk_image_1'] = _fc_get_dorpel_eindstuk_image(1, 'thumbnail');
+        $form['dorpel_eindstuk_image_2'] = _fc_get_dorpel_eindstuk_image(2, 'thumbnail');
       }
-
-      break;
-
-    case 'raamtablet_eindstuk':
-      // Make sure the afwerking is set correctly
-      $options = array('color' => $color, 'change_color_link' => $change_color_link);
-      if(_fc_check_afwerking($form, $form_state, $options) === false) return;
 
       break;
 
@@ -816,7 +815,6 @@ function _fc_strip_options(&$field, $keys) {
 }
 
 function _fc_get_image($path, $title, $weight) {
-  // return array(); // TODO: REMOVE
   return array(
     '#weight' => $weight,
     '#theme' => 'image_style',
@@ -855,6 +853,16 @@ function _fc_get_plaatbewerking_image($name, $weight = 0) {
   return _fc_get_image($path, $title, $weight);;
 }
 
+function _fc_get_dorpel_eindstuk_image($type, $weight = 0) {
+  $path = "public://calculator/dorpel_eindstuk$type.jpg";
+  $title = t('Dorpel eindstuk') . " " . $type;
+  $image = _fc_get_image($path, $title, $weight);
+  if($weight === 'thumbnail') {
+    $image['#style_name'] = 'thumbnail';
+    unset($image['#attributes']['class']);
+  }
+  return $image;
+}
 
 
 /**
