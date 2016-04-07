@@ -147,7 +147,7 @@ function _fc_clean_order_statuses() {
         ;
   $num = db_delete(FENEKO_CODE_ORDER_STATUSES_TABLE)->condition($or)->execute();
 
-  echo "$num records deleted";
+  echo "$num records deleted\n";
 }
 
 /*
