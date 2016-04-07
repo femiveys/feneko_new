@@ -132,6 +132,24 @@ function feneko_code_update_7007() {
   }
 }
 
+/**
+ * Remove obsolete records in order_statuses
+ */
+function feneko_code_update_7008() {
+  _fc_clean_order_statuses();
+}
+
+function _fc_clean_order_statuses() {
+  $or = db_or()
+          ->condition('fase', 'GEFACTUREERD')
+          ->condition('fase', 'GEBLOKKEERD')
+          ->condition('fase', 'GEANNULEERD')
+        ;
+  $num = db_delete(FENEKO_CODE_ORDER_STATUSES_TABLE)->condition($or)->execute();
+
+  echo "$num records deleted";
+}
+
 /*
 Export users from prod (data_export_import)
 Export users_roles table from prod (remove index part)
