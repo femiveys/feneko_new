@@ -191,15 +191,16 @@ function _feneko_code_csv_import($filename, $values) {
         $field = field_info_field('field_client_group');
         $client_group_keys = array_keys(list_allowed_values($field));
 
-        $data[3] = explode(',', str_replace(' ', '', $data[3]));
+        $typesKlantArray = explode(',', str_replace(' ', '', $data[3]));
 
-        if(count(array_diff($data[3], $client_group_keys)) === 0) {
-          $client_groups = $data[3];
+        if(count(array_diff($typesKlantArray, $client_group_keys)) === 0) {
+          $client_groups = implode(',', $typesKlantArray);
         } else {
+          if(!empty($data[3])) {
+            $msg = t("Client mapping not found for :mapping. Cleared field.", array(':mapping' => $data[3]));
+            drupal_set_message($msg, 'warning');
+          }
           $client_groups = '';
-          $msg = t("Client mapping not found for :mapping. Set to 0.", array(':mapping' => $data[3]));
-          drupal_set_message($msg, 'warning');
-          continue 2;
         }
 
         $fields = array(
