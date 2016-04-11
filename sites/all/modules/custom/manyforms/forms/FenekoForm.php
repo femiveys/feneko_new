@@ -755,12 +755,6 @@ class FenekoForm {
     }
   }
 
-  /**
-   * Handle the visibility state of the form elements:
-   * - Set an error message for visibile fields that are not filled in
-   * - Set non visible values to NULL
-   * @param $values Array all fields of the submission
-   */
   private function handleRal($client, $ralCode) {
     $id = intval($this->getId());
     $value = 'ral';
