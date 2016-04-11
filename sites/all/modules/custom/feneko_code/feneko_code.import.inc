@@ -323,6 +323,7 @@ function _feneko_code_csv_import($filename, $values) {
 
     drupal_set_message($msg);
   } else {
+    _fc_clean_order_statuses();
     $filename = basename($filename);
     $msg_ins = t(':file: Er werden :num statussen toegevoegd.', array(':file' => $filename, ':num' => $num_inserted));
     $msg_upd = t(':file: Er werden :num statussen aangepast.' , array(':file' => $filename, ':num' => $num_updated));

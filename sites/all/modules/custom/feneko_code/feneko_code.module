@@ -148,8 +148,8 @@ function feneko_code_get_clients_options($idKeys = false) {
         }
       } else {
         $clients = $wrapper->field_clients->value();
-      }
-
+      
+}
       // Build the options array
       foreach ($clients as $client) {
         if(!empty($client)) {
@@ -248,4 +248,13 @@ function fc_ral_search_by_kleur($kleur) {
 
   return $result;
 
+}
+
+function _fc_clean_order_statuses() {
+  $or = db_or()
+          ->condition('fase', 'GEFACTUREERD')
+          ->condition('fase', 'GEBLOKKEERD')
+          ->condition('fase', 'GEANNULEERD')
+        ;
+  $num = db_delete(FENEKO_CODE_ORDER_STATUSES_TABLE)->condition($or)->execute();
 }
