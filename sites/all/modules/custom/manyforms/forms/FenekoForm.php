@@ -1663,7 +1663,7 @@ class FenekoForm {
    * @return boolean TRUE if the mail could be sent, FALSE otherwise
    */
   public static function sendMail($to, $subject, $message, $attachments = NULL){
-    $from = 'Feneko <jeremie@feneko.be>';
+    $from = 'Feneko <olivier@feneko.be>';
     $params = array(
       'body'    => $message,
       'subject' => $subject,
