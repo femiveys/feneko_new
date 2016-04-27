@@ -508,14 +508,8 @@ class FenekoForm {
           $value = 2;
         }
       } else {
-        if($hoogte < 2300) {
-          $value = 1; // TODO: Obsolete?
-          $fields["t1$i"] = $hoogte/2;
-        } else {
-          $value = 1;
-          // $fields["t1$i"] = 1000;
-          $fields["t1$i"] = 955;
-        }
+        $value = 1;
+        $fields["t1$i"] = 962;
         $fields["t2$i"] = '0';
       }
     }
