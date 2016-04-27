@@ -138,6 +138,12 @@ function manyforms_ral_search($id, $string) {
   $query = db_select('ral', 'r')->fields('r')
                                 ->condition('kleur', "%$string%", 'LIKE')
                                 ;
+  // For screens there are 4 exceptions
+  $query->condition('ref', 'AE70058805822', '<>');
+  $query->condition('ref', 'AE70019220255', '<>');
+  $query->condition('ref', 'AE70017620225', '<>');
+  $query->condition('ref', 'AE80019901620', '<>');
+
   $exceptions = array(2, 4, 7);
   if(in_array($id, $exceptions)) {
     $query->condition('kleur', 'ANODISE', '<>');
