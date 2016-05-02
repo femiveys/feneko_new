@@ -984,7 +984,7 @@ class FenekoForm {
 
     $user = user_load($user->uid);
 
-    $feneko_mail = variable_get('manyforms_notification_email','jeremie@feneko.be');
+    $feneko_mail = variable_get('manyforms_notification_email','olivier@feneko.be');
 
     $subject = '[Feneko Online] formulier verzonden door ' . $user->name;
 
