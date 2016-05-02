@@ -47,7 +47,6 @@
 
       // Disable submit button when an ajax textfield is edited
       $('form.commerce-add-to-cart .field-type-number-integer input.ajax-processed').each(function() {
-console.log('ja');
         $(this).keyup(function() {
           if(this.value !== this.defaultValue) {
             $('form.commerce-add-to-cart .form-submit').attr('disabled', 'disabled');
@@ -56,14 +55,31 @@ console.log('ja');
           }
         });
       });
+
+      // Replace the Hoeveelheid label by a submit button
+      $('.commerce-add-to-cart').each(function(value, key) {
+        // $(this).find('.form-item-quantity label').replaceWith($(this).find('.form-submit'));
+      });
+
+      // Add the dorpel images: This is dirty
+      var selector = '.node-raamtablet .commerce-add-to-cart #field-eindstukken-values ';
+      var p = '<td rowspan="2" class="thumb">';
+      var eindstukImage1 = $('.commerce-add-to-cart img[title$=1]');
+      var eindstukImage2 = $('.commerce-add-to-cart img[title$=2]');
+      $(selector + 'tbody tr:nth-child(1)').prepend(p).find('td').first().prepend(eindstukImage1);
+      $(selector + 'tbody tr:nth-child(3)').prepend(p).find('td').first().prepend(eindstukImage2);
+
+      $(selector + 'thead th').attr('colspan', 2); // As we have added a cell, we need to add a colspan
     }
   };
 
   Drupal.behaviors.extra_fields = {
     attach: function (context, settings) {
-      $('.view-feneko-shopping-cart-block tr').click(function() {
+      $('.view-feneko-shopping-cart-block tr:not(.toggle-processed)').click(function() {
         $(this).find('.detail').slideToggle();
-      });
+      })
+      .addClass('toggle-processed')
+      ;
     }
   };
 })(jQuery);

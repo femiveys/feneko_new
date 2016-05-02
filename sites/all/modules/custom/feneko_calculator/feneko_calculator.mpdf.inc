@@ -207,10 +207,16 @@ function fc_get_attachment($order_id, $outputAsString = TRUE, $includePrice = TR
       $total = $line->commerce_total->value();
       $even_odd = $delta % 2 ? 'even' : 'odd';
       $first_last = $delta === 0 ? 'first' : ($delta === $count - 1 ? 'last' : '');
+      $label = $line->type->label();
+      if('product' === $line->type->value()) {
+        if(substr($line->value()->line_item_label, 0, 3) === 'DA-') {
+          $label = t("Anti-Dreunstrook");
+        }
+      }
 
       $line_items .= "<tr class=\"$even_odd $first_last\">";
       $line_items .= '<td class="product">';
-      $line_items .= $line->type->label() . _fc_get_pdf_image($line);
+      $line_items .= $label . _fc_get_pdf_image($line);
       $line_items .= '</td>';
       $line_items .= '<td class="details">';
       $line_items .= nl2br(fc_line_item_details($line->value(), 'text'));

@@ -3,6 +3,11 @@
 // .view-feneko-shopping-cart-block - block
 
 .view-feneko-shopping-cart-block {
+  .view-content {
+    max-height: 25em;
+    overflow: scroll;
+  }
+
   cursor: default;
   .view-content tr,
   .line-item-summary-view-cart {

@@ -88,6 +88,12 @@ form.commerce-add-to-cart .form-item-quantity {
   padding-top: 10px;
 }
 
+.node-type-muurkap form.commerce-add-to-cart .form-item-quantity,
+.node-type-raamtablet form.commerce-add-to-cart .form-item-quantity {
+  border-top: none;
+  padding-top: 0px;
+}
+
 form.commerce-add-to-cart .form-submit {
   margin: 2em 0;
 }
@@ -107,4 +113,21 @@ form.commerce-add-to-cart .grippie {
 
 form .form-item-attributes-field-standaardprofiel-type {
   display: none;
+}
+
+form.commerce-add-to-cart .field-multiple-table tbody td {
+  padding-left: 10px;
+}
+
+form.commerce-add-to-cart .field-multiple-table tbody label {
+  width: 225px;
+}
+
+/* Hack in images */
+.node-raamtablet #field-eindstukken-values tbody td.thumb {
+  width: 50px;
+}
+
+.node-raamtablet #field-eindstukken-values label {
+  width: 175px;
 }

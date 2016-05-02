@@ -32,11 +32,11 @@ function feneko_account_views_api($module = NULL, $api = NULL) {
 function feneko_account_node_info() {
   $items = array(
     'client' => array(
-      'name' => t('Client'),
+      'name' => t('Klant'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Name'),
+      'title_label' => t('Naam'),
       'help' => '',
     ),
   );

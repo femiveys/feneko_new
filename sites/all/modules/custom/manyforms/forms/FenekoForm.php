@@ -508,14 +508,8 @@ class FenekoForm {
           $value = 2;
         }
       } else {
-        if($hoogte < 2300) {
-          $value = 1; // TODO: Obsolete?
-          $fields["t1$i"] = $hoogte/2;
-        } else {
-          $value = 1;
-          // $fields["t1$i"] = 1000;
-          $fields["t1$i"] = 955;
-        }
+        $value = 1;
+        $fields["t1$i"] = 962;
         $fields["t2$i"] = '0';
       }
     }
@@ -755,12 +749,6 @@ class FenekoForm {
     }
   }
 
-  /**
-   * Handle the visibility state of the form elements:
-   * - Set an error message for visibile fields that are not filled in
-   * - Set non visible values to NULL
-   * @param $values Array all fields of the submission
-   */
   private function handleRal($client, $ralCode) {
     $id = intval($this->getId());
     $value = 'ral';
@@ -996,7 +984,7 @@ class FenekoForm {
 
     $user = user_load($user->uid);
 
-    $feneko_mail = variable_get('manyforms_notification_email','jeremie@feneko.be');
+    $feneko_mail = variable_get('manyforms_notification_email','olivier@feneko.be');
 
     $subject = '[Feneko Online] formulier verzonden door ' . $user->name;
 
@@ -1669,7 +1657,7 @@ class FenekoForm {
    * @return boolean TRUE if the mail could be sent, FALSE otherwise
    */
   public static function sendMail($to, $subject, $message, $attachments = NULL){
-    $from = 'Feneko <jeremie@feneko.be>';
+    $from = 'Feneko <olivier@feneko.be>';
     $params = array(
       'body'    => $message,
       'subject' => $subject,

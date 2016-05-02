@@ -1445,6 +1445,41 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_integer',
   );
 
+  // Exported field_base: 'field_muurkap_stuk_kant'.
+  $field_bases['field_muurkap_stuk_kant'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_muurkap_stuk_kant',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'left1' => 'Type 1 - Links',
+        'right1' => 'Type 1 - Rechts',
+        'left2' => 'Type 2 - Links',
+        'right2' => 'Type 2 - Rechts',
+        'type1' => 'Type 1',
+        'type2' => 'Type 2',
+        'binnen' => 'Binnen',
+        'buiten' => 'Buiten',
+      ),
+      'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_muurkap_type'.
   $field_bases['field_muurkap_type'] = array(
     'active' => 1,
@@ -1532,6 +1567,26 @@ function feneko_calculator_feature_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_pb_type'.
+  $field_bases['field_pb_type'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_pb_type',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'number_integer',
   );
 
   // Exported field_base: 'field_plaatbewerking_afwerking'.
@@ -1668,6 +1723,31 @@ function feneko_calculator_feature_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'image',
+  );
+
+  // Exported field_base: 'field_product_variations'.
+  $field_bases['field_product_variations'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_product_variations',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'product_id' => array(
+        0 => 'product_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'commerce_product_reference',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'options_list_limit' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'commerce_product_reference',
   );
 
   // Exported field_base: 'field_raamtablet_afwerking'.

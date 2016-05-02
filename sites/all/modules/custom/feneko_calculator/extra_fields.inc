@@ -16,7 +16,7 @@ function fc_line_item_details($line_item, $format = 'ra') {
       'field_muurkap_type',
       'field_standaardprofiel_type',
       'field_muurkap_diepte',
-      'field_raamtablet_eindstuk_typeiepte',
+      'field_raamtablet_diepte',
       'field_plaatbewerking_dikte',
       'field_raamtablet_eindstuk_type',
       'field_anti_dreunstrook',
@@ -48,7 +48,17 @@ function fc_line_item_details($line_item, $format = 'ra') {
       'field_kant',
       'field_raamtablet_diepte',
       'field_comment',
+      'field_muurkap_stuk_kant',
     ),
+  );
+
+  $muukap_raamtablet_skip = array(
+    'field_hoeken',
+    'field_beugels',
+    'field_eindstukken',
+    'field_aantal_adsn',
+    'field_koppelstukken',
+    'field_anti_dreunstrook',
   );
 
   $product = commerce_product_load($line_item->commerce_product[LANGUAGE_NONE][0]['product_id']);
@@ -56,16 +66,18 @@ function fc_line_item_details($line_item, $format = 'ra') {
   $text = '';
   $weight = 0;
 
-  // if($product->type === 'raamtablet_eindstuk' or $product === 'muurkap_eindstuk') {
-  //   $fields['commerce_product'][] = 'title';
-  // }
-// dpm($line_item);
-
   foreach ($fields as $entity_type => $field_names) {
     $e = $entity_type === 'commerce_product' ? $product : $line_item;
 
     foreach ($field_names as $field_name) {
       if (isset($e->$field_name)) {
+        // Skip some fields for muurkap and raamtablet
+        if($e->type === 'muurkap' || $e->type === 'raamtablet') {
+          if(in_array($field_name, $muukap_raamtablet_skip)) {
+            continue;
+          }
+        }
+
         if($field_ra = _fc_field_output($field_name, $e, $entity_type, $format)) {
           $output[$field_name] = $field_ra;
           $output[$field_name]['#weight'] = $weight++;
@@ -147,6 +159,22 @@ function _fc_field_output($field_name, $entity, $entity_type, $format) {
           ),
         );
         $ra = field_view_field($entity_type, $entity, $field_name, $display, $lang);
+
+        // Some label exceptions
+        if($ra['#field_name'] === 'field_muurkap_stuk_kant') {
+          $chunks = explode('-', $ra['#object']->line_item_label);
+          $type = array_pop($chunks);
+
+          switch ($type) {
+            case 'Eindstuk':
+              $ra['#title'] = t('Eindstuk type');
+              break;
+
+            case 'Hoek':
+              $ra['#title'] = t('Hoek type');
+              break;
+          }
+        }
 
         // For products, we need to take the label from the ATTRIBUTE FIELD SETTINGS
         if($entity_type === 'commerce_product') {

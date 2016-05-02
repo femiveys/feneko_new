@@ -22,7 +22,7 @@ function feneko_calculator_feature_default_rules_configuration() {
             "to" : [ "commerce-order:mail" ],
             "subject" : "Order [commerce-order:order-number] at [site:name]",
             "message" : "[commerce-order:owner:name],\\r\\n\\r\\nBedankt voor je [commerce-order:field-order-type].\\r\\nIn de bijlage vind je een overzicht van je aanvraag.\\r\\n\\r\\nmvg,\\r\\n\\r\\nFenekO",
-            "from" : "Feneko \\u003Cjeremie@feneko.be\\u003E",
+            "from" : "Feneko \\u003Colivier@feneko.be\\u003E",
             "language" : [ "commerce-order:owner:language" ]
           }
         }
@@ -43,10 +43,10 @@ function feneko_calculator_feature_default_rules_configuration() {
       ],
       "DO" : [
         { "mail" : {
-            "to" : "Feneko \\u003Cjeremie@feneko.be\\u003E",
+            "to" : "Feneko \\u003Colivier@feneko.be\\u003E",
             "subject" : "Order [commerce-order:order-number] at [site:name]",
             "message" : "[commerce-order:owner:name] van [commerce-order:owner:field-naam-bedrijf] ([commerce-order:field_order4])  heeft net een bestellling geplaatst.\\r\\n\\r\\nIn de bijlage vind je een overzicht van de bestelling.\\r\\n\\r\\nmvg,\\r\\n\\r\\nFenekO",
-            "from" : "Feneko \\u003Cjeremie@feneko.be\\u003E",
+            "from" : "Feneko \\u003Colivier@feneko.be\\u003E",
             "language" : "nl"
           }
         }
@@ -272,6 +272,7 @@ function feneko_calculator_feature_default_rules_configuration() {
       "LABEL" : "Muurkap Add Stukken",
       "PLUGIN" : "reaction rule",
       "WEIGHT" : "6",
+      "ACTIVE" : false,
       "OWNER" : "rules",
       "TAGS" : [ "calculator" ],
       "REQUIRES" : [ "rules", "commerce_line_item", "commerce_product_reference" ],
@@ -567,14 +568,11 @@ function feneko_calculator_feature_default_rules_configuration() {
       "REQUIRES" : [ "rules", "commerce_line_item", "commerce_product_reference" ],
       "ON" : { "commerce_product_calculate_sell_price" : [] },
       "IF" : [
-        { "AND" : [
-            { "entity_is_of_bundle" : {
-                "entity" : [ "commerce-line-item" ],
-                "type" : "commerce_line_item",
-                "bundle" : { "value" : { "plaatbewerking" : "plaatbewerking" } }
-              }
-            }
-          ]
+        { "entity_is_of_bundle" : {
+            "entity" : [ "commerce-line-item" ],
+            "type" : "commerce_line_item",
+            "bundle" : { "value" : { "plaatbewerking" : "plaatbewerking" } }
+          }
         }
       ],
       "DO" : [
@@ -666,6 +664,7 @@ function feneko_calculator_feature_default_rules_configuration() {
       "LABEL" : "Raamtablet Add Anti-Dreunstrook",
       "PLUGIN" : "reaction rule",
       "WEIGHT" : "6",
+      "ACTIVE" : false,
       "OWNER" : "rules",
       "TAGS" : [ "calculator" ],
       "REQUIRES" : [ "rules", "commerce_line_item", "commerce_product_reference" ],
@@ -720,6 +719,7 @@ function feneko_calculator_feature_default_rules_configuration() {
       "LABEL" : "Raamtablet Add Stukken",
       "PLUGIN" : "reaction rule",
       "WEIGHT" : "6",
+      "ACTIVE" : false,
       "OWNER" : "rules",
       "TAGS" : [ "calculator" ],
       "REQUIRES" : [ "rules", "commerce_line_item", "commerce_product_reference" ],

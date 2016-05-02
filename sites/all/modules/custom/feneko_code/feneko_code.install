@@ -132,6 +132,13 @@ function feneko_code_update_7007() {
   }
 }
 
+/**
+ * Remove obsolete records in order_statuses
+ */
+function feneko_code_update_7008() {
+  _fc_clean_order_statuses();
+}
+
 /*
 Export users from prod (data_export_import)
 Export users_roles table from prod (remove index part)

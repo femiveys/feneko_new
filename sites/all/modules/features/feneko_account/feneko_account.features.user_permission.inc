@@ -430,48 +430,12 @@ function feneko_account_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'create field_btw_nummer'.
-  $permissions['create field_btw_nummer'] = array(
-    'name' => 'create field_btw_nummer',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'create field_clients'.
   $permissions['create field_clients'] = array(
     'name' => 'create field_clients',
     'roles' => array(
       'administrator' => 'administrator',
       'site_admin' => 'site_admin',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'create field_geblokkeerd'.
-  $permissions['create field_geblokkeerd'] = array(
-    'name' => 'create field_geblokkeerd',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'create field_klantennummer'.
-  $permissions['create field_klantennummer'] = array(
-    'name' => 'create field_klantennummer',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'create field_naam_bedrijf'.
-  $permissions['create field_naam_bedrijf'] = array(
-    'name' => 'create field_naam_bedrijf',
-    'roles' => array(
-      'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
   );
@@ -500,15 +464,6 @@ function feneko_account_user_default_permissions() {
     'name' => 'create field_tech_docs',
     'roles' => array(
       'content editor' => 'content editor',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'create field_telefoon'.
-  $permissions['create field_telefoon'] = array(
-    'name' => 'create field_telefoon',
-    'roles' => array(
-      'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
   );
@@ -590,13 +545,6 @@ function feneko_account_user_default_permissions() {
   // Exported permission: 'create standaardprofiel content'.
   $permissions['create standaardprofiel content'] = array(
     'name' => 'create standaardprofiel content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'create stuk content'.
-  $permissions['create stuk content'] = array(
-    'name' => 'create stuk content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -794,13 +742,6 @@ function feneko_account_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any stuk content'.
-  $permissions['delete any stuk content'] = array(
-    'name' => 'delete any stuk content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any unit content'.
   $permissions['delete any unit content'] = array(
     'name' => 'delete any unit content',
@@ -980,13 +921,6 @@ function feneko_account_user_default_permissions() {
   // Exported permission: 'delete own standaardprofiel content'.
   $permissions['delete own standaardprofiel content'] = array(
     'name' => 'delete own standaardprofiel content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own stuk content'.
-  $permissions['delete own stuk content'] = array(
-    'name' => 'delete own stuk content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -1312,13 +1246,6 @@ function feneko_account_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any stuk content'.
-  $permissions['edit any stuk content'] = array(
-    'name' => 'edit any stuk content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit any unit content'.
   $permissions['edit any unit content'] = array(
     'name' => 'edit any unit content',
@@ -1363,47 +1290,11 @@ function feneko_account_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit field_btw_nummer'.
-  $permissions['edit field_btw_nummer'] = array(
-    'name' => 'edit field_btw_nummer',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'edit field_clients'.
   $permissions['edit field_clients'] = array(
     'name' => 'edit field_clients',
     'roles' => array(
       'site_admin' => 'site_admin',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit field_geblokkeerd'.
-  $permissions['edit field_geblokkeerd'] = array(
-    'name' => 'edit field_geblokkeerd',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit field_klantennummer'.
-  $permissions['edit field_klantennummer'] = array(
-    'name' => 'edit field_klantennummer',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit field_naam_bedrijf'.
-  $permissions['edit field_naam_bedrijf'] = array(
-    'name' => 'edit field_naam_bedrijf',
-    'roles' => array(
-      'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
   );
@@ -1432,15 +1323,6 @@ function feneko_account_user_default_permissions() {
     'name' => 'edit field_tech_docs',
     'roles' => array(
       'content editor' => 'content editor',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit field_telefoon'.
-  $permissions['edit field_telefoon'] = array(
-    'name' => 'edit field_telefoon',
-    'roles' => array(
-      'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
   );
@@ -1566,47 +1448,11 @@ function feneko_account_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit own field_btw_nummer'.
-  $permissions['edit own field_btw_nummer'] = array(
-    'name' => 'edit own field_btw_nummer',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'edit own field_clients'.
   $permissions['edit own field_clients'] = array(
     'name' => 'edit own field_clients',
     'roles' => array(
       'site_admin' => 'site_admin',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit own field_geblokkeerd'.
-  $permissions['edit own field_geblokkeerd'] = array(
-    'name' => 'edit own field_geblokkeerd',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit own field_klantennummer'.
-  $permissions['edit own field_klantennummer'] = array(
-    'name' => 'edit own field_klantennummer',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit own field_naam_bedrijf'.
-  $permissions['edit own field_naam_bedrijf'] = array(
-    'name' => 'edit own field_naam_bedrijf',
-    'roles' => array(
-      'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
   );
@@ -1635,15 +1481,6 @@ function feneko_account_user_default_permissions() {
     'name' => 'edit own field_tech_docs',
     'roles' => array(
       'content editor' => 'content editor',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit own field_telefoon'.
-  $permissions['edit own field_telefoon'] = array(
-    'name' => 'edit own field_telefoon',
-    'roles' => array(
-      'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
   );
@@ -1725,13 +1562,6 @@ function feneko_account_user_default_permissions() {
   // Exported permission: 'edit own standaardprofiel content'.
   $permissions['edit own standaardprofiel content'] = array(
     'name' => 'edit own standaardprofiel content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own stuk content'.
-  $permissions['edit own stuk content'] = array(
-    'name' => 'edit own stuk content',
     'roles' => array(),
     'module' => 'node',
   );
@@ -2015,47 +1845,11 @@ function feneko_account_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view field_btw_nummer'.
-  $permissions['view field_btw_nummer'] = array(
-    'name' => 'view field_btw_nummer',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'view field_clients'.
   $permissions['view field_clients'] = array(
     'name' => 'view field_clients',
     'roles' => array(
       'site_admin' => 'site_admin',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view field_geblokkeerd'.
-  $permissions['view field_geblokkeerd'] = array(
-    'name' => 'view field_geblokkeerd',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view field_klantennummer'.
-  $permissions['view field_klantennummer'] = array(
-    'name' => 'view field_klantennummer',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view field_naam_bedrijf'.
-  $permissions['view field_naam_bedrijf'] = array(
-    'name' => 'view field_naam_bedrijf',
-    'roles' => array(
-      'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
   );
@@ -2085,15 +1879,6 @@ function feneko_account_user_default_permissions() {
     'roles' => array(
       'content editor' => 'content editor',
       'handelaar' => 'handelaar',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view field_telefoon'.
-  $permissions['view field_telefoon'] = array(
-    'name' => 'view field_telefoon',
-    'roles' => array(
-      'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
   );
@@ -2145,48 +1930,12 @@ function feneko_account_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view own field_btw_nummer'.
-  $permissions['view own field_btw_nummer'] = array(
-    'name' => 'view own field_btw_nummer',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'view own field_clients'.
   $permissions['view own field_clients'] = array(
     'name' => 'view own field_clients',
     'roles' => array(
       'handelaar' => 'handelaar',
       'site_admin' => 'site_admin',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view own field_geblokkeerd'.
-  $permissions['view own field_geblokkeerd'] = array(
-    'name' => 'view own field_geblokkeerd',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view own field_klantennummer'.
-  $permissions['view own field_klantennummer'] = array(
-    'name' => 'view own field_klantennummer',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view own field_naam_bedrijf'.
-  $permissions['view own field_naam_bedrijf'] = array(
-    'name' => 'view own field_naam_bedrijf',
-    'roles' => array(
-      'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
   );
@@ -2215,15 +1964,6 @@ function feneko_account_user_default_permissions() {
     'name' => 'view own field_tech_docs',
     'roles' => array(
       'content editor' => 'content editor',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view own field_telefoon'.
-  $permissions['view own field_telefoon'] = array(
-    'name' => 'view own field_telefoon',
-    'roles' => array(
-      'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
   );

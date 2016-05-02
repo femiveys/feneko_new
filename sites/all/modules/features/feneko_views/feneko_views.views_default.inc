@@ -442,7 +442,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['fields']['field_fax']['element_wrapper_class'] = 'fax';
   $handler->display->display_options['fields']['field_fax']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_fax']['hide_empty'] = TRUE;
-  /* Field: Field: BTW nummer */
+  /* Field: Content: BTW nummer */
   $handler->display->display_options['fields']['field_btw_nummer']['id'] = 'field_btw_nummer';
   $handler->display->display_options['fields']['field_btw_nummer']['table'] = 'field_data_field_btw_nummer';
   $handler->display->display_options['fields']['field_btw_nummer']['field'] = 'field_btw_nummer';
