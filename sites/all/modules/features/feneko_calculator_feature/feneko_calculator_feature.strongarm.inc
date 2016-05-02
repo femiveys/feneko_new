@@ -62,6 +62,7 @@ function feneko_calculator_feature_strongarm() {
   $strongarm->value = array(
     'dorpel_stuk' => 'dorpel_stuk',
     'muurkap' => 'muurkap',
+    'muurkap_stuk' => 'muurkap_stuk',
     'plaatbewerking' => 'plaatbewerking',
     'raamtablet' => 'raamtablet',
     'raamtablet_eindstuk' => 'raamtablet_eindstuk',
