@@ -161,7 +161,7 @@ function _fc_field_output($field_name, $entity, $entity_type, $format) {
         $ra = field_view_field($entity_type, $entity, $field_name, $display, $lang);
 
         // Some label exceptions
-        if($ra['#field_name'] === 'field_muurkap_stuk_kant') {
+        if(isset($ra['#field_name']) && $ra['#field_name'] === 'field_muurkap_stuk_kant') {
           $chunks = explode('-', $ra['#object']->line_item_label);
           $type = array_pop($chunks);
 
