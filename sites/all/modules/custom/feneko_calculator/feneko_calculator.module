@@ -530,6 +530,9 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
         $lakzijde = 'e';
       }
 
+      // TEMP: Disable pb_type
+      unset($form['line_item_fields']['field_pb_type']);
+
       // Make sure the afwerking is set correctly
       $options = array('lakzijde' => $lakzijde, 'color' => $color);
       _fc_check_afwerking($form, $form_state, $options);
