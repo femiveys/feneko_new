@@ -1344,7 +1344,7 @@ function fc_validate_add_to_cart_form($form, &$form_state) {
         // For plaatbewerking: When ophanging is D, max = 3980
         $max = 3980;
         if($product->type === 'plaatbewerking'
-          && $line_item['field_ophanging']['und'][0]['value'] === 'gaatjes'
+          && $line_item['field_ophanging']['und'][0]['value'] === 'haakjes'
           && $line_item['field_lengte']['und'][0]['value'] > $max) {
               $msg = t('De lengte mag maximaal :max mm zijn met gaatjes.', array(':max' => $max));
               form_set_error('line_item_fields][field_lengte', $msg);
