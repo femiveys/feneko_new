@@ -264,6 +264,7 @@ class FenekoSpecificForm extends FenekoForm {
         $this->title = t('Vliegenramen Classic');
         $this->remark = t('Opgegeven maten zijn de doorkijkmaten');
         $this->addField('afgewerkte', 25);
+        $this->addField('afgewerkte_message', 1200);
         $this->addField('profiel', 35);
         $this->addField('bevestiging', 60);
         $this->addField('soort_bevestiging', 70);
@@ -281,6 +282,7 @@ class FenekoSpecificForm extends FenekoForm {
         $this->title = t('Vliegenramen Basic');
         $this->remark = t('Opgegeven maten zijn de doorkijkmaten');
         $this->addField('afgewerkte', 25);
+        $this->addField('afgewerkte_message', 1200);
         $this->addField('bevestiging', 60);
         $this->addField('soort_bevestiging', 70);
         $this->addField('borstel_profiel', 80);

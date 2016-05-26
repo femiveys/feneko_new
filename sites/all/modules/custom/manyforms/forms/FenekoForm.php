@@ -829,6 +829,7 @@ class FenekoForm {
     $id = intval($this->getId());
     $key = $uitvoering . $id;
     unset($this->fields['afgewerkte']); // Always discard this field form the form
+    unset($this->fields['afgewerkte_message']); // Always discard this field form the form
 
     switch ($key) {
       case 'enkel1':
@@ -2499,6 +2500,24 @@ class FenekoForm {
           '#type' => 'checkbox',
           '#weight' => $weight,
           '#description' => t('Indien u dit aanvinkt, zullen de maten bij bestelling automatisch aangepast worden naar de doorkijkmaten.'),
+        );
+
+      case 'afgewerkte_message':
+        return array(
+          '#type' => 'container',
+          'wrapper' => array(
+            '#type' => 'container',
+            '#attributes' => array('class' => array('messages', 'error')),
+            'message' => array(
+              '#markup' => t('U heeft afgewerkte maten aangevinkt. Dit betekent dat de maten bij bestelling automatisch aangepast zullen worden naar doorkijkmaten.'),
+            ),
+          ),
+          '#weight' => $weight,
+          '#states' => array(
+            'visible' => array(
+              'input[name="afgewerkte"]' => array('checked' => true),
+            ),
+          ),
         );
 
       case 'bevestiging':
