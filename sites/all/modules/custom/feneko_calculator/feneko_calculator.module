@@ -249,10 +249,12 @@ function feneko_calculator_mail_alter(&$message) {
     }
 
     // Set the body and apply the replacements
-    // $body = str_replace('{name}', $order->owner->name->value(), $body);
-    // $body = str_replace('{company}', $order->owner->field_naam_bedrijf->value(), $body);
-    // $body = str_replace('{klantennummer}', $order->field_order4->value(), $body);
-    // $body = str_replace('{client_number}', $order->field_order4->value(), $body);
+    $type = $order->field_order_type->value() === 'order' ? t('de bestelling') : t('het offer');
+    $body = str_replace('{id}', $order_id, $body);
+    $body = str_replace('{type}', $type, $body);
+    $body = str_replace('{name}', $order->owner->name->value(), $body);
+    $body = str_replace('{client}', $order->field_client->title->value(), $body);
+    $body = str_replace('{client_number}', $order->field_client->field_client_number->value(), $body);
     $message['body'][0] = $body;
 
     // Attach drawings
