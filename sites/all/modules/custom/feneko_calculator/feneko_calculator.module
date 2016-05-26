@@ -577,6 +577,11 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
           unset($form['line_item_fields']['field_ophanging']['und']['#options']['G']);
         }
 
+        // Als 1.5mm gekozen wordt dan kunnen er nooit lasbouten als ophanging
+        if($form['attributes']['field_plaatbewerking_dikte']['#default_value'] === '1.5mm') {
+          unset($form['line_item_fields']['field_ophanging']['und']['#options']['G']);
+        }
+
         // Disable some fields based on the Type Bewerking
         fc_disable_multi_fields($form, $form_state, fc_get_parts($typeBewerking));
 
@@ -633,7 +638,7 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
 
       }
 
-      // ophanging wordt ALTIJD ingevuld als de kleur <> Brut/Kleur <> Anodise/ Kleur <> renolit
+      // ophanging wordt ALTIJD ingevuld als de kleur<>Brut / Kleur<>Anodise/ Kleur<>renolit
       if( $color['type']  !== 'brut'
       and $color['type']  !== 'reno'
       and $color['kleur'] !== "ANODISE") {
