@@ -42,7 +42,10 @@ function feneko_calculator_feature_default_commerce_discount() {
       ]
     },
     "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
-    "commerce_compatibility_selection" : []
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : []
   }');
   $items['discount_global_discount_1200_16'] = entity_import('commerce_discount', '{
     "name" : "discount_global_discount_1200_16",
@@ -77,7 +80,10 @@ function feneko_calculator_feature_default_commerce_discount() {
       ]
     },
     "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
-    "commerce_compatibility_selection" : []
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : []
   }');
   $items['discount_global_discount_1600_2000'] = entity_import('commerce_discount', '{
     "name" : "discount_global_discount_1600_2000",
@@ -112,7 +118,10 @@ function feneko_calculator_feature_default_commerce_discount() {
       ]
     },
     "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
-    "commerce_compatibility_selection" : []
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : []
   }');
   $items['discount_global_discount_2000_2400'] = entity_import('commerce_discount', '{
     "name" : "discount_global_discount_2000_2400",
@@ -147,7 +156,10 @@ function feneko_calculator_feature_default_commerce_discount() {
       ]
     },
     "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
-    "commerce_compatibility_selection" : []
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : []
   }');
   $items['discount_global_discount_200_400'] = entity_import('commerce_discount', '{
     "name" : "discount_global_discount_200_400",
@@ -182,7 +194,10 @@ function feneko_calculator_feature_default_commerce_discount() {
       ]
     },
     "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
-    "commerce_compatibility_selection" : []
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : []
   }');
   $items['discount_global_discount_2400_'] = entity_import('commerce_discount', '{
     "name" : "discount_global_discount_2400_",
@@ -208,7 +223,10 @@ function feneko_calculator_feature_default_commerce_discount() {
       ]
     },
     "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
-    "commerce_compatibility_selection" : []
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : []
   }');
   $items['discount_global_discount_400_800'] = entity_import('commerce_discount', '{
     "name" : "discount_global_discount_400_800",
@@ -243,7 +261,10 @@ function feneko_calculator_feature_default_commerce_discount() {
       ]
     },
     "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
-    "commerce_compatibility_selection" : []
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : []
   }');
   $items['discount_global_discount_800_120'] = entity_import('commerce_discount', '{
     "name" : "discount_global_discount_800_120",
@@ -278,7 +299,10 @@ function feneko_calculator_feature_default_commerce_discount() {
       ]
     },
     "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
-    "commerce_compatibility_selection" : []
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : []
   }');
   return $items;
 }
