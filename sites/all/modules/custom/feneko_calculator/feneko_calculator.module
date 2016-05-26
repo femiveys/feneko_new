@@ -1341,8 +1341,8 @@ function fc_validate_add_to_cart_form($form, &$form_state) {
             break;
         }
 
-        // For plaatbewerking: When ophanging is D, max = 3980
-        $max = 3980;
+        // For plaatbewerking: When ophanging is D, max = 3980, 4000
+        $max = 4000;
         if($product->type === 'plaatbewerking'
           && $line_item['field_ophanging']['und'][0]['value'] === 'haakjes'
           && $line_item['field_lengte']['und'][0]['value'] > $max) {
