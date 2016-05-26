@@ -15,36 +15,64 @@ function manyforms_setting_form($form, &$form_state) {
     '#description' => t('Email address where all submission notifications will be sent'),
   );
 
+  $descr = 'Text of the email that will be sent to user who has submitted an order. '
+         . 'Following tokens can be used:'
+         . '<ul>'
+         .   '<li><b>{name}</b>:<span>username of the submitter</span></li>'
+         .   '<li><b>{id}</b>:<span>identifier of order</span></li>'
+         . '</ul>'
+  ;
   $form['manyforms_order_email_text'] = array(
     '#title' => t('Client e-mail text for an order'),
     '#type' => 'textarea',
     '#default_value' => variable_get('manyforms_order_email_text', ''),
-    '#description' => t('Text of the email that will be sent to user who has submitted an order. You can use the
-                         token {name} to provide the username of the submitter.'),
+    '#description' => t($descr),
   );
 
+  $descr = 'Text of the email that will be sent to user who has submitted an offer. '
+         . 'Following tokens can be used:'
+         . '<ul>'
+         .   '<li><b>{name}</b>:<span>username of the submitter</span></li>'
+         .   '<li><b>{id}</b>:<span>identifier of offer</span></li>'
+         . '</ul>'
+  ;
   $form['manyforms_offer_email_text'] = array(
     '#title' => t('Client e-mail text for an offer'),
     '#type' => 'textarea',
     '#default_value' => variable_get('manyforms_offer_email_text', ''),
-    '#description' => t('Text of the email that will be sent to user who has submitted an offer. You can use the
-                         token {name} to provide the username of the submitter.'),
+    '#description' => t($descr),
   );
+
+
+  $descr = 'Text of the email that will be sent to the email provided above. '
+         . 'Following tokens can be used:'
+         . '<ul>'
+         .   '<li><b>{name}</b>:<span>username of the submitter</span></li>'
+         .   '<li><b>{type}</b>:<span>offer or order</span></li>'
+         .   '<li><b>{id}</b>:<span>identifier of order or offer</span></li>'
+         . '</ul>'
+  ;
 
   $form['manyforms_notification_email_text'] = array(
     '#title' => t('Admin e-mail text'),
     '#type' => 'textarea',
     '#default_value' => variable_get('manyforms_notification_email_text', ''),
-    '#description' => t('Text of the email that will be sent to the email provided above. You can use the
-                         token {name} to provide the username of the submitter. {type} will be replaced by offer or order.'),
+    '#description' => t($descr),
   );
 
+  $descr = 'Text that will be shown to the user after successfull form submission. '
+         . 'Following tokens can be used:'
+         . '<ul>'
+         .   '<li><b>{name}</b>:<span>username of the submitter</span></li>'
+         .   '<li><b>{type}</b>:<span>offer or order</span></li>'
+         .   '<li><b>{id}</b>:<span>identifier of order or offer</span></li>'
+         . '</ul>'
+  ;
   $form['manyforms_submiting_text'] = array(
     '#title' => t('After submit message'),
     '#type' => 'textarea',
     '#default_value' => variable_get('manyforms_submiting_text', ''),
-    '#description' => t('Text that will be shown to the user after successfull form submission. You can use the
-                         token {name} to provide the username of the submitter. {type} will be replaced by offer or order.'),
+    '#description' => t($descr),
   );
 
   $form['manyforms_soort_bevestiging_options'] = array(

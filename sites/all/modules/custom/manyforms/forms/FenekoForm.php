@@ -987,7 +987,7 @@ class FenekoForm {
 
     $feneko_mail = variable_get('manyforms_notification_email','olivier@feneko.be');
 
-    $subject = '[Feneko Online] formulier verzonden door ' . $user->name;
+    $subject = "[Feneko Online] formulier ($id) verzonden door " . $user->name;
 
     $feneko_msg = variable_get('manyforms_notification_email_text','');
 
@@ -995,8 +995,10 @@ class FenekoForm {
     $user_msg =  variable_get("manyforms_" . $type . "_email_text",'');
 
     $user_msg   = str_replace('{name}', $user->name, $user_msg);
+    $user_msg   = str_replace('{id}', $id, $user_msg);
     $feneko_msg = str_replace('{name}', $user->name, $feneko_msg);
     $feneko_msg = str_replace('{type}', $type, $feneko_msg);
+    $feneko_msg = str_replace('{id}', $id, $feneko_msg);
 
     if($client->field_block_order_input->value()) {
       $feneko_msg .= "\n\nOPGEPAST KLANT DIENT EERST TE BETALEN, procedure EB volgen.";
