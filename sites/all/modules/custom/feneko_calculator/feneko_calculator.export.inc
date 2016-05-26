@@ -316,6 +316,17 @@ function _fc_get_discount_sections($data) {
   $sections = array();
   $mapping = commerce_price_component_titles();
 
+  // t('Korting: -30%');
+  // t('Korting: -35%');
+  // t('Korting: -38%');
+  // t('Korting: -41%');
+  // t('Korting: -44%');
+  // t('Korting: -50%');
+  // t('Korting: -47%');
+  // t('Korting: -53%');
+  // t('Korting: -56%');
+  // t('Korting: -59%');
+
   foreach ($data['components'] as $component) {
     $key = $component['name'];
     if($key === 'minimum_invoice_amount') {
@@ -329,7 +340,7 @@ function _fc_get_discount_sections($data) {
         $sections[$key] = array(
           'weight' => 10,
           'key' => drupal_clean_css_identifier($component['price']['data']['discount_name']),
-          'label' => $component['price']['data']['discount_component_title'],
+          'label' => t($component['price']['data']['discount_component_title']),
       );
       _fc_set_price($sections[$key], $component['price']['amount']);
     }

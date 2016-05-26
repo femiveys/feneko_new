@@ -19,6 +19,15 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Plaats bestelling', array(), array('context' => ''));
+  $translations['fr:default']['0a395a4ab1e7dd791466e6cbbd13e7f2'] = array(
+    'source' => 'Korting: -38%',
+    'context' => '',
+    'location' => '/fr/admin/commerce/orders/15246/pdf?destination=admin%2Fcommerce%2Forders&',
+    'translation' => 'Remise: -38%',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Korting: -38%', array(), array('context' => ''));
   $translations['fr:default']['0b080119cbf1138edfa9132471e1a661'] = array(
     'source' => 'tot',
     'context' => '',
@@ -37,6 +46,24 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Borstelprofiel VP1200', array(), array('context' => ''));
+  $translations['fr:default']['10c14169fe5f5a1c3017af9161b9e889'] = array(
+    'source' => 'Korting: -50%',
+    'context' => '',
+    'location' => '/fr/admin/commerce/orders/15246/pdf?destination=admin%2Fcommerce%2Forders&',
+    'translation' => 'Remise: -50%',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Korting: -50%', array(), array('context' => ''));
+  $translations['fr:default']['168f8d219a87bd45fb6ae56f1b6014ce'] = array(
+    'source' => 'Korting: -53%',
+    'context' => '',
+    'location' => '/fr/admin/commerce/orders/15246/pdf?destination=admin%2Fcommerce%2Forders&',
+    'translation' => 'Remise: -53%',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Korting: -53%', array(), array('context' => ''));
   $translations['fr:default']['1be4d5724335ae5b04677832fd631e9a'] = array(
     'source' => 'Solliciteren tot (alle talen)',
     'context' => '',
@@ -82,6 +109,15 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Solliciteren tot', array(), array('context' => ''));
+  $translations['fr:default']['1f7c46cea5d498ba19199d881b95dfed'] = array(
+    'source' => 'Korting: -59%',
+    'context' => '',
+    'location' => '/fr/admin/commerce/orders/15246/pdf?destination=admin%2Fcommerce%2Forders&',
+    'translation' => 'Remise: -59%',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Korting: -59%', array(), array('context' => ''));
   $translations['fr:default']['255259401ffd7c45547fc30a4ba29072'] = array(
     'source' => 'Verkoopsvoorwaarden',
     'context' => '',
@@ -142,6 +178,24 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Order specific information', array(), array('context' => ''));
+  $translations['fr:default']['37d5bc49de8d071b27a8b2193a9a12f4'] = array(
+    'source' => 'Korting: -47%',
+    'context' => '',
+    'location' => '/fr/admin/commerce/orders/15246/pdf?destination=admin%2Fcommerce%2Forders&',
+    'translation' => 'Remise: -47%',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Korting: -47%', array(), array('context' => ''));
+  $translations['fr:default']['3a59e107cd234216f34a95c12bf597b1'] = array(
+    'source' => 'Korting: -56%',
+    'context' => '',
+    'location' => '/fr/admin/commerce/orders/15246/pdf?destination=admin%2Fcommerce%2Forders&',
+    'translation' => 'Remise: -56%',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Korting: -56%', array(), array('context' => ''));
   $translations['fr:default']['45acd6ac4b264cef2bccfdc5a5e048d1'] = array(
     'source' => 'Klant worden',
     'context' => '',
@@ -187,6 +241,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Client', array(), array('context' => ''));
+  $translations['fr:default']['596c8b39d7240592aeb765fc5e3ab1ff'] = array(
+    'source' => 'Korting: -41%',
+    'context' => '',
+    'location' => '/fr/admin/commerce/orders/15246/pdf?destination=admin%2Fcommerce%2Forders&',
+    'translation' => 'Remise: -41%',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Korting: -41%', array(), array('context' => ''));
   $translations['fr:default']['5a2d7865f8878cb7cb82a45b2be8ba8e'] = array(
     'source' => 'You don\'t have any clients assigned. Contact the administrator.',
     'context' => '',
@@ -322,6 +385,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Andere jobs', array(), array('context' => ''));
+  $translations['fr:default']['8977d9cab825d0189cedf428756cc614'] = array(
+    'source' => 'Korting: -44%',
+    'context' => '',
+    'location' => '/fr/admin/commerce/orders/15246/pdf?destination=admin%2Fcommerce%2Forders&',
+    'translation' => 'Remise: -44%',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Korting: -44%', array(), array('context' => ''));
   $translations['fr:default']['8abd91ae2854199b2c9be6794ef20b47'] = array(
     'source' => 'opmerking',
     'context' => '',
@@ -430,6 +502,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('U heeft afgewerkte maten aangevinkt. Dit betekent dat de maten bij bestelling automatisch aangepast zullen worden naar doorkijkmaten.', array(), array('context' => ''));
+  $translations['fr:default']['c0ff768fc22ea4faffcfb3ee859632ad'] = array(
+    'source' => 'Korting: -35%',
+    'context' => '',
+    'location' => '/fr/admin/commerce/orders/15246/pdf?destination=admin%2Fcommerce%2Forders&',
+    'translation' => 'Remise: -35%',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Korting: -35%', array(), array('context' => ''));
   $translations['fr:default']['c11e09df1574eed40e1f075f5fdd717f'] = array(
     'source' => 'Schuifvliegendeuren Elegance+',
     'context' => '',
@@ -457,6 +538,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Klantennummer (field_klantennummer)', array(), array('context' => ''));
+  $translations['fr:default']['c77407e0035d95b2c8abb90da59b71c4'] = array(
+    'source' => 'Korting: -!pct%',
+    'context' => '',
+    'location' => '/nl/plaatbewerking/bestel',
+    'translation' => 'Remise: -!pct%',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Korting: -!pct%', array(), array('context' => ''));
   $translations['fr:default']['c7c45e4d869a1a2dc18052a7555b6044'] = array(
     'source' => 'bestel',
     'context' => '',
