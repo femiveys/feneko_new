@@ -421,6 +421,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Klanten<wbr>nummer', array(), array('context' => ''));
+  $translations['fr:default']['bfafa6e1bfc6084ca91e50f1fc747973'] = array(
+    'source' => 'U heeft afgewerkte maten aangevinkt. Dit betekent dat de maten bij bestelling automatisch aangepast zullen worden naar doorkijkmaten.',
+    'context' => '',
+    'location' => '/nl/vliegenraam-classic/bestel',
+    'translation' => 'Vous avez coché "mesures finies". Cela signifie que lors de la commande, les mesures seront automatiquement adaptées en mesures jour.',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('U heeft afgewerkte maten aangevinkt. Dit betekent dat de maten bij bestelling automatisch aangepast zullen worden naar doorkijkmaten.', array(), array('context' => ''));
   $translations['fr:default']['c11e09df1574eed40e1f075f5fdd717f'] = array(
     'source' => 'Schuifvliegendeuren Elegance+',
     'context' => '',
