@@ -1367,6 +1367,43 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_text',
   );
 
+  // Exported field_base: 'field_montagebeugel_maat'.
+  $field_bases['field_montagebeugel_maat'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_montagebeugel_maat',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'all' => 'MB1',
+        '35-25' => 'MB2 - 35-25',
+        '45-35' => 'MB2 - 45-35',
+        '55-35' => 'MB2 - 55-35',
+        '55-45' => 'MB2 - 55-45',
+        '75-55' => 'MB2 - 75-55',
+        '100-75' => 'MB2 - 100-75',
+        '140-110' => 'MB2 - 140-110',
+        '200-110' => 'MB2 - 200-110',
+        '260-110' => 'MB2 - 260-110',
+      ),
+      'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_multi_breedte'.
   $field_bases['field_multi_breedte'] = array(
     'active' => 1,
@@ -1691,7 +1728,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'module' => 'commerce_product_reference',
     'settings' => array(
       'entity_translation_sync' => FALSE,
-      'options_list_limit' => '',
+      'options_list_limit' => 99999,
     ),
     'translatable' => 0,
     'type' => 'commerce_product_reference',

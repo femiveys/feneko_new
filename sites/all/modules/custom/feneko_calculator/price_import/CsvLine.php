@@ -41,6 +41,13 @@ class CsvLine {
         $this->line[] = "titel";
         break;
 
+      case 'dorpel_montagebeugels':
+        $this->line[0] = "Maat";
+        $this->line[1] = "MB Type";
+        $this->line[] = "SKU";
+        $this->line[] = "titel";
+        break;
+
       case 'raamtablet_eindstukken':
         $this->line[] = "SKU";
         break;
@@ -122,6 +129,13 @@ class CsvLine {
       case 'plaatbewerking':
       case 'sandwichpanelen_isolatie':
         $this->setColumn('sku')
+             ->setColumn('titel')
+        ;
+        break;
+
+      case 'dorpel_montagebeugels':
+        $this->setColumn('mb_type')
+             ->setColumn('sku')
              ->setColumn('titel')
         ;
         break;
@@ -266,6 +280,12 @@ class CsvLine {
             }
             break;
 
+          case 'dorpel_montagebeugels':
+            if(isset($config['prefix'])) {
+              $this->line[] = $config['prefix'] . $this->line[1] . "-" . $this->line[0] . "-" . $this->line[2];
+            }
+            break;
+
           case 'raamtabletten':
             if(isset($config['prefix'])) {
               $this->line[0] = $config['prefix'] . $this->line[2] . "-" . $this->line[1];
@@ -373,12 +393,20 @@ class CsvLine {
           case 'sandwichpanelen_isolatie':
             $this->line[] = 'Isolatie-' . $this->line[0] . "-" . $this->line[11];
             break;
+
+          case 'dorpel_montagebeugels':
+            $this->line[] = 'Montagebeugel-' . $this->line[1] . "-" . $this->line[0] . "-" . $this->line[2];
+            break;
         }
         break;
 
       case 'utilo_type':
         preg_match ('/^(.*)[0-9]/U', $this->line[$config['sku']], $matches);
         $this->line[] = trim($matches[1]);
+        break;
+
+      case 'mb_type':
+        $this->line[1] = $this->line[0] === 'all' ? 1 : 2;
         break;
 
       case 'platen':

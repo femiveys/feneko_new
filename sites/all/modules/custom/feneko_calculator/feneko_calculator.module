@@ -767,6 +767,13 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
           ),
         );
 
+        // Hide aantal montagebeugels if no montagebeugel has been chosen
+        $form['line_item_fields']['field_beugels']['und'][0]['value']['#states'] = array(
+          'invisible' => array(
+            'select[name="line_item_fields[field_montagebeugel_maat][und]"]' => array('value' => '_none'),
+          ),
+        );
+
         // Add the type images
         $form['dorpel_eindstuk_image_1'] = _fc_get_dorpel_eindstuk_image(1, 'thumbnail');
         $form['dorpel_eindstuk_image_2'] = _fc_get_dorpel_eindstuk_image(2, 'thumbnail');
@@ -806,6 +813,11 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
           break;
       }
 
+      break;
+
+    case 'dorpel_montagebeugel':
+      $options = array('color' => $color, 'change_color_link' => $change_color_link);
+      if(_fc_check_afwerking($form, $form_state, $options) === false) return;
       break;
 
   }
@@ -1131,6 +1143,16 @@ function _fc_add_toebehoren($product_type, $values) {
           }
         }
 
+        // Montagebeugels
+        if(isset($line_item_fields['field_beugels']) && isset($line_item_fields['field_montagebeugel_maat'])) {
+          $maat = $line_item_fields['field_montagebeugel_maat']['und'][0]['value'];
+          $num = $line_item_fields['field_beugels']['und'][0]['value'];
+          if($maat !== '_none' && $num > 0) {
+            $mbType = $maat === 'all' ? 1 : 2;
+            $sku = "MB-$mbType-$maat-$afwerking";
+            _fc_add_by_sku($cart, $sku, $num, 'product');
+          }
+        }
         break;
 
       case 'muurkap':

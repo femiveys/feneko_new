@@ -2137,6 +2137,54 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'commerce_line_item-raamtablet-field_beugels'.
+  $field_instances['commerce_line_item-raamtablet-field_beugels'] = array(
+    'bundle' => 'raamtablet',
+    'commerce_cart_settings' => array(
+      'field_access' => 1,
+    ),
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 16,
+      ),
+    ),
+    'entity_type' => 'commerce_line_item',
+    'field_name' => 'field_beugels',
+    'label' => 'Aantal Montagebeugels',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 16,
+    ),
+  );
+
   // Exported field_instance: 'commerce_line_item-raamtablet-field_eindstukken'.
   $field_instances['commerce_line_item-raamtablet-field_eindstukken'] = array(
     'bundle' => 'raamtablet',
@@ -2366,6 +2414,42 @@ function feneko_calculator_feature_field_default_field_instances() {
       'settings' => array(),
       'type' => 'number',
       'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'commerce_line_item-raamtablet-field_montagebeugel_maat'.
+  $field_instances['commerce_line_item-raamtablet-field_montagebeugel_maat'] = array(
+    'bundle' => 'raamtablet',
+    'commerce_cart_settings' => array(
+      'field_access' => 1,
+    ),
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 15,
+      ),
+    ),
+    'entity_type' => 'commerce_line_item',
+    'field_name' => 'field_montagebeugel_maat',
+    'label' => 'Montagebeugel',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 15,
     ),
   );
 
@@ -4810,6 +4894,277 @@ function feneko_calculator_feature_field_default_field_instances() {
     'entity_type' => 'commerce_product',
     'field_name' => 'field_raamtablet_afwerking',
     'label' => 'Raamtablet Afwerking',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 37,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'commerce_product-dorpel_montagebeugel-commerce_price'.
+  $field_instances['commerce_product-dorpel_montagebeugel-commerce_price'] = array(
+    'bundle' => 'dorpel_montagebeugel',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'commerce_discount_offer_token' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => 'calculated_sell_price',
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+      'commerce_line_item_diff_standard' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => 'calculated_sell_price',
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+      'commerce_line_item_display' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => 'calculated_sell_price',
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+      'commerce_line_item_token' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => 'calculated_sell_price',
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => 'calculated_sell_price',
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+      'diff_standard' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => 'calculated_sell_price',
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => 'calculated_sell_price',
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+      'line_item' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => 'calculated_sell_price',
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+      'node_diff_standard' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => 'calculated_sell_price',
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+      'node_full' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => 'calculated_sell_price',
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+      'node_rss' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => 'calculated_sell_price',
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+      'node_search_index' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => 'calculated_sell_price',
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+      'node_search_result' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => 'calculated_sell_price',
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+      'node_teaser' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => 'calculated_sell_price',
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+      'node_token' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => 'calculated_sell_price',
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+      'token' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_price',
+        'settings' => array(
+          'calculation' => 'calculated_sell_price',
+        ),
+        'type' => 'commerce_price_formatted_amount',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'commerce_product',
+    'field_name' => 'commerce_price',
+    'label' => 'Prijs',
+    'required' => TRUE,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'commerce_price',
+      'settings' => array(
+        'currency_code' => 'default',
+      ),
+      'type' => 'commerce_price_full',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'commerce_product-dorpel_montagebeugel-field_montagebeugel_maat'.
+  $field_instances['commerce_product-dorpel_montagebeugel-field_montagebeugel_maat'] = array(
+    'bundle' => 'dorpel_montagebeugel',
+    'commerce_cart_settings' => array(
+      'attribute_field' => 1,
+      'attribute_widget' => 'select',
+      'attribute_widget_title' => 'Maat',
+    ),
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 3,
+      ),
+      'line_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'commerce_product',
+    'field_name' => 'field_montagebeugel_maat',
+    'label' => 'Montagebeugel Maat',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 39,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'commerce_product-dorpel_montagebeugel-field_standaardprofiel_afwerking'.
+  $field_instances['commerce_product-dorpel_montagebeugel-field_standaardprofiel_afwerking'] = array(
+    'bundle' => 'dorpel_montagebeugel',
+    'commerce_cart_settings' => array(
+      'attribute_field' => 1,
+      'attribute_widget' => 'select',
+      'attribute_widget_title' => 'Afwerking',
+    ),
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 1,
+      ),
+      'line_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'commerce_product',
+    'field_name' => 'field_standaardprofiel_afwerking',
+    'label' => 'Afwerking',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -7554,6 +7909,80 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-dorpel_montagebeugel-field_product'.
+  $field_instances['node-dorpel_montagebeugel-field_product'] = array(
+    'bundle' => 'dorpel_montagebeugel',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_cart',
+        'settings' => array(
+          'combine' => 0,
+          'default_quantity' => 1,
+          'line_item_type' => 'product',
+          'show_quantity' => 1,
+          'show_single_product_attributes' => 0,
+        ),
+        'type' => 'commerce_cart_add_to_cart_form',
+        'weight' => 0,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'commerce_cart',
+        'settings' => array(
+          'combine' => 1,
+          'default_quantity' => 1,
+          'line_item_type' => 'product',
+          'show_quantity' => 1,
+          'show_single_product_attributes' => FALSE,
+        ),
+        'type' => 'commerce_cart_add_to_cart_form',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_product',
+    'label' => 'Product variations',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'field_injection' => 1,
+      'referenceable_types' => array(
+        'dorpel_anti_dreunstrook' => 0,
+        'dorpel_eindstuk' => 0,
+        'dorpel_hoek' => 0,
+        'dorpel_koppelstuk' => 0,
+        'dorpel_montagebeugel' => 'dorpel_montagebeugel',
+        'muurkap' => 0,
+        'muurkap_eindstuk' => 0,
+        'plaatbewerking' => 0,
+        'product' => 0,
+        'raamtablet' => 0,
+        'sandwichpaneel' => 0,
+        'sandwichpaneel_isolatie' => 0,
+        'standaardprofiel' => 0,
+        'unit' => 0,
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 31,
+    ),
+  );
+
   // Exported field_instance: 'node-muurkap-field_product'.
   $field_instances['node-muurkap-field_product'] = array(
     'bundle' => 'muurkap',
@@ -8068,8 +8497,10 @@ function feneko_calculator_feature_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Aantal Anti-Dreunstroken');
+  t('Aantal Montagebeugels');
   t('Aantal beugels');
   t('Aantal koppelstukken');
+  t('Afwerking');
   t('Anti-Dreunstrook');
   t('Base Price');
   t('Body');
@@ -8095,6 +8526,8 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Lengte');
   t('Line items');
   t('Maat');
+  t('Montagebeugel');
+  t('Montagebeugel Maat');
   t('Muurkap Afwerking');
   t('Muurkap Diepte');
   t('Muurkap Lengte');

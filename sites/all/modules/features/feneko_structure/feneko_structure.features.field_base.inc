@@ -808,6 +808,7 @@ function feneko_structure_field_default_field_bases() {
           'dorpel_eindstuk' => 'dorpel_eindstuk',
           'dorpel_hoek' => 'dorpel_hoek',
           'dorpel_koppelstuk' => 'dorpel_koppelstuk',
+          'dorpel_montagebeugel' => 'dorpel_montagebeugel',
           'muurkap' => 'muurkap',
           'muurkap_stuk' => 'muurkap_stuk',
           'page' => 'page',

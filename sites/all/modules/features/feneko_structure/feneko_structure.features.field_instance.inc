@@ -2491,6 +2491,7 @@ function feneko_structure_field_default_field_instances() {
       'settings' => array(
         'fields' => array(),
         'type_settings' => array(
+          'allow_clone' => 0,
           'allow_existing' => 1,
           'allow_new' => 1,
           'delete_references' => 0,
