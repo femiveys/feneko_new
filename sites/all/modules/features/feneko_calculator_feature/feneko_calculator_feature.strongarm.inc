@@ -1530,9 +1530,37 @@ function feneko_calculator_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_extended_muurkap';
+  $strongarm->value = '1';
+  $export['i18n_node_extended_muurkap'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_extended_muurkap_stuk';
+  $strongarm->value = 1;
+  $export['i18n_node_extended_muurkap_stuk'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_extended_plaatbewerking';
+  $strongarm->value = '1';
+  $export['i18n_node_extended_plaatbewerking'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'i18n_node_extended_raamtablet';
   $strongarm->value = '1';
   $export['i18n_node_extended_raamtablet'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_extended_standaardprofiel';
+  $strongarm->value = '1';
+  $export['i18n_node_extended_standaardprofiel'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1565,9 +1593,37 @@ function feneko_calculator_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_options_muurkap';
+  $strongarm->value = array();
+  $export['i18n_node_options_muurkap'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_options_muurkap_stuk';
+  $strongarm->value = array();
+  $export['i18n_node_options_muurkap_stuk'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_options_plaatbewerking';
+  $strongarm->value = array();
+  $export['i18n_node_options_plaatbewerking'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'i18n_node_options_raamtablet';
   $strongarm->value = array();
   $export['i18n_node_options_raamtablet'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_options_standaardprofiel';
+  $strongarm->value = array();
+  $export['i18n_node_options_standaardprofiel'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1608,21 +1664,21 @@ function feneko_calculator_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_muurkap';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_muurkap'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_muurkap_stuk';
-  $strongarm->value = '0';
+  $strongarm->value = '4';
   $export['language_content_type_muurkap_stuk'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_plaatbewerking';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_plaatbewerking'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1643,7 +1699,7 @@ function feneko_calculator_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_standaardprofiel';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_standaardprofiel'] = $strongarm;
 
   $strongarm = new stdClass();
