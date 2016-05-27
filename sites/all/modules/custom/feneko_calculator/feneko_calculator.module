@@ -693,8 +693,10 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
 
       if(_fc_check_afwerking($form, $form_state, $options) === false) return;
 
-      $type = $form_state['input']['attributes']['field_raamtablet_eindstuk_type'];
-      $form['image'] = _fc_get_dorpel_eindstuk_image($type, 300);
+      if(isset($form_state['input']['attributes']['field_raamtablet_eindstuk_type'])) {
+        $type = $form_state['input']['attributes']['field_raamtablet_eindstuk_type'];
+        $form['image'] = _fc_get_dorpel_eindstuk_image($type, 300);
+      }
       break;
 
     case 'dorpel_anti_dreunstrook':
