@@ -776,9 +776,12 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
           ),
         );
 
-        // Add the type images
-        $form['dorpel_eindstuk_image_1'] = _fc_get_dorpel_eindstuk_image(1, 'thumbnail');
-        $form['dorpel_eindstuk_image_2'] = _fc_get_dorpel_eindstuk_image(2, 'thumbnail');
+        // Add the type images if the einstukken field is available
+        $field = $form['line_item_fields']['field_eindstukken']['und'];
+        if(!(isset($field['#access']) && !$field['#access'])) {
+          $form['dorpel_eindstuk_image_1'] = _fc_get_dorpel_eindstuk_image(1, 'thumbnail');
+          $form['dorpel_eindstuk_image_2'] = _fc_get_dorpel_eindstuk_image(2, 'thumbnail');
+        }
       }
 
       break;
