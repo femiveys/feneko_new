@@ -1327,6 +1327,14 @@ function fc_validate_add_to_cart_form($form, &$form_state) {
           form_set_error("line_item_fields][field_multi_breedte", $msg);
           $form_state['rebuild'] = true;
         }
+
+        // Als bij plaatbewerking type Z gekozen wordt, moet de zijde B minimum 17 zijn
+        $min = 17;
+        if($typeBewerking === 'Z' && $line_item['field_multi_breedte']['und'][1]['value'] < $min) {
+          $msg = t('B moet minimum :min zijn bij een Z-profiel', array(':min' => $min));
+          form_set_error("line_item_fields][field_multi_breedte][und][1", $msg);
+          $form_state['rebuild'] = true;
+        }
       }
 
       // Multi Hoek
