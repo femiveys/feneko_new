@@ -260,7 +260,7 @@ function feneko_calculator_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'entity_translation_hide_translation_links_dorpel_montagebeugel';
-  $strongarm->value = 0;
+  $strongarm->value = 1;
   $export['entity_translation_hide_translation_links_dorpel_montagebeugel'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1502,9 +1502,58 @@ function feneko_calculator_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_extended_dorpel_anti_dreunstrook';
+  $strongarm->value = '1';
+  $export['i18n_node_extended_dorpel_anti_dreunstrook'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_extended_dorpel_eindstuk';
+  $strongarm->value = '1';
+  $export['i18n_node_extended_dorpel_eindstuk'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_extended_dorpel_hoek';
+  $strongarm->value = '1';
+  $export['i18n_node_extended_dorpel_hoek'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'i18n_node_extended_dorpel_montagebeugel';
-  $strongarm->value = 1;
+  $strongarm->value = '1';
   $export['i18n_node_extended_dorpel_montagebeugel'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_extended_raamtablet';
+  $strongarm->value = '1';
+  $export['i18n_node_extended_raamtablet'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_options_dorpel_anti_dreunstrook';
+  $strongarm->value = array();
+  $export['i18n_node_options_dorpel_anti_dreunstrook'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_options_dorpel_eindstuk';
+  $strongarm->value = array();
+  $export['i18n_node_options_dorpel_eindstuk'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_options_dorpel_hoek';
+  $strongarm->value = array();
+  $export['i18n_node_options_dorpel_hoek'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1516,36 +1565,43 @@ function feneko_calculator_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_options_raamtablet';
+  $strongarm->value = array();
+  $export['i18n_node_options_raamtablet'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_dorpel_anti_dreunstrook';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_dorpel_anti_dreunstrook'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_dorpel_eindstuk';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_dorpel_eindstuk'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_dorpel_hoek';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_dorpel_hoek'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_dorpel_koppelstuk';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_dorpel_koppelstuk'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_dorpel_montagebeugel';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_dorpel_montagebeugel'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1573,7 +1629,7 @@ function feneko_calculator_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_raamtablet';
-  $strongarm->value = '2';
+  $strongarm->value = '4';
   $export['language_content_type_raamtablet'] = $strongarm;
 
   $strongarm = new stdClass();
