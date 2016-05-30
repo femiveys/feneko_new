@@ -878,25 +878,6 @@ function feneko_views_views_default_views() {
     'title_link' => 'content',
     'title_class' => '',
   );
-  /* Field: Content: Solliciteren tot */
-  $handler->display->display_options['fields']['field_ultimate_date']['id'] = 'field_ultimate_date';
-  $handler->display->display_options['fields']['field_ultimate_date']['table'] = 'field_data_field_ultimate_date';
-  $handler->display->display_options['fields']['field_ultimate_date']['field'] = 'field_ultimate_date';
-  $handler->display->display_options['fields']['field_ultimate_date']['alter']['strip_tags'] = TRUE;
-  $handler->display->display_options['fields']['field_ultimate_date']['alter']['preserve_tags'] = 'div label';
-  $handler->display->display_options['fields']['field_ultimate_date']['element_label_type'] = 'strong';
-  $handler->display->display_options['fields']['field_ultimate_date']['element_wrapper_type'] = 'div';
-  $handler->display->display_options['fields']['field_ultimate_date']['element_wrapper_class'] = 'datum';
-  $handler->display->display_options['fields']['field_ultimate_date']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_ultimate_date']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_ultimate_date']['settings'] = array(
-    'format_type' => 'long',
-    'fromto' => 'both',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_remaining_days' => 0,
-  );
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';

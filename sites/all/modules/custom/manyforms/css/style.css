@@ -34,3 +34,8 @@
 #manyforms-form #edit-kleur input[name=kleur_dep] {
     width: 400px;
 }
+
+#edit-afgewerkte-message {
+    padding-top: 1.5em;
+    margin-bottom: -2em;
+}

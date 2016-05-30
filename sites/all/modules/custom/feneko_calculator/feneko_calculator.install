@@ -77,3 +77,20 @@ function feneko_calculator_update_7005() {
       $rules_config->save();
   }
 }
+
+/**
+ * Disable redundant muurkap and dorpel rules
+ */
+function feneko_calculator_update_7006() {
+  $rules = array(
+    'commerce_discount_rule_discount_global_discount_2400_2800',
+    'commerce_discount_rule_discount_global_discount_2800_3200',
+    'commerce_discount_rule_discount_global_discount_3200_',
+  );
+
+  foreach ($rules as $name) {
+      $rules_config = rules_config_load($name);
+      $rules_config->active = FALSE;
+      $rules_config->save();
+  }
+}

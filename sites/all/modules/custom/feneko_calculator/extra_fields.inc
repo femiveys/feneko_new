@@ -23,6 +23,7 @@ function fc_line_item_details($line_item, $format = 'ra') {
       'field_hoek_type',
       'field_maat',
       'field_raamtablet_diepte',
+      'field_montagebeugel_maat',
     ),
     'commerce_line_item' => array(
       'field_type_bewerking',

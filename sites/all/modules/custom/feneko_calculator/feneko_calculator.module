@@ -249,10 +249,12 @@ function feneko_calculator_mail_alter(&$message) {
     }
 
     // Set the body and apply the replacements
-    // $body = str_replace('{name}', $order->owner->name->value(), $body);
-    // $body = str_replace('{company}', $order->owner->field_naam_bedrijf->value(), $body);
-    // $body = str_replace('{klantennummer}', $order->field_order4->value(), $body);
-    // $body = str_replace('{client_number}', $order->field_order4->value(), $body);
+    $type = $order->field_order_type->value() === 'order' ? t('de bestelling') : t('het offer');
+    $body = str_replace('{id}', $order_id, $body);
+    $body = str_replace('{type}', $type, $body);
+    $body = str_replace('{name}', $order->owner->name->value(), $body);
+    $body = str_replace('{client}', $order->field_client->title->value(), $body);
+    $body = str_replace('{client_number}', $order->field_client->field_client_number->value(), $body);
     $message['body'][0] = $body;
 
     // Attach drawings
@@ -566,13 +568,19 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
 
         // If lengte = 4000: only gaatjes or lasbouten; no haakjes
         if($form['attributes']['field_sandwichpaneel_lengte']['#default_value'] == 4000) {
-          unset($form['line_item_fields']['field_ophanging']['und']['#options']['E']);
-          unset($form['line_item_fields']['field_ophanging']['und']['#options']['D']);
+          // unset($form['line_item_fields']['field_ophanging']['und']['#options']['E']);
+          // unset($form['line_item_fields']['field_ophanging']['und']['#options']['D']);
+          unset($form['line_item_fields']['field_ophanging']['und']['#options']['haakjes']);
         }
 
         // Als dubbel gelakt: Geen lasbouten mogelijk
         if($lakzijde === 'r') {
-          unset($form['line_item_fields']['field_ophanging']['und']['#options']['G']);
+          unset($form['line_item_fields']['field_ophanging']['und']['#options']['lasbouten']);
+        }
+
+        // Als 1.5mm gekozen wordt dan kunnen er nooit lasbouten als ophanging
+        if($form['attributes']['field_plaatbewerking_dikte']['#default_value'] === '1.5mm') {
+          unset($form['line_item_fields']['field_ophanging']['und']['#options']['lasbouten']);
         }
 
         // Disable some fields based on the Type Bewerking
@@ -631,7 +639,7 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
 
       }
 
-      // ophanging wordt ALTIJD ingevuld als de kleur <> Brut/Kleur <> Anodise/ Kleur <> renolit
+      // ophanging wordt ALTIJD ingevuld als de kleur<>Brut / Kleur<>Anodise/ Kleur<>renolit
       if( $color['type']  !== 'brut'
       and $color['type']  !== 'reno'
       and $color['kleur'] !== "ANODISE") {
@@ -686,8 +694,10 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
 
       if(_fc_check_afwerking($form, $form_state, $options) === false) return;
 
-      $type = $form_state['input']['attributes']['field_raamtablet_eindstuk_type'];
-      $form['image'] = _fc_get_dorpel_eindstuk_image($type, 300);
+      if(isset($form_state['input']['attributes']['field_raamtablet_eindstuk_type'])) {
+        $type = $form_state['input']['attributes']['field_raamtablet_eindstuk_type'];
+        $form['image'] = _fc_get_dorpel_eindstuk_image($type, 300);
+      }
       break;
 
     case 'dorpel_anti_dreunstrook':
@@ -760,9 +770,19 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
           ),
         );
 
-        // Add the type images
-        $form['dorpel_eindstuk_image_1'] = _fc_get_dorpel_eindstuk_image(1, 'thumbnail');
-        $form['dorpel_eindstuk_image_2'] = _fc_get_dorpel_eindstuk_image(2, 'thumbnail');
+        // Hide aantal montagebeugels if no montagebeugel has been chosen
+        $form['line_item_fields']['field_beugels']['und'][0]['value']['#states'] = array(
+          'invisible' => array(
+            'select[name="line_item_fields[field_montagebeugel_maat][und]"]' => array('value' => '_none'),
+          ),
+        );
+
+        // Add the type images if the einstukken field is available
+        $field = $form['line_item_fields']['field_eindstukken']['und'];
+        if(!(isset($field['#access']) && !$field['#access'])) {
+          $form['dorpel_eindstuk_image_1'] = _fc_get_dorpel_eindstuk_image(1, 'thumbnail');
+          $form['dorpel_eindstuk_image_2'] = _fc_get_dorpel_eindstuk_image(2, 'thumbnail');
+        }
       }
 
       break;
@@ -799,6 +819,11 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
           break;
       }
 
+      break;
+
+    case 'dorpel_montagebeugel':
+      $options = array('color' => $color, 'change_color_link' => $change_color_link);
+      if(_fc_check_afwerking($form, $form_state, $options) === false) return;
       break;
 
   }
@@ -1124,6 +1149,16 @@ function _fc_add_toebehoren($product_type, $values) {
           }
         }
 
+        // Montagebeugels
+        if(isset($line_item_fields['field_beugels']) && isset($line_item_fields['field_montagebeugel_maat'])) {
+          $maat = $line_item_fields['field_montagebeugel_maat']['und'][0]['value'];
+          $num = $line_item_fields['field_beugels']['und'][0]['value'];
+          if($maat !== '_none' && $num > 0) {
+            $mbType = $maat === 'all' ? 1 : 2;
+            $sku = "MB-$mbType-$maat-$afwerking";
+            _fc_add_by_sku($cart, $sku, $num, 'product');
+          }
+        }
         break;
 
       case 'muurkap':
@@ -1298,6 +1333,14 @@ function fc_validate_add_to_cart_form($form, &$form_state) {
           form_set_error("line_item_fields][field_multi_breedte", $msg);
           $form_state['rebuild'] = true;
         }
+
+        // Als bij plaatbewerking type Z gekozen wordt, moet de zijde B minimum 17 zijn
+        $min = 17;
+        if($typeBewerking === 'Z' && $line_item['field_multi_breedte']['und'][1]['value'] < $min) {
+          $msg = t('B moet minimum :min zijn bij een Z-profiel', array(':min' => $min));
+          form_set_error("line_item_fields][field_multi_breedte][und][1", $msg);
+          $form_state['rebuild'] = true;
+        }
       }
 
       // Multi Hoek
@@ -1339,6 +1382,16 @@ function fc_validate_add_to_cart_form($form, &$form_state) {
               $form_state['rebuild'] = true;
             }
             break;
+        }
+
+        // For plaatbewerking: When ophanging is D, max = 3980, 4000
+        $max = 4000;
+        if($product->type === 'plaatbewerking'
+          && $line_item['field_ophanging']['und'][0]['value'] === 'haakjes'
+          && $line_item['field_lengte']['und'][0]['value'] > $max) {
+              $msg = t('De lengte mag maximaal :max mm zijn met gaatjes.', array(':max' => $max));
+              form_set_error('line_item_fields][field_lengte', $msg);
+              $form_state['rebuild'] = true;
         }
       }
 

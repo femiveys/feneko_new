@@ -829,6 +829,7 @@ class FenekoForm {
     $id = intval($this->getId());
     $key = $uitvoering . $id;
     unset($this->fields['afgewerkte']); // Always discard this field form the form
+    unset($this->fields['afgewerkte_message']); // Always discard this field form the form
 
     switch ($key) {
       case 'enkel1':
@@ -986,7 +987,7 @@ class FenekoForm {
 
     $feneko_mail = variable_get('manyforms_notification_email','olivier@feneko.be');
 
-    $subject = '[Feneko Online] formulier verzonden door ' . $user->name;
+    $subject = "[Feneko Online] formulier ($id) verzonden door " . $user->name;
 
     $feneko_msg = variable_get('manyforms_notification_email_text','');
 
@@ -994,8 +995,10 @@ class FenekoForm {
     $user_msg =  variable_get("manyforms_" . $type . "_email_text",'');
 
     $user_msg   = str_replace('{name}', $user->name, $user_msg);
+    $user_msg   = str_replace('{id}', $id, $user_msg);
     $feneko_msg = str_replace('{name}', $user->name, $feneko_msg);
     $feneko_msg = str_replace('{type}', $type, $feneko_msg);
+    $feneko_msg = str_replace('{id}', $id, $feneko_msg);
 
     if($client->field_block_order_input->value()) {
       $feneko_msg .= "\n\nOPGEPAST KLANT DIENT EERST TE BETALEN, procedure EB volgen.";
@@ -2499,6 +2502,24 @@ class FenekoForm {
           '#type' => 'checkbox',
           '#weight' => $weight,
           '#description' => t('Indien u dit aanvinkt, zullen de maten bij bestelling automatisch aangepast worden naar de doorkijkmaten.'),
+        );
+
+      case 'afgewerkte_message':
+        return array(
+          '#type' => 'container',
+          'wrapper' => array(
+            '#type' => 'container',
+            '#attributes' => array('class' => array('messages', 'warning')),
+            'message' => array(
+              '#markup' => t('U heeft afgewerkte maten aangevinkt. Dit betekent dat de maten bij bestelling automatisch aangepast zullen worden naar doorkijkmaten.'),
+            ),
+          ),
+          '#weight' => $weight,
+          '#states' => array(
+            'visible' => array(
+              'input[name="afgewerkte"]' => array('checked' => true),
+            ),
+          ),
         );
 
       case 'bevestiging':

@@ -42,7 +42,10 @@ function feneko_calculator_feature_default_commerce_discount() {
       ]
     },
     "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
-    "commerce_compatibility_selection" : []
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : []
   }');
   $items['discount_global_discount_1200_16'] = entity_import('commerce_discount', '{
     "name" : "discount_global_discount_1200_16",
@@ -77,7 +80,10 @@ function feneko_calculator_feature_default_commerce_discount() {
       ]
     },
     "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
-    "commerce_compatibility_selection" : []
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : []
   }');
   $items['discount_global_discount_1600_2000'] = entity_import('commerce_discount', '{
     "name" : "discount_global_discount_1600_2000",
@@ -112,7 +118,10 @@ function feneko_calculator_feature_default_commerce_discount() {
       ]
     },
     "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
-    "commerce_compatibility_selection" : []
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : []
   }');
   $items['discount_global_discount_2000_2400'] = entity_import('commerce_discount', '{
     "name" : "discount_global_discount_2000_2400",
@@ -147,7 +156,10 @@ function feneko_calculator_feature_default_commerce_discount() {
       ]
     },
     "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
-    "commerce_compatibility_selection" : []
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : []
   }');
   $items['discount_global_discount_200_400'] = entity_import('commerce_discount', '{
     "name" : "discount_global_discount_200_400",
@@ -182,11 +194,14 @@ function feneko_calculator_feature_default_commerce_discount() {
       ]
     },
     "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
-    "commerce_compatibility_selection" : []
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : []
   }');
-  $items['discount_global_discount_2400_'] = entity_import('commerce_discount', '{
-    "name" : "discount_global_discount_2400_",
-    "label" : "Global discount 2400-",
+  $items['discount_global_discount_2400_2800'] = entity_import('commerce_discount', '{
+    "name" : "discount_global_discount_2400_2800",
+    "label" : "Global discount 2400-2800",
     "type" : "order_discount",
     "status" : "1",
     "component_title" : "Korting: -53%",
@@ -199,8 +214,139 @@ function feneko_calculator_feature_default_commerce_discount() {
         {
           "condition_name" : "commerce_order_compare_order_amount",
           "condition_settings" : {
+            "line_item_types" : {
+              "dorpel_stuk" : "dorpel_stuk",
+              "muurkap" : "muurkap",
+              "muurkap_stuk" : "muurkap_stuk",
+              "plaatbewerking" : "plaatbewerking",
+              "raamtablet" : "raamtablet",
+              "raamtablet_eindstuk" : "raamtablet_eindstuk",
+              "sandwichpaneel" : "sandwichpaneel",
+              "standaardprofiel" : "standaardprofiel",
+              "product" : "product"
+            },
             "operator" : "\\u003E",
             "total" : { "amount" : 240000000, "currency_code" : "EUR" },
+            "condition_logic_operator" : null
+          },
+          "condition_negate" : 0
+        },
+        {
+          "condition_name" : "commerce_order_compare_order_amount",
+          "condition_settings" : {
+            "line_item_types" : {
+              "dorpel_stuk" : "dorpel_stuk",
+              "muurkap" : "muurkap",
+              "muurkap_stuk" : "muurkap_stuk",
+              "plaatbewerking" : "plaatbewerking",
+              "raamtablet" : "raamtablet",
+              "raamtablet_eindstuk" : "raamtablet_eindstuk",
+              "sandwichpaneel" : "sandwichpaneel",
+              "standaardprofiel" : "standaardprofiel",
+              "product" : "product"
+            },
+            "operator" : "\\u003C",
+            "total" : { "amount" : 280000000, "currency_code" : "EUR" }
+          },
+          "condition_negate" : 1,
+          "condition_logic_operator" : "1"
+        }
+      ]
+    },
+    "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : []
+  }');
+  $items['discount_global_discount_2800_3200'] = entity_import('commerce_discount', '{
+    "name" : "discount_global_discount_2800_3200",
+    "label" : "Global discount 2800-3200",
+    "type" : "order_discount",
+    "status" : "1",
+    "component_title" : "Korting: -56%",
+    "sort_order" : "10",
+    "commerce_discount_offer" : {
+      "type" : "percentage",
+      "commerce_percentage" : { "und" : [ { "value" : "56.00" } ] }
+    },
+    "inline_conditions" : { "und" : [
+        {
+          "condition_name" : "commerce_order_compare_order_amount",
+          "condition_settings" : {
+            "line_item_types" : {
+              "dorpel_stuk" : "dorpel_stuk",
+              "muurkap" : "muurkap",
+              "muurkap_stuk" : "muurkap_stuk",
+              "plaatbewerking" : "plaatbewerking",
+              "raamtablet" : "raamtablet",
+              "raamtablet_eindstuk" : "raamtablet_eindstuk",
+              "sandwichpaneel" : "sandwichpaneel",
+              "standaardprofiel" : "standaardprofiel",
+              "product" : "product"
+            },
+            "operator" : "\\u003E",
+            "total" : { "amount" : 280000000, "currency_code" : "EUR" },
+            "condition_logic_operator" : null
+          },
+          "condition_negate" : 0
+        },
+        {
+          "condition_name" : "commerce_order_compare_order_amount",
+          "condition_settings" : {
+            "line_item_types" : {
+              "dorpel_stuk" : "dorpel_stuk",
+              "muurkap" : "muurkap",
+              "muurkap_stuk" : "muurkap_stuk",
+              "plaatbewerking" : "plaatbewerking",
+              "raamtablet" : "raamtablet",
+              "raamtablet_eindstuk" : "raamtablet_eindstuk",
+              "sandwichpaneel" : "sandwichpaneel",
+              "standaardprofiel" : "standaardprofiel",
+              "product" : "product"
+            },
+            "operator" : "\\u003C",
+            "total" : { "amount" : 320000000, "currency_code" : "EUR" }
+          },
+          "condition_negate" : 1,
+          "condition_logic_operator" : "1"
+        }
+      ]
+    },
+    "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : []
+  }');
+  $items['discount_global_discount_3200_'] = entity_import('commerce_discount', '{
+    "name" : "discount_global_discount_3200_",
+    "label" : "Global discount 3200-",
+    "type" : "order_discount",
+    "status" : "1",
+    "component_title" : "Korting: -59%",
+    "sort_order" : "10",
+    "commerce_discount_offer" : {
+      "type" : "percentage",
+      "commerce_percentage" : { "und" : [ { "value" : "59.00" } ] }
+    },
+    "inline_conditions" : { "und" : [
+        {
+          "condition_name" : "commerce_order_compare_order_amount",
+          "condition_settings" : {
+            "line_item_types" : {
+              "dorpel_stuk" : "dorpel_stuk",
+              "muurkap" : "muurkap",
+              "muurkap_stuk" : "muurkap_stuk",
+              "plaatbewerking" : "plaatbewerking",
+              "raamtablet" : "raamtablet",
+              "raamtablet_eindstuk" : "raamtablet_eindstuk",
+              "sandwichpaneel" : "sandwichpaneel",
+              "standaardprofiel" : "standaardprofiel",
+              "product" : "product"
+            },
+            "operator" : "\\u003E",
+            "total" : { "amount" : 320000000, "currency_code" : "EUR" },
             "condition_logic_operator" : null
           },
           "condition_negate" : 0
@@ -208,7 +354,10 @@ function feneko_calculator_feature_default_commerce_discount() {
       ]
     },
     "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
-    "commerce_compatibility_selection" : []
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : []
   }');
   $items['discount_global_discount_400_800'] = entity_import('commerce_discount', '{
     "name" : "discount_global_discount_400_800",
@@ -243,7 +392,10 @@ function feneko_calculator_feature_default_commerce_discount() {
       ]
     },
     "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
-    "commerce_compatibility_selection" : []
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : []
   }');
   $items['discount_global_discount_800_120'] = entity_import('commerce_discount', '{
     "name" : "discount_global_discount_800_120",
@@ -278,7 +430,10 @@ function feneko_calculator_feature_default_commerce_discount() {
       ]
     },
     "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
-    "commerce_compatibility_selection" : []
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : []
   }');
   return $items;
 }
@@ -358,35 +513,42 @@ function feneko_calculator_feature_commerce_product_default_types() {
       'name' => 'Dorpel Anti-Dreunstrook',
       'description' => '',
       'help' => '',
-      'revision' => 1,
+      'revision' => 0,
     ),
     'dorpel_eindstuk' => array(
       'type' => 'dorpel_eindstuk',
       'name' => 'Dorpel Eindstuk',
       'description' => '',
       'help' => '',
-      'revision' => 1,
+      'revision' => 0,
     ),
     'dorpel_hoek' => array(
       'type' => 'dorpel_hoek',
       'name' => 'Dorpel Hoek',
       'description' => '',
       'help' => '',
-      'revision' => 1,
+      'revision' => 0,
     ),
     'dorpel_koppelstuk' => array(
       'type' => 'dorpel_koppelstuk',
       'name' => 'Dorpel Koppelstuk',
       'description' => '',
       'help' => '',
-      'revision' => 1,
+      'revision' => 0,
+    ),
+    'dorpel_montagebeugel' => array(
+      'type' => 'dorpel_montagebeugel',
+      'name' => 'Dorpel Montagebeugel',
+      'description' => '',
+      'help' => '',
+      'revision' => 0,
     ),
     'muurkap' => array(
       'type' => 'muurkap',
       'name' => 'Muurkap',
       'description' => '',
       'help' => '',
-      'revision' => 1,
+      'revision' => 0,
     ),
     'muurkap_eindstuk' => array(
       'type' => 'muurkap_eindstuk',
@@ -400,7 +562,7 @@ function feneko_calculator_feature_commerce_product_default_types() {
       'name' => 'Plaatbewerking',
       'description' => '',
       'help' => '',
-      'revision' => 1,
+      'revision' => 0,
     ),
     'raamtablet' => array(
       'type' => 'raamtablet',
@@ -421,7 +583,7 @@ function feneko_calculator_feature_commerce_product_default_types() {
       'name' => 'Sandwichpaneel Isolatie',
       'description' => '',
       'help' => '',
-      'revision' => 1,
+      'revision' => 0,
     ),
     'standaardprofiel' => array(
       'type' => 'standaardprofiel',
@@ -435,7 +597,7 @@ function feneko_calculator_feature_commerce_product_default_types() {
       'name' => 'Unit',
       'description' => '',
       'help' => '',
-      'revision' => 1,
+      'revision' => 0,
     ),
   );
   return $items;
@@ -498,6 +660,14 @@ function feneko_calculator_feature_node_info() {
       'description' => '',
       'has_title' => '1',
       'title_label' => t('Titel'),
+      'help' => '',
+    ),
+    'dorpel_montagebeugel' => array(
+      'name' => t('Dorpel Montagebeugel'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
       'help' => '',
     ),
     'muurkap' => array(

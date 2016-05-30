@@ -107,7 +107,7 @@ if($teaser) array_push($classes,"product-teaser", "teaser-rij");
           global $language_content;
           $lang = $language_content->language;
           $flipperUrl = "/$lang/catalog/$product_grandparent/flipper";
-          $pdfUrl = "/sites/default/files/pdfs/screens_$lang.pdf";
+          $pdfUrl = "/sites/default/files/pdfs/$product_grandparent" . "_$lang.pdf";
           $catName = t('Catalog');
         ?>
         <div class="field-name-field-orderable-products">
@@ -115,8 +115,11 @@ if($teaser) array_push($classes,"product-teaser", "teaser-rij");
           <?php print render($content['field_orderable_products']); ?>
         </div>
         <div class="catalog">
+<!--
           <a class="hide-mobile" href="<?php print $flipperUrl; ?>" target="_blank"><?php print $catName; ?></a>
           <a class="hide-desk" href="<?php print $pdfUrl; ?>" target="_blank"><?php print $catName; ?></a>
+ -->
+          <a href="<?php print $pdfUrl; ?>" target="_blank"><?php print $catName; ?></a>
         </div>
       <?php endif; ?>
       <div class="open-img">

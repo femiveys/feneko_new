@@ -2223,7 +2223,7 @@ form.commerce-add-to-cart label {
   padding-top: 30px;
 }
 #manyforms-form #edit-actions a {
-  display: block;
+  display: inline-block;
   padding-top: 5px;
 }
 #manyforms-form #edit-actions input[type=submit] {
