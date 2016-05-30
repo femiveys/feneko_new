@@ -2509,7 +2509,7 @@ class FenekoForm {
           '#type' => 'container',
           'wrapper' => array(
             '#type' => 'container',
-            '#attributes' => array('class' => array('messages', 'error')),
+            '#attributes' => array('class' => array('messages', 'warning')),
             'message' => array(
               '#markup' => t('U heeft afgewerkte maten aangevinkt. Dit betekent dat de maten bij bestelling automatisch aangepast zullen worden naar doorkijkmaten.'),
             ),
