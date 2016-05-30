@@ -371,14 +371,14 @@ function feneko_code_orders_form_submit($form, &$form_state) {
     $form_state['rebuild'] = TRUE;
 
     // If the reset button has been clicked, we need to reset the input values
-    // and the the values values
+    // and the the values
     if($form_state['clicked_button']['#parents'][2] === 'reset') {
       $form_state['values']['filter']['ref'] = '';
       $form_state['input']['filter']['ref'] = '';
-      $form_state['values']['filter']['lever_from']['date'] = '';
-      $form_state['input']['filter']['lever_from']['date'] = '';
-      $form_state['values']['filter']['lever_to']['date'] = '';
-      $form_state['input']['filter']['lever_to']['date'] = '';
+      // $form_state['values']['filter']['lever_from']['date'] = '';
+      // $form_state['input']['filter']['lever_from']['date'] = '';
+      // $form_state['values']['filter']['lever_to']['date'] = '';
+      // $form_state['input']['filter']['lever_to']['date'] = '';
     }
   }
 }
