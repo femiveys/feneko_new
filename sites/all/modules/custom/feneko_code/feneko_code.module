@@ -148,7 +148,7 @@ function feneko_code_get_clients_options($idKeys = false) {
         }
       } else {
         $clients = $wrapper->field_clients->value();
-      
+
 }
       // Build the options array
       foreach ($clients as $client) {
@@ -184,6 +184,8 @@ function feneko_code_get_client_by_number($number) {
   if (isset($result['node'])) {
     $nids = array_keys($result['node']);
     $clients = entity_load('node', $nids);
+  } else {
+    $clients = array();
   }
 
   switch (count($clients)) {

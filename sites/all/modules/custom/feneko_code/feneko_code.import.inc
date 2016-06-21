@@ -231,10 +231,12 @@ function _feneko_code_csv_import($filename, $values) {
         break;
 
       case 'blocked':
-        $client = feneko_code_get_client_by_number($data[0]);
-        $client->field_block_order_input->set(strtr(strtoupper($data[1]), $mapping));
-        $wrapper->save();
-        $num_updated++;
+        if($client = feneko_code_get_client_by_number($data[0])) {
+          $client->field_block_order_input->set(strtr(strtoupper($data[1]), $mapping));
+          $client->save();
+          $num_updated++;
+        }
+
         break;
 
       case FENEKO_CODE_ORDER_STATUSES_TABLE:
