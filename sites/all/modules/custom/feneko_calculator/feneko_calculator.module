@@ -706,6 +706,10 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
 
     case 'raamtablet':
     case 'muurkap':
+// dpm($form);
+
+// unset($form['line_item_fields']['field_eindstukken']);
+
       // Make sure the afwerking is set correctly
       $options = array('color' => $color, 'change_color_link' => $change_color_link);
       if(_fc_check_afwerking($form, $form_state, $options) === false) return;
@@ -728,10 +732,10 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
       $mapping = fc_get_multi_field_mapping($muurkap_type);
 
       foreach ($mapping as $name => $values) {
-        $field = &$form['line_item_fields'][$name]['und'];
+        // $field = &$form['line_item_fields'][$name]['und'];
         if($product->type === 'raamtablet' and $color['type'] === 'reno') {
           // Hide the whole field for renolit raamtabletten
-          $field['#access'] = false;
+          $form['line_item_fields'][$name]['und']['#access'] = false;
         } else {
           // Hide main title
           // $field['#title_display'] = 'invisible';
@@ -740,18 +744,18 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
           foreach ($values as $i => $title) {
             // NULL titles have to be hidden and the value has to be reset
             if(is_null($title)) {
-              $field[$i]['value']['#default_value'] = 0;
-              $field[$i]['value']['#disabled'] = TRUE;
+              $form['line_item_fields'][$name]['und'][$i]['value']['#default_value'] = 0;
+              $form['line_item_fields'][$name]['und'][$i]['value']['#disabled'] = TRUE;
             } else {
               // $field[$i]['value']['#ajax'] = $ajax;
-              $field[$i]['value']['#title'] = $title;
-              $field[$i]['#nodrag'] = TRUE;
+              $form['line_item_fields'][$name]['und'][$i]['value']['#title'] = $title;
+              $form['line_item_fields'][$name]['und'][$i]['#nodrag'] = TRUE;
             }
 
             // Set default values on page load
             if(isset($form_state['process_input']) && $form_state['process_input']) {
             } else {
-              $field[$i]['value']['#default_value'] = 0;
+              $form['line_item_fields'][$name]['und'][$i]['value']['#default_value'] = 0;
             }
           }
         }
