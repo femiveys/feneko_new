@@ -53,30 +53,6 @@ function smtp_menu() {
     'description'      => 'Allow for site emails to be sent through an SMTP server of your choice.',
     'file'             => 'smtp.admin.inc',
   );
-  $items['admin/config/system/smtp/provider/add'] = array(
-    'title'            => 'SMTP Provider',
-    'page callback'    => 'drupal_get_form',
-    'page arguments'   => array('smtp_admin_provider_settings'),
-    'access arguments' => array('administer smtp module'),
-    'description'      => 'Edition page for SMTP providers.',
-    'file'             => 'smtp.admin.inc',
-  );
-  $items['admin/config/system/smtp/provider/%/edit'] = array(
-    'title'            => 'SMTP Provider',
-    'page callback'    => 'drupal_get_form',
-    'page arguments'   => array('smtp_admin_provider_settings', 5),
-    'access arguments' => array('administer smtp module'),
-    'description'      => 'Edition page for SMTP providers.',
-    'file'             => 'smtp.admin.inc',
-  );
-  $items['admin/config/system/smtp/provider/%/delete'] = array(
-    'title'            => 'Delete SMTP provider',
-    'page callback'    => 'drupal_get_form',
-    'page arguments'   => array('smtp_admin_provider_delete', 5),
-    'access arguments' => array('administer smtp module'),
-    'description'      => 'Edition page for SMTP providers.',
-    'file'             => 'smtp.admin.inc',
-  );
   return $items;
 }
 
@@ -151,9 +127,24 @@ function smtp_send_queue_runner($message) {
     watchdog('smtp', 'Sending mail to: @to', array('@to' => $message['to']));
   }
 
-  // Send the message.
   $mail_system = new SmtpMailSystem();
-  $mail_system->mailWithoutQueue($message);
+  if (!$mail_system->mailWithoutQueue($message)) {
+    $params = array(
+      '@from' => $message['from'],
+      '@to' => $message['to'],
+      '!error_message' => $mailer->ErrorInfo,
+    );
+
+    if (variable_get('smtp_queue_fail', FALSE)) {
+      if ($logging == SMTP_LOGGING_ALL || $logging == SMTP_LOGGING_ERRORS) {
+        watchdog('smtp', 'Error sending e-mail from @from to @to, will retry on cron run : !error_message.', $params, WATCHDOG_ERROR);
+      }
+      smtp_failed_messages($message);
+    }
+    elseif ($logging == SMTP_LOGGING_ALL || $logging == SMTP_LOGGING_ERRORS) {
+      watchdog('smtp', 'Error sending e-mail from @from to @to : !error_message', $params, WATCHDOG_ERROR);
+    }
+  }
 }
 
 /**
@@ -167,58 +158,6 @@ function smtp_send_queue_runner($message) {
 function smtp_failed_messages($message) {
   $queue = DrupalQueue::get('smtp_failure_queue');
   $queue->createItem($message);
-}
-
-/**
- * Get the variable value of the enabled provider
- *
- * @param string $name
- *   The name of the variable to return.
- * @param $default
- *   The default value to use if this variable has never been set.
- *
- * @return
- *   The value of the variable. Unserialization is taken care of as necessary.
- */
-function smtp_provider_variable_get($name, $default = NULL) {
-  $providers = variable_get('smtp_providers', array());
-  $current_provider = smtp_current_provider();
-
-  return isset($providers[$current_provider][$name]) ? $providers[$current_provider][$name] : $default;
-}
-
-/**
- * Auxiliar function that retrieves the current SMTP provider.
- * It can be used in other places of the code to force a provider,
- * using the $provider param.
- *
- * @param string $provider
- *   The machine name of the provider to be used on this code execution.
- *   Be aware that this parameter only changes the provider on drupal_static
- *   time, so if you need to change the default provider on all requests, please
- *   use the administration interface.
- *
- * @return
- *   The machine name of the current provider.
- */
-function smtp_current_provider($provider = NULL) {
-  static $drupal_static;
-  if (!isset($drupal_static)) {
-    $drupal_static = &drupal_static(__FUNCTION__);
-  }
-
-  $current_provider = &$drupal_static;
-
-  if (isset($provider)) {
-    $current_provider = $provider;
-  }
-  elseif (!isset($current_provider)) {
-    // The default fallback is the default provider
-    $default_provider = variable_get('smtp_default_provider', '');
-    $current_provider = $default_provider;
-  }
-
-  return $current_provider;
 }
 
 /**
@@ -242,15 +181,11 @@ function smtp_failure_queue_runner($message) {
  * @param array $options
  */
 function smtp_variable_info($options) {
-  // Create a new variable for each provider
-  $variable = array();
-  foreach (variable_get('smtp_providers', array()) as $provider_name => $value) {
-    $variable['smtp_fromname_' . $provider_name] = array (
-      'title' => t('Email from name for provider :provider_name (SMTP module)', array(':provider_name' => $provider_name)),
-      'type' => 'string',
-      'group' => 'smtp',
-    );
-  }
+  $variable['smtp_fromname'] = array (
+    'title' => t('Email from name (SMTP module)'),
+    'type' => 'string',
+    'group' => 'smtp',
+  );
 
   return $variable;
 }
