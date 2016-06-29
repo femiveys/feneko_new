@@ -116,6 +116,55 @@ function feneko_account_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'smtp_default_provider';
+  $strongarm->value = 'sendgrid';
+  $export['smtp_default_provider'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smtp_on';
+  $strongarm->value = 0;
+  $export['smtp_on'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smtp_previous_mail_system';
+  $strongarm->value = 'MimeMailSystem';
+  $export['smtp_previous_mail_system'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smtp_providers';
+  $strongarm->value = array(
+    'sendgrid' => array(
+      'name' => 'SendGrid',
+      'machine_name' => 'sendgrid',
+      'smtp_host' => 'smtp.sendgrid.net',
+      'smtp_hostbackup' => '',
+      'smtp_port' => '587',
+      'smtp_protocol' => 'standard',
+      'smtp_username' => 'feneko',
+      'smtp_password' => 'feneko23*',
+      'smtp_from' => '',
+      'smtp_fromname' => '',
+      'smtp_allowhtml' => 1,
+    ),
+  );
+  $export['smtp_providers'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smtp_reroute_address';
+  $strongarm->value = '';
+  $export['smtp_reroute_address'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'user_admin_role';
   $strongarm->value = '3';
   $export['user_admin_role'] = $strongarm;
