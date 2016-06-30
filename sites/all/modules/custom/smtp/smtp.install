@@ -122,47 +122,10 @@ function smtp_update_7102() {
 }
 
 /**
- * Set the current smtp server into a 'default' provider
- */
-function smtp_update_7103() {
-  $smtp_providers = array();
-  $smtp_providers['default'] = array(
-    'machine_name' => 'default',
-  );
-
-  $smtp_fields = array(
-    'smtp_host' => '',
-    'smtp_hostbackup' => '',
-    'smtp_port' => '25',
-    'smtp_protocol' => 'standard',
-    'smtp_username' => '',
-    'smtp_password' => '',
-    'smtp_from' => '',
-    'smtp_fromname' => '',
-    'smtp_allowhtml' => '',
-  );
-
-  foreach ($smtp_fields as $field => $default_value) {
-    // If the field is set, remove it. If not, use the default value
-    $value = variable_get($field, FALSE);
-    if ($value) {
-      variable_del($field);
-    }
-    else {
-      $value = $default_value;
-    }
-    $smtp_providers['default'][$field] = $value;
-  }
-  variable_set('smtp_providers', $smtp_providers);
-
-  variable_set('smtp_default_provider', 'default');
-}
-
-/**
  * Delete the variable "smtp_test_address". It is unlikely that this would
  * actually be set in the normal course of events, and it's no longer needed as
  * it was replaced with a form submit handler.
  */
-function smtp_update_7104() {
+function smtp_update_7103() {
   variable_del('smtp_test_address');
 }

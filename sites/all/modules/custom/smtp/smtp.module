@@ -53,30 +53,6 @@ function smtp_menu() {
     'description'      => 'Allow for site emails to be sent through an SMTP server of your choice.',
     'file'             => 'smtp.admin.inc',
   );
-  $items['admin/config/system/smtp/provider/add'] = array(
-    'title'            => 'SMTP Provider',
-    'page callback'    => 'drupal_get_form',
-    'page arguments'   => array('smtp_admin_provider_settings'),
-    'access arguments' => array('administer smtp module'),
-    'description'      => 'Edition page for SMTP providers.',
-    'file'             => 'smtp.admin.inc',
-  );
-  $items['admin/config/system/smtp/provider/%/edit'] = array(
-    'title'            => 'SMTP Provider',
-    'page callback'    => 'drupal_get_form',
-    'page arguments'   => array('smtp_admin_provider_settings', 5),
-    'access arguments' => array('administer smtp module'),
-    'description'      => 'Edition page for SMTP providers.',
-    'file'             => 'smtp.admin.inc',
-  );
-  $items['admin/config/system/smtp/provider/%/delete'] = array(
-    'title'            => 'Delete SMTP provider',
-    'page callback'    => 'drupal_get_form',
-    'page arguments'   => array('smtp_admin_provider_delete', 5),
-    'access arguments' => array('administer smtp module'),
-    'description'      => 'Edition page for SMTP providers.',
-    'file'             => 'smtp.admin.inc',
-  );
   return $items;
 }
 
@@ -170,58 +146,6 @@ function smtp_failed_messages($message) {
 }
 
 /**
- * Get the variable value of the enabled provider
- *
- * @param string $name
- *   The name of the variable to return.
- * @param $default
- *   The default value to use if this variable has never been set.
- *
- * @return
- *   The value of the variable. Unserialization is taken care of as necessary.
- */
-function smtp_provider_variable_get($name, $default = NULL) {
-  $providers = variable_get('smtp_providers', array());
-  $current_provider = smtp_current_provider();
-
-  return isset($providers[$current_provider][$name]) ? $providers[$current_provider][$name] : $default;
-}
-
-/**
- * Auxiliar function that retrieves the current SMTP provider.
- * It can be used in other places of the code to force a provider,
- * using the $provider param.
- *
- * @param string $provider
- *   The machine name of the provider to be used on this code execution.
- *   Be aware that this parameter only changes the provider on drupal_static
- *   time, so if you need to change the default provider on all requests, please
- *   use the administration interface.
- *
- * @return
- *   The machine name of the current provider.
- */
-function smtp_current_provider($provider = NULL) {
-  static $drupal_static;
-  if (!isset($drupal_static)) {
-    $drupal_static = &drupal_static(__FUNCTION__);
-  }
-
-  $current_provider = &$drupal_static;
-
-  if (isset($provider)) {
-    $current_provider = $provider;
-  }
-  elseif (!isset($current_provider)) {
-    // The default fallback is the default provider
-    $default_provider = variable_get('smtp_default_provider', '');
-    $current_provider = $default_provider;
-  }
-
-  return $current_provider;
-}
-
-/**
  * Queue runner for smtp_failure_queue.
  *
  * @param $message
@@ -230,27 +154,4 @@ function smtp_current_provider($provider = NULL) {
 function smtp_failure_queue_runner($message) {
   $queue = DrupalQueue::get('smtp_send_queue');
   $queue->createItem($message);
-}
-
-/**
- * Implements hook_variable_info().
- *
- * Allows for the SMTP from name to be translated
- * if/when the Variable module is enabled.
- *
- * @link http://api.drupalhelp.net/api/variable/variable.api.php/function/hook_variable_info/7
- * @param array $options
- */
-function smtp_variable_info($options) {
-  // Create a new variable for each provider
-  $variable = array();
-  foreach (variable_get('smtp_providers', array()) as $provider_name => $value) {
-    $variable['smtp_fromname_' . $provider_name] = array (
-      'title' => t('Email from name for provider :provider_name (SMTP module)', array(':provider_name' => $provider_name)),
-      'type' => 'string',
-      'group' => 'smtp',
-    );
-  }
-
-  return $variable;
 }
