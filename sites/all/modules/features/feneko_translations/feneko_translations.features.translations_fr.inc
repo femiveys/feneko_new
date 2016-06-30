@@ -700,15 +700,6 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Ja', array(), array('context' => 'field_gaatjes_rug:#allowed_values:1'));
-  $translations['fr:field']['1c54a6a124fad27d45e37ae53801218a'] = array(
-    'source' => 'Naam',
-    'context' => 'field_naam:contact:label',
-    'location' => 'field:field_naam:contact:label',
-    'translation' => 'Nom',
-    'plid' => 0,
-    'plural' => 0,
-  );
-  $translatables[] = t('Naam', array(), array('context' => 'field_naam:contact:label'));
   $translations['fr:field']['22f5160682267b7851449c43593a07b7'] = array(
     'source' => 'Wij bieden',
     'context' => 'field_offering:vacature:label',
@@ -727,15 +718,6 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Muurkap Type', array(), array('context' => 'field_muurkap_type:muurkap_eindstuk:label'));
-  $translations['fr:field']['2edbc23e387b743c32b68e7a81d83319'] = array(
-    'source' => 'Uw vraag',
-    'context' => 'field_uw_vraag:contact:label',
-    'location' => 'field:field_uw_vraag:contact:label',
-    'translation' => 'Votre question',
-    'plid' => 0,
-    'plural' => 0,
-  );
-  $translatables[] = t('Uw vraag', array(), array('context' => 'field_uw_vraag:contact:label'));
   $translations['fr:field']['4faa6cf618e5f66d7026464eca31367a'] = array(
     'source' => 'Muurkap Type',
     'context' => 'field_muurkap_type:muurkap_eindstuk:attribute_widget_title',
@@ -790,15 +772,6 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Solliciteren tot', array(), array('context' => 'field_ultimate_date:vacature:label'));
-  $translations['fr:field']['81730bea484e5b05f2ccd84c3d97ed5f'] = array(
-    'source' => 'Naam',
-    'context' => 'field_naam:solliciteer:label',
-    'location' => 'field:field_naam:solliciteer:label',
-    'translation' => 'Nom',
-    'plid' => 0,
-    'plural' => 0,
-  );
-  $translatables[] = t('Naam', array(), array('context' => 'field_naam:solliciteer:label'));
   $translations['fr:field']['9f7c2619b73ab3fae7fd366260639126'] = array(
     'source' => 'Nee',
     'context' => 'field_gaatjes_rug:#allowed_values:0',
@@ -817,15 +790,6 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Haakjes', array(), array('context' => 'field_ophanging:#allowed_values:haakjes'));
-  $translations['fr:field']['ba7257ef766f897aafbd4a7ae0901112'] = array(
-    'source' => 'Gewenste functie',
-    'context' => 'field_gewenste_functie:solliciteer:label',
-    'location' => 'field:field_gewenste_functie:solliciteer:label',
-    'translation' => 'Fonction désirée',
-    'plid' => 0,
-    'plural' => 0,
-  );
-  $translatables[] = t('Gewenste functie', array(), array('context' => 'field_gewenste_functie:solliciteer:label'));
   $translations['fr:field']['c48d24e60835b807834d575ab9046a32'] = array(
     'source' => 'Ja',
     'context' => 'field_geblokkeerd:#allowed_values:1',
@@ -871,15 +835,6 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Offerte', array(), array('context' => 'field_order_type:#allowed_values:offer'));
-  $translations['fr:field']['e5d842ed6aee41e86c9ed8ffcdfd4553'] = array(
-    'source' => 'Motivatie',
-    'context' => 'field_motivatie:solliciteer:label',
-    'location' => 'field:field_motivatie:solliciteer:label',
-    'translation' => 'Motivation',
-    'plid' => 0,
-    'plural' => 0,
-  );
-  $translatables[] = t('Motivatie', array(), array('context' => 'field_motivatie:solliciteer:label'));
   $translations['fr:field']['eceb4edec30124b435533645a28362f2'] = array(
     'source' => 'Muurkap Diepte',
     'context' => 'field_muurkap_diepte:muurkap_eindstuk:attribute_widget_title',

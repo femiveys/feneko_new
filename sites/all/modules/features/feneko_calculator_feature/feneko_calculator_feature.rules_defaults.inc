@@ -38,8 +38,7 @@ function feneko_calculator_feature_default_rules_configuration() {
       "REQUIRES" : [ "rules", "commerce_checkout" ],
       "ON" : { "commerce_checkout_complete" : [] },
       "IF" : [
-        { "entity_has_field" : { "entity" : [ "commerce-order" ], "field" : "field_order_type" } },
-        { "data_is" : { "data" : [ "commerce-order:field-order-type" ], "value" : "order" } }
+        { "entity_has_field" : { "entity" : [ "commerce-order" ], "field" : "field_order_type" } }
       ],
       "DO" : [
         { "mail" : {
