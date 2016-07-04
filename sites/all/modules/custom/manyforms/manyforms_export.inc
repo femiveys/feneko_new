@@ -8,7 +8,7 @@ function manyforms_export_form($form, &$form_state) {
   $options = array();
   $page_size = 200;
 
-  $filters = array('type', 'user', 'client', 'ref');
+  $filters = array('id', 'type', 'user', 'client', 'ref');
 
   $only_exported = $form_state['build_info']['args'][0];
 
