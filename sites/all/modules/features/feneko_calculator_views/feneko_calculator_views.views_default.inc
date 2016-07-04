@@ -760,11 +760,19 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['type']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['label'] = 'Bestellingstype';
+  /* Field: Commerce Order: Referentie */
+  $handler->display->display_options['fields']['field_reference']['id'] = 'field_reference';
+  $handler->display->display_options['fields']['field_reference']['table'] = 'field_data_field_reference';
+  $handler->display->display_options['fields']['field_reference']['field'] = 'field_reference';
+  $handler->display->display_options['fields']['field_reference']['exclude'] = TRUE;
   /* Field: Commerce Order: Klant */
   $handler->display->display_options['fields']['field_client']['id'] = 'field_client';
   $handler->display->display_options['fields']['field_client']['table'] = 'field_data_field_client';
   $handler->display->display_options['fields']['field_client']['field'] = 'field_client';
   $handler->display->display_options['fields']['field_client']['label'] = 'Client';
+  $handler->display->display_options['fields']['field_client']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_client']['alter']['text'] = '[field_client]<br>
+[field_reference]';
   $handler->display->display_options['fields']['field_client']['settings'] = array(
     'link' => 1,
   );
