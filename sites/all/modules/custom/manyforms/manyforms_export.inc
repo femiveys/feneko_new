@@ -18,6 +18,10 @@ function manyforms_export_form($form, &$form_state) {
 
   // The header defines the order of the columns
   $header = array(
+    'id' => array(
+      'data' => t('ID'),
+      'field' => 'id',
+    ),
     'name' => array(
       'data' => t('Name'),
       'field' => 'form_id',
@@ -156,6 +160,7 @@ function manyforms_export_form($form, &$form_state) {
     );
 
     $options[$key] = array(
+      'id'       => $row->id,
       'name'     => $row->title,
       'client'   => $row->klant,
       'ref'      => $row->referentie,
