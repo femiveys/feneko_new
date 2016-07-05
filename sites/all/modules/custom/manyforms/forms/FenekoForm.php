@@ -60,6 +60,12 @@ class FenekoForm {
       }
     }
 
+    // Add client number to users with appropriate flag
+    $user = entity_metadata_wrapper('user', $fields['uid']);
+    if($user->field_add_client_number->value()) {
+      $fields['referentie'] .= ' (' . $fields['klant'] . ')';
+    }
+
     $dbID = db_insert("manyforms_$id")->fields($fields)->execute();
 
     $type = $values['kies_een_optie'];
