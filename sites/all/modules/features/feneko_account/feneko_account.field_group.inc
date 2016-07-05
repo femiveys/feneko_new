@@ -28,6 +28,7 @@ function feneko_account_field_group_info() {
       2 => 'timezone',
       3 => 'overlay_control',
       4 => 'locale',
+      5 => 'field_add_client_number',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
