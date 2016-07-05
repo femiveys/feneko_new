@@ -407,7 +407,6 @@ function feneko_calculator_commerce_checkout_complete($order) {
     $reference = $orderWrapper->field_reference->value()
                . ' (' . $orderWrapper->field_client->field_client_number->value()  . ')';
     $orderWrapper->field_reference->set($reference);
-    dpm($reference);
   }
 }
 
