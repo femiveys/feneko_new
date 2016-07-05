@@ -682,6 +682,44 @@ function feneko_account_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'user-user-field_add_client_number'.
+  $field_instances['user-user-field_add_client_number'] = array(
+    'bundle' => 'user',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_add_client_number',
+    'label' => 'Klantennummer toevoegen aan referentie',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => 0,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 51,
+    ),
+  );
+
   // Exported field_instance: 'user-user-field_clients'.
   $field_instances['user-user-field_clients'] = array(
     'bundle' => 'user',
@@ -767,6 +805,7 @@ function feneko_account_field_default_field_instances() {
   t('Klanten');
   t('Klantengroep');
   t('Klantennummer');
+  t('Klantennummer toevoegen aan referentie');
   t('Leveringsadres');
   t('Leveringsconditie');
   t('Leveringsdag');
