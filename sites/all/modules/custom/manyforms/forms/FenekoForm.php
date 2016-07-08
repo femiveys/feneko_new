@@ -991,7 +991,7 @@ class FenekoForm {
 
     $user = user_load($user->uid);
 
-    $feneko_mail = variable_get('manyforms_notification_email','olivier@feneko.be');
+    $feneko_mail = variable_get('manyforms_notification_email','offerte@feneko.be');
 
     $subject = "[Feneko Online] formulier ($id) verzonden door " . $user->name;
 
@@ -2802,8 +2802,8 @@ class FenekoForm {
           '#prefix' => '<div id="kies-een-optie">',
           '#suffix' => '</div>',
           '#options' => array(
-            'bestelling' => t('bestelling'),
-            'offerte'    => t('offerte'),
+            'bestelofferteling' => t('bestelling'),
+            ''    => t('offerte'),
           ),
           '#default_value' => 'offerte',
         );

@@ -228,19 +228,19 @@ function feneko_calculator_mail_alter(&$message) {
       $body = variable_get('fc_notification_email_text') ;
 
        // Attach the XML for the mail to Feneko
-      module_load_include('inc', 'feneko_calculator', 'feneko_calculator.export');
-      $xml = array(
-        'filecontent' => feneko_calculator_order_to_xml($order->value()),
-        'filename' => "$order_id.xml",
-        'filemime' => 'text/xml',
-      );
-      $txt = array(
-        'filecontent' => feneko_calculator_order_to_txt($order->value()),
-        'filename' => "$order_id.txt",
-        'filemime' => 'text/plain',
-      );
-      $message['params']['attachments'][] = $xml;
-      $message['params']['attachments'][] = $txt;
+      // module_load_include('inc', 'feneko_calculator', 'feneko_calculator.export');
+      // $xml = array(
+      //   'filecontent' => feneko_calculator_order_to_xml($order->value()),
+      //   'filename' => "$order_id.xml",
+      //   'filemime' => 'text/xml',
+      // );
+      // $txt = array(
+      //   'filecontent' => feneko_calculator_order_to_txt($order->value()),
+      //   'filename' => "$order_id.txt",
+      //   'filemime' => 'text/plain',
+      // );
+      // $message['params']['attachments'][] = $xml;
+      // $message['params']['attachments'][] = $txt;
     } else {
       // For mail to client
       $body = $order->field_order_type->value() === 'order'
