@@ -228,19 +228,19 @@ function feneko_calculator_mail_alter(&$message) {
       $body = variable_get('fc_notification_email_text') ;
 
        // Attach the XML for the mail to Feneko
-      module_load_include('inc', 'feneko_calculator', 'feneko_calculator.export');
-      $xml = array(
-        'filecontent' => feneko_calculator_order_to_xml($order->value()),
-        'filename' => "$order_id.xml",
-        'filemime' => 'text/xml',
-      );
-      $txt = array(
-        'filecontent' => feneko_calculator_order_to_txt($order->value()),
-        'filename' => "$order_id.txt",
-        'filemime' => 'text/plain',
-      );
-      $message['params']['attachments'][] = $xml;
-      $message['params']['attachments'][] = $txt;
+      // module_load_include('inc', 'feneko_calculator', 'feneko_calculator.export');
+      // $xml = array(
+      //   'filecontent' => feneko_calculator_order_to_xml($order->value()),
+      //   'filename' => "$order_id.xml",
+      //   'filemime' => 'text/xml',
+      // );
+      // $txt = array(
+      //   'filecontent' => feneko_calculator_order_to_txt($order->value()),
+      //   'filename' => "$order_id.txt",
+      //   'filemime' => 'text/plain',
+      // );
+      // $message['params']['attachments'][] = $xml;
+      // $message['params']['attachments'][] = $txt;
     } else {
       // For mail to client
       $body = $order->field_order_type->value() === 'order'
@@ -399,6 +399,19 @@ function feneko_calculator_views_bulk_operations_form_alter(&$form, &$form_state
   }
 }
 
+/**
+ * Implements hook_commerce_checkout_complete
+ */
+function feneko_calculator_commerce_checkout_complete($order) {
+  // Add client number to users with appropriate flag
+  $user = entity_metadata_wrapper('user', $order->uid);
+  if($user->field_add_client_number->value()) {
+    $orderWrapper = entity_metadata_wrapper('commerce_order', $order);
+    $reference = $orderWrapper->field_reference->value()
+               . ' (' . $orderWrapper->field_client->field_client_number->value()  . ')';
+    $orderWrapper->field_reference->set($reference);
+  }
+}
 
 /**
  * Removes the action links from pages containing backoffice views, they
