@@ -2802,8 +2802,8 @@ class FenekoForm {
           '#prefix' => '<div id="kies-een-optie">',
           '#suffix' => '</div>',
           '#options' => array(
-            'bestelofferteling' => t('bestelling'),
-            ''    => t('offerte'),
+            'bestelling' => t('bestelling'),
+            'offerte'    => t('offerte'),
           ),
           '#default_value' => 'offerte',
         );
