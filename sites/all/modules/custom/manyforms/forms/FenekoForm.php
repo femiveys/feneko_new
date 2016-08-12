@@ -1771,6 +1771,7 @@ class FenekoForm {
     );
     $text = array(
       '#type' => 'textfield',
+      '#maxlength' => 100,
     );
 
     // THE TABLE ROWS

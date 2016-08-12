@@ -388,6 +388,50 @@ function feneko_account_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-client-field_no_minimum_invoice_amount'.
+  $field_instances['node-client-field_no_minimum_invoice_amount'] = array(
+    'bundle' => 'client',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 15,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_no_minimum_invoice_amount',
+    'label' => 'Geen minimum facturatie bedrag',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 17,
+    ),
+  );
+
   // Exported field_instance: 'node-client-field_payment_condition'.
   $field_instances['node-client-field_payment_condition'] = array(
     'bundle' => 'client',
@@ -695,10 +739,9 @@ function feneko_account_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 2,
+        'type' => 'hidden',
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'user',
@@ -802,6 +845,7 @@ function feneko_account_field_default_field_instances() {
   t('Block Order input');
   t('Condition de payement');
   t('Fax');
+  t('Geen minimum facturatie bedrag');
   t('Klanten');
   t('Klantengroep');
   t('Klantennummer');

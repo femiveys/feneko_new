@@ -98,6 +98,8 @@ function fc_lengte_breedte_optimisation($line_item_wrapper) {
 }
 
 function fc_minimum_invoice_amount($order_wrapper) {
+  $no_minimum_invoice_amount = $order_wrapper->field_client->field_no_minimum_invoice_amount->value();
+
   $minimum = variable_get('fc_minimum_order_amount') * 100000;
   $total = _fc_get_total($order_wrapper);
 
@@ -106,7 +108,7 @@ function fc_minimum_invoice_amount($order_wrapper) {
     if($line_item_wrapper->type->value() === 'commerce_discount') {
       _fc_reset_minimum_invoice_amount_components($line_item_wrapper);
 
-      if($total < $minimum) {
+      if($total < $minimum && !$no_minimum_invoice_amount) {
         _fc_add_minimum_invoice_amount_components($line_item_wrapper, $minimum - $total);
       }
     }
@@ -182,9 +184,7 @@ function _fc_reset_minimum_invoice_amount_components($line_item_wrapper) {
 
   // First remove all minimum_invoice_amount components
   foreach ($data['components'] as $key => $component) {
-    if($component['name'] === 'minimum_invoice_amount'
-      // || substr($component['name'], 0, 8) === 'discount'
-    ) {
+    if($component['name'] === 'minimum_invoice_amount') {
       unset($data['components'][$key]);
     }
   }

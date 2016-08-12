@@ -11,19 +11,18 @@
  */
 function commerce_fieldgroup_panes_commerce_checkout_pane_info() {
   $checkout_panes = array();
-  $groups = field_group_info_groups('commerce_order', 'commerce_order', 'form', TRUE);
+  $groups = field_group_info_groups('commerce_order', 'commerce_order', 'form');
 
-  // Check if the $groups is an array and if it contains
-  // at least one element. If not return no new
-  // panel.
+  // Check if the $groups is an array and if it contains at least one element.
+  // If not return no new panel.
   if (!is_array($groups) || empty($groups)) {
     return $checkout_panes;
   }
 
-  // Iterate over the field groups and convert them into
-  // checkout panes. By default the panes are not enabled.
+  // Iterate over the field groups and convert them into checkout panes. By
+  // default the panes are not enabled.
   foreach ($groups as $group) {
-    $group_label = check_plain(t($group->label));
+    $group_label = t($group->label);
     $checkout_panes['commerce_fieldgroup_pane__' . $group->group_name] = array(
       'name' => t('Order Fieldgroup: @group_label', array('@group_label' => $group_label)),
       'title' => $group_label,
@@ -36,7 +35,7 @@ function commerce_fieldgroup_panes_commerce_checkout_pane_info() {
 }
 
 /**
- * Implements the callback of the checkout pane form setting
+ * Implements the callback of the checkout pane form setting.
  */
 function commerce_fieldgroup_panes_contents_settings_form($checkout_pane) {
   $form = array();
@@ -48,11 +47,9 @@ function commerce_fieldgroup_panes_contents_settings_form($checkout_pane) {
  */
 function commerce_fieldgroup_panes_contents_checkout_form($form, &$form_state, $checkout_pane, $order) {
   $pane_form = array('#parents' => array($checkout_pane['pane_id']));
-  list($unused, $identifier) = explode('__', $checkout_pane['pane_id']);
+  list(, $identifier) = explode('__', $checkout_pane['pane_id']);
 
-  $form_state['commerce_order'] = $order;
-
-  // Attach the selected field group as form to the panel form
+  // Attach the selected field group as form to the panel form.
   field_attach_form('commerce_order', $order, $pane_form, $form_state, $langcode = NULL);
 
   $group = $pane_form['#fieldgroups'][$identifier];
@@ -67,13 +64,13 @@ function commerce_fieldgroup_panes_contents_checkout_form($form, &$form_state, $
     }
   }
 
-  // Set the field group formatter, to prevent the field_group module
-  // to add a field_set element to it.
+  // Set the field group formatter, to prevent the field_group module to add a
+  // field_set element to it.
   $pane_form['#fieldgroups'][$identifier]->format_type = 'commerce_fieldgroup_panes';
   $pane_form['#description'] = isset($group->format_settings['instance_settings']['description']) ? $group->format_settings['instance_settings']['description'] : '';
 
-  // Iterate over all field elements and remove
-  // the elments which are not subelements of the current field group
+  // Iterate over all field elements and remove the elements which are not
+  // subelements of the current field group.
   foreach (element_children($pane_form) as $child) {
     if (!in_array($child, $children)) {
       unset($pane_form[$child]);
@@ -91,7 +88,7 @@ function commerce_fieldgroup_panes_contents_checkout_form($form, &$form_state, $
 }
 
 /**
- * Implements the callback for the checkout pane form submit
+ * Implements the callback for the checkout pane form submit.
  */
 function commerce_fieldgroup_panes_contents_checkout_form_submit($form, &$form_state, $checkout_pane, $order) {
   // Do nothing unless the checkout pane still exists.
@@ -99,10 +96,9 @@ function commerce_fieldgroup_panes_contents_checkout_form_submit($form, &$form_s
     return;
   }
 
-  // Notify field widgets -> attach the $form_state['values'] to the $order object
+  // Notify field widgets -> attach the $form_state['values'] to the $order
+  // object.
   field_attach_submit('commerce_order', $order, $form[$checkout_pane['pane_id']], $form_state);
-
-  // Save the order
   commerce_order_save($order);
 }
 
@@ -110,26 +106,24 @@ function commerce_fieldgroup_panes_contents_checkout_form_submit($form, &$form_s
  * Implements the callback for the checkout pane review form
  */
 function commerce_fieldgroup_panes_contents_review($form, $form_state, $checkout_pane, $order) {
-  list($unused, $identifier) = explode('__', $checkout_pane['pane_id']);
+  list(, $identifier) = explode('__', $checkout_pane['pane_id']);
 
   $groups = field_group_info_groups('commerce_order', 'commerce_order', 'form');
   $group = $groups[$identifier];
 
-  $output = '';
-
-  // Iterate over all field group childrens
-  // and render them to produce the review pane content
+  $output = array();
+  // Iterate over all field group childrens and render them to produce the
+  // review pane content.
   foreach ($group->children as $child) {
     // Get the field view by using the 'checkout_pane' view mode.
-    $field = field_view_field('commerce_order', $order, $child, 'checkout_pane');
-    $output .= drupal_render($field);
+    $output[$child] = field_view_field('commerce_order', $order, $child, 'checkout_pane');
   }
 
-  return $output;
+  return drupal_render($output);
 }
 
 /**
- * Implementation of hook_entity_info_alter
+ * Implements hook_entity_info_alter().
  *
  * We need an additional view_mode. By altering the entity we can add
  * this view mode.

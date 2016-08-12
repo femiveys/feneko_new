@@ -160,6 +160,15 @@ function feneko_account_user_default_permissions() {
     'module' => 'user',
   );
 
+  // Exported permission: 'administer EU Cookie Compliance popup'.
+  $permissions['administer EU Cookie Compliance popup'] = array(
+    'name' => 'administer EU Cookie Compliance popup',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'eu_cookie_compliance',
+  );
+
   // Exported permission: 'administer commerce_order entities'.
   $permissions['administer commerce_order entities'] = array(
     'name' => 'administer commerce_order entities',
@@ -437,6 +446,13 @@ function feneko_account_user_default_permissions() {
       'administrator' => 'administrator',
       'site_admin' => 'site_admin',
     ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'create field_no_minimum_invoice_amount'.
+  $permissions['create field_no_minimum_invoice_amount'] = array(
+    'name' => 'create field_no_minimum_invoice_amount',
+    'roles' => array(),
     'module' => 'field_permissions',
   );
 
@@ -980,6 +996,21 @@ function feneko_account_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
+  // Exported permission: 'display EU Cookie Compliance popup'.
+  $permissions['display EU Cookie Compliance popup'] = array(
+    'name' => 'display EU Cookie Compliance popup',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'api' => 'api',
+      'authenticated user' => 'authenticated user',
+      'content editor' => 'content editor',
+      'handelaar' => 'handelaar',
+      'interne medewerker' => 'interne medewerker',
+    ),
+    'module' => 'eu_cookie_compliance',
+  );
+
   // Exported permission: 'download any audio files'.
   $permissions['download any audio files'] = array(
     'name' => 'download any audio files',
@@ -1299,6 +1330,16 @@ function feneko_account_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'edit field_no_minimum_invoice_amount'.
+  $permissions['edit field_no_minimum_invoice_amount'] = array(
+    'name' => 'edit field_no_minimum_invoice_amount',
+    'roles' => array(
+      'interne medewerker' => 'interne medewerker',
+      'site_admin' => 'site_admin',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'edit field_orderable_products'.
   $permissions['edit field_orderable_products'] = array(
     'name' => 'edit field_orderable_products',
@@ -1455,6 +1496,13 @@ function feneko_account_user_default_permissions() {
     'roles' => array(
       'site_admin' => 'site_admin',
     ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'edit own field_no_minimum_invoice_amount'.
+  $permissions['edit own field_no_minimum_invoice_amount'] = array(
+    'name' => 'edit own field_no_minimum_invoice_amount',
+    'roles' => array(),
     'module' => 'field_permissions',
   );
 
@@ -1855,6 +1903,16 @@ function feneko_account_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'view field_no_minimum_invoice_amount'.
+  $permissions['view field_no_minimum_invoice_amount'] = array(
+    'name' => 'view field_no_minimum_invoice_amount',
+    'roles' => array(
+      'interne medewerker' => 'interne medewerker',
+      'site_admin' => 'site_admin',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'view field_orderable_products'.
   $permissions['view field_orderable_products'] = array(
     'name' => 'view field_orderable_products',
@@ -1938,6 +1996,13 @@ function feneko_account_user_default_permissions() {
       'handelaar' => 'handelaar',
       'site_admin' => 'site_admin',
     ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'view own field_no_minimum_invoice_amount'.
+  $permissions['view own field_no_minimum_invoice_amount'] = array(
+    'name' => 'view own field_no_minimum_invoice_amount',
+    'roles' => array(),
     'module' => 'field_permissions',
   );
 
