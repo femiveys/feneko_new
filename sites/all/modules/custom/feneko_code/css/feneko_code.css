@@ -86,3 +86,7 @@ fieldset.filters {
 .filters .form-type-textfield {
   margin: 0;
 }
+
+html.js input.throbbing.form-autocomplete {
+    background-position: 99% 50%;
+}
