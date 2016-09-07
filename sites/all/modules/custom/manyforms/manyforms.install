@@ -792,3 +792,11 @@ function manyforms_update_7049() {
   $name = 'client_groups';
   db_update($table)->fields(array($name => ''))->execute();
 }
+
+/**
+ * Add indexes to the RAL table
+ */
+function manyforms_update_7050() {
+  $table = 'ral';
+  db_add_index($table, 'idx_type', array('type'));
+}
