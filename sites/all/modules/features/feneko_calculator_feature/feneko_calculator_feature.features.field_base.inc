@@ -2257,7 +2257,6 @@ function feneko_calculator_feature_field_default_field_bases() {
         'J' => 'J',
         'Z' => 'Z',
         'I' => 'I',
-        'special' => 'Speciaal',
       ),
       'allowed_values_function' => '',
       'entity_translation_sync' => FALSE,
