@@ -139,6 +139,16 @@ function feneko_code_update_7008() {
   _fc_clean_order_statuses();
 }
 
+/**
+ * Remove NULL fields from ral
+ */
+function feneko_code_update_7009() {
+
+  _fc_clean_order_statuses();
+}
+
+
+
 /*
 Export users from prod (data_export_import)
 Export users_roles table from prod (remove index part)
