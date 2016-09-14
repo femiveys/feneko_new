@@ -800,3 +800,24 @@ function manyforms_update_7050() {
   $table = 'ral';
   db_add_index($table, 'idx_type', array('type'));
 }
+
+/**
+ * Reduce the opmerking field to 40
+ */
+function manyforms_update_7051() {
+  $field = array(
+    'type' => 'varchar',
+    'length' => 40,
+  );
+
+  for ($i = 1; $i <= 12; $i++) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    for($j = 1; $j <= 9; $j++) {
+      $name  = "opmerking$j";
+      if (db_field_exists($table, $name)) {
+        db_change_field($table, $name, $name, $field);
+      }
+    }
+  }
+}
