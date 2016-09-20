@@ -237,6 +237,10 @@ function feneko_calculator_order_to_txt(stdClass $order) {
           $arr[] = _feneko_calculator_add_txt_field($line->commerce_product, 'field_anti_dreunstrook');
           break;
 
+        case 'dorpel_montagebeugel':
+          $arr[] = _feneko_calculator_add_txt_field($line->commerce_product, 'field_montagebeugel_maat');
+          break;
+
         case 'muurkap':
           $arr[] = _feneko_calculator_add_txt_field($line->commerce_product, 'field_muurkap_type');
           $arr[] = _feneko_calculator_add_txt_field($line->commerce_product, 'field_muurkap_diepte');
