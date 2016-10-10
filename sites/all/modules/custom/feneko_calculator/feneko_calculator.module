@@ -1723,7 +1723,11 @@ function fc_test_minimum_order_amount($order, $minimum = NULL) {
 
 function _fc_get_color($text) {
   if($text == FC_NO_COLOR) {
-    return array('type' => FC_NO_COLOR, 'text' => FC_NO_COLOR);
+    return array(
+      'type' => FC_NO_COLOR,
+      'text' => FC_NO_COLOR,
+      'kleur' => FC_NO_COLOR,
+      );
   } else {
     // Get the color out of the color text
     preg_match("/(.*)\ \((.*)\)/", $text, $matches);
