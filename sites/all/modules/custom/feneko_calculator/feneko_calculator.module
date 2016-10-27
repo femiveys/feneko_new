@@ -1365,7 +1365,10 @@ function fc_validate_add_to_cart_form($form, &$form_state) {
           // Multi breedte
           if(isset($line_item['field_multi_breedte'])) {
             $number = fc_get_parts($typeBewerking);
-            $max = 1500;
+            $afwerking = $form_state['values']['attributes']['field_plaatbewerking_afwerking'];
+
+            // For reno, 1.5 is max width: 1250, otherwise 1500
+            $max = $afwerking === 'reno' ? 1250 : 1500;
 
             $total = 0;
             for ($i=0; $i < $number; $i++) {
@@ -1470,7 +1473,6 @@ function fc_validate_add_to_cart_form($form, &$form_state) {
               break;
           }
         }
-
       }
     }
   } else {
