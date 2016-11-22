@@ -1,0 +1,24 @@
+# French translation of RoleAssign (7.x-1.0)
+# Copyright (c) 2012 by the French translation team
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: RoleAssign (7.x-1.0)\n"
+"POT-Creation-Date: 2012-11-04 15:51+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Language-Team: French\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n>1);\n"
+
+msgid "Roles"
+msgstr "Rôles"
+msgid "Add a role to the selected users"
+msgstr "Ajouter un rôle aux utilisateurs sélectionnés."
+msgid "Remove a role from the selected users"
+msgstr "Retirer un rôle aux utilisateurs sélectionnés."
+msgid "help page"
+msgstr "page d'aide"
+msgid "security"
+msgstr "sécurité"
