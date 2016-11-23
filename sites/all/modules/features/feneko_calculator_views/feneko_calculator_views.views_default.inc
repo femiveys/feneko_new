@@ -755,11 +755,10 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['order_number']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['order_number']['alter']['path'] = 'admin/commerce/orders/[order_number]/pdf';
   $handler->display->display_options['fields']['order_number']['alter']['target'] = '_blank';
-  /* Field: Commerce Order: Order type */
-  $handler->display->display_options['fields']['type']['id'] = 'type';
-  $handler->display->display_options['fields']['type']['table'] = 'commerce_order';
-  $handler->display->display_options['fields']['type']['field'] = 'type';
-  $handler->display->display_options['fields']['type']['label'] = 'Bestellingstype';
+  /* Field: Commerce Order: Type */
+  $handler->display->display_options['fields']['field_order_type']['id'] = 'field_order_type';
+  $handler->display->display_options['fields']['field_order_type']['table'] = 'field_data_field_order_type';
+  $handler->display->display_options['fields']['field_order_type']['field'] = 'field_order_type';
   /* Field: Commerce Order: Referentie */
   $handler->display->display_options['fields']['field_reference']['id'] = 'field_reference';
   $handler->display->display_options['fields']['field_reference']['table'] = 'field_data_field_reference';
