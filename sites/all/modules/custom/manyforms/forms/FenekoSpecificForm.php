@@ -500,6 +500,30 @@ class FenekoSpecificForm extends FenekoForm {
           'fr' => 'porte-coulissante-elegance-plus',
         );
         break;
+
+      case '14':
+        $this->title = t('Vliegendeuren Elegance+');
+        $this->remark = t('<b>Deur met kader</b><br />
+                           Opgegeven maten zijn de maten van de buitenkader.<br />
+                           Doorgegeven maat is de volledige maat van de afgewerkte kader.<br />
+                           Opgelet : VP1001 : Opgegeven maten zijn de maten zonder flens.<br /><br />
+                           <b>Deur zonder kader</b><br />
+                           Opgegeven maten zijn de maten van het deurblad, zonder scharnieren en zonder magneten.');
+        $this->addField('uitvoering', 33);
+        $this->addField('kader', 36);
+        $this->addField('scharnierkant', 60);
+        // $this->addField('pomp', 70);
+        // $this->addField('plint', 80);
+        // $this->addField('dierendeur', 90);
+        $this->addField('hoekverbinding', 510);
+        // $this->addField('opties', 510);
+        $this->url = array(
+          'nl' => 'vliegendeur-elegance+',
+          'fr' => 'porte-moustiquaire-elegance+',
+        );
+        break;
+
+
     }
   }
 
@@ -699,6 +723,47 @@ class FenekoSpecificForm extends FenekoForm {
         unset($this->form['type_gaas']['container']);
         unset($this->form['type_gaas']['type_gaas']['#options']['soltisdoek']);
         unset($this->form['type_gaas']['type_gaas']['#options']['inox']);
+        break;
+
+      case '14':
+        $this->form['table1']['#caption'] = $caption2;
+        unset($this->form['kleur']['kleur']['#options']['anodise']);
+
+        $this->form['uitvoering']['uitvoering']['#options'] = $uitvoering_options;
+        // $this->form['uitvoering']['uitvoering']['#ajax'] = $ajax;
+        unset($this->form['opties']['#options']['gebogen']);
+
+        $kader = $this->form['kader'];
+        unset($this->form['kader']['#options']);
+
+        $this->form['kader']['#type'] = 'container';
+        $this->form['kader']['kader'] = $kader;
+
+        $this->form['kader']['kader']['#options'] = array(
+          'vp1000' => 'vp1000',
+          'vp1001' => 'vp1001',
+        );
+
+        $this->form['kader']['container'] = array(
+          '#type' => 'container',
+          '#attributes' => array('class' => array('description')),
+          'conditional_help' => array(
+            '#markup' => t('Opgelet : Bij kader “VP1001” is de opgegeven maat de maat van de afgewerkte kader zonder flens.'),
+          ),
+          '#states' => array(
+            'visible' => array(
+              'input[name="kader"]' => array('value' => 'vp1001'),
+            ),
+          ),
+        );
+        $this->form['kader']['#states'] = array(
+          'invisible' => array(
+            'input[name="uitvoering"]' => array('value' => 'zonder'),
+          ),
+        );
+        unset($this->form['kader']['kader']['#weight']);
+
+        unset($this->form['type_gaas']['container']);
 
         break;
     }
@@ -979,9 +1044,3 @@ class FenekoSpecificForm extends FenekoForm {
   }
 
 }
-
-
-
-
-
-

@@ -452,7 +452,7 @@ class FenekoForm {
 
     // Vliegenramen "basic", "Classic", inzetvliegenraam "VR033", "VR033-ultra"
     // Vliegendeur "Basic", "Classic", "Elegance"
-    if($id <= 6) {
+    if($id <= 6 || $id === 14) {
       if($value == 0) { // Stand T is not checked
         // Exact 1 of t1, t2, t3 is filled in
         if(self::ternary_xor(!empty($fields["t1$i"]), !empty($fields["t2$i"]), !empty($fields["t3$i"]))) {
@@ -576,6 +576,7 @@ class FenekoForm {
         break;
 
       case 6:
+      case 14:
         $fields['opties'] = 'nvt';
         $fields['sluiting'] = 'magneet';
         $fields['pvc'] = 'nvt';
@@ -647,7 +648,7 @@ class FenekoForm {
           break;
 
         case 'kader':
-          if($id === 6 and $value === 'vp1001') {
+          if(($id === 6 || $id === 14) and $value === 'vp1001') {
             $product_fiche .= $this->getCode("hoekverbinding", 'geperst');
           }
           if($id === 12) {
@@ -657,7 +658,8 @@ class FenekoForm {
 
         case 'kleur':
           list($value, $ral_code) = self::explodeRal($value);
-          if(($id >= 4 and $id <=10 or $id === 13) and ($value === 'f9001' or $value === 'anodise')) {
+          if(($id >= 4 and $id <=10 or $id === 13 || $id === 14)
+                             and ($value === 'f9001' or $value === 'anodise')) {
             $value .= '_s';
           }
           if(isset($ral_code)) {
@@ -713,7 +715,7 @@ class FenekoForm {
           break;
 
         case 'type_gaas':
-          if($id === 13) {
+          if($id === 13 || $id === 14) {
             if($value === 'petscreen' or $value === 'clearview')
             $value .= "###volledig";
           }
@@ -856,9 +858,11 @@ class FenekoForm {
       case 'enkel4':
       case 'enkel5':
       case 'enkel6':
+      case 'enkel14':
       case 'zonder4':
       case 'zonder5':
       case 'zonder6':
+      case 'zonder14':
         $max = array(
           'breedte' => 1600,
           'hoogte'  => 3250,
@@ -868,6 +872,7 @@ class FenekoForm {
       case 'dubbel4':
       case 'dubbel5':
       case 'dubbel6':
+      case 'dubbel14':
         $max = array(
           'breedte' => 3200,
           'hoogte'  => 3250,
@@ -1199,6 +1204,7 @@ class FenekoForm {
       case 4:
       case 5:
       case 6:
+      case 14:
         return ":UB46002:";
       case 7:
       case 8:
@@ -1969,6 +1975,9 @@ class FenekoForm {
         'dubbel11' => 2,
         'enkel12'  => 3,
         'enkel13'  => 7,
+        'enkel14'   => 1,
+        'dubbel14'  => 3,
+        'zonder14'  => 2,
         'basic'    => 17,
       ),
       'scharnierkant' => array(
