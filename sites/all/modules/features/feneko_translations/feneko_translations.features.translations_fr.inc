@@ -232,6 +232,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Al onze leveringen gebeuren tussen de 8 en 12 werkdagen.', array(), array('context' => ''));
+  $translations['fr:default']['54ba845ca728087a725688c5535cca0d'] = array(
+    'source' => 'Vliegendeuren Elegance+',
+    'context' => '',
+    'location' => '/nl/admin/feneko_screens/overview?render=overlay',
+    'translation' => 'Porte Moustiquaire Elegance+',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Vliegendeuren Elegance+', array(), array('context' => ''));
   $translations['fr:default']['577d7068826de925ea2aec01dbadf5e4'] = array(
     'source' => 'Client',
     'context' => '',
