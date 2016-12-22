@@ -510,7 +510,7 @@ class FenekoSpecificForm extends FenekoForm {
                            <b>Deur zonder kader</b><br />
                            Opgegeven maten zijn de maten van het deurblad, zonder scharnieren en zonder magneten.');
         $this->removeField('table1');
-        $this->addField('table3', 30);
+        $this->addField('table4', 30);
         $this->addField('kader', 36);
         $this->addField('scharnierkant', 60);
         $this->addField('hoekverbinding', 510);

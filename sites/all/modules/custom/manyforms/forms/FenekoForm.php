@@ -865,7 +865,6 @@ class FenekoForm {
       case 'enkel4':
       case 'enkel5':
       case 'enkel6':
-      case 'enkel14':
       case 'zonder4':
       case 'zonder5':
       case 'zonder6':
@@ -925,6 +924,12 @@ class FenekoForm {
           'hoogte'  => 2400,
         );
         break;
+
+      case 'enkel14':
+        $max = array(
+          'breedte' => 1400,
+          'hoogte'  => 3250,
+        );
 
       default:
         $msg = t('The reference table for the measures is not complete. Was looking for :key', array(':key' => $key));
