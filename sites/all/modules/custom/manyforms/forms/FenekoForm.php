@@ -930,6 +930,7 @@ class FenekoForm {
           'breedte' => 1400,
           'hoogte'  => 3250,
         );
+        break;
 
       default:
         $msg = t('The reference table for the measures is not complete. Was looking for :key', array(':key' => $key));
