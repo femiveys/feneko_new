@@ -509,17 +509,14 @@ class FenekoSpecificForm extends FenekoForm {
                            Opgelet : VP1001 : Opgegeven maten zijn de maten zonder flens.<br /><br />
                            <b>Deur zonder kader</b><br />
                            Opgegeven maten zijn de maten van het deurblad, zonder scharnieren en zonder magneten.');
-        $this->addField('uitvoering', 33);
+        $this->removeField('table1');
+        $this->addField('table3', 30);
         $this->addField('kader', 36);
         $this->addField('scharnierkant', 60);
-        // $this->addField('pomp', 70);
-        // $this->addField('plint', 80);
-        // $this->addField('dierendeur', 90);
         $this->addField('hoekverbinding', 510);
-        // $this->addField('opties', 510);
         $this->url = array(
-          'nl' => 'vliegendeur-elegance+',
-          'fr' => 'porte-moustiquaire-elegance+',
+          'nl' => 'vliegendeur-elegance-plus',
+          'fr' => 'porte-moustiquaire-elegance-plus',
         );
         break;
 

@@ -452,7 +452,7 @@ class FenekoForm {
 
     // Vliegenramen "basic", "Classic", inzetvliegenraam "VR033", "VR033-ultra"
     // Vliegendeur "Basic", "Classic", "Elegance"
-    if($id <= 6 || $id === 14) {
+    if($id <= 6) {
       if($value == 0) { // Stand T is not checked
         // Exact 1 of t1, t2, t3 is filled in
         if(self::ternary_xor(!empty($fields["t1$i"]), !empty($fields["t2$i"]), !empty($fields["t3$i"]))) {
@@ -576,7 +576,6 @@ class FenekoForm {
         break;
 
       case 6:
-      case 14:
         $fields['opties'] = 'nvt';
         $fields['sluiting'] = 'magneet';
         $fields['pvc'] = 'nvt';
@@ -613,6 +612,14 @@ class FenekoForm {
         if($fields['ondergeleider_anodise'] === 'ja') {
           $fields['ondergeleider'] .= 'a';
         }
+        break;
+
+      case 14:
+        $fields['pvc'] = 'nvt';
+        $fields['opties'] = 'nvt';
+        $fields['sluiting'] = 'magneet';
+        $fields['uitvoering'] = 'enkel';
+        $fields['afdekdoppen'] = 'nvt';
         break;
     }
 
@@ -862,7 +869,6 @@ class FenekoForm {
       case 'zonder4':
       case 'zonder5':
       case 'zonder6':
-      case 'zonder14':
         $max = array(
           'breedte' => 1600,
           'hoogte'  => 3250,
@@ -872,7 +878,6 @@ class FenekoForm {
       case 'dubbel4':
       case 'dubbel5':
       case 'dubbel6':
-      case 'dubbel14':
         $max = array(
           'breedte' => 3200,
           'hoogte'  => 3250,
@@ -1975,9 +1980,7 @@ class FenekoForm {
         'dubbel11' => 2,
         'enkel12'  => 3,
         'enkel13'  => 7,
-        'enkel14'   => 1,
-        'dubbel14'  => 3,
-        'zonder14'  => 2,
+        'enkel14'   => 4,
         'basic'    => 17,
       ),
       'scharnierkant' => array(
