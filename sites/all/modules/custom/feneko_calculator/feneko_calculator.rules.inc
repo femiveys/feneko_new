@@ -155,7 +155,7 @@ function fc_niet_stock_standaardprofiel($line_item_wrapper) {
 
 function _fc_get_num_knippen($quantity, $order_length) {
   // If the length is 6000, there should be no knippen
-  if($order_length === FC_PROFILE_LENGTH) {
+  if($order_length == FC_PROFILE_LENGTH) {
     return 0;
   }
 

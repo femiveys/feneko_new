@@ -821,3 +821,18 @@ function manyforms_update_7051() {
     }
   }
 }
+
+/**
+ * Create Draaideur elegance+ table
+ */
+function manyforms_update_7052() {
+  $id = '14';
+  $table = "manyforms_$id";
+
+  if(!db_table_exists($table)) {
+    $ff = new FenekoSpecificForm($id);
+    $schema = $ff->getSchema();
+
+    db_create_table($table, $schema);
+  }
+}

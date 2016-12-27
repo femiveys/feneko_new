@@ -3,7 +3,7 @@
  * @file
  * Feneko 12 Forms
  */
-define('FENEKO_SCREENS_NUM', 13);
+define('FENEKO_SCREENS_NUM', 14);
 
 function manyforms_menu() {
   $items = array();

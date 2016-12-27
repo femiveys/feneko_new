@@ -613,6 +613,14 @@ class FenekoForm {
           $fields['ondergeleider'] .= 'a';
         }
         break;
+
+      case 14:
+        $fields['pvc'] = 'nvt';
+        $fields['opties'] = 'nvt';
+        $fields['sluiting'] = 'magneet';
+        $fields['uitvoering'] = 'enkel';
+        $fields['afdekdoppen'] = 'nvt';
+        break;
     }
 
     foreach ($fields as $name => $value) {
@@ -647,7 +655,7 @@ class FenekoForm {
           break;
 
         case 'kader':
-          if($id === 6 and $value === 'vp1001') {
+          if(($id === 6 || $id === 14) and $value === 'vp1001') {
             $product_fiche .= $this->getCode("hoekverbinding", 'geperst');
           }
           if($id === 12) {
@@ -657,7 +665,8 @@ class FenekoForm {
 
         case 'kleur':
           list($value, $ral_code) = self::explodeRal($value);
-          if(($id >= 4 and $id <=10 or $id === 13) and ($value === 'f9001' or $value === 'anodise')) {
+          if(($id >= 4 and $id <=10 or $id === 13 || $id === 14)
+                             and ($value === 'f9001' or $value === 'anodise')) {
             $value .= '_s';
           }
           if(isset($ral_code)) {
@@ -713,7 +722,7 @@ class FenekoForm {
           break;
 
         case 'type_gaas':
-          if($id === 13) {
+          if($id === 13 || $id === 14) {
             if($value === 'petscreen' or $value === 'clearview')
             $value .= "###volledig";
           }
@@ -913,6 +922,13 @@ class FenekoForm {
         $max = array(
           'breedte' => 2000,
           'hoogte'  => 2400,
+        );
+        break;
+
+      case 'enkel14':
+        $max = array(
+          'breedte' => 1400,
+          'hoogte'  => 3250,
         );
         break;
 
@@ -1199,6 +1215,7 @@ class FenekoForm {
       case 4:
       case 5:
       case 6:
+      case 14:
         return ":UB46002:";
       case 7:
       case 8:
@@ -1969,6 +1986,7 @@ class FenekoForm {
         'dubbel11' => 2,
         'enkel12'  => 3,
         'enkel13'  => 7,
+        'enkel14'   => 4,
         'basic'    => 17,
       ),
       'scharnierkant' => array(
