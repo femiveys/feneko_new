@@ -582,7 +582,8 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
         $form['type_image'] = _fc_get_plaatbewerking_image($typeBewerking . $lakzijde, $weight);
 
         // If lengte = 4000: only gaatjes or lasbouten; no haakjes
-        if($form['attributes']['field_sandwichpaneel_lengte']['#default_value'] == 4000) {
+        if($form['line_item_fields']['field_lengte']['und'][0]['value']['#default_value'] == 4000) {
+        // if($form['attributes']['field_sandwichpaneel_lengte']['#default_value'] == 4000) {
           // unset($form['line_item_fields']['field_ophanging']['und']['#options']['E']);
           // unset($form['line_item_fields']['field_ophanging']['und']['#options']['D']);
           unset($form['line_item_fields']['field_ophanging']['und']['#options']['haakjes']);
