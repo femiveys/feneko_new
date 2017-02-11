@@ -12,7 +12,7 @@ include_once 'feneko_account.features.inc';
 function feneko_account_node_access($node, $op, $account) {
   if(is_object($node)) {
     switch ($node->type) {
-      // Block access to client nodes vor non authorized users
+      // Block access to client nodes for non authorized users
       case 'client':
         // A user has only view access to his own clients
         $clientIds = array_keys(feneko_code_get_clients_options(true));
@@ -21,8 +21,8 @@ function feneko_account_node_access($node, $op, $account) {
         }
 
         // A site admin has access to all clients
-        $user = entity_metadata_wrapper('user', $account);
-        if(in_array('site_admin', $user->roles->value())) {
+        $role_id = array_search('site_admin', user_roles());
+        if(user_has_role($role_id, $account)) {
           return NODE_ACCESS_ALLOW;
         }
 
@@ -30,9 +30,13 @@ function feneko_account_node_access($node, $op, $account) {
 
       // Block access to the view page of a banner
       case 'banner':
-        if($op === 'view') {
-          return NODE_ACCESS_DENY;
+        // A content editor has full access to all banners
+        $role_id = array_search('content editor', user_roles());
+        if(user_has_role($role_id, $account)) {
+          return NODE_ACCESS_ALLOW;
         }
+
+        return NODE_ACCESS_DENY;
     }
   }
 }
