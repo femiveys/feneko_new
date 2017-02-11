@@ -120,17 +120,16 @@ function feneko_code_flipper(){
  */
 function feneko_code_get_clients_options($idKeys = false) {
   global $user;
+  $idKeysString = $idKeys ? '1' : '0';
+  $cid = 'fc_clients' . ':' . $user->uid . ':' . $idKeysString;
 
-  // $idKeysString = $idKeys ? '1' : '0';
-  // $cid = 'fc_clients' . ':' . $user->uid . ':' . $idKeysString;
+  $options = &drupal_static($cid);
 
-  // $options = &drupal_static($cid);
-
-  // if (!isset($options)) {
-  //   if ($cache = cache_get($cid)) {
-  //     $options = $cache->data;
-  //   }
-    // else {
+  if (!isset($options)) {
+    if ($cache = cache_get($cid)) {
+      $options = $cache->data;
+    }
+    else {
       // Do your expensive calculations here, and populate $options
       // with the correct stuff..
       $options = array();
@@ -149,7 +148,7 @@ function feneko_code_get_clients_options($idKeys = false) {
       } else {
         $clients = $wrapper->field_clients->value();
 
-}
+      }
       // Build the options array
       foreach ($clients as $client) {
         if(!empty($client)) {
@@ -162,11 +161,13 @@ function feneko_code_get_clients_options($idKeys = false) {
         }
       }
 
+      // Sort naturally
+      natcasesort($options);
+
       // Finally populate the cache
-      // cache_set($cid, $options, 'cache');
-  //   }
-  // }
-  natcasesort($options);
+      cache_set($cid, $options, 'cache');
+    }
+  }
   return $options;
 }
 
@@ -240,6 +241,30 @@ function feneko_code_user_update(&$edit, $account, $category) {
   cache_clear_all($cid, 'cache', TRUE);
 }
 
+function feneko_code_node_delete($node) {
+  if($node->type === 'client') {
+    // Loop over all users, get the client cache and remove the deleted client if present
+    $users = db_query("SELECT uid FROM {users}");
+    foreach ($users as $user) {
+      $mapping = array(
+        $node->field_client_number['und'][0]['value'], // 0 => client number
+        $node->nid,                                    // 1 => client id
+      );
+
+      foreach ($mapping as $key => $indentifier) {
+        $cid = 'fc_clients:' . $user->uid . ':' . $key;
+        $cache_entry = cache_get($cid);
+
+        if($cache_entry) {
+          if(isset($cache_entry->data[$indentifier])) {
+            unset($cache_entry->data[$indentifier]);
+            cache_set($cid, $cache_entry->data, 'cache');
+          }
+        }
+      }
+    }
+  }
+}
 
 function fc_ral_search_by_kleur($kleur) {
   $result = array();
