@@ -19,15 +19,6 @@ function feneko_structure_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'create field_btw_nummer'.
-  $permissions['create field_btw_nummer'] = array(
-    'name' => 'create field_btw_nummer',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'create field_orderable_products'.
   $permissions['create field_orderable_products'] = array(
     'name' => 'create field_orderable_products',
@@ -52,15 +43,6 @@ function feneko_structure_user_default_permissions() {
     'name' => 'edit field_attach_secured',
     'roles' => array(
       'content editor' => 'content editor',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit field_btw_nummer'.
-  $permissions['edit field_btw_nummer'] = array(
-    'name' => 'edit field_btw_nummer',
-    'roles' => array(
-      'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
   );
@@ -93,15 +75,6 @@ function feneko_structure_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit own field_btw_nummer'.
-  $permissions['edit own field_btw_nummer'] = array(
-    'name' => 'edit own field_btw_nummer',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'edit own field_orderable_products'.
   $permissions['edit own field_orderable_products'] = array(
     'name' => 'edit own field_orderable_products',
@@ -121,30 +94,12 @@ function feneko_structure_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'search content'.
-  $permissions['search content'] = array(
-    'name' => 'search content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'search',
-  );
-
   // Exported permission: 'view field_attach_secured'.
   $permissions['view field_attach_secured'] = array(
     'name' => 'view field_attach_secured',
     'roles' => array(
       'content editor' => 'content editor',
       'handelaar' => 'handelaar',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view field_btw_nummer'.
-  $permissions['view field_btw_nummer'] = array(
-    'name' => 'view field_btw_nummer',
-    'roles' => array(
-      'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
   );
@@ -174,15 +129,6 @@ function feneko_structure_user_default_permissions() {
     'name' => 'view own field_attach_secured',
     'roles' => array(
       'content editor' => 'content editor',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view own field_btw_nummer'.
-  $permissions['view own field_btw_nummer'] = array(
-    'name' => 'view own field_btw_nummer',
-    'roles' => array(
-      'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
   );

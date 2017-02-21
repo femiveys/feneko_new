@@ -2735,6 +2735,56 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-product-field_weight'.
+  $field_instances['node-product-field_weight'] = array(
+    'bundle' => 'product',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 8,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_weight',
+    'label' => 'Gewicht',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'range' => 20,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'weight',
+      'settings' => array(
+        'range' => 20,
+      ),
+      'type' => 'weight_selector',
+      'weight' => 13,
+    ),
+  );
+
   // Exported field_instance: 'node-product-title_field'.
   $field_instances['node-product-title_field'] = array(
     'bundle' => 'product',
@@ -3284,6 +3334,7 @@ function feneko_structure_field_default_field_instances() {
   t('Geef hier uw openingsuren in');
   t('Geef hier uw telefoonnummers in.');
   t('Gewenste functie');
+  t('Gewicht');
   t('Handelsregister Brussel');
   t('Hoe klant worden bij FenekO?');
   t('Image');
