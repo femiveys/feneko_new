@@ -2356,7 +2356,7 @@ function feneko_structure_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 11,
+      'weight' => 9,
     ),
   );
 
@@ -2434,6 +2434,67 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-product-field_order_sheet'.
+  $field_instances['node-product-field_order_sheet'] = array(
+    'bundle' => 'product',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_url_plain',
+        'weight' => 9,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_order_sheet',
+    'label' => 'Bestelbon',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 0,
+      'entity_translation_sync' => FALSE,
+      'file_directory' => 'order_sheets',
+      'file_extensions' => 'pdf',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'feed' => 0,
+          'http' => 0,
+          'https' => 0,
+          'private' => 0,
+          'public' => 'public',
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 'document',
+          'image' => 0,
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'remote_file' => 0,
+          'upload' => 0,
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => 11,
+    ),
+  );
+
   // Exported field_instance: 'node-product-field_orderable_products'.
   $field_instances['node-product-field_orderable_products'] = array(
     'bundle' => 'product',
@@ -2502,7 +2563,7 @@ function feneko_structure_field_default_field_instances() {
         ),
       ),
       'type' => 'inline_entity_form',
-      'weight' => 12,
+      'weight' => 10,
     ),
   );
 
@@ -2620,7 +2681,7 @@ function feneko_structure_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 9,
+      'weight' => 8,
     ),
   );
 
@@ -2731,7 +2792,7 @@ function feneko_structure_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 8,
+      'weight' => 7,
     ),
   );
 
@@ -2748,14 +2809,9 @@ function feneko_structure_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_integer',
+        'module' => 'weight',
+        'settings' => array(),
+        'type' => 'weight_integer',
         'weight' => 8,
       ),
       'teaser' => array(
@@ -2781,7 +2837,7 @@ function feneko_structure_field_default_field_instances() {
         'range' => 20,
       ),
       'type' => 'weight_selector',
-      'weight' => 13,
+      'weight' => 12,
     ),
   );
 
@@ -2824,7 +2880,7 @@ function feneko_structure_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => -5,
+      'weight' => 0,
     ),
   );
 
@@ -3309,6 +3365,7 @@ function feneko_structure_field_default_field_instances() {
   t('Banner');
   t('Beschrijving');
   t('Bestelbare producten');
+  t('Bestelbon');
   t('Big image');
   t('Bijlage');
   t('Body');

@@ -2602,7 +2602,7 @@ input[type="submit"],
 #edit-cancel,
 .button,
 .node-readmore a,
-.node-type-vacature a.node-readmore, ul.tabs.primary a, .field-name-field-orderable-products a, .catalog a, .open-img, .ck-knop {
+.node-type-vacature a.node-readmore, ul.tabs.primary a, .field-name-field-orderable-products a, .catalog a, .order_sheet, .open-img, .ck-knop {
   background: #295D8F;
   -webkit-transition: background-color 0.2s ease;
   -ms-transition: background-color 0.2s ease;
@@ -2625,7 +2625,7 @@ input[type="submit"] a,
 #edit-cancel a,
 .button a,
 .node-readmore a a,
-.node-type-vacature a.node-readmore a, ul.tabs.primary a a, .field-name-field-orderable-products a a, .catalog a a, .open-img a, .ck-knop a {
+.node-type-vacature a.node-readmore a, ul.tabs.primary a a, .field-name-field-orderable-products a a, .catalog a a, .order_sheet a, .open-img a, .ck-knop a {
   text-decoration: none;
   color: #ffffff;
   display: block;
@@ -2634,7 +2634,7 @@ input[type="submit"]:hover,
 #edit-cancel:hover,
 .button:hover,
 .node-readmore a:hover,
-.node-type-vacature a.node-readmore:hover, ul.tabs.primary a:hover, .field-name-field-orderable-products a:hover, .catalog a:hover, .open-img:hover, .ck-knop:hover {
+.node-type-vacature a.node-readmore:hover, ul.tabs.primary a:hover, .field-name-field-orderable-products a:hover, .catalog a:hover, .order_sheet:hover, .open-img:hover, .ck-knop:hover {
   background: #c2e5eb;
 }
 
@@ -2772,6 +2772,14 @@ h3 a,
 
 .feneko_o {
   color: #295D8F;
+}
+
+h2.logo {
+  margin: 0;
+  height: 40px;
+}
+h2.logo img {
+  height: 100%;
 }
 
 /* IMG
@@ -4381,6 +4389,13 @@ div.horizontal-tabs {
 }
 .catalog a:hover {
   background-color: #60ae1b;
+}
+
+.order_sheet {
+  width: 100%;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  background-color: #295D8F;
 }
 
 .open-img {

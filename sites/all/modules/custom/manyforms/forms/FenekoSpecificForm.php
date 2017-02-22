@@ -235,8 +235,10 @@ class FenekoSpecificForm extends FenekoForm {
     if(file_exists($uri)) {
       $footer .= "<img class=\"client-logo\" src=\"$uri\">";
     }
-    $footer.= '<div class="feneko_logo" style="line-height: 20px">';
-    $footer.= '<span class="feneko_fenek">Fenek</span><span class="feneko_o">O</span>';
+    $footer.= '<div class="feneko_logo">';
+    // $footer.= '<div class="feneko_logo" style="line-height: 20px">';
+    // $footer.= '<span class="feneko_fenek">Fenek</span><span class="feneko_o">O</span>';
+    $footer.= '<img src="/sites/all/themes/feneko/img/logo.png" style="height: 60px; margin-right: -10px">';
     $footer.= '<div class="slogan">' . t('vliegenramen & plaatbewerking') . '</div>';
     $footer.= '</div>';
     $footer.= '<div class="top-line" style="margin-top: -5px">' . t('Bestelbonnen') . ' 2015</div>';

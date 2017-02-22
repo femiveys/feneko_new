@@ -204,6 +204,14 @@ h3 a,
   color: $blue;
 }
 
+h2.logo {
+  margin: 0;
+  height: 40px;
+  img {
+    height: 100%;
+  }
+}
+
 /* IMG
 ><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 
@@ -1709,6 +1717,14 @@ div.horizontal-tabs {
       background-color: lighten($green, 10%);
     }
   }
+}
+
+.order_sheet {
+  @extend %button;
+  width: 100%;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  background-color: $blue;
 }
 
 .open-img {
