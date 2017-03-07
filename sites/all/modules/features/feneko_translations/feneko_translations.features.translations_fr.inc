@@ -826,15 +826,6 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Wij zoeken', array(), array('context' => 'field_wanted:vacature:label'));
-  $translations['fr:field']['7638e76aa3ef72e5eb24df23560150a8'] = array(
-    'source' => 'Nee',
-    'context' => 'field_geblokkeerd:#allowed_values:0',
-    'location' => 'field:field_geblokkeerd:#allowed_values:0',
-    'translation' => 'Non',
-    'plid' => 0,
-    'plural' => 0,
-  );
-  $translatables[] = t('Nee', array(), array('context' => 'field_geblokkeerd:#allowed_values:0'));
   $translations['fr:field']['7f81cd380c0deb5e984398a3bf646fcc'] = array(
     'source' => 'Solliciteren tot',
     'context' => 'field_ultimate_date:vacature:label',
@@ -853,6 +844,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Nee', array(), array('context' => 'field_gaatjes_rug:#allowed_values:0'));
+  $translations['fr:field']['a8cc693a386ce97434953821d41a364d'] = array(
+    'source' => 'Beugel',
+    'context' => 'field_mke_type:#allowed_values:beugel',
+    'location' => 'field:field_mke_type:#allowed_values:beugel',
+    'translation' => 'Pièce de montage',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Beugel', array(), array('context' => 'field_mke_type:#allowed_values:beugel'));
   $translations['fr:field']['affb9247a339b7a31f3680f2ea1e6a82'] = array(
     'source' => 'Haakjes',
     'context' => 'field_ophanging:#allowed_values:haakjes',
@@ -862,15 +862,6 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Haakjes', array(), array('context' => 'field_ophanging:#allowed_values:haakjes'));
-  $translations['fr:field']['c48d24e60835b807834d575ab9046a32'] = array(
-    'source' => 'Ja',
-    'context' => 'field_geblokkeerd:#allowed_values:1',
-    'location' => 'field:field_geblokkeerd:#allowed_values:1',
-    'translation' => 'Oui',
-    'plid' => 0,
-    'plural' => 0,
-  );
-  $translatables[] = t('Ja', array(), array('context' => 'field_geblokkeerd:#allowed_values:1'));
   $translations['fr:field']['ca6b5213eae4d8d0d4cd96dda1d4ed58'] = array(
     'source' => 'Z-profiel',
     'context' => 'field_standaardprofiel_type:#allowed_values:Z',
@@ -880,15 +871,6 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Z-profiel', array(), array('context' => 'field_standaardprofiel_type:#allowed_values:Z'));
-  $translations['fr:field']['dd3fa585ccfc13c237705e5d7d15a4ae'] = array(
-    'source' => 'Beugel',
-    'context' => 'field_mke_type:#allowed_values:Beugel',
-    'location' => 'field:field_mke_type:#allowed_values:Beugel',
-    'translation' => 'Pièce de montage',
-    'plid' => 0,
-    'plural' => 0,
-  );
-  $translatables[] = t('Beugel', array(), array('context' => 'field_mke_type:#allowed_values:Beugel'));
   $translations['fr:field']['de6f960f856781a2ba5fd67f65e0dbac'] = array(
     'source' => 'Muurkap Type',
     'context' => 'field_muurkap_type:muurkap:label',
@@ -952,15 +934,6 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Naam', array(), array('context' => 'type:product:title_label'));
-  $translations['fr:views']['1ea22b368209f831ec13e75bbbd3ffca'] = array(
-    'source' => 'Solliciteren tot',
-    'context' => 'jobs:default:field:field_data_field_ultimate_date:field_ultimate_date:label',
-    'location' => 'views:jobs:default:field:field_data_field_ultimate_date:field_ultimate_date:label',
-    'translation' => 'Solliciter jusqu\'au',
-    'plid' => 0,
-    'plural' => 0,
-  );
-  $translatables[] = t('Solliciteren tot', array(), array('context' => 'jobs:default:field:field_data_field_ultimate_date:field_ultimate_date:label'));
   $translations['fr:views']['203698dac95c31a51a98afcb9d39217c'] = array(
     'source' => 'Er zijn op dit ogenblik geen openstaande vacatures.',
     'context' => 'jobs:default:empty:views:area:content',
@@ -1087,15 +1060,6 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Klant worden', array(), array('context' => 'about:page_2:title'));
-  $translations['fr:views']['c7838c05faf61641e4984e02b6fcf8bf'] = array(
-    'source' => 'Bestelbon',
-    'context' => 'order_sheets:default:field:field_data_field_order_sheet:field_order_sheet:label',
-    'location' => 'views:order_sheets:default:field:field_data_field_order_sheet:field_order_sheet:label',
-    'translation' => 'Fiche de commande',
-    'plid' => 0,
-    'plural' => 0,
-  );
-  $translatables[] = t('Bestelbon', array(), array('context' => 'order_sheets:default:field:field_data_field_order_sheet:field_order_sheet:label'));
   $translations['fr:views']['ddfa5e952149a2889dc5f008c5da9dcb'] = array(
     'source' => 'Levertijden',
     'context' => 'about:page_1:title',
