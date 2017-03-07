@@ -28,6 +28,15 @@ function feneko_translations_translations_nl_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Order specific information', array(), array('context' => ''));
+  $translations['nl:default']['39b58811bfa66b0a450540dfc1540dc1'] = array(
+    'source' => 'Bestelbonnen',
+    'context' => '',
+    'location' => 'forms/FenekoSpecificForm.php:218',
+    'translation' => 'Bestelbonnen',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Bestelbonnen', array(), array('context' => ''));
   $translations['nl:default']['577d7068826de925ea2aec01dbadf5e4'] = array(
     'source' => 'Client',
     'context' => '',

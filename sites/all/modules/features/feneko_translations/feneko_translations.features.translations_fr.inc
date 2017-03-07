@@ -178,6 +178,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Order specific information', array(), array('context' => ''));
+  $translations['fr:default']['3632c34869e1a4ffe9c3260c6810659f'] = array(
+    'source' => 'Bestelbon',
+    'context' => '',
+    'location' => '/nl/schuifvliegendeur-elegance-plus',
+    'translation' => 'Fiche de commande',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Bestelbon', array(), array('context' => ''));
   $translations['fr:default']['37d5bc49de8d071b27a8b2193a9a12f4'] = array(
     'source' => 'Korting: -47%',
     'context' => '',
@@ -187,6 +196,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Korting: -47%', array(), array('context' => ''));
+  $translations['fr:default']['39b58811bfa66b0a450540dfc1540dc1'] = array(
+    'source' => 'Bestelbonnen',
+    'context' => '',
+    'location' => 'forms/FenekoSpecificForm.php:218',
+    'translation' => 'Fiches de commande',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Bestelbonnen', array(), array('context' => ''));
   $translations['fr:default']['3a59e107cd234216f34a95c12bf597b1'] = array(
     'source' => 'Korting: -56%',
     'context' => '',
@@ -403,6 +421,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Korting: -44%', array(), array('context' => ''));
+  $translations['fr:default']['8aa6fa59876f724661c583321394da1d'] = array(
+    'source' => 'bestelbonnen',
+    'context' => '',
+    'location' => '/nl/admin/structure/types/manage/page/fields?render=overlay',
+    'translation' => 'fiches de commande',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('bestelbonnen', array(), array('context' => ''));
   $translations['fr:default']['8abd91ae2854199b2c9be6794ef20b47'] = array(
     'source' => 'opmerking',
     'context' => '',
@@ -466,6 +493,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Klantennummers', array(), array('context' => ''));
+  $translations['fr:default']['a1e09600d091a5633ed8f6eb42d43426'] = array(
+    'source' => 'Bestelbon downloaden',
+    'context' => '',
+    'location' => '/nl/schuifvliegendeur-elegance-plus',
+    'translation' => 'Télécharger bon de commande',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Bestelbon downloaden', array(), array('context' => ''));
   $translations['fr:default']['a9a39524393245a842a5d6694f22ee6f'] = array(
     'source' => 'Leverconditie',
     'context' => '',
@@ -871,6 +907,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Gaatjes', array(), array('context' => 'field_ophanging:#allowed_values:gaatjes'));
+  $translations['fr:menu']['3e89960511ce7b8c3e10630159fa53e8'] = array(
+    'source' => 'Bestelbonnen',
+    'context' => 'item:7827:title',
+    'location' => 'menu:item:7827:title',
+    'translation' => 'Fiches de commande',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Bestelbonnen', array(), array('context' => 'item:7827:title'));
   $translations['fr:node']['fb7dd62d2d4e3577bcd83d120a54581b'] = array(
     'source' => 'Naam',
     'context' => 'type:product:title_label',
@@ -952,6 +997,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Nieuws', array(), array('context' => 'nieuws:default:title'));
+  $translations['fr:views']['6325fecad9f50bad0b2d8f1e77716ebc'] = array(
+    'source' => 'Bestelbonnen',
+    'context' => 'order_sheet:default:title',
+    'location' => 'views:order_sheet:default:title',
+    'translation' => 'Fiches de commande',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Bestelbonnen', array(), array('context' => 'order_sheet:default:title'));
   $translations['fr:views']['637531ffc5b7a9c4f23d98e80f48cf30'] = array(
     'source' => 'Onze producten',
     'context' => 'main_categories:default:title',
@@ -970,6 +1024,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Name', array(), array('context' => 'commerce_orders:default:field:field_data_commerce_customer_address:commerce_customer_address:label'));
+  $translations['fr:views']['6f61b175d4c5fb5061a9c427d357fe02'] = array(
+    'source' => 'Bestelbon [title]',
+    'context' => 'order_sheet:default:field:field_data_field_order_sheet:field_order_sheet:alter:text',
+    'location' => 'views:order_sheet:default:field:field_data_field_order_sheet:field_order_sheet:alter:text',
+    'translation' => 'Fiche de commande [title]',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Bestelbon [title]', array(), array('context' => 'order_sheet:default:field:field_data_field_order_sheet:field_order_sheet:alter:text'));
   $translations['fr:views']['83341be8545fbd9bbcc65100100b9faa'] = array(
     'source' => 'Winkelwagen',
     'context' => 'commerce_cart_form_feneko:default:title',
