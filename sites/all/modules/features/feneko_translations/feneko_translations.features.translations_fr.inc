@@ -214,6 +214,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Korting: -56%', array(), array('context' => ''));
+  $translations['fr:default']['3e89960511ce7b8c3e10630159fa53e8'] = array(
+    'source' => 'Bestelbonnen',
+    'context' => 'item:7827:title',
+    'location' => '/nl/admin/structure/features/feneko_translations/recreate?render=overlay',
+    'translation' => 'Fiches de commande',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Bestelbonnen', array(), array('context' => 'item:7827:title'));
   $translations['fr:default']['45acd6ac4b264cef2bccfdc5a5e048d1'] = array(
     'source' => 'Klant worden',
     'context' => '',
@@ -286,6 +295,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('You don\'t have any clients assigned. Contact the administrator.', array(), array('context' => ''));
+  $translations['fr:default']['6325fecad9f50bad0b2d8f1e77716ebc'] = array(
+    'source' => 'Bestelbonnen',
+    'context' => 'order_sheet:default:title',
+    'location' => '/nl/admin/structure/features/feneko_translations/recreate?render=overlay',
+    'translation' => 'Fiches de commande',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Bestelbonnen', array(), array('context' => 'order_sheet:default:title'));
   $translations['fr:default']['648930cf62ba900667f41bd903a76a21'] = array(
     'source' => 'Solliciteren tot (toutes les langues)',
     'context' => '',
@@ -1024,15 +1042,6 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Name', array(), array('context' => 'commerce_orders:default:field:field_data_commerce_customer_address:commerce_customer_address:label'));
-  $translations['fr:views']['6f61b175d4c5fb5061a9c427d357fe02'] = array(
-    'source' => 'Bestelbon [title]',
-    'context' => 'order_sheet:default:field:field_data_field_order_sheet:field_order_sheet:alter:text',
-    'location' => 'views:order_sheet:default:field:field_data_field_order_sheet:field_order_sheet:alter:text',
-    'translation' => 'Fiche de commande [title]',
-    'plid' => 0,
-    'plural' => 0,
-  );
-  $translatables[] = t('Bestelbon [title]', array(), array('context' => 'order_sheet:default:field:field_data_field_order_sheet:field_order_sheet:alter:text'));
   $translations['fr:views']['83341be8545fbd9bbcc65100100b9faa'] = array(
     'source' => 'Winkelwagen',
     'context' => 'commerce_cart_form_feneko:default:title',
@@ -1042,6 +1051,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Winkelwagen', array(), array('context' => 'commerce_cart_form_feneko:default:title'));
+  $translations['fr:views']['859b1fd65033e31edf8207b7918a35ea'] = array(
+    'source' => 'Bestelbon [title_field]',
+    'context' => 'order_sheet:default:field:field_data_field_order_sheet:field_order_sheet:alter:text',
+    'location' => 'views:order_sheet:default:field:field_data_field_order_sheet:field_order_sheet:alter:text',
+    'translation' => 'Fiche de commande [title_field]',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Bestelbon [title_field]', array(), array('context' => 'order_sheet:default:field:field_data_field_order_sheet:field_order_sheet:alter:text'));
   $translations['fr:views']['89aed2265d57cd92921c62dff7bfe607'] = array(
     'source' => 'Er zijn op dit ogenblik gaan nieuwsberichten.',
     'context' => 'nieuws:default:empty:views:area:content',
