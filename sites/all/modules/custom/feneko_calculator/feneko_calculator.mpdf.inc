@@ -313,8 +313,10 @@ function fc_get_attachment($order_id, $outputAsString = TRUE, $includePrice = TR
   }
   $footer.= '<div class="top-line"></div>';
   $footer.= '<div class="pagenum">{PAGENO}/{nbpg}</div>';
-  $footer.= '<div class="feneko_logo" style="line-height: 20px">';
-  $footer.= '<span class="feneko_fenek">Fenek</span><span class="feneko_o">O</span>';
+  $footer.= '<div class="feneko_logo">';
+  // $footer.= '<div class="feneko_logo" style="line-height: 20px">';
+  // $footer.= '<span class="feneko_fenek">Fenek</span><span class="feneko_o">O</span>';
+  $footer.= '<img src="/sites/all/themes/feneko/img/logo.png" height="200">';
   $footer.= '<div class="slogan">' . t('vliegenramen & plaatbewerking') . '</div>';
   $footer.= '</div>';
 

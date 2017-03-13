@@ -19,6 +19,7 @@ features[views_view][] = jobs
 features[views_view][] = machines
 features[views_view][] = main_categories
 features[views_view][] = nieuws
+features[views_view][] = order_sheet
 features[views_view][] = related
 features_exclude[dependencies][feneko_structure] = feneko_structure
 features_exclude[dependencies][field_group] = field_group

@@ -109,11 +109,20 @@ if($teaser) array_push($classes,"product-teaser", "teaser-rij");
           $flipperUrl = "/$lang/catalog/$product_grandparent/flipper";
           $pdfUrl = "/sites/default/files/pdfs/$product_grandparent" . "_$lang.pdf";
           $catName = t('Catalog');
+          $orderSheetUri = isset($content['field_order_sheet']['#items'][0]['uri'])
+                      ? $content['field_order_sheet']['#items'][0]['uri'] : null;
         ?>
         <div class="field-name-field-orderable-products">
           <?php if($product_grandparent == 'screens') : print(feneko_order_urls($node_url, $title)); endif; ?>
           <?php print render($content['field_orderable_products']); ?>
         </div>
+        <?php if($orderSheetUri) {
+          print l(
+            t('Bestelbon downloaden'),
+            file_create_url($orderSheetUri),
+            array("attributes" => array("class" => "order_sheet", "target" => "_blank"))
+          );
+        } ?>
         <div class="catalog">
 <!--
           <a class="hide-mobile" href="<?php print $flipperUrl; ?>" target="_blank"><?php print $catName; ?></a>

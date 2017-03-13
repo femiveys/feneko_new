@@ -6,7 +6,12 @@
   </div><!--menu-small-->
   <div id="logo-small" class="small-block blocklink">
     <div class="inner-wrapper">
-      <a href="<?php print $front_page; ?>"><div class="feneko_logo"><span class="feneko_fenek">F</span><span class="feneko_o">O</span></div></a>
+      <a href="<?php print $front_page; ?>">
+        <div class="feneko_logo">
+          <span class="feneko_fenek">F</span>
+          <span class="feneko_o">O</span>
+        </div>
+      </a>
     </div>
   </div><!--logo-small-->
   <div id="user-small" class="small-block blocklink">
@@ -40,7 +45,17 @@
 
 <div id="header-wrapper" class="wrapper">
   <div class="inner-wrapper">
-    <h2 class="logo"><a href="<?php print $front_page; ?>"><div class="feneko_logo"><span class="feneko_fenek">Fenek</span><span class="feneko_o">O</span></div></a></h2>
+    <h2 class="logo">
+      <a href="<?php print $front_page; ?>">
+        <img src="/sites/all/themes/feneko/img/logo.png">
+<!--
+        <div class="feneko_logo">
+          <span class="feneko_fenek">Fenek</span>
+          <span class="feneko_o">O</span>
+        </div>
+-->
+      </a>
+    </h2>
     <?php if ($site_name): ?>
     <h1 id="site-name">
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>

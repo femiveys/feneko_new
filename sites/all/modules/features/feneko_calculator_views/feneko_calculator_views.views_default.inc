@@ -259,6 +259,7 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['line_item_title']['table'] = 'commerce_line_item';
   $handler->display->display_options['fields']['line_item_title']['field'] = 'line_item_title';
   $handler->display->display_options['fields']['line_item_title']['relationship'] = 'commerce_line_items_line_item_id';
+  $handler->display->display_options['fields']['line_item_title']['label'] = 'Titel';
   $handler->display->display_options['fields']['line_item_title']['exclude'] = TRUE;
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
@@ -361,6 +362,7 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['quantity']['table'] = 'commerce_line_item';
   $handler->display->display_options['fields']['quantity']['field'] = 'quantity';
   $handler->display->display_options['fields']['quantity']['relationship'] = 'commerce_line_items_line_item_id';
+  $handler->display->display_options['fields']['quantity']['label'] = 'Hoeveelheid';
   $handler->display->display_options['fields']['quantity']['precision'] = '0';
   /* Field: Commerce Line item: Totaal */
   $handler->display->display_options['fields']['commerce_total']['id'] = 'commerce_total';
@@ -504,6 +506,7 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['quantity']['id'] = 'quantity';
   $handler->display->display_options['fields']['quantity']['table'] = 'commerce_line_item';
   $handler->display->display_options['fields']['quantity']['field'] = 'quantity';
+  $handler->display->display_options['fields']['quantity']['label'] = 'Hoeveelheid';
   $handler->display->display_options['fields']['quantity']['precision'] = '0';
   /* Field: Commerce Line item: Totaal */
   $handler->display->display_options['fields']['commerce_total']['id'] = 'commerce_total';
@@ -659,9 +662,10 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'commerce_order';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
+  $handler->display->display_options['relationships']['uid']['label'] = 'Bestellingseigenaar';
   /* Field: Bulk operations: Commerce Order */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
-  $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'commerce_order';
+  $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'views_entity_commerce_order';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['label'] = '';
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_type'] = '0';
@@ -786,6 +790,7 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['mail']['table'] = 'users';
   $handler->display->display_options['fields']['mail']['field'] = 'mail';
   $handler->display->display_options['fields']['mail']['relationship'] = 'uid';
+  $handler->display->display_options['fields']['mail']['label'] = 'E-mailadres';
   $handler->display->display_options['fields']['mail']['link_to_user'] = '0';
   /* Field: Commerce Order: Order total */
   $handler->display->display_options['fields']['commerce_order_total']['id'] = 'commerce_order_total';

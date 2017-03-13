@@ -168,6 +168,7 @@ h2 a,
   color: $darkgrey;
   font-size: 26px;
   margin-bottom: 14px;
+  margin-top: 36px;
 }
 
 h3,
@@ -202,6 +203,14 @@ h3 a,
 
 .feneko_o {
   color: $blue;
+}
+
+h2.logo {
+  margin: 0;
+  height: 40px;
+  img {
+    height: 100%;
+  }
 }
 
 /* IMG
@@ -1709,6 +1718,14 @@ div.horizontal-tabs {
       background-color: lighten($green, 10%);
     }
   }
+}
+
+.order_sheet {
+  @extend %button;
+  width: 100%;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  background-color: $blue;
 }
 
 .open-img {
