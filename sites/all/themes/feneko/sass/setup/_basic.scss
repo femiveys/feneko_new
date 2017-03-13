@@ -168,7 +168,7 @@ h2 a,
   color: $darkgrey;
   font-size: 26px;
   margin-bottom: 14px;
-  margin-top: 36px;
+  // margin-top: 36px;
 }
 
 h3,
@@ -2162,4 +2162,9 @@ div.contextual-links-wrapper {
   &.last-check {
     margin-bottom: 30px;
   }
+}
+
+
+.view-order-sheet > .view-content > div {
+  margin-bottom: 36px;
 }
