@@ -515,6 +515,7 @@ class FenekoSpecificForm extends FenekoForm {
         $this->addField('table4', 30);
         $this->addField('kader', 36);
         $this->addField('scharnierkant', 60);
+        $this->addField('pomp', 70);
         $this->addField('hoekverbinding', 510);
         $this->url = array(
           'nl' => 'vliegendeur-elegance-plus',
@@ -725,7 +726,6 @@ class FenekoSpecificForm extends FenekoForm {
         break;
 
       case '14':
-        $this->form['table1']['#caption'] = $caption2;
         unset($this->form['kleur']['kleur']['#options']['anodise']);
 
         $this->form['uitvoering']['uitvoering']['#options'] = $uitvoering_options;
