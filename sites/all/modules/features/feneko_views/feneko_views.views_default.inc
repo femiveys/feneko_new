@@ -24,15 +24,10 @@ function feneko_views_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Over FenekO';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'meer';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Toepassen';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sorteren op';
-  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Oplopend';
-  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Aflopend';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -294,7 +289,6 @@ function feneko_views_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Banner';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'meer';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'time';
   $handler->display->display_options['cache']['results_lifespan'] = '3600';
@@ -303,10 +297,6 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Toepassen';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sorteren op';
-  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Oplopend';
-  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Aflopend';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
   $handler->display->display_options['style_plugin'] = 'default';
@@ -372,7 +362,6 @@ function feneko_views_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Contact';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'meer';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'time';
   $handler->display->display_options['cache']['results_lifespan'] = '3600';
@@ -381,10 +370,6 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Toepassen';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sorteren op';
-  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Oplopend';
-  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Aflopend';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -646,7 +631,6 @@ function feneko_views_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'meer';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'time';
   $handler->display->display_options['cache']['results_lifespan'] = '3600';
@@ -655,10 +639,6 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Toepassen';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sorteren op';
-  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Oplopend';
-  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Aflopend';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['row_class'] = 'footer-block';
@@ -776,7 +756,6 @@ function feneko_views_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'meer';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'time';
   $handler->display->display_options['cache']['results_lifespan'] = '3600';
@@ -785,10 +764,6 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Toepassen';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sorteren op';
-  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Oplopend';
-  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Aflopend';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['style_plugin'] = 'default';
@@ -879,7 +854,6 @@ function feneko_views_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Jobs';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'meer';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'time';
   $handler->display->display_options['cache']['results_lifespan'] = '3600';
@@ -888,19 +862,8 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Toepassen';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sorteren op';
-  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Oplopend';
-  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Aflopend';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '3';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Items per pagina';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
-  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Startpunt';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['row_class'] = 'teaser-rij job-rij';
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
@@ -1071,7 +1034,6 @@ function feneko_views_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Machines';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'meer';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'time';
   $handler->display->display_options['cache']['results_lifespan'] = '3600';
@@ -1080,10 +1042,6 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Toepassen';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sorteren op';
-  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Oplopend';
-  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Aflopend';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['row_class'] = 'teaser-rij machine-rij blocklink';
@@ -1146,7 +1104,6 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Alle';
   $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   /* Filter criterion: Content: Published */
@@ -1222,15 +1179,10 @@ function feneko_views_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Onze producten';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'meer';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Toepassen';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sorteren op';
-  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Oplopend';
-  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Aflopend';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
@@ -1264,7 +1216,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['relationships']['reverse_field_productcategorie_node']['id'] = 'reverse_field_productcategorie_node';
   $handler->display->display_options['relationships']['reverse_field_productcategorie_node']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['relationships']['reverse_field_productcategorie_node']['field'] = 'reverse_field_productcategorie_node';
-  /* Field: Taxonomieterm: product category Image */
+  /* Field: Taxonomy term: product category Image */
   $handler->display->display_options['fields']['field_product_category_image']['id'] = 'field_product_category_image';
   $handler->display->display_options['fields']['field_product_category_image']['table'] = 'field_data_field_product_category_image';
   $handler->display->display_options['fields']['field_product_category_image']['field'] = 'field_product_category_image';
@@ -1356,7 +1308,7 @@ function feneko_views_views_default_views() {
   /* Display: Page: onze producten */
   $handler = $view->new_display('page', 'Page: onze producten', 'page');
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Taxonomieterm: product category Image */
+  /* Field: Taxonomy term: product category Image */
   $handler->display->display_options['fields']['field_product_category_image']['id'] = 'field_product_category_image';
   $handler->display->display_options['fields']['field_product_category_image']['table'] = 'field_data_field_product_category_image';
   $handler->display->display_options['fields']['field_product_category_image']['field'] = 'field_product_category_image';
@@ -1532,7 +1484,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Taxonomieterm: product category Image */
+  /* Field: Taxonomy term: product category Image */
   $handler->display->display_options['fields']['field_product_category_image']['id'] = 'field_product_category_image';
   $handler->display->display_options['fields']['field_product_category_image']['table'] = 'field_data_field_product_category_image';
   $handler->display->display_options['fields']['field_product_category_image']['field'] = 'field_product_category_image';
@@ -1626,19 +1578,8 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Toepassen';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sorteren op';
-  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Oplopend';
-  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Aflopend';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '4';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Items per pagina';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Alle -';
-  $handler->display->display_options['pager']['options']['expose']['offset_label'] = 'Startpunt';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« eerste';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ vorige';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'volgende ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'laatste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['row_class'] = 'teaser-rij nieuws-rij';
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
@@ -1816,15 +1757,10 @@ function feneko_views_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Bestelbonnen';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'meer';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Toepassen';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sorteren op';
-  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Oplopend';
-  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Aflopend';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['grouping'] = array(
@@ -1861,7 +1797,7 @@ function feneko_views_views_default_views() {
   $handler->display->display_options['relationships']['parent']['relationship'] = 'term_node_tid';
   $handler->display->display_options['relationships']['parent']['label'] = 'Bovenliggend';
   $handler->display->display_options['relationships']['parent']['required'] = TRUE;
-  /* Field: Taxonomieterm: Naam */
+  /* Field: Taxonomy term: Naam */
   $handler->display->display_options['fields']['name_field']['id'] = 'name_field';
   $handler->display->display_options['fields']['name_field']['table'] = 'field_data_name_field';
   $handler->display->display_options['fields']['name_field']['field'] = 'name_field';
@@ -1950,15 +1886,10 @@ function feneko_views_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Gerelateerde producten';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['use_more_text'] = 'meer';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Toepassen';
-  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sorteren op';
-  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Oplopend';
-  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Aflopend';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';

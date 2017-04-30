@@ -165,7 +165,6 @@ features[field_base][] = field_standaardprofiel_type
 features[field_base][] = field_stockprofiel
 features[field_base][] = field_tekening
 features[field_base][] = field_type_bewerking
-features[field_group][] = group_order_info|commerce_order|commerce_order|default
 features[field_group][] = group_order_info|commerce_order|commerce_order|form
 features[field_instance][] = commerce_line_item-dorpel_stuk-commerce_display_path
 features[field_instance][] = commerce_line_item-dorpel_stuk-commerce_product

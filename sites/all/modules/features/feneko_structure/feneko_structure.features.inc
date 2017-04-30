@@ -95,25 +95,15 @@ function feneko_structure_image_default_styles() {
   $styles['force_square_medium'] = array(
     'label' => 'force square medium',
     'effects' => array(
-      6 => array(
-        'name' => 'image_crop',
+      5 => array(
+        'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 220,
           'height' => 220,
-          'anchor' => 'center-center',
         ),
         'weight' => -10,
       ),
-      5 => array(
-        'name' => 'image_scale',
-        'data' => array(
-          'width' => 220,
-          'height' => '',
-          'upscale' => 1,
-        ),
-        'weight' => -9,
-      ),
-      14 => array(
+      3 => array(
         'name' => 'canvasactions_file2canvas',
         'data' => array(
           'xpos' => 'right',
@@ -121,16 +111,7 @@ function feneko_structure_image_default_styles() {
           'alpha' => 100,
           'path' => 'sites/all/themes/feneko/img/feneko.png',
         ),
-        'weight' => -8,
-      ),
-      8 => array(
-        'name' => 'image_scale',
-        'data' => array(
-          'width' => '',
-          'height' => 220,
-          'upscale' => 1,
-        ),
-        'weight' => -7,
+        'weight' => -9,
       ),
     ),
   );
@@ -139,34 +120,15 @@ function feneko_structure_image_default_styles() {
   $styles['force_square_small'] = array(
     'label' => 'Force square small',
     'effects' => array(
-      9 => array(
-        'name' => 'image_scale',
-        'data' => array(
-          'width' => 200,
-          'height' => '',
-          'upscale' => 1,
-        ),
-        'weight' => -10,
-      ),
       10 => array(
-        'name' => 'image_scale',
-        'data' => array(
-          'width' => '',
-          'height' => 200,
-          'upscale' => 1,
-        ),
-        'weight' => -9,
-      ),
-      11 => array(
-        'name' => 'image_crop',
+        'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 150,
           'height' => 150,
-          'anchor' => 'center-center',
         ),
-        'weight' => -8,
+        'weight' => -10,
       ),
-      15 => array(
+      9 => array(
         'name' => 'canvasactions_file2canvas',
         'data' => array(
           'xpos' => 'right',
@@ -174,7 +136,7 @@ function feneko_structure_image_default_styles() {
           'alpha' => 100,
           'path' => 'sites/all/themes/feneko/img/feneko.png',
         ),
-        'weight' => -7,
+        'weight' => -9,
       ),
     ),
   );

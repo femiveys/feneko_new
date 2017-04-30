@@ -836,3 +836,22 @@ function manyforms_update_7052() {
     db_create_table($table, $schema);
   }
 }
+
+/**
+ * Add pomp to vliegendeur elegance+
+ */
+function manyforms_update_7053() {
+  $table = "manyforms_14";
+  $name = 'pomp';
+  $field = array(
+    'type' => 'varchar',
+    'length' => 100,
+    'not null' => TRUE,
+    'description' => $name,
+  );
+
+  if (!db_field_exists($table, $field_name)) {
+    db_add_field($table, $name, $field);
+  }
+}
+
