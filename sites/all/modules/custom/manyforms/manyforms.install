@@ -848,6 +848,7 @@ function manyforms_update_7053() {
     'length' => 100,
     'not null' => TRUE,
     'description' => $name,
+    'initial' => 'nee',
   );
 
   if (!db_field_exists($table, $field_name)) {
