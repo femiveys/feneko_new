@@ -40,7 +40,7 @@ function feneko_calculator_feature_field_group_info() {
       ),
     ),
   );
-  $field_groups[''] = $field_group;
+  $field_groups['group_order_info|commerce_order|commerce_order|form'] = $field_group;
 
   // Translatables
   // Included for use with string extractors like potx.
