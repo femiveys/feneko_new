@@ -10,6 +10,15 @@
 function feneko_translations_translations_fr_defaults() {
   $translations = array();
   $translatables = array();
+  $translations['fr:default']['023ebfed0e1d0fdf4ce405b7994f1860'] = array(
+    'source' => 'Klantenzone',
+    'context' => '',
+    'location' => '/nl/admin/structure/features?render=overlay',
+    'translation' => 'Zone client',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Klantenzone', array(), array('context' => ''));
   $translations['fr:default']['09bc5f9df1cb5ea352fb427ef7a8080a'] = array(
     'source' => 'Plaats bestelling',
     'context' => '',
@@ -925,6 +934,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Bestelbonnen', array(), array('context' => 'item:7827:title'));
+  $translations['fr:menu']['cb3aa54911f974cf675a6ddcc300193f'] = array(
+    'source' => 'Klantenzone',
+    'context' => 'item:6615:title',
+    'location' => 'menu:item:6615:title',
+    'translation' => 'Zone client',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Klantenzone', array(), array('context' => 'item:6615:title'));
   $translations['fr:node']['fb7dd62d2d4e3577bcd83d120a54581b'] = array(
     'source' => 'Naam',
     'context' => 'type:product:title_label',
