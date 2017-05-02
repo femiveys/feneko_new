@@ -343,8 +343,8 @@ function feneko_calculator_get_discounts() {
                                                 ->commerce_percentage->value());
 
     $limits[$discount->name] = array(
-      'low'  => $matches[1]  * 100000,
-      'high' => $matches[2] * 100000,
+      'low'  => intval($matches[1])  * 100000,
+      'high' => intval($matches[2]) * 100000,
       'pct'  => $pct,
       'wrapper' => $discount_wrapper,
     );
