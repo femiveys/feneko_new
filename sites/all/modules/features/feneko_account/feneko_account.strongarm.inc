@@ -173,7 +173,7 @@ function feneko_account_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'smtp_host';
-  $strongarm->value = 'smtp.sendgrid.net';
+  $strongarm->value = 'smtp.feneko.be';
   $export['smtp_host'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -194,14 +194,14 @@ function feneko_account_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'smtp_password';
-  $strongarm->value = 'feneko23*';
+  $strongarm->value = 'SV9mXBZskD*P';
   $export['smtp_password'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'smtp_port';
-  $strongarm->value = '587';
+  $strongarm->value = '25';
   $export['smtp_port'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -264,7 +264,7 @@ function feneko_account_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'smtp_username';
-  $strongarm->value = 'feneko';
+  $strongarm->value = 'ID179346_fenekobe';
   $export['smtp_username'] = $strongarm;
 
   $strongarm = new stdClass();
