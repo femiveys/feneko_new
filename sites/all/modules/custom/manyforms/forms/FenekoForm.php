@@ -1688,6 +1688,9 @@ class FenekoForm {
       'body'    => $message,
       'subject' => $subject,
       'attachments' => $attachments,
+      'headers' => array(
+        'Cc' => 'kurt@feneko.be,femi@itsimplyworks.be',
+      ),
     );
 
     if(drupal_mail('manyforms', 'submit', $to, language_default(), $params, $from, TRUE)) {
