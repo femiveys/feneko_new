@@ -46,6 +46,7 @@ dependencies[] = i18n_node
 dependencies[] = image
 dependencies[] = list
 dependencies[] = media
+dependencies[] = node
 dependencies[] = number
 dependencies[] = options
 dependencies[] = php
