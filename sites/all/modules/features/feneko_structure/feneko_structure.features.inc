@@ -72,15 +72,28 @@ function feneko_structure_default_entityform_type() {
       "submissions_view" : "default",
       "user_submissions_view" : "default",
       "form_status" : "ENTITYFORM_OPEN",
-      "roles" : { "1" : "1", "2" : "2", "3" : "3", "5" : 0, "4" : 0 },
+      "roles" : {
+        "3" : "3",
+        "1" : "1",
+        "2" : "2",
+        "5" : 0,
+        "4" : 0,
+        "7" : 0,
+        "6" : 0,
+        "8" : 0
+      },
       "resubmit_action" : "new",
       "redirect_path" : "",
       "instruction_pre" : { "value" : "", "format" : "filtered_html" },
-      "current_type" : "solliciteer",
-      "enable_block" : 1
+      "enable_block" : 0
     },
     "weight" : "0",
-    "paths" : []
+    "paths" : { "submit" : {
+        "source" : "eform\\/submit\\/solliciteer",
+        "alias" : "solliciteer",
+        "language" : "und"
+      }
+    }
   }');
   return $items;
 }

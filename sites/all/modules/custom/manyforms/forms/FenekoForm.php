@@ -352,8 +352,6 @@ class FenekoForm {
     $table_type = $this->getTableType();
     $table_fields = self::getTableFields("table" . $table_type);
     $record = json_decode(json_encode($fields), FALSE);
-    $product_fiche = $this->getProductFiche($fields);
-
 
     $header  = ':UOR:' . PHP_EOL . PHP_EOL;
     $header .= PHP_EOL . ":K1: " . $fields['klant'] . PHP_EOL . PHP_EOL . PHP_EOL; // klantnummer
@@ -429,7 +427,7 @@ class FenekoForm {
 
 
       $fiche .= self::lineSort($section) . PHP_EOL;
-      $fiche .= ":O16: " . $fields["opmerking$i"] . PHP_EOL . PHP_EOL;
+      $fiche .= ":O16: " . $section_fields["opmerking$i"] . PHP_EOL . PHP_EOL;
       $fiche .= ":UE" . PHP_EOL;  // End productblok
     }
 
@@ -437,6 +435,7 @@ class FenekoForm {
 
     return $header . $fiche . $footer;
   }
+
 
   /**
    * Handles all logic related to the P7 stand field of the table
@@ -527,7 +526,7 @@ class FenekoForm {
    * @param $fields Array all fields of the submission
    * @return string The product fiche string
    */
-  private function getProductFiche($fields) {
+  private function getProductFiche(&$fields) {
     $product_fiche = '';
     $id = intval($this->getId());
 
@@ -717,6 +716,18 @@ class FenekoForm {
           if(!empty($fields['soort_bevestiging'])) {
             if(strstr($fields['soort_bevestiging'], 'op_maat') !== FALSE) {
               $value = 'geen';
+
+              // Add *** in front of every opmerking for non empty rows
+              $count = 9;
+              $table_type = $this->getTableType();
+              $table_fields = self::getTableFields("table" . $table_type);
+              $record = json_decode(json_encode($fields), FALSE);
+              $pattern = "*** ";
+              for($i = 1; $i <= $count; $i++) {
+                if(!self::emptyRow($record, $table_fields, $i)) {
+                  $fields["opmerking$i"] = "*** " . $fields["opmerking$i"];
+                }
+              }
             }
           }
           break;
@@ -2066,7 +2077,7 @@ class FenekoForm {
         'ral'       => 4,
         'ral_bl'    => 8,
         'ral_a1'    => 9,
-        'ral_a2'    => 7,
+        'ral_a2'    => 9,
         'f9001'     => 5,
         '7016'      => 6,
         '7039-70d'  => 7,

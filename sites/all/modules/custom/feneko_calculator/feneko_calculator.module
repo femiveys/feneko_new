@@ -722,7 +722,6 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
 
     case 'raamtablet':
     case 'muurkap':
-// dpm($form);
 
 // unset($form['line_item_fields']['field_eindstukken']);
 
@@ -733,7 +732,7 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
       // Add AJAX
       $form['line_item_fields']['field_lengte']['und'][0]['value']['#ajax'] = $ajax;
 
-      // Move the quantioty field up
+      // Move the quantity field up
       $form['quantity']['#weight'] = -200;
 
       // Improve the einstukken and hoeken
@@ -813,6 +812,7 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
       if(_fc_check_afwerking($form, $form_state, $options) === false) return;
 
       $kant = &$form['line_item_fields']['field_muurkap_stuk_kant']['und'];
+
       $stukType = &$form_state['input']['attributes']['field_mke_type'];
       $muurkapType = &$form_state['input']['attributes']['field_muurkap_type'];
 
@@ -827,9 +827,9 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
 
         case 'Eindstuk':
           if($muurkapType == 3) {
-            _fc_strip_options($kant, array('left1', 'right1', 'left2', 'right2'));
+            _fc_strip_options($kant, array('left1', 'right1', 'left2', 'right2', 'left3', 'right3'));
           } else {
-            _fc_strip_options($kant, array('type1', 'type2'));
+            _fc_strip_options($kant, array('type1', 'type2', 'type3'));
           }
           break;
 
@@ -1213,6 +1213,16 @@ function _fc_add_toebehoren($product_type, $values) {
                 case 3:
                   $kant = 'right2';
                   break;
+                case 4:
+                  if($muurkap_type == 3) {
+                    $kant = 'left3';
+                  } else {
+                    $kant = 'type3';
+                  }
+                  break;
+                case 5:
+                  $kant = 'right3';
+                  break;
               }
 
               $fields = array('field_muurkap_stuk_kant' => $kant);
@@ -1256,7 +1266,7 @@ function _fc_add_toebehoren($product_type, $values) {
 
         foreach ($fields as $field => $name) {
           if(isset($line_item_fields[$field])) {
-            // Do something slightly different for every eindstuk (Type: 1,2; Kant: left,right)
+            // Do something slightly different for every eindstuk (Type: 1,2,3; Kant: left,right)
             $value = $line_item_fields[$field]['und'][0]['value'];
             if($value > 0) {
               $sku = "MKE-$muurkap_type-$diepte-$afwerking-$name";
@@ -1776,6 +1786,8 @@ function fc_get_multi_field_mapping($muurkap_type = NULL) {
       t('Type 1 - Rechts'),
       t('Type 2 - Links'),
       t('Type 2 - Rechts'),
+      t('Type 3 - Links'),
+      t('Type 3 - Rechts'),
     ),
     'field_hoeken' => array(
       t('Binnenhoeken'),
@@ -1794,6 +1806,7 @@ function fc_get_multi_field_mapping($muurkap_type = NULL) {
     $mapping['field_eindstukken'] = array(
       t('Type 1'), NULL,
       t('Type 2'), NULL,
+      t('Type 3'), NULL,
     );
     $mapping['field_hoeken'] = array(
       t('Aantal'), NULL,

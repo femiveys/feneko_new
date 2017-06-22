@@ -411,7 +411,7 @@ function feneko_calculator_feature_field_default_field_bases() {
   // Exported field_base: 'field_eindstukken'.
   $field_bases['field_eindstukken'] = array(
     'active' => 1,
-    'cardinality' => 4,
+    'cardinality' => 6,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_eindstukken',
@@ -1560,8 +1560,11 @@ function feneko_calculator_feature_field_default_field_bases() {
         'right1' => 'Type 1 - Rechts',
         'left2' => 'Type 2 - Links',
         'right2' => 'Type 2 - Rechts',
+        'left3' => 'Type 3 - Links',
+        'right3' => 'Type 3 - Rechts',
         'type1' => 'Type 1',
         'type2' => 'Type 2',
+        'type3' => 'Type 3',
         'binnen' => 'Binnen',
         'buiten' => 'Buiten',
       ),

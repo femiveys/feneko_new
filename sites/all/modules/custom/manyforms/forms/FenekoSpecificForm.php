@@ -487,7 +487,7 @@ class FenekoSpecificForm extends FenekoForm {
         $this->remark = t('Breedtemaat van het vliegenschuifdeurblad.<br />Totale hoogte inclusief geleiders van de schuifdeur.<br />Lengte van de geleiders.');
         $this->removeField('table1');
         $this->addField('table3', 30);
-        // $this->addField('uitvoering', 33);
+        $this->addField('uitvoering', 33);
         $this->addField('ondergeleider', 34);
         $this->addField('ondergeleider_anodise', 35);
         $this->addField('bovengeleider', 36);
