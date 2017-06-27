@@ -77,6 +77,18 @@ function feneko_code_import_form($form, &$form_state) {
         ),
       ),
     ),
+    'full' => array(
+      '#type' => "checkbox",
+      '#title' => 'Full load',
+      '#description' => 'Vink dit aan als je wil dat alle gegevens in deze tabel eerst verwijderd worden.',
+      '#states' => array(
+        'visible' => array(
+          'input[name="type"]' => array(
+            array('value' => FENEKO_CODE_ORDER_STATUSES_TABLE),
+          )
+        ),
+      ),
+    ),
     'submit' => array(
       '#type' => "submit",
       "#value" => "Importeer",
@@ -157,7 +169,7 @@ function _feneko_code_csv_import($filename, $values) {
     fgetcsv($handle, 0, FENEKO_CODE_IMPORT_DELIMITER);
   }
 
-  if($table !== 'blocked' and $table !== FENEKO_CODE_ORDER_STATUSES_TABLE) {
+  if(!($table === 'blocked' or ($table === FENEKO_CODE_ORDER_STATUSES_TABLE and !$values['full']))) {
     // First clear the table.
     if (db_table_exists($table)) {
       db_truncate($table)->execute();
