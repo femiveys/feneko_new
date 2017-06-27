@@ -1021,7 +1021,7 @@ class FenekoForm {
 
     $feneko_mail = variable_get('manyforms_notification_email','offerte@feneko.be');
 
-    $subject = "[Feneko Online] formulier ($id) verzonden door " . $user->name;
+    $subject = "[Feneko Online] formulier ($id) verzonden door " . $user->name . " ($ref)";
 
     $feneko_msg = variable_get('manyforms_notification_email_text','');
 
