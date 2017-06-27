@@ -857,7 +857,7 @@ function manyforms_update_7053() {
 }
 
 /**
- * Remove the uitvoering field for elegance+
+ * Add the uitvoering field for elegance+
  */
 function manyforms_update_7054() {
   $name = 'uitvoering';

@@ -909,6 +909,7 @@ class FenekoForm {
       case 'dubbel8':
       case 'dubbel9':
       case 'dubbel10':
+      case 'dubbel13':
         $max = array(
           'breedte' => 6000,
           'hoogte'  => 3000,
