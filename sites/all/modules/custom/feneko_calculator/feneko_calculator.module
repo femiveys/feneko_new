@@ -563,15 +563,19 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
                                                           ['#default_value'][0];
 
       // Special is totally different
-      if($typeBewerking === FC_PB_SPECIAL) {
-        // Hide multi-breedte and multi-hoek field
-        $form['line_item_fields']['field_multi_breedte']['#access'] = FALSE;
-        $form['line_item_fields']['field_multi_hoek']['#access'] = FALSE;
+      // if($typeBewerking === FC_PB_SPECIAL) {
+      //   // Hide multi-breedte and multi-hoek field
+      //   $form['line_item_fields']['field_multi_breedte']['#access'] = FALSE;
+      //   $form['line_item_fields']['field_multi_hoek']['#access'] = FALSE;
+      //
+      //   // Make the file upload mandatory
+      //   $form['line_item_fields']['field_tekening']['#required'] = TRUE;
+      //
+      // } else {
 
-        // Make the file upload mandatory
-        $form['line_item_fields']['field_tekening']['#required'] = TRUE;
+        // Hide option special
+        unset($form['line_item_fields']['field_type_bewerking']['und']['#options']['special']);
 
-      } else {
         // Hide the breedte, plooien and tekening field
         $form['line_item_fields']['field_breedte']['#access'] = FALSE;
         $form['line_item_fields']['field_plooien']['#access'] = FALSE;
@@ -626,7 +630,7 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
           //   $multiHoek[$i]['value']['#default_value'] = 0;
           // }
         }
-      }
+      // }
 
 
       // Do some color type specific stuff
