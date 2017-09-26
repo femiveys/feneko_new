@@ -8,7 +8,7 @@ function manyforms_export_form($form, &$form_state) {
   $options = array();
   $page_size = 200;
 
-  $filters = array('id', 'type', 'user', 'client', 'ref');
+  $filters = array('id', 'type', 'user', 'client', 'ref', 'block_order_input');
 
   $only_exported = $form_state['build_info']['args'][0];
 
@@ -55,6 +55,8 @@ function manyforms_export_form($form, &$form_state) {
 
     $query = db_select("manyforms_$form_id", 'f');
     $query->join('users', 'u', 'f.uid = u.uid');
+    $query->join('field_data_field_client_number', 'cn', 'f.klant = cn.field_client_number_value');
+    $query->join('field_data_field_block_order_input', 'b', 'b.entity_id = cn.entity_id');
     $query->condition('exported', $only_exported);
     $query->fields('f', array('id'));
 
@@ -83,11 +85,13 @@ function manyforms_export_form($form, &$form_state) {
     $form_id = sprintf('%02d', $i);
     $ff = new FenekoSpecificForm($form_id);
 
-    $query = db_select("manyforms_$form_id", 'p')->extend('TableSort');
-    $query->join('users', 'u', 'p.uid = u.uid');
+    $query = db_select("manyforms_$form_id", 'f')->extend('TableSort');
+    $query->join('users', 'u', 'f.uid = u.uid');
+    $query->join('field_data_field_client_number', 'cn', 'f.klant = cn.field_client_number_value');
+    $query->join('field_data_field_block_order_input', 'b', 'b.entity_id = cn.entity_id');
     $query->condition('exported', $only_exported);
     $query->fields('u', array('name'))
-          ->fields('p', array(
+          ->fields('f', array(
                           'id',
                           'exported',
                           'klant',
@@ -203,31 +207,53 @@ function manyforms_export_form($form, &$form_state) {
     '#type' => 'fieldset',
     '#collapsible' => TRUE,
     '#collapsed' => !$filter_click,
-    '#attributes' => array('class' => array('container-inline')),
     '#tree' => TRUE,
     '#title' => t('Filters'),
   );
+  $form['filter']['items'] = array(
+    '#type' => 'container',
+    '#attributes' => array('class' => array('container-inline', 'form-item')),
+    '#tree' => TRUE,
+  );
   foreach ($filters as $filter) {
-    $form['filter'][$filter] = array(
+    $form['filter']['items'][$filter] = array(
       '#type' => 'textfield',
-      '#title' => $header[$filter]['data'],
+      '#title' => $filter === 'block_order_input' ? 'Geblokkeerde klant' : $header[$filter]['data'],
       '#size' => 10,
     );
   }
-  $form['filter']['type']['#type'] = 'select';
-  $form['filter']['type']['#options'] = array(
+
+  // Change type into select
+  $form['filter']['items']['type']['#type'] = 'select';
+  $form['filter']['items']['type']['#options'] = array(
     '' => 'beide',
     'offerte' => 'offerte',
     'bestelling' => 'bestelling',
   );
-  unset($form['filter']['type']['#size']);
-  $form['filter']['submit'] = array(
-    '#type' => 'submit',
-    '#value' => t('Filter'),
+  unset($form['filter']['items']['type']['#size']);
+
+  // Change block_order_input into select
+  $form['filter']['items']['block_order_input']['#type'] = 'select';
+  $form['filter']['items']['block_order_input']['#options'] = array(
+    '' => 'beide',
+    0 => 'Nee',
+    1 => 'Ja',
   );
-  $form['filter']['reset'] = array(
-    '#type' => 'submit',
-    '#value' => t('Reset filters'),
+  unset($form['filter']['items']['block_order_input']['#size']);
+
+  // Add buttons container
+  $form['filter']['buttons'] = array(
+    '#type' => 'container',
+    '#attributes' => array('class' => array('container-inline')),
+    '#tree' => TRUE,
+    'submit' => array(
+      '#type' => 'submit',
+      '#value' => t('Filter'),
+    ),
+    'reset' => array(
+      '#type' => 'submit',
+      '#value' => t('Reset filters'),
+    ),
   );
 
   // Finally add the table to the form
@@ -259,16 +285,29 @@ function manyforms_export_form($form, &$form_state) {
 }
 
 function manyforms_export_form_filters($filters, $form_state, $header, $query) {
-  foreach ($filters as $filter) {
-    if(!empty($form_state['input']['filter'][$filter])) {
-      $field = $header[$filter]['field'];
-      $value = '%' . db_like($form_state['input']['filter'][$filter]) . '%';
-      $query->condition($field, $value, 'LIKE');
+  // Only apply when filters are in the input
+  if(!empty($form_state['input']['filter']['items'])) {
+    $items = $form_state['input']['filter']['items'];
+    foreach ($filters as $filter) {
+      // For block_order_input we need to do an exact match
+      if($filter === 'block_order_input') {
+        if($items[$filter] !== '') {
+          $value = $items[$filter];
+          $query->condition('field_block_order_input_value', $value);
+        }
+      } else {
+        if(!empty($items[$filter])) {
+          $field = $header[$filter]['field'];
+          $value = '%' . db_like($items[$filter]) . '%';
+          $query->condition($field, $value, 'LIKE');
+        }
+      }
     }
   }
 }
 
 function manyforms_export_form_submit($form, &$form_state) {
+  dpm($form_state);
   // If a filter button has been clicked, we need to rebuild the form
   if(isset($form_state['clicked_button']['#parents'][0])
     and $form_state['clicked_button']['#parents'][0] === 'filter') {
@@ -277,10 +316,10 @@ function manyforms_export_form_submit($form, &$form_state) {
 
     // If the reset button has been clicked, we need to reset the input values
     // and the the values values
-    if($form_state['clicked_button']['#parents'][1] === 'reset') {
-      foreach ($form_state['values']['filter'] as $key => $value) {
-        $form_state['values']['filter'][$key] = '';
-        $form_state['input']['filter'][$key] = '';
+    if($form_state['clicked_button']['#parents'][2] === 'reset') {
+      foreach ($form_state['values']['filter']['items'] as $key => $value) {
+        $form_state['values']['filter']['items'][$key] = '';
+        $form_state['input']['filter']['items'][$key] = '';
       }
     }
 
