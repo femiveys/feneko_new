@@ -244,6 +244,10 @@ function fc_get_attachment($order_id, $outputAsString = TRUE, $includePrice = TR
     $sub_total .= '<td>' . $totals['formatted']['subtotal'] . '</td></tr>';
     $total  = '<tr class="total"><td colspan="4">' . t('Total') . '</td>';
     $total .= '<td><strong>' . $totals['formatted']['total'] . '</strong></td></tr>';
+    $vat  = '<tr class="vat"><td colspan="4">' . t('VAT') . '</td>';
+    $vat .= '<td>' . $totals['formatted']['vat'] . '</td></tr>';
+    $total_vat  = '<tr class="total_vat"><td colspan="4">' . t('Total VAT included') . '</td>';
+    $total_vat .= '<td>' . $totals['formatted']['total_vat'] . '</td></tr>';
 
     $discounts = '';
     foreach ($order_wrapper->commerce_line_items as $line) {
@@ -296,6 +300,8 @@ function fc_get_attachment($order_id, $outputAsString = TRUE, $includePrice = TR
     $html .= $sub_total;
     $html .= $discounts;
     $html .= $total;
+    $html .= $vat;
+    $html .= $total_vat;
   }
   $html .= '</tbody>';
   $html .= '</table>';

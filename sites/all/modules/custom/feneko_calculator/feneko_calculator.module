@@ -2022,11 +2022,15 @@ function _fc_totals_order($order_wrapper) {
   $totals['raw'] = array(
     'subtotal' => $total_price['data']['components'][0]['price']['amount'],
     'total' => $total_price['amount'],
+    'vat' => $total_price['amount']*0.21,
+    'total_vat' => $total_price['amount']*1.21,
   );
 
   $totals['formatted'] = array(
     'subtotal' => _fc_format_amount($totals['raw']['subtotal']),
     'total'    => _fc_format_amount($totals['raw']['total']),
+    'vat'    => _fc_format_amount($totals['raw']['vat']),
+    'total_vat'    => _fc_format_amount($totals['raw']['total_vat']),
   );
 
   return $totals;
