@@ -33,7 +33,7 @@ function feneko_structure_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_doc_tab|node|product|default'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -59,7 +59,7 @@ function feneko_structure_field_group_info() {
       'formatter' => 'open',
     ),
   );
-  $field_groups['group_draw_tab|node|product|default'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -84,7 +84,7 @@ function feneko_structure_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_info_tab|node|product|default'] = $field_group;
+  $field_groups[''] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -113,7 +113,7 @@ function feneko_structure_field_group_info() {
       ),
     ),
   );
-  $field_groups['group_wrapper|node|product|default'] = $field_group;
+  $field_groups[''] = $field_group;
 
   // Translatables
   // Included for use with string extractors like potx.

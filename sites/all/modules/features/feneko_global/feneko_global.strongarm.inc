@@ -236,6 +236,7 @@ function feneko_global_strongarm() {
     6 => 'site_name',
     7 => 'site_slogan',
     8 => 'maintenance_mode_message',
+    9 => 'eu_cookie_compliance',
   );
   $export['variable_realm_list_language'] = $strongarm;
 

@@ -520,6 +520,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Er zijn op dit ogenblik gaan nieuwsberichten.', array(), array('context' => ''));
+  $translations['fr:default']['9d82e94f779e84cd3919a0e4fe2c18ef'] = array(
+    'source' => 'Total VAT included',
+    'context' => '',
+    'location' => '/nl/admin/commerce/orders/15254/pdf?destination=admin%2Fcommerce%2Forders&render=overlay',
+    'translation' => 'Total TVA inclu',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Total VAT included', array(), array('context' => ''));
   $translations['fr:default']['9e35cea985142d1f600543586e2e8ede'] = array(
     'source' => 'Klantennummers',
     'context' => '',

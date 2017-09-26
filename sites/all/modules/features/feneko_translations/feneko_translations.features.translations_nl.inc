@@ -73,6 +73,15 @@ function feneko_translations_translations_nl_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('%title has been added to your cart.', array(), array('context' => ''));
+  $translations['nl:default']['9d82e94f779e84cd3919a0e4fe2c18ef'] = array(
+    'source' => 'Total VAT included',
+    'context' => '',
+    'location' => '/nl/admin/commerce/orders/15254/pdf?destination=admin%2Fcommerce%2Forders&render=overlay',
+    'translation' => 'Totaal BTW inbegrepen',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Total VAT included', array(), array('context' => ''));
   $translations['nl:default']['ad921d60486366258809553a3db49a4a'] = array(
     'source' => 'unknown',
     'context' => '',

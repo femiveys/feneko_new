@@ -41,7 +41,7 @@ function feneko_account_field_group_info() {
       'formatter' => 'collapsed',
     ),
   );
-  $field_groups['group_advanced|user|user|form'] = $field_group;
+  $field_groups[''] = $field_group;
 
   // Translatables
   // Included for use with string extractors like potx.
