@@ -607,7 +607,6 @@ class FenekoForm {
         break;
 
       case 13:
-        $fields['uitvoering'] = 'enkel';
         if($fields['ondergeleider_anodise'] === 'ja') {
           $fields['ondergeleider'] .= 'a';
         }
@@ -2001,6 +2000,7 @@ class FenekoForm {
         'dubbel11' => 2,
         'enkel12'  => 3,
         'enkel13'  => 7,
+        'dubbel13'  => 8,
         'enkel14'   => 4,
         'basic'    => 17,
       ),
