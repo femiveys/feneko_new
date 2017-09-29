@@ -311,10 +311,9 @@ function fc_get_attachment($order_id, $outputAsString = TRUE, $includePrice = TR
 
   if($includePrice) {
     $footer = '<div class="prices">';
-    $footer.= '<div class="subtotal">' . t('Subtotal') . ': ';
-    $footer.= $totals['formatted']['subtotal'] . '</div>';
-    $footer.= '<div class="total">' . t('Total') . ': ';
-    $footer.= $totals['formatted']['total'] . '</div>';
+    $footer.= '<div class="subtotal"></div>';
+    $footer.= '<div class="total">' . t('Total VAT included') . ': ';
+    $footer.= $totals['formatted']['total_vat'] . '</div>';
     $footer.= '</div>';
   }
   $footer.= '<div class="top-line"></div>';
