@@ -8,7 +8,7 @@ function manyforms_export_form($form, &$form_state) {
   $options = array();
   $page_size = 200;
 
-  $filters = array('id', 'type', 'user', 'client', 'ref', 'block_order_input');
+  $filters = array('blocked_clients', 'id', 'type', 'user', 'client', 'ref');
 
   $only_exported = $form_state['build_info']['args'][0];
 
@@ -57,6 +57,7 @@ function manyforms_export_form($form, &$form_state) {
     $query->join('users', 'u', 'f.uid = u.uid');
     $query->join('field_data_field_client_number', 'cn', 'f.klant = cn.field_client_number_value');
     $query->join('field_data_field_block_order_input', 'b', 'b.entity_id = cn.entity_id');
+    $query->join('field_data_field_client_group', 'g', 'g.entity_id = cn.entity_id');
     $query->condition('exported', $only_exported);
     $query->fields('f', array('id'));
 
@@ -89,6 +90,7 @@ function manyforms_export_form($form, &$form_state) {
     $query->join('users', 'u', 'f.uid = u.uid');
     $query->join('field_data_field_client_number', 'cn', 'f.klant = cn.field_client_number_value');
     $query->join('field_data_field_block_order_input', 'b', 'b.entity_id = cn.entity_id');
+    $query->join('field_data_field_client_group', 'g', 'g.entity_id = cn.entity_id');
     $query->condition('exported', $only_exported);
     $query->fields('u', array('name'))
           ->fields('f', array(
@@ -218,7 +220,7 @@ function manyforms_export_form($form, &$form_state) {
   foreach ($filters as $filter) {
     $form['filter']['items'][$filter] = array(
       '#type' => 'textfield',
-      '#title' => $filter === 'block_order_input' ? 'Geblokkeerde klant' : $header[$filter]['data'],
+      '#title' => $filter === 'blocked_clients' ? 'Enkel geblokkeerde klanten' : $header[$filter]['data'],
       '#size' => 10,
     );
   }
@@ -232,14 +234,9 @@ function manyforms_export_form($form, &$form_state) {
   );
   unset($form['filter']['items']['type']['#size']);
 
-  // Change block_order_input into select
-  $form['filter']['items']['block_order_input']['#type'] = 'select';
-  $form['filter']['items']['block_order_input']['#options'] = array(
-    '' => 'beide',
-    0 => 'Nee',
-    1 => 'Ja',
-  );
-  unset($form['filter']['items']['block_order_input']['#size']);
+  // Change block_order_input into checkbox
+  $form['filter']['items']['blocked_clients']['#type'] = 'checkbox';
+  unset($form['filter']['items']['blocked_clients']['#size']);
 
   // Add buttons container
   $form['filter']['buttons'] = array(
@@ -289,11 +286,11 @@ function manyforms_export_form_filters($filters, $form_state, $header, $query) {
   if(!empty($form_state['input']['filter']['items'])) {
     $items = $form_state['input']['filter']['items'];
     foreach ($filters as $filter) {
-      // For block_order_input we need to do an exact match
-      if($filter === 'block_order_input') {
-        if($items[$filter] !== '') {
-          $value = $items[$filter];
-          $query->condition('field_block_order_input_value', $value);
+      // For blocked_clients we need to do an exact match
+      if($filter === 'blocked_clients') {
+        if($items[$filter]) {
+          $query->condition('field_block_order_input_value', 1);
+          $query->condition('field_client_group_value', 9); // EB
         }
       } else {
         if(!empty($items[$filter])) {
@@ -307,7 +304,6 @@ function manyforms_export_form_filters($filters, $form_state, $header, $query) {
 }
 
 function manyforms_export_form_submit($form, &$form_state) {
-  dpm($form_state);
   // If a filter button has been clicked, we need to rebuild the form
   if(isset($form_state['clicked_button']['#parents'][0])
     and $form_state['clicked_button']['#parents'][0] === 'filter') {
