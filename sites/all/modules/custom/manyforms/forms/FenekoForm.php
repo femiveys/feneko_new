@@ -342,7 +342,8 @@ class FenekoForm {
    */
   private function getFiche($fields) {
     $client = feneko_code_get_client_by_number($fields['klant']);
-    if($client->field_block_order_input->value()) {
+    // 8 = GK
+    if($client->field_block_order_input->value() && $client->field_client_group->value() === 8) {
       return 'geblokkeerd';
     }
 
@@ -607,7 +608,6 @@ class FenekoForm {
         break;
 
       case 13:
-        $fields['uitvoering'] = 'enkel';
         if($fields['ondergeleider_anodise'] === 'ja') {
           $fields['ondergeleider'] .= 'a';
         }
@@ -2001,6 +2001,7 @@ class FenekoForm {
         'dubbel11' => 2,
         'enkel12'  => 3,
         'enkel13'  => 7,
+        'dubbel13'  => 8,
         'enkel14'   => 4,
         'basic'    => 17,
       ),
