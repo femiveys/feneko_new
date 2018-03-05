@@ -160,12 +160,12 @@ function fc_get_attachment($order_id, $outputAsString = TRUE, $includePrice = TR
   // The user field
   $user_ra = $client_ra; // Little hack, Just for convenience
   $user_ra['#title'] = ucfirst(t('user'));
-  $user_ra[0]['#markup'] = $user->name;
+  $user_ra[0]['#label'] = $user->name;
 
   // The date field
   $date_ra = $client_ra; // Little hack, Just for convenience
   $date_ra['#title'] = ucfirst(t('date'));
-  $date_ra[0]['#markup'] = format_date(intval($order->changed), 'short');
+  $date_ra[0]['#label'] = format_date(intval($order->changed), 'short');
 
   $client_data = array(
     '#type' => 'container',
