@@ -13,13 +13,13 @@ class CommerceDiscountControllerExportable extends EntityAPIControllerExportable
   /**
    * {@inheritdoc}
    *
-   * Override export, to allow embedding the commerce discount offer
-   * inside the export of the comemrce discount.
+   * Override export, to allow embedding the commerce discount offer inside the
+   * export of the commerce discount.
    */
   public function export($entity, $prefix = '') {
     $vars = get_object_vars($entity);
 
-    // Add commerce_discout_offer full entity export.
+    // Add commerce_discount_offer full entity export.
     $wrapper = entity_metadata_wrapper('commerce_discount', $entity);
     $discount_offer = $wrapper->commerce_discount_offer->value();
     if (!empty($discount_offer)) {
@@ -54,7 +54,7 @@ class CommerceDiscountControllerExportable extends EntityAPIControllerExportable
   }
 
   /**
-   * Overridden to handle embedded dicount_offer update.
+   * Overridden to handle embedded discount_offer update.
    */
   public function save($entity, DatabaseTransaction $transaction = NULL) {
     // If overwriting an existing discount, delete the referenced

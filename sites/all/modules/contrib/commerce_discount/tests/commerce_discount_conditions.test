@@ -47,27 +47,52 @@ class CommerceDiscountConditionsTest extends CommerceDiscountTestBase {
       // All of the products, including other products.
       'all inclusive' => array(
         'products_in_order' => array('b', 'c', 'd', 'e', 'f'),
-        'results' => array('any' => TRUE, 'all' => TRUE, 'exactly' => FALSE, 'only' => FALSE),
+        'results' => array(
+          'any' => TRUE,
+          'all' => TRUE,
+          'exactly' => FALSE,
+          'only' => FALSE,
+        ),
       ),
       // All of the products, exclusive of other products.
       'all exclusive' => array(
         'products_in_order' => array('c', 'e', 'f'),
-        'results' => array('any' => TRUE, 'all' => TRUE, 'exactly' => TRUE, 'only' => TRUE),
+        'results' => array(
+          'any' => TRUE,
+          'all' => TRUE,
+          'exactly' => TRUE,
+          'only' => TRUE,
+        ),
       ),
       // Some of the products, including one other product.
       'some inclusive' => array(
         'products_in_order' => array('b', 'c'),
-        'results' => array('any' => TRUE, 'all' => FALSE, 'exactly' => FALSE, 'only' => FALSE),
+        'results' => array(
+          'any' => TRUE,
+          'all' => FALSE,
+          'exactly' => FALSE,
+          'only' => FALSE,
+        ),
       ),
       // Some of the products, exclusively.
       'some exclusive' => array(
         'products_in_order' => array('e', 'f'),
-        'results' => array('any' => TRUE, 'all' => FALSE, 'exactly' => FALSE, 'only' => TRUE),
+        'results' => array(
+          'any' => TRUE,
+          'all' => FALSE,
+          'exactly' => FALSE,
+          'only' => TRUE,
+        ),
       ),
       // None of the products.
       'none' => array(
         'products_in_order' => array('b', 'd'),
-        'results' => array('any' => FALSE, 'all' => FALSE, 'exactly' => FALSE, 'only' => FALSE),
+        'results' => array(
+          'any' => FALSE,
+          'all' => FALSE,
+          'exactly' => FALSE,
+          'only' => FALSE,
+        ),
       ),
     );
 

@@ -2,12 +2,12 @@ name = Address Field Static Map
 description = Provides Google Static Map based on entity address fields.
 configure = admin/config/system/addressfield_staticmap
 core = 7.x
-
+configure = admin/config/system/addressfield_staticmap
 dependencies[] = addressfield
-dependencies[] = block
-; Information added by drupal.org packaging script on 2013-01-23
-version = "7.x-1.0"
+
+; Information added by Drupal.org packaging script on 2018-01-18
+version = "7.x-1.4"
 core = "7.x"
 project = "addressfield_staticmap"
-datestamp = "1358979011"
+datestamp = "1516256288"
 

@@ -50,6 +50,7 @@ class CommerceDiscount extends Entity {
    */
   public function __construct($values = array()) {
     parent::__construct($values, 'commerce_discount');
+    $this->component_title = $this->getTranslation('component_title');
   }
 
   /**
@@ -59,6 +60,18 @@ class CommerceDiscount extends Entity {
     $entity_info = entity_get_info('commerce_discount');
     $path = $entity_info['admin ui']['path'] . '/manage';
     return array('path' => $path . '/' . $this->name);
+  }
+
+  /**
+   * Overridden, to introduce the method for old entity API versions (BC).
+   *
+   * @todo Remove once we bump the required entity API version.
+   */
+  public function getTranslation($property, $langcode = NULL) {
+    if (module_exists('i18n_string')) {
+      return parent::getTranslation($property, $langcode);
+    }
+    return $this->$property;
   }
 
 }

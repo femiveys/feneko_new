@@ -86,9 +86,19 @@ class CommerceDiscountTestBase extends CommerceBaseTestCase {
    * @param string $discount_type
    *   The discount type; Either 'order_discount' or 'product_discount'.
    * @param string $offer_type
-   *   The discount offer type; Either 'fixed_amount' or 'percentage'.
+   *   The discount offer type; One of 'fixed_amount', 'percentage',
+   *   'free_products', 'free_shipping', 'percent_off_shipping' or
+   *   'shipping_upgrade'.
    * @param int|array $amount
-   *   The discount offer amount, percentage or product ids array.
+   *   In case of 'fixed_amount' a number: the discount amount.
+   *   In case of 'percentage' a number: the percentage (a number less than 1).
+   *   In case of 'free_products' an array of the product ids.
+   *   In case of 'free_shipping' a string of the free shipping service name.
+   *   In case of 'percent_off_shipping' an array with the percentage amount
+   *     (key: 'percent', should be < 100) and the shipping service name string
+   *     (key: 'service').
+   *   In case of 'shipping_upgrade' an array with the source service (key: '
+   *     source') and the target service (key: 'target').
    * @param string $name
    *   Discount name - Optional. If given, CANNOT start with a number.
    * @param string $component_title
@@ -114,6 +124,23 @@ class CommerceDiscountTestBase extends CommerceBaseTestCase {
       case 'free_products':
         // Product ids array should be provided for $amount.
         $offer_wrapper->commerce_free_products = $amount;
+        break;
+
+      case 'free_shipping':
+        $offer_wrapper->commerce_free_shipping = $amount;
+        $offer_wrapper->commerce_free_shipping_strategy = 'only_selected';
+        break;
+
+      case 'percent_off_shipping':
+        $offer_wrapper->commerce_percent_off_shipping = $amount['percent'];
+        if (!empty($amount[1])) {
+          $offer_wrapper->commerce_percent_off_ship_serv = $amount['service'];
+        }
+        break;
+
+      case 'shipping_upgrade':
+        $offer_wrapper->commerce_shipping_upgrade_target = $amount['target'];
+        $offer_wrapper->commerce_shipping_upgrade_source = $amount['source'];
         break;
     }
 
@@ -144,9 +171,9 @@ class CommerceDiscountTestBase extends CommerceBaseTestCase {
   /**
    * Determines whether or not a discount has been applied to an order.
    *
-   * @param $discount_name
+   * @param string $discount_name
    *   The machine-name of the discount to look for.
-   * @param $order
+   * @param object $order
    *   The order object to inspect for the discount.
    *
    * @return bool
