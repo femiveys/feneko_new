@@ -45,7 +45,7 @@ class CommerceDiscountUIController extends EntityDefaultUIController {
   }
 
   /**
-   * Overriden EntityDefaultUIController::hook_menu().
+   * Overridden EntityDefaultUIController::hook_menu().
    *
    * Call our own page callback to show the "commerce_discount_overview"
    * view, as this view has exposed filters which will not work inside
@@ -66,10 +66,10 @@ class CommerceDiscountUIController extends EntityDefaultUIController {
       'title' => 'List',
       'type' => MENU_DEFAULT_LOCAL_TASK,
     );
-    unset($items[$this->path . '/add']['title callback']);
-    unset($items[$this->path . '/import']['title callback']);
-    $items[$this->path . '/add']['title'] = t('Add discount');
-    $items[$this->path . '/import']['title'] = t('Import discount');
+    $items[$this->path . '/add']['title callback'] = 't';
+    $items[$this->path . '/import']['title callback'] = 't';
+    $items[$this->path . '/add']['title'] = 'Add discount';
+    $items[$this->path . '/import']['title'] = 'Import discount';
 
     $items[$this->path . '/settings'] = array(
       'title' => 'Settings',
@@ -127,7 +127,7 @@ function commerce_discount_overview_form() {
  * @param array $form_state
  *   Standard Drupal $form_state.
  * @param CommerceDiscount $commerce_discount
- *   Comment me.
+ *   Commerce discount object.
  * @param string $op
  *   Current operation.
  *
@@ -261,6 +261,27 @@ function commerce_discount_form($form, &$form_state, CommerceDiscount $commerce_
     $field_form['#attributes']['class'][] = 'commerce-discount-box';
   }
 
+  // Give the compatibility strategy field a title and a description linking to
+  // the compatibility documentation based on the discount type.
+  switch ($form['commerce_discount_fields']['commerce_compatibility_strategy'][LANGUAGE_NONE]['#bundle']) {
+    case 'product_discount':
+      $discount_type_name = t('Product discounts');
+      $description = t('This setting determines which product discounts this discount can be applied after or that can be applied to the same product line item after this one.');
+      break;
+    case 'order_discount':
+      $discount_type_name = t('Order discounts');
+      $description = t('This setting determines which order discounts this discount can be applied after or that can be applied to the same order after this one.');
+      break;
+    default:
+      $discount_type_name = t('discounts of the same type');
+      $description = t('This setting determines which discounts of the same type this discount can be applied after or that can be applied to the same item after this one.');
+      break;
+  }
+
+  $title = t('Compatibility with other %name', array('%name' => $discount_type_name));
+  $form['commerce_discount_fields']['commerce_compatibility_strategy'][LANGUAGE_NONE]['#title'] = $title;
+  $form['commerce_discount_fields']['commerce_compatibility_strategy'][LANGUAGE_NONE]['#description'] = $description . '<br />' . t('For more information, refer to the discount compatibility !link on drupal.org.', array('!link' => '<a href="https://www.drupal.org/node/2917774" target="_blank">' . t('documentation page') . '</a>'));;
+
   // Ensure the compatibility strategy field has a default value.
   if (empty($form['commerce_discount_fields']['commerce_compatibility_strategy'][LANGUAGE_NONE]['#default_value'])) {
     $form['commerce_discount_fields']['commerce_compatibility_strategy'][LANGUAGE_NONE]['#default_value'] = 'any';
@@ -366,7 +387,14 @@ function commerce_discount_form_validate($form, &$form_state) {
 function commerce_discount_form_submit(&$form, &$form_state) {
   $commerce_discount = entity_ui_form_submit_build_entity($form, $form_state);
   $commerce_discount->save();
-  $form_state['redirect'] = 'admin/commerce/discounts';
+
+  // Set the redirect based on the type of the discount.
+  if ($commerce_discount->type == 'order_discount') {
+    $form_state['redirect'] = array('admin/commerce/discounts', array('query' => array('type' => 'order_discount')));
+  }
+  else {
+    $form_state['redirect'] = 'admin/commerce/discounts';
+  }
 }
 
 /**
@@ -382,7 +410,7 @@ function commerce_discount_form_submit_delete(&$form, &$form_state) {
  * @param string $value
  *   The machine name, not prefixed with 'discount_'.
  *
- * @return entity|bool
+ * @return object|bool
  *   Whether or not the field machine name is taken.
  */
 function _commerce_discount_name_exists($value) {
@@ -424,18 +452,7 @@ function commerce_discount_form_pre_render($fields) {
 }
 
 /**
- * Implements function hook_date_combo_process_alter().
- *
- * @param $element
- *   The date field.
- * @param $form_state
- *   A keyed array containing the current state of the form. In this
- *   context, it is used to accumulate information about which button
- *   was clicked when the form was submitted, as well as the sanitized
- *   $_POST data.
- *
- * @return
- *   The altered date field.
+ * Implements hook_date_combo_process_alter().
  */
 function commerce_discount_date_combo_process_alter(&$element, &$form_state, $context) {
   if ($element['#field_name'] == 'commerce_discount_date') {
@@ -460,7 +477,8 @@ function commerce_discount_date_combo_process_alter(&$element, &$form_state, $co
  */
 function commerce_discount_date_popup_process_alter(&$element, &$form_state, $context) {
   if ($element['#field']['field_name'] == 'commerce_discount_date') {
-    unset($element['#attributes']['class']); // date-clear.
+    // Date-clear.
+    unset($element['#attributes']['class']);
     array_shift($element['#wrapper_attributes']['class']);
     // Reset the titles and descriptions of the start and end date fields.
     $field_name = end($element['#parents']);

@@ -509,19 +509,22 @@ function inline_conditions_get_info_by_type($entity_type, $parent_entity_type) {
 /**
  * Get inline conditions per module name.
  *
- * Return an array of conditions keyed by module name.
- *
  * @param string $module
  *   The module name.
  *
  * @return array
- *   An array of conditions.
+ *   An array of inline conditions keyed by module name.
  */
 function inline_conditions_get_info_by_module($module = NULL) {
   $filtered_conditions = array();
 
   foreach (inline_conditions_get_info() as $name => $condition) {
     $filtered_conditions[$condition['module']][$name] = $condition;
+  }
+
+  // Apply module filter if it's set.
+  if (!empty($module)) {
+    $filtered_conditions = !empty($filtered_conditions[$module]) ?  array($module => $filtered_conditions[$module]) : array();
   }
 
   return $filtered_conditions;

@@ -32,7 +32,7 @@ class commerce_discount_handler_field_operations_dropbutton extends views_handle
     $entity_info = entity_get_info('commerce_discount');
     $path = $entity_info['admin ui']['path'] . '/manage';
 
-    // Preapre the links.
+    // Prepare the links.
     $links = array();
     $links[] = array(
       'href'  => $path . '/' . $commerce_discount->name,
@@ -63,6 +63,13 @@ class commerce_discount_handler_field_operations_dropbutton extends views_handle
       'href'  => $path . '/' . $commerce_discount->name . '/export',
       'title' => t('export'),
     );
+
+    if (module_exists('i18n_string')) {
+      $links[] = array(
+        'href'  => $path . '/' . $commerce_discount->name . '/translate',
+        'title' => t('translate'),
+      );
+    }
 
     return theme('links__ctools_dropbutton', array('links' => $links));
   }

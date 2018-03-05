@@ -348,9 +348,9 @@ function inline_conditions_field_widget_form(&$form, &$form_state, $field, $inst
  */
 function inline_conditions_field_widget_form_validate($element, &$form_state, $form) {
   // Remove action buttons values from the form state values.
-  $value = drupal_array_get_nested_value($form_state['values'], $element['#array_parents']);
+  $value = drupal_array_get_nested_value($form_state['values'], $element['#parents']);
   $value = array_intersect_key($value, array_flip(array_filter(array_keys($value), 'is_numeric')));
-  drupal_array_set_nested_value($form_state['values'], $element['#array_parents'], $value, TRUE);
+  drupal_array_set_nested_value($form_state['values'], $element['#parents'], $value, TRUE);
 }
 
 /**

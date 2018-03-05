@@ -148,7 +148,7 @@ function eu_cookie_compliance_admin_form($form, $form_state) {
     '#size' => 60,
     '#maxlength' => 220,
     '#required' => TRUE,
-    '#description' => t('Enter link to your privacy policy or other page that will explain cookies to your users. For external links prepend http://'),
+    '#description' => t('Enter link to your privacy policy or other page that will explain cookies to your users. For external links prepend http://. The field supports tokens.'),
   );
 
   $form['privacy']['eu_cookie_compliance']['popup_link_new_window'] = array(
@@ -251,13 +251,13 @@ function eu_cookie_compliance_admin_form($form, $form_state) {
       '#type' => 'checkbox',
       '#title' => t('Only display popup in EU countries'),
       '#default_value' => isset($popup_settings['eu_only']) ? $popup_settings['eu_only'] : 0,
-      '#description' => 'You can limit the number of countries for which the banner is displayed by checking this option. If you want to provide a list of countries other than current EU states, you may place an array in <code>$conf[\'eu_cookie_compliance_eu_countries\']</code> in your <code>settings.php</code> file. Using the <a href="http://drupal.org/project/geoip">geoip</a> module or the <a href="http://drupal.org/project/smart_ip">smart_ip</a> module or the <a href="http://www.php.net/manual/fr/function.geoip-country-code-by-name.php">geoip_country_code_by_name()</a> PHP function.',
+      '#description' => t('You can limit the number of countries for which the banner is displayed by checking this option. If you want to provide a list of countries other than current EU states, you may place an array in <code>$conf[\'eu_cookie_compliance_eu_countries\']</code> in your <code>settings.php</code> file. Using the <a href="http://drupal.org/project/geoip">geoip</a> module or the <a href="http://drupal.org/project/smart_ip">smart_ip</a> module or the <a href="http://www.php.net/manual/fr/function.geoip-country-code-by-name.php">geoip_country_code_by_name()</a> PHP function.'),
     );
     $form['advanced']['eu_cookie_compliance']['eu_only_js'] = array(
       '#type' => 'checkbox',
       '#title' => t('JavaScript-based (for Varnish): Only display popup in EU countries'),
       '#default_value' => isset($popup_settings['eu_only_js']) ? $popup_settings['eu_only_js'] : 0,
-      '#description' => 'You can limit the number of countries for which the banner is displayed by checking this option. If you want to provide a list of countries other than current EU states, you may place an array in <code>$conf[\'eu_cookie_compliance_eu_countries\']</code> in your <code>settings.php</code> file. Using the <a href="http://drupal.org/project/geoip">geoip</a> module or the <a href="http://drupal.org/project/smart_ip">smart_ip</a> module or the <a href="http://www.php.net/manual/fr/function.geoip-country-code-by-name.php">geoip_country_code_by_name()</a> PHP function.',
+      '#description' => t('You can limit the number of countries for which the banner is displayed by checking this option. If you want to provide a list of countries other than current EU states, you may place an array in <code>$conf[\'eu_cookie_compliance_eu_countries\']</code> in your <code>settings.php</code> file. Using the <a href="http://drupal.org/project/geoip">geoip</a> module or the <a href="http://drupal.org/project/smart_ip">smart_ip</a> module or the <a href="http://www.php.net/manual/fr/function.geoip-country-code-by-name.php">geoip_country_code_by_name()</a> PHP function.'),
     );
   }
 
@@ -295,6 +295,13 @@ function eu_cookie_compliance_admin_form($form, $form_state) {
     '#title' => t('Domain'),
     '#default_value' => variable_get('eu_cookie_compliance_domain', ''),
     '#description' => t('Sets the domain of the cookie to a specific url. Used when you need consistency across domains. This is language independent. Note: Make sure you actually enter a domain that the browser can make use of. For example if your site is accessible at both www.domain.com and domain.com, you will not be able to hide the banner at domain.com if your value for this field is www.domain.com.'),
+  );
+
+  $form['advanced']['eu_cookie_compliance']['cookie_name'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Cookie name'),
+    '#default_value' => isset($popup_settings['cookie_name']) ? $popup_settings['cookie_name'] : '',
+    '#description' => t('Sets the cookie name that is used to check whether the user has agreed or not.  This option is useful when policies change and the user needs to agree again.'),
   );
 
   $form['advanced']['eu_cookie_compliance_cookie_lifetime'] = array(
@@ -345,7 +352,7 @@ function eu_cookie_compliance_admin_form($form, $form_state) {
   $form['advanced']['eu_cookie_compliance']['script_scope'] = array(
     '#type' => 'select',
     '#title' => t('Script scope'),
-    '#options' => array('header' => 'Header (Scripts variable)', 'footer' => 'Footer (Page bottom variable)'),
+    '#options' => array('header' => t('Header (Scripts variable)'), 'footer' => t('Footer (Page bottom variable)')),
     '#default_value' => isset($popup_settings['script_scope']) ? $popup_settings['script_scope'] : 'footer',
     '#description' => t('If you want to use the hasAgreed() function from other scripts, you may want to change this to header.'),
   );
