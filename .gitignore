@@ -9,3 +9,4 @@ sites/*/private
 sites/all/translations
 **/.sass-cache/*
 sites/all/libraries/mpdf/ttfontdata/*
+

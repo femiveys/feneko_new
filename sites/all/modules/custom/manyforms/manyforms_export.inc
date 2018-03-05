@@ -288,7 +288,7 @@ function manyforms_export_form_filters($filters, $form_state, $header, $query) {
     foreach ($filters as $filter) {
       // For blocked_clients we need to do an exact match
       if($filter === 'blocked_clients') {
-        if($items[$filter]) {
+        if(isset($items[$filter]) && $items[$filter]) {
           $query->condition('field_block_order_input_value', 1);
           $query->condition('field_client_group_value', 9); // EB
         }

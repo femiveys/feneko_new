@@ -94,9 +94,6 @@
 #edit-commerce-discount-type .form-item:hover label {
   cursor: pointer;
 }
-#edit-commerce-discount-type .form-item input {
-  display: inline;
-}
 [dir="ltr"] #edit-commerce-discount-type .form-item {
   float: left;
   margin-right: 20px;
@@ -328,11 +325,20 @@
 .view-commerce-discount-overview .views-table {
   border: 0;
 }
+.view-commerce-discount-overview .views-table caption {
+  font-size: 1.25em;
+  line-height: 2em;
+  font-weight: bold;
+  margin-top: 1em;
+}
 .view-commerce-discount-overview .views-table tr, .view-commerce-discount-overview .views-table td {
   border: 0;
 }
 .view-commerce-discount-overview .views-table th {
   text-transform: none;
+}
+.view-commerce-discount-overview .views-table .views-field-label {
+  width: 30%;
 }
 .view-commerce-discount-overview .views-table th .views-field-operations-dropbutton {
   width: 70px;

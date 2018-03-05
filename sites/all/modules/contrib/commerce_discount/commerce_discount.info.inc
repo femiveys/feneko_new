@@ -6,7 +6,7 @@
  */
 
 /**
- * Extend the defaults meta data properties for Commerce discount entity.
+ * Extend the defaults metadata properties for Commerce discount entity.
  */
 class CommerceDiscountMetadataController extends EntityDefaultMetadataController {
 

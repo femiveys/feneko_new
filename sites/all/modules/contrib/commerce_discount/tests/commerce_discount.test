@@ -9,6 +9,7 @@
  * Testing commerce discounts functionality.
  */
 class CommerceDiscountTest extends CommerceDiscountTestBase {
+
   /**
    * Implementation of getInfo().
    */
@@ -99,6 +100,12 @@ class CommerceDiscountTest extends CommerceDiscountTestBase {
     // Check if the discount was applied on the order total price.
     $this->assertTrue($order_wrapper->commerce_order_total->amount->value() == 700, 'Fixed order discount is deducted correctly.');
 
+    // Recalculate discounts.
+    $order_wrapper = commerce_cart_order_refresh($order);
+
+    // Check if the discount was applied on the order total price.
+    $this->assertTrue($order_wrapper->commerce_order_total->amount->value() == 700, 'Fixed order discount is deducted correctly even after order refresh.');
+
     // Disable the discount.
     $discount->status = FALSE;
     entity_save('commerce_discount', $discount);
@@ -128,14 +135,15 @@ class CommerceDiscountTest extends CommerceDiscountTestBase {
     // Check if the discount was applied on the order total price.
     $this->assertTrue($order_wrapper->commerce_order_total->amount->value() == 950, 'Percentage order discount is deducted correctly.');
 
+    // Recalculate discounts.
+    $order_wrapper = commerce_cart_order_refresh($order);
+
+    // Check if the discount was applied on the order total price.
+    $this->assertTrue($order_wrapper->commerce_order_total->amount->value() == 950, 'Percentage order discount is deducted correctly even after refresh.');
+
     // Disable the discount.
     $discount->status = FALSE;
     entity_save('commerce_discount', $discount);
-
-    // Re-save the order.
-    // Check if the discount was applied on the order total price.
-    $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
-    $order_wrapper->save();
 
     // Recalculate discounts.
     $order_wrapper = commerce_cart_order_refresh($order);
@@ -156,7 +164,7 @@ class CommerceDiscountTest extends CommerceDiscountTestBase {
     $this->drupalLogin($this->store_admin);
 
     // Create a 100% off discount and create a test product.
-    $this->createDiscount('product_discount', 'percentage', 100, 'freebie');
+    $discount = $this->createDiscount('product_discount', 'percentage', 100, 'freebie');
 
     $product = $this->createDummyProduct('TEST-PRODUCT', 'Test Product', 999);
 
@@ -167,18 +175,35 @@ class CommerceDiscountTest extends CommerceDiscountTestBase {
     $properly_applied = $this->discountAppliedToOrder('freebie', $order);
     $this->assertTrue($properly_applied, t('100% off discount applied to a product.'));
 
-    // Invoke line item price re-calculation.
-    $line_item = $order_wrapper->commerce_line_items->get(0)->value();
-    rules_invoke_event('commerce_product_calculate_sell_price', $line_item);
-
-    $order_wrapper = commerce_cart_order_refresh($order);
-
     // Verify that the product is now free.
-    $line_item_wrapper = $order_wrapper->commerce_line_items->get(0);
-    $unit_price = $line_item_wrapper->commerce_unit_price->value();
+    $unit_price = $order_wrapper->commerce_line_items->get(0)->commerce_unit_price->value();
 
     $this->assertEqual($unit_price['amount'], 0, 'Product line item unit price amount is properly set to 0.');
     $this->assertEqual($unit_price['data']['components'][1]['price']['amount'], -999, 'Product line item unit price discount component properly set to 100% of the product price.');
+
+    $order_wrapper = commerce_cart_order_refresh($order);
+
+    $properly_applied = $this->discountAppliedToOrder('freebie', $order);
+    $this->assertTrue($properly_applied, t('100% off discount applied to a product even after refresh.'));
+
+    // Verify that the product is now free.
+    $unit_price = $order_wrapper->commerce_line_items->get(0)->commerce_unit_price->value();
+
+    $this->assertEqual($unit_price['amount'], 0, 'Product line item unit price amount is properly set to 0 even after refresh.');
+    $this->assertEqual($unit_price['data']['components'][1]['price']['amount'], -999, 'Product line item unit price discount component properly set to 100% of the product price even after refresh.');
+
+    // Disable the discount.
+    $discount->status = FALSE;
+    entity_save('commerce_discount', $discount);
+
+    // Recalculate discounts.
+    $order_wrapper = commerce_cart_order_refresh($order);
+    $unit_price = $order_wrapper->commerce_line_items->get(0)->commerce_unit_price->value();
+
+    $properly_applied = $this->discountAppliedToOrder('freebie', $order);
+    $this->assertFalse($properly_applied, t('100% off discount not applied to a product.'));
+
+    $this->assertEqual($unit_price['amount'], 999, 'Product line item unit price amount is 999.');
   }
 
   /**
@@ -196,6 +221,13 @@ class CommerceDiscountTest extends CommerceDiscountTestBase {
     $this->assertEqual($order_wrapper->commerce_order_total->amount->value(), 1000, 'Free Bonus Products order discount has the price of only one product.');
     $this->assertEqual($order_wrapper->commerce_line_items->count(), 2, 'Free Bonus Products order discount is added as a line item.');
 
+    // Recalculate discounts.
+    $order_wrapper = commerce_cart_order_refresh($order);
+
+    // Check if the discount was applied on the order total price.
+    $this->assertEqual($order_wrapper->commerce_order_total->amount->value(), 1000, 'Free Bonus Products order discount has the price of only one product even after refresh.');
+    $this->assertEqual($order_wrapper->commerce_line_items->count(), 2, 'Free Bonus Products order discount is added as a line item even after refresh.');
+
     // Disable the discount.
     $discount->status = FALSE;
     entity_save('commerce_discount', $discount);
@@ -211,42 +243,65 @@ class CommerceDiscountTest extends CommerceDiscountTestBase {
    * Test fixed product discounts.
    */
   public function testCommerceDiscountFixedProductDiscount() {
-    $this->createDiscount('product_discount', 'fixed_amount', 300);
+    $discount = $this->createDiscount('product_discount', 'fixed_amount', 300);
 
     // Create an order.
     $order = $this->createDummyOrder($this->store_customer->uid, array($this->product->product_id => 1), 'completed');
-    $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
-
-    // Invoke line item price re-calculation.
-    $line_item = $order_wrapper->commerce_line_items->get(0)->value();
-    rules_invoke_event('commerce_product_calculate_sell_price', $line_item);
+    $order_wrapper = commerce_cart_order_refresh($order);
 
     // Check if the discount was added as a component to the line item.
-    $line_item_wrapper = entity_metadata_wrapper('commerce_line_item', $line_item);
-    $price_data = $line_item_wrapper->commerce_unit_price->data->value();
+    $price = $order_wrapper->commerce_line_items->get(0)->commerce_unit_price->value();
+    $this->assertTrue($price['data']['components'][1]['price']['amount'] == -300, 'Fixed product discount is added as a price component to the line item.');
+    $this->assertEqual($price['amount'], 700, 'Line item price with fixed product discount is correct.');
 
-    $this->assertTrue($price_data['components'][1]['price']['amount'] == -300, 'Fixed product discount is added as a price component to the line item.');
+    $order_wrapper = commerce_cart_order_refresh($order);
+
+    // Check if the discount was added as a component to the line item.
+    $price = $order_wrapper->commerce_line_items->get(0)->commerce_unit_price->value();
+    $this->assertTrue($price['data']['components'][1]['price']['amount'] == -300, 'Fixed product discount is added as a price component to the line item even after refresh.');
+    $this->assertEqual($price['amount'], 700, 'Line item price with fixed product discount is correct even after refresh.');
+
+    // Disable the discount.
+    $discount->status = FALSE;
+    entity_save('commerce_discount', $discount);
+
+    $order_wrapper = commerce_cart_order_refresh($order);
+
+    // Check if the discount is not applied.
+    $price = $order_wrapper->commerce_line_items->get(0)->commerce_unit_price->value();
+    $this->assertEqual($price['amount'], 1000, 'Disabled fixed product discount is does not appear in the price.');
   }
 
   /**
    * Test percentage product discounts.
    */
   public function testCommerceDiscountPercentageProductDiscount() {
-    $this->createDiscount('product_discount', 'percentage', 5);
+    $discount = $this->createDiscount('product_discount', 'percentage', 5);
 
     // Create an order.
     $order = $this->createDummyOrder($this->store_customer->uid, array($this->product->product_id => 1), 'completed');
-    $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
-
-    // Invoke line item price re-calculation.
-    $line_item = $order_wrapper->commerce_line_items->get(0)->value();
-    rules_invoke_event('commerce_product_calculate_sell_price', $line_item);
+    $order_wrapper = commerce_cart_order_refresh($order);
 
     // Check if the discount was added as a component to the line item.
-    $line_item_wrapper = entity_metadata_wrapper('commerce_line_item', $line_item);
-    $price_data = $line_item_wrapper->commerce_unit_price->data->value();
+    $price = $order_wrapper->commerce_line_items->get(0)->commerce_unit_price->value();
+    $this->assertEqual($price['data']['components'][1]['price']['amount'], -50, 'Percentage product discount is added as a price component to the line item.');
+    $this->assertEqual($price['amount'], 950, 'Line item amount with Percentage product discount is correct.');
 
-    $this->assertTrue($price_data['components'][1]['price']['amount'] == -50, 'Percentage product discount is added as a price component to the line item.');
+    $order_wrapper = commerce_cart_order_refresh($order);
+    // Check if the discount was added as a component to the line item.
+    $price = $order_wrapper->commerce_line_items->get(0)->commerce_unit_price->value();
+    $this->assertEqual($price['data']['components'][1]['price']['amount'], -50, 'Percentage product discount is added as a price component to the line item even after refresh.');
+    $this->assertEqual($price['amount'], 950, 'Line item amount with Percentage product discount is correct even after refresh.');
+
+    // Disable the discount.
+    $discount->status = FALSE;
+    entity_save('commerce_discount', $discount);
+
+    $order_wrapper = commerce_cart_order_refresh($order);
+
+    // Check if the discount was added as a component to the line item.
+    $price_data = $order_wrapper->commerce_line_items->get(0)->commerce_unit_price->value();
+      $this->assertEqual($price_data['amount'], 1000, 'Line item amount without Percentage product discount is correct.');
   }
 
   /**
@@ -257,7 +312,7 @@ class CommerceDiscountTest extends CommerceDiscountTestBase {
     $this->createDiscount('product_discount', 'fixed_amount', 300);
     $formatted_discounted_price = '$7.00';
 
-    // Log as a normal user.
+    // Log in as a normal user.
     $this->drupalLogin($this->store_customer);
 
     $nid = $this->product_node->nid;
@@ -423,7 +478,9 @@ class CommerceDiscountTest extends CommerceDiscountTestBase {
   }
 
   /**
-   * Test that delete discounts do not cause fatal errors on cart refresh
+   * Test discount deletion.
+   *
+   * Discount deletion should not cause fatal errors on cart refresh.
    *
    * @link https://www.drupal.org/node/2538812
    */
@@ -447,6 +504,84 @@ class CommerceDiscountTest extends CommerceDiscountTestBase {
     // Recalculate discounts.
     $order_wrapper = commerce_cart_order_refresh($order);
     $this->assertTrue($order_wrapper->commerce_order_total->amount->value() == 1000, "Fixed order discount is removed when it's not applicable.");
+  }
+
+  /**
+   * Test discount compatibility regression https://www.drupal.org/node/2621526.
+   *
+   * Discount "toggles" when cart page is refreshed.
+   */
+  public function testCommerceDiscountCompatibilityStrategiesRefresh() {
+    // Create two discounts set to execute one after the other.
+    $discount_one = $this->createDiscount('product_discount', 'percentage', 10, 'of1');
+    $discount_one_wrapper = entity_metadata_wrapper('commerce_discount', $discount_one);
+    $discount_two = $this->createDiscount('product_discount', 'percentage', 20, 'of2', 2);
+    $discount_two_wrapper = entity_metadata_wrapper('commerce_discount', $discount_two);
+
+    // Create an order and recalculate discounts.
+    $order = $this->createDummyOrder($this->store_customer->uid, array(
+      $this->product->product_id => 1
+    ), 'completed');
+
+    // Test compatibility with discount one compatible only with discount two
+    // And discount two compatible with any discount. Both should be applied.
+    $discount_one_wrapper->commerce_compatibility_strategy = 'only';
+    $discount_one_wrapper->commerce_compatibility_selection = array(
+      $discount_two->discount_id
+    );
+    $discount_one_wrapper->save();
+    $discount_two_wrapper->commerce_compatibility_strategy = 'any';
+    $discount_two_wrapper->save();
+    commerce_cart_order_refresh($order);
+
+    $properly_applied = $this->discountAppliedToOrder('of1', $order) && $this->discountAppliedToOrder('of2', $order);
+    $this->assertTrue($properly_applied, t('Both discounts applied when discount one is compatible with any discount and discount two is compatible only with discount one.'));
+
+    // Regression test for discount compatibility with itself.
+    commerce_cart_order_refresh($order);
+
+    $properly_applied = $this->discountAppliedToOrder('of1', $order) && $this->discountAppliedToOrder('of2', $order);
+    $this->assertTrue($properly_applied, t('Both discounts applied when discount one is compatible with any discount, discount two is compatible only with discount one and the order refreshed one more time.'));
+  }
+
+  /**
+   * Test discount compatibility regression https://www.drupal.org/node/2621526.
+   *
+   * Two "none" compatible discounts "toggles" when cart page is refreshed.
+   */
+  public function testCommerceDiscountCompatibilityStrategiesRefreshNone() {
+    // Create two discounts set to execute one after the other.
+    $discount_one = $this->createDiscount('product_discount', 'percentage', 10, 'of1');
+    $discount_one_wrapper = entity_metadata_wrapper('commerce_discount', $discount_one);
+    $discount_two = $this->createDiscount('product_discount', 'percentage', 20, 'of2', 2);
+    $discount_two_wrapper = entity_metadata_wrapper('commerce_discount', $discount_two);
+
+    // Create an order and recalculate discounts.
+    $order = $this->createDummyOrder($this->store_customer->uid, array(
+      $this->product->product_id => 1
+    ), 'completed');
+
+    // Test compatibility with both discounts compatible with no other
+    // discounts.
+    // Only first discount should be applied.
+    $discount_one_wrapper->commerce_compatibility_strategy = 'none';
+    $discount_one_wrapper->save();
+    $discount_two_wrapper->commerce_compatibility_strategy = 'none';
+    $discount_two_wrapper->save();
+    commerce_cart_order_refresh($order);
+
+    $properly_applied = $this->discountAppliedToOrder('of1', $order) && ! $this->discountAppliedToOrder('of2', $order);
+    $this->assertTrue($this->discountAppliedToOrder('of1', $order), t('Discount 1.'));
+    $this->assertFalse($this->discountAppliedToOrder('of2', $order), t('Discount 2.'));
+    $this->assertTrue($properly_applied, t('Only first discount applied when both discounts are incompatible with any discounts.'));
+
+    // Regression test for discount compatibility with itself.
+    commerce_cart_order_refresh($order);
+
+    $properly_applied = $this->discountAppliedToOrder('of1', $order) && ! $this->discountAppliedToOrder('of2', $order);
+    $this->assertTrue($this->discountAppliedToOrder('of1', $order), t('Discount 1.'));
+    $this->assertFalse($this->discountAppliedToOrder('of2', $order), t('Discount 2.'));
+    $this->assertTrue($properly_applied, t('Only first discount applied when both discounts are incompatible with any discounts and order refreshed once again.'));
   }
 
 }

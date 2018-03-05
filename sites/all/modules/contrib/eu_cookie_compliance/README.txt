@@ -45,6 +45,11 @@ Installation.
    module: http://drupal.org/project/geoip and enable the option on the admin
    page.
 
+8. To translate the message displayed, enable the i18n_variable module in the
+   i18n package. After enabling "EU Cookie Compliance" at
+   admin/config/regional/i18n/variable, you will be able to set your
+   translations on the settings page for this module.
+
 NOTICE: The module does not audit your cookies nor does it prevent cookies
 from being set.
 

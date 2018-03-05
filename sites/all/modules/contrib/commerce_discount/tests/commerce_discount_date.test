@@ -107,14 +107,38 @@ class CommerceDiscountDateTest extends CommerceDiscountTestBase {
 
     // Create an order.
     $order = $this->createDummyOrder($this->store_customer->uid, array($this->product->product_id => 1), 'completed');
-    $wrapper = entity_metadata_wrapper('commerce_order', $order);
+    $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
     // Invoke line item price re-calculation.
-    $line_item = $wrapper->commerce_line_items->get(0)->value();
+    $line_item = $order_wrapper->commerce_line_items->get(0)->value();
     rules_invoke_event('commerce_product_calculate_sell_price', $line_item);
     // Check if the discount was added as a component to the line item.
     $line_item_wrapper = entity_metadata_wrapper('commerce_line_item', $line_item);
     $price_data = $line_item_wrapper->commerce_unit_price->data->value();
     $this->assertTrue(count($price_data['components']) == 1, 'Product discount is ignored when discount is out of time frame.');
+  }
+
+  /**
+   * Test product discount on the same day.
+   */
+  public function testDiscountSameDay() {
+    // Create a discount valid for today only.
+    $start_date = new DateTime();
+    $start_date->setTime(0, 0, 0);
+    $start_time = $start_date->getTimestamp();
+    $end_time = $start_time;
+
+    $this->createDateDiscount('product_discount', 'fixed_amount', 300, $start_time, $end_time);
+
+    // Create an order.
+    $order = $this->createDummyOrder($this->store_customer->uid, array($this->product->product_id => 1), 'completed');
+    $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+    // Invoke line item price re-calculation.
+    $line_item = $order_wrapper->commerce_line_items->get(0)->value();
+    rules_invoke_event('commerce_product_calculate_sell_price', $line_item);
+    // Check if the discount was added as a component to the line item.
+    $line_item_wrapper = entity_metadata_wrapper('commerce_line_item', $line_item);
+    $price_data = $line_item_wrapper->commerce_unit_price->data->value();
+    $this->assertEqual($price_data['components'][1]['price']['amount'], -300, 'Product discount is applied when discount is in time frame.');
   }
 
 }

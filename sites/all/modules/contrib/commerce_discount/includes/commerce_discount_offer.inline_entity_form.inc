@@ -25,15 +25,15 @@ class CommerceDiscountOfferInlineEntityFormController extends EntityInlineEntity
       $offer_values = drupal_array_get_nested_value($form_state['values'], $entity_form['#parents']);
       // If the type was changed via AJAX, change it on the entity.
       if (!empty($offer_values['type'])) {
-        // We have to use the formstate to hold this, because if other elements
-        // set #limit_validation_errors, form state values will not contain what
-        // we need.
-        $form_state['commerce_dicount_offer_selection_' . $entity_form['#ief_id']] = $offer_values['type'];
+        // We have to use the form_state to hold this, because if other
+        // elements set #limit_validation_errors, form state values will not
+        // contain what we need.
+        $form_state['commerce_discount_offer_selection_' . $entity_form['#ief_id']] = $offer_values['type'];
       }
     }
 
-    if (isset($form_state['commerce_dicount_offer_selection_' . $entity_form['#ief_id']])) {
-      $offer->type = $form_state['commerce_dicount_offer_selection_' . $entity_form['#ief_id']];
+    if (isset($form_state['commerce_discount_offer_selection_' . $entity_form['#ief_id']])) {
+      $offer->type = $form_state['commerce_discount_offer_selection_' . $entity_form['#ief_id']];
     }
 
     // Get discount type.
@@ -61,7 +61,12 @@ class CommerceDiscountOfferInlineEntityFormController extends EntityInlineEntity
         'class' => array('commerce-offer-fields-wrapper'),
       ),
       '#weight' => 2,
-      '#parents' => array('commerce_discount_fields', 'commerce_discount_offer', LANGUAGE_NONE, 'form'),
+      '#parents' => array(
+        'commerce_discount_fields',
+        'commerce_discount_offer',
+        LANGUAGE_NONE,
+        'form',
+      ),
     );
 
     // Transfer field elements onto fields container.
@@ -69,7 +74,7 @@ class CommerceDiscountOfferInlineEntityFormController extends EntityInlineEntity
       $fields_wrapper[$key] = $entity_form[$key];
       unset($entity_form[$key]);
     }
-    // Set the fields container back on the form.
+    // Set the fields container back to the form.
     $entity_form['commerce_discount_offer_fields'] = $fields_wrapper;
 
     // Add offer type options.
