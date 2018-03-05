@@ -36,7 +36,6 @@ function commerce_order_ui_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'order_number' => 'order_number',
-    'placed' => 'placed',
     'changed' => 'changed',
     'commerce_customer_address' => 'commerce_customer_address',
     'name' => 'name',
@@ -48,13 +47,6 @@ function commerce_order_ui_views_default_views() {
   $handler->display->display_options['style_options']['info'] = array(
     'order_number' => array(
       'sortable' => 0,
-      'default_sort_order' => 'desc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'placed' => array(
-      'sortable' => 1,
       'default_sort_order' => 'desc',
       'align' => '',
       'separator' => '',
@@ -124,13 +116,6 @@ function commerce_order_ui_views_default_views() {
   $handler->display->display_options['fields']['order_number']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['order_number']['field'] = 'order_number';
   $handler->display->display_options['fields']['order_number']['link_to_order'] = 'admin';
-  /* Field: Commerce Order: Placed date */
-  $handler->display->display_options['fields']['placed']['id'] = 'placed';
-  $handler->display->display_options['fields']['placed']['table'] = 'commerce_order';
-  $handler->display->display_options['fields']['placed']['field'] = 'placed';
-  $handler->display->display_options['fields']['placed']['label'] = 'Placed';
-  $handler->display->display_options['fields']['placed']['empty'] = '-';
-  $handler->display->display_options['fields']['placed']['date_format'] = 'medium';
   /* Field: Commerce Order: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'commerce_order';
@@ -221,7 +206,6 @@ function commerce_order_ui_views_default_views() {
     t('Order owner'),
     t('Customer profile'),
     t('Order number'),
-    t('Placed'),
     t('Updated'),
     t('Name'),
     t('-'),
@@ -263,7 +247,7 @@ function commerce_order_ui_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'order_number' => 'order_number',
-    'placed' => 'placed',
+    'created' => 'created',
     'changed' => 'changed',
     'commerce_order_total' => 'commerce_order_total',
     'status' => 'status',
@@ -277,7 +261,7 @@ function commerce_order_ui_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'placed' => array(
+    'created' => array(
       'sortable' => 1,
       'default_sort_order' => 'desc',
       'align' => '',
@@ -317,16 +301,15 @@ function commerce_order_ui_views_default_views() {
   $handler->display->display_options['fields']['order_number']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['order_number']['field'] = 'order_number';
   $handler->display->display_options['fields']['order_number']['link_to_order'] = 'customer';
-  /* Field: Commerce Order: Placed date */
-  $handler->display->display_options['fields']['placed']['id'] = 'placed';
-  $handler->display->display_options['fields']['placed']['table'] = 'commerce_order';
-  $handler->display->display_options['fields']['placed']['field'] = 'placed';
-  $handler->display->display_options['fields']['placed']['label'] = 'Placed';
+  /* Field: Commerce Order: Created date */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'commerce_order';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = 'Created';
   /* Field: Commerce Order: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'commerce_order';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
-  $handler->display->display_options['fields']['changed']['label'] = 'Updated';
   /* Field: Commerce Order: Order total */
   $handler->display->display_options['fields']['commerce_order_total']['id'] = 'commerce_order_total';
   $handler->display->display_options['fields']['commerce_order_total']['table'] = 'field_data_commerce_order_total';
@@ -395,8 +378,8 @@ function commerce_order_ui_views_default_views() {
     t('last »'),
     t('You have not placed any orders with us yet.'),
     t('Order number'),
-    t('Placed'),
-    t('Updated'),
+    t('Created'),
+    t('Updated date'),
     t('Total'),
     t('Order status'),
     t('All'),

@@ -118,23 +118,19 @@ function commerce_discount_inline_conditions_build_alter(&$value) {
   switch ($value['condition_name']) {
     case 'commerce_order_contains_products':
     case 'commerce_order_has_specific_quantity_products':
-      if (!empty($value['condition_settings']['products'])) {
-        $entity_ids = array();
+      $entity_ids = array();
+      foreach ($value['condition_settings']['products'] as $delta) {
+        $entity_ids[] = reset($delta);
+      }
+      $products = commerce_product_load_multiple($entity_ids);
 
-        foreach ($value['condition_settings']['products'] as $delta) {
-          $entity_ids[] = reset($delta);
-        }
-        $products = commerce_product_load_multiple($entity_ids);
-
-        $value['condition_settings']['products'] = '';
-        foreach ($products as $product) {
-          $value['condition_settings']['products'] .= $product->sku;
-          if ($product !== end($products)) {
-            $value['condition_settings']['products'] .= ', ';
-          }
+      $value['condition_settings']['products'] = '';
+      foreach ($products as $product) {
+        $value['condition_settings']['products'] .= $product->sku;
+        if ($product !== end($products)) {
+          $value['condition_settings']['products'] .= ', ';
         }
       }
-
       break;
 
     case 'commerce_product_has_specified_terms':

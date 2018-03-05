@@ -93,11 +93,7 @@ function eu_cookie_compliance_page_build(&$page) {
     $uid1_match = FALSE;
   }
 
-  // Allow other modules to alter if the popup needs to be shown or not.
-  $modules_allow_popup = TRUE;
-  drupal_alter('eu_cookie_compliance_show_popup', $modules_allow_popup);
-
-  if (!empty($popup_settings['popup_enabled']) && user_access('display EU Cookie Compliance popup') && $geoip_match && $domain_allow && !$path_match && !$admin_page_match && $uid1_match && $modules_allow_popup) {
+  if (!empty($popup_settings['popup_enabled']) && user_access('display EU Cookie Compliance popup') && $geoip_match && $domain_allow && !$path_match && !$admin_page_match && $uid1_match) {
     global $language;
     // Array storage for caching full client data.
     if (module_exists('domain')) {
@@ -150,7 +146,7 @@ function eu_cookie_compliance_page_build(&$page) {
         $html_agreed = preg_replace('/<!--(.|\s)*?-->/', '', $html_agreed);
       }
       $clicking_confirmation = (isset($popup_settings['popup_clicking_confirmation'])) ? $popup_settings['popup_clicking_confirmation'] : TRUE;
-      $scrolling_confirmation = (isset($popup_settings['popup_scrolling_confirmation']))? $popup_settings['popup_scrolling_confirmation'] : FALSE;
+      $scrolling_confirmation = (isset($popup_settings['popup_scrolling_confirmation']))? $popup_settings['popup_scrolling_confirmation'] : TRUE ;
       $data['variables'] = array(
         'popup_enabled' => $popup_settings['popup_enabled'],
         'popup_agreed_enabled' => $popup_settings['popup_agreed_enabled'],
@@ -163,12 +159,11 @@ function eu_cookie_compliance_page_build(&$page) {
         'popup_height' => ($popup_settings['popup_height'] !== '') ? (int) $popup_settings['popup_height'] : 'auto',
         'popup_width' => (drupal_substr($popup_settings['popup_width'], -1) == '%') ? $popup_settings['popup_width'] : (int) $popup_settings['popup_width'],
         'popup_delay' => (int) ($popup_settings['popup_delay']),
-        'popup_link' => url(token_replace($popup_settings['popup_link'])),
+        'popup_link' => url($popup_settings['popup_link']),
         'popup_link_new_window' => isset($popup_settings['popup_link_new_window']) ? $popup_settings['popup_link_new_window'] : 1,
         'popup_position' => empty($popup_settings['popup_position']) ? NULL : $popup_settings['popup_position'],
         'popup_language' => $language->language,
         'better_support_for_screen_readers' => isset($popup_settings['better_support_for_screen_readers']) ? $popup_settings['better_support_for_screen_readers'] : 0,
-        'cookie_name' => isset($popup_settings['cookie_name']) ? $popup_settings['cookie_name'] : '',
         'reload_page' => isset($popup_settings['reload_page']) ? $popup_settings['reload_page'] : 0,
         'domain' => variable_get('eu_cookie_compliance_domain', ''),
         'popup_eu_only_js' => isset($popup_settings['eu_only_js']) ? $popup_settings['eu_only_js'] : 0,

@@ -5,7 +5,7 @@
  * Functions related to the WYSIWYG editor and the media input filter.
  */
 
-define('MEDIA_WYSIWYG_TOKEN_REGEX', '/\[\[\{.*?"type":"media".+?\}\]\]/s');
+define('MEDIA_WYSIWYG_TOKEN_REGEX', '/\[\[.+?"type":"media".+?\]\]/s');
 
 /**
  * Filter callback for media markup filter.
@@ -311,12 +311,7 @@ function media_wysiwyg_token_to_markup($match, $wysiwyg = FALSE, $langcode = NUL
     drupal_add_js(array('mediaDataMap' => array($file->fid => $data)), 'setting');
     $element['#attributes']['data-fid'] = $file->fid;
     $element['#attributes']['data-media-element'] = '1';
-    if (is_array($element['#attributes']['class'])) {
-      $element['#attributes']['class'][] = 'media-element';
-    }
-    else {
-      $element['#attributes']['class'] .= 'media-element';
-    }
+    $element['#attributes']['class'][] = 'media-element';
   }
   else {
     // Display the field elements.

@@ -17,7 +17,7 @@ function addressfield_staticmap_admin_form($form, &$form_state) {
   $fields = field_info_fields();
   foreach ($fields as $name => $field) {
     // Only display addressfields for this setting
-    if ($field['type'] == 'addressfield' || $field['type'] == 'location') {
+    if ($field['type'] == 'addressfield') {
       $address_fields[$name] = $name;
     }
 
@@ -25,16 +25,13 @@ function addressfield_staticmap_admin_form($form, &$form_state) {
     if ($field['type'] != 'file') {
       continue;
     }
-
-    foreach ($field['entity_types'] as $index => $entity_type) {
-      if (!isset($field['bundles'][$entity_type])) {
-        continue;
-      }
-      foreach ($field['bundles'][$entity_type] as $bundle_name) {
-        $field_instance = field_info_instance($entity_type, $name, $bundle_name);
-        if ($field_instance['settings']['file_extensions'] == 'kml') {
-          $kml_fields[$bundle_name . '|' . $name] = $name . ' (' . $bundle_name . ')';
-        }
+    if (!isset($field['bundles']['node'])) {
+      continue;
+    }
+    foreach ($field['bundles']['node'] as $bundle_name) {
+      $field_instance = field_info_instance('node', $name, $bundle_name);
+      if ($field_instance['settings']['file_extensions'] == 'kml') {
+        $kml_fields[$bundle_name . '|' . $name] = $name . ' (' . $bundle_name . ')';
       }
     }
   }
@@ -71,7 +68,7 @@ function addressfield_staticmap_admin_form($form, &$form_state) {
   foreach ($blocks as $i => $block) {
     $form[$block['key']] = array(
       '#type' => 'fieldset',
-      '#title' => check_plain($block['name']),
+      '#title' => $block['name'],
       '#collapsible' => TRUE,
       '#collapsed' => FALSE
     );
@@ -92,12 +89,11 @@ function addressfield_staticmap_admin_form($form, &$form_state) {
         'mapquest' => t('Mapquest'),
       ),
     );
-    $form[$block['key']]['addressfield_staticmap_gmap_zoom_' . $i] = array(
-      '#type' => 'select',
+      $form[$block['key']]['addressfield_staticmap_gmap_zoom_' . $i] = array(
+      '#type' => 'textfield',
       '#title' => t('Zoom level'),
-      '#description' => t('The zoom level to use on the map. Can be any of the options for Google Static Maps API or between 1 and 16 (inclusive) for Mapquest. The default is 14.'),
+      '#description' => t('The resolution of the zoom level to use on the map. Can be between 0 and 21 for Google Static Maps API, and 1 and 16 for Mapquest. Default is 14.'),
       '#default_value' => variable_get('addressfield_staticmap_gmap_zoom_' . $i, 14),
-      '#options' => array('auto' => t('Auto')) + drupal_map_assoc(range(0, 21)),
       '#required' => TRUE,
     );
     $form[$block['key']]['addressfield_staticmap_gmap_size_' . $i] = array(
@@ -118,24 +114,6 @@ function addressfield_staticmap_admin_form($form, &$form_state) {
         'terrain' => t('Terrain'),
         'hybrid' => t('Hybrid'),
       ),
-    );
-    $form[$block['key']]['addressfield_staticmap_scroll_lock_' . $i] = array(
-      '#type' => 'checkbox',
-      '#default_value' => variable_get('addressfield_staticmap_scroll_lock_' . $i, FALSE),
-      '#title' => t('Scroll lock'),
-      '#description' => t('Tick this option to disable scrolling and zooming of the map.'),
-    );
-    $form[$block['key']]['addressfield_staticmap_gmap_show_address_' . $i] = array(
-      '#type' => 'checkbox',
-      '#title' => t('Show the address in text format'),
-      '#description' => t('Check this option to display the address in readable, text format along with the map.'),
-      '#default_value' => variable_get('addressfield_staticmap_gmap_show_address_' . $i, FALSE),
-    );
-    $form[$block['key']]['addressfield_staticmap_gmap_show_info_window_' . $i] = array(
-      '#type' => 'checkbox',
-      '#title' => t('Show the address in an info window'),
-      '#description' => t('Check this option to display the address in readable, text format in an info window when you click on the marker.'),
-      '#default_value' => variable_get('addressfield_staticmap_gmap_show_info_window_' . $i, FALSE),
     );
     $form[$block['key']]['addressfield_staticmap_gmap_link_' . $i] = array(
       '#type' => 'checkbox',
@@ -191,14 +169,14 @@ function addressfield_staticmap_admin_form_validate($form, &$form_state) {
     $zoom = $form_state['values']['addressfield_staticmap_gmap_zoom_' . $index];
     $api = $form_state['values']['addressfield_staticmap_api_' . $index];
     if ($api == 'google_maps') {
-      if (!in_array($zoom, array('auto' => t('Auto')) + drupal_map_assoc(range(0, 21)))) {
-        form_set_error('addressfield_staticmap_gmap_zoom_' . $index, t('Invalid zoom level. Please select auto or a value between 0 and 21 inclusive'));
+      if (empty($zoom) || $zoom < 0 || $zoom > 21 || !is_numeric($zoom)) {
+        form_set_error('addressfield_staticmap_gmap_zoom_' . $index, t('Invalid zoom level. Please enter a value from 0 and 21.'));
         return;
       }
     }
     elseif ($api == 'mapquest') {
-      if (!in_array($zoom, drupal_map_assoc(range(1, 16)))) {
-        form_set_error('addressfield_staticmap_gmap_zoom_' . $index, t('Invalid zoom level. Please select a value between 1 and 16 inclusive.'));
+      if (empty($zoom) || $zoom < 1 || $zoom > 16 || !is_numeric($zoom)) {
+        form_set_error('addressfield_staticmap_gmap_zoom_' . $index, t('Invalid zoom level. Please enter a value from 1 and 16.'));
         return;
       }
     }

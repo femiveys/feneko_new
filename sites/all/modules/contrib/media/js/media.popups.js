@@ -374,7 +374,7 @@ Drupal.media.popups.getPopupIframe = function (src, id, options) {
   var defaults = {width: '100%', scrolling: 'auto'};
   var options = $.extend({}, defaults, options);
 
-  return $('<iframe class="media-modal-frame" tabindex="0"/>')
+  return $('<iframe class="media-modal-frame"/>')
   .attr('src', src)
   .attr('width', options.width)
   .attr('id', id)

@@ -7,32 +7,7 @@
  * A full fork of Entity API's controller, with support for revisions.
  */
 
-
-/**
- * Interface for the default Drupal Commerce entity controller.
- */
-interface DrupalCommerceEntityControllerInterface extends EntityAPIControllerInterface {
-
-  /**
-   * Determines whether or not the given entity object was loaded directly from
-   * the database to represent the unchanged version of the entity.
-   *
-   * @param object $entity
-   *   The entity to check.
-   *
-   * @return bool
-   *   TRUE if the entity is "unchanged", FALSE otherwise.
-   */
-  public function isUnchanged($entity);
-
-}
-
-/**
- * Default implementation of DrupalCommerceEntityControllerInterface.
- *
- * Provides base entity controller for Drupal Commerce entities.
- */
-class DrupalCommerceEntityController extends DrupalDefaultEntityController implements DrupalCommerceEntityControllerInterface {
+class DrupalCommerceEntityController extends DrupalDefaultEntityController implements EntityAPIControllerInterface {
 
   /**
    * Stores our transaction object, necessary for pessimistic locking to work.
@@ -44,12 +19,6 @@ class DrupalCommerceEntityController extends DrupalDefaultEntityController imple
    * lock by committing the transaction.
    */
   protected $lockedEntities = array();
-
-  /**
-   * Stores the ids of unchanged entities, necessary for knowing if we're
-   * dealing with unchanged entities before acting on them.
-   */
-  protected $unchangedEntities = array();
 
   /**
    * Override of DrupalDefaultEntityController::buildQuery().
@@ -97,13 +66,6 @@ class DrupalCommerceEntityController extends DrupalDefaultEntityController imple
 
     // Try to release the lock, if possible.
     $this->releaseLock();
-  }
-
-  /**
-   * Implements DrupalCommerceEntityControllerInterface::isUnchanged().
-   */
-  public function isUnchanged($entity) {
-    return isset($this->unchangedEntities[$entity->{$this->idKey}]);
   }
 
   /**
@@ -222,12 +184,10 @@ class DrupalCommerceEntityController extends DrupalDefaultEntityController imple
       // value already set on the entity will be replaced with the entity as
       // saved. This will allow any original entity comparisons in the current
       // save process to react to the most recently saved version of the entity.
-      if (!empty($entity->{$this->idKey}) && !isset($entity->original)) {
-        $this->unchangedEntities[$entity->{$this->idKey}] = TRUE;
+      if (!empty($entity->{$this->idKey})) {
         // In order to properly work in case of name changes, load the original
         // entity using the id key if it is available.
         $entity->original = entity_load_unchanged($this->entityType, $entity->{$this->idKey});
-        unset($this->unchangedEntities[$entity->{$this->idKey}]);
       }
 
       $this->invoke('presave', $entity);

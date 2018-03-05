@@ -1,30 +1,16 @@
 <?php
 
 /**
- * Defines an area handler that renders an order's total field.
+ * Defines an order total area handler that shows the order total field with its
+ *   components listed in the footer of a View.
  */
 class commerce_order_handler_area_order_total extends views_handler_area {
 
   function option_definition() {
     $options = parent::option_definition();
 
-    $options['label_display'] = array(
-      'default' => FALSE,
-      'bool' => TRUE,
-    );
-
-    $options['label_custom'] = array(
-      'default' => t('Order total'),
-      'translatable' => TRUE,
-    );
-
-    $options['label_position'] = array(
-      'default' => 'inline',
-    );
-
-    $options['formatter'] = array(
-      'default' => 'commerce_price_formatted_components',
-    );
+    // TODO: Update with option definitions if the display formatter itself
+    // gets support for them.
 
     return $options;
   }
@@ -34,45 +20,8 @@ class commerce_order_handler_area_order_total extends views_handler_area {
 
     $form['empty']['#description'] = t("Even if selected, this area handler will never render if a valid order cannot be found in the View's arguments.");
 
-    $form['label_display'] = array(
-      '#type' => 'checkbox',
-      '#title' => t('Display a custom label for this field'),
-      '#description' => t('Displaying a custom label may require updates to your theme to maintain the default alignment of the field without a label.'),
-      '#default_value' => $this->options['label_display'],
-    );
-
-    $form['label_custom'] = array(
-      '#type' => 'textfield',
-      '#title' => t('Custom label'),
-      '#default_value' => $this->options['label_custom'],
-      '#dependency' => array(
-        'edit-options-label-display' => array(1),
-      ),
-    );
-
-    $form['label_position'] = array(
-      '#type' => 'select',
-      '#title' => t('Label position'),
-      '#default_value' => $this->options['label_position'],
-      '#dependency' => array(
-        'edit-options-label-display' => array(1),
-      ),
-      '#options' => array(
-        'inline' => t('Inline'),
-        'above' => t('Above'),
-      ),
-    );
-
-    // Load the formatter options for the commerce_order_total field.
-    module_load_include('inc', 'field_ui', 'field_ui.admin');
-    $field = field_info_field('commerce_order_total');
-
-    $form['formatter'] = array(
-      '#type' => 'select',
-      '#title' => t('Formatter'),
-      '#options' => field_ui_formatter_options($field['type']),
-      '#default_value' => $this->options['formatter'],
-    );
+    // TODO: Update with option form elements if the display formatter itself
+    // gets support for them.
   }
 
   function render($empty = FALSE) {
@@ -87,8 +36,8 @@ class commerce_order_handler_area_order_total extends views_handler_area {
 
               // Prepare a display settings array.
               $display = array(
-                'label' => empty($this->options['label_display']) ? 'hidden' : $this->options['label_position'],
-                'type' => $this->options['formatter'],
+                'label' => 'hidden',
+                'type' => 'commerce_price_formatted_components',
                 'settings' => array(
                   'calculation' => FALSE,
                 ),
@@ -96,9 +45,6 @@ class commerce_order_handler_area_order_total extends views_handler_area {
 
               // Render the order's order total field with the current display.
               $field = field_view_field('commerce_order', $order, 'commerce_order_total', $display);
-              if (!empty($this->options['label_display'])) {
-                $field['#title'] = $this->options['label_custom'];
-              }
 
               return '<div class="commerce-order-handler-area-order-total">' . drupal_render($field) . '</div>';
             }

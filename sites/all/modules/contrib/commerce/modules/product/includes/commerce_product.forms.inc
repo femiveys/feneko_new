@@ -140,9 +140,6 @@ function commerce_product_product_form_validate($form, &$form_state) {
     form_set_error('sku', t('The SKU contains invalid tokens.'));
   }
   else {
-    // Trim leading and trailing whitespace from the SKU.
-    $sku = trim($sku);
-
     // Ensure the proposed SKU is unique or reused only during product updates.
     $query = new EntityFieldQuery();
 
@@ -165,8 +162,8 @@ function commerce_product_product_form_validate($form, &$form_state) {
       form_set_error('sku', t('The SKU %sku contains invalid characters.', array('%sku' => $sku)));
     }
 
-    // Update current SKU with trimmed version.
-    form_set_value($form['sku'], $sku, $form_state);
+    // Trim leading and trailing whitespace from the SKU.
+    form_set_value($form['sku'], trim($sku), $form_state);
   }
 
   // Notify field widgets to validate their data.

@@ -30,7 +30,6 @@ class CommerceOrderEntityController extends DrupalCommerceEntityController {
       'data' => array(),
       'created' => '',
       'changed' => '',
-      'placed' => '',
       'hostname' => '',
     );
 
