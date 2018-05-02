@@ -107,17 +107,20 @@ function feneko_code_import_form_submit($form, &$form_state) {
   ini_set('post_max_size', '10M');
   ini_set('upload_max_filesize', '10M');
 
+  $folder = 'private://catalogs';
   $values = $form_state['values'];
 
   if($values['type'] === 'screens' || $values['type'] === 'colors') {
     $file = file_save_upload(
       'file_upload',
       array('file_validate_extensions' => array('pdf')),
-      'private://catalogs',
+      $folder,
       FILE_EXISTS_REPLACE
     );
 
     if($file) {
+      $path = "$folder/" . $values['type'] . ".pdf";
+      file_move($file, $path, FILE_EXISTS_REPLACE);
       drupal_set_message(t('De :type catalogus werd aangepast.', array(':type' => $values['type'])));
     } else {
       drupal_set_message(t('Er werd geen bestand meegegeven.'));
