@@ -9,6 +9,7 @@ function feneko_code_import_form($form, &$form_state) {
   $blocked  = "<ul>$csvzip<li>Velden: klantennummer;geblokkeerd_J/N</li></ul>";
   $statuses = "<ul>$csvzip<li>Velden: klant;orderbon;orderdatum;omschrijving;"
             . "referentie;fase;leverdatum;aantal;bedrag;leverconditie;kleur</li></ul>";
+  $pdf      = "PDF bestand";
 
   $mapping = array(
     'ral'                            => $ral,
@@ -16,6 +17,8 @@ function feneko_code_import_form($form, &$form_state) {
     'utilo'                          => $utilo,
     'blocked'                        => $blocked,
     FENEKO_CODE_ORDER_STATUSES_TABLE => $statuses,
+    'screens'                        => $pdf,
+    'colors'                         => $pdf,
   );
 
   $manual = array(
@@ -53,6 +56,8 @@ function feneko_code_import_form($form, &$form_state) {
         'utilo'                          => 'Utilo profielen',
         'blocked'                        => 'Geblokkeerd/EB',
         FENEKO_CODE_ORDER_STATUSES_TABLE => 'Statussen Orders',
+        'screens'                        => 'Screens catalogus',
+        'colors'                         => 'Colors catalogus',
       ),
       '#required' => true,
     ),
@@ -72,6 +77,8 @@ function feneko_code_import_form($form, &$form_state) {
         'invisible' => array(
           'input[name="type"]' => array(
             array('value' => FENEKO_CODE_ORDER_STATUSES_TABLE),
+            array('value' => 'screens'),
+            array('value' => 'colors'),
             array('value' => FALSE),
           )
         ),
@@ -97,19 +104,38 @@ function feneko_code_import_form($form, &$form_state) {
 }
 
 function feneko_code_import_form_submit($form, &$form_state) {
-  $file = file_save_upload('file_upload', array(
-    'file_validate_extensions' => array('csv','zip'),
-  ));
+  ini_set('post_max_size', '10M');
+  ini_set('upload_max_filesize', '10M');
 
-  if($file) {
-    // Handle zipfiles different from CSV files
-    if($file->filemime === 'application/zip') {
-      _feneko_code_zip_import($file->uri, $form_state['values']);
+  $values = $form_state['values'];
+
+  if($values['type'] === 'screens' || $values['type'] === 'colors') {
+    $file = file_save_upload(
+      'file_upload',
+      array('file_validate_extensions' => array('pdf')),
+      'private://catalogs',
+      FILE_EXISTS_REPLACE
+    );
+
+    if($file) {
+      drupal_set_message(t('De :type catalogus werd aangepast.', array(':type' => $values['type'])));
     } else {
-      _feneko_code_csv_import($file->uri, $form_state['values']);
+      drupal_set_message(t('Er werd geen bestand meegegeven.'));
     }
   } else {
-    drupal_set_message(t('Er werd geen bestand meegegeven.'));
+    $file = file_save_upload('file_upload', array(
+      'file_validate_extensions' => array('csv','zip'),
+    ));
+
+    if($file) {
+      if($file->filemime === 'application/zip') {
+        _feneko_code_zip_import($file->uri, $values);
+      } else {
+        _feneko_code_csv_import($file->uri, $form_state['values']);
+      }
+    } else {
+      drupal_set_message(t('Er werd geen bestand meegegeven.'));
+    }
   }
 }
 
@@ -141,7 +167,6 @@ function _feneko_code_zip_import($zipname, $values) {
   } else {
     drupal_set_message(t('Unable to create temporary folder for extract'), 'error');
   }
-
 }
 
 function _fc_import_insert($table, $fields, &$num_updated) {
@@ -152,6 +177,15 @@ function _fc_import_insert($table, $fields, &$num_updated) {
     $msg = t('Er was een probleem bij het importeren van :ref', array(':ref'   => $fields['ref']));
     drupal_set_message($msg, 'warning');
   }
+}
+
+function _feneko_code_pdf_import($filename, $values) {
+  $file = file_save_upload($filename, array(), 'private://');
+
+
+
+  dpm($filename);
+  dpm($values);
 }
 
 function _feneko_code_csv_import($filename, $values) {

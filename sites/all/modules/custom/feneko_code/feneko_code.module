@@ -205,7 +205,7 @@ function feneko_code_get_client_by_number($number) {
 }
 
 /**
- * Implements of hook_services_resources().
+ * Implements hook_services_resources().
  */
 function feneko_code_services_resources() {
   $api = array(
@@ -233,6 +233,21 @@ function feneko_code_services_resources() {
     ),
   );
   return $api;
+}
+
+/**
+ * Implements hook_file_download().
+ */
+function feneko_code_file_download($uri) {
+  // Provide access to all files under private://catalogs for handelaar
+  global $user;
+  if(strpos($uri, 'private://catalogs') !== false) {
+    if(in_array('handelaar', $user->roles)) {
+      return array('Content-Type' => file_get_mimetype($uri));
+    } else {
+      return -1;
+    }
+  }
 }
 
 function feneko_code_user_update(&$edit, $account, $category) {

@@ -147,6 +147,12 @@ function feneko_code_update_7009() {
   _fc_clean_order_statuses();
 }
 
+/**
+ * Make sure the temporary catalogs folder exists
+ */
+function feneko_code_update_7010() {
+   drupal_mkdir('private://catalogs');
+}
 
 
 /*
