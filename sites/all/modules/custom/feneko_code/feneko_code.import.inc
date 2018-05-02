@@ -107,18 +107,24 @@ function feneko_code_import_form_submit($form, &$form_state) {
   ini_set('post_max_size', '10M');
   ini_set('upload_max_filesize', '10M');
 
+  $folder = 'private://catalogs';
   $values = $form_state['values'];
 
   if($values['type'] === 'screens' || $values['type'] === 'colors') {
     $file = file_save_upload(
       'file_upload',
       array('file_validate_extensions' => array('pdf')),
-      'private://catalogs',
+      $folder,
       FILE_EXISTS_REPLACE
     );
 
     if($file) {
-      drupal_set_message(t('De :type catalogus werd aangepast.', array(':type' => $values['type'])));
+      // If the file doesn't have the correct name, move it
+      $target_filename = $values['type'] . ".pdf";
+      if($file->filename !== $target_filename) {
+        file_move($file, "$folder/$target_filename", FILE_EXISTS_REPLACE);
+      }
+      drupal_set_message(t('De :t catalogus werd vervangen.', array(':t' => $values['type'])));
     } else {
       drupal_set_message(t('Er werd geen bestand meegegeven.'));
     }
@@ -131,7 +137,7 @@ function feneko_code_import_form_submit($form, &$form_state) {
       if($file->filemime === 'application/zip') {
         _feneko_code_zip_import($file->uri, $values);
       } else {
-        _feneko_code_csv_import($file->uri, $form_state['values']);
+        _feneko_code_csv_import($file->uri, $values);
       }
     } else {
       drupal_set_message(t('Er werd geen bestand meegegeven.'));
