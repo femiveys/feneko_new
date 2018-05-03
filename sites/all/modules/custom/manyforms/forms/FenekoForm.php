@@ -647,6 +647,7 @@ class FenekoForm {
         break;
 
       case 12:
+      case 16:
         $fields['borstel'] = 'geen';
         $fields['verbreding'] = 'geen';
         $fields['uitvoering'] = 'enkel';
@@ -987,6 +988,7 @@ class FenekoForm {
         break;
 
       case 'enkel12':
+      case 'enkel16':
         $max = array(
           'breedte' => 2000,
           'hoogte'  => 2400,
@@ -1301,6 +1303,7 @@ class FenekoForm {
         return ":UB46003:";
       case 11:
       case 12:
+      case 16:
         return ":UB46000:";
       default:
         return 'NOT_SET';

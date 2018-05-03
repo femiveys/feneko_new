@@ -910,3 +910,18 @@ function manyforms_update_7056() {
     }
   }
 }
+
+/**
+ * Create rolhorplissé table
+ */
+function manyforms_update_7057() {
+  $id = '16';
+  $table = "manyforms_$id";
+
+  if(!db_table_exists($table)) {
+    $ff = new FenekoSpecificForm($id);
+    $schema = $ff->getSchema();
+
+    db_create_table($table, $schema);
+  }
+}
