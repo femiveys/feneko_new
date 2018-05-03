@@ -191,11 +191,16 @@ class FenekoForm {
           break;
 
         case 'table1':
-          foreach ($value as $row) {
+          foreach ($value as $i => $row) {
             $t_values = $row['t1'] . $row['t2'] . $row['t3'];
             $o_values = $row['aantal'] . $row['breedte'] . $row['hoogte'];
             if(!empty($o_values) && $row['standt'] === 0 && empty($t_values)) {
-              form_set_error($name, t('T1, T2 en T3 kunnen niet oningevuld blijven als de stand T niet aangevinkt is.'));
+              $msg = t('T1, T2 en T3 kunnen niet oningevuld blijven als de stand T niet aangevinkt is.');
+              $field_name = self::parseFormErrorFieldName($name, $i, 't');
+              form_set_error(self::parseFormErrorFieldName($name, $i, 't1'));
+              form_set_error(self::parseFormErrorFieldName($name, $i, 't2'));
+              form_set_error(self::parseFormErrorFieldName($name, $i, 't3'));
+              form_set_error($field_name, $msg);
             }
           }
           break;
@@ -205,7 +210,11 @@ class FenekoForm {
             $t_values = $row['t1'] . $row['t2'];
             $o_values = $row['aantal'] . $row['breedte'] . $row['hoogte'] . $row['rails'];
             if(!empty($o_values) && $row['standt'] === 0 && empty($t_values)) {
-              form_set_error($name, t('T1 en T2 kunnen niet oningevuld blijven als de stand T niet aangevinkt is.'));
+              $msg = t('T1 en T2 kunnen niet oningevuld blijven als de stand T niet aangevinkt is.');
+              $field_name = self::parseFormErrorFieldName($name, $i, 't');
+              form_set_error(self::parseFormErrorFieldName($name, $i, 't1'));
+              form_set_error(self::parseFormErrorFieldName($name, $i, 't2'));
+              form_set_error($field_name, $msg);
             }
           }
 
@@ -213,11 +222,14 @@ class FenekoForm {
         case 'table3':
           foreach ($value as $i => $row) {
             if(!self::emptyRow($row)) {
-              $field_name = $name . '[' . $i . '][rails]';
+              $field_name = self::parseFormErrorFieldName($name, $i, 'rails');
               if($row['rails'] === '') {
-                form_set_error($field_name,
+                form_set_error(
+                  $field_name,
                   t('Lengte rails moet ingevuld worden op rij :rij van de tabel. Vul desnoods 0 in.',
-                    array(':rij' => $i + 1)));
+                    array(':rij' => $i + 1)
+                  )
+                );
               }
             }
           }
