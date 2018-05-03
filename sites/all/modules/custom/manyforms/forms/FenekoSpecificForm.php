@@ -401,6 +401,7 @@ class FenekoSpecificForm extends FenekoForm {
         $this->addField('borstel_links', 80);
         $this->addField('borstel_rechts', 90);
         $this->addField('eindstoppen', 100);
+        $this->addField('schuifdeur_pomp', 110);
         $this->addField('pvc', 500);
         $this->url = array(
           'nl' => 'schuifvliegendeur-classic',
@@ -422,6 +423,7 @@ class FenekoSpecificForm extends FenekoForm {
         $this->addField('borstel_links', 80);
         $this->addField('borstel_rechts', 90);
         $this->addField('eindstoppen', 100);
+        $this->addField('schuifdeur_pomp', 110);
         $this->url = array(
           'nl' => 'schuifvliegendeur-elegance',
           'fr' => 'porte-coulissante-elegance',
@@ -497,6 +499,7 @@ class FenekoSpecificForm extends FenekoForm {
         $this->addField('borstel_links', 80);
         $this->addField('borstel_rechts', 90);
         $this->addField('eindstoppen', 100);
+        $this->addField('schuifdeur_pomp', 110);
         $this->url = array(
           'nl' => 'schuifvliegendeur-elegance-plus',
           'fr' => 'porte-coulissante-elegance-plus',

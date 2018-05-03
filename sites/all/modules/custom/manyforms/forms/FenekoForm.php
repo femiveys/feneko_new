@@ -103,6 +103,7 @@ class FenekoForm {
       }
 
       // Then do the other fields validation
+      $id = $this->getId();
       switch ($name) {
         case 'plint':
           $plint_map = array(
@@ -217,6 +218,31 @@ class FenekoForm {
                 form_set_error($field_name,
                   t('Lengte rails moet ingevuld worden op rij :rij van de tabel. Vul desnoods 0 in.',
                     array(':rij' => $i + 1)));
+              }
+            }
+          }
+          break;
+
+        case 'schuifdeur_pomp':
+          // Only for schuifdeur classic, elegance or elegance+
+          if($id == 8 || $id == 9 || $id == 13) {
+            if($value === 'links' || $value === 'rechts') {
+              $table = $id === 13 ? 'table3' : 'table2';
+              foreach ($values[$table] as $i => $row) {
+                if(!self::emptyRow($row)) {
+                  $field_name = self::parseFormErrorFieldName($table, $i, 'breedte');
+                  if($row['breedte'] < 750) {
+                    form_set_error(
+                      $field_name,
+                      t('Rij :rij: Een pomp is enkel mogelijk bij een breedte van :measure of meer.',
+                        array(
+                          ':rij' => $i + 1,
+                          ':measure' => 750,
+                        )
+                      )
+                    );
+                  }
+                }
               }
             }
           }
@@ -590,11 +616,21 @@ class FenekoForm {
       case 7:
         $fields['uitvoering'] = 'enkel';
         $fields['stootrubber'] = 'nvt';
+        $fields['schuifdeur_pomp'] = 'nvt';
         $fields['borstel_kopse_kant'] = 'nvt';
         break;
 
+      case 8:
+        setSchuifdeurPomp($fields);
+        break;
+
       case 9:
+        setSchuifdeurPomp($fields);
+        $fields['pvc'] = 'nvt';
+        break;
+
       case 10:
+        $fields['schuifdeur_pomp'] = 'nvt';
         $fields['pvc'] = 'nvt';
         break;
 
@@ -608,6 +644,7 @@ class FenekoForm {
         break;
 
       case 13:
+        setSchuifdeurPomp($fields);
         if($fields['ondergeleider_anodise'] === 'ja') {
           $fields['ondergeleider'] .= 'a';
         }
@@ -769,6 +806,17 @@ class FenekoForm {
 
     return $product_fiche;
   }
+
+  private function setSchuifdeurPomp(&$fields) {
+    if($fields['uitvoering'] === 'dubbel') {
+      $fields['schuifdeur_pomp'] = 'nvt';
+    } else {
+      if(!$fields['schuifdeur_pomp']) {
+        $fields['schuifdeur_pomp'] = 'geen';
+      }
+    }
+  }
+
 
   /**
    * Get the table type used in the current form
@@ -2371,6 +2419,13 @@ class FenekoForm {
         'nee' => 2,
         'nvt' => 3,
       ),
+      'schuifdeur_pomp' => array(
+        '#code' => 47,
+        'links'  => 1,
+        'rechts' => 2,
+        'nvt'    => 3,
+        'geen'   => 4,
+      ),
       'aantal'     => 'P1',
       'breedte'    => 'P2',
       'hoogte'     => 'P3',
@@ -3083,6 +3138,26 @@ class FenekoForm {
             'invisible' => array(
               'input[name="uitvoering"]' => array(
                 array('value' => 'zonder'),
+              ),
+            ),
+          ),
+        );
+
+      case 'schuifdeur_pomp':
+        return array(
+          '#title' => t('pomp'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#required' => FALSE,
+          '#options' => array(
+            'geen' => t('geen'),
+            'links'  => t('links'),
+            'rechts' => t('rechts'),
+          ),
+          '#states' => array(
+            'visible' => array(
+              'input[name="uitvoering"]' => array(
+                array('value' => 'enkel'),
               ),
             ),
           ),
