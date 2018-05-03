@@ -20,27 +20,26 @@ function feneko_preprocess_node(&$variables) {
 
 function feneko_order_urls($node_url, $title) {
  $order = t('bestel');
- $prefixNl = '<a href="/nl/inzetvliegenraam/' . $order;
- $prefixFr = '<a href="/fr/moustiquaires-encastrée/' . $order;
- $suffix = "\">$order $title</a>";
+ $prefixNl = "/nl/inzetvliegenraam/$order";
+ $prefixFr = "/fr/moustiquaires-encastrée/$order";
 
  switch ($node_url) {
    case '/nl/inzetvliegenraam-vr033-ultra':
-     $html = "$prefixNl?ultra=true";
+     $url = "$prefixNl?ultra=true";
      break;
    case '/nl/inzetvliegenraam-vr033':
-     $html = "$prefixNl";
+     $url = "$prefixNl";
      break;
    case '/fr/moustiquaires-encastr%C3%A9e-vr033-ultra':
-     $html = "$prefixFr?ultra=true";
+     $url = "$prefixFr?ultra=true";
      break;
    case '/fr/moustiquaires-encastr%C3%A9e-vr033':
-     $html = "$prefixFr";
+     $url = "$prefixFr";
      break;
    default:
-     $html = '<a href="' . $node_url . '/' . $order;
+     $url = "$node_url/$order";
      break;
  }
 
- return $html . $suffix;
+ return "<a href=\"$url\">$order $title</a>";
 }
