@@ -860,6 +860,7 @@ class FenekoForm {
     switch ($key) {
       case 'enkel1':
       case 'enkel2':
+      case 'enkel15':
         $max = array(
           'breedte' => 2000,
           'hoogte'  => 3000,
@@ -1623,6 +1624,10 @@ class FenekoForm {
       //     'type' => 'text',
       //   );
       //   break;
+      // Never add afgewerkte or afgewerkte_message to the schema
+      case 'afgewerkte':
+      case 'afgewerkte_message':
+        break;
 
       case 'datesubmit':
         $schema['fields'][$name] = array(
@@ -1679,6 +1684,10 @@ class FenekoForm {
           'not null' => TRUE,
           'default' => 0,
         );
+        break;
+
+      case 'soort_bevestiging':
+        $schema['fields'][$name]['not null'] = FALSE;
         break;
 
       default:
