@@ -239,7 +239,7 @@ class FenekoForm {
           // Only for schuifdeur classic, elegance or elegance+
           if($id == 8 || $id == 9 || $id == 13) {
             if($value === 'links' || $value === 'rechts') {
-              $table = $id === 13 ? 'table3' : 'table2';
+              $table = "table" . $this->getTableType();
               foreach ($values[$table] as $i => $row) {
                 if(!self::emptyRow($row)) {
                   $field_name = self::parseFormErrorFieldName($table, $i, 'breedte');
