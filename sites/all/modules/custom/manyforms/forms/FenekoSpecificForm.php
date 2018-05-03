@@ -241,7 +241,7 @@ class FenekoSpecificForm extends FenekoForm {
     $footer.= '<img src="/sites/all/themes/feneko/img/logo.png" style="height: 60px; margin-right: -10px">';
     $footer.= '<div class="slogan">' . t('vliegenramen & plaatbewerking') . '</div>';
     $footer.= '</div>';
-    $footer.= '<div class="top-line" style="margin-top: -5px">' . t('Bestelbonnen') . ' 2015</div>';
+    $footer.= '<div class="top-line" style="margin-top: -5px">' . t('Bestelbonnen') . ' 2018</div>';
 
   // echo $html;
   // exit;
@@ -523,7 +523,19 @@ class FenekoSpecificForm extends FenekoForm {
         );
         break;
 
+      case '15':
+        $this->title = t('Vliegenramen RV');
 
+        $this->remark = t('Opgegeven maten zijn de doorkijkmaten');
+        $this->addField('afgewerkte', 25);
+        $this->addField('afgewerkte_message', 1200);
+        $this->addField('bevestiging', 60);
+        $this->addField('soort_bevestiging', 70);
+        $this->url = array(
+          'nl' => 'vliegenraam-rv',
+          'fr' => 'moustiquaire-rv',
+        );
+        break;
     }
   }
 

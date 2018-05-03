@@ -620,6 +620,11 @@ class FenekoForm {
         $fields['uitvoering'] = 'enkel';
         $fields['afdekdoppen'] = 'nvt';
         break;
+
+      case 2:
+        $fields['profiel'] = 'rv';
+        break;
+
     }
 
     foreach ($fields as $name => $value) {
@@ -1224,6 +1229,7 @@ class FenekoForm {
       case 1:
       case 2:
       case 3:
+      case 15:
         return ":UB46001:";
       case 4:
       case 5:
@@ -1687,6 +1693,7 @@ class FenekoForm {
         break;
 
       case 'soort_bevestiging':
+        $schema['fields'][$name] = $varchar;
         $schema['fields'][$name]['not null'] = FALSE;
         break;
 
@@ -2012,6 +2019,7 @@ class FenekoForm {
         'enkel13'  => 7,
         'dubbel13'  => 8,
         'enkel14'   => 4,
+        'enkel15'   => 8,
         'basic'    => 17,
       ),
       'scharnierkant' => array(
@@ -2214,6 +2222,7 @@ class FenekoForm {
         'vr060'      => 4,
         'vr080'      => 5,
         'vr090'      => 6,
+        'rv'         => 18,
       ),
       'borstel_kopse_kant' => array(
         '#code' => 27,

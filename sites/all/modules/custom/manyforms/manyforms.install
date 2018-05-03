@@ -876,3 +876,17 @@ function manyforms_update_7054() {
   }
 }
 
+/**
+ * Create Vliegenramen RV table
+ */
+function manyforms_update_7055() {
+  $id = '15';
+  $table = "manyforms_$id";
+
+  if(!db_table_exists($table)) {
+    $ff = new FenekoSpecificForm($id);
+    $schema = $ff->getSchema();
+
+    db_create_table($table, $schema);
+  }
+}
