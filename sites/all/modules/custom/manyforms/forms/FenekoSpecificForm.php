@@ -711,6 +711,7 @@ class FenekoSpecificForm extends FenekoForm {
         break;
 
       case '11':
+        unset($this->form['kleur']['kleur']['#options']['anodise']);
         $this->form['ondergeleider']['#options'] = array(
           'plat'   => t('plat'),
           '6.5'    => '6.5',
@@ -718,6 +719,7 @@ class FenekoSpecificForm extends FenekoForm {
         break;
 
       case '12':
+        unset($this->form['kleur']['kleur']['#options']['anodise']);
         $this->form['kader']['#options'] = array(
           '3/4'   => '3/4',
           'rondom'    => t('rondom'),
