@@ -211,6 +211,7 @@ class FenekoSpecificForm extends FenekoForm {
     $html .= $this->parsePDFfullWidthField('borstel_links', $record);
     $html .= $this->parsePDFfullWidthField('borstel_rechts', $record);
     $html .= $this->parsePDFfullWidthField('eindstoppen', $record);
+    $html .= $this->parsePDFfullWidthField('schuifdeur_pomp', $record);
     $html .= $this->parsePDFfullWidthField('dierendeur', $record);
     $html .= $this->parsePDFfullWidthField('bevestiging', $record);
     $html .= $this->parsePDFfullWidthField('soort_bevestiging', $record);

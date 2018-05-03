@@ -206,7 +206,7 @@ class FenekoForm {
           break;
 
         case 'table2':
-          foreach ($value as $row) {
+          foreach ($value as $i => $row) {
             $t_values = $row['t1'] . $row['t2'];
             $o_values = $row['aantal'] . $row['breedte'] . $row['hoogte'] . $row['rails'];
             if(!empty($o_values) && $row['standt'] === 0 && empty($t_values)) {
@@ -633,11 +633,11 @@ class FenekoForm {
         break;
 
       case 8:
-        setSchuifdeurPomp($fields);
+        self::setSchuifdeurPomp($fields);
         break;
 
       case 9:
-        setSchuifdeurPomp($fields);
+        self::setSchuifdeurPomp($fields);
         $fields['pvc'] = 'nvt';
         break;
 
@@ -656,7 +656,7 @@ class FenekoForm {
         break;
 
       case 13:
-        setSchuifdeurPomp($fields);
+        self::setSchuifdeurPomp($fields);
         if($fields['ondergeleider_anodise'] === 'ja') {
           $fields['ondergeleider'] .= 'a';
         }
@@ -817,16 +817,6 @@ class FenekoForm {
     }
 
     return $product_fiche;
-  }
-
-  private function setSchuifdeurPomp(&$fields) {
-    if($fields['uitvoering'] === 'dubbel') {
-      $fields['schuifdeur_pomp'] = 'nvt';
-    } else {
-      if(!$fields['schuifdeur_pomp']) {
-        $fields['schuifdeur_pomp'] = 'geen';
-      }
-    }
   }
 
 
@@ -1416,6 +1406,16 @@ class FenekoForm {
 
   private static function parseFormErrorFieldName($tableName, $rowNum, $fieldName) {
     return implode('][', array($tableName, $rowNum, $fieldName));
+  }
+
+  private static function setSchuifdeurPomp(&$fields) {
+    if($fields['uitvoering'] === 'dubbel') {
+      $fields['schuifdeur_pomp'] = 'nvt';
+    } else {
+      if(!$fields['schuifdeur_pomp']) {
+        $fields['schuifdeur_pomp'] = 'geen';
+      }
+    }
   }
 
   /**
