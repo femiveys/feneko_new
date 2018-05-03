@@ -540,6 +540,21 @@ class FenekoSpecificForm extends FenekoForm {
           'fr' => 'moustiquaire-rv',
         );
         break;
+
+      case '16':
+        $this->title = t('Rolhorplissé');
+        $this->remark = t('Afgewerkte maten');
+        $this->removeField('type_gaas');
+        $this->removeField('gaas_kleur');
+        $this->removeField('kleur_pees');
+        $this->removeField('table1');
+        $this->addField('table3', 30);
+        $this->url = array(
+          'nl' => 'rolhor-plisse',
+          'fr' => 'moustiquaire-pliante-enroulable',
+        );
+        break;
+
     }
   }
 
