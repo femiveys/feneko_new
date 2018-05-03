@@ -962,7 +962,13 @@ class FenekoForm {
         if($values[$name][$i][$measure] > self::AFGEWERKTE_DIFF) {
           $values[$name][$i][$measure] -= self::AFGEWERKTE_DIFF;
         } else {
-          form_set_error($measure, t("De $measure op rij :rij is te klein voor afgewerkte maten.", array(':rij' => $i + 1)));
+          $field_name = self::parseFormErrorFieldName($name, $i, $measure);
+          form_set_error(
+            $field_name,
+            t("De $measure op rij :rij is te klein voor afgewerkte maten.",
+              array(':rij' => $i + 1)
+            )
+          );
         }
       }
 
@@ -976,7 +982,8 @@ class FenekoForm {
                   ':max' => $max[$measure],
                 ));
       if($values[$name][$i][$measure] > $max[$measure]) {
-        form_set_error($name, $msg);
+        $field_name = self::parseFormErrorFieldName($name, $i, $measure);
+        form_set_error($field_name, $msg);
       }
     }
 
@@ -984,7 +991,7 @@ class FenekoForm {
     if($id === 11) {
       $breedte = $values[$name][$i]['breedte'];
       $hoogte  = $values[$name][$i]['hoogte'];
-      $field_name = $name . '[' . $i . '][breedte]';
+      $field_name = self::parseFormErrorFieldName($name, $i, 'breedte');
 
       switch ($uitvoering) {
         case 'enkel':
@@ -1347,7 +1354,9 @@ class FenekoForm {
     }
   }
 
-
+  private static function parseFormErrorFieldName($tableName, $rowNum, $fieldName) {
+    return implode('][', array($tableName, $rowNum, $fieldName));
+  }
 
   /**
    * Add a visible field to the $required array
