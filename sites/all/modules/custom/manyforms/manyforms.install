@@ -899,9 +899,8 @@ function manyforms_update_7056() {
   $field = array(
     'type' => 'varchar',
     'length' => 100,
-    'not null' => TRUE,
+    'not null' => FALSE,
     'description' => $name,
-    'initial' => 'nvt',
   );
 
   foreach (array('08', '09', '13') as $id) {

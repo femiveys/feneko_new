@@ -196,7 +196,7 @@ class FenekoForm {
             $o_values = $row['aantal'] . $row['breedte'] . $row['hoogte'];
             if(!empty($o_values) && $row['standt'] === 0 && empty($t_values)) {
               $msg = t('T1, T2 en T3 kunnen niet oningevuld blijven als de stand T niet aangevinkt is.');
-              $field_name = self::parseFormErrorFieldName($name, $i, 't');
+              $field_name = self::parseFormErrorFieldName($name, $i, 'standt');
               form_set_error(self::parseFormErrorFieldName($name, $i, 't1'));
               form_set_error(self::parseFormErrorFieldName($name, $i, 't2'));
               form_set_error(self::parseFormErrorFieldName($name, $i, 't3'));
@@ -211,7 +211,7 @@ class FenekoForm {
             $o_values = $row['aantal'] . $row['breedte'] . $row['hoogte'] . $row['rails'];
             if(!empty($o_values) && $row['standt'] === 0 && empty($t_values)) {
               $msg = t('T1 en T2 kunnen niet oningevuld blijven als de stand T niet aangevinkt is.');
-              $field_name = self::parseFormErrorFieldName($name, $i, 't');
+              $field_name = self::parseFormErrorFieldName($name, $i, 'standt');
               form_set_error(self::parseFormErrorFieldName($name, $i, 't1'));
               form_set_error(self::parseFormErrorFieldName($name, $i, 't2'));
               form_set_error($field_name, $msg);
