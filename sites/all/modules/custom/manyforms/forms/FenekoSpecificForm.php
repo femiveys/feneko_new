@@ -798,6 +798,7 @@ class FenekoSpecificForm extends FenekoForm {
         break;
 
       case '15':
+        unset($this->form['type_gaas']['container']);
         $this->form['soort_bevestiging']['soort_bevestiging']['#options'] = array(
           '15' => '15',
           '16' => '16',
