@@ -671,8 +671,8 @@ class FenekoForm {
         $fields['afdekdoppen'] = 'nvt';
         break;
 
-      case 2:
-        $fields['profiel'] = 'rv';
+      case 15:
+        $fields['uitvoering'] = 'rv';
         break;
 
     }
@@ -2089,9 +2089,9 @@ class FenekoForm {
         'dubbel11' => 2,
         'enkel12'  => 3,
         'enkel13'  => 7,
-        'dubbel13'  => 8,
-        'enkel14'   => 4,
-        'enkel15'   => 8,
+        'dubbel13' => 8,
+        'enkel14'  => 4,
+        'rv15'     => 8,
         'basic'    => 17,
       ),
       'scharnierkant' => array(
