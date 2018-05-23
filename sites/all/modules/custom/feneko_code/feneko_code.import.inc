@@ -18,7 +18,8 @@ function feneko_code_import_form($form, &$form_state) {
     'blocked'                        => $blocked,
     FENEKO_CODE_ORDER_STATUSES_TABLE => $statuses,
     'screens'                        => $pdf,
-    'colors'                         => $pdf,
+    'doors'                          => $pdf,
+    'alu_systems'                    => $pdf,
   );
 
   $manual = array(
@@ -57,7 +58,8 @@ function feneko_code_import_form($form, &$form_state) {
         'blocked'                        => 'Geblokkeerd/EB',
         FENEKO_CODE_ORDER_STATUSES_TABLE => 'Statussen Orders',
         'screens'                        => 'Screens catalogus',
-        'colors'                         => 'Colors catalogus',
+        'doors'                          => 'Doors catalogus',
+        'alu_systems'                    => 'Alu Systems catalogus',
       ),
       '#required' => true,
     ),
@@ -78,7 +80,8 @@ function feneko_code_import_form($form, &$form_state) {
           'input[name="type"]' => array(
             array('value' => FENEKO_CODE_ORDER_STATUSES_TABLE),
             array('value' => 'screens'),
-            array('value' => 'colors'),
+            array('value' => 'doors'),
+            array('value' => 'alu_systems'),
             array('value' => FALSE),
           )
         ),
@@ -110,7 +113,9 @@ function feneko_code_import_form_submit($form, &$form_state) {
   $folder = 'private://catalogs';
   $values = $form_state['values'];
 
-  if($values['type'] === 'screens' || $values['type'] === 'colors') {
+  if($values['type'] === 'screens'
+  || $values['type'] === 'doors'
+  || $values['type'] === 'alu_systems') {
     $file = file_save_upload(
       'file_upload',
       array('file_validate_extensions' => array('pdf')),

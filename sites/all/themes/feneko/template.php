@@ -14,7 +14,7 @@ function feneko_preprocess_node(&$variables) {
     $parents = taxonomy_get_parents($tid);
     $term = array_pop($parents);
     $name = $term->name;
-    $variables['product_grandparent'] = strtolower($name);
+    $variables['product_grandparent'] = str_replace(' ', '_', strtolower($name));
   }
 }
 
