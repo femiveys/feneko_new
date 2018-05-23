@@ -107,7 +107,7 @@ if($teaser) array_push($classes,"product-teaser", "teaser-rij");
           global $language_content;
           $lang = $language_content->language;
           $flipperUrl = "/$lang/catalog/$product_grandparent/flipper";
-          $pdfUrl = "/sites/default/files/pdfs/$product_grandparent" . "_$lang.pdf";
+          $pdfUrl = file_create_url("private://catalogs/$product_grandparent.pdf");
           $catName = t('Catalog');
           $orderSheetUri = isset($content['field_order_sheet']['#items'][0]['uri'])
                       ? $content['field_order_sheet']['#items'][0]['uri'] : null;
@@ -124,10 +124,6 @@ if($teaser) array_push($classes,"product-teaser", "teaser-rij");
           );
         } ?>
         <div class="catalog">
-<!--
-          <a class="hide-mobile" href="<?php print $flipperUrl; ?>" target="_blank"><?php print $catName; ?></a>
-          <a class="hide-desk" href="<?php print $pdfUrl; ?>" target="_blank"><?php print $catName; ?></a>
- -->
           <a href="<?php print $pdfUrl; ?>" target="_blank"><?php print $catName; ?></a>
         </div>
       <?php endif; ?>

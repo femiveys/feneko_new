@@ -211,6 +211,7 @@ class FenekoSpecificForm extends FenekoForm {
     $html .= $this->parsePDFfullWidthField('borstel_links', $record);
     $html .= $this->parsePDFfullWidthField('borstel_rechts', $record);
     $html .= $this->parsePDFfullWidthField('eindstoppen', $record);
+    $html .= $this->parsePDFfullWidthField('schuifdeur_pomp', $record);
     $html .= $this->parsePDFfullWidthField('dierendeur', $record);
     $html .= $this->parsePDFfullWidthField('bevestiging', $record);
     $html .= $this->parsePDFfullWidthField('soort_bevestiging', $record);
@@ -241,7 +242,7 @@ class FenekoSpecificForm extends FenekoForm {
     $footer.= '<img src="/sites/all/themes/feneko/img/logo.png" style="height: 60px; margin-right: -10px">';
     $footer.= '<div class="slogan">' . t('vliegenramen & plaatbewerking') . '</div>';
     $footer.= '</div>';
-    $footer.= '<div class="top-line" style="margin-top: -5px">' . t('Bestelbonnen') . ' 2015</div>';
+    $footer.= '<div class="top-line" style="margin-top: -5px">' . t('Bestelbonnen') . ' 2018</div>';
 
   // echo $html;
   // exit;
@@ -401,6 +402,7 @@ class FenekoSpecificForm extends FenekoForm {
         $this->addField('borstel_links', 80);
         $this->addField('borstel_rechts', 90);
         $this->addField('eindstoppen', 100);
+        $this->addField('schuifdeur_pomp', 110);
         $this->addField('pvc', 500);
         $this->url = array(
           'nl' => 'schuifvliegendeur-classic',
@@ -422,6 +424,7 @@ class FenekoSpecificForm extends FenekoForm {
         $this->addField('borstel_links', 80);
         $this->addField('borstel_rechts', 90);
         $this->addField('eindstoppen', 100);
+        $this->addField('schuifdeur_pomp', 110);
         $this->url = array(
           'nl' => 'schuifvliegendeur-elegance',
           'fr' => 'porte-coulissante-elegance',
@@ -497,6 +500,7 @@ class FenekoSpecificForm extends FenekoForm {
         $this->addField('borstel_links', 80);
         $this->addField('borstel_rechts', 90);
         $this->addField('eindstoppen', 100);
+        $this->addField('schuifdeur_pomp', 110);
         $this->url = array(
           'nl' => 'schuifvliegendeur-elegance-plus',
           'fr' => 'porte-coulissante-elegance-plus',
@@ -523,6 +527,33 @@ class FenekoSpecificForm extends FenekoForm {
         );
         break;
 
+      case '15':
+        $this->title = t('Vliegenramen RV');
+
+        $this->remark = t('Opgegeven maten zijn de doorkijkmaten');
+        $this->addField('afgewerkte', 25);
+        $this->addField('afgewerkte_message', 1200);
+        $this->addField('bevestiging', 60);
+        $this->addField('soort_bevestiging', 70);
+        $this->url = array(
+          'nl' => 'vliegenraam-rv',
+          'fr' => 'moustiquaire-rv',
+        );
+        break;
+
+      case '16':
+        $this->title = t('Rolhorplissé');
+        $this->remark = t('Afgewerkte maten');
+        $this->removeField('type_gaas');
+        $this->removeField('gaas_kleur');
+        $this->removeField('kleur_pees');
+        $this->removeField('table1');
+        $this->addField('table3', 30);
+        $this->url = array(
+          'nl' => 'rolhor-plisse',
+          'fr' => 'moustiquaire-pliante-enroulable',
+        );
+        break;
 
     }
   }
@@ -765,6 +796,20 @@ class FenekoSpecificForm extends FenekoForm {
         unset($this->form['type_gaas']['container']);
 
         break;
+
+      case '15':
+        unset($this->form['type_gaas']['container']);
+        $this->form['soort_bevestiging']['soort_bevestiging']['#options'] = array(
+          '15' => '15',
+          '16' => '16',
+          '17' => '17',
+          '18' => '18',
+          '19' => '19',
+          '20' => '20',
+          '21' => '21',
+        );
+        break;
+
     }
   }
 

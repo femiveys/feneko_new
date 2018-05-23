@@ -876,3 +876,52 @@ function manyforms_update_7054() {
   }
 }
 
+/**
+ * Create Vliegenramen RV table
+ */
+function manyforms_update_7055() {
+  $id = '15';
+  $table = "manyforms_$id";
+
+  if(!db_table_exists($table)) {
+    $ff = new FenekoSpecificForm($id);
+    $schema = $ff->getSchema();
+
+    db_create_table($table, $schema);
+  }
+}
+
+/**
+ * Add schuifdeur_pomp to schuifvliegendeur classic, elegance and elegance+
+ */
+function manyforms_update_7056() {
+  $name = 'schuifdeur_pomp';
+  $field = array(
+    'type' => 'varchar',
+    'length' => 100,
+    'not null' => FALSE,
+    'description' => $name,
+  );
+
+  foreach (array('08', '09', '13') as $id) {
+    $table = "manyforms_$id";
+    if (!db_field_exists($table, $name)) {
+      db_add_field($table, $name, $field);
+    }
+  }
+}
+
+/**
+ * Create rolhorplissé table
+ */
+function manyforms_update_7057() {
+  $id = '16';
+  $table = "manyforms_$id";
+
+  if(!db_table_exists($table)) {
+    $ff = new FenekoSpecificForm($id);
+    $schema = $ff->getSchema();
+
+    db_create_table($table, $schema);
+  }
+}

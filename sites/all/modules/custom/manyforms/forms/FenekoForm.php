@@ -103,6 +103,7 @@ class FenekoForm {
       }
 
       // Then do the other fields validation
+      $id = $this->getId();
       switch ($name) {
         case 'plint':
           $plint_map = array(
@@ -190,21 +191,30 @@ class FenekoForm {
           break;
 
         case 'table1':
-          foreach ($value as $row) {
+          foreach ($value as $i => $row) {
             $t_values = $row['t1'] . $row['t2'] . $row['t3'];
             $o_values = $row['aantal'] . $row['breedte'] . $row['hoogte'];
             if(!empty($o_values) && $row['standt'] === 0 && empty($t_values)) {
-              form_set_error($name, t('T1, T2 en T3 kunnen niet oningevuld blijven als de stand T niet aangevinkt is.'));
+              $msg = t('T1, T2 en T3 kunnen niet oningevuld blijven als de stand T niet aangevinkt is.');
+              $field_name = self::parseFormErrorFieldName($name, $i, 'standt');
+              form_set_error(self::parseFormErrorFieldName($name, $i, 't1'));
+              form_set_error(self::parseFormErrorFieldName($name, $i, 't2'));
+              form_set_error(self::parseFormErrorFieldName($name, $i, 't3'));
+              form_set_error($field_name, $msg);
             }
           }
           break;
 
         case 'table2':
-          foreach ($value as $row) {
+          foreach ($value as $i => $row) {
             $t_values = $row['t1'] . $row['t2'];
             $o_values = $row['aantal'] . $row['breedte'] . $row['hoogte'] . $row['rails'];
             if(!empty($o_values) && $row['standt'] === 0 && empty($t_values)) {
-              form_set_error($name, t('T1 en T2 kunnen niet oningevuld blijven als de stand T niet aangevinkt is.'));
+              $msg = t('T1 en T2 kunnen niet oningevuld blijven als de stand T niet aangevinkt is.');
+              $field_name = self::parseFormErrorFieldName($name, $i, 'standt');
+              form_set_error(self::parseFormErrorFieldName($name, $i, 't1'));
+              form_set_error(self::parseFormErrorFieldName($name, $i, 't2'));
+              form_set_error($field_name, $msg);
             }
           }
 
@@ -212,11 +222,39 @@ class FenekoForm {
         case 'table3':
           foreach ($value as $i => $row) {
             if(!self::emptyRow($row)) {
-              $field_name = $name . '[' . $i . '][rails]';
+              $field_name = self::parseFormErrorFieldName($name, $i, 'rails');
               if($row['rails'] === '') {
-                form_set_error($field_name,
+                form_set_error(
+                  $field_name,
                   t('Lengte rails moet ingevuld worden op rij :rij van de tabel. Vul desnoods 0 in.',
-                    array(':rij' => $i + 1)));
+                    array(':rij' => $i + 1)
+                  )
+                );
+              }
+            }
+          }
+          break;
+
+        case 'schuifdeur_pomp':
+          // Only for schuifdeur classic, elegance or elegance+
+          if($id == 8 || $id == 9 || $id == 13) {
+            if($value === 'links' || $value === 'rechts') {
+              $table = "table" . $this->getTableType();
+              foreach ($values[$table] as $i => $row) {
+                if(!self::emptyRow($row)) {
+                  $field_name = self::parseFormErrorFieldName($table, $i, 'breedte');
+                  if($row['breedte'] < 750) {
+                    form_set_error(
+                      $field_name,
+                      t('Rij :rij: Een pomp is enkel mogelijk bij een breedte van :measure of meer.',
+                        array(
+                          ':rij' => $i + 1,
+                          ':measure' => 750,
+                        )
+                      )
+                    );
+                  }
+                }
               }
             }
           }
@@ -590,15 +628,26 @@ class FenekoForm {
       case 7:
         $fields['uitvoering'] = 'enkel';
         $fields['stootrubber'] = 'nvt';
+        $fields['schuifdeur_pomp'] = 'nvt';
         $fields['borstel_kopse_kant'] = 'nvt';
         break;
 
+      case 8:
+        self::setSchuifdeurPomp($fields);
+        break;
+
       case 9:
+        self::setSchuifdeurPomp($fields);
+        $fields['pvc'] = 'nvt';
+        break;
+
       case 10:
+        $fields['schuifdeur_pomp'] = 'nvt';
         $fields['pvc'] = 'nvt';
         break;
 
       case 12:
+      case 16:
         $fields['borstel'] = 'geen';
         $fields['verbreding'] = 'geen';
         $fields['uitvoering'] = 'enkel';
@@ -608,6 +657,7 @@ class FenekoForm {
         break;
 
       case 13:
+        self::setSchuifdeurPomp($fields);
         if($fields['ondergeleider_anodise'] === 'ja') {
           $fields['ondergeleider'] .= 'a';
         }
@@ -620,6 +670,11 @@ class FenekoForm {
         $fields['uitvoering'] = 'enkel';
         $fields['afdekdoppen'] = 'nvt';
         break;
+
+      case 15:
+        $fields['uitvoering'] = 'rv';
+        break;
+
     }
 
     foreach ($fields as $name => $value) {
@@ -765,6 +820,7 @@ class FenekoForm {
     return $product_fiche;
   }
 
+
   /**
    * Get the table type used in the current form
    * @return int The number of the table (1, 2, 3, or 4)
@@ -860,6 +916,7 @@ class FenekoForm {
     switch ($key) {
       case 'enkel1':
       case 'enkel2':
+      case 'enkel15':
         $max = array(
           'breedte' => 2000,
           'hoogte'  => 3000,
@@ -931,6 +988,7 @@ class FenekoForm {
         break;
 
       case 'enkel12':
+      case 'enkel16':
         $max = array(
           'breedte' => 2000,
           'hoogte'  => 2400,
@@ -956,7 +1014,13 @@ class FenekoForm {
         if($values[$name][$i][$measure] > self::AFGEWERKTE_DIFF) {
           $values[$name][$i][$measure] -= self::AFGEWERKTE_DIFF;
         } else {
-          form_set_error($measure, t("De $measure op rij :rij is te klein voor afgewerkte maten.", array(':rij' => $i + 1)));
+          $field_name = self::parseFormErrorFieldName($name, $i, $measure);
+          form_set_error(
+            $field_name,
+            t("De $measure op rij :rij is te klein voor afgewerkte maten.",
+              array(':rij' => $i + 1)
+            )
+          );
         }
       }
 
@@ -970,7 +1034,8 @@ class FenekoForm {
                   ':max' => $max[$measure],
                 ));
       if($values[$name][$i][$measure] > $max[$measure]) {
-        form_set_error($name, $msg);
+        $field_name = self::parseFormErrorFieldName($name, $i, $measure);
+        form_set_error($field_name, $msg);
       }
     }
 
@@ -978,7 +1043,7 @@ class FenekoForm {
     if($id === 11) {
       $breedte = $values[$name][$i]['breedte'];
       $hoogte  = $values[$name][$i]['hoogte'];
-      $field_name = $name . '[' . $i . '][breedte]';
+      $field_name = self::parseFormErrorFieldName($name, $i, 'breedte');
 
       switch ($uitvoering) {
         case 'enkel':
@@ -1223,6 +1288,7 @@ class FenekoForm {
       case 1:
       case 2:
       case 3:
+      case 15:
         return ":UB46001:";
       case 4:
       case 5:
@@ -1237,6 +1303,7 @@ class FenekoForm {
         return ":UB46003:";
       case 11:
       case 12:
+      case 16:
         return ":UB46000:";
       default:
         return 'NOT_SET';
@@ -1340,7 +1407,19 @@ class FenekoForm {
     }
   }
 
+  private static function parseFormErrorFieldName($tableName, $rowNum, $fieldName) {
+    return implode('][', array($tableName, $rowNum, $fieldName));
+  }
 
+  private static function setSchuifdeurPomp(&$fields) {
+    if($fields['uitvoering'] === 'dubbel') {
+      $fields['schuifdeur_pomp'] = 'nvt';
+    } else {
+      if(!$fields['schuifdeur_pomp']) {
+        $fields['schuifdeur_pomp'] = 'geen';
+      }
+    }
+  }
 
   /**
    * Add a visible field to the $required array
@@ -1623,6 +1702,10 @@ class FenekoForm {
       //     'type' => 'text',
       //   );
       //   break;
+      // Never add afgewerkte or afgewerkte_message to the schema
+      case 'afgewerkte':
+      case 'afgewerkte_message':
+        break;
 
       case 'datesubmit':
         $schema['fields'][$name] = array(
@@ -1679,6 +1762,11 @@ class FenekoForm {
           'not null' => TRUE,
           'default' => 0,
         );
+        break;
+
+      case 'soort_bevestiging':
+        $schema['fields'][$name] = $varchar;
+        $schema['fields'][$name]['not null'] = FALSE;
         break;
 
       default:
@@ -2001,8 +2089,9 @@ class FenekoForm {
         'dubbel11' => 2,
         'enkel12'  => 3,
         'enkel13'  => 7,
-        'dubbel13'  => 8,
-        'enkel14'   => 4,
+        'dubbel13' => 8,
+        'enkel14'  => 4,
+        'rv15'     => 8,
         'basic'    => 17,
       ),
       'scharnierkant' => array(
@@ -2205,6 +2294,7 @@ class FenekoForm {
         'vr060'      => 4,
         'vr080'      => 5,
         'vr090'      => 6,
+        'rv'         => 18,
       ),
       'borstel_kopse_kant' => array(
         '#code' => 27,
@@ -2343,6 +2433,13 @@ class FenekoForm {
         'ja'  => 1,
         'nee' => 2,
         'nvt' => 3,
+      ),
+      'schuifdeur_pomp' => array(
+        '#code' => 47,
+        'links'  => 1,
+        'rechts' => 2,
+        'nvt'    => 3,
+        'geen'   => 4,
       ),
       'aantal'     => 'P1',
       'breedte'    => 'P2',
@@ -3056,6 +3153,26 @@ class FenekoForm {
             'invisible' => array(
               'input[name="uitvoering"]' => array(
                 array('value' => 'zonder'),
+              ),
+            ),
+          ),
+        );
+
+      case 'schuifdeur_pomp':
+        return array(
+          '#title' => t('pomp'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#required' => FALSE,
+          '#options' => array(
+            'geen' => t('geen'),
+            'links'  => t('links'),
+            'rechts' => t('rechts'),
+          ),
+          '#states' => array(
+            'visible' => array(
+              'input[name="uitvoering"]' => array(
+                array('value' => 'enkel'),
               ),
             ),
           ),

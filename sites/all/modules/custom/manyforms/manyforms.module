@@ -3,7 +3,7 @@
  * @file
  * Feneko 12 Forms
  */
-define('FENEKO_SCREENS_NUM', 14);
+define('FENEKO_SCREENS_NUM', 16);
 
 function manyforms_menu() {
   $items = array();
@@ -399,4 +399,3 @@ function manyforms_variable_info($options) {
 
   return $variable;
 }
-
