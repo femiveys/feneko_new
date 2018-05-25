@@ -106,7 +106,7 @@ if($teaser) array_push($classes,"product-teaser", "teaser-rij");
         <?php
           global $language_content;
           $lang = $language_content->language;
-          $flipperUrl = "/$lang/catalog/$product_grandparent/flipper";
+          // $flipperUrl = "/$lang/catalog/$product_grandparent/flipper";
           $pdfUrl = file_create_url("private://catalogs/$product_grandparent.pdf");
           $catName = t('Catalog');
           $orderSheetUri = isset($content['field_order_sheet']['#items'][0]['uri'])

@@ -124,6 +124,10 @@ function feneko_code_import_form_submit($form, &$form_state) {
     );
 
     if($file) {
+      // Make the file permanent
+      $file->status = FILE_STATUS_PERMANENT;
+      file_save($file);
+
       // If the file doesn't have the correct name, move it
       $target_filename = $values['type'] . ".pdf";
       if($file->filename !== $target_filename) {
