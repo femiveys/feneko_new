@@ -196,11 +196,6 @@ function _fc_import_insert($table, $fields, &$num_updated) {
 
 function _feneko_code_pdf_import($filename, $values) {
   $file = file_save_upload($filename, array(), 'private://');
-
-
-
-  dpm($filename);
-  dpm($values);
 }
 
 function _feneko_code_csv_import($filename, $values) {
