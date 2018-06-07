@@ -213,7 +213,8 @@ function _feneko_code_csv_import($filename, $values) {
     fgetcsv($handle, 0, FENEKO_CODE_IMPORT_DELIMITER);
   }
 
-  if(!($table === 'blocked' or ($table === FENEKO_CODE_ORDER_STATUSES_TABLE and !$values['full']))) {
+  $full = isset($values['full']) ? $values['full'] : false;
+  if(!($table === 'blocked' or ($table === FENEKO_CODE_ORDER_STATUSES_TABLE and $full))) {
     // First clear the table.
     if (db_table_exists($table)) {
       db_truncate($table)->execute();
