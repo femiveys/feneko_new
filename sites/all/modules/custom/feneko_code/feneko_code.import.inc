@@ -1,4 +1,17 @@
 <?php
+// SQL om client duplicates te vinden
+// SELECT node.title, entity_id, nid, COUNT(field_client_number_value)
+// FROM field_data_field_client_number, node
+// WHERE field_data_field_client_number.entity_id = node.nid
+// GROUP BY field_client_number_value
+// HAVING COUNT(field_client_number_value) > 1
+//
+// SELECT node.title, entity_id, field_client_number_value
+// FROM field_data_field_client_number, node
+// WHERE field_data_field_client_number.entity_id = node.nid and field_client_number_value in (11,16,283,481,505,533,752,755,1912,1992,2227,2388,2656,2700,2702,2704,2806,2841,3044,3125,3375,3869,3870)
+// ORDER BY field_client_number_value
+
+
 function feneko_code_import_form($form, &$form_state) {
   $formaat = "formaat (gescheiden door <strong>punt-comma's</strong>).</li>";
   // $csv = "<li>Upload een bestand in <strong>CSV</strong> $formaat";
@@ -213,7 +226,8 @@ function _feneko_code_csv_import($filename, $values) {
     fgetcsv($handle, 0, FENEKO_CODE_IMPORT_DELIMITER);
   }
 
-  if(!($table === 'blocked' or ($table === FENEKO_CODE_ORDER_STATUSES_TABLE and !$values['full']))) {
+  $full = isset($values['full']) ? $values['full'] : false;
+  if(!($table === 'blocked' or ($table === FENEKO_CODE_ORDER_STATUSES_TABLE and $full))) {
     // First clear the table.
     if (db_table_exists($table)) {
       db_truncate($table)->execute();
