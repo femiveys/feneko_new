@@ -227,12 +227,14 @@ function _feneko_code_csv_import($filename, $values) {
   }
 
   $full = isset($values['full']) ? $values['full'] : false;
-  if(!($table === 'blocked' or ($table === FENEKO_CODE_ORDER_STATUSES_TABLE and $full))) {
+
+  if(!($table === 'blocked' or ($table === FENEKO_CODE_ORDER_STATUSES_TABLE and !$full))) {
     // First clear the table.
     if (db_table_exists($table)) {
       db_truncate($table)->execute();
     }
 
+    // For ral table
     $mapping = array(
       'laken std' => 'ral',
       'laken str' => 'str',
@@ -240,6 +242,7 @@ function _feneko_code_csv_import($filename, $values) {
       'Laken str' => 'str',
     );
   } else {
+    // For blocked table
     $mapping = array('N' => 0, 'J' => 1);
   }
 
