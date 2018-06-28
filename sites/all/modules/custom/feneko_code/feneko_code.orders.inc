@@ -177,6 +177,9 @@ function feneko_code_orders_form($form, &$form_state) {
     ),
   );
 
+  // Add some copies
+  $mapping['KLAAR VOOR PRODUCTIE'] = $mapping['PRODUCTIE'];
+
   $fields = array(
     'orderbon',
     'ref',
