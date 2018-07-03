@@ -2093,6 +2093,7 @@ class FenekoForm {
         'enkel14'  => 4,
         'rv15'     => 8,
         'basic'    => 17,
+        'enkel16'  => 6,
       ),
       'scharnierkant' => array(
         '#code' => 5,
