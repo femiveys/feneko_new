@@ -674,7 +674,6 @@ class FenekoForm {
       case 15:
         $fields['uitvoering'] = 'rv';
         break;
-
     }
 
     foreach ($fields as $name => $value) {
@@ -2093,6 +2092,7 @@ class FenekoForm {
         'enkel14'  => 4,
         'rv15'     => 8,
         'basic'    => 17,
+        'enkel16'  => 6,
       ),
       'scharnierkant' => array(
         '#code' => 5,
@@ -3169,6 +3169,7 @@ class FenekoForm {
             'links'  => t('links'),
             'rechts' => t('rechts'),
           ),
+          '#description' => t('Schuifrichting om te openen van buiten gezien'),
           '#states' => array(
             'visible' => array(
               'input[name="uitvoering"]' => array(

@@ -49,6 +49,7 @@ function feneko_structure_default_entityform_type() {
       "enable_block" : 1
     },
     "weight" : "0",
+    "entity_type" : "entityform_type",
     "paths" : []
   }');
   $items['solliciteer'] = entity_import('entityform_type', '{
@@ -88,6 +89,7 @@ function feneko_structure_default_entityform_type() {
       "enable_block" : 0
     },
     "weight" : "0",
+    "entity_type" : "entityform_type",
     "paths" : { "submit" : {
         "source" : "eform\\/submit\\/solliciteer",
         "alias" : "solliciteer",

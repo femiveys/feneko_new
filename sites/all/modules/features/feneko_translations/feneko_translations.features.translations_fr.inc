@@ -655,6 +655,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Klantennummer', array(), array('context' => ''));
+  $translations['fr:default']['ca073055e2831de1d5cf23ce66424e81'] = array(
+    'source' => 'Schuifrichting om te openen van buiten gezien',
+    'context' => '',
+    'location' => '/nl/admin/feneko_screens/overview?render=overlay',
+    'translation' => 'Direction d’ouverture vue de l’extérieur',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Schuifrichting om te openen van buiten gezien', array(), array('context' => ''));
   $translations['fr:default']['cd2dcc8e7370619d45a5c41f22801bf0'] = array(
     'source' => 'The values below are filled in because your last configuration has been restored.',
     'context' => '',

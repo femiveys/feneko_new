@@ -100,6 +100,15 @@ function feneko_translations_translations_nl_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Catalog', array(), array('context' => ''));
+  $translations['nl:default']['ca073055e2831de1d5cf23ce66424e81'] = array(
+    'source' => 'Schuifrichting om te openen van buiten gezien',
+    'context' => '',
+    'location' => '/nl/admin/feneko_screens/overview?render=overlay',
+    'translation' => 'Schuifrichting om te openen van buiten gezien',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Schuifrichting om te openen van buiten gezien', array(), array('context' => ''));
   $translations['nl:default']['cd2dcc8e7370619d45a5c41f22801bf0'] = array(
     'source' => 'The values below are filled in because your last configuration has been restored.',
     'context' => '',
