@@ -223,6 +223,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Korting: -56%', array(), array('context' => ''));
+  $translations['fr:default']['3c68fd3057e87cf5045419c60f348378'] = array(
+    'source' => 'rechts gemonteerd (deur opent naar links)',
+    'context' => '',
+    'location' => '/nl/schuifvliegendeur-classic/bestel',
+    'translation' => 'montage à droite (la porte s’ouvre vers la gauche)',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('rechts gemonteerd (deur opent naar links)', array(), array('context' => ''));
   $translations['fr:default']['3e89960511ce7b8c3e10630159fa53e8'] = array(
     'source' => 'Bestelbonnen',
     'context' => 'item:7827:title',
@@ -430,6 +439,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Bestelbon [title_field]', array(), array('context' => 'order_sheet:default:field:field_data_field_order_sheet:field_order_sheet:alter:text'));
+  $translations['fr:default']['85c35b710ad987ce33776d310b768792'] = array(
+    'source' => 'links gemonteerd (deur opent naar rechts)',
+    'context' => '',
+    'location' => '/nl/schuifvliegendeur-classic/bestel',
+    'translation' => 'montage à gauche (la porte s’ ouvre vers la droite)',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('links gemonteerd (deur opent naar rechts)', array(), array('context' => ''));
   $translations['fr:default']['869343cd6abc48572c0f4c154c331c6a'] = array(
     'source' => 'Order<wbr>nummer',
     'context' => '',

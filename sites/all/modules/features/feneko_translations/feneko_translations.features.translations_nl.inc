@@ -37,6 +37,15 @@ function feneko_translations_translations_nl_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Bestelbonnen', array(), array('context' => ''));
+  $translations['nl:default']['3c68fd3057e87cf5045419c60f348378'] = array(
+    'source' => 'rechts gemonteerd (deur opent naar links)',
+    'context' => '',
+    'location' => '/nl/schuifvliegendeur-classic/bestel',
+    'translation' => 'rechts gemonteerd (deur opent naar links)',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('rechts gemonteerd (deur opent naar links)', array(), array('context' => ''));
   $translations['nl:default']['577d7068826de925ea2aec01dbadf5e4'] = array(
     'source' => 'Client',
     'context' => '',
@@ -64,6 +73,15 @@ function feneko_translations_translations_nl_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Technical documents', array(), array('context' => ''));
+  $translations['nl:default']['85c35b710ad987ce33776d310b768792'] = array(
+    'source' => 'links gemonteerd (deur opent naar rechts)',
+    'context' => '',
+    'location' => '/nl/schuifvliegendeur-classic/bestel',
+    'translation' => 'links gemonteerd (deur opent naar rechts)',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('links gemonteerd (deur opent naar rechts)', array(), array('context' => ''));
   $translations['nl:default']['948ddd9ce1f2ff02a51c1298eafc442b'] = array(
     'source' => '%title has been added to your cart.',
     'context' => '',
