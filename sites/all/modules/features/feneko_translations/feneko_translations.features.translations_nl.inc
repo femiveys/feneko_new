@@ -19,6 +19,15 @@ function feneko_translations_translations_nl_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Technical information', array(), array('context' => ''));
+  $translations['nl:default']['1f799822e3c06294ad22c99f6f63a87e'] = array(
+    'source' => 'Van buiten gezien',
+    'context' => '',
+    'location' => '/nl/admin/feneko_screens/overview?render=overlay',
+    'translation' => 'Van buiten gezien',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Van buiten gezien', array(), array('context' => ''));
   $translations['nl:default']['33be3953588cc10edb3d6341919109b9'] = array(
     'source' => 'Order specific information',
     'context' => '',

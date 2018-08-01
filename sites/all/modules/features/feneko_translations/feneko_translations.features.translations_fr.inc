@@ -118,6 +118,15 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Solliciteren tot', array(), array('context' => ''));
+  $translations['fr:default']['1f799822e3c06294ad22c99f6f63a87e'] = array(
+    'source' => 'Van buiten gezien',
+    'context' => '',
+    'location' => '/nl/admin/feneko_screens/overview?render=overlay',
+    'translation' => 'Vu de l ’extérieur',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Van buiten gezien', array(), array('context' => ''));
   $translations['fr:default']['1f7c46cea5d498ba19199d881b95dfed'] = array(
     'source' => 'Korting: -59%',
     'context' => '',
