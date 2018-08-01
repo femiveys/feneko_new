@@ -3166,10 +3166,10 @@ class FenekoForm {
           '#required' => FALSE,
           '#options' => array(
             'geen' => t('geen'),
-            'links'  => t('links'),
-            'rechts' => t('rechts'),
+            'links'  => t('rechts gemonteerd (deur opent naar links)'),
+            'rechts' => t('links gemonteerd (deur opent naar rechts)'),
           ),
-          '#description' => t('Schuifrichting om te openen van buiten gezien'),
+          '#description' => t('Van buiten gezien'),
           '#states' => array(
             'visible' => array(
               'input[name="uitvoering"]' => array(
