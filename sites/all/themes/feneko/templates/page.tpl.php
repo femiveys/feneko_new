@@ -1,4 +1,4 @@
-<div id="mobile-header">
+<div id="mobile-header"<?php if (!$page['shopping_cart']) print(' class="no-shopping-cart"') ?>>
   <div id="menu-small" class="small-block first">
     <div class="inner-wrapper">
       <i class="fa fa-bars menu-icon"></i> menu
@@ -25,8 +25,6 @@
         Shopping cart <i class="fa fa-shopping-cart"></i>
       </div>
     </div><!--menu-small-->
-  <?php else: ?>
-  <div class="small-block"></div><!--menu-small-->
   <?php endif; ?>
 
   <!--
