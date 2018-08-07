@@ -87,15 +87,13 @@
         $('.original').css('visibility','visible');
       }
     }
-
+*/
     // mobile menu
     $('#menu-small').click(function() {
       $('#mainmenu-wrapper').toggleClass('show');
       $('#header-wrapper.show').removeClass('show');
       $('#shoppingcart.show').removeClass('show');
     });
-
-  */
 
 
 // commented because may come back
