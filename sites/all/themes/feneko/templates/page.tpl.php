@@ -19,11 +19,16 @@
       <a href="/user">login <i class="fa fa-user"></i></a>
     </div>
   </div><!--menu-small-->
-  <div id="cart-small" class="small-block">
-    <div class="inner-wrapper">
-      Shopping cart <i class="fa fa-shopping-cart"></i>
-    </div>
-  </div><!--menu-small-->
+  <?php if ($page['shopping_cart']): ?>
+    <div id="cart-small" class="small-block">
+      <div class="inner-wrapper">
+        Shopping cart <i class="fa fa-shopping-cart"></i>
+      </div>
+    </div><!--menu-small-->
+  <?php else: ?>
+  <div class="small-block"></div><!--menu-small-->
+  <?php endif; ?>
+
   <!--
   <div id="search-small" class="small-block last">
     <div class="inner-wrapper">
@@ -76,12 +81,10 @@
     <div class="inner-wrapper">
       <?php print render($page['main_menu']); ?>
       <?php if ($page['shopping_cart']): ?>
-  <div id="shoppingcart">
-<!--     <div class="inner-wrapper"> -->
-      <?php print render($page['shopping_cart']); ?>
-    </div>
-  </div> <!-- #shoppingcart -->
-<?php endif; ?>
+        <div id="shoppingcart">
+          <?php print render($page['shopping_cart']); ?>
+        </div> <!-- #shoppingcart -->
+      <?php endif; ?>
     </div> <!-- .inner-wrapper -->
   </div> <!-- #mainmenu-wrapper -->
 <?php endif; ?>
