@@ -2578,6 +2578,10 @@ html.js fieldset.collapsed {
     font-size: 1rem;
   }
 }
+.logged-in #mobile-header.no-shopping-cart .small-block {
+  width: 50%;
+}
+
 /* ELEMENTS
 ><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><*/
 body {
