@@ -450,9 +450,6 @@ class FenekoForm {
                 $max_breedte = 3200;
                 break;
             }
-            if($section_fields["breedte$i"] < $min_breedte or $section_fields["breedte$i"] > $max_breedte) {
-              $section_fields['verbreding'] = 'standaard';
-            }
             break;
         }
         $section .= $this->getCode($table_field, $value);
@@ -3341,15 +3338,6 @@ class FenekoForm {
               ),
             ),
           ),
-        );
-
-      case 'verbreding':
-        return array(
-          '#title' => t('verbreding'),
-          '#type' => 'radios',
-          '#weight' => $weight,
-          '#required' => TRUE,
-          '#options' => $ja_nee_options,
         );
 
       default:

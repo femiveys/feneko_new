@@ -217,7 +217,6 @@ class FenekoSpecificForm extends FenekoForm {
     $html .= $this->parsePDFfullWidthField('soort_bevestiging', $record);
     $html .= $this->parsePDFfullWidthField('speling', $record);
     $html .= $this->parsePDFfullWidthField('kleur_pees', $record);
-    $html .= $this->parsePDFfullWidthField('verbreding', $record);
     $html .= $this->parsePDFfullWidthField('hoekverbinding', $record);
     $html .= $this->parsePDFfullWidthField('frame', $record);
     $html .= $this->parsePDFfullWidthField('borstel_profiel', $record);
@@ -460,7 +459,6 @@ class FenekoSpecificForm extends FenekoForm {
         $this->addField('table3', 30);
         $this->addField('uitvoering', 35);
         $this->addField('ondergeleider', 50);
-        $this->addField('verbreding', 60);
         $this->addField('frame', 70);
         $this->addField('borstel', 80);
         $this->addField('diepte_borstel', 90);
