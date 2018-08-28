@@ -1,11 +1,28 @@
 <?php
 function solliciteer_form_alter(&$form, &$form_state, $form_id) {
   if($form_id === "solliciteer_entityform_edit_form") {
-    if(!empty($_GET['nid'])) {
-      global $language;
-      $lang = $language->language;
+    if(!empty($_GET['func'])) {
       $lang = 'nl';
-      $form['field_gewenste_functie'][$lang][0]['value']['#default_value'] = $node->title;
+      $form['field_gewenste_functie'][$lang][0]['value']['#default_value'] = $_GET['func'];
     }
+  }
+}
+
+function solliciteer_node_view($node, $view_mode, $langcode) {
+  if($node->type === 'vacature' && $view_mode === 'full') {
+    $node->content['button'] = array(
+      '#theme' => 'link',
+      '#text' => t('solliciteer'),
+      '#path' => "solliciteer",
+      '#weight' => 10,
+      '#options' => array(
+        'attributes' => array(
+          'title' => t('solliciteer'),
+          'class' => array('node-readmore'),
+        ),
+        'query' => array('func' => $node->title),
+        'html' => false,
+      ),
+    );
   }
 }
