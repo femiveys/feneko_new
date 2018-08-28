@@ -925,3 +925,16 @@ function manyforms_update_7057() {
     db_create_table($table, $schema);
   }
 }
+
+/**
+ * Remove field verbreding
+ */
+function manyforms_update_7058() {
+  $id = '11';
+  $table = "manyforms_$id";
+  $field = "verbreding";
+
+  if(db_field_exists($table, $field)) {
+    db_drop_field($table, $field);
+  }
+}

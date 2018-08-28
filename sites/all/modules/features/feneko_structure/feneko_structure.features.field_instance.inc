@@ -2975,68 +2975,6 @@ function feneko_structure_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-vacature-field_solliciteer'.
-  $field_instances['node-vacature-field_solliciteer'] = array(
-    'bundle' => 'vacature',
-    'default_value' => array(
-      0 => array(
-        'url' => '/solliciteer',
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'link',
-        'settings' => array(),
-        'type' => 'link_default',
-        'weight' => 3,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_solliciteer',
-    'label' => 'Solliciteer',
-    'required' => 0,
-    'settings' => array(
-      'absolute_url' => 1,
-      'attributes' => array(
-        'class' => 'node-readmore',
-        'configurable_class' => 0,
-        'configurable_title' => 0,
-        'rel' => '',
-        'target' => 'default',
-        'title' => '',
-      ),
-      'display' => array(
-        'url_cutoff' => 80,
-      ),
-      'enable_tokens' => 0,
-      'entity_translation_sync' => FALSE,
-      'rel_remove' => 'default',
-      'title' => 'value',
-      'title_label_use_field_label' => 0,
-      'title_maxlength' => 128,
-      'title_value' => 'solliciteer',
-      'url' => 0,
-      'user_register_form' => FALSE,
-      'validate_url' => 1,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'link',
-      'settings' => array(),
-      'type' => 'link_field',
-      'weight' => 7,
-    ),
-  );
-
   // Exported field_instance: 'node-vacature-field_ultimate_date'.
   $field_instances['node-vacature-field_ultimate_date'] = array(
     'bundle' => 'vacature',
@@ -3405,7 +3343,6 @@ function feneko_structure_field_default_field_instances() {
   t('Openingsuren');
   t('Route');
   t('Social follow');
-  t('Solliciteer');
   t('Solliciteren tot');
   t('Tags');
   t('Technische documenten');
