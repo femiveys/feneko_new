@@ -659,11 +659,18 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
 
       }
 
+      $isAnodic = strpos(strtoupper($color['kleur']), 'ANODI') !== false;
+
       // ophanging wordt ALTIJD ingevuld als de kleur<>Brut / Kleur<>Anodise/ Kleur<>renolit
       if( $color['type']  !== 'brut'
       and $color['type']  !== 'reno'
-      and $color['kleur'] !== "ANODISE") {
+      and !$isAnodic) {
         unset($form['line_item_fields']['field_ophanging']['und']['#options']['_none']);
+      }
+
+      // Bij ANODISE kleuren geen lak mogelijk langs beide kanten
+      if($isAnodic) {
+        unset($form['line_item_fields']['field_lakzijde']['und']['#options']['r']);
       }
 
       break;
