@@ -75,16 +75,10 @@ function addressfield_staticmap_admin_form($form, &$form_state) {
       '#collapsible' => TRUE,
       '#collapsed' => FALSE,
     );
-    $form[$block['key']]['addressfield_staticmap_api_key_' . $i] = array(
-      '#type' => 'textfield',
-      '#title' => t('API key'),
-      '#description' => t('Some services (e.g. Mapquest) require an API key to be used.'),
-      '#default_value' => variable_get('addressfield_staticmap_api_key_' . $i, ''),
-    );
     $form[$block['key']]['addressfield_staticmap_api_' . $i] = array(
       '#type' => 'select',
       '#title' => t('Mapping API'),
-      '#description' => t('The API service to use to render static images. Some may require an API key.'),
+      '#description' => t('The API service to use to render static images.'),
       '#default_value' => variable_get('addressfield_staticmap_api_' . $i, 'google_maps'),
       '#options' => array(
         'google_maps' => t('Google Static Maps'),
@@ -92,6 +86,74 @@ function addressfield_staticmap_admin_form($form, &$form_state) {
         'mapquest' => t('Mapquest'),
       ),
     );
+    $form[$block['key']]['addressfield_staticmap_premier_' . $i] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Use Google Maps Premier support'),
+      '#description' => t('Use Google Maps Premier support (requires a client ID and crypto key instead of an API key.'),
+      '#default_value' => variable_get('addressfield_staticmap_premier_' . $i, FALSE),
+      '#states' => array(
+        'visible' => array(
+          array("select[name=addressfield_staticmap_api_{$i}]" => array('value' => 'google_maps')),
+          'or',
+          array("select[name=addressfield_staticmap_api_{$i}]" => array('value' => 'google_maps_api')),
+        ),
+      ),
+    );
+    $form[$block['key']]['addressfield_staticmap_api_key_' . $i] = array(
+      '#type' => 'textfield',
+      '#title' => t('API key'),
+      '#description' => t('API key for the service'),
+      '#default_value' => variable_get('addressfield_staticmap_api_key_' . $i, ''),
+      '#states' => array(
+        'visible' => array(
+          array(
+            array(
+              array("select[name=addressfield_staticmap_api_{$i}]" => array('value' => 'google_maps')),
+              'or',
+              array("select[name=addressfield_staticmap_api_{$i}]" => array('value' => 'google_maps_api')),
+            ),
+            ":input[name=addressfield_staticmap_premier_{$i}]" => array('checked' => FALSE),
+          ),
+          'or',
+          array("select[name=addressfield_staticmap_api_{$i}]" => array('value' => 'mapquest')),
+        ),
+      ),
+    );
+
+    $form[$block['key']]['addressfield_staticmap_premium_client_id_' . $i] = array(
+      '#type' => 'textfield',
+      '#title' => t('Google Premium Client ID'),
+      '#description' => t('Client ID for Google Premium'),
+      '#default_value' => variable_get('addressfield_staticmap_premium_client_id_' . $i, ''),
+      '#states' => array(
+        'visible' => array(
+          array(
+            array("select[name=addressfield_staticmap_api_{$i}]" => array('value' => 'google_maps')),
+            'or',
+            array("select[name=addressfield_staticmap_api_{$i}]" => array('value' => 'google_maps_api')),
+          ),
+          ":input[name=addressfield_staticmap_premier_{$i}]" => array('checked' => TRUE),
+        ),
+      ),
+    );
+
+    $form[$block['key']]['addressfield_staticmap_premium_crypto_key_' . $i] = array(
+      '#type' => 'textfield',
+      '#title' => t('Google Premium Crypto Key'),
+      '#description' => t('Crypto Key for Google Premium'),
+      '#default_value' => variable_get('addressfield_staticmap_premium_crypto_key_' . $i, ''),
+      '#states' => array(
+        'visible' => array(
+          array(
+            array("select[name=addressfield_staticmap_api_{$i}]" => array('value' => 'google_maps')),
+            'or',
+            array("select[name=addressfield_staticmap_api_{$i}]" => array('value' => 'google_maps_api')),
+          ),
+          ":input[name=addressfield_staticmap_premier_{$i}]" => array('checked' => TRUE),
+        ),
+      ),
+    );
+
     $form[$block['key']]['addressfield_staticmap_gmap_zoom_' . $i] = array(
       '#type' => 'select',
       '#title' => t('Zoom level'),
@@ -119,11 +181,29 @@ function addressfield_staticmap_admin_form($form, &$form_state) {
         'hybrid' => t('Hybrid'),
       ),
     );
+    $form[$block['key']]['addressfield_staticmap_scale_' . $i] = array(
+      '#type' => 'select',
+      '#title' => t('Scale'),
+      '#description' => t('The scale parameter for the image (retina). 4 will only work on Google if you have a premium subscription.'),
+      '#default_value' => variable_get('addressfield_staticmap_scale_' . $i, 1),
+      '#options' => array(
+        1 => t('1x'),
+        2 => t('2x'),
+        4 => t('4x'),
+      ),
+    );
     $form[$block['key']]['addressfield_staticmap_scroll_lock_' . $i] = array(
       '#type' => 'checkbox',
       '#default_value' => variable_get('addressfield_staticmap_scroll_lock_' . $i, FALSE),
       '#title' => t('Scroll lock'),
       '#description' => t('Tick this option to disable scrolling and zooming of the map.'),
+    );
+    $form[$block['key']]['addressfield_staticmap_additional_' . $i] = array(
+      '#type' => 'textfield',
+      '#title' => t('Additional Parameters'),
+      '#description' => t('Additional parameters to use in the map URL (eg styling a map)'),
+      '#default_value' => variable_get('addressfield_staticmap_additional_' . $i, ''),
+      '#required' => FALSE,
     );
     $form[$block['key']]['addressfield_staticmap_gmap_show_address_' . $i] = array(
       '#type' => 'checkbox',
@@ -153,6 +233,12 @@ function addressfield_staticmap_admin_form($form, &$form_state) {
         '_top' => t('Open the linked map in the full body of the window'),
         '_blank' => t('Open the linked map in a new window or tab'),
       ),
+    );
+    $form[$block['key']]['addressfield_staticmap_noopener_' . $i] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Add rel=noopener'),
+      '#description' => t('Add rel=noopener to links when opening a link in a new window or tab.'),
+      '#default_value' => variable_get('addressfield_staticmap_noopener_' . $i, ''),
     );
     $form[$block['key']]['addressfield_staticmap_gmap_icon_url_' . $i] = array(
       '#type' => 'textfield',
