@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * feneko_structure.strongarm.inc

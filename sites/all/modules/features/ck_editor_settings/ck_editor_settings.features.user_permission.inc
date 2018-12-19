@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * ck_editor_settings.features.user_permission.inc

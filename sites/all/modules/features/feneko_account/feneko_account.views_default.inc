@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * feneko_account.views_default.inc
@@ -53,7 +54,7 @@ function feneko_account_views_default_views() {
   );
   $handler->display->display_options['row_plugin'] = 'entityreference_fields';
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -62,7 +63,7 @@ function feneko_account_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Veld: Inhoud: Klantennummer */
+  /* Field: Content: Klantennummer */
   $handler->display->display_options['fields']['field_client_number']['id'] = 'field_client_number';
   $handler->display->display_options['fields']['field_client_number']['table'] = 'field_data_field_client_number';
   $handler->display->display_options['fields']['field_client_number']['field'] = 'field_client_number';
@@ -72,12 +73,12 @@ function feneko_account_views_default_views() {
     'thousand_separator' => '',
     'prefix_suffix' => 1,
   );
-  /* Sorteercriterium: Inhoud: Titel */
+  /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
   $handler->display->display_options['sorts']['title']['field'] = 'title';
   $handler->display->display_options['sorts']['title']['expose']['label'] = 'Klantennaam';
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -119,7 +120,7 @@ function feneko_account_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'entityreference_fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relatie: Referentie naar een entiteit: Refererende entiteit */
+  /* Relationship: Entity Reference: Referencing entity */
   $handler->display->display_options['relationships']['reverse_field_clients_user']['id'] = 'reverse_field_clients_user';
   $handler->display->display_options['relationships']['reverse_field_clients_user']['table'] = 'node';
   $handler->display->display_options['relationships']['reverse_field_clients_user']['field'] = 'reverse_field_clients_user';
@@ -127,14 +128,14 @@ function feneko_account_views_default_views() {
   $handler->display->display_options['relationships']['reverse_field_clients_user']['required'] = TRUE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'client' => 'client',
   );
-  /* Filtercriterium: Gebruiker: Huidige */
+  /* Filter criterion: User: Current */
   $handler->display->display_options['filters']['uid_current']['id'] = 'uid_current';
   $handler->display->display_options['filters']['uid_current']['table'] = 'users';
   $handler->display->display_options['filters']['uid_current']['field'] = 'uid_current';
@@ -199,13 +200,13 @@ function feneko_account_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relatie: Referentie naar een entiteit: Refererende entiteit */
+  /* Relationship: Entity Reference: Referencing entity */
   $handler->display->display_options['relationships']['reverse_field_clients_user']['id'] = 'reverse_field_clients_user';
   $handler->display->display_options['relationships']['reverse_field_clients_user']['table'] = 'node';
   $handler->display->display_options['relationships']['reverse_field_clients_user']['field'] = 'reverse_field_clients_user';
   $handler->display->display_options['relationships']['reverse_field_clients_user']['label'] = 'users';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Veld: Inhoud: Titel */
+  /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -213,7 +214,7 @@ function feneko_account_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Veld: Inhoud: Klantennummer */
+  /* Field: Content: Klantennummer */
   $handler->display->display_options['fields']['field_client_number']['id'] = 'field_client_number';
   $handler->display->display_options['fields']['field_client_number']['table'] = 'field_data_field_client_number';
   $handler->display->display_options['fields']['field_client_number']['field'] = 'field_client_number';
@@ -222,7 +223,7 @@ function feneko_account_views_default_views() {
     'thousand_separator' => '',
     'prefix_suffix' => 1,
   );
-  /* Veld: Gebruiker: Naam */
+  /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -234,7 +235,7 @@ function feneko_account_views_default_views() {
   $handler->display->display_options['fields']['name']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filtercriterium: Inhoud: Type */
+  /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -242,7 +243,7 @@ function feneko_account_views_default_views() {
     'client' => 'client',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filtercriterium: Inhoud: Titel */
+  /* Filter criterion: Content: Title */
   $handler->display->display_options['filters']['title']['id'] = 'title';
   $handler->display->display_options['filters']['title']['table'] = 'node';
   $handler->display->display_options['filters']['title']['field'] = 'title';
@@ -263,7 +264,7 @@ function feneko_account_views_default_views() {
     6 => 0,
     8 => 0,
   );
-  /* Filtercriterium: Inhoud: Klantennummer (field_client_number) */
+  /* Filter criterion: Content: Klantennummer (field_client_number) */
   $handler->display->display_options['filters']['field_client_number_value']['id'] = 'field_client_number_value';
   $handler->display->display_options['filters']['field_client_number_value']['table'] = 'field_data_field_client_number';
   $handler->display->display_options['filters']['field_client_number_value']['field'] = 'field_client_number_value';
@@ -283,7 +284,7 @@ function feneko_account_views_default_views() {
     6 => 0,
     8 => 0,
   );
-  /* Filtercriterium: Gebruiker: Naam (onbewerkt) */
+  /* Filter criterion: User: Name (raw) */
   $handler->display->display_options['filters']['name']['id'] = 'name';
   $handler->display->display_options['filters']['name']['table'] = 'users';
   $handler->display->display_options['filters']['name']['field'] = 'name';
