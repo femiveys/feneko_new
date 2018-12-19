@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * feneko_calculator_views.views_default.inc

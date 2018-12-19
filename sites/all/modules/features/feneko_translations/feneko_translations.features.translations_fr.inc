@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * feneko_translations.features.translations_fr.inc

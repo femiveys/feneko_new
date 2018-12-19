@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * ck_editor_settings.features.ckeditor_profile.inc

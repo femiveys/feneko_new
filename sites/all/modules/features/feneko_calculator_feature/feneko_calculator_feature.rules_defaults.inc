@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * feneko_calculator_feature.rules_defaults.inc
