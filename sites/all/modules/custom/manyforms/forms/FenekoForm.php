@@ -984,7 +984,6 @@ class FenekoForm {
         break;
 
       case 'enkel12':
-      case 'enkel16':
         $max = array(
           'breedte' => 2000,
           'hoogte'  => 2400,
@@ -995,6 +994,13 @@ class FenekoForm {
         $max = array(
           'breedte' => 1400,
           'hoogte'  => 3250,
+        );
+        break;
+
+      case 'enkel16':
+        $max = array(
+          'breedte' => 1800,
+          'hoogte'  => 2400,
         );
         break;
 
