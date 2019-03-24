@@ -938,3 +938,67 @@ function manyforms_update_7058() {
     db_drop_field($table, $field);
   }
 }
+
+/**
+ * Rename gaas_kleur to petscreen_kleur for vliegendeuren en Schuifvliegendeuren (4->10)
+ */
+function manyforms_update_7059() {
+  $orig_name = 'gaas_kleur';
+  $new_name = 'petscreen_kleur';
+
+  $field = array(
+    'description' => $new_name,
+    'type' => 'varchar',
+    'length' => 100,
+    'not null' => FALSE,
+  );
+
+  foreach (range(4, 10) as $i) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    if (db_field_exists($table, $orig_name)) {
+      db_change_field($table, $orig_name, $new_name, $field);
+    }
+  }
+}
+
+/**
+ * Migrate data of petscreen_kleur to support new structure
+ */
+function manyforms_update_7060() {
+  foreach (range(4, 10) as $i) {
+    $id = sprintf('%02d', $i);
+    $table = "manyforms_$id";
+    $num_updated = db_update($table)
+      ->fields(array('type_gaas' => 'standaard###nee'))
+      ->condition('type_gaas', 'standaard')
+      ->execute();
+    echo "$table: standaard => standaard###nee: $num_updated\n";
+
+
+    $num_updated = db_update($table)
+      ->fields(array('type_gaas' => 'standaard###ja'))
+      ->condition('type_gaas', 'petscreen###onderaan')
+      ->execute();
+    echo "$table: petscreen###onderaan => standaard###ja: $num_updated\n";
+
+    $num_updated = db_update($table)
+      ->fields(array('type_gaas' => 'petscreen'))
+      ->condition('type_gaas', 'petscreen###volledig')
+      ->execute();
+    echo "$table: petscreen###volledig => petscreen: $num_updated\n";
+
+    $num_updated = db_update($table)
+      ->fields(array('type_gaas' => 'clearview###ja'))
+      ->condition('type_gaas', 'clearview###onderaan')
+      ->execute();
+    echo "$table: clearview###onderaan => clearview###ja: $num_updated\n";
+
+    $num_updated = db_update($table)
+      ->fields(array('type_gaas' => 'clearview###nee'))
+      ->condition('type_gaas', 'clearview###volledig')
+      ->execute();
+    echo "$table: clearview###volledig => clearview###nee: $num_updated\n";
+
+  }
+}
