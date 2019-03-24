@@ -20,7 +20,6 @@ class FenekoForm {
       'table1'         => 30,
       'kleur'          => 40,
       'type_gaas'      => 50,
-      'gaas_kleur'     => 51,
       'kleur_pees'     => 500,
       'kies_een_optie' => 1100,
     );
@@ -790,6 +789,9 @@ class FenekoForm {
           }
           if(isset($fields['gaas_kleur'])) {
             $value .= "###" . $fields['gaas_kleur'];
+          }
+          if(isset($fields['petscreen_kleur'])) {
+            $value .= "###" . $fields['petscreen_kleur'];
           }
           if(isset($fields['type_gaas_dep'])) {
             $value .= "###" . $fields['type_gaas_dep'];
@@ -1735,10 +1737,15 @@ class FenekoForm {
         $schema['fields']['kader_bottom']['description'] = 'Bottom checkbox of kader';
         break;
 
-        case 'gaas_kleur':
-          $schema['fields'][$name] = $varchar;
-          $schema['fields'][$name]['not null'] = FALSE;
-          break;
+      case 'gaas_kleur':
+        $schema['fields'][$name] = $varchar;
+        $schema['fields'][$name]['not null'] = FALSE;
+        break;
+
+      case 'petscreen_kleur':
+        $schema['fields'][$name] = $varchar;
+        $schema['fields'][$name]['not null'] = FALSE;
+        break;
 
       case 'id':
         $schema['fields'][$name] = array(
@@ -3315,6 +3322,23 @@ class FenekoForm {
           '#states' => array(
             'visible' => array(
               'input[name="type_gaas"]' => array('value' => 'petscreen'),
+            ),
+          ),
+        );
+
+      case 'petscreen_kleur':
+        return array(
+          '#title' => t('petscreen kleur'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#required' => FALSE,
+          '#options' => array(
+            'grijs'  => t('grijs'),
+            'zwart' => t('zwart'),
+          ),
+          '#states' => array(
+            'visible' => array(
+              'input[name="type_gaas_dep"]' => array('value' => 'ja'),
             ),
           ),
         );
