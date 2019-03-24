@@ -983,6 +983,7 @@ class FenekoSpecificForm extends FenekoForm {
           $width = (145 / $num_options - 5) . "px";
           $margin = ($checked_idx * 151 + 5) . 'px';
           $html.="<div class=\"$classes\" style=\"margin-left:$margin;font-size:8px\">";
+          $html.="<h3>" . $dep_field['#title'] . "</h3>";
           $i = 0;
           foreach ($dep_field['#options'] as $key => $value) {
             $i++;

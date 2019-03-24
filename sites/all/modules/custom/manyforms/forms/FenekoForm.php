@@ -783,9 +783,11 @@ class FenekoForm {
           break;
 
         case 'type_gaas':
+          if($value === 'petscreen') {
+            $value = $id > 3 ? 'petscreen2' : 'petscreen1';
+          }
           if($id === 13 || $id === 14) {
-            if($value === 'petscreen' or $value === 'clearview')
-            $value .= "###volledig";
+            if($value === 'clearview') $value .= "###nee";
           }
           if(isset($fields['gaas_kleur'])) {
             $value .= "###" . $fields['gaas_kleur'];
@@ -2187,20 +2189,27 @@ class FenekoForm {
       ),
       'type_gaas' => array(
         '#code' => 9,
-        'standaard'                    => 1,
-        'petscreen###grijs'            => 2,
-        'petscreen###onderaan###grijs' => 2,
-        'petscreen###volledig###grijs' => 3,
-        'soltisdoek1'                  => 3,
+        // vliegendeuren en SchuifVliegendeuren
+        'standaard###nee'              => 1,
+        'standaard###ja###grijs'       => 2,
+        'standaard###ja###zwart'       => 10,
+        'petscreen2###grijs'           => 3,
+        'petscreen2###zwart'           => 9,
+        'clearview###nee'              => 6,
+        'clearview###ja###grijs'       => 11,
+        'clearview###ja###zwart'       => 8,
         'soltisdoek2'                  => 4,
-        'inox1'                        => 4,
         'inox2'                        => 5,
+
+        // 1-3, 13,14
+        'standaard'                    => 1,
+        'petscreen1###grijs'           => 2,
+        'petscreen1###zwart'           => 7,
+        'soltisdoek1'                  => 3,
+        'inox1'                        => 4,
         'clearview'                    => 5,
         'clearview###volledig'         => 6,
         'clearview###onderaan'         => 8,
-        'petscreen###zwart'            => 7,
-        'petscreen###onderaan###zwart' => 8,
-        'petscreen###volledig###zwart' => 9,
         'petscreen###volledig'         => '', // In case there is old data
         'petscreen###onderaan'         => '', // In case there is old data
       ),
@@ -3290,17 +3299,13 @@ class FenekoForm {
             '#type' => 'container',
             '#attributes' => array('class' => array('dep-container')),
             'type_gaas_dep' => array(
-              '#title' => t('Gaas plaats'),
-              '#title_display' => 'invisible',
+              '#title' => t('Petscreen onderaan'),
               '#type' => 'radios',
-              '#options' => array(
-                'onderaan' => t('onderaan'),
-                'volledig'  => t('volledig'),
-              ),
+              '#options' => $ja_nee_options,
               '#states' => array(
                 'visible' => array(
                   'input[name="type_gaas"]' => array(
-                    array('value' => 'petscreen'),
+                    array('value' => 'standaard'),
                     array('value' => 'clearview'),
                   ),
                 ),
