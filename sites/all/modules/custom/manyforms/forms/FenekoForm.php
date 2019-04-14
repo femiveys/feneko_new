@@ -20,7 +20,6 @@ class FenekoForm {
       'table1'         => 30,
       'kleur'          => 40,
       'type_gaas'      => 50,
-      'gaas_kleur'     => 51,
       'kleur_pees'     => 500,
       'kies_een_optie' => 1100,
     );
@@ -784,12 +783,17 @@ class FenekoForm {
           break;
 
         case 'type_gaas':
+          if($value === 'petscreen') {
+            $value = $id > 3 ? 'petscreen2' : 'petscreen1';
+          }
           if($id === 13 || $id === 14) {
-            if($value === 'petscreen' or $value === 'clearview')
-            $value .= "###volledig";
+            if($value === 'clearview') $value .= "###nee";
           }
           if(isset($fields['gaas_kleur'])) {
             $value .= "###" . $fields['gaas_kleur'];
+          }
+          if(isset($fields['petscreen_kleur'])) {
+            $value .= "###" . $fields['petscreen_kleur'];
           }
           if(isset($fields['type_gaas_dep'])) {
             $value .= "###" . $fields['type_gaas_dep'];
@@ -1735,10 +1739,15 @@ class FenekoForm {
         $schema['fields']['kader_bottom']['description'] = 'Bottom checkbox of kader';
         break;
 
-        case 'gaas_kleur':
-          $schema['fields'][$name] = $varchar;
-          $schema['fields'][$name]['not null'] = FALSE;
-          break;
+      case 'gaas_kleur':
+        $schema['fields'][$name] = $varchar;
+        $schema['fields'][$name]['not null'] = FALSE;
+        break;
+
+      case 'petscreen_kleur':
+        $schema['fields'][$name] = $varchar;
+        $schema['fields'][$name]['not null'] = FALSE;
+        break;
 
       case 'id':
         $schema['fields'][$name] = array(
@@ -2180,20 +2189,27 @@ class FenekoForm {
       ),
       'type_gaas' => array(
         '#code' => 9,
-        'standaard'                    => 1,
-        'petscreen###grijs'            => 2,
-        'petscreen###onderaan###grijs' => 2,
-        'petscreen###volledig###grijs' => 3,
-        'soltisdoek1'                  => 3,
+        // vliegendeuren en SchuifVliegendeuren
+        'standaard###nee'              => 1,
+        'standaard###ja###grijs'       => 2,
+        'standaard###ja###zwart'       => 10,
+        'petscreen2###grijs'           => 3,
+        'petscreen2###zwart'           => 9,
+        'clearview###nee'              => 6,
+        'clearview###ja###grijs'       => 11,
+        'clearview###ja###zwart'       => 8,
         'soltisdoek2'                  => 4,
-        'inox1'                        => 4,
         'inox2'                        => 5,
+
+        // 1-3, 13,14
+        'standaard'                    => 1,
+        'petscreen1###grijs'           => 2,
+        'petscreen1###zwart'           => 7,
+        'soltisdoek1'                  => 3,
+        'inox1'                        => 4,
         'clearview'                    => 5,
         'clearview###volledig'         => 6,
         'clearview###onderaan'         => 8,
-        'petscreen###zwart'            => 7,
-        'petscreen###onderaan###zwart' => 8,
-        'petscreen###volledig###zwart' => 9,
         'petscreen###volledig'         => '', // In case there is old data
         'petscreen###onderaan'         => '', // In case there is old data
       ),
@@ -3283,17 +3299,13 @@ class FenekoForm {
             '#type' => 'container',
             '#attributes' => array('class' => array('dep-container')),
             'type_gaas_dep' => array(
-              '#title' => t('Gaas plaats'),
-              '#title_display' => 'invisible',
+              '#title' => t('Petscreen onderaan'),
               '#type' => 'radios',
-              '#options' => array(
-                'onderaan' => t('onderaan'),
-                'volledig'  => t('volledig'),
-              ),
+              '#options' => $ja_nee_options,
               '#states' => array(
                 'visible' => array(
                   'input[name="type_gaas"]' => array(
-                    array('value' => 'petscreen'),
+                    array('value' => 'standaard'),
                     array('value' => 'clearview'),
                   ),
                 ),
@@ -3315,6 +3327,23 @@ class FenekoForm {
           '#states' => array(
             'visible' => array(
               'input[name="type_gaas"]' => array('value' => 'petscreen'),
+            ),
+          ),
+        );
+
+      case 'petscreen_kleur':
+        return array(
+          '#title' => t('petscreen kleur'),
+          '#type' => 'radios',
+          '#weight' => $weight,
+          '#required' => FALSE,
+          '#options' => array(
+            'grijs'  => t('grijs'),
+            'zwart' => t('zwart'),
+          ),
+          '#states' => array(
+            'visible' => array(
+              'input[name="type_gaas_dep"]' => array('value' => 'ja'),
             ),
           ),
         );

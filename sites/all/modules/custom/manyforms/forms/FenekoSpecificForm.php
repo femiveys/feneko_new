@@ -204,6 +204,7 @@ class FenekoSpecificForm extends FenekoForm {
     $html .= $this->parsePDFfullWidthField('kleur', $record);
     $html .= $this->parsePDFfullWidthField('type_gaas', $record);
     $html .= $this->parsePDFfullWidthField('gaas_kleur', $record);
+    $html .= $this->parsePDFfullWidthField('petscreen_kleur', $record);
     $html .= $this->parsePDFfullWidthField('scharnierkant', $record);
     $html .= $this->parsePDFfullWidthField('stootrubber', $record);
     $html .= $this->parsePDFfullWidthField('pomp', $record);
@@ -268,6 +269,7 @@ class FenekoSpecificForm extends FenekoForm {
         $this->addField('afgewerkte', 25);
         $this->addField('afgewerkte_message', 1200);
         $this->addField('profiel', 35);
+        $this->addField('gaas_kleur', 51);
         $this->addField('bevestiging', 60);
         $this->addField('soort_bevestiging', 70);
         $this->addField('borstel_profiel', 80);
@@ -285,6 +287,7 @@ class FenekoSpecificForm extends FenekoForm {
         $this->remark = t('Opgegeven maten zijn de doorkijkmaten');
         $this->addField('afgewerkte', 25);
         $this->addField('afgewerkte_message', 1200);
+        $this->addField('gaas_kleur', 51);
         $this->addField('bevestiging', 60);
         $this->addField('soort_bevestiging', 70);
         $this->addField('borstel_profiel', 80);
@@ -301,6 +304,7 @@ class FenekoSpecificForm extends FenekoForm {
         $this->remark = t('Opgegeven maten zijn de doorkijkmaten');
         $this->addField('profiel', 35);
         $this->addField('diepte', 36);
+        $this->addField('gaas_kleur', 51);
         $this->addField('soort_bevestiging', 70);
         $this->addField('speling', 80);
         $this->addField('pvc', 500);
@@ -313,6 +317,7 @@ class FenekoSpecificForm extends FenekoForm {
       case '04':
         $this->title = t('Vliegendeuren Basic');
         $this->remark = t('Opgegeven maten zijn de maten van de buitenkader');
+        $this->addField('petscreen_kleur', 51);
         $this->addField('scharnierkant', 60);
         $this->addField('pomp', 70);
         $this->addField('plint', 80);
@@ -333,6 +338,7 @@ class FenekoSpecificForm extends FenekoForm {
                            Opgegeven maten zijn de maten van het deurblad, zonder scharnieren en zonder magneten.');
         $this->addField('uitvoering', 33);
         $this->addField('kader', 36);
+        $this->addField('petscreen_kleur', 51);
         $this->addField('scharnierkant', 60);
         $this->addField('pomp', 70);
         $this->addField('plint', 80);
@@ -357,6 +363,7 @@ class FenekoSpecificForm extends FenekoForm {
                            Opgegeven maten zijn de maten van het deurblad, zonder scharnieren en zonder magneten.');
         $this->addField('uitvoering', 33);
         $this->addField('kader', 36);
+        $this->addField('petscreen_kleur', 51);
         $this->addField('scharnierkant', 60);
         $this->addField('pomp', 70);
         $this->addField('plint', 80);
@@ -376,6 +383,7 @@ class FenekoSpecificForm extends FenekoForm {
         $this->addField('table2', 30);
         $this->addField('ondergeleider', 33);
         $this->addField('bovengeleider', 36);
+        $this->addField('petscreen_kleur', 51);
         $this->addField('plint', 60);
         $this->addField('dierendeur', 70);
         $this->addField('borstel_links', 80);
@@ -396,6 +404,7 @@ class FenekoSpecificForm extends FenekoForm {
         $this->addField('uitvoering', 33);
         $this->addField('ondergeleider', 34);
         $this->addField('bovengeleider', 35);
+        $this->addField('petscreen_kleur', 51);
         $this->addField('plint', 60);
         $this->addField('dierendeur', 70);
         $this->addField('borstel_links', 80);
@@ -418,6 +427,7 @@ class FenekoSpecificForm extends FenekoForm {
         $this->addField('ondergeleider', 34);
         $this->addField('bovengeleider', 35);
         $this->addField('borstel_kopse_kant', 45);
+        $this->addField('petscreen_kleur', 51);
         $this->addField('plint', 60);
         $this->addField('dierendeur', 70);
         $this->addField('borstel_links', 80);
@@ -438,6 +448,7 @@ class FenekoSpecificForm extends FenekoForm {
         $this->addField('uitvoering', 33);
         $this->addField('ondergeleider', 34);
         $this->addField('bovengeleider', 35);
+        $this->addField('petscreen_kleur', 51);
         $this->addField('stootrubber', 55);
         $this->addField('plint', 60);
         $this->addField('dierendeur', 70);
@@ -454,7 +465,6 @@ class FenekoSpecificForm extends FenekoForm {
         $this->remark = t('Afgewerkte maten');
         $this->removeField('table1');
         $this->removeField('type_gaas');
-        $this->removeField('gaas_kleur');
         $this->removeField('kleur_pees');
         $this->addField('table3', 30);
         $this->addField('uitvoering', 35);
@@ -472,7 +482,6 @@ class FenekoSpecificForm extends FenekoForm {
         $this->title = t('Raamplisse');
         $this->remark = t('Afgewerkte maten');
         $this->removeField('type_gaas');
-        $this->removeField('gaas_kleur');
         $this->removeField('kleur_pees');
         $this->removeField('table1');
         $this->addField('table4', 30);
@@ -493,6 +502,7 @@ class FenekoSpecificForm extends FenekoForm {
         $this->addField('ondergeleider_anodise', 35);
         $this->addField('bovengeleider', 36);
         $this->addField('borstel_kopse_kant', 45);
+        $this->addField('gaas_kleur', 51);
         // $this->addField('plint', 60);
         // $this->addField('dierendeur', 70);
         $this->addField('borstel_links', 80);
@@ -516,6 +526,7 @@ class FenekoSpecificForm extends FenekoForm {
         $this->removeField('table1');
         $this->addField('table4', 30);
         $this->addField('kader', 36);
+        $this->addField('gaas_kleur', 51);
         $this->addField('scharnierkant', 60);
         $this->addField('pomp', 70);
         $this->addField('hoekverbinding', 510);
@@ -530,6 +541,7 @@ class FenekoSpecificForm extends FenekoForm {
 
         $this->remark = t('Opgegeven maten zijn de doorkijkmaten');
         $this->addField('afgewerkte', 25);
+        $this->addField('gaas_kleur', 51);
         $this->addField('afgewerkte_message', 1200);
         $this->addField('bevestiging', 60);
         $this->addField('soort_bevestiging', 70);
@@ -543,7 +555,6 @@ class FenekoSpecificForm extends FenekoForm {
         $this->title = t('Rolhorplissé');
         $this->remark = t('Afgewerkte maten');
         $this->removeField('type_gaas');
-        $this->removeField('gaas_kleur');
         $this->removeField('kleur_pees');
         $this->removeField('table1');
         $this->addField('table3', 30);
@@ -972,6 +983,7 @@ class FenekoSpecificForm extends FenekoForm {
           $width = (145 / $num_options - 5) . "px";
           $margin = ($checked_idx * 151 + 5) . 'px';
           $html.="<div class=\"$classes\" style=\"margin-left:$margin;font-size:8px\">";
+          $html.="<h3>" . $dep_field['#title'] . "</h3>";
           $i = 0;
           foreach ($dep_field['#options'] as $key => $value) {
             $i++;
