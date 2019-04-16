@@ -986,7 +986,7 @@ function _fc_check_afwerking(&$form, &$form_state, $options = array()) {
   } else {
     // Set the new value based on some checks
     if($field_name === 'field_plaatbewerking_afwerking'
-      and ($options['lakzijde'] === 'r' or $options['color']['maritime'])) {
+  and ($options['lakzijde'] === 'r' /*or $options['color']['maritime']*/)) {
       $afwerking_new = $options['color']['type'] . "2";
     } else {
       $afwerking_new = $options['color']['type'];
