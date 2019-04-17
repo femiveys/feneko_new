@@ -42,7 +42,6 @@ function feneko_calculator_order_to_xml(stdClass $order) {
   $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'field_color');
   $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'field_comment');
   $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'field_reference');
-  $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'field_maritime');
 
   $xml .= "<Owner>";
   $xml .= _feneko_calculator_add_xml_field($order_wrapper->owner, 'uid');
@@ -141,7 +140,6 @@ function feneko_calculator_order_to_txt(stdClass $order) {
     fc_price($totals['raw']['subtotal'] - $totals['raw']['total']),
     _feneko_calculator_add_txt_field($order_wrapper->owner, 'name'),
     _feneko_calculator_add_txt_field($order_wrapper->owner, 'mail'),
-    _feneko_calculator_add_txt_field($order_wrapper, 'field_maritime'),
   );
 
   $txt = arrayToCsv($arr) . "\n";
@@ -368,4 +366,3 @@ function _fc_set_price(&$section, $price) {
     $section['price'] = $price;
   }
 }
-

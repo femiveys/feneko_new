@@ -264,13 +264,6 @@ function fc_get_attachment($order_id, $outputAsString = TRUE, $includePrice = TR
     }
   }
 
-  $maritime = field_view_field('commerce_order', $order, 'field_maritime');
-  if($maritime['#items'][0]['value']) {
-    $maritime = $maritime['#title'];
-  } else {
-    $maritime = '';
-  }
-
   $reference = field_view_field('commerce_order', $order, 'field_reference');
   $comment = field_view_field('commerce_order', $order, 'field_comment');
   $color = field_view_field('commerce_order', $order, 'field_color');
@@ -286,7 +279,6 @@ function fc_get_attachment($order_id, $outputAsString = TRUE, $includePrice = TR
   $html .= "<h1>$order_type $order_id</h1>";
   $html .= drupal_render($reference);
   $html .= drupal_render($color);
-  $html .= $maritime;
   $html .= '<table>';
   $html .= $table_header;
   $html .= '<tbody>';

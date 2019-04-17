@@ -39,7 +39,6 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
-    'field_maritime' => 'field_maritime',
     'field_color' => 'field_color',
     'type' => 'type',
     'detail' => 'detail',
@@ -53,13 +52,6 @@ function feneko_calculator_views_views_default_views() {
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
-    'field_maritime' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
     'field_color' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
@@ -126,7 +118,7 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['label'] = 'Ongefilterde tekst';
-  $handler->display->display_options['header']['area_text_custom']['content'] = '<h3>[field_color] [field_maritime]</h3>';
+  $handler->display->display_options['header']['area_text_custom']['content'] = '<h3>[field_color]</h3>';
   $handler->display->display_options['header']['area_text_custom']['tokenize'] = TRUE;
   /* Footer: Commerce Line Item: Line item summary (Commerce Price Decimals) */
   $handler->display->display_options['footer']['line_item_summary_decimals']['id'] = 'line_item_summary_decimals';
@@ -143,29 +135,19 @@ function feneko_calculator_views_views_default_views() {
       'zero' => 1,
     ),
   );
-  /* Relationship: Commerce Order: Referenced line items */
+  /* Relationship: Commerce-bestelling: Referenced line items */
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['id'] = 'commerce_line_items_line_item_id';
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['table'] = 'field_data_commerce_line_items';
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['field'] = 'commerce_line_items_line_item_id';
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['label'] = 'Line Items';
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['required'] = TRUE;
-  /* Relationship: Commerce Line item: Referenced products */
+  /* Relationship: Commerce factuurregel: Referenced products */
   $handler->display->display_options['relationships']['commerce_product_product_id']['id'] = 'commerce_product_product_id';
   $handler->display->display_options['relationships']['commerce_product_product_id']['table'] = 'field_data_commerce_product';
   $handler->display->display_options['relationships']['commerce_product_product_id']['field'] = 'commerce_product_product_id';
   $handler->display->display_options['relationships']['commerce_product_product_id']['relationship'] = 'commerce_line_items_line_item_id';
   $handler->display->display_options['relationships']['commerce_product_product_id']['label'] = 'Product';
-  /* Field: Commerce Order: Qualité Maritime */
-  $handler->display->display_options['fields']['field_maritime']['id'] = 'field_maritime';
-  $handler->display->display_options['fields']['field_maritime']['table'] = 'field_data_field_maritime';
-  $handler->display->display_options['fields']['field_maritime']['field'] = 'field_maritime';
-  $handler->display->display_options['fields']['field_maritime']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_maritime']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_maritime']['alter']['text'] = 'Qualité Maritime';
-  $handler->display->display_options['fields']['field_maritime']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_maritime']['empty_zero'] = TRUE;
-  $handler->display->display_options['fields']['field_maritime']['type'] = 'list_key';
-  /* Field: Commerce Order: Kleur */
+  /* Field: Commerce-bestelling: Kleur */
   $handler->display->display_options['fields']['field_color']['id'] = 'field_color';
   $handler->display->display_options['fields']['field_color']['table'] = 'field_data_field_color';
   $handler->display->display_options['fields']['field_color']['field'] = 'field_color';
@@ -190,7 +172,7 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['edit_delete']['field'] = 'edit_delete';
   $handler->display->display_options['fields']['edit_delete']['relationship'] = 'commerce_line_items_line_item_id';
   $handler->display->display_options['fields']['edit_delete']['label'] = 'Verwijderen';
-  /* Field: Commerce Line item: Unit price */
+  /* Field: Commerce factuurregel: Unit price */
   $handler->display->display_options['fields']['commerce_unit_price']['id'] = 'commerce_unit_price';
   $handler->display->display_options['fields']['commerce_unit_price']['table'] = 'field_data_commerce_unit_price';
   $handler->display->display_options['fields']['commerce_unit_price']['field'] = 'commerce_unit_price';
@@ -218,7 +200,7 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['edit_quantity']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['edit_quantity']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['edit_quantity']['element_label_colon'] = FALSE;
-  /* Field: Commerce Line item: Totaal */
+  /* Field: Commerce factuurregel: Totaal */
   $handler->display->display_options['fields']['commerce_total']['id'] = 'commerce_total';
   $handler->display->display_options['fields']['commerce_total']['table'] = 'field_data_commerce_total';
   $handler->display->display_options['fields']['commerce_total']['field'] = 'commerce_total';
@@ -236,7 +218,7 @@ function feneko_calculator_views_views_default_views() {
       ),
     ),
   );
-  /* Field: Commerce Line item: Base Price */
+  /* Field: Commerce factuurregel: Base Price */
   $handler->display->display_options['fields']['field_base_price']['id'] = 'field_base_price';
   $handler->display->display_options['fields']['field_base_price']['table'] = 'field_data_field_base_price';
   $handler->display->display_options['fields']['field_base_price']['field'] = 'field_base_price';
@@ -311,16 +293,7 @@ function feneko_calculator_views_views_default_views() {
     ),
   );
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Commerce Order: Qualité Maritime */
-  $handler->display->display_options['fields']['field_maritime']['id'] = 'field_maritime';
-  $handler->display->display_options['fields']['field_maritime']['table'] = 'field_data_field_maritime';
-  $handler->display->display_options['fields']['field_maritime']['field'] = 'field_maritime';
-  $handler->display->display_options['fields']['field_maritime']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_maritime']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_maritime']['alter']['text'] = 'Qualité Maritime';
-  $handler->display->display_options['fields']['field_maritime']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_maritime']['empty_zero'] = TRUE;
-  /* Field: Commerce Order: Kleur */
+  /* Field: Commerce-bestelling: Kleur */
   $handler->display->display_options['fields']['field_color']['id'] = 'field_color';
   $handler->display->display_options['fields']['field_color']['table'] = 'field_data_field_color';
   $handler->display->display_options['fields']['field_color']['field'] = 'field_color';
@@ -339,7 +312,7 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['detail']['field'] = 'detail';
   $handler->display->display_options['fields']['detail']['relationship'] = 'commerce_line_items_line_item_id';
   $handler->display->display_options['fields']['detail']['label'] = 'Configuratie';
-  /* Field: Commerce Line item: Unit price */
+  /* Field: Commerce factuurregel: Unit price */
   $handler->display->display_options['fields']['commerce_unit_price']['id'] = 'commerce_unit_price';
   $handler->display->display_options['fields']['commerce_unit_price']['table'] = 'field_data_commerce_unit_price';
   $handler->display->display_options['fields']['commerce_unit_price']['field'] = 'commerce_unit_price';
@@ -365,7 +338,7 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['quantity']['relationship'] = 'commerce_line_items_line_item_id';
   $handler->display->display_options['fields']['quantity']['label'] = 'Hoeveelheid';
   $handler->display->display_options['fields']['quantity']['precision'] = '0';
-  /* Field: Commerce Line item: Totaal */
+  /* Field: Commerce factuurregel: Totaal */
   $handler->display->display_options['fields']['commerce_total']['id'] = 'commerce_total';
   $handler->display->display_options['fields']['commerce_total']['table'] = 'field_data_commerce_total';
   $handler->display->display_options['fields']['commerce_total']['field'] = 'commerce_total';
@@ -486,7 +459,7 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['detail']['table'] = 'commerce_line_item';
   $handler->display->display_options['fields']['detail']['field'] = 'detail';
   $handler->display->display_options['fields']['detail']['label'] = 'Configuratie';
-  /* Field: Commerce Line item: Unit price */
+  /* Field: Commerce factuurregel: Unit price */
   $handler->display->display_options['fields']['commerce_unit_price']['id'] = 'commerce_unit_price';
   $handler->display->display_options['fields']['commerce_unit_price']['table'] = 'field_data_commerce_unit_price';
   $handler->display->display_options['fields']['commerce_unit_price']['field'] = 'commerce_unit_price';
@@ -509,7 +482,7 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['quantity']['field'] = 'quantity';
   $handler->display->display_options['fields']['quantity']['label'] = 'Hoeveelheid';
   $handler->display->display_options['fields']['quantity']['precision'] = '0';
-  /* Field: Commerce Line item: Totaal */
+  /* Field: Commerce factuurregel: Totaal */
   $handler->display->display_options['fields']['commerce_total']['id'] = 'commerce_total';
   $handler->display->display_options['fields']['commerce_total']['table'] = 'field_data_commerce_total';
   $handler->display->display_options['fields']['commerce_total']['field'] = 'commerce_total';
@@ -760,16 +733,16 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['order_number']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['order_number']['alter']['path'] = 'admin/commerce/orders/[order_number]/pdf';
   $handler->display->display_options['fields']['order_number']['alter']['target'] = '_blank';
-  /* Field: Commerce Order: Type */
+  /* Field: Commerce-bestelling: Type */
   $handler->display->display_options['fields']['field_order_type']['id'] = 'field_order_type';
   $handler->display->display_options['fields']['field_order_type']['table'] = 'field_data_field_order_type';
   $handler->display->display_options['fields']['field_order_type']['field'] = 'field_order_type';
-  /* Field: Commerce Order: Referentie */
+  /* Field: Commerce-bestelling: Referentie */
   $handler->display->display_options['fields']['field_reference']['id'] = 'field_reference';
   $handler->display->display_options['fields']['field_reference']['table'] = 'field_data_field_reference';
   $handler->display->display_options['fields']['field_reference']['field'] = 'field_reference';
   $handler->display->display_options['fields']['field_reference']['exclude'] = TRUE;
-  /* Field: Commerce Order: Klant */
+  /* Field: Commerce-bestelling: Klant */
   $handler->display->display_options['fields']['field_client']['id'] = 'field_client';
   $handler->display->display_options['fields']['field_client']['table'] = 'field_data_field_client';
   $handler->display->display_options['fields']['field_client']['field'] = 'field_client';
@@ -793,7 +766,7 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['mail']['relationship'] = 'uid';
   $handler->display->display_options['fields']['mail']['label'] = 'E-mailadres';
   $handler->display->display_options['fields']['mail']['link_to_user'] = '0';
-  /* Field: Commerce Order: Order total */
+  /* Field: Commerce-bestelling: Order total */
   $handler->display->display_options['fields']['commerce_order_total']['id'] = 'commerce_order_total';
   $handler->display->display_options['fields']['commerce_order_total']['table'] = 'field_data_commerce_order_total';
   $handler->display->display_options['fields']['commerce_order_total']['field'] = 'commerce_order_total';
@@ -972,13 +945,13 @@ function feneko_calculator_views_views_default_views() {
       'zero' => 1,
     ),
   );
-  /* Relationship: Commerce Order: Referenced line items */
+  /* Relationship: Commerce-bestelling: Referenced line items */
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['id'] = 'commerce_line_items_line_item_id';
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['table'] = 'field_data_commerce_line_items';
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['field'] = 'commerce_line_items_line_item_id';
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['label'] = 'Line Items';
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['required'] = TRUE;
-  /* Relationship: Commerce Line item: Referenced products */
+  /* Relationship: Commerce factuurregel: Referenced products */
   $handler->display->display_options['relationships']['commerce_product_product_id']['id'] = 'commerce_product_product_id';
   $handler->display->display_options['relationships']['commerce_product_product_id']['table'] = 'field_data_commerce_product';
   $handler->display->display_options['relationships']['commerce_product_product_id']['field'] = 'commerce_product_product_id';
@@ -1014,7 +987,7 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['fields']['type_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['type_1']['link_to_product'] = 0;
   $handler->display->display_options['fields']['type_1']['use_raw_value'] = 0;
-  /* Field: Commerce Line item: Totaal */
+  /* Field: Commerce factuurregel: Totaal */
   $handler->display->display_options['fields']['commerce_total']['id'] = 'commerce_total';
   $handler->display->display_options['fields']['commerce_total']['table'] = 'field_data_commerce_total';
   $handler->display->display_options['fields']['commerce_total']['field'] = 'commerce_total';
