@@ -21,6 +21,7 @@ function feneko_structure_taxonomy_default_vocabularies() {
       'i18n_mode' => 32768,
       'base_i18n_mode' => 32768,
       'base_language' => 'und',
+      'base_type' => 'taxonomy_vocabulary',
     ),
     'tags' => array(
       'name' => 'Tags',
@@ -33,6 +34,7 @@ function feneko_structure_taxonomy_default_vocabularies() {
       'i18n_mode' => 0,
       'base_i18n_mode' => 0,
       'base_language' => 'und',
+      'base_type' => 'taxonomy_vocabulary',
     ),
   );
 }

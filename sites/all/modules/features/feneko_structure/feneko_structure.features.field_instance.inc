@@ -1819,6 +1819,7 @@ function feneko_structure_field_default_field_instances() {
           'delete' => 'Verwijderen',
           'description' => TRUE,
           'edit' => 'Bewerken',
+          'translate' => 'Vertalen',
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',

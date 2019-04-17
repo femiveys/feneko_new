@@ -3876,44 +3876,6 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_order-commerce_order-field_maritime'.
-  $field_instances['commerce_order-commerce_order-field_maritime'] = array(
-    'bundle' => 'commerce_order',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'inline',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 10,
-      ),
-    ),
-    'entity_type' => 'commerce_order',
-    'field_name' => 'field_maritime',
-    'label' => 'Qualité Maritime',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 5,
-    ),
-  );
-
   // Exported field_instance: 'commerce_order-commerce_order-field_order_type'.
   $field_instances['commerce_order-commerce_order-field_order_type'] = array(
     'bundle' => 'commerce_order',
@@ -8590,7 +8552,6 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Product');
   t('Product Image');
   t('Product variations');
-  t('Qualité Maritime');
   t('Raamtablet Afwerking');
   t('Raamtablet Diepte');
   t('Raamtablet Lengte');
