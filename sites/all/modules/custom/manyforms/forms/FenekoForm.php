@@ -3343,7 +3343,8 @@ class FenekoForm {
           ),
           '#states' => array(
             'visible' => array(
-              'input[name="type_gaas_dep"]' => array('value' => 'ja'),
+              array(':input[name="type_gaas"]' => array('value' => 'petscreen')),
+              array(':input[name="type_gaas_dep"]' => array('value' => 'ja')),
             ),
           ),
         );
