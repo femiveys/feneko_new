@@ -1443,6 +1443,10 @@ class FenekoForm {
     }
   }
 
+  private static function hasStringKeys(array $array) {
+    return count(array_filter(array_keys($array), 'is_string')) > 0;
+  }
+
   /**
    * Check if the $field with name $name is visible with the current $values
    * taking into account the #states definition of the $field
@@ -1452,7 +1456,7 @@ class FenekoForm {
    * @return boolean TRUE
    */
   private static function stateIsVisible($field, $name, $values) {
-    foreach ($field['#states'] as $state => $selectors) {
+    foreach ($field['#states'] as $state => $or_selectors) {
       switch ($state) {
         case 'visible':
           $ret_match = TRUE;
@@ -1462,17 +1466,25 @@ class FenekoForm {
           $ret_match = FALSE;
           break;
       }
-      foreach ($selectors as $selector => $value_arrays) {
-        preg_match("/\"(.*)\"/", $selector, $matches);
-        $target_field = $matches[1];
-        foreach ($value_arrays as $key => $value_array) {
-          // Uniformize value_array to all be an array
-          if(!is_array($value_array)) {
-            $value_array = array($value_array);
-          }
-          foreach ($value_array as $key => $value) {
-            if(isset($values[$target_field]) && $value === $values[$target_field]) {
-              return $ret_match;
+
+      // Uniformize $or_selectors to make it all an OR
+      if(self::hasStringKeys($or_selectors)) {
+        $or_selectors = array($or_selectors);
+      }
+      // Loop over $or_selectors to support the OR
+      foreach ($or_selectors as $selectors) {
+        foreach ($selectors as $selector => $value_arrays) {
+          preg_match("/\"(.*)\"/", $selector, $matches);
+          $target_field = $matches[1];
+          foreach ($value_arrays as $key => $value_array) {
+            // Uniformize value_array to all be an array
+            if(!is_array($value_array)) {
+              $value_array = array($value_array);
+            }
+            foreach ($value_array as $key => $value) {
+              if(isset($values[$target_field]) && $value === $values[$target_field]) {
+                return $ret_match;
+              }
             }
           }
         }
