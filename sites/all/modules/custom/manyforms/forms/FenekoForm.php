@@ -2086,6 +2086,7 @@ class FenekoForm {
       'kader_right',
       'kader_bottom',
       'ondergeleider_anodise',
+      'petscreen_kleur',
     );
 
     $mapping = array(
