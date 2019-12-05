@@ -1,0 +1,28 @@
+# Dutch translation of Remote stream wrapper (7.x-1.0)
+# Copyright (c) 2019 by the Dutch translation team
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Remote stream wrapper (7.x-1.0)\n"
+"POT-Creation-Date: 2019-07-09 18:50+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Language-Team: Dutch\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+msgid "Submit"
+msgstr "Indienen"
+msgid "image"
+msgstr "afbeelding"
+msgid "Image generation in progress. Try again shortly."
+msgstr "De afbeeldingen worden momenteel gegenereerd. Probeer het zo nog eens."
+msgid "Error generating image."
+msgstr "Fout bij het aanmaken van de afbeelding."
+msgid "Unable to generate the derived image located at %path."
+msgstr "Kan de afgeleide afbeelding niet aanmaken op %path."
+msgid "Invalid URL %url."
+msgstr "Ongeldige URL %url."
+msgid "Remote URL"
+msgstr "Externe URL"
