@@ -493,9 +493,11 @@ function feneko_account_field_default_field_instances() {
         'label' => 'inline',
         'module' => 'title',
         'settings' => array(
+          'enable_trim' => FALSE,
           'title_class' => '',
           'title_link' => '',
           'title_style' => '',
+          'trim_length' => 50,
         ),
         'type' => 'title_linked',
         'weight' => 2,
@@ -699,9 +701,11 @@ function feneko_account_field_default_field_instances() {
         'label' => 'inline',
         'module' => 'title',
         'settings' => array(
+          'enable_trim' => FALSE,
           'title_class' => '',
           'title_link' => '',
           'title_style' => '',
+          'trim_length' => 50,
         ),
         'type' => 'title_linked',
         'weight' => 1,
