@@ -109,7 +109,7 @@ class CsvLine {
         $this->setColumn('utilo_type')
              ->setColumn('maat')
              ->setColumn('sku')
-             ->setColumn('image')
+             // ->setColumn('image')
         ;
         break;
 
@@ -224,7 +224,10 @@ class CsvLine {
         break;
 
       case 'price':
-        $this->line[] = $this->line[$config['priceCols'][$this->key]];
+        // standaardprofielen has commas that need to be replaced by points
+        $this->line[] = $name === 'standaardprofielen'
+          ? str_replace(',', '.', $this->line[$config['priceCols'][$this->key]])
+          : $this->line[$config['priceCols'][$this->key]];
         break;
 
       case 'remove':

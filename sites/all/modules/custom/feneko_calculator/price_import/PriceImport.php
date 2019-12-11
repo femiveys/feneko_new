@@ -307,20 +307,32 @@ class PriceImport {
             ),
           ),
         ),
+        // 'standaardprofielen' => array(
+        //   'source' => 'Materialen.csv',
+        //   'concat' => array(2, 3),
+        //   'sku' => 2,
+        //   'descr' => 3,
+        //   'skipFirstLine' => TRUE,
+        //   'priceCols' => array(
+        //     'brut' => 4,
+        //     'ral'  => 19,
+        //     'str'  => 20,
+        //   ),
+        //   'filter' => array(
+        //     1 => array('UTILO'),
+        //     // 5 => array(6000),
+        //   ),
+        // ),
         'standaardprofielen' => array(
-          'source' => 'Materialen.csv',
-          'concat' => array(2, 3),
-          'sku' => 2,
-          'descr' => 3,
+          'source' => 'profielen.csv',
+          'concat' => array(0),
+          'sku' => 0,
+          'descr' => 1,
           'skipFirstLine' => TRUE,
           'priceCols' => array(
-            'brut' => 4,
-            'ral'  => 19,
-            'str'  => 20,
-          ),
-          'filter' => array(
-            1 => array('UTILO'),
-            // 5 => array(6000),
+            'brut' => 2,
+            'ral'  => 3,
+            'str'  => 4,
           ),
         ),
         'plaatbewerking' => array(
@@ -404,7 +416,6 @@ class PriceImport {
             0 => range(89, 118),
           ),
         ),
-
       );
 
       // self::$globalConfig = array(
@@ -429,5 +440,3 @@ class PriceImport {
     }
   }
 }
-
-
