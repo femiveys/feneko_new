@@ -48,6 +48,20 @@ function feneko_calculator_rules_action_info() {
       ),
       'module' => 'feneko_calculator',
     ),
+    'fc_stock_standaardprofiel' => array(
+      'label' => t('Calculate the price for stock standaardprofiel'),
+      'group' => t('Feneko'),
+      'parameter' => array(
+        'line_item' => array(
+          'type' => 'commerce_line_item',
+          'label' => t('The line item.'),
+          'description' => t('Calculates the price for stock standaardprofiel, including the optimisation.'),
+          'wrapped' => true, // This is nice, it will be wrapped for us
+          'save' => true,    // And saved too!
+        ),
+      ),
+      'module' => 'feneko_calculator',
+    ),
     'fc_apply_staffel_korting' => array(
       'label' => t('Apply staffel korting'),
       'group' => t('Feneko'),
@@ -119,43 +133,90 @@ function fc_niet_stock_standaardprofiel($line_item_wrapper) {
   // Data to work with
   $quantity = $line_item_wrapper->quantity->value();
   $order_length = $line_item_wrapper->field_lengte->value();
-  $discrete_length = $line_item_wrapper->field_standaardprofiel_lengte->value();
   $price_afwerking = $line_item_wrapper->commerce_product->commerce_price->amount->value();
 
   // Calculate number of full profiles needed
   $afwerking_length = $quantity * $order_length;
   $num_profiles = ceil($afwerking_length / FC_PROFILE_LENGTH);
 
-  // Calculate the afwerking price
-  $total_price_afwerking = $price_afwerking * $afwerking_length / 1000;
-
-  // Calculate the brut price
-  $sku_brut = preg_replace("/-ral$|-str$/", "-brut", $line_item_wrapper->commerce_product->sku->value());
-  $product_brut = commerce_product_load_by_sku($sku_brut);
-  $product_brut_wrapper = entity_metadata_wrapper('commerce_product', $product_brut);
-  $price_brut = $product_brut_wrapper->commerce_price->amount->value();
-  $brut_length = $num_profiles * FC_PROFILE_LENGTH - $afwerking_length;
-  $total_price_brut = $price_brut * $brut_length / 1000;
+  $total_price = $num_profiles * $price_afwerking * FC_PROFILE_LENGTH / 1000;
 
   // Calculate the price for the knippen
+  $total_price_knippen = _fc_get_knippen_price($quantity, $order_length);
+
+  // Calculate the total price per unit and set it
+  // $total = ($total_price_afwerking + $total_price_brut + $total_price_knippen) / $quantity;
+  $total = ($total_price + $total_price_knippen) / $quantity;
+  set_total_price($line_item_wrapper, $total);
+}
+
+function fc_stock_standaardprofiel($line_item_wrapper) {
+  // Data to work with
+  $quantity = $line_item_wrapper->quantity->value();
+  $order_length = $line_item_wrapper->field_lengte->value();
+  $price_afwerking = $line_item_wrapper->commerce_product->commerce_price->amount->value();
+
+  $afwerking_length = $quantity * $order_length;
+  $total_price_knippen = _fc_get_knippen_price($quantity, $order_length);
+
+  // Calculate the number of 3000 and 6000 profiles
+  $num_profiles3 = 0;
+  $num_profiles6 = 0;
+  $rest_profile3 = FC_PROFILE_LENGTH/2;
+  $rest_profile6 = FC_PROFILE_LENGTH;
+
+  $rest = $afwerking_length;
+  for($i = 0; $i < $quantity; $i++) {
+    if($rest < FC_PROFILE_LENGTH/2 && $rest_profile6 < FC_PROFILE_LENGTH/2) {
+      if($rest_profile3 === FC_PROFILE_LENGTH/2) $num_profiles3++;
+      if($rest_profile3 < $order_length) {
+        $rest_profile3 = FC_PROFILE_LENGTH/2;
+        $num_profiles3++;
+      }
+      $rest_profile3 -= $order_length;
+    } else {
+      if($rest_profile6 === FC_PROFILE_LENGTH) $num_profiles6++;
+      if($rest_profile6 < $order_length) {
+        $rest_profile6 = FC_PROFILE_LENGTH;
+        $num_profiles6++;
+      }
+      $rest_profile6 -= $order_length;
+    }
+    $rest -= $order_length;
+  }
+
+  $total_price = $num_profiles3 * $price_afwerking * FC_PROFILE_LENGTH / 2000
+               + $num_profiles6 * $price_afwerking * FC_PROFILE_LENGTH / 1000;
+
+  // Calculate the total price per unit and set it
+  $total = ($total_price + $total_price_knippen) / $quantity;
+  set_total_price($line_item_wrapper, $total);
+}
+
+function set_total_price($line_item_wrapper, $total) {
+  $total_price = commerce_round(COMMERCE_ROUND_HALF_UP, $total);
+  $line_item_wrapper->commerce_unit_price->amount->set($total_price);
+  $data = $line_item_wrapper->commerce_unit_price->data->value();
+  $data['components'][0]['price']['amount'] = $total_price;
+  $line_item_wrapper->commerce_unit_price->data->set($data);
+}
+
+function _fc_get_knippen_price($quantity, $order_length) {
   $num_knippen = _fc_get_num_knippen($quantity, $order_length);
   $pruduct_knip = commerce_product_load_by_sku('EH-knip');
   $product_knip_wrapper = entity_metadata_wrapper('commerce_product', $pruduct_knip);
   $price_knip = $product_knip_wrapper->commerce_price->amount->value();
-  $total_price_knippen = $num_knippen * $price_knip;
-
-  // Calculate the total price per unit and set it
-  $total = ($total_price_afwerking + $total_price_brut + $total_price_knippen) / $quantity;
-  $total = commerce_round(COMMERCE_ROUND_HALF_UP, $total);
-  $line_item_wrapper->commerce_unit_price->amount->set($total);
-  $data = $line_item_wrapper->commerce_unit_price->data->value();
-  $data['components'][0]['price']['amount'] = $total;
-  $line_item_wrapper->commerce_unit_price->data->set($data);
+  return $num_knippen * $price_knip;
 }
 
-function _fc_get_num_knippen($quantity, $order_length) {
+function _fc_get_num_knippen($quantity, $order_length, $is_stock = false) {
   // If the length is 6000, there should be no knippen
   if($order_length == FC_PROFILE_LENGTH) {
+    return 0;
+  }
+
+  // If the length is 3000 for stock, there should also be no knippen
+  if($is_stock && $order_length == FC_PROFILE_LENGTH/2) {
     return 0;
   }
 
