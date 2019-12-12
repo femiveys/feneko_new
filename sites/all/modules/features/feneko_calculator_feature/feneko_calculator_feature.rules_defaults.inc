@@ -162,6 +162,7 @@ function feneko_calculator_feature_default_rules_configuration() {
       "LABEL" : "Standaardprofiel (stock) Add Knippen Price",
       "PLUGIN" : "reaction rule",
       "WEIGHT" : "5",
+      "ACTIVE" : false,
       "OWNER" : "rules",
       "TAGS" : [ "calculator" ],
       "REQUIRES" : [ "rules", "commerce_line_item", "commerce_product_reference" ],
@@ -224,6 +225,7 @@ function feneko_calculator_feature_default_rules_configuration() {
       "LABEL" : "Standaardprofiel (stock) Calculate #Knippen Price",
       "PLUGIN" : "reaction rule",
       "WEIGHT" : "-5",
+      "ACTIVE" : false,
       "OWNER" : "rules",
       "TAGS" : [ "calculator" ],
       "REQUIRES" : [ "rules", "commerce_product_reference" ],
@@ -1200,7 +1202,7 @@ function feneko_calculator_feature_default_rules_configuration() {
       "PLUGIN" : "reaction rule",
       "OWNER" : "rules",
       "TAGS" : [ "calculator" ],
-      "REQUIRES" : [ "rules", "commerce_line_item", "commerce_product_reference" ],
+      "REQUIRES" : [ "rules", "feneko_calculator", "commerce_product_reference" ],
       "ON" : { "commerce_product_calculate_sell_price" : [] },
       "IF" : [
         { "entity_is_of_bundle" : {
@@ -1214,11 +1216,6 @@ function feneko_calculator_feature_default_rules_configuration() {
             "value" : "standaardprofiel"
           }
         },
-        { "entity_has_field" : {
-            "entity" : [ "commerce-line-item" ],
-            "field" : "field_standaardprofiel_lengte"
-          }
-        },
         { "data_is" : {
             "data" : [ "commerce-line-item:commerce-product:field-stockprofiel" ],
             "value" : "1"
@@ -1226,20 +1223,7 @@ function feneko_calculator_feature_default_rules_configuration() {
         }
       ],
       "DO" : [
-        { "commerce_line_item_unit_price_multiply" : {
-            "commerce_line_item" : [ "commerce_line_item" ],
-            "amount" : [ "commerce-line-item:field-standaardprofiel-lengte" ],
-            "component_name" : "base_price",
-            "round_mode" : "0"
-          }
-        },
-        { "commerce_line_item_unit_price_divide" : {
-            "commerce_line_item" : [ "commerce_line_item" ],
-            "amount" : "1000",
-            "component_name" : "base_price",
-            "round_mode" : "0"
-          }
-        }
+        { "fc_stock_standaardprofiel" : { "line_item" : [ "commerce-line-item" ] } }
       ]
     }
   }');
@@ -1247,6 +1231,7 @@ function feneko_calculator_feature_default_rules_configuration() {
       "LABEL" : "Standaarprofiel Lengte",
       "PLUGIN" : "reaction rule",
       "WEIGHT" : "-10",
+      "ACTIVE" : false,
       "OWNER" : "rules",
       "TAGS" : [ "calculator" ],
       "REQUIRES" : [ "rules", "php", "commerce_product_reference" ],
