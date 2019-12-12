@@ -157,7 +157,7 @@ function fc_stock_standaardprofiel($line_item_wrapper) {
   $price_afwerking = $line_item_wrapper->commerce_product->commerce_price->amount->value();
 
   $afwerking_length = $quantity * $order_length;
-  $total_price_knippen = _fc_get_knippen_price($quantity, $order_length);
+  $total_price_knippen = _fc_get_knippen_price($quantity, $order_length, true);
 
   // Calculate the number of 3000 and 6000 profiles
   $num_profiles3 = 0;
