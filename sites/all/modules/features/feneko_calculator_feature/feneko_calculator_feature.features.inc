@@ -226,17 +226,6 @@ function feneko_calculator_feature_default_commerce_discount() {
         {
           "condition_name" : "commerce_order_compare_order_amount",
           "condition_settings" : {
-            "line_item_types" : {
-              "dorpel_stuk" : "dorpel_stuk",
-              "muurkap" : "muurkap",
-              "muurkap_stuk" : "muurkap_stuk",
-              "plaatbewerking" : "plaatbewerking",
-              "raamtablet" : "raamtablet",
-              "raamtablet_eindstuk" : "raamtablet_eindstuk",
-              "sandwichpaneel" : "sandwichpaneel",
-              "standaardprofiel" : "standaardprofiel",
-              "product" : "product"
-            },
             "operator" : "\\u003E",
             "total" : { "amount" : 240000000, "currency_code" : "EUR" },
             "condition_logic_operator" : null
@@ -246,17 +235,6 @@ function feneko_calculator_feature_default_commerce_discount() {
         {
           "condition_name" : "commerce_order_compare_order_amount",
           "condition_settings" : {
-            "line_item_types" : {
-              "dorpel_stuk" : "dorpel_stuk",
-              "muurkap" : "muurkap",
-              "muurkap_stuk" : "muurkap_stuk",
-              "plaatbewerking" : "plaatbewerking",
-              "raamtablet" : "raamtablet",
-              "raamtablet_eindstuk" : "raamtablet_eindstuk",
-              "sandwichpaneel" : "sandwichpaneel",
-              "standaardprofiel" : "standaardprofiel",
-              "product" : "product"
-            },
             "operator" : "\\u003C",
             "total" : { "amount" : 280000000, "currency_code" : "EUR" }
           },
@@ -288,17 +266,6 @@ function feneko_calculator_feature_default_commerce_discount() {
         {
           "condition_name" : "commerce_order_compare_order_amount",
           "condition_settings" : {
-            "line_item_types" : {
-              "dorpel_stuk" : "dorpel_stuk",
-              "muurkap" : "muurkap",
-              "muurkap_stuk" : "muurkap_stuk",
-              "plaatbewerking" : "plaatbewerking",
-              "raamtablet" : "raamtablet",
-              "raamtablet_eindstuk" : "raamtablet_eindstuk",
-              "sandwichpaneel" : "sandwichpaneel",
-              "standaardprofiel" : "standaardprofiel",
-              "product" : "product"
-            },
             "operator" : "\\u003E",
             "total" : { "amount" : 280000000, "currency_code" : "EUR" },
             "condition_logic_operator" : null
@@ -308,17 +275,6 @@ function feneko_calculator_feature_default_commerce_discount() {
         {
           "condition_name" : "commerce_order_compare_order_amount",
           "condition_settings" : {
-            "line_item_types" : {
-              "dorpel_stuk" : "dorpel_stuk",
-              "muurkap" : "muurkap",
-              "muurkap_stuk" : "muurkap_stuk",
-              "plaatbewerking" : "plaatbewerking",
-              "raamtablet" : "raamtablet",
-              "raamtablet_eindstuk" : "raamtablet_eindstuk",
-              "sandwichpaneel" : "sandwichpaneel",
-              "standaardprofiel" : "standaardprofiel",
-              "product" : "product"
-            },
             "operator" : "\\u003C",
             "total" : { "amount" : 320000000, "currency_code" : "EUR" }
           },
@@ -350,17 +306,6 @@ function feneko_calculator_feature_default_commerce_discount() {
         {
           "condition_name" : "commerce_order_compare_order_amount",
           "condition_settings" : {
-            "line_item_types" : {
-              "dorpel_stuk" : "dorpel_stuk",
-              "muurkap" : "muurkap",
-              "muurkap_stuk" : "muurkap_stuk",
-              "plaatbewerking" : "plaatbewerking",
-              "raamtablet" : "raamtablet",
-              "raamtablet_eindstuk" : "raamtablet_eindstuk",
-              "sandwichpaneel" : "sandwichpaneel",
-              "standaardprofiel" : "standaardprofiel",
-              "product" : "product"
-            },
             "operator" : "\\u003E",
             "total" : { "amount" : 320000000, "currency_code" : "EUR" },
             "condition_logic_operator" : null
@@ -370,17 +315,6 @@ function feneko_calculator_feature_default_commerce_discount() {
         {
           "condition_name" : "commerce_order_compare_order_amount",
           "condition_settings" : {
-            "line_item_types" : {
-              "dorpel_stuk" : "dorpel_stuk",
-              "muurkap" : "muurkap",
-              "muurkap_stuk" : "muurkap_stuk",
-              "plaatbewerking" : "plaatbewerking",
-              "raamtablet" : "raamtablet",
-              "raamtablet_eindstuk" : "raamtablet_eindstuk",
-              "sandwichpaneel" : "sandwichpaneel",
-              "standaardprofiel" : "standaardprofiel",
-              "product" : "product"
-            },
             "operator" : "\\u003C",
             "total" : { "amount" : 360000000, "currency_code" : "EUR" }
           },
@@ -401,11 +335,11 @@ function feneko_calculator_feature_default_commerce_discount() {
     "label" : "Global discount 0400-800",
     "type" : "order_discount",
     "status" : "1",
-    "component_title" : "Korting: -38%",
+    "component_title" : "Korting: -36%",
     "sort_order" : "10",
     "commerce_discount_offer" : {
       "type" : "percentage",
-      "commerce_percentage" : { "und" : [ { "value" : "38.00" } ] },
+      "commerce_percentage" : { "und" : [ { "value" : "36.00" } ] },
       "base_type" : "commerce_discount_offer"
     },
     "inline_conditions" : { "und" : [
@@ -441,11 +375,11 @@ function feneko_calculator_feature_default_commerce_discount() {
     "label" : "Global discount 0800-1200",
     "type" : "order_discount",
     "status" : "1",
-    "component_title" : "Korting: -41%",
+    "component_title" : "Korting: -39%",
     "sort_order" : "10",
     "commerce_discount_offer" : {
       "type" : "percentage",
-      "commerce_percentage" : { "und" : [ { "value" : "41.00" } ] },
+      "commerce_percentage" : { "und" : [ { "value" : "39.00" } ] },
       "base_type" : "commerce_discount_offer"
     },
     "inline_conditions" : { "und" : [
