@@ -154,6 +154,25 @@ function feneko_code_update_7010() {
    drupal_mkdir('private://catalogs');
 }
 
+/**
+ * Populate klantenkorting
+ */
+function feneko_code_update_7011() {
+  if (($handle = fopen("private://klanten_korting.csv", "r")) !== FALSE) {
+    while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+      $klantennummer = $data[0];
+      $klantenkorting = str_replace('%', '', str_replace(',', '.', $data[6]));
+
+      $client = feneko_code_get_client_by_number($klantennummer);
+      if (isset($client)) {
+        $client->field_klantenkorting->set($klantenkorting);
+        $client->save();
+      }
+    }
+    fclose($handle);
+  }
+}
+
 
 /*
 Export users from prod (data_export_import)
