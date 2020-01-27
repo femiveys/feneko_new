@@ -947,6 +947,7 @@ function feneko_calculator_feature_feeds_importer_default() {
           'public' => 'public',
           'private' => 'private',
         ),
+        'delete_uploaded_file' => FALSE,
       ),
     ),
     'parser' => array(
@@ -954,6 +955,7 @@ function feneko_calculator_feature_feeds_importer_default() {
       'config' => array(
         'delimiter' => ',',
         'no_headers' => 0,
+        'encoding' => 'UTF-8',
       ),
     ),
     'processor' => array(
@@ -964,37 +966,43 @@ function feneko_calculator_feature_feeds_importer_default() {
         'tax_rate' => TRUE,
         'mappings' => array(
           0 => array(
-            'source' => 'materiaal_referentie',
+            'source' => 'Referentie',
             'target' => 'sku',
             'unique' => 1,
+            'language' => 'und',
           ),
           1 => array(
-            'source' => 'materiaal_omschrijving',
+            'source' => 'Referentie',
             'target' => 'title',
             'unique' => FALSE,
+            'language' => 'und',
           ),
           2 => array(
             'source' => 'afwerking',
             'target' => 'field_standaardprofiel_afwerking',
             'unique' => FALSE,
+            'language' => 'und',
           ),
           3 => array(
             'source' => 'price',
             'target' => 'commerce_price:amount',
             'unique' => FALSE,
+            'language' => 'und',
           ),
           4 => array(
             'source' => 'type',
             'target' => 'field_standaardprofiel_type',
             'unique' => FALSE,
+            'language' => 'und',
           ),
           5 => array(
             'source' => 'maat',
             'target' => 'field_maat',
             'unique' => FALSE,
+            'language' => 'und',
           ),
           6 => array(
-            'source' => 'materiaal_stockprofiel',
+            'source' => 'Stock',
             'target' => 'field_stockprofiel',
             'unique' => FALSE,
           ),
@@ -1003,6 +1011,9 @@ function feneko_calculator_feature_feeds_importer_default() {
         'input_format' => 'plain_text',
         'skip_hash_check' => 0,
         'bundle' => 'standaardprofiel',
+        'insert_new' => 1,
+        'update_non_existent' => 'skip',
+        'language' => 'und',
       ),
     ),
     'content_type' => '',

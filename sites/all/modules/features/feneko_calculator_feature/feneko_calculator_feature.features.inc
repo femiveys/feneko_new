@@ -55,11 +55,11 @@ function feneko_calculator_feature_default_commerce_discount() {
     "label" : "Global discount 1200-1600",
     "type" : "order_discount",
     "status" : "1",
-    "component_title" : "Korting: -44%",
+    "component_title" : "Korting: -42%",
     "sort_order" : "10",
     "commerce_discount_offer" : {
       "type" : "percentage",
-      "commerce_percentage" : { "und" : [ { "value" : "44.00" } ] },
+      "commerce_percentage" : { "und" : [ { "value" : "42.00" } ] },
       "base_type" : "commerce_discount_offer"
     },
     "inline_conditions" : { "und" : [
@@ -95,11 +95,11 @@ function feneko_calculator_feature_default_commerce_discount() {
     "label" : "Global discount 1600-2000",
     "type" : "order_discount",
     "status" : "1",
-    "component_title" : "Korting: -47%",
+    "component_title" : "Korting: -45%",
     "sort_order" : "10",
     "commerce_discount_offer" : {
       "type" : "percentage",
-      "commerce_percentage" : { "und" : [ { "value" : "47.00" } ] },
+      "commerce_percentage" : { "und" : [ { "value" : "45.00" } ] },
       "base_type" : "commerce_discount_offer"
     },
     "inline_conditions" : { "und" : [
@@ -135,11 +135,11 @@ function feneko_calculator_feature_default_commerce_discount() {
     "label" : "Global discount 2000-2400",
     "type" : "order_discount",
     "status" : "1",
-    "component_title" : "Korting: -50%",
+    "component_title" : "Korting: -48%",
     "sort_order" : "10",
     "commerce_discount_offer" : {
       "type" : "percentage",
-      "commerce_percentage" : { "und" : [ { "value" : "50.00" } ] },
+      "commerce_percentage" : { "und" : [ { "value" : "48.00" } ] },
       "base_type" : "commerce_discount_offer"
     },
     "inline_conditions" : { "und" : [
@@ -175,11 +175,11 @@ function feneko_calculator_feature_default_commerce_discount() {
     "label" : "Global discount 0200-400",
     "type" : "order_discount",
     "status" : "1",
-    "component_title" : "Korting: -35%",
+    "component_title" : "Korting: -33%",
     "sort_order" : "10",
     "commerce_discount_offer" : {
       "type" : "percentage",
-      "commerce_percentage" : { "und" : [ { "value" : "35.00" } ] },
+      "commerce_percentage" : { "und" : [ { "value" : "33.00" } ] },
       "base_type" : "commerce_discount_offer"
     },
     "inline_conditions" : { "und" : [
@@ -215,28 +215,17 @@ function feneko_calculator_feature_default_commerce_discount() {
     "label" : "Global discount 2400-2800",
     "type" : "order_discount",
     "status" : "1",
-    "component_title" : "Korting: -53%",
+    "component_title" : "Korting: -51%",
     "sort_order" : "10",
     "commerce_discount_offer" : {
       "type" : "percentage",
-      "commerce_percentage" : { "und" : [ { "value" : "53.00" } ] },
+      "commerce_percentage" : { "und" : [ { "value" : "51.00" } ] },
       "base_type" : "commerce_discount_offer"
     },
     "inline_conditions" : { "und" : [
         {
           "condition_name" : "commerce_order_compare_order_amount",
           "condition_settings" : {
-            "line_item_types" : {
-              "dorpel_stuk" : "dorpel_stuk",
-              "muurkap" : "muurkap",
-              "muurkap_stuk" : "muurkap_stuk",
-              "plaatbewerking" : "plaatbewerking",
-              "raamtablet" : "raamtablet",
-              "raamtablet_eindstuk" : "raamtablet_eindstuk",
-              "sandwichpaneel" : "sandwichpaneel",
-              "standaardprofiel" : "standaardprofiel",
-              "product" : "product"
-            },
             "operator" : "\\u003E",
             "total" : { "amount" : 240000000, "currency_code" : "EUR" },
             "condition_logic_operator" : null
@@ -246,17 +235,6 @@ function feneko_calculator_feature_default_commerce_discount() {
         {
           "condition_name" : "commerce_order_compare_order_amount",
           "condition_settings" : {
-            "line_item_types" : {
-              "dorpel_stuk" : "dorpel_stuk",
-              "muurkap" : "muurkap",
-              "muurkap_stuk" : "muurkap_stuk",
-              "plaatbewerking" : "plaatbewerking",
-              "raamtablet" : "raamtablet",
-              "raamtablet_eindstuk" : "raamtablet_eindstuk",
-              "sandwichpaneel" : "sandwichpaneel",
-              "standaardprofiel" : "standaardprofiel",
-              "product" : "product"
-            },
             "operator" : "\\u003C",
             "total" : { "amount" : 280000000, "currency_code" : "EUR" }
           },
@@ -277,28 +255,17 @@ function feneko_calculator_feature_default_commerce_discount() {
     "label" : "Global discount 2800-3200",
     "type" : "order_discount",
     "status" : "1",
-    "component_title" : "Korting: -56%",
+    "component_title" : "Korting: -54%",
     "sort_order" : "10",
     "commerce_discount_offer" : {
       "type" : "percentage",
-      "commerce_percentage" : { "und" : [ { "value" : "56.00" } ] },
+      "commerce_percentage" : { "und" : [ { "value" : "54.00" } ] },
       "base_type" : "commerce_discount_offer"
     },
     "inline_conditions" : { "und" : [
         {
           "condition_name" : "commerce_order_compare_order_amount",
           "condition_settings" : {
-            "line_item_types" : {
-              "dorpel_stuk" : "dorpel_stuk",
-              "muurkap" : "muurkap",
-              "muurkap_stuk" : "muurkap_stuk",
-              "plaatbewerking" : "plaatbewerking",
-              "raamtablet" : "raamtablet",
-              "raamtablet_eindstuk" : "raamtablet_eindstuk",
-              "sandwichpaneel" : "sandwichpaneel",
-              "standaardprofiel" : "standaardprofiel",
-              "product" : "product"
-            },
             "operator" : "\\u003E",
             "total" : { "amount" : 280000000, "currency_code" : "EUR" },
             "condition_logic_operator" : null
@@ -308,17 +275,6 @@ function feneko_calculator_feature_default_commerce_discount() {
         {
           "condition_name" : "commerce_order_compare_order_amount",
           "condition_settings" : {
-            "line_item_types" : {
-              "dorpel_stuk" : "dorpel_stuk",
-              "muurkap" : "muurkap",
-              "muurkap_stuk" : "muurkap_stuk",
-              "plaatbewerking" : "plaatbewerking",
-              "raamtablet" : "raamtablet",
-              "raamtablet_eindstuk" : "raamtablet_eindstuk",
-              "sandwichpaneel" : "sandwichpaneel",
-              "standaardprofiel" : "standaardprofiel",
-              "product" : "product"
-            },
             "operator" : "\\u003C",
             "total" : { "amount" : 320000000, "currency_code" : "EUR" }
           },
@@ -336,36 +292,34 @@ function feneko_calculator_feature_default_commerce_discount() {
   }');
   $items['discount_global_discount_3200_'] = entity_import('commerce_discount', '{
     "name" : "discount_global_discount_3200_",
-    "label" : "Global discount 3200-",
+    "label" : "Global discount 3200-3600",
     "type" : "order_discount",
     "status" : "1",
-    "component_title" : "Korting: -59%",
+    "component_title" : "Korting: -57%",
     "sort_order" : "10",
     "commerce_discount_offer" : {
       "type" : "percentage",
-      "commerce_percentage" : { "und" : [ { "value" : "59.00" } ] },
+      "commerce_percentage" : { "und" : [ { "value" : "57.00" } ] },
       "base_type" : "commerce_discount_offer"
     },
     "inline_conditions" : { "und" : [
         {
           "condition_name" : "commerce_order_compare_order_amount",
           "condition_settings" : {
-            "line_item_types" : {
-              "dorpel_stuk" : "dorpel_stuk",
-              "muurkap" : "muurkap",
-              "muurkap_stuk" : "muurkap_stuk",
-              "plaatbewerking" : "plaatbewerking",
-              "raamtablet" : "raamtablet",
-              "raamtablet_eindstuk" : "raamtablet_eindstuk",
-              "sandwichpaneel" : "sandwichpaneel",
-              "standaardprofiel" : "standaardprofiel",
-              "product" : "product"
-            },
             "operator" : "\\u003E",
             "total" : { "amount" : 320000000, "currency_code" : "EUR" },
             "condition_logic_operator" : null
           },
           "condition_negate" : 0
+        },
+        {
+          "condition_name" : "commerce_order_compare_order_amount",
+          "condition_settings" : {
+            "operator" : "\\u003C",
+            "total" : { "amount" : 360000000, "currency_code" : "EUR" }
+          },
+          "condition_negate" : 1,
+          "condition_logic_operator" : "1"
         }
       ]
     },
@@ -381,11 +335,11 @@ function feneko_calculator_feature_default_commerce_discount() {
     "label" : "Global discount 0400-800",
     "type" : "order_discount",
     "status" : "1",
-    "component_title" : "Korting: -38%",
+    "component_title" : "Korting: -36%",
     "sort_order" : "10",
     "commerce_discount_offer" : {
       "type" : "percentage",
-      "commerce_percentage" : { "und" : [ { "value" : "38.00" } ] },
+      "commerce_percentage" : { "und" : [ { "value" : "36.00" } ] },
       "base_type" : "commerce_discount_offer"
     },
     "inline_conditions" : { "und" : [
@@ -421,11 +375,11 @@ function feneko_calculator_feature_default_commerce_discount() {
     "label" : "Global discount 0800-1200",
     "type" : "order_discount",
     "status" : "1",
-    "component_title" : "Korting: -41%",
+    "component_title" : "Korting: -39%",
     "sort_order" : "10",
     "commerce_discount_offer" : {
       "type" : "percentage",
-      "commerce_percentage" : { "und" : [ { "value" : "41.00" } ] },
+      "commerce_percentage" : { "und" : [ { "value" : "39.00" } ] },
       "base_type" : "commerce_discount_offer"
     },
     "inline_conditions" : { "und" : [

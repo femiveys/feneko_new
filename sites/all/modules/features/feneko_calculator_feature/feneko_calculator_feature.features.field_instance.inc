@@ -64,6 +64,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'above',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => TRUE,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -77,6 +78,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => TRUE,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -366,6 +368,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => TRUE,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -379,6 +382,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => TRUE,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -864,6 +868,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'above',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => TRUE,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -877,6 +882,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => TRUE,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -1142,6 +1148,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'above',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => TRUE,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -1155,6 +1162,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => TRUE,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -1845,6 +1853,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'above',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => TRUE,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -1858,6 +1867,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => TRUE,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -2547,6 +2557,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'above',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => TRUE,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -2560,6 +2571,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => TRUE,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -2852,6 +2864,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'above',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => TRUE,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -2865,6 +2878,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => TRUE,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -3292,6 +3306,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'above',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 0,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -3305,6 +3320,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => TRUE,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -7613,6 +7629,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -7626,6 +7643,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -7683,6 +7701,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 'raamtablet_eindstuk',
@@ -7744,6 +7763,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 'dorpel_stuk',
@@ -7757,6 +7777,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -7814,6 +7835,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 'dorpel_stuk',
@@ -7827,6 +7849,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -7884,6 +7907,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 0,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -7897,6 +7921,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -8001,6 +8026,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 0,
           'default_quantity' => 1,
           'line_item_type' => 'muurkap',
@@ -8014,6 +8040,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -8118,6 +8145,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 'muurkap_stuk',
@@ -8178,6 +8206,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 0,
           'default_quantity' => 1,
           'line_item_type' => 'plaatbewerking',
@@ -8191,6 +8220,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -8248,6 +8278,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 'raamtablet',
@@ -8261,6 +8292,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -8318,6 +8350,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 'sandwichpaneel',
@@ -8331,6 +8364,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -8388,6 +8422,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 'standaardprofiel',
@@ -8442,6 +8477,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 'product',
@@ -8455,6 +8491,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'commerce_cart',
         'settings' => array(
+          'button_text' => 'Add to cart',
           'combine' => 1,
           'default_quantity' => 1,
           'line_item_type' => 'product',
