@@ -270,6 +270,29 @@ function feneko_account_field_default_field_bases() {
     'type' => 'list_integer',
   );
 
+  // Exported field_base: 'field_klantenkorting'.
+  $field_bases['field_klantenkorting'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_klantenkorting',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'decimal_separator' => '.',
+      'entity_translation_sync' => FALSE,
+      'precision' => 10,
+      'scale' => 2,
+    ),
+    'translatable' => 0,
+    'type' => 'number_decimal',
+  );
+
   // Exported field_base: 'field_no_minimum_invoice_amount'.
   $field_bases['field_no_minimum_invoice_amount'] = array(
     'active' => 1,
