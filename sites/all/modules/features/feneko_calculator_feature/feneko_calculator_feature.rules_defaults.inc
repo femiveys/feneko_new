@@ -270,6 +270,16 @@ function feneko_calculator_feature_default_rules_configuration() {
       "DO" : [ { "fc_minimum_invoice_amount" : { "order" : [ "commerce-order" ] } } ]
     }
   }');
+  $items['rules_korting'] = entity_import('rules_config', '{ "rules_korting" : {
+      "LABEL" : "Korting",
+      "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
+      "TAGS" : [ "calculator" ],
+      "REQUIRES" : [ "feneko_calculator", "commerce_discount" ],
+      "ON" : { "commerce_discount_order" : [] },
+      "DO" : [ { "fc_apply_korting" : { "order" : [ "commerce-order" ] } } ]
+    }
+  }');
   $items['rules_muurkap_add_stukken'] = entity_import('rules_config', '{ "rules_muurkap_add_stukken" : {
       "LABEL" : "Muurkap Add Stukken",
       "PLUGIN" : "reaction rule",
