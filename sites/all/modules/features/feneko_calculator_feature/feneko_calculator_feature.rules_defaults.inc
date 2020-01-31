@@ -1187,16 +1187,6 @@ function feneko_calculator_feature_default_rules_configuration() {
       ]
     }
   }');
-  $items['rules_staffelkorting'] = entity_import('rules_config', '{ "rules_staffelkorting" : {
-      "LABEL" : "Staffelkorting",
-      "PLUGIN" : "reaction rule",
-      "OWNER" : "rules",
-      "TAGS" : [ "calculator" ],
-      "REQUIRES" : [ "feneko_calculator", "commerce_discount" ],
-      "ON" : { "commerce_discount_order" : [] },
-      "DO" : [ { "fc_apply_staffel_korting" : { "order" : [ "commerce-order" ] } } ]
-    }
-  }');
   $items['rules_standaarprofiel'] = entity_import('rules_config', '{ "rules_standaarprofiel" : {
       "LABEL" : "Standaarprofiel (stock)",
       "PLUGIN" : "reaction rule",

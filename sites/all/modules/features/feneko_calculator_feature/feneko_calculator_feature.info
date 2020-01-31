@@ -337,7 +337,6 @@ features[rules_config][] = rules_sandwichpaneel_add_isolatie
 features[rules_config][] = rules_sandwichpaneel_lengte_breedte_optimalisatie
 features[rules_config][] = rules_set_base_price
 features[rules_config][] = rules_skip_checkout_pages
-features[rules_config][] = rules_staffelkorting
 features[rules_config][] = rules_standaarprofiel
 features[rules_config][] = rules_standaarprofiel_lengte
 features[user_permission][] = administer product display types
