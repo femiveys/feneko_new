@@ -62,8 +62,8 @@ function feneko_calculator_rules_action_info() {
       ),
       'module' => 'feneko_calculator',
     ),
-    'fc_apply_staffel_korting' => array(
-      'label' => t('Apply staffel korting'),
+    'fc_apply_korting' => array(
+      'label' => t('Apply korting (klantenkorting or staffelkorting)'),
       'group' => t('Feneko'),
       'parameter' => array(
         'order' => array(
@@ -334,46 +334,98 @@ function _fc_get_total($order_wrapper) {
   return $total;
 }
 
+function _fc_update_discount($line_item_wrapper, $discount_amount) {
+  $line_item = $line_item_wrapper->value();
+  $line_item->commerce_unit_price['und'][0]['amount'] = $discount_amount;
+  $line_item->commerce_unit_price['und'][0]['data']['components'][1]['price']['amount'] = $discount_amount;
+  $line_item->commerce_total['und'][0]['amount'] = $discount_amount;
+  $line_item->commerce_total['und'][0]['data']['components'][1]['price']['amount'] = $discount_amount;
+}
 
-function fc_apply_staffel_korting($order_wrapper) {
+function _fc_apply_staffelkorting($order_wrapper) {
   module_load_include('inc', 'commerce_discount', 'commerce_discount.rules');
   $default = 'discount_global_discount_0_200';
   $discounts = feneko_calculator_get_discounts();
 
-  // Get the amount in the order
-  $amount = $order_wrapper->commerce_order_total->amount->value();
+  // Get the order-staffelkorting (pct) that should be applied normally based
+  // on the sum of the amount for non-standaardprofiel
+  $amount = 0;
+  foreach ($order_wrapper->commerce_line_items->getIterator() as $line_item_wrapper) {
+    $type = $line_item_wrapper->type->value();
+    if($type !== 'standaardprofiel' and $type !== 'commerce_discount') {
+      $amount = $amount + $line_item_wrapper->commerce_total->amount->value();
+    }
+  }
+  $order_sk_pct = _feneko_calculator_get_normal_discount($amount, $discounts);
 
-  // Retrieve the discount (pct) that should be applied normally based on the amount
-  $normal_discount_pct = _feneko_calculator_get_normal_discount($amount, $discounts);
-
-  // Get the staffelkorting (pct) for this client (assigned to the order)
-  $sk_name = $order_wrapper->field_client->field_staffelkorting->value();
-  $sk_name = empty($sk_name) ? $default : $sk_name;
-  $sk_wrapper = entity_metadata_wrapper('commerce_discount', $sk_name);
-  $sk_pct  = intval($sk_wrapper->commerce_discount_offer->commerce_percentage->value());
+  // Get client-staffelkorting (pct)
+  $client_sk_name = $order_wrapper->field_client->field_staffelkorting->value();
+  $client_sk_name = empty($client_sk_name) ? $default : $client_sk_name;
+  $client_sk_wrapper = entity_metadata_wrapper('commerce_discount', $client_sk_name);
+  $client_sk_pct  = intval($client_sk_wrapper->commerce_discount_offer->commerce_percentage->value());
 
   foreach ($discounts as $discount_name => $discount) {
-    // Get the discount pct for this discount
-    $discount_pct = intval($discount['wrapper']->commerce_discount_offer
-                                               ->commerce_percentage->value());
-
-    // If the staffelkorting is more than the discount applied normally, the
-    // staffelkorting has to be chosen. Otherwise a normal discount has to be chosen
-    if($sk_pct >= $normal_discount_pct) {
+    // If the client-staffelkorting is more than the order-staffelkorting, the
+    // client-staffelkorting has to be chosen. Otherwise the order-staffelkorting has to be chosen
+    if($client_sk_pct >= $order_sk_pct) {
       // If the staffelkorting has to be chosen, only choose the one if the
       // current name equals that staffelkorting
-      if($sk_name === $discount_name) {
+      if($client_sk_name === $discount_name) {
         commerce_discount_percentage($order_wrapper, $discount_name);
-        return;
+        break;
       }
     } else {
-      // if normal discount === discount of this discount return true
-      if($normal_discount_pct === $discount_pct) {
+      // Get the discount pct for this discount
+      $discount_pct = intval($discount['wrapper']->commerce_discount_offer
+                                                 ->commerce_percentage->value());
+
+      // if normal discount === discount of this discount return
+      if($order_sk_pct === $discount_pct) {
         commerce_discount_percentage($order_wrapper, $discount_name);
-        return;
+        break;
       }
     }
   }
+
+  // Search the staffelkorting in the line items and update the amount with the
+  // amount based on the non-standaardprofiel
+  $discount_pct = $client_sk_pct >= $order_sk_pct ? $client_sk_pct : $order_sk_pct;
+  $discount_amount = $amount * $discount_pct / -100;
+  foreach ($order_wrapper->commerce_line_items->getIterator() as $line_item_wrapper) {
+    if($line_item_wrapper->type->value() === 'commerce_discount'
+    and $line_item_wrapper->value()->data['discount_name'] !== 'discount_klantenkorting') {
+      _fc_update_discount($line_item_wrapper, $discount_amount);
+    }
+  }
+}
+
+function _fc_apply_klantenkorting($order_wrapper) {
+  // TODO Take from DB
+  $klantenkorting_pct = 20;
+
+  // Get the sum of all standaardprofielen
+  $amount = 0;
+  foreach ($order_wrapper->commerce_line_items->getIterator() as $line_item_wrapper) {
+    if($line_item_wrapper->type->value() === 'standaardprofiel') {
+      $amount = $amount + $line_item_wrapper->commerce_total->amount->value();
+    }
+  }
+
+  // Search the klantenkorting in the line items and update the amount with the
+  // amount based on the standaardprofiel
+  $discount_amount = $amount * $klantenkorting_pct / -100;
+  foreach ($order_wrapper->commerce_line_items->getIterator() as $line_item_wrapper) {
+    if($line_item_wrapper->type->value() === 'commerce_discount'
+    and $line_item_wrapper->value()->data['discount_name'] === 'discount_klantenkorting') {
+      _fc_update_discount($line_item_wrapper, $discount_amount);
+    }
+  }
+
+}
+
+function fc_apply_korting($order_wrapper) {
+  _fc_apply_staffelkorting($order_wrapper);
+  _fc_apply_klantenkorting($order_wrapper);
 }
 
 
@@ -392,6 +444,7 @@ function feneko_calculator_get_discounts() {
 
   // Get all order discounts
   $results = db_select('commerce_discount')->fields(NULL, array('name'))
+           ->condition('name', 'discount_klantenkorting', '<>')
            ->condition('type', 'order_discount')
            ->orderBy('component_title')
            ->execute();
