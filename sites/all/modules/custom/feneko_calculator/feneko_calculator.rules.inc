@@ -400,8 +400,8 @@ function _fc_apply_staffelkorting($order_wrapper) {
 }
 
 function _fc_apply_klantenkorting($order_wrapper) {
-  // TODO Take from DB
-  $klantenkorting_pct = 20;
+  // Get client-korting (pct)
+  $klantenkorting_pct = $order_wrapper->field_client->field_klantenkorting->value();
 
   // Get the sum of all standaardprofielen
   $amount = 0;
