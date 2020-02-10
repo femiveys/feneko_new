@@ -342,6 +342,20 @@ function _fc_update_discount($line_item_wrapper, $discount_amount) {
   $line_item->commerce_total['und'][0]['data']['components'][1]['price']['amount'] = $discount_amount;
 }
 
+function _fc_set_discount_label($line_item_wrapper, $pct, $amount, $type) {
+  $data = $line_item_wrapper->commerce_unit_price->data->value();
+  $sanitized_pct = $pct == intval($pct) ? intval($pct) : $pct;
+  $params = array(
+    '!pct' => $sanitized_pct,
+    '!total' => _fc_format_amount($amount),
+  );
+  $data['components'][1]['price']['data']['discount_component_title'] =
+    $type === 'klanten'
+      ? t('Korting op standaardprofielen: !pct% van !total', $params)
+      : t('Korting op niet-standaardprofielen: !pct% van !total', $params);
+  $line_item_wrapper->commerce_unit_price->data->set($data);
+}
+
 function _fc_apply_staffelkorting($order_wrapper) {
   module_load_include('inc', 'commerce_discount', 'commerce_discount.rules');
   $default = 'discount_global_discount_0_200';
@@ -394,6 +408,7 @@ function _fc_apply_staffelkorting($order_wrapper) {
   foreach ($order_wrapper->commerce_line_items->getIterator() as $line_item_wrapper) {
     if($line_item_wrapper->type->value() === 'commerce_discount'
     and $line_item_wrapper->value()->data['discount_name'] !== 'discount_klantenkorting') {
+      _fc_set_discount_label($line_item_wrapper, $discount_pct, $amount, 'staffel');
       _fc_update_discount($line_item_wrapper, $discount_amount);
     }
   }
@@ -417,6 +432,7 @@ function _fc_apply_klantenkorting($order_wrapper) {
   foreach ($order_wrapper->commerce_line_items->getIterator() as $line_item_wrapper) {
     if($line_item_wrapper->type->value() === 'commerce_discount'
     and $line_item_wrapper->value()->data['discount_name'] === 'discount_klantenkorting') {
+      _fc_set_discount_label($line_item_wrapper, $klantenkorting_pct, $amount, 'klanten');
       _fc_update_discount($line_item_wrapper, $discount_amount);
     }
   }
@@ -457,7 +473,7 @@ function feneko_calculator_get_discounts() {
                                                 ->commerce_percentage->value());
 
     $limits[$discount->name] = array(
-      'low'  => intval($matches[1])  * 100000,
+      'low'  => intval($matches[1]) * 100000,
       'high' => intval($matches[2]) * 100000,
       'pct'  => $pct,
       'wrapper' => $discount_wrapper,
