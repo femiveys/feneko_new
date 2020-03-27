@@ -11,7 +11,7 @@
 
   Drupal.behaviors.expand_select = {
     attach: function(context, settings) {
-      $(".field-type-commerce-product-reference select").attr("size", 35);
+      $(".field-type-commerce-product-reference select#edit-field-product-und").attr("size", 35);
     }
   };
 }(jQuery));
