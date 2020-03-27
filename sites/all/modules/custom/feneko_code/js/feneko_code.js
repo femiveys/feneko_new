@@ -8,5 +8,10 @@
       });
     }
   };
-}(jQuery));
 
+  Drupal.behaviors.expand_select = {
+    attach: function(context, settings) {
+      $(".field-type-commerce-product-reference select").attr("size", 35);
+    }
+  };
+}(jQuery));
