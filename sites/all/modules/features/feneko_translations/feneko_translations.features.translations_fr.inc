@@ -359,6 +359,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Kleur', array(), array('context' => 'field_color:commerce_order:label'));
+  $translations['fr:default']['6bfb1862f69dfbd3e5a9f2e476aff7a5'] = array(
+    'source' => 'Korting op standaardprofielen: !pct% van !total',
+    'context' => '',
+    'location' => '/nl/checkout/15257',
+    'translation' => 'Remise sur les profils standards: !pct% de !total',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Korting op standaardprofielen: !pct% van !total', array(), array('context' => ''));
   $translations['fr:default']['6e419ce654124356fd3bd39fb144557a'] = array(
     'source' => 'Breedtemaat van het vliegenschuifdeurblad.<br />Totale hoogte inclusief geleiders van de schuifdeur.<br />Lengte van de geleiders.',
     'context' => '',
@@ -413,6 +422,15 @@ Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
     'plural' => 0,
   );
   $translatables[] = t('Er zijn geen bestellingen in behandeling.', array(), array('context' => ''));
+  $translations['fr:default']['801a827f91ba22d065554811a18c7448'] = array(
+    'source' => 'Korting op niet-standaardprofielen: !pct% van !total',
+    'context' => '',
+    'location' => '/nl/checkout/15257',
+    'translation' => 'Remise sur les non profils standards: !pct% de !total',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Korting op niet-standaardprofielen: !pct% van !total', array(), array('context' => ''));
   $translations['fr:default']['816a78c8472f3f298a3a7bdf8d8013f2'] = array(
     'source' => 'Besteldatum',
     'context' => '',

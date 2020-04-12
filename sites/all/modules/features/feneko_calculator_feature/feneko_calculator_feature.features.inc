@@ -410,6 +410,48 @@ function feneko_calculator_feature_default_commerce_discount() {
     "discount_usage_limit" : [],
     "base_type" : "commerce_discount"
   }');
+  $items['discount_klantenkorting'] = entity_import('commerce_discount', '{
+    "name" : "discount_klantenkorting",
+    "label" : "Klantenkorting",
+    "type" : "order_discount",
+    "status" : "1",
+    "component_title" : "Klantenkorting",
+    "sort_order" : "10",
+    "commerce_discount_offer" : {
+      "type" : "percentage",
+      "commerce_percentage" : { "und" : [ { "value" : "1.00" } ] },
+      "base_type" : "commerce_discount_offer"
+    },
+    "inline_conditions" : { "und" : [
+        {
+          "condition_name" : "commerce_order_compare_order_amount",
+          "condition_settings" : {
+            "line_item_types" : {
+              "standaardprofiel" : "standaardprofiel",
+              "dorpel_stuk" : 0,
+              "muurkap" : 0,
+              "muurkap_stuk" : 0,
+              "plaatbewerking" : 0,
+              "raamtablet" : 0,
+              "raamtablet_eindstuk" : 0,
+              "sandwichpaneel" : 0,
+              "product" : 0
+            },
+            "operator" : "\\u003E=",
+            "total" : { "amount" : 0, "currency_code" : "EUR" },
+            "condition_logic_operator" : null
+          },
+          "condition_negate" : 0
+        }
+      ]
+    },
+    "commerce_compatibility_strategy" : { "und" : [ { "value" : "any" } ] },
+    "commerce_compatibility_selection" : [],
+    "commerce_discount_date" : [],
+    "discount_usage_per_person" : [],
+    "discount_usage_limit" : [],
+    "base_type" : "commerce_discount"
+  }');
   return $items;
 }
 
@@ -422,56 +464,56 @@ function feneko_calculator_feature_commerce_line_item_default_types() {
       'name' => 'Dorpel Stuk',
       'description' => 'A customizable product line item type.',
       'product' => TRUE,
-      'add_form_submit_value' => 'Add product',
+      'add_form_submit_value' => 'Product toevoegen',
       'base' => 'commerce_product_line_item',
     ),
     'muurkap' => array(
       'name' => 'Muurkap',
       'description' => 'A customizable product line item type.',
       'product' => TRUE,
-      'add_form_submit_value' => 'Add product',
+      'add_form_submit_value' => 'Product toevoegen',
       'base' => 'commerce_product_line_item',
     ),
     'muurkap_stuk' => array(
       'name' => 'Muurkap Stuk',
       'description' => 'A customizable product line item type.',
       'product' => TRUE,
-      'add_form_submit_value' => 'Add product',
+      'add_form_submit_value' => 'Product toevoegen',
       'base' => 'commerce_product_line_item',
     ),
     'plaatbewerking' => array(
       'name' => 'Plaatbewerking',
       'description' => 'A customizable product line item type.',
       'product' => TRUE,
-      'add_form_submit_value' => 'Add product',
+      'add_form_submit_value' => 'Product toevoegen',
       'base' => 'commerce_product_line_item',
     ),
     'raamtablet' => array(
       'name' => 'Dorpel',
       'description' => 'A customizable product line item type.',
       'product' => TRUE,
-      'add_form_submit_value' => 'Add product',
+      'add_form_submit_value' => 'Product toevoegen',
       'base' => 'commerce_product_line_item',
     ),
     'raamtablet_eindstuk' => array(
       'name' => 'Dorpel Eindstuk',
       'description' => 'A customizable product line item type.',
       'product' => TRUE,
-      'add_form_submit_value' => 'Add product',
+      'add_form_submit_value' => 'Product toevoegen',
       'base' => 'commerce_product_line_item',
     ),
     'sandwichpaneel' => array(
       'name' => 'Sandwichpaneel',
       'description' => 'A customizable product line item type.',
       'product' => TRUE,
-      'add_form_submit_value' => 'Add product',
+      'add_form_submit_value' => 'Product toevoegen',
       'base' => 'commerce_product_line_item',
     ),
     'standaardprofiel' => array(
       'name' => 'Standaardprofiel',
       'description' => 'A customizable product line item type.',
       'product' => TRUE,
-      'add_form_submit_value' => 'Add product',
+      'add_form_submit_value' => 'Product toevoegen',
       'base' => 'commerce_product_line_item',
     ),
   );
