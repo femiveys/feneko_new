@@ -9,8 +9,8 @@
 function disable_table_dnd_theme_registry_alter(&$theme_registry) {
   if (isset($theme_registry['field_multiple_value_form'])) {
     $theme_registry['field_multiple_value_form']['type'] = 'module';
-    $theme_registry['field_multiple_value_form']['theme path'] =
-      drupal_get_path('module', 'multi_widget_remove_tabledrag');
+    // $theme_registry['field_multiple_value_form']['theme path'] =
+    //   drupal_get_path('module', 'multi_widget_remove_tabledrag');
     $theme_registry['field_multiple_value_form']['function'] =
       'disable_table_dnd_theme_field_multiple_value_form';
   }

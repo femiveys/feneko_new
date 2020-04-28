@@ -245,9 +245,14 @@ function _fc_reset_minimum_invoice_amount_components($line_item_wrapper) {
 
   // First remove all minimum_invoice_amount components
   foreach ($data['components'] as $key => $component) {
-    if($component['name'] === 'minimum_invoice_amount') {
+    // No idea why there is a component without a name, but this fixes counting
+    // double kortingen
+    if(!isset($component['name']) || $component['name'] === 'minimum_invoice_amount') {
       unset($data['components'][$key]);
     }
+    // if($component['name'] === 'minimum_invoice_amount') {
+    //   unset($data['components'][$key]);
+    // }
   }
 
   // We reindex the array to win a beauty contest
