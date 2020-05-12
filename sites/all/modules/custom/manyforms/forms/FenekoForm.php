@@ -486,7 +486,7 @@ class FenekoForm {
 
     // Vliegenramen "basic", "Classic", inzetvliegenraam "VR033", "VR033-ultra"
     // Vliegendeur "Basic", "Classic", "Elegance"
-    if($id <= 6) {
+    if($id <= 6 || $id === 15) {
       if($value == 0) { // Stand T is not checked
         // Exact 1 of t1, t2, t3 is filled in
         if(self::ternary_xor(!empty($fields["t1$i"]), !empty($fields["t2$i"]), !empty($fields["t3$i"]))) {
