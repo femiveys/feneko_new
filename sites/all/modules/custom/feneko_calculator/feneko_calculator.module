@@ -495,9 +495,23 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
     '#value' => $action,
   );
 
+  // Problem with AJAX calls: https://git.drupalcode.org/project/makemeeting/commit/84b97f9
+  // Include current destination for ajax calls
+  $destination = drupal_get_destination();
+
+  if (!isset($form_state['ajax_destination'])) {
+    $form_state['ajax_destination'] = drupal_get_destination();
+  }
+
+  // Spoof drupal_get_destination()'s cache for ajax calls
+  if (current_path() === 'system/ajax') {
+    $destination = &drupal_static('drupal_get_destination');
+    $destination = $form_state['ajax_destination'];
+  }
+
   // Make sure the color has been set and display the color
   // Prepare the destination for links
-  $url_options = array('query' => drupal_get_destination());
+  $url_options = array('query' => $destination);
 
   // Load the cart and create one if needed
   global $user;
@@ -1712,6 +1726,7 @@ function fc_cart_init_form_submit($form, $form_state) {
     $cart_wrapper->field_color->set($form_state['values']['color']);
     $cart_wrapper->field_client->set($form_state['values']['client']);
   }
+
   $cart_wrapper->save();
 }
 
