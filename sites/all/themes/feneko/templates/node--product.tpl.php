@@ -138,10 +138,12 @@ if($teaser) array_push($classes,"product-teaser", "teaser-rij");
       <?php print render($content['links']);?>
       <?php print render($content['group_wrapper']);?>
       <?php print render($content['field_attach_secured']);?>
+      <?php /*
       <div class="lev">
         <i class="fa fa-truck"></i>
         <p> <?php print t('Al onze leveringen gebeuren tussen de 8 en 12 werkdagen.'); ?></p>
       </div>
+      */?>
       <?php if(feneko_code_allow_order()) : ?>
         <div class="field-name-field-orderable-products">
           <?php if($product_grandparent == 'screens') { print(feneko_order_urls($node_url, $title)); } ?>
