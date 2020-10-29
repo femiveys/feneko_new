@@ -10,7 +10,9 @@
   float: left;
   width: 100%;
 }
-
+.content-left .field-name-commerce-order-total .field-items table {
+  width: 100%;
+}
 .content-right {
   float: right;
   width: 33%;

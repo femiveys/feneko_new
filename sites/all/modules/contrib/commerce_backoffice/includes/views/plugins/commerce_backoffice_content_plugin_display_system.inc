@@ -214,8 +214,6 @@ class commerce_backoffice_content_plugin_display_system extends views_plugin_dis
       return drupal_access_denied();
     }
 
-    drupal_add_css(drupal_get_path('module', 'admin_views') . '/admin_views.css');
-
     return $this->view->render();
   }
 

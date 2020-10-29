@@ -99,7 +99,7 @@ function commerce_backoffice_order_theme(&$existing) {
 function commerce_backoffice_order_preprocess_entity(&$vars) {
   if ($vars['entity_type'] == 'commerce_order' && in_array($vars['view_mode'], array('administrator', 'backoffice'))) {
     $vars['theme_hook_suggestions'][] = 'commerce_order__backoffice';
-    $vars['classes_array'][] = 'commerce-order-backofffice';
+    $vars['classes_array'][] = 'commerce-order-backoffice';
     drupal_add_css(drupal_get_path('module', 'commerce_backoffice_order') . '/theme/commerce-backoffice-order.css');
   }
   if ($vars['entity_type'] == 'commerce_order' && $vars['view_mode'] != 'backoffice') {
