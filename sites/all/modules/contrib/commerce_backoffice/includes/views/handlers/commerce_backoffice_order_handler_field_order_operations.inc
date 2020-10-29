@@ -42,6 +42,11 @@ class commerce_backoffice_order_handler_field_order_operations extends views_han
         $link['query'] = drupal_get_destination();
       }
     }
+    $context = array(
+      'view' => $this->view,
+      'order_id' => $order_id,
+    );
+    drupal_alter('commerce_backoffice_order_operations_links', $links, $context);
 
     $element = array(
       '#markup' => theme('links__ctools_dropbutton', array('links' => $links, 'attributes' => array('class' => array('links', 'inline')))),

@@ -26,17 +26,18 @@ function commerce_backoffice_product_menu() {
   // The overriden node/add type listing.
   $base = array(
     'page callback' => 'node_add_page',
-    'access callback' => '_node_add_access',
     'file' => 'node.pages.inc',
     'file path' => drupal_get_path('module', 'node'),
   );
   $items['node/add/add-content'] = array(
     'title' => 'Add content',
     'type' => MENU_DEFAULT_LOCAL_TASK,
+    'access callback' => '_node_add_access',
   ) + $base;
   $items['node/add/add-product'] = array(
     'title' => 'Add product',
     'type' => MENU_LOCAL_TASK,
+    'access callback' => '_commerce_backoffice_product_node_add_product_access',
   ) + $base;
 
   // Product variation types UI.
@@ -474,4 +475,21 @@ function _commerce_backoffice_product_display_vocabularies() {
     return _views_taxonomy_get_vocabularies_by_names($voc_names);
   }
   return array();
+}
+
+/**
+ * Checks whether the user has permission to add a product reference node.
+ */
+function _commerce_backoffice_product_node_add_product_access() {
+  if (user_access('administer content types')) {
+    return TRUE;
+  }
+
+  foreach (commerce_product_reference_node_types() as $type) {
+    if (node_hook($type->type, 'form') && node_access('create', $type->type)) {
+      return TRUE;
+    }
+  }
+
+  return FALSE;
 }

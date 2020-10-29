@@ -115,3 +115,8 @@
 .commerce-backoffice-view .chzn-container-single .chzn-single div b {
   background-position: 0 2px;
 }
+
+/* Adjustments for exposed filters on Commerce Backoffice: Orders view. */
+.view-commerce-backoffice-orders .views-widget-filter-order_number {
+  clear: both;
+}
